@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<title>Hacker News Daily</title>
+	<meta name="description" content="Lightweight daily best Hacker News posts, with screenshots and top comments. No JavaScript used.">
+	<meta name="author" content="Pedro Lopes">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css?v=1.0">
+	<link href="/favicon.png" rel="icon">
+</head>
+
+<body>
+
+<div class="container">
+
+	<div class="navbar">
+		<div class="navbar__timespan">
+			{% if page_type == PageType.LATEST %}
+				<span class="navbar__timespan_item-current navbar__timespan_item-spacing">Latest</span>
+			{% else %}
+				<a href='{% if with_images %}index{% else %}latest_without_images{% endif %}.html'
+				 class="navbar__timespan_item-spacing">
+				 Latest
+				</a>
+			{% endif %}
+			{% if page_type == PageType.ALL %}
+				<span class="navbar__timespan_item-current">All</span>
+			{% else %}
+				<a href='{% if with_images %}all_with_images{% else %}all_without_images{% endif %}.html'>All</a>
+			{% endif %}
+		</div>
+		<div class="navbar__no-images">
+			{% if with_images %}
+				<a href='{% if page_type == PageType.ALL %}all{% else %}latest{% endif %}_without_images.html'
+				>Disable Previews</a>
+			{% else %}
+				<a href='{% if page_type == PageType.ALL %}all_with_images{% else %}index{% endif %}.html'
+				>Enable Previews</a>
+			{% endif %}
+		</div>
+	</div>
+
+	{% for day in days %}
+	<div class="day__date">{{ day.date_display }}</div>
+		{% for story in day.stories %}
+		<div class="story{% if with_images %} story_large-padding-bottom{% else %} story_small-padding-bottom{% endif %}">
+			{% if with_images %}
+				<div class="story__thumbnail">
+					<a href="{{ story.link }}">
+						<picture>
+							<source srcset="default_{{ story.id }}.webp" type="image/webp">
+							<source srcset="default_{{ story.id }}.png" type="image/png">
+							<img src="default_{{ story.id }}.png" alt="Preview of '{{ story.title }}'">
+						</picture>
+					</a>
+				</div>
+			{% endif %}
+			<div {% if with_images %}class="story__title-and-comments_with-images"{% endif %}>
+				<div class="story__title">
+					<h3><a href="{{ story.link }}">{{ story.title }}</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="{{ story.hn_link }}">
+						{% for comment in story.top_comments %}
+							{% if loop.index == 1 %}
+								<p class="story__comment_first line-clamp">"{{ comment.text }}"</p>
+							{% else %}
+								<p class="story__comment_others">"{{ comment.text }}"</p>
+							{% endif %}
+						{% endfor %}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	{% endfor %}
+
+	<div class='about'>
+		<a href='https://github.com/lopespm/hackernews-daily'>Fork me on GitHub</span>
+	</div>
+
+</div>
+
+</body>
+</html>
