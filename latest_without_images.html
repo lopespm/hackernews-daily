@@ -33,28 +33,40 @@
 	</div>
 
 	
-	<div class="day__date">02 January 2021</div>
+	<div class="day__date">03 January 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://ex-apple-engineer.medium.com/my-experience-apple-5d8b6205cb56">My Experience at Apple</a></h3>
+					<h3><a href="https://fasterthanli.me/articles/a-half-hour-to-learn-rust">A half-hour to learn Rust</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25605211">
+						<a href="https://news.ycombinator.com/item?id=25610741">
 						
 							
-								<p class="story__comment_first line-clamp">"Posting anonymously for obvious reasons.Unlike others, I actually find this story fairly believable.When I first joined Apple, straight out of college - a good program, top three in the country - I was abused similarly. I joined a team that was on a project behind schedule.Our manager was a brusque, no-nonsense sort of dude. But he clearly had anger problems. On the team were 2 senior engineers, me, and a junior engineer that had just completed his internship and was on a work Visa.As the project got closer to the deadline, and the scope increased, the manager got agitated. In our team meetings, he would start yelling at us. People down the hallways would stare at us with those &#34;looks.&#34; In our 1:1s he told us we might not have a job if our product doesn&#39;t ship on time (we were competing with another internal team to beat them to the punch.)The two senior engineers decided they&#39;d had enough and quit the team. The manager told us to work overtime (no overtime pay, but we had to for fear of our job). He promised us that if we did it that we would get a month of vacation on him, and that he could secure it for us.The product released. After countless nights of overtime we did it. Our manager left, our guarantee of a month of vacation evaporated, and for the next three months, us two junior engineers were left on 24/7 primary/secondary on-call for a critical service. It was a nightmare. Calls at 3 AM, 6 AM, on weekends.Our manager got a promotion and is fairly high up at Apple now.Horrible experience. I left for a new company that pays me nearly double."</p>
+								<p class="story__comment_first line-clamp">"It&#39;s remarkable how similar Swift and Rust are w.r.t syntax.Rust, Swiftlet x = 42;
+let x = 42let x: i32 = 42;
+let x: Int = 42let _ = 42;
+let _ = 42let pair: (char, i32) = (&#39;a&#39;, 17);
+let pair: (String, Int) = (&#34;a&#34;, 17)let (some_char, some_int) = (&#39;a&#39;, 17);
+let (some_char, some_int) = (&#34;a&#34;, 17)fn greet() {
+    println!(&#34;Hi there!&#34;);
+}
+func greet() {
+    print(&#34;Hi there!&#34;)
+}But, the languages are so different, for instance in Swiftlet x
+x = 42let y = 13
+let y = y + 3Wont fly for instance. I am trying to come up with the simplest explanation possible for this but I can&#39;t - goes to show how much I understand either of the languages."</p>
 							
 						
 							
-								<p class="story__comment_others">"I dont quite remember the meeting room names in Mathilda 3 over at the Apple on Mathilda Ave, but if the MA03 (in the screenshot) refers to &#34;Mathilda 3&#34;, then this story is totally believable.I worked at Apple and it was absolutely horrible. I remember sitting on the train and actually thinking about killing myself. Reasons were many, but mostly I just didn&#39;t fit in there, I think.I felt like people there were also a bunch of whiny little bitches to be honest. Always having some problem with a hand or a back or some family problem or whatever which demanded that they take days off. There were a few people whom I felt were probably talking some shit behind my back, but I couldn&#39;t really believe it until I read this story. It was just a horrible horrible place and I can also recognize that thing about having a predecessor, who was apparently a &#34;bad person&#34; and thus had to be terminated.Every other day I would have people telling me how great a place it was and how lucky we were to be working in a place so big while still having that startup feeling. I have worked at startups and I always just imagined to myself that 40 year old &#34;dude&#34; who refuses to grow up. That is Apple..Never again.I got dragged through the whole white boarding experience also for the first time and it was fun enough, but in hindsight, they should just have asked me if I would suck Steve Jobs dick, if he came in that door. The answer to that question alone would have provided them with enough information about whether I would have been a good hire or not.I am 45 and have never every experienced a work place like that. Always had positive feedback and never had any problems with colleagues."</p>
+								<p class="story__comment_others">"As a Python programmer with limited experience with compiled languages, Rust code was more intimidating to read or look at than C++, Java or Go. After only an hour, I am overwhelmed by the sheer beauty and mature design of this language - it almost reads like Python or as well as any compiled language can. I cannot believe that I am smitten by Rust within an hour. Its features seem, obvious. My experience with Go was frustrating since I felt like I had to give up elegance for practicality. I did not expect to learn 1-2% of Rust when I woke up today. My thanks to the author.I&#39;m curious what other what other developers who primarily use Python think of this article and Rust in general?"</p>
 							
 						
 							
-								<p class="story__comment_others">"My brief advice to anyone writing such a post: start with the most serious accusation you have, and avoid the temptation to add ancillary grievances, however justified, until you have the reader fully engaged and outraged.The way this post structured now, beginning with fairly unspecific complaints about the hiring process, who invited whom to lunch, etc. makes the author come across as a young high-drama individual even though it ramps up to more serious matters.Remember you only have a couple of paragraphs to set the hook and get the reader on your side in a piece like this. Not even your SO or mom want to read the full wall of text about how you were mistreated, let alone internet strangers."</p>
+								<p class="story__comment_others">"&gt; There is a special lifetime, named &#39;static, which is valid for the entire program&#39;s lifetime.I&#39;ve heard this many times before, but as the guide[1] says:&#34;You might encounter it in two situations... Both are related but subtly different and this is a common source for confusion when learning Rust.&#34;&#39;static means different things for references and trait objects.ie.&#39;a: &#39;static --&gt; reference with lifetime &#39;a lives forever and can never be dropped.T: &#39;static --&gt; Type T has no references in it; it is effectively &#39;entirely owned&#39; by the owner of an instance of T.These are totally different things with the same name.(I believe technically there are actually three; `&lt;T: &#39;static &gt;` is a type constraint and `T + &#39;static` is a trait bound, but that both mean the same thing as far as I know)[1] - https://doc.rust-lang.org/rust-by-example/scope/lifetime/sta..."</p>
 							
 						
 						</a>
@@ -67,22 +79,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201920200AB2149">California law bans delivery apps from listing a restaurant without an agreement</a></h3>
+					<h3><a href="https://www.pine64.org/pinetime/">Open Source Smartwatch</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25601814">
+						<a href="https://news.ycombinator.com/item?id=25612223">
 						
 							
-								<p class="story__comment_first line-clamp">"This is undeniably a good thing if you put yourself in the shoes of the restaurant.Imagine if someone went around impersonating your business online, leveraging the good name you have built for yourself over the decades. They create ads offering your expert development services, ostensibly competing with your existing website, but with intentionally slashed pricing and a ‘creatively’ misrepresented offering (aka growth hacking). Then they subcontract the job to some crappy outsourcing firm that bungles it, but who cares, they got their cut and you signed the TOS.Now bad reviews are piling up online about the bad experiences people had with your business, your reputation is destroyed, and your business is next.I know it’s not a perfect analogy but try to empathize with the restaurants here."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think it would have been much better to outlaw misrepresentation and advertising without prior agreement (ie the pizza place that did not agree to partnership should only pop up in the search results if the user searches for it) and there should be a warning mandated like &#34;Startup Inc is not affiliated with the Moms and Pops Pizza. If you proceed, we will place your order by calling PHONE_NUMBER and pick up your order from ADDRESS&#34;. It should still be legal for the end users to have a service do chores for them including picking up food but only if there is no confusion on the side of the user what is happening here (incl. the fact the pizza may get cold through a no  fault of Moms and Pops Pizza).Edit: oh, the law would also outlaw food picking apps from delivering from Walmart too (&#34;The code defines food facility [...] as an operation that stores, [...] or otherwise provides food [...] at the retail level.&#34;)"</p>
+								<p class="story__comment_first line-clamp">"Funny, I actually have an open Pinetime in front of me right now. I use it for my masters thesis and it&#39;s a really nice project. If you want to try out some embedded development (that you can actually show to friends who don&#39;t aren&#39;t developers), I think this is the perfect project."</p>
 							
 						
 							
-								<p class="story__comment_others">"There was a post a few months go about a pizza place that started getting customers complaining about their food arriving cold and damaged: except they didn&#39;t offer delivery. They discovered that a popular search engine was offering free delivery. The story ended with them ordering dozens of pizzas from themselves to themselves and making a nice profit."</p>
+								<p class="story__comment_others">"I&#39;d be the perfect target for the products of a company like Pine. A long-time geek who uses open-source software on nearly all of his devices, a tinkerer who doesn&#39;t mind recompiling a kernel or picking a solderer to make things work, and someone who seeks for absolute flexibility from his devices with zero corporate compromises.Unfortunately, the mediocre hardware used in their devices keeps holding me back.First came a phone with a 9-year-old A53 Cortex chipset. Then a tablet with the same outdated chipset. Then a laptop that ships with a Rockchip RK3399 with 4GB of RAM, in an era when 4GB barely suffice to run a browser with a few tabs. And now they are releasing a smartwatch with a 64 MHz core and 64 KB of RAM - some specs you would have expected from a very cheap smartwatch released 7-8 years ago.Why should I use a device whose hardware is almost a decade old at the time of purchase? And how do they even expect anyone to actually use these devices as their primary daily drivers, and not as proofs of concept, nice toys to tinker on every now and then or show off to friends?I understand that Pine wants to use 100% open hardware, and that comes with heavy compromises, but are these compromises worth it?If you ask even the geekest user out there whether they prefer a device whose source code is 100% pure and doesn&#39;t contain any binary blobs, or a device that doesn&#39;t start freezing/lagging after a couple of minutes of normal usage, I bet that anyone would opt for the latter."</p>
+							
+						
+							
+								<p class="story__comment_others">"Ok, just to make sure I understand this correctly.- This is basically a commercial smartwach (the Colmi P8) that is based on a well documented SOC, the nordic nRF52832- The open source version comes with an enclosure that is not glued shut, so that it is easy to access testpoints on the pcb.- Development is done by accessing the nRF51 SWD interface with pogo pins or similar. The programming interface can be a standard SWD interface such as an STLink cloneOk, sounds easy enough. It should be possible to just buy one of those smartwatches and crack them open? But OTOH the developer version is not much more expensive.The main question is now: What software to run on it, that goes beyond a few experiments? Is there any kind of open source smartwatch OS that would run on this?Edit: Corrected typo, of course I meant SWD interface, not SWM. (SWM or rather SWIM is for STM8)"</p>
 							
 						
 						</a>
@@ -95,22 +107,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://omar.website/tabfs/">TabFS: Mount your Browser Tabs as a Filesystem</a></h3>
+					<h3><a href="https://petapixel.com/2019/07/13/shooting-high-res-thermal-photos-of-iceland-to-show-nature-at-work/?q=5">Show HN: I shot high-res stitched panoramas in Iceland using a thermal camera</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25600338">
+						<a href="https://news.ycombinator.com/item?id=25614167">
 						
 							
-								<p class="story__comment_first line-clamp">"KDE on Linux used to have something similar in the late 90s - it allowed you to open a website URL as a directory listing, so you could browse the site&#39;s asset directories and open image files, etc. Think like a client-side generated version of Apache&#39;s index pages, but using your local file manager. It was a plugin to the VFS framework (KIO) the desktop and all the apps use, so it would also work e.g. in Open File dialogs from anywhere within the toolset.I remember using this regularly to mass-download the images embedded into a page - open the page this way by replacing http:// with a pseudo-protocol, copy all, paste, done.KDE always came with a lot of VFS trickery like that. Ripping a music CD into MP3s was similar - you&#39;d open the volume in the file manager and see your tracks along with a virtual folder full of MP3 files. The rip and encoding would happen on the fly, and you could do this e.g. straight from the file attach feature in an instant messenger.Desktop Linux was a lot less friendly to get working smoothly back then compared to now, and feature discovery was by word of mouth more than anything, but it sure felt like living in the future early."</p>
-							
-						
-							
-								<p class="story__comment_others">"Wow, this is awesome!My OS is heavily scripted and keybound, thanks to 15 years of cumulative incremental fixes and a kick-ass WM.  The one thing that&#39;s frustrated me is the relative black box that my browser represents, and writing a shim between my WM and browser tabs has been on my TODO list for a long, long time (through a couple of aborted attempts due to a combination of Chrome&#39;s at-the-time obsolete documentation and probably-necessary security model).I&#39;m cautiously optimistic that this is going to represent a dramatic step function in ease-of-use of my OS, in the same way that i3 was.EDIT: I should clarify that I did read the author&#39;s note that this is experimental, not secure, etc. I&#39;m mainly just excited about having a jumping-off point to play around with and possibly hack on a little."</p>
+								<p class="story__comment_first line-clamp">"I&#39;m curious what kind of thermal camera he&#39;s using.I bought a Therm-App Pro 640x480 a while back and it&#39;s quite good - and reasonably priced compared to Flir - along with a github repo for different false color palettes. But what&#39;s really weird is it seems to not be available anymore. I&#39;m guessing export restrictions or massive demand for thermal cameras during Covid along with supply chain issues. IIRC it is also 25 frames a second, which is unusually high for thermal cameras due to export restrictions.Edit: Here&#39;s a post on creating panoramic images with therm-app. https://www.flickr.com/groups/therm-app-users/discuss/721576..."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is a brilliant piece of work. As someone who has thousands of tabs open, I&#39;ve always wanted to &#34;close all tabs with a single command&#34;, or view all the open tabs and mass select them and close, for years. Otherwise, going through them one by one and deleting takes forever. Now somebody make a vim pluggin so I can delete tabs by visual selecting a bunch of them and typing &#34;d&#34;."</p>
+								<p class="story__comment_others">"Cunning. He took panoramas with thermal camera and simultaneous black and white photos and coloured the b&amp;w photos with the data from the thermal camera. Interesting examples of insulation. I wonder how the result compares to the standard Flir auto blended images. Msx?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Beautiful. Eerie. Great work. Thank you for sharing.Your images look almost like they came out of James Cameron&#39;s vivid imagination. If you had told me these were computer-generated images of Pandora at night[a] from the upcoming Avatar sequel, I would have believed it.[a] E.g., see https://www.google.com/search?tbm=isch&amp;q=avatar%20pandora%20..."</p>
 							
 						
 						</a>
@@ -123,22 +135,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/x74353/SaveAmphetamine">Apple has threatened to remove Amphetamine from the App Store</a></h3>
+					<h3><a href="https://cognitiontoday.com/phone-addiction-coping-solutions-research-statistics/">Phone addiction linked to over a dozen psychological and physical problems</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25605880">
+						<a href="https://news.ycombinator.com/item?id=25616472">
 						
 							
-								<p class="story__comment_first line-clamp">"You’re angry. I’ve felt this in a trademark lawsuit. You think the world should get behind you and change the corrupt system.My advice is to immediately rebrand as gracefully and effectively as possible and use all that activist energy to effect the transition.They kind of have a point which doesn’t make them right, but they hold all the cards and you will lose this one and regret the wasted bandwidth."</p>
-							
-						
-							
-								<p class="story__comment_others">"Well-written argument for the app reviewers to get bent, especially the highlighted examples of other apps that show the rule is clearly applied inconsistently.Apple&#39;s App Store moderation is embarrassing. They routinely fail to catch harmful junk—I&#39;ve shut down a few top-grossing bogus antivirus apps for Mac, and the publisher of Untitled Goose Game routinely posts screenshots of clones that are trying to make money off confused users.They&#39;ve banned apps like Phone Story and a drone strike tracker for being &#34;objectionable and crude,&#34; yet they don&#39;t apply any content moderation to the Book Store or to Music or TV (or to Safari for that matter). They&#39;ve yet to provide a cogent justification for why they&#39;re inconsistent on this."</p>
+								<p class="story__comment_first line-clamp">"Some ideas on this topic:1. Inconvenience based solutions don&#39;t address the problem: using apps to restrict phone use, physically hiding the phone etc. Once you leave those carefully constrained conditions, you are more vulnerable than ever. Not to mention the contradiction with the core issue that it&#39;s a symptom rather than a cause.2. Turning abstinence as an ongoing status condition (e.g. &#34;X days since I did Y&#34;) is a trap. It sets you up for later failure by burdening you with a perpetually unfinished objective with psychological consequences that only increase as the &#39;highscore&#39; increases. This could work with things that are less easily accessible like heroin, but it&#39;s not going to work with something as easily accessible as a phone or computer.3. The solution that works with 1 and 2 is probably urge surfing as it tackles the issue directly4. It&#39;s easier to think of it as an addiction to browsing rather than an addiction to the phone itself. You have to catch yourself during any browsing moment in any context to eventually make progress. Be intentional in almost every action instead of going on auto-pilot, although obviously resting at the end of the day is fine. It&#39;s more a general philosophy than a hard rule meant to exhaust you.5. The eventual goal is a rich life where you no longer feel the need to distract yourself"</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Apple [...] featured Amphetamine in a Mac App Store StoryOuch&gt; Customize Your Mac’s Sleep Settings&gt; Amphetamine gives you granular controlhttps://apps.apple.com/us/story/id1470456860"</p>
+								<p class="story__comment_others">"The paper they are basing the opening sentence &#34;phone addiction is one of the biggest non-drug addiction(sic) in human history&#34; on is written by a Doctor of Business Administration, a dean that has &#34;particular industries of interest are banks and non-profit organizations&#34; in his bio and a third researcher with 2 publications total, including the article in question (published 2011).This may in no way weaken the point that some of the brightest minds of today are working on producing digital Skinner boxes, black on top, with humans as the rats, interfaced via phones.But basing an attempt at a strong argument about the addictive nature of cell-phones on an article with low relevance in scientific fields specializing in addiction could be described as suspect (most citations on g.scholar on the piece could be delineated as in the fields of business and management )."</p>
+							
+						
+							
+								<p class="story__comment_others">"I basically discourage addiction by making things “difficult” for myself on my phone:- Minimal web bookmarks (i.e. I have to type in most web sites I want to visit; this is just enough of an encumbrance that I won’t flip open things like Reddit every 30 seconds).- I never install apps meant for content consumption, I use their web sites.  (This is usually a better experience anyway, since the vast majority of them are somehow worse than their web sites, packed with ads/notifications/spying/crap that no one should want anyway.)- Certain web sites I refuse to use at all on mobile.  This gives me a much larger and more useful view anyway, and I can enforce sanity with a lot more plug-ins that way.- As of latest iOS, I shove most apps into the Library so they are not even on my home screen.  That way, they are straightforward to retrieve with a swipe-down search but not as easy as just tapping them open.  I find that I use them slightly less this way.- I turn off many notifications, since app-makers have long abused them anyway (as virtual ads, or designed in some way to suck people back into their apps for no reason; I drew the line when apps started outright lying about things, e.g. red dots implying messages that were not actually there, etc.).- I set it up so that my lock screen will not show most things without an extra step."</p>
 							
 						
 						</a>
@@ -151,22 +163,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.schoolprison.com/">School or Prison</a></h3>
+					<h3><a href="https://www.independent.co.uk/news/world/americas/us-passes-historic-anti-corruption-legislation-that-effectively-bans-anonymous-shell-companies-b1781380.html">US passes anti-corruption law that effectively bans anonymous shell companies</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25605867">
+						<a href="https://news.ycombinator.com/item?id=25611883">
 						
 							
-								<p class="story__comment_first line-clamp">"A fun anecdote from my youth near a US seaboard was that our elementary and middle school buildings were designed by the same person who designed a few prisons around the area.When I bounced around cities later in life, I was surprised at how many of my peers said the same thing as a conversation piece.Maybe they used the same governmental bidding process. &#34;Needed: a building. One food preparation and eating area. Hallways suitable for lining up and proceeding in rows with many small rooms. One yard with sporting facilities.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"As someone who&#39;s been to prison and school, lots of comments here sound pretty tone deaf. Prison in the USA is really bad. Yes school is authoritarian, but most popular entertainment on prisons downplays how bad it really gets. Watch some interviews of people who have actually been to prison. Murder and rape is common (I saw it happen), you will get your possessions stolen under the threat of murder/rape, you&#39;ll probably spend 10-30% of your time in solitary confinement for reasons outside your control (torture according to human rights groups: I&#39;ve been there, I&#39;d prefer nonpermanent torture), you have to learn violence and get into fights with people who might be carrying a knife or else get taken advantage of indefinitely, ... It&#39;s bad. And psychologically, you have no freedom whatsoever: no you cannot poop or drink water whenever you want to. You can only poop when your cellie isn&#39;t around (1-2h/day). You will be abused by prison staff (false accusations, physical abuse, food deprivation, ..)The whole thing is an abomination. It serves no useful purpose to society to subject most criminals to prison: it doesn&#39;t serve as a deterrent (based on talking to ~50 prisoners about this), it only radicalizes them further against &#34;the system&#34;, making it easier for them to break further laws.Why don&#39;t we have more outrage against this outdated institution created out of 1600 era values?The amount of human suffering it creates... It&#39;s astounding. Most prisoners would probably rather a super old school punishment like chopping off their arm over the prison sentence they get. And it would be more effective."</p>
+								<p class="story__comment_first line-clamp">"&gt; Larger companies that employ more than 20 people, have revenues above $5 million and a physical presence in the US, are exempt from the act. Churches, charities and other non-profits are also exempt.So it seems that the cost of money laundering has gone from a few thousands dollars for a Delaware C-Corp to running a fake business that employs 20 people and has an office. The minimum to launder under this scheme is $5m per year.This seems like the government stumping on small money launderers while giving the big guys a tax: employ some people, and rent some real-estate."</p>
 							
 						
 							
-								<p class="story__comment_others">"In the UK our prisons often look nicer than our (state) schools. Many of our prisons are quite ancient, whereas many of our state schools are 1960s monstrosities.For example:* https://hidden-london.com/wp-content/uploads/2018/04/geograp... vs https://upload.wikimedia.org/wikipedia/commons/4/47/James_Ho...* https://i2-prod.mirror.co.uk/incoming/article1185483.ece/ALT... vs https://upload.wikimedia.org/wikipedia/commons/3/33/Cefn_Sae...* https://ukhumanrightsblog.com/wp-content/uploads/2020/07/HM_... vs https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/We..."</p>
+								<p class="story__comment_others">"Transparency International helped to craft the bill: https://us.transparency.org/news/historic-anti-corruption-me...From their statement:&#34;In these divided times, it is encouraging that a broad and politically diverse coalition came together to make these critical reforms a reality. We’d like to especially thank Chairman Crapo (R-ID), Ranking Member Brown (D-OH), Chairwoman Waters (D-CA), Ranking Member McHenry (R-NC), Congresswoman Maloney (D-NY), Congressman King (R-NY), Congressman Luetkemeyer (R-MO), and Congressman Cleaver (D-MO), as well as Senators Warner (D-VA), Cotton (R-AR), Jones (D-AL), Rounds (R-SD), Whitehouse (D-RI), Grassley (R-IA), Wyden (D-OR), and Rubio (R-FL) for their support.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Larger companies that employ more than 20 people, have revenues above $5 million and a physical presence in the US, are exempt from the act. Churches, charities and other non-profits are also exempt.Those seem like extremely non-negligible exemptions. Which is not to say that this law is useless, but it could use more teeth."</p>
 							
 						
 						</a>
@@ -179,22 +191,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.eetimes.eu/eu-signs-e145bn-declaration-to-develop-next-gen-processors-and-2nm-technology/">EU Signs €145B Declaration to Develop Next Gen Processors and 2nm Technology</a></h3>
+					<h3><a href="https://github.com/microsoft/WSL2-Linux-Kernel/issues/168">WSL2 corrupting Git repositories and shell history</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25602950">
+						<a href="https://news.ycombinator.com/item?id=25612962">
 						
 							
-								<p class="story__comment_first line-clamp">"EU has the tech. ASML is #2 company in EURO STOXX 50 index with 5.69% weight.ASML is the world&#39;s largest photolithography systems manufacturer and the only one producing  extreme ultraviolet lithography machines. These EUV scanners are expensive as hell. Last years model costs $120 million per piece and you need 10-15 of them for TSMC gigafactory.TWINSCAN NXE:3400C (7 and 5 nm nodes, &gt;170 wafers per hour) is probably the most expensive machine in the world."</p>
-							
-						
-							
-								<p class="story__comment_others">"So, first thing when it comes to big dollar (or in this case Euro) numbers: some of these funds will be loans, not grants. In this case the split will be about 50-50.Second, this is not new money, this is part of recovery funds already allocated in July 2020 for combating the economic recession created by the Coronavirus [1]. These funds were already earmarked for environmental and digital initiatives. This declaration is probably a clarification of how much is given specifically to the digital initiatives.This looks quite smart to me. In the US neither the original CARES act ($1.4 TN) passed in March, nor the new stimulus bill ($0.9 TN) has any funds dedicated to cutting edge industries. There were instead funds for airline companies and cruise lines.[1] https://en.wikipedia.org/wiki/Next_Generation_EU#Recovery_fu..."</p>
+								<p class="story__comment_first line-clamp">"WSL2 was promised as a good working extension for a Linux dev environment on windows by my peers. Sadly, a whole host of issues specific to my dev environment meant that it was useless as I’d spend more time fixing it than getting any valuable use out of it. More importantly, this became the very reason I switched to arch full time, and haven’t looked back since. I still hope that it becomes what it was promised to be, although I don’t see myself going back to windows any time soon."</p>
 							
 						
 							
-								<p class="story__comment_others">"ITT bashing on EU without understanding itI believe the 17 signing nations are allowed to inject money into their own economy. Even if the goals are a bit unrealistic.EDIT The 2-3 years is when the funds are allocated. Not when the results are expected."</p>
+								<p class="story__comment_others">"After constantly getting caught in bugs between WSL and Docker, i&#39;m now running Ubuntu Server headless with a Windows VM (with GPU passthrough) on top.The biggest issue across all these things is filesystems. There is simply no good way to share a filesystem between Windows and Linux that is both 1. fast 2. fully correct - i.e doesn&#39;t break some code.SMB/NFS just never work super well because they are slow, or programs think they are local filesystems so things break (e.g VScode won&#39;t detect new files created on the linux side of a SMB mount without a manual refresh). Plenty of details on getting permissions right too. Not to mention extended attributes which differ slightly and break stuff. Network file systems in general are just too different to local FS&#39;s for programs to work seamlessly.The 2 non-ideal solutions I&#39;ve found are 1. keep all files in linux + edit over network using VSCode Remote or IntelliJ Remote support or 2. keep a copy of the dev workspace in windows, and use something like unison (or manual git) to sync."</p>
+							
+						
+							
+								<p class="story__comment_others">"More:- WSL2 sometime corrupt .zsh_history and git https://github.com/microsoft/WSL/issues/5026- WSL2 corrupts ext4 filesystem https://github.com/microsoft/WSL/issues/5895"</p>
 							
 						
 						</a>
@@ -207,22 +219,23 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.reddit.com/r/slatestarcodex/comments/9rvroo/most_of_what_you_read_on_the_internet_is_written/">Most of what you read on the internet is written by insane people (2018)</a></h3>
+					<h3><a href="https://github.com/osnr/horrifying-pdf-experiments">Horrifying PDF Experiments</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25600274">
+						<a href="https://news.ycombinator.com/item?id=25609321">
 						
 							
-								<p class="story__comment_first line-clamp">"Over the past year I&#39;ve slowly started to realize this as well. What changed? Working for a company that is publicly known enough for people on HN (and Reddit) to comment about it. It has been hilarious and scary to read comments from people who don&#39;t work at the company say completely inaccurate things like they are facts.In this case, it&#39;s easy for me to recognize they are wrong. But what about other topics (or companies) I don&#39;t know much about? I have no easy way of recognizing inaccuracies so I default to mostly accepting them. Sadly, you need to be skeptical of almost everything you read even when the person sounds like they know the subject matter."</p>
-							
-						
-							
-								<p class="story__comment_others">"The real world is usually more dynamic, maleable and workable than the internet has you believe too.If you believed the internet, you would believe you can only ever use the best parts in the perfect configuration for almost everything. Be it metalwork, mountain biking, computing, drones or any other hobby regularly discussed online.The reality is you can make do with in so many different ways that if you can&#39;t afford the best you can still have oodles of fun on cheaper equipment. Half the fun is learning all this &#34;expertise&#34; the internet has on your own.Can&#39;t afford a Bridgeport mill? Buy something cheaper and work around the edge cases. Can&#39;t afford a full suspension bike? Get a hardtail and have tonnes of fun.Someone is always quick to add in the caveats, but guess what, a new rider doesn&#39;t give a shit that he can&#39;t send 8ft drops on his hard tail. There are hours of fun on the bike ahead, none of it sending 8ft drops. The new hobby machinist isn&#39;t bothered that they can&#39;t mill titanium, they are just stoked to be getting started."</p>
+								<p class="story__comment_first line-clamp">"Every time I see Adobe logo somewhere I just cringe a little bit. From the time that you had to have Acrobat Reader installed because most of pdfs created with Acrobat (writer) weren&#39;t really compatible with other readers, or that time that everything interactive on the web was in Flash (even our governmental websites for example Social Insurance Institution dropped Flash few days ago).
+My SO recently bought Adobe Lightroom and low and behold - you cannot install it on case sensitive filesystem (in 2020) and help page says: &#34;well just install it on case insensitive filesystem&#34;. I&#39;m quite surprised that they allow file names longer than eight characters, dot and three for file type..."</p>
 							
 						
 							
-								<p class="story__comment_others">"The author notes by the use of insane he means different, but is it really that unique for a person to post online or are we just seeing a pattern where there is none.Books are written by insane people, on average person does not write a book.Rock climbers are insane people, very few people rock climb so why listen to safety tips the 0.2% of the population who do. They are not normal people from a statical standpoint.On average a person does not do any one spicific thing.Everyone online has contributed to the internet, everyone has written something and everyone has excersised.I&#39;ve seen this brought up before that only 2-3% of redditors contribute, like it&#39;s a bad thing or a unique thing. That number it&#39;s way higher than books, tv, radio any form of convenientional media."</p>
+								<p class="story__comment_others">"One of my good friends did a lot of research on PDFs as part of his graduate research. Older versions of Adobe Writer (maybe even the current one too?) would always append and never overwrite. So if you edited pages, it would add those edits to the bottom of the file. As long as you did everything in the Writer workflow and didn&#39;t Save As a new file, you could see a history of old edits. You can even find stuff that&#39;s blacked out in some government documents."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;It might be possible to embed a C compiler into a PDF by compiling it to JS with Emscripten, for example, but then your C compiler has to take input through a plain-text form field and spit its output back through a form field.&#34;"</p>
 							
 						
 						</a>
@@ -235,22 +248,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/LibrePhotos/librephotos">LibrePhotos: A Self-Hosted Google Photos Alternative</a></h3>
+					<h3><a href="https://www.atlassian.com/legal/cloud-terms-of-service">Atlassian Cloud ToS section 3.3(I) prohibits discussing performance issues</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25588712">
+						<a href="https://news.ycombinator.com/item?id=25613937">
 						
 							
-								<p class="story__comment_first line-clamp">"There are two projects I would mention in the same spirit:- https://github.com/photoprism/photoprism- https://github.com/pixelfed/pixelfedWhile I think photoprism has a very similar scope, pixelfed has stronger emphasis on federation. The project website gives a nice overview over different providers:https://pixelfed.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Listed on https://github.com/awesome-selfhosted/awesome-selfhosted#pho... though that does not mention the advanced capabilities like face recognition.How does it perform with huge collections? https://github.com/Webreaper/Damselfly claims staying fast even with 4+TB 500,000 photo collection."</p>
+								<p class="story__comment_first line-clamp">"I&#39;m curious, I&#39;m a Cloud customer and I can tell you that the service is incredibly slow even for a small scale setup (2 Jira Projects and 3 Confluence Workspaces).  There&#39;s an insane amount of network requests seemingly for mouse tracking.  By telling everyone here, that Atlassian Cloud products are insufferably slow, am I violating the ToS?I was actually thinking about doing a write up on the issues I&#39;ve had but this seems to make me think I should do so AFTER I find someplace else to go. Right now GitHub is the likely destination but would love to hear other suggestions."</p>
 							
 						
 							
-								<p class="story__comment_others">"What&#39;s the current recommended way of getting your photos out from Google Photos? And I don&#39;t mean manually via Google Takeout (that&#39;s a dumpster fire and doesn&#39;t work most of the time) but I&#39;d like to automate it for periodic backups. You never know when you Google Account might be killed, taking tens of years of pictures and videos with it :("</p>
+								<p class="story__comment_others">"Cloudflare has this as well:&gt;you will not and you have no right to: ... (f) perform or publish any benchmark tests or analyses relating to the Cloud Services without Cloudflare’s written consent;https://www.cloudflare.com/terms/#react-modal:~:text=(f)%20p..."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Atlassian Cloud ToS section 3.3(I) prohibits discussing performance issues&#34; - Their ToS may prohibit it, but that is in no way going to stop me from doing it - I don&#39;t give a shit about some document they write. Atlassian products suck hard and their performance characteristics are horrible. I hate being forced to use their crap at work."</p>
 							
 						
 						</a>
@@ -263,22 +276,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.rootclaim.com/analysis/what-is-the-source-of-covid-19-sars-cov-2">Israeli startup claims Covid-19 likely originated in a lab, willing to bet on it</a></h3>
+					<h3><a href="https://lemire.me/blog/2021/01/01/peer-reviewed-papers-are-getting-increasingly-boring/">Peer-reviewed papers are getting increasingly boring</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25585833">
+						<a href="https://news.ycombinator.com/item?id=25605156">
 						
 							
-								<p class="story__comment_first line-clamp">"The Chimera section claims:&gt; Pangolins and bats don&#39;t usually cohabitate, making this somewhat unlikely in nature.Horseshoe bats are nocturnal animals that roost in caves during the day but sometimes practice perch feeding at night [1]:&gt; The other strategy is known as perch feeding: Individuals roost on feeding perches and wait for prey to fly past, then fly out to capture it.Pangolins [2] and palm civets [3] are nocturnal and arboreal. The bat viral RNA sequences come from anal swabs of netted animals so they are primarily gastrointestinal infections. All of these animals are found in the Lancang/Mekong [4] catch basin. Bat guano seems like a good vector for the virus.Gain-of-function experiments require two viral isolates that recombine during passage. The lab theory assumes that the RNA sequence of the original viral isolates were never shared. I find this scenario unlikely but I am open to changing my mind based on evidence. SARS-1 is evidence of a very similar zoonotic scenario.Humans that encounter bat guano in this region also seem like a good host for a recombination event.[1] https://en.wikipedia.org/wiki/Horseshoe_bat#Diet_and_foragin...[2] https://en.wikipedia.org/wiki/Pangolin#Behavior[3] https://en.wikipedia.org/wiki/Asian_palm_civet#Feeding_and_d...[4] https://en.wikipedia.org/wiki/Mekong"</p>
-							
-						
-							
-								<p class="story__comment_others">"Whenever this topic comes up, the discussion seems to consist largely of _extremely_ strong opinions against the perfectly plausible hypothesis (don&#39;t forget, the evidence of zoonotic origin is equally thin on the ground).My question is, why? What does it matter whether the virus originated from a lab or from a wet market - it isn&#39;t any more dangerous if it came from a lab, nor does knowing the origin really help dealing with this crisis at all.It is certainly interesting to know where it did originate, and that knowledge could inform a debate on the future of (respectively) wet markets and animal husbandry practices, or BSL facilities, but these don&#39;t strike me as particularly emotionally charged topics, and in any case the posts I&#39;m referring to don&#39;t mention these debates...Anybody care to explain why you would respond so strongly to claims of lab origin?"</p>
+								<p class="story__comment_first line-clamp">"Stepping back a bit, I feel the argument is analogous to how music is becoming more mainstream and generic, how casual gamers &#34;corrupt&#34; the art form of gaming, how clickbait and stupit stuff is overshadowing lovingly curated independent websites, eternal September etc.One answer to all these propositions is that the valuable stuff is still there, you just have an additional flood of mediocre boring predictable stuff. You can still find enough indie music and games and movies to spend all your free time on.Similarly, if you know where to look and whose papers to watch out for, you can read more interesting stuff. The existence of more bullshit makes the filtering somewhat more effort, but it&#39;s bearable.Most papers are never deeply read anyway, outside of the reviewers. Even citations don&#39;t mean someone really read the paper in depth.So, most medíocre, boring papers get ignored.It&#39;s an illusion to expect that every researcher can pump out multiple really interesting non-boring papers every year. So we pretend. We write, we cite, we present, overiflate, overpromise etc. It must look like there is steady hard noble work and toil. It&#39;s like a ritual. The scientists are writing all these papers so tax payers can sleep well that their money is paid for hard work."</p>
 							
 						
 							
-								<p class="story__comment_others">"Peter Daszak, the president of the EcoHealth Alliance researching the origins of pandemics, pointed out in April that nearly 3% of the population in China&#39;s rural farming regions near wild animals already had antibodies to coronaviruses similar to SARS. &#34;We&#39;re finding 1 to 7 million people exposed to these viruses every year in Southeast Asia; that&#39;s the pathway. It&#39;s just so obvious to all of us working in the field...&#34;https://www.npr.org/sections/goatsandsoda/2020/04/23/8417296..."</p>
+								<p class="story__comment_others">"One thing to keep in mind is that some of the papers which reviewers consider very marginal turn out to be breakthroughs. For example Jim Allison, who later won the Nobel Prize:&#34;Allison was hoping to be published by one of the leading peer-reviewed research journals. But nobody at Cell or Nature or any of the A-list, peer-reviewed journals was willing to publish the findings of this junior academic from Smithville, Texas. “Finally, I ended up publishing the results in a new journal called The Journal of Immunology.” It wasn’t Science or the New England Journal of Medicine, but it was in print, and in the world.“At the end of the paper, I said, ‘This might be the cell antigen receptor, and here are the reasons why I think that it is the T-cell antigen receptor,’ and I just listed it out, all the reasons.” It was a bold announcement regarding the biggest topic in immunology. “And nobody noticed it,” Allison says. “Except in one lab.”&#34;https://www.wired.com/story/meet-jim-allison-the-texan-who-j...So you really need to publish the marginal stuff to make sure the breakthrough stuff gets published as well."</p>
+							
+						
+							
+								<p class="story__comment_others">"But on the other hand, with a severe replication crisis in science (https://www.vox.com/future-perfect/21504366/science-replicat...), isn&#39;t it a good thing that we have a bunch of boring papers that are close to stuff that&#39;s already happened? It&#39;s not people replicating others&#39; findings exactly, but it at least gives points of comparison that can help to weed out some of the problematic work out there."</p>
 							
 						
 						</a>
@@ -291,22 +304,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.polishnews.co.uk/poznan-the-clams-filter-the-water-they-check-whether-the-water-is-polluted-or-clean/">Clams filter the water and check whether the water is polluted or clean</a></h3>
+					<h3><a href="https://www.reuters.com/article/us-facebook-executive-idUSKBN2962M6">Facebook&#39;s advertising integrity chief leaves company</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25586861">
+						<a href="https://news.ycombinator.com/item?id=25612786">
 						
 							
-								<p class="story__comment_first line-clamp">"It&#39;s a pretty cheap sensor that can potentially detect all sorts of toxins in the water as a supplement to normal water quality analysis. You really can&#39;t expect any sort of reasonable sensor technologies to detect wide ranges of potentially harmful contaminants in water supplies while you can use mussels, clams, etc. as biological sensors--the modern &#34;canary in a coal mine.&#34;I worked with a research project that was sensing, collecting and analyzing types of mussels in rivers that were used as an indirect measurement of water quality in the river. The assumption is that the mussels can act as a proxy for certain contaminants. In fact, they actually filter a lot of water daily so you can occasionally analyze one as to what sort of contaminants it absorbed as a proxy for whats probably in the water.Meanwhile, water intakes typically only monitor for known and suspected contaminants. They have to rely on other indirect measurements like changes conductivity as a signal to analyze the water and these are noisy and fairly unreliable compositional change detection proxies.Neat stuff."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those who love eating clams and just like myself wonder how safe it is to eat clams, while they filter huge amount of water -- yes, it would be like eating a used filter, that&#39;s why clams that you get in restaurants must be grown in very clean water [1].[1] https://www.thurstoncountywa.gov/planning/planningdocuments/..."</p>
+								<p class="story__comment_first line-clamp">"&#34;Chief of Advertising Integrity&#34; does anyone take that title seriously? Forget advertising, Facebook and it&#39;s CEO himself has no integrity."</p>
 							
 						
 							
-								<p class="story__comment_others">"Maybe they could have alerted about  the lead contaminated water in Flint Michigan? A disaster that will affect the next generation. Lead Lowers IQ&#39;s in Children and increase crime rate in adults.BTW, the invasive Zebra mussels have done a great job clearing up the Great Lakes. At times the water is so clear on a sunny day in the summer it can look tropical blue."</p>
+								<p class="story__comment_others">"As a corporation, Facebook truly seems to be trying to improve its behavior for the benefit of society at large, but the company is finding it very difficult to do The Right Thing, because it would reduce future revenue growth, shrink long-term profitability, and hurt the company&#39;s competitive standing against the many other companies that are trying to eat Facebook&#39;s lunch every day.In the extreme, Facebook&#39;s choices appear to be: (a) act in the best interest of society and get f#cked by competitors; or (b) remain a dominant force in the market, but as a side effect, f#ck everybody. All options for Facebook appear to be a mix of those two horrible choices."</p>
+							
+						
+							
+								<p class="story__comment_others">"Facebook is a company that never stood by small businesses. It&#39;s also the company that manipulated users into a free basic services just to create their own walled garden in the internet.Still, sardonically they created two ad campaigns: Apple vs free internet and vs small businesses. Their whole marketing stunt was laughably wrong. No wonder their chief left the company."</p>
 							
 						
 						</a>
