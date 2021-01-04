@@ -36,6 +36,294 @@
 	</div>
 
 	
+	<div class="day__date">04 January 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/nandoodles/status/1345774768746852353">Uber discovered they’d been defrauded out of 2/3 of their ad spend</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25623858">
+						
+							
+								<p class="story__comment_first line-clamp">"A related article is https://www.forbes.com/sites/augustinefou/2021/01/02/when-bi.... (It was posted at https://news.ycombinator.com/item?id=25620707, but the topic and discussion are substantially the same as this one, so we merged them.)Note: this thread is being paginated, so you need to click More at the bottom of the page to read the rest of the comments. Or via these:https://news.ycombinator.com/item?id=25623858&amp;p=2https://news.ycombinator.com/item?id=25623858&amp;p=3"</p>
+							
+						
+							
+								<p class="story__comment_others">"We did a similar kind of experiment some time back and found both FB ads and Google ads were doing jack shit for us. Google was better. FB ads were absolutely useless. So we stopped our ad spend. We observed no change in our customer acquisition.Another way these ad engines extract money out of you is by allowing competitors to bid for your brand name keyword. Try searching for Ozonetel on Google. There will be six competitor ads and then our website will show up :)In our early days we used to be scared and bid for it.Lost a lot of money doing that. Then we talked about it and stopped. Again, no change in customer acquisition. Turns out, customers scroll down the ads and still click on our website.Are our competitors getting some of our traffic?Of course.But my business is not built on the assumption that people will not find my competitors. Its built on the fact that people will explore options and try to find the best fit for them. So its ok."</p>
+							
+						
+							
+								<p class="story__comment_others">"There was a freakonomics podcast recently about advertising (online and traditional).No one can actually prove it has any ROI at all. No one is willing to run the experiments necessary. In the few cases of natural experiments, where ads got turned off for some people by accident, there was no change in buying behavior.https://freakonomics.com/podcast/advertising-part-1/https://freakonomics.com/podcast/advertising-part-2/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.realworldtech.com/forum/?threadid=198497&amp;curpostid=198647">ECC matters</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25622322">
+						
+							
+								<p class="story__comment_first line-clamp">"I still remember Craig Silverstein being asked what his biggest mistake at Google was and him answering &#34;Not pushing for ECC memory.&#34;Google&#39;s initial strategy (c. 2000) around this was to save a few bucks on hardware, get non-ECC memory, and then compensate for it in software.  It turns out this is a terrible idea, because if you can&#39;t count on memory being robust against cosmic rays, you also can&#39;t count on the software being stored in that memory being robust against cosmic rays.  And when you have thousands of machines with petabytes of RAM, those bitflips do happen.  Google wasted many man-years tracking down corrupted GFS files and index shards before they finally bit the bullet and just paid for ECC."</p>
+							
+						
+							
+								<p class="story__comment_others">"I beg this, every time this conversation comes up it’s the same answer “I don’t see a problem”.It’s so easy to chalk these kind of errors to other issues, a little corruption here, a running program goes bezerk there- could be a buggy program or a little accidental memory overwrite. Reboot will fix it.But I ran many thousands of physical machines, petabytes of RAM, I tracked memory flip errors and they were _common_; common even in: less dense memory, in thick metal enclosures surrounded by mesh. Where density and shielding impacts bitflips a lot.My own experience tracking bitflips across my fleet led me to buy a Xeon laptop with ECC memory (precision 5520) and it has (anecdotally) been significantly more reliable than my desktop."</p>
+							
+						
+							
+								<p class="story__comment_others">"As someone who has had to read thousands of random game crash reports from all over the interwebs (you know when Windows says you might want to send that crash log?  like that), I totally agree.Of all the things to be worried about, like OS bugs, bad hardware configuration, etc. bad memory is one of those really troubling things.  You look at the code and say &#34;it&#39;s can&#39;t make it here, because this was set&#34; but when you can&#39;t trust your memory you can&#39;t trust anything.And as the timeline goes to infinity, you may also get one of these reports and be asked to fix it... good luck."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/which-programs-are-fastest.html">Rust is now overall faster than C in benchmarks</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25623634">
+						
+							
+								<p class="story__comment_first line-clamp">"Apart from those benchmark games a lot of real world C is a lot less performant than people think it might be. I spent a fair amount of time reviewing C code in the last 5 years - and things that pop up in nearly every review are costly string operations. Linear counts due to the use of null terminated strings and extra allocations for substrings to attach null terminators, or just deep copies because ownership can’t be determined are far more common than exceptional. This happens because null terminated strings feel like idiomatic C to most people.Rust avoids those from the start by making slices idiomatic.Another thing I commonly see is the usage of suboptimal containers (like arrays with linear search) - just because it’s there’s no better alternative at hand (standard library doesn’t offer ones and dependency management is messy). Which also makes it less surprising that code in higher level languages might perform better."</p>
+							
+						
+							
+								<p class="story__comment_others">"Once LLVM fixes some bugs with `noalias`, at which point Rust will begin using it again in more circumstances [1], I&#39;d expect to see Rust get even faster in these benchmarks, given that the Rust compiler knows much more about which pointers do/do-not alias than most other programming languages [2] and the myriad optimizations this knowledge allows.[1] https://github.com/rust-lang/rust/issues/54878#issuecomment-...[2] https://doc.rust-lang.org/nomicon/aliasing.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"Looking at the reverse-complement code, it appears that the Rust and C implementations are using different algorithms:https://benchmarksgame-team.pages.debian.net/benchmarksgame/...https://benchmarksgame-team.pages.debian.net/benchmarksgame/...On a quick inspection:- The Rust code is about twice as long.- The Rust code has CPU feature detection and SSE intrinsics, while the C code is more idiomatic.- The lookup table is larger in the Rust code."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://samplesize.one/blog/posts/my_year_in_data/">I logged my activities at 15-minute intervals for the whole year</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25623010">
+						
+							
+								<p class="story__comment_first line-clamp">"I am always baffled how sad this extreme focus into productivity makes me.If you discovered you were going to die in a year, would you continue to spend all your time being &#34;productive&#34;? I figure almost everyone would shift all their focus on doing things that &#34;really matter&#34;.Sadly I believe the world managed to make us feel guilty when we&#39;re not doing something that makes someone else rich (majority of jobs).I&#39;m a pessimist so I&#39;d probably get very sad at some real data telling me how many hours I have wasted making someone else money."</p>
+							
+						
+							
+								<p class="story__comment_others">"Everytime these come up, I am reminded how little time we have for extracurricular activities as parents (outside of things you&#39;d do with the kids, e.g. hiking, swimming, etc)But raising children is an investment in itself and the years where the demand for attention is higher (0-5 especially) are short in comparison to the future time you have for yourself.I suppose you gain perspective and over those years an ability to optimize for time :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Today’s society is no longer Foucault’s disciplinary world of hospitals, madhouses, prisons, barracks, and factories. It has long been replaced by another regime, namely a society of fitness studios, office towers, banks, airports, shopping malls, and genetic laboratories. Twenty-first-century society is no longer a disciplinary society, but rather an achievement society&#34;.- Byung-Chul Han"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/pixprin/status/1345146328058269696">Pixar&#39;s Render Farm</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25615888">
+						
+							
+								<p class="story__comment_first line-clamp">"I have many fond memories of my first real job as sysadmin/render wrangler for a small animation company about fifteen years ago.Cores and memory were indeed what mattered, and as long as frames could be fitted into memory then the machine was left to render the frame and then save it back out to shared disk. There was no virtualization, just raw compute hardware running at full capacity 24/7. The scene was already split into different layers and rendered as sequences of frames that were then composited into final products.First job, first mini-datacenter in a new building, and there I am asking contractors to knock a hole in the building to fit air handlers due to the heat we were expecting to generate. Was great fun.It taught me a lot about automated systems management."</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh man, I wanted this to contain much more details :(Whats the hardware? How much electric energy goes into rendering a frame or a whole movie? How do they provision it (as they keep #cores fixed)? They only talk about cores, do they even use GPUs? What&#39;s running on the machines? What did they optimize lately?So many questions! Maybe someone from Pixar&#39;s systems department is reading this :)?"</p>
+							
+						
+							
+								<p class="story__comment_others">"I like the picture of the 100+ SPARCstation render farm for the first Toy Storyhttps://mobile.twitter.com/benedictevans/status/766822192197..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/greatsuspender/thegreatsuspender/issues/1263">The Great Suspender: New maintainer is probably malicious</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25622015">
+						
+							
+								<p class="story__comment_first line-clamp">"I am one of the few people that inspects the source-code of extensions. It&#39;s easy to do, for Firefox for example, just right-click and save-as in the extensions site, then rename your extension to a .zip file and extract e.g:    addon.xpi --&gt; addon.zip
+
+Then manually sift through the code looking for obvious malicious intent (or not so obvious malicious intent if the author is doing obfuscation). Note: obfuscation is a red flag! A simple scan for `https://` / &#39;http://&#39;  would usually yield interesting URLs where data is sent. I have actually spotted malicious addons in the wild this way and reported them to Mozilla. They were thankfully removed.Note: Obfuscation is NOT the same as minification, and I don&#39;t mean minification when using the word obfuscation!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been telling everyone who will listen[1][2][3] that as an extension developer, I&#39;d love to be able to guarantee through the Chrome App Store that an extension matches a git commit (or auditable build pipeline artifact) exactly.It wouldn&#39;t fix everything (for example, you could still put a payload in an innocent-looking dependency), but it would at least fix the blatant problem that a maintainer can add code when uploading an extension even if the extension itself is open source and therefore (appears to be) auditable.[1] https://news.ycombinator.com/item?id=23265699
+[2] https://news.ycombinator.com/item?id=16881343
+[3] https://news.ycombinator.com/item?id=16317686"</p>
+							
+						
+							
+								<p class="story__comment_others">"We need to talk about how difficult it is to monetize browser extensions. Most of these problems occur when a reputable extension gets sold to a less reputable owner, frequently for a relatively small amount of money (4-5 figures). Even very popular extensions have a hard time monetizing. Unfortunately, Chrome has recently made the situation worse by deprecating Chrome Web Store payments, and Firefox eliminated their paid extension store several years ago.If the only way to monetize an extension is to exploit its users for data, this kind of thing is going to keep happening. It&#39;s perfectly understandable how someone who is doing a lot of work for no pay will eventually get tired of it or have other priorities in life, which is what happened in this case. Perhaps we all need to stop taking it for granted that browser extensions ought to be free? Or maybe the browser vendors themselves can find ways of financially supporting extension authors. I feel that money is essential to both the problem and the solution.Of course, paid upfront software gets sold to new owners too. But if the software is paid upfront, the expectation is that the new owner will perhaps do a better job of maintaining and marketing the software, and that&#39;s why the new owner buys it. When the software is paid, the new owner has an opportunity to make money legitimately, without secretly exploiting the existing user base."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://nullprogram.com/blog/2020/12/31/">State machines are wonderful tools</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25601821">
+						
+							
+								<p class="story__comment_first line-clamp">"No post on state machines would be complete without mention of the superset concept of Petri nets [1].  I have used Petri nets to build my own workflow engine previously.  Building a workflow engine is one of those things... nearly every enterprise app has one, and normally you shouldn’t need to build one if you can source one... but it is an exercise that makes you a stronger engineer/developer too, deepening understanding of the patterns that lie beneath most systems.Back when I was building, openly available workflow engines, BPML, BPEL etc. were not really a thing yet, so it made a little more sense to be building one.[1] https://en.wikipedia.org/wiki/Petri_net"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m reminded of a thing I wrote about seeing a state machine implemented in real life:https://www.solipsys.co.uk/new/StateMachineInRealLife.html?U..."</p>
+							
+						
+							
+								<p class="story__comment_others">"It’s humbling to see a state machine implemented using coroutines. I program professionally since about 6 years ago but have only recently appreciated generators and coroutines.I’m working through learn.unity.com for fun and because, in my estimation, there is an upcoming boom in real time interfaces for real work. All the people playing video games have mastered skills that aren’t being taken full advantage of. Anyways, coroutines in Unity can be used to do interesting things over time while attached to the game loop.My point, despite my digression, is just how there are still basic/intermediate topics I have only been able to appreciate recently. Humbling."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://psyarxiv.com/u6v9y">The Yale Manual for Psilocybin-Assisted Therapy of Depression</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25613294">
+						
+							
+								<p class="story__comment_first line-clamp">"At least as written, the advice for problems during medication sessions is pretty simple (though note the presence of a physician &#34;sitter&#34; alongside the therapist):&gt; Responding to intense, painful affect states&gt; The therapists will gently encourage the subject to “lean in” or “go towards” intense or difficult affective states, rather than try to avoid or diminish them.&gt; Responding to agitation or restlessness&gt; The therapist will encourage breathing exercises and grounding techniques, as described above.  If these are not helpful, the participant will be invited to sit up, take off the eyeshades and make visual contact with the therapists and the room.  The therapists may offer reassurance that such states are to be expected and are likely to be short lived.&gt; Responding to marked agitation&gt; If the subject displays significant or marked agitation and previously mentioned interventions fail, the therapist will consult with the physician regarding the possible administration of benzodiazepine or antipsychotic medication.  Medical intervention will be utilized only when agitation is persistent, and no other means to help relieve the agitation are effective."</p>
+							
+						
+							
+								<p class="story__comment_others">"Here&#39;s MAPS.org&#39;s 69 page manual (PDF; 2015) for MDMA-assisted therapy for PTSD (and other): https://maps.org/research-archive/mdma/MDMA-Assisted-Psychot..."</p>
+							
+						
+							
+								<p class="story__comment_others">"We built https://tripinstructions.com as a little hackathon project earlier this yearConsidering building it out a bit moreWould love any feedback or suggestions anyone might have"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/artichoke/artichoke">Artichoke is a Ruby made with Rust that compiles to WebAssembly</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25605470">
+						
+							
+								<p class="story__comment_first line-clamp">"Hi folks, Artichoke author here. I mostly post project updates on Twitter. Here&#39;s a selection of some cool things I&#39;ve been working on recently:- https://twitter.com/artichokeruby/status/1339581223119679493- https://twitter.com/artichokeruby/status/1339578582222266368- https://twitter.com/artichokeruby/status/1332772105126105089- https://twitter.com/artichokeruby/status/1332880679655247872"</p>
+							
+						
+							
+								<p class="story__comment_others">"All the correct keywords used in the post to make it to the front page of HN."</p>
+							
+						
+							
+								<p class="story__comment_others">"What makes Artichoke more suitable than MRI for compilation to WebAssembly (and for embedding, and for single-binary distribution [0])?Is it just that Artichoke is written in Rust? Or does it make different trade-offs in its design?[0] https://github.com/artichoke/artichoke/blob/2d67d8537c1340f1..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://ylukem.com/blog/url-shorteners-set-ad-tracking-cookies">URL shorteners set ad tracking cookies</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25624112">
+						
+							
+								<p class="story__comment_first line-clamp">"This is really interesting. I suppose tiny url gets a kicked back from their ad network for this. I&#39;m the creator of the URL shortener (T.LY) and a Link Unshortener tool.  I spend most of my development time fighting bad actors. My goal is to have a legitimate competitor to bitly that people benefit from. We do not set any cookies on redirects but do use cookies for authentication for users.T.LY: https://t.ly/Link Unshortener: https://linkunshorten.com/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow! https://preview.tinyurl.com/examplezoom really shows https://zoom.us/j/123456789 link whereas Chrome network inspector confirms the viglink.com redirect. uBlock origin blocks the latter via Dan Pollock’s hosts file and Peter Lowe’s Ad and tracking server list."</p>
+							
+						
+							
+								<p class="story__comment_others">"I currently host https://femto.pw/ - A URL shortener I&#39;ve kept up for ~4 years and intend to indefinitely.  It doesn&#39;t do anything with regards to tracking cookies or other dark patterns.  It just redirects you using a 302 redirect."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">03 January 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -49,27 +337,15 @@
 						<a href="https://news.ycombinator.com/item?id=25610741">
 						
 							
-								<p class="story__comment_first line-clamp">"It&#39;s remarkable how similar Swift and Rust are w.r.t syntax.Rust, Swiftlet x = 42;
-let x = 42let x: i32 = 42;
-let x: Int = 42let _ = 42;
-let _ = 42let pair: (char, i32) = (&#39;a&#39;, 17);
-let pair: (String, Int) = (&#34;a&#34;, 17)let (some_char, some_int) = (&#39;a&#39;, 17);
-let (some_char, some_int) = (&#34;a&#34;, 17)fn greet() {
-    println!(&#34;Hi there!&#34;);
-}
-func greet() {
-    print(&#34;Hi there!&#34;)
-}But, the languages are so different, for instance in Swiftlet x
-x = 42let y = 13
-let y = y + 3Wont fly for instance. I am trying to come up with the simplest explanation possible for this but I can&#39;t - goes to show how much I understand either of the languages."</p>
-							
-						
-							
-								<p class="story__comment_others">"As a Python programmer with limited experience with compiled languages, Rust code was more intimidating to read or look at than C++, Java or Go. After only an hour, I am overwhelmed by the sheer beauty and mature design of this language - it almost reads like Python or as well as any compiled language can. I cannot believe that I am smitten by Rust within an hour. Its features seem, obvious. My experience with Go was frustrating since I felt like I had to give up elegance for practicality. I did not expect to learn 1-2% of Rust when I woke up today. My thanks to the author.I&#39;m curious what other what other developers who primarily use Python think of this article and Rust in general?"</p>
+								<p class="story__comment_first line-clamp">"As a Python programmer with limited experience with compiled languages, Rust code was more intimidating to read or look at than C++, Java or Go. After only an hour, I am overwhelmed by the sheer beauty and mature design of this language - it almost reads like Python or as well as any compiled language can. I cannot believe that I am smitten by Rust within an hour. Its features seem, obvious. My experience with Go was frustrating since I felt like I had to give up elegance for practicality. I did not expect to learn 1-2% of Rust when I woke up today. My thanks to the author.I&#39;m curious what other what other developers who primarily use Python think of this article and Rust in general?"</p>
 							
 						
 							
 								<p class="story__comment_others">"&gt; There is a special lifetime, named &#39;static, which is valid for the entire program&#39;s lifetime.I&#39;ve heard this many times before, but as the guide[1] says:&#34;You might encounter it in two situations... Both are related but subtly different and this is a common source for confusion when learning Rust.&#34;&#39;static means different things for references and trait objects.ie.&#39;a: &#39;static --&gt; reference with lifetime &#39;a lives forever and can never be dropped.T: &#39;static --&gt; Type T has no references in it; it is effectively &#39;entirely owned&#39; by the owner of an instance of T.These are totally different things with the same name.(I believe technically there are actually three; `&lt;T: &#39;static &gt;` is a type constraint and `T + &#39;static` is a trait bound, but that both mean the same thing as far as I know)[1] - https://doc.rust-lang.org/rust-by-example/scope/lifetime/sta..."</p>
+							
+						
+							
+								<p class="story__comment_others">"That is the best article on Rust I&#39;ve ever seen. Better than the Rust book. I&#39;ve been saying that Rust needed a book that wasn&#39;t written by the designers of the language, who are too close to it. Now we have one."</p>
 							
 						
 						</a>
@@ -138,7 +414,7 @@ let y = y + 3Wont fly for instance. I am trying to come up with the simplest exp
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://cognitiontoday.com/phone-addiction-coping-solutions-research-statistics/">Phone addiction linked to over a dozen psychological and physical problems</a></h3>
+					<h3><a href="https://cognitiontoday.com/phone-addiction-coping-solutions-research-statistics/">How to overcome Phone Addiction</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
@@ -314,15 +590,15 @@ My SO recently bought Adobe Lightroom and low and behold - you cannot install it
 						<a href="https://news.ycombinator.com/item?id=25612786">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;Chief of Advertising Integrity&#34; does anyone take that title seriously? Forget advertising, Facebook and it&#39;s CEO himself has no integrity."</p>
-							
-						
-							
-								<p class="story__comment_others">"As a corporation, Facebook truly seems to be trying to improve its behavior for the benefit of society at large, but the company is finding it very difficult to do The Right Thing, because it would reduce future revenue growth, shrink long-term profitability, and hurt the company&#39;s competitive standing against the many other companies that are trying to eat Facebook&#39;s lunch every day.In the extreme, Facebook&#39;s choices appear to be: (a) act in the best interest of society and get f#cked by competitors; or (b) remain a dominant force in the market, but as a side effect, f#ck everybody. All options for Facebook appear to be a mix of those two horrible choices."</p>
+								<p class="story__comment_first line-clamp">"As a corporation, Facebook truly seems to be trying to improve its behavior for the benefit of society at large, but the company is finding it very difficult to do The Right Thing, because it would reduce future revenue growth, shrink long-term profitability, and hurt the company&#39;s competitive standing against the many other companies that are trying to eat Facebook&#39;s lunch every day.In the extreme, Facebook&#39;s choices appear to be: (a) act in the best interest of society and get f#cked by competitors; or (b) remain a dominant force in the market, but as a side effect, f#ck everybody. All options for Facebook appear to be a mix of those two horrible choices."</p>
 							
 						
 							
 								<p class="story__comment_others">"Facebook is a company that never stood by small businesses. It&#39;s also the company that manipulated users into a free basic services just to create their own walled garden in the internet.Still, sardonically they created two ad campaigns: Apple vs free internet and vs small businesses. Their whole marketing stunt was laughably wrong. No wonder their chief left the company."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am always a bit surprised that Facebook ended up as reliant on advertising revenue as they are. I feel like they missed opportunities to replace Craigslist as the de facto online classifieds and to offer a payment system like Apple Pay. Perhaps these are only obvious in hindsight.I feel that most of their issues stem from their complete revenue reliance on advertising. It forces them to make decisions about their core product that reduces utility, but makes it superficially a more sticky user experience."</p>
 							
 						
 						</a>
@@ -354,8 +630,9 @@ My SO recently bought Adobe Lightroom and low and behold - you cannot install it
 							
 						
 							
-								<p class="story__comment_others">"Post was deleted.Copied text: https://pastebin.com/Db3aAmdb
-Google Cache: http://webcache.googleusercontent.com/search?q=cache:wKj2VsK..."</p>
+								<p class="story__comment_others">"This is awful. I&#39;m sorry that happened to you. However,  If Apple refuse to take actions, I will interview with major media outlets describing the experience in more details and I will release a list of all individuals involved from senior management to the HR director and all the evidence as public record.
+
+You&#39;re wasting your time if you think they&#39;re going to do anything with this kind of approach. Get a lawyer first before thinking on doing any of that, though.And let this be a reminder to everyone else that HR isn&#39;t there to help you - it&#39;s there to help the company.In this kind of environment it almost feels like one needs to record everything that&#39;s happening in order to defend themselves. Cops use cameras, maybe it&#39;s time for employees to start wearing them too. Maybe."</p>
 							
 						
 						</a>
@@ -431,15 +708,15 @@ Google Cache: http://webcache.googleusercontent.com/search?q=cache:wKj2VsK..."</
 						<a href="https://news.ycombinator.com/item?id=25605880">
 						
 							
-								<p class="story__comment_first line-clamp">"You’re angry. I’ve felt this in a trademark lawsuit. You think the world should get behind you and change the corrupt system.My advice is to immediately rebrand as gracefully and effectively as possible and use all that activist energy to effect the transition.They kind of have a point which doesn’t make them right, but they hold all the cards and you will lose this one and regret the wasted bandwidth."</p>
-							
-						
-							
-								<p class="story__comment_others">"Well-written argument for the app reviewers to get bent, especially the highlighted examples of other apps that show the rule is clearly applied inconsistently.Apple&#39;s App Store moderation is embarrassing. They routinely fail to catch harmful junk—I&#39;ve shut down a few top-grossing bogus antivirus apps for Mac, and the publisher of Untitled Goose Game routinely posts screenshots of clones that are trying to make money off confused users.They&#39;ve banned apps like Phone Story and a drone strike tracker for being &#34;objectionable and crude,&#34; yet they don&#39;t apply any content moderation to the Book Store or to Music or TV (or to Safari for that matter). They&#39;ve yet to provide a cogent justification for why they&#39;re inconsistent on this."</p>
+								<p class="story__comment_first line-clamp">"Well-written argument for the app reviewers to get bent, especially the highlighted examples of other apps that show the rule is clearly applied inconsistently.Apple&#39;s App Store moderation is embarrassing. They routinely fail to catch harmful junk—I&#39;ve shut down a few top-grossing bogus antivirus apps for Mac, and the publisher of Untitled Goose Game routinely posts screenshots of clones that are trying to make money off confused users.They&#39;ve banned apps like Phone Story and a drone strike tracker for being &#34;objectionable and crude,&#34; yet they don&#39;t apply any content moderation to the Book Store or to Music or TV (or to Safari for that matter). They&#39;ve yet to provide a cogent justification for why they&#39;re inconsistent on this."</p>
 							
 						
 							
 								<p class="story__comment_others">"&gt; Apple [...] featured Amphetamine in a Mac App Store StoryOuch&gt; Customize Your Mac’s Sleep Settings&gt; Amphetamine gives you granular controlhttps://apps.apple.com/us/story/id1470456860"</p>
+							
+						
+							
+								<p class="story__comment_others">"I thought I should look at the App Store and see what this app is doing in comparison to similar apps.The logo is basically a big pill and the tagline &#34;Powerful keep-awake utility&#34; which is clearly alluding to the drug. https://imgur.com/a/RJXHaBaThis was consistent with the feedback the author received: &#34;[the] app appears to promote inappropriate use of controlled substances. Specifically, your app name and icon include references to controlled substances, pills&#34;Almost all of the other top apps in the app store in the same category use some reference to caffeine either in the name or tagline or description (e.g. &#34;Jolt of Caffeine&#34; or &#34;Owly&#34; which has a logo of an owl in a cup of coffee) https://imgur.com/a/yySBqELThere&#39;s one other, much less popular app called &#34;Coca&#34; which appears to reference cocaine, but doesn&#39;t also have a drug-referencing icon or tagline, and which only has 15 reviews. By comparison, Amphetamine seems to be the most popular result, at least for the search term &#34;awake&#34;, with 1.37K reviewsThe guideline in question doesn&#39;t seem to consider excessive use of caffeine as problematic to encourage. &#34;1.4.3 Apps that encourage consumption of tobacco and vape products, illegal drugs, or excessive amounts of alcohol are not permitted on the App Store. Apps that encourage minors to consume any of these substances will be rejected. Facilitating the sale of marijuana, tobacco, or controlled substances (except for licensed pharmacies) isn’t allowed.&#34;Overall, Amphetamine did seem to be pushing the drug-use angle much harder than other apps in the category based on the logo, tagline and title, especially if you consider caffeine abuse not problematic.Added: I don&#39;t have a strong opinion on this one either way, other than edgy naming has pros and cons. Word of mouth is easier, but sometimes a problem like this happens."</p>
 							
 						
 						</a>
@@ -635,11 +912,11 @@ Google Cache: http://webcache.googleusercontent.com/search?q=cache:wKj2VsK..."</
 							
 						
 							
-								<p class="story__comment_others">"Happy New Year!  If you&#39;re in the United States, don&#39;t forget that today is the last day to make your tax deductible donations to charity for 2020!  Here are some of my favorite tech related charities that I donate to:https://supporters.eff.org/donate/year-end-challenge--LDEFhttps://www.python.org/psf/donations/https://www.freebsdfoundation.org/donate/"</p>
+								<p class="story__comment_others">"I created an account today to reply to this. Happy New Year, All. I’ve been a long time reader and have always enjoyed the comments and intelligent discussion on HN. I wish you all a warm and gentle 2021!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Man, fuck 2020.  I picked up 2 bottles of Champagne for the wife and I before I decided it was a 3 bottle kind of year.  It&#39;s 5:30 and we&#39;re one bottle in so clearly the right decision.  Here&#39;s to 2021 being a lot better for everyone!"</p>
+								<p class="story__comment_others">"Blwyddyn newydd dda HN, 2020 required an awful lot of &#34;well let&#39;s see what the hn comments say about -this-&#34; in response to oh so many fear mongering headlines and half stories. Glad to be here, thanks to dang and the community for keeping it what it is."</p>
 							
 						
 						</a>
@@ -687,11 +964,11 @@ Google Cache: http://webcache.googleusercontent.com/search?q=cache:wKj2VsK..."</
 						<a href="https://news.ycombinator.com/item?id=25595416">
 						
 							
-								<p class="story__comment_first line-clamp">"the only interesting part of this whole debacle in my mind is that it highlights what was already fairly obvious.  the security of a given environment is only as secure as its weakest link.  the entire supply chain for every bit of code that is installed on a machine is a potential vector.  if that code happens to run at privilege (like administration software) that vector is shorter.  (and that&#39;s only if you&#39;re considering software)  when you think about it, it&#39;s staggering.i suspect we&#39;ll be seeing a lot more attention on reproducible and cryptographically secure build environments, similar to the gitian stuff in bitcoin land."</p>
+								<p class="story__comment_first line-clamp">"I predict a rash of eventual FireEye, Cisco, and other vendor zero days in the near to mid future. If you are a nation state actor what better way to find zero days then to get the source code and find the bugs to exploit. This is the only thing that makes sense that would be worth the risk of attacking companies such as FireEye and Microsoft."</p>
 							
 						
 							
-								<p class="story__comment_others">"I predict a rash of eventual FireEye, Cisco, and other vendor zero days in the near to mid future. If you are a nation state actor what better way to find zero days then to get the source code and find the bugs to exploit. This is the only thing that makes sense that would be worth the risk of attacking companies such as FireEye and Microsoft."</p>
+								<p class="story__comment_others">"the only interesting part of this whole debacle in my mind is that it highlights what was already fairly obvious.  the security of a given environment is only as secure as its weakest link.  the entire supply chain for every bit of code that is installed on a machine is a potential vector.  if that code happens to run at privilege (like administration software) that vector is shorter.  (and that&#39;s only if you&#39;re considering software)  when you think about it, it&#39;s staggering.i suspect we&#39;ll be seeing a lot more attention on reproducible and cryptographically secure build environments, similar to the gitian stuff in bitcoin land."</p>
 							
 						
 							
@@ -895,11 +1172,11 @@ https://open.spotify.com/album/7HPjcPD2cr8E5oHvVAmBp7?si=sJM...If you haven&#39;
 							
 						
 							
-								<p class="story__comment_others">"The &#34;Create New Project&#34; dialog has serious accessibility problems when used with a screen reader. The buttons are clickable divs, not actual HTML buttons or even marked up with proper ARIA. I haven&#39;t yet ventured any further into the app.Given that the app is a WebAssembly development environment, my first guess was that it was built in WebAssembly itself, with a custom UI framework. But in fact, it&#39;s plain React, using its own home-grown components for basic things like buttons.It breaks my heart that when this project was started in 2017, some 20 years after web accessibility advocacy had started in earnest, the developer was still uninformed enough about accessibility that they would create a custom button component with no ARIA support. I suppose we could also blame the web platform for making it hard enough to customize the look of a standard button that the developer would reach for the div tag. What do we do about this?"</p>
+								<p class="story__comment_others">"Seeing gulp being used in the examples for the build step is strange... I wonder why it was chosen. Nothing wrong with it per se but gives me flashbacks to the horrors of my past exposure to it as an inexperienced webdev."</p>
 							
 						
 							
-								<p class="story__comment_others">"Seeing gulp being used in the examples for the build step is strange... I wonder why it was chosen. Nothing wrong with it per se but gives me flashbacks to the horrors of my past exposure to it as an inexperienced webdev."</p>
+								<p class="story__comment_others">"Jokes about the [Birth and Death of JavaScript](https://www.destroyallsoftware.com/talks/the-birth-and-death...) aside, I love the concept of WASM and that we&#39;re making the web a more robust compile target.One of the big limitations in my mind is that I still don&#39;t know of that many people using it in production at scale. Is there a list, or well known set of examples (other than Figma), who are using WASM in prod?"</p>
 							
 						
 						</a>
@@ -1444,7 +1721,7 @@ you should choose to buy 100A solid state relay&#34;.For a little extra, you can
 							
 						
 							
-								<p class="story__comment_others">"Nice list! Noticed a few decent US hiking trails that aren&#39;t on it though. There are tons more of course, especially if you include BDR stuff.Ice age trail - https://www.iceagetrail.orgSuperior hiking trail - https://superiorhiking.org/John Muir trail - https://www.johnmuirtrail.org/Long trail - https://www.greenmountainclub.org/the-long-trail/Pacific Crest trail - https://www.pcta.org/Hayduke trail - http://www.hayduketrail.org/Arizona trail - https://aztrail.org/"</p>
+								<p class="story__comment_others">"List of long-distance footpathshttps://en.wikipedia.org/wiki/List_of_long-distance_footpath...https://en.wikipedia.org/wiki/List_of_longest_cross-country_...https://en.wikipedia.org/wiki/Long-distance_trailhttps://en.wikipedia.org/wiki/List_of_long-distance_hiking_t...https://en.wikipedia.org/wiki/Long-distance_trails_in_the_Un...https://en.wikipedia.org/wiki/GR_footpathFirst, you think you have a neat idea, but minutes later you have a Herculean task at hand ;)"</p>
 							
 						
 						</a>
@@ -2618,291 +2895,6 @@ https://www.youtube.com/watch?v=HKt19-GsA1I"</p>
 						
 							
 								<p class="story__comment_others">"&gt; In May, Kaspersky (@oct0xor) discovered CVE-2020-0986 in Windows splwow64 was exploited itw as a 0day. Microsoft released a patch in June, but that patch didnt fix the vuln. After reporting that bad fix in Sept under a 90day deadline, it&#39;s still not fixed.https://twitter.com/maddiestone/status/1341781305126612995"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">25 December 2020</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://ideopunk.com/2020/12/22/100-tips-for-a-better-life/">Tips for a Better Life</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25518730">
-						
-							
-								<p class="story__comment_first line-clamp">"I think the compassion section has the most wisdom in it, especially the reasoning behind the recommendation:82. Call your parents when you think of them, tell your friends when you love them.83. Compliment people more. Many people have trouble thinking of themselves as smart, or pretty, or kind, unless told by someone else. You can help them out.84. If somebody is undergoing group criticism, the tribal part in you will want to join in the fun of righteously destroying somebody. Resist this, you’ll only add ugliness to the world. And anyway, they’ve already learned the lesson they’re going to learn and it probably isn’t the lesson you want.85. Cultivate compassion for those less intelligent than you. Many people, through no fault of their own, can’t handle forms, scammers, or complex situations. Be kind to them because the world is not.86. Cultivate patience for difficult people. Communication is extremely complicated and involves getting both tone and complex ideas across. Many people can barely do either. Don’t punish them.87. Don’t punish people for trying. You teach them to not try with you. Punishing includes whining that it took them so long, that they did it badly, or that others have done it better.88. Remember that many people suffer invisibly, and some of the worst suffering is shame. Not everybody can make their pain legible.89. Don&#39;t punish people for admitting they were wrong, you make it harder for them to improve.90. In general, you will look for excuses to not be kind to people. Resist these."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;8. When buying things, time and money trade-off against each other. If you’re low on money, take more time to find deals. If you’re low on time, stop looking for great deals and just buy things quickly online.&#34;I&#39;m finding, as I&#39;ve gotten older, that almost every time I&#39;ve chosen money over time I&#39;ve made a bad decision.And I see this among my family and friends, too.  There&#39;s a mentality that emerges when exchanging time for money that somehow makes it so you waste your time and you end up spending almost or more money than you originally would have.I&#39;m known for saying, &#34;There is a professional person for that...  Let&#39;s get one,&#34; instead of trying to fix the water heater ourselves or get transport 2 tons of gravel.  Others in my family would have dragged the old trailer out of the barn.  Oh, it has a flat.  Fix that.  Oh, the trailer hitch doesn&#39;t fit the new truck, oh, get a new hitch (we&#39;ll use it someday again, surely).  Or get the old truck working, or the older truck working (cause they keep buying cheap used trucks that break down and sit on the property for eternity).  Then go get whatever, and deal with not knowing what they&#39;re doing.  Me, just get it delivered.  Maybe more money, waaaay less hassle.  In the saved time I&#39;ve polished up my CSS skills...Time really is the most precious resource you have.  Think hard before you trade it for anything else."</p>
-							
-						
-							
-								<p class="story__comment_others">"When it comes to buying things I find my satisfaction is much higher when I spend money to remove an irritant rather than get something completely new.Our home has a long run from the water heater to basically anywhere it is used (This is in the USA where storage heaters are typical).  When it died I had its location moved and got a model with a circulating system that loops around to the downstairs locations (kitchen/bathroom).  Now what took 20-30 seconds to get warm water is 2-3 seconds.  I spent a lot (for me) and it was worth it.I replaced the 2 DIN radio in my car with an android head unit.  Driving became much better with my personal audio selection rather than over the air radio (What&#39;s that?).  A few years later I upgraded the unit and reduced the start time from 20-ish seconds to 2 seconds.  Both changes removed irritants and noticeably improved my quality of life.Previously I would wonder if getting a new car, or bigger TV, or going to Hawaii would improve my life.  Now I am more inclined to seek out irritants and try to find ways of applying money or effort to reduce them.  I&#39;ll still make the occasional new/splurge purchase, most recently Ring video cameras - they&#39;re fun, but that comes second and I&#39;m happier for it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hotwire.dev/">Hotwire: HTML over the Wire</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25507942">
-						
-							
-								<p class="story__comment_first line-clamp">"Okay this is a bit meta, but the whole cluster of &#34;everything old is new again&#34;, &#34;the pendulum of fashion has swung&#34;, &#34;nothing new under the sun&#34; takes is ignoring what tends to drive this sort of change: relative costs.The allure of xmlhttprequest was that over connections much slower than today, and with much less powerful desktop computers, a user didn&#39;t have to wait for the whole page to redownload and re-render (one can argue that focusing on better HTTP caching on the server and client might have been smarter) after every single user interaction. This was also much of the draw of using frames (which were also attractive for some front-end design use-cases later re-solved with CSS).As apps got more complex, clients got more compute, bandwidth grew, and as web audiences grew, offloadingl much of the page rendering to the client helped to both contain server-side costs and increase or maintain responsiveness to user interactions.Now, as desktop client performance improvement slows down (this isn&#39;t just the slowing of computer speeds, computers are also replaced less frequently), average bandwidth continues to grow, app complexity and sophistication continues to grow, but as server compute cost falls faster than audience size grows, shifting rendering to HTML back to the server and sending more verbose pre-rendered HTML fragments over the wire can make sense as a way of giving users a better experience."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve never seen one of these &#34;logic in html-attributes&#34; systems take error checking seriously. In stimulus they start to mention it in &#34;Designing For Resilience&#34; (though only for feature-checking), but in &#34;Working With External Resources&#34; where it uses calls network/IO bound calls they never mention how to handle errors or if the framework just leaves it up to you. Stimulus is also where you need to write your own js code, so I guess you could handle it yourself but in turbo when I skimmed the handbook I find no mentions of what/how to handle errors (or even what happens when turbo gets one), and when loading stuff over the network that is pretty much crucial.From the turbo handbook: &#34;An application visit always issues a network request. When the response arrives, Turbo Drive renders its HTML and completes the visit.&#34; Using the phrase &#34;When the response arrives&#34; begs the question of what happens if it doesn&#39;t arrive, or if it takes a minute for it to arrive, or if it arrives but with a faulty status code."</p>
-							
-						
-							
-								<p class="story__comment_others">"As others have noted, seems reasonably similar to LiveView, Livewire and Blazor. I’m somewhat bullish on these approaches - server side rendered monoliths (Rails, Django, etc.) are SO productive, at least for the first few years of development, but lack of interactivity is a big issue, and this solves it well.However, another big issue is the dominance of mobile. More and more, you’ve got 2-3 frontends (web and cross-platform mobile, or explicitly
-web, iOS and Android), and you want to power them all with the same backend. RESTful APIs serving up JSON works for all 3, as does GraphQL (not a fan, but many are). This however is totally web-specific - you’ll end up building REST APIs and mobile apps anyways, so the productivity gains end up way smaller, possibly even net negative. Mobile is a big part of why SPAs have dominated - you use the same backend and overall approach/architecture for web and mobile.I’d strongly consider this for a web-only product, but that’s becoming more and more rare."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.eff.org/deeplinks/2020/12/how-we-saved-org-2020-review">How We Saved Dot Org</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25521836">
-						
-							
-								<p class="story__comment_first line-clamp">"Another great win for the EFF. We shouldn&#39;t forget how much time and effort fighting this kind of thing takes, and we are very lucky to have an organization who&#39;s willing to put in the legwork from which all of us are huge beneficiaries. (Edit: just donated.)I guess it was implied by the article, but wasn&#39;t perfectly clear to me: does this mean that .org just stays with its current holders, ISOC? (Internet Society)As much as ICANN and Ethos Capital acted maliciously in this whole debacle, it&#39;s very possible that the most malicious actor of all was ISOC. In 2002 they were granted the management of a public good (the .org registry), with the idea that they&#39;d administrate it responsibly and fairly. In return, they were well compensated as they managed .org registrations over all these years, which is more or less a license to print money.However, it&#39;s obvious with this attempted sales that ISOC never considered themselves to be a higher-minded steward doing anything for the greater good. To them, .org was an asset to be pumped and dumped at the first, best offer that came along. They were well aware that Ethos had plans to turn .org into a major profit center with a captive audience of all existing .org holders, to the detriment of tens of thousands of non-profits (and many others) worldwide, and enthusiastically agreed to the plan anyway. It was money in their pocket, and the money was good.What would it take for the ICANN to claw back the .org registry and grant it to a more ethical caretaker? (CCOR for example [1].) It seems to me that &#34;easy come, easy go&#34; is a perfect ethos for this situation, and the ISOC shouldn&#39;t be allowed to take another dime from .org.---[1] https://www.ccor.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"No formal investigation into the ICANN corruption that led to this situation in the first place?"</p>
-							
-						
-							
-								<p class="story__comment_others">"You know who I would trust to administer the .org TLD for long-term public good... The EFF."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://pudding.cool/2020/12/judge-my-spotify">How bad is your Spotify?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25517868">
-						
-							
-								<p class="story__comment_first line-clamp">"This is hilarious...&gt; You are 26% basic. You&#39;re trying to be cool with Kapitan Korsakov, but your favorites are the same as everybody else&#39;s..&gt; Your spotify was please-read-my-manuscript-walmart-hawaiian-shirt-sitting-alone-in-the-cafeteria bad.Ouch.Really interesting project by all means. I hope they release the source - I&#39;m curious about how it was built.Edit: This same link was posted 11 hours ago https://news.ycombinator.com/item?id=25513886 here and is not at all getting the same popularity. Anyone got ideas?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Huh, I wonder if this is just a mad lib that is being used to gather information about people?It&#39;s sayin stuff like &#34;You know music existed before 2019, right?&#34;, but also criticizing me for liking Stan Rogers, who died in 1983, Jay Z, and Trevor Hall, who seemed to peak in the early 2000s.Maybe I just haven&#39;t finished my coffee yet, but I was kindof hoping that this would actually use AI to figure out the musical variety of my listening history and suggest more people to listen to or something like that.  Seems like it was just a bunch of mad libbed insults though."</p>
-							
-						
-							
-								<p class="story__comment_others">"Anyone that wants to revoke the access this (or any previously used) app had to your spotify account, you can revoke access here: https://www.spotify.com/uk/account/apps/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://vsevolod.net/good-webcams/">Why can’t you buy a good webcam?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25504771">
-						
-							
-								<p class="story__comment_first line-clamp">"The reason you can’t buy a good webcam is the same reason you can’t buy a high quality monitor outside of LG’s unreliable apple collab.The lazy conglomerates who sell these peripherals often don’t actually produce the parts in them. They simply rebrand commodity cameras and IPS panels in a crap plastic housing and slap their logo on it.Then they give the product a hilariously user-hostile product name, like “PQS GRT46782-WT” as an extra f-you to the user.They don’t care about you because they have no ongoing relationship with you, and their executives mistakenly see their own products as commodities.Combine this with the fact that most home users don’t care about good quality or even know what it is, and you have the current situation.A friend once described the peripheral market as “Assholes selling crap to idiots.”"</p>
-							
-						
-							
-								<p class="story__comment_others">"If you are looking here to improve your webcam because you started to do remote work, don&#39;t.First try to improve lighting and audio.Any camera will look bad in bad lighting. It is always better to first improve your lighting before you invest in a new camera. Use high CRI lightbulbs and ensure even source color temperature in your room (ie. all lightbulbs should be emitting same color temperature).Audio is also very important. It is processed by different parts of brain and we don&#39;t put so much attention to it but the quality will influence the other person, subconsciously. Also, audio is how the information is being passed."</p>
-							
-						
-							
-								<p class="story__comment_others">"The real reason is buried in the article:You can’t buy a good webcam because the number of people willing to pay a lot of money for a high end webcam is very small.At the lower end, people are satisfied with their built in laptop parts or a cheap webcam that sits on top of their monitor.At the high end, people go down the rabbit hole of buying a do-everything mirrorless camera that they can use for so much more than just a webcam.A high end webcam would have to be cheap enough that the first group doesn’t mind spending a bit more, but not so expensive that the enthusiast target audience just decides to buy a full-featured mirror less camera instead.Granted, there is a lot of room for improvement in that budgetary middle ground, but how many people actually care? Common webcams actually perform decently when given proper lighting conditions. We’re not streaming high-bitrate 1080p H.265 on our 5-person Zoom calls. After compression and denoising the extra sharpness and low noise of a high end camera doesn’t add much benefit.Enthusiasts are a difficult group to market to because they have extremely high expectations. They’d also rather spend weeks scouring the Internet for the perfect deal on a used mirrorless camera than to spend a dollar more than necessary to buy a high-end webcam."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://tokio.rs/blog/2020-12-tokio-1-0">Tokio 1.0 – async runtime for Rust</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25520353">
-						
-							
-								<p class="story__comment_first line-clamp">"I don&#39;t really get these modern async APIs. In languages like Javascript I thought they only made sense because JS interpreters are (historically) single-threaded, so you really have no choice but async to express some concepts. Fine.But in Rust you can just spawn threads, share data through channels or mutexes, use OS-provided async IO primitives to poll file descriptors and do event-driven programming etc...I tried looking into Tokio a little while ago and I found that it led to some incredibly complicated, abstracted, hard to think about code for stuff I usually implement (IMO) much more simply with a basic event loop and non-blocking IO for instance.I&#39;m sure async can get the upper hand when you have a huge number of very small tasks running concurrently because that&#39;s generally where OS-driven parallelism tends to suffer but is it such a common scenario? That sounds like premature optimization in many situations IMO. Unless you actually think that async code is more expressive and easy to read and write than basic event loops, but then you must be a lot smarter than I am because I have to take an aspirin every time I need to dig into async-heavy code.I guess I&#39;m trying to understand if it&#39;s me who&#39;s missing something, or if it&#39;s web-oriented developers who are trying to bring their favourite type of proverbial hammer to system development."</p>
-							
-						
-							
-								<p class="story__comment_others">"As someone who has criticized Rust for the small standard lib and lack of stability in the ecosystem I&#39;m very, very happy for this. This is one of the biggest milestones for Rust. Rust itself is great enough. The lack of a de facto async runtime and libs for your standard networking needs were a real barrier for non-enthusiasts environments. It will help its adoption in general purpose business apps, I guess and hope."</p>
-							
-						
-							
-								<p class="story__comment_others">"Can someone explain to a non-rustacean what Tokio introduces that&#39;s not part of Rust? It looks like Rust provides the async/await semantics, so I&#39;m guessing this is an event loop and dispatching system?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://signal.org/blog/cellebrite-and-clickbait/">No, Cellebrite Cannot “Break Signal Encryption”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25520481">
-						
-							
-								<p class="story__comment_first line-clamp">"When I read the original blog post by Cellebrite, which is on archive.org [1], it left me scratching my head too. Signal is open source. They had access to the device to dump everything. Then they went through the source code to figure out how to decrypt the data. Just as this blog response says, they could’ve just opened the app and retrieved the contents (and even forwarded that to another device if they wanted).So someone enthusiastically posted about wasting their time as if it was a technological achievement. Then someone (else?) realized that the long technical post sounded stupid  and had it replaced.And some people wonder where their tax money goes to — all these companies who are better at marketing themselves well as experts are getting free lunches![1]: https://web.archive.org/web/20201210150311/https://www.celle..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Using only the homeowner&#39;s house key and extensive key-sliding-into-lock reverse-engineering, I&#39;m able to break into their home. Whitepaper coming soon."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m guessing some overzelouse 20 year old at cellebrite &#34;hacked&#34; signal and wrote a silly blog post that no one at the company reviewed and marketing was happy to have some engineering thing to blog.to me what is embarrassing is that all of these major news outlets and professional journalists could not actually read the article and do some very basic research before blasting out to the public. It just really shows how low the bar is to get something published.  I could blow my nose on YouTube and make stock picks based on where the bugger lands and I wouldn&#39;t be surprised if BBC Business picks up the breaking story.  That&#39;s how low the bar is it seems. Sad."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://dtinth.github.io/comic-mono-font/">Comic Mono</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25520510">
-						
-							
-								<p class="story__comment_first line-clamp">"Comic Sans and its descendants are... indestructible.  No matter how much some font designers complain about it, and how often they criticize it, Comic Sans keeps coming back, like the Terminator: https://en.wikipedia.org/wiki/Comic_Sans#Reception_and_use_i...Among the most incongruous uses of Comic Sans I&#39;ve seen, a few stand out:* A plaque on a large statue of a historical figure in a public space: https://www.biobiochile.cl/noticias/nacional/region-metropol...* A letter announcing the creation of new political party in Greece, breaking off with the then-current Prime Minister: https://web.archive.org/web/20151004131442/http://www.volosn...* A letter to the US Congress from the legal team defending the President against impeachment proceedings: https://www.fastcompany.com/90414127/trumps-old-lawyers-real...Thankfully, in these examples the authors chose not to use a different color for each letter!"</p>
-							
-						
-							
-								<p class="story__comment_others">"When writing my dissertation, I found that changing the font to Comic Sans or Papyrus is an effective way of forcing myself to be self-critical and preventing myself from, for lack of a better phrase, &#34;falling in love&#34; with what I wrote (the &#34;scholarly&#34; classic-looking fonts like Sabon, Garamond, Baskerville tend to have that effect on me)"</p>
-							
-						
-							
-								<p class="story__comment_others">"The end result is a lot more pleasant than I expected it to be before clicking.Other than Helvetica and maybe Times New Roman/Calibri, how many other fonts have had a lasting influence on culture?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.zainrizvi.io/blog/the-interviewing-advice-no-one-shares/">Interview advice that got me offers</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25519718">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt;Learn to answer the more ambiguous questionsThis is something I have never done before my most recent job search but it has been a huge help.  Previously all my interview prep was on tech and I pretty much winged it for the behavioral stuff since interview prep guides seem to always focus on the tech side.  Plus it always feels worse and more obvious when you struggle with or fail to properly answer the tech questions.What I did is I prepared 10 different stories about my career experience and then tagged them with a bunch of prompts.  For example I have a story about one project that had dual PMs that experienced a lot of scope creep and eventually fizzled on release.  I can now use that story to answer a broad range of questions from failure to various project management approaches.  Overall I now have prepared stories to answer probably 50-75 different questions immediately.Another benefit is that I have also told these stories multiple times in interviews now and I get better telling them each time. Even if the answer isn&#39;t 100% relevant, I feel more confident and likely come off better launching immediately into a detailed story about my experience rather than trying to awkwardly come up with an answer on the fly.  It is also easy to drop irrelevant parts or expand on specific details when the basic framework of the story is already something that feels natural.I will even have the document with all the prompts and story bullet points open whenever I am doing phone or remote interviews.  I could probably even create a cheat sheet to use for in person interviews since I usually would bring an executive style notepad with me anyway to interviews to jot down notes about the company.Maybe this is obvious advice, but I think I am relatively smart and never done it previously or even seen this approach recommend so I am guessing there are other people who could use this tip."</p>
-							
-						
-							
-								<p class="story__comment_others">"One additional tip on recruiters: have a cheat sheet ready (web page or public Google doc) that answers the basic questions they&#39;ll have for you and makes clear your expectations.Here&#39;s the info I ask them to provide:- Job Title and Salary- Job Description- Company Overview and Location- Steps in Hiring ProcessWhenever I&#39;m emailed by a recruiter, I politely thank them for reaching out, paste the link to the cheat sheet, and invite them to review it and write back if they still think I&#39;m a good match. It quickly separates the professionals from the wannabes. (You usually don&#39;t hear back from the wannabes.) The ones who do write back often thank me for it.I&#39;m pretty cynical when it comes to recruiters. So I find it interesting that 3 of my last 4 jobs have come through one."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Keeping those skills sharp even when you’re not job hunting.Can I just add &#34;Leetcoder&#34; as a part time job on my resume? It is amusing how in this industry, your ability to interview will not at all be improved by spending time doing your job unless it is algo heavy. It is a separate job entirely."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.tillis.senate.gov/2020/12/tillis-releases-text-of-bipartisan-legislation-to-fight-illegal-streaming-by-criminal-organizations">Tillis Releases Text of Bipartisan Legislation to Fight Illegal Streaming</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25506998">
-						
-							
-								<p class="story__comment_first line-clamp">"This title is misleading:&gt;The Protecting Lawful Streaming Act would apply only to commercial, for-profit streaming piracy services. The law will not sweep in normal practices by online service providers, good faith business disputes, noncommercial activities, or in any way impact individuals who access pirated streams or unwittingly stream unauthorized copies of copyrighted works. Individuals who might use pirate streaming services will not be affected.This affects platforms, not users. Illegal streaming will not be a felony. Creating a for-profit platform with intent to do illegal streaming will be."</p>
-							
-						
-							
-								<p class="story__comment_others">" - Everyone discussing this law should really read the textThe difficulty in doing so is a big part of the problem.  As per AOC&#39;s comments on twitter yesterday, at 2PM Members of Congress got 5000 pages of bill dropped on their desk with a vote call at 4PM.The whole thing needs to be much more transparent."</p>
-							
-						
-							
-								<p class="story__comment_others">"Since most if not all of these platforms are based in countries more friendly towards infringement it’s really not going to do much of anything other than be another law that gets selectively applied and abused."</p>
 							
 						
 						</a>
