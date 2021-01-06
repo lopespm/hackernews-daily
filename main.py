@@ -25,8 +25,7 @@ async def main():
         generate_pages(days)
         logging.info("Finished successfuly")
     except Exception as error:
-        logging.error(f'An unexpected error occured')
-        logging.error(error)
+        logging.exception(f'An unexpected error occured: {error}')
 
 def update_history():
     try:
