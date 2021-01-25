@@ -36,6 +36,293 @@
 	</div>
 
 	
+	<div class="day__date">25 January 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://pip.pypa.io/en/stable/news/#id1">Pip has dropped support for Python 2</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25888249">
+						
+							
+								<p class="story__comment_first line-clamp">"This is awesome in terms of avoiding all of the weird things when a person typed pip rather than pip3 and module didn&#39;t seem to get installed anywhere. That said, watching perl trying to kill perl5 with perl6 (unsuccessful) and python trying to kill python 2 with python 3 (more successful) it struck me how ridiculous it is that open source languages have to put up with this. Clearly &#34;major&#34; numbers are insufficient, the only real answer is to rename the entire freaking language when you make incompatible changes to it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m in an awkward chain of dependencies.  You see, in my industry there are very few players, and the current version of their software depends on much functionality and rather exacting specifications from products which are made using ArcGIS 10.2.1.  Not 10.2.  Not 10.2.2.This is a very conservative hunk of software because this is not a &#34;move fast and break things&#34; industry.  This is a &#34;people die when we screw up&#34; industry.  So they haven&#39;t moved from ArcGIS 10.2.1 for our version.  Change is coming but they have to be careful.So ArcGIS 10.2.1 comes with a python install of 2.7.2 (I am pretty sure it is .2).  And you are very strongly advised NOT TO UPGRADE THAT in big bold letters on the relevant help pages.  So I need to use 2.7.2 to manipulate some stuff out of ArcGIS 10.2.1 to do &#34;stuff.&#34;And there I sit."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s telling that there are a number of commercially available Python libraries targeting enterprise customers for which the Python 3 version is free, but there&#39;s a hefty license fee for the Python 2 version.  Maybe that&#39;s an appropriate tax on sluggish software/IT departments."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/pavlobu/deskreen">Deskreen – Turn any device with a web browser to a second computer screen</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25891464">
+						
+							
+								<p class="story__comment_first line-clamp">"For those on windows(and with an Intel WiFi card) there is a hidden but an extremely useful feature - &#34;project&#34; can be used to turn any other windows PC/Laptop/Tablet into a second screen, just enable &#34;cast to this PC&#34; in settings, then from the host PC press Win+P from anywhere and the second machine becomes a secondary display instantly. To windows it appears as a normal display, without any hackery involved."</p>
+							
+						
+							
+								<p class="story__comment_others">"For those interested in something similar with sway, you can:- Add a headless display with `swaymsg create_output SOME_NAME`- Configure its resolution and position like you do for other outputs- Start a VNC server on that output with `wayvnc --output=SOME_NAME`- Start a VNC client somewhere else you want to use your second screen (there are some that are browser-based)Unfortunately it is somewhat undocumented: https://github.com/swaywm/sway/issues/5553 but you can find some info on the net: https://www.reddit.com/r/swaywm/comments/k1zl41/thank_you_de...I saw in that readme that they wanted ways to get rid of dummy adapters. That above is one such possible way for sway."</p>
+							
+						
+							
+								<p class="story__comment_others">"Note that it is definitely possible to use this without those horrible dongles and even if you don&#39;t have any spare video ports at all.Unfortunately, on both Windows and Mac, open-source solutions don&#39;t exist because no single developer wants to deal with driver signing.On Linux, you can do this a number of ways:- the evdi kernel module can create fake video outputs (I&#39;m currently working on a CLI for it - stay tuned)- xrandr can force-enable disconnected video outputs (I believe even if you&#39;ve used up all the CRTCs)- xrandr with Intel drivers can create virtual screens- swaywm has a config option to make virtual screens"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://bodhi.fedoraproject.org/updates/FEDORA-2021-48866282e5">Google has turned off access to sync features for Chromium</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25886218">
+						
+							
+								<p class="story__comment_first line-clamp">"Here is the discussion on the Chromium embedder-dev mailing list: https://groups.google.com/a/chromium.org/g/embedder-dev/c/NX...Most interesting to me is that even though the Chrome team specifically provided API keys for open-source Chromium builds to use back in 2013, they are now claiming that &#34;the Terms of Service don&#39;t allow this usage, and [the previous developer] didn&#39;t have authority to change the terms.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; To reiterate, the APIs were not designed to be used by third-party software, so short of a complete rewrite, there is no unfortunately no option.The unfortunate (for Google) reality is (as had already been pointed out to this fellow multiple times before he said that): whether they turn off these Linux distros&#39; keys, people can still write third-party software to (ab)use these APIs, using Google&#39;s own keys. The CFAA is only going to keep legit uses from using Google&#39;s keys. This does not, in any way, fix the issue that Google is claiming it fixes."</p>
+							
+						
+							
+								<p class="story__comment_others">"It would take require changes to Chromium (with regards to authentication), but Brave&#39;s sync server is open source and protocol-wise mostly compatible (client side encryption is enforced):
+https://github.com/brave/go-syncI doubt Chromium authors would accept changes to authentication (even if you put guards around it like `#ifndef GOOGLE_CHROME_BRANDING`). If there were a 100% compatible service available, you can change the service URL using CLI arg `--sync-url`There is also a local sync backend which is interesting as it writes to disk. You could potentially sync this via OneDrive or something similar. You can enable with the CLI arg `--enable-local-sync-backend`. Directory settable using `--local-sync-backend-dir`You can watch the data being synced via chrome://sync-internals"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://pagely.com/blog/whitehouse-gov-chooses-wordpress-again/">Whitehouse.gov Chooses WordPress, Again</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25887674">
+						
+							
+								<p class="story__comment_first line-clamp">"I hope we again see the value of using systems like Wordpress for it’s simplicity in getting a blog/website setup and easily modify content.Lately most of the modern marketing websites I see is built using gatsby and next.js. Having been talking to different content/marketing teams, they hate it so much because of the complexity it brings. Editing content? Sign in to this headless CRM app, want a form? Go sign in to another app. It might be a fun project for devs but the actual users if these systems will almost always have a hard time using it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I was curious after seeing the accessibility statement what the previous administration&#39;s had.https://www.whitehouse.gov/accessibility/https://obamawhitehouse.archives.gov/accessibilityhttps://georgewbush-whitehouse.archives.gov/accessibility.ht...https://trumpwhitehouse.archives.gov/accessibilityWith that last one not being surprising at all."</p>
+							
+						
+							
+								<p class="story__comment_others">"In this age where the trend is JAM stack, it is refreshing to see that something battle-tested like WordPress was chosen.There&#39;s a reason WP has withstood the test of time. (WordPress developers being a dime a dozen also help make the case)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://nbloom.people.stanford.edu/sites/g/files/sbiybj4746/f/why_wfh_stick1_0.pdf">Why Working from Home Will Stick [pdf]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25882704">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m a little disappointed at the percentage of comments which extrapolate personal anecdotes into societal behavior, and without addressing the data in this study - even to poke holes in the methodology, which is totally fair game (though IMO quite good, especially for what they had to work with).The whole point of a 15,000-person survey like this is so that we&#39;re not all stuck guessing based on our own experiences. Obviously one can argue that what employers were telling employees they would do post-COVID as of October 2020 is not what employers will actually do (and give reasons why!), but it&#39;s still likely to be more accurate than any individual&#39;s speculation (including mine!).In particular, the survey addressed 2 topics that a lot of comments seem to not incorporate:1. At population, employer, and individual level, it&#39;s not either/or. The paper title doesn&#39;t do a good job of conveying this. All 3 entities seem open to everything on the continuum, based on their employees, work type, and so on.Statements like &#34;I promise that it won&#39;t stick for the broader society&#34; imply a more binary outcome than the survey results predict (and maybe than anything predicts). The survey concludes that, of the roughly 50% of employees who can work from home, they&#39;ll average 2 days per week (or 23% of total hours worked). IOW, WFH doesn&#39;t need to move everyone all the time in order to have massive effects. Some people changing some of the time is enough.2. Employer plans vs. employee desires. Lots of commenters state their preferences and then try to generalize from that, but.. the survey captured that too. To just skim those results, scroll to page 60 for employee-desired vs. employer-planned % of working days. Gist: if WFH is roughly the same productivity, employers plan ~22% of days and employees desire ~45% of days to be WFH. In all productivity cases, employees preferred a higher % of days to be WFH than employers.Page 43 shows answers to the pay raise or cut employees would take in order to work from home 2-3 days per week.It also breaks down the change in perception about WFH by demographic cohort on page 55. For example, those with no children and those with children at home both had significant improvements in their perception of WFH. Those with children had more improvement in perception than those without children. As the study wrote: &#34;This 23 percent figure [post-COVID WFH as a % of full time days] is almost five times larger than in the pre-pandemic time use data, but still half as large as what workers want in a post-pandemic world.&#34;Of course, there&#39;s a place for speculation and anecdotes. This paper - and hopefully soon, more studies like it - should let us evolve from speculating based on only our personal experience to thinking about its methodology and results."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been 100% remote and run remote teams since 2014 and I promise that it won&#39;t stick for the broader society. Here&#39;s why:1. Socializing is the primary activity that happens at work for the vast majority of workers. The gal or guy coming by your desk to &#34;check in&#34; or &#34;see how your weekend was&#34; etc... is literally where they find their social outlets and personal connections.2. Managers like to be able to watch their direct reports because it makes them feel more in control than they are3. The commuting routine, even if it&#39;s a nightmare, offers a sense of normalcy that most people have gotten used to and in a weird way rely on for grounding.4. For a huge swath of Americans at least, work is an escape from the drudgery of the home.To truly work from home 100% of the time you have to be a master at controlling yourself and your ability to be distracted. Most people don&#39;t have this control and need a framework to insert themselves into. Add to that the contextual dimension of an &#34;other&#34; place that is a world apart from your home life and you have something that allows for a depressurization for most people."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is ironic coming from Stanford, who is currently fucking up every single aspect of their handling of covid, as many Stanford students will attest to. Colleges are basically scammers at this point. The whole benefit of going to college is being able to meet like-minded smart, young people like yourself. Remote college isn&#39;t a thing and never will be. College is about people, as much as it is about learning. The unfortunate K-12 and college students are learning this the hard way.Personally, I don&#39;t think that remote is here to stay. I think working will be augmented by remote tools, but it cannot be replaced by remote. Humans just aren&#39;t robots and they need community, and work is the biggest source of community after college. To me, online college is a complete joke and is not what students after high school need. It&#39;s just not healthy.  Humans need interaction in person, and they do their best work when they are working with people who they see on a weekly basis, especially young 20-somethings.This whole thing is becoming evident as people are starting to really just not care for the lockdowns at this point. Parks in SF are a complete shitshow because people want to be out and about. You will never be able to force them to be purely remote, and after covid, if your company is purely remote, you will not attract the best young talent, period. You might attract older folks, but you know you want young talent.This whole thing makes no sense."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.wusa9.com/article/features/producers-picks/fbi-tracks-cell-phones-that-were-near-capitol-insurrection-and-riot/65-ca268165-a5c5-46a4-8b88-943a8517343a">FBI agents track cell phones that pinged near the Capitol</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25882688">
+						
+							
+								<p class="story__comment_first line-clamp">"Forensic methods used by police and intelligence go much deeper than just looking at phones near the crime scene.1. They look at phones moving towards the crime scene and going dark when getting close. This is also how you can detect secret meetings between people. They move towards the same area and shut down their phones.2. They look at suspect phone going dark anywhere around the time of the incident.3. Leaving a phone at home that is not answering calls or creating traffic during the time of interest is also a lead (if you already have a suspect)."</p>
+							
+						
+							
+								<p class="story__comment_others">"If you&#39;ve never seen it, it&#39;s worth your time to watch  
+  &#34;Don&#39;t Talk to The Police&#34;,  
+a lecture by a law professor, in case the FBI, etc. come knocking on your door.https://www.youtube.com/watch?v=d-7o9xYp7eE"</p>
+							
+						
+							
+								<p class="story__comment_others">"All cells phones, at all times, are tracked everywhere. I&#39;m sure there are 1000&#39;s of cameras that are also used to capture visual data (in DC area). Every person flying (domestic/international) is already tracked. MC/VISA/Bank/ATM records are tracked. Every txt, post, voice call, letter you send, package you receive, is tracked (OCR&#39;s). Your vehicle is tracked via programs like Onstar, etc, even if you don&#39;t sign up for the service.People are waiting for the day when you have zero privacy and anonymity. It&#39;s already here. Everyone should assume they can or are being tracked all the time."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://lincoln.metacannon.net/2021/01/facebook-disabled-my-account-after-i-criticized-them.html">Facebook Disabled My Account After I Criticized Them</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25881112">
+						
+							
+								<p class="story__comment_first line-clamp">"Something particularly concerning about this incident is buried further down in the article.Under the heading &#34;Why Facebook Doesn&#39;t Ban Everyone&#34;, Lincoln explains how social network theory can identify individuals in networks that are influential. This isn&#39;t an exaggeration - basic graph heuristics (such as comparing in/out degree of an individual relative to other parts of the social graph) can easily identify such individuals. Censoring those individuals can have an amplified effect on the graph structure as a whole.For an example of how just a few individuals can make a big difference on graph structure, check out Watts &amp; Strogatz&#39;s 1998 paper, Collective dynamics of &#39;small-world&#39; networks [0][1]. I&#39;d highly recommend reading it - it&#39;s very short and easy to understand.Essentially, a small number of connectors connecting with random individuals can seriously reduce the average number of steps to connect any two individuals. If Facebook wanted to stop the spread of a narrative that they didn&#39;t like, censoring just these few individuals would make it much harder for information to flow through the graph as a whole, and hardly anyone would notice (since Facebook&#39;s only censoring a few people.)Scary.[0]: https://en.wikipedia.org/wiki/Watts–Strogatz_model[1]: https://pubmed.ncbi.nlm.nih.gov/9623998/"</p>
+							
+						
+							
+								<p class="story__comment_others">"I think FB has a fundamental issue here, which is that:1) they don&#39;t feel they can NOT police content2) they are wayyyyy too big to police content manually3) any AI they train to police content, is not going to be able to state clearly why a given post/account was banned, and anyway...4) if you state objective, clear rules that are automated, it will be pretty easy to game them (e.g. using euphemisms or code words for objectionable content)I don&#39;t see how FB can get out of this situation.  Any social network that is as large as it is, which relies on advertising (and thus cannot be as content-neutral as e.g. phone companies are regarding what you talk about on the phone), is going to face the same situation.Of course, if FB ends up getting way smaller as a result, that would be fine by me.  But I&#39;m not holding my breath..."</p>
+							
+						
+							
+								<p class="story__comment_others">"They saved you the work of deleting the account yourself. Say thanks and move on with your life =)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://asia.nikkei.com/Business/Technology/SoftBank-s-plan-to-sell-Arm-to-NVIDIA-is-hitting-antitrust-wall-around-the-world">SoftBank’s plan to sell Arm to Nvidia is hitting antitrust wall around the world</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25890653">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; The CMA will look at the deal’s possible effect on competition in the UK. The CMA is likely to consider whether, following the takeover, Arm has an incentive to withdraw, raise prices or reduce the quality of its IP licensing services to NVIDIA’s rivals.This is from the UK&#39;s Competition and Markets Authority (UK&#39;s antitrust regulator) web page [1] on this takeover and captures the key issue precisely.Nvidia has every incentive withdraw, raise prices or reduce the quality of its IP licensing services to NVIDIA’s rivals because this would help NVIDIA&#39;s own products (current and future) and NVIDIA makes a lot more on its own products than Arm makes on licenses.I&#39;d also add that there is almost no way that this could be properly policed post takeover.[1] https://www.gov.uk/government/news/cma-to-investigate-nvidia..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I can think of no worse owner of ARM in this industry, with the possible exception of Qualcomm.If NVidia indeed wants to have a real foothold in the CPU space, we would all be much better off if they went the RISC-V route."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t understand why Softbank won&#39;t just put it back to the public market and list on the LSE."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.osu.edu/lack-of-sleep-stress-can-lead-to-symptoms-resembling-concussion/">Lack of sleep, stress can lead to symptoms resembling concussion</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25891678">
+						
+							
+								<p class="story__comment_first line-clamp">"Stress resilience is one of the most important things when it comes to knowledge work, also one of the most neglected aspect. Mindfulness, stoicism, exercise help, but nothing helps as much as a good night sleep. Also the other thing people usually fail to note is the vicious stress-sleep cycle (lack of sleep induced stress &lt;-&gt; stress induced lack of sleep). It took me years to realize that so much of my problems with bedtime revenge, burnout, non-clinical depression, permastress was basically just lack of quality sleep. FWIW, it helps to think of productivity in terms of sleep and stress when you are working in the knowledge economy. Just like sleep debt, you can also accumulate productivity debt due to lack of stress resilience, lack of sleep, which can eventually lead to things like burnout."</p>
+							
+						
+							
+								<p class="story__comment_others">"I had great success picking up a consistent meditation habit with the greasing the groove-approach[1].. in essence, every time I would feel a bit foggy in the head, I would take a 3-15 minute meditation session. It usually results to 3-5 sessions per day. It&#39;s such a great mental reset, and I haven&#39;t since experienced the kind of complete depletion that you get from pushing yourself hard through the day.I bet some Zen master would reprimand me for this being the wrong approach, but I found it quite difficult to get into the habit of doing, say, a single 30-60 minute session per day. Now I can consistently drop into the meditation session with no urge for procrastination and have also successfully experimented with longer ones.[1] refers to the method of increasing your pull-up capability by installing a pull-up bar in your office / bedroom doorway and doing a set every time you pass through the doorway"</p>
+							
+						
+							
+								<p class="story__comment_others">"Many of us are wearing devices with continuous optical heart rate monitors. Heart rate variability at rest is one of the best indicators of stress and these devices are pretty good at estimating sleep duration and sleep cycles.Regulators need to recognize that continuous tracking devices are a new tool for establishing a health baseline and they should not be expected to match the performance of single-test medical devices. Apple, Garmin, and Fitbit need to build standards to share this baseline data with medical professionals and offer analytics to determine when changes occur.Questionnaire based medicine seems backwards given the digital tools available."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.theguardian.com/technology/2021/jan/24/whatsapp-loses-millions-of-users-after-terms-update">WhatsApp loses millions of users after terms update</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=25897736">
+						
+							
+								<p class="story__comment_first line-clamp">"WhatsApp worldwide usage is estimated to be more than 2B+ users. Even if this article is accurate, it doesn’t really mean much. In the HN bubble lots of people have migrated to Signal with all of their contacts but outside of that bubble nothing much seems to be happening. Note that I’m not agreeing with these changes, I’m just observing reality.To put things into perspective, let’s assume that 25M users (as stated in the article) actually moved to Telegram - which I use and like by the way. Let’s assume they fully moved and stopped using WhatsApp (very unlikely). That means less than 1.25% users moved to another platform - and this means assuming many things that aren’t probably real.It reminds me a bit of the articles about DuckDuckGo vs Google where many people think big changes in usage are happening while ignoring that the average Joe will keep using whatever it’s using unless there’s way too much trouble to continue using it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I understand why FB needs to do this, but the execution was so out of touch it&#39;s bizarre. My elderly parents called me and were alarmed that WhatsApp is threatening with removing their account unless they agree to share their data. They wondered if FB will be able to track their transactions or perhaps even get into their bank accounts. After years in the tech industry, I&#39;ve learned that my parents&#39; feedback is a good predictor for how well my messaging will be perceived by the wider world. I would have assumed that at FB they would do something similar (or rather, that their testing is 100x more sophisticated), so it&#39;s bizarre that they would miss the mark with messaging and with their prediction of overall success when it came to something so strategically important and sensitive."</p>
+							
+						
+							
+								<p class="story__comment_others">"That&#39;s why ToS and privacy policy must be readable for John Doe. If it isn&#39;t clear what will happen with users&#39; data, rumours and theories will grow. That will hurt your business like WhatsApp just shows (although I&#39;m not sure Facebook will care all that much, to them it&#39;s just a drop in the bucket)."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">24 January 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -166,11 +453,11 @@
 							
 						
 							
-								<p class="story__comment_others">"&gt; Designing scalable systems when you don&#39;t need to makes you a bad engineer.&gt; In general, RDBMS &gt; NoSqlThese two bullet points resonate with me so much right now. I&#39;m a consultant and a lot of my client absolutely insist on using DynamoDB for everything. I&#39;m building an internal facing app that will have users numbering in the hundreds, maybe. The hoops we are jumping through to break this app up into &#34;microservices&#34; are absolutely astounding. Who needs joins? Who needs relational integrity? Who needs flexible query patterns? &#34;It just has to scale&#34;!"</p>
+								<p class="story__comment_others">"Almost 20 years of professional experience here: I fully agree with this list. I even want to add a few things:&gt; Clever code isn&#39;t usually good code. Clarity trumps all other concerns.My measurement is &#34;simple and clean&#34; code. Is it simple and clean? No? make it so!&gt; After performing over 100 interviews: interviewing is thoroughly broken. I also have no idea how to actually make it better.If a good developer you know, recommends someone they worked with: It&#39;s almost an instant hire. But for the rest, yeah, it&#39;s incredibly tough.One last thing I like to remind myself: &#34;Good enough is always good enough&#34;. Sometimes &#34;good enough&#34; has a low bar, sometimes high. You always need to reach it, but never want to go too far above it."</p>
 							
 						
 							
-								<p class="story__comment_others">"Usually i disagree with these types of lists, but this one seems pretty spot on.My only quible would be that only code quality static analysis is useful. Security static analysis on the other hand (e.g. taint analysis to find security bugs like XSS) is pretty overrated most of the time unless you work really hard to make it fit in your context.I also think linting rules are important, not for what they actually do, but just to get everyone to stfu about variations in code style that dont matter and arguing about more important things."</p>
+								<p class="story__comment_others">"&gt; Designing scalable systems when you don&#39;t need to makes you a bad engineer.&gt; In general, RDBMS &gt; NoSqlThese two bullet points resonate with me so much right now. I&#39;m a consultant and a lot of my client absolutely insist on using DynamoDB for everything. I&#39;m building an internal facing app that will have users numbering in the hundreds, maybe. The hoops we are jumping through to break this app up into &#34;microservices&#34; are absolutely astounding. Who needs joins? Who needs relational integrity? Who needs flexible query patterns? &#34;It just has to scale&#34;!"</p>
 							
 						
 						</a>
@@ -371,7 +658,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Two years ago I started writing an app in Swift. After a two year sabbatical, this was going to be my first app.When using Swift, the compiler was painstakingly slow. Because of that, I tried Objective-C and it is so clear to me that I love it. It is the best language in my humble opinion. The dynamism clicked and the modern features make it a real breeze to use.Messages are so flexible. I also love how it has “gradual typing.”My only gripe with it is that Categories can’t formally conform to protocols—which I understand is an easy to build feature that Blaine Garst did finish but Apple never released.I know I’m talking about the language more than I am talking about Brad Cox, but that’s because it’s the first time I really fell in love with a language. Using Objective-C to build it brings me joy. Lots and lots of joy.Thank you Brad. My prayers to your family. May you find peace in heaven."</p>
+								<p class="story__comment_others">"I met him once in the late 1990s, when his travels took him to Zurich and he asked me whether I could book a talk for him at ETH Zurich, where I was a grad student.I did not quite share his confidence in my abilities in that area, but to my relief, Jürg Gutknecht agreed to sponsor the talk, and I got to spend lunch with Brad Cox, Niklaus Wirth, and Jürg Gutknecht. Given their highly divergent aesthetics in language syntax, I expected some fireworks, but the conversation was quite pleasant, even when they were discussing Perl.I was at the time the maintainer of the Mac port of Perl, and had taken some classes with Wirth, but the idea of discussing Perl with him struck me as akin to discussing masturbation with the Pope. However, Wirth conceded that in the area of text processing, general purpose languages tended to be somewhat clumsy, and there had always been a successful niche for languages like Snobol and now Perl.Brad Cox was a splendid conversationalist in many other areas as well. His talk focused on Superdistribution as the next evolution of the Software IC concept, and he very skillfully pitched this to a Swiss audience that a banking nation should be a natural superpower to take the lead in a micropayment world. He was very good at painting visions like this, but I&#39;m not sure how much of it ultimately came to pass:a) I don&#39;t think we&#39;re any closer to plug and play &#34;Software ICs&#34; than we were in the mid-1980s when he introduced the term. In the Objective C ecosystem, the closest there was to that was maybe Interface Builder with its Outlets and Actions, but I think that part did NOT originate with Cox (I may be mistaken, though).b) Likewise, I don&#39;t see any move to distributed micropayments. If anything, more and more of the software revenue seems to come from centrally billed cloud services, e.g. comparing the Microsoft Office revenue model 20 years ago and now."</p>
 							
 						
 						</a>
@@ -2683,317 +2970,6 @@ https://drive.google.com/file/d/15Hc6wAXlfl8x5C0w11m7ZOEpbjj...EDIT:Since this i
 						
 							
 								<p class="story__comment_others">"Meanwhile te company I work for is moving away from it. We cannot find enough people with enough knowledge to be already productive in it. Not many want to learn it because it is considered pretty niche, and the ones willing to learn will need many months or years to be productive and build with some level of quality, and once they learn they move away to bigger companies which pay more. We end up paying to people to learn to then &#34;graduate&#34; and we end up with a platform built by people that were learning.Some people here say the tooling is great. Compared to what? The editor plugins are terrible, slow, and blow away your CPU doing god knows what kind of indexing. Compilation is slow and takes a lot of time (in CI for example). Libraries for things you give for granted in other platforms (java, javascript, python, ruby) are non existent, implemented in erlang, unmantained, poorly documented, not popular enough, or a combination of these.People are using it for creating traditional CRUD apps, and it is totally overkill. Something you would do in a day with django or ruby on rails takes a lot of time. Ok, you have tons of concurrency and scaling and.....but... unless you are facebook or google or amazon you won&#39;t need this anyway.Probably all of these things will be solved in the future, but at this moment, using Elixir for real production code in product focused companies is just a terrible mistake in my opinion. Certainly the ideas, the technology, and the BEAM are awesome...and it is technically superior to everything I&#39;ve seen out there. But from a business perspective, it makes no sense to use it unless you&#39;re building the next whatsapp or similar."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">15 January 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/patrickwardle/status/1349488392732491776">Apple removes first-party firewall exemption in macOS 11.2 beta 2</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25771022">
-						
-							
-								<p class="story__comment_first line-clamp">"In Case You Didn&#39;t Know:Big Sur on M1 (and possibly on Intel) maintains a persistent, hardware-serial-number linked TLS connection to Apple (for APNS, just like on iOS) at all times when you are logged in, even if you don&#39;t use iCloud, App Store, iMessage, or FaceTime, and have all analytics turned off.There&#39;s no UI to disable this.This means that Apple has the coarse location track log (due to GeoIP of the client IP) for every M1 serial number. When you open the App Store app, that serial number is also sent, and associated with your Apple ID (email/phone) if you log in.Apple knows when you leave home, or arrive at the office, or travel to a different city, all with no Apple ID, no iCloud, and no location services.This has always been the case on all devices using iOS, too.This change is essential for blocking such traffic, and I&#39;m glad for it, but there is a long way to go when it comes to pressuring the pro-privacy forces inside of Apple to do more."</p>
-							
-						
-							
-								<p class="story__comment_others">"While I&#39;m glad they fixed it (upgrading past Catalina was not going to happen), It&#39;s going to take me a LONG time to trust them again.The fact that they could rationalize their own thought process to think this was a good idea or even anywhere close to acceptable, at best leads me to doubt their judgement. At worst, well it&#39;s best to assume incompetence over malice but you can see what doors this would open in the future.
-Now we know they CAN do this without it being obvious to most users, which is a new dimension of risk regardless of intent."</p>
-							
-						
-							
-								<p class="story__comment_others">"This firewall issue isn&#39;t the only privacy feature strip from Big Sur release. Unfortunately no big media care about other huge problem Apple introduced.My only hope they will also fix full disk encryption in this update. Since Big Sur broken installation of macOS on passphrase-encrypted disk partitions.I bought into M1 hype and now it&#39;s end up that you no longer able to have separate password for the disk encryption."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://popey.com/blog/2021/01/null/">Null</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25771953">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; I went through a phase a while back of holding down keys to see what they did.Back when I was a gamedev at EA, one of the things QA would do is button-mash test the games. Just smash as many buttons as they could at the same time at all sorts of random points in the game. This was a constant source of bugs. It was surprisingly easy to get the game into a state where it was totally hung because of this.One of the main culprits was transitions between screens in the UI. So much of the UI code assumed that the initial state of a screen is that no buttons are currently pressed. But if you mash a bunch down in the middle of a transition, the screen can end up receiving a button up event that did not precede any button down event. If the screen&#39;s code assumed every up has a preceding down, it could get into a broken state.I never did see any clean systematic solution to this problem. I still think about it a lot when I do UI programming. In the back of my head, I&#39;m always wondering, &#34;what will happen if the user presses X in the middle of this animation?&#34;Programmers are particularly prone to these bugs because we have unconsciously trained ourselves to baby our own software. We&#39;re careful to wait for transitions to complete and only send input when the app is in a known state."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;While I’m not a QA or security professional, I have developed a knack for doing “stupid” things with software which causes it to malfunction.A person after my own heart.I&#39;ve had many a dev go &#34;why would you do that&#34;In which I answer &#34;it doesn&#39;t matter, but if you accept my input it&#39;s your job to ensure the app doesn&#39;t crash&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"There was and still is a website called The Daily WTF about discussing especially funny bugs and programmer&#39;s mistakes. In 2012 I registered on it as a user &#34;undefined&#34; to make a comment about JavaScript oddities under one of their articles and almost forgot about its existence, then they migrated their comments and forums to Discourse and in 2015 I got a bunch of email notifications about people mentioning me as suddenly all &#34;likes&#34; in the forum were linked to my profile:https://what.thedailywtf.com/topic/17637/undefined-liked-thi..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.mihaileric.com/posts/we-need-data-engineers-not-data-scientists/">We don&#39;t need data scientists, we need data engineers</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25775872">
-						
-							
-								<p class="story__comment_first line-clamp">"My experience is in quant hedge funds, where sometimes you get some guys who develop the strategy and some guys who put it into production.Yes, I do admit there can be some specialization in terms of time spent on science vs engineering.But you really need people who understand both. Particularly if you have a strategist who thinks his job is just to dream up profitable models, he ends up carving that role out in a way that&#39;s detrimental to the rest of the team. You get people who just don&#39;t appreciate that there&#39;s other work to do than finding models, and that models depend on that other work to function.You also get a huge prestige gap, because inevitably management will think that there&#39;s a magician and a blacksmith. One guy needs to be paid a lot, and the other guy needs to be paid enough.These effects feed each other. Magician will say &#34;where&#39;s my data&#34; and expect blacksmith to make it, promptly. He won&#39;t do it himself, because spending time on mundane stuff makes the magic disappear. And not doing it yourself, or taking the time to understand it, will eventually lead to problems with the magic."</p>
-							
-						
-							
-								<p class="story__comment_others">"Preach!The data lifecycle is waaay overpopulated with Data Scientists who are not empowered or knowledgeable enough to work with product designers and engineers to do everything that empowers Data Science and ML.We need more Data Engineers involved at time zero in projects to help:1. Plan out what data should be produced/captured by the product2. Instrument systems to actually generate data consistently and effectively3. Build ETL pipelines and data management systems4. Manage enterprise data sharing and resiliencyetc...What ends up happening is you have a bunch of Data Scientists just handed a pg_dump or flat file from some ops team. That is typically missing data or poorly formatted and they spend 90% of their time cleaning it up then running some basic regression with numpy or whatever.Need better understanding of the data lifecycle by organizations and investment in instrumentation and data management."</p>
-							
-						
-							
-								<p class="story__comment_others">"I can&#39;t recommend the Data Engineer career enough for junior developers. It&#39;s how I started and what I pursued for 6 years (and I would love doing it again), and I feel like it gave me such an incredible foundation for future roles :- Actually big data (so, not something you could grep...) will trigger your code in every possible way. You quickly learn that with trillions of input, the probabily to reach a bug is either 0% or 100%. In turn, you quickly learn to write good tests.- You will learn distributed processing at a macro level, which in turn enlighten your thinking at a micro level. For example, even though the order of magnitudes are different, hitting data over network versus on disk is very much like hitting data on disk versus in cache. Except that when the difference ends up being in hours or days, you become much more sensible to that, so it&#39;s good training for your thoughts.- Data engineering is full of product decisions. What&#39;s often called data &#34;cleaning&#34; is in fact one of the import product decisions made in a company, and a data engineer will be consistently exposed to his company product, which I think makes for great personal development- Data engineering is fascinating. In adtech for example, logs of where ads are displayed are an unfiltered window on the rest of humanity, for the better or the worse. But it definitely expands your views on what the &#34;average&#34; person actually does on its computer (spoiler : it&#39;s mainly watching porn...), and challenges quite a bit what you might think is &#34;normal&#34;- You&#39;ll be plumbing technologies from all over the web, which might or might not be good news for you.So yeah, data engineering is great ! It&#39;s not harder than other specialties for developers, but imo, it&#39;s one of the fun ones !"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.vice.com/en/article/3an7pn/pirate-bay-founder-thinks-parlers-inability-to-stay-online-is-embarrassing">Pirate Bay founder thinks Parler’s inability to stay online is &#39;embarrassing&#39;</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25769730">
-						
-							
-								<p class="story__comment_first line-clamp">"Also embarrassing:https://www.vice.com/en/article/n7vqew/the-hacker-who-archiv...&gt; donk_enby had originally intended to grab data only from the day of the Capitol takeover, but found that the poor construction and security of Parler allowed her to capture, essentially, the entire website. That ended up being 56.7 terabytes of data, which included every public post on Parler, 412 million files in all—including 150 million photos and more than 1 million videos. Each of these had embedded metadata like date, time and GPS coordinates—unlike most social media sites, Parler does not strip metadata from media its users upload, which, crucially, could be useful for law enforcement and open source investigators."</p>
-							
-						
-							
-								<p class="story__comment_others">"I personally don&#39;t find their ability to remain online that surprising.The Pirate Bay and other torrent networks were built by people with a passion for building, maintaining and hacking things. People who, even without a solid CS background, would spend hours a day learning new things, developing distributed protocols, evading DNS blocks and hosting their content wherever they could to make it accessible - included the small server in their own garage if needed. And they are used by people who don&#39;t mind learning a new protocol or how to use a new client to get the content they want.I don&#39;t see the same amount of passion for technology and hacking among the Parler users, nor its maintainers. Those who believe in conspiracy content are people characterized by a psychological tendency to take shortcuts whenever they can in order to minimize their efforts in learning and understanding new things. So when the first blocker hits they usually can&#39;t see alternative solutions, because it&#39;s not the way their brains are wired. They always expect somebody else to come up with solutions for them, and they always blame somebody else when the solution won&#39;t come. And even if they decided to migrate their content to the dark web or on a Tor network, not many people will follow them - both because they don&#39;t have the skills, and because they don&#39;t want to acquire those skills. Plus, they&#39;d lose the &#34;viral network effect&#34; that they get when posting click-bait content on public networks, the new censorship-proof network will only attract a small bunch of already radicalized people.And even if they wanted to hire some smart engineers to do the job for them, we all know that engineers tend to swing on the other opposite of the ideological spectrum. Those who have built systems for escaping REAL authoritarian censorship would rightfully feel disgusted if asked to apply their knowledge to provide a safe harbour for rednecks to vomit their conspiracy-theories-fueled hate."</p>
-							
-						
-							
-								<p class="story__comment_others">"I got the sense while crawling data from their API that the engineering quality is poor at Parler. Dates were represented as strings in &#34;YYYYMMDD&#34; format (so today would be &#34;20210113053923&#34;) instead of UNIX timestamps, certain fields were duplicated for no reason (e.g. every object would have an identical &#34;id&#34; and &#34;_id&#34; key), counts of impressions/comments/etc would be the display strings rather than raw numbers (so &#34;2k&#34; or &#34;5m&#34;), and various moderation flags were in place like a boolean &#34;sensitive&#34; which was always false, even for posts that had been downvoted significantly."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://landreport.com/2021/01/bill-gates-americas-top-farmland-owner/">Bill and Melinda Gates: America’s Top Farmland Owner</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25779681">
-						
-							
-								<p class="story__comment_first line-clamp">"I did some quick math, and the 240k acres it says they own comes out to about 378 square miles, which if condensed down to a square would be 20 miles by 20 miles.On the one hand, that&#39;s a lot of land. On the other, it&#39;s not really anything."</p>
-							
-						
-							
-								<p class="story__comment_others">"Bill Gates is the wealthiest person in the world (or arguably Arnault).You might say, no, Musk and Bezos are worth 50% (or ~60 billion) more. On paper yes, but that&#39;s not a great metric. When I think of wealth, I think of what you can reasonably acquire.If you multiply Musk&#39;s shares in Tesla times the current share price, sure you get 180 billion. But if he tried to sell a large number those shares, they&#39;d plummet in value as he was selling them. Without Musk, I&#39;d be surprised if Tesla is worth 20% of its current valuation. To a lesser extent, this is true of Bezos too, although Amazon without him is still a very valuable company.On the other hand, Bill Gates owns 1.6% of Microsoft, which I believe is his biggest holding, followed by Berkshire Hathaway stock. I&#39;d bet he can sell both of those holdings completely without a huge hit to either stock price (but definitely some hit). Same with his farmland and other alternative assets. On top of that, having already sold his Microsoft shares, he&#39;s not subject to as much capital gains tax as Bezos or Musk, each of whom pretty much owe 20% of their total net worth the second they want to sell.So on paper, Musk and Bezos are wealthier, but if all of them decided to Scrooge McDuck it and put all their money into a gold filled vault tomorrow, Bill Gates&#39; vault would be the fullest.EDIT: typo above... Originally said that Musk owns 180 bn in Amazon stock :)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Here is another article that isn&#39;t just about farmland, but about land ownership in general: https://www.usatoday.com/story/money/2019/11/25/these-people...Of note, the Gates don&#39;t even appear on this list. At first I thought it&#39;s because OP is only talking about farmland, but in the USA Today article the Simplot family apparently owns more than 400k acres for potato farming in Idaho, but doesn&#39;t even appear in the OP. I&#39;m not sure what to make of the discrepancy.Also for the sake of comparison, 240k acres is a good amount, but (as another commenter mentioned), it&#39;s also not. There are some cattle ranches larger than that. And for an example of non farm/ranch use, Bezos apparently owns over 400,000 acres in West Texas to be used for the Blue Origin launch facilities."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.sciencemag.org/news/2021/01/twitter-shuts-down-account-sci-hub-pirated-papers-website">Twitter shuts down account of Sci-Hub</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25779367">
-						
-							
-								<p class="story__comment_first line-clamp">"Twitter has no business inserting itself into a dispute between Elbakyan and Elsevier et al. Few people would have issues if Twitter shut down the Sci-Hub account after they received a valid court order, but a private monopolist cannot be trusted to be the arbiter of what is permitted speech."</p>
-							
-						
-							
-								<p class="story__comment_others">"I for one am glad that our new moral enforcers are keeping us safe from the possibility of free academic knowledge."</p>
-							
-						
-							
-								<p class="story__comment_others">"To see the tweets:https://web.archive.org/web/*/https://twitter.com/Sci_HubI should donate more to the Internet Archive. I hate how so much history can just disappear at a whim if it weren&#39;t for them."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://mainichi.jp/english/articles/20210111/p2a/00m/0dm/016000c">&#39;Rent-a-person who does nothing&#39; in Tokyo receives endless requests, gratitude</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25778135">
-						
-							
-								<p class="story__comment_first line-clamp">"A friendly reminder that Japan&#39;s rent-a-family industry was completely fake: https://newrepublic.com/article/160595/new-yorker-japan-rent...Everyone loves stories about how weird Japan is (especially the Japanese), so these stories should be taken with a grain of salt."</p>
-							
-						
-							
-								<p class="story__comment_others">"Listening intently without injecting criticism, condemnation, or your own complaints/opinions is extremely difficult. In fact, that skill is one of the major tenants of the timeless classic, How to Win Friends and Influence People. This quote is straight from the book:“Any fool can criticize, complain, and condemn—and most fools do. But it takes character and self-control to be understanding and forgiving.”With isolation becoming a major issue during the pandemic, I&#39;m not surprised people want to hire someone with these skills to just listen to their ideas and stories."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; &#34;I get upset when people simply tell me keep on trying. When someone is trying to do something, I think the best thing to do is to help lower the bar for them by staying at their side&#34;This is brilliant."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://marksaroufim.substack.com/p/machine-learning-the-great-stagnation">Machine Learning: The Great Stagnation</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25775740">
-						
-							
-								<p class="story__comment_first line-clamp">"Some good points in the article, but I disagree with the tone and the conclusion.&gt; we’ve rewarded and lauded incremental researchers as innovators, increased their budgets so they can do even more incremental researchThere isn&#39;t a scientific field where every single paper is groundbreaking. It&#39;s a Brownian motion of small incremental innovations, until eventually we stumble upon something big (like deep learning). In no way is machine learning unique in this. Sounds like the author is simply disappointed that, like in any other profession, day-to-day of a researcher is a slog and not a perennial intellectual festival. We&#39;ve been in an exciting deep learning craze for a while, but it&#39;s silly to expect it to last forever. Back to the grind now.&gt; Machine Learning Researchers can now engage in risk-free, high-income, high-prestige workNot sure what author means by &#34;risk-free&#34;. Yes, if you&#39;re not publishing enough you&#39;re most likely not going to starve. Is that a bad thing? Is the survival instinct the only good motivator for doing good research?I would argue that there&#39;s plenty of risk, in that people who don&#39;t publish good research don&#39;t get very far in their academic careers, which in my view is good enough motivation. &#34;They must do good research or starve&#34; is a rather cynical take, especially from someone who seems to not be doing too badly for themselves.I&#39;d rather more fields provided similar benefits. Maybe then going into science wouldn&#39;t be associated with so much sacrifice, so more smart people would choose science over investment banking or such, and we&#39;d make more scientific progress faster.&gt; CNNs use convolutions which are a generalization of matrix multiplication.A nitpick: CNNs are most definitely not a generalization of matrix multiplication. In fact, the opposite: you can view CNNs as a matrix multiplication with a particular matrix structure."</p>
-							
-						
-							
-								<p class="story__comment_others">"This article is dead-on, but I think it is missing a fairly large segment of where ML is actually working well: anomaly detection and industrial defect detection.While I agree that everyone was shocked, myself included, when we saw how well SSD and YOLO worked, the last mile problem is stagnating. What I mean is: 7 years ago I wrote an image pipeline for a company using traditional AI methods. It was extremely challenging. When we saw SSDMobileNet do the same job 10x faster with a fraction of the code, our jaws dropped. Which is why the dev ship turned on a dime: there&#39;s something big in there.The industry is stagnated for exactly the reasons brought up: we don&#39;t know how to squeeze out the last mile problem because NNs are EFFING HARD and research is very math heavy: e.g., it cannot be hacked by a Zuck-type into a half-assed product overnight, it needs to be carefully researched for years. This makes programmers sad, because by nature we love to brute force trial-and error our code, and homey don&#39;t play that game with machine learning.However, places where it isn&#39;t stagnating are things like vibration and anomaly detection. This is a case where https://github.com/YumaKoizumi/ToyADMOS-dataset really shines because it adds something that didn&#39;t exist before, and it doesn&#39;t have to be 100% perfect: anything is better than nothing.At Embedded World last year I saw tons of FPGA solutions for rejecting parts on assembly lines. Since every object appears nearly in canonical form (good lighting, centered, homogeneous presentation), NN&#39;s are kicking ass bigtime in that space.It is important to remember Self-Driving Car Magic is just the consumer-facing hype machine. ML/NNs are working spectacularly well in some domains."</p>
-							
-						
-							
-								<p class="story__comment_others">"There&#39;s a nice talk by Yann LeCun where he goes on to explain really well why deep learning has such fast progress. [0]He goes on to explain how theory always comes later.I thought that information theory came before practice but turns out it also came after. (there was a bunch of heuristics for sending messages with teletypes)A nice example is Roman technological advances in architecture and materials that predate the use of geometry or mathematics completely. All advancements a result of tinkering and heuristics.[0]: https://www.youtube.com/watch?v=gG5NCkMerHU"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="http://aquafaba.com/index.html">Aquafaba</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25782861">
-						
-							
-								<p class="story__comment_first line-clamp">"My time to shine!Hazelnut Choc Chip cookies, designed for Aquafaba.NB. You can switch out more of the hazelnut/almond meal to adjust the taste, but don&#39;t go much below 1/2 cup of almond!https://imgur.com/a/G2M1QoE    1 &amp; 1/4 cup almond meal
-    1 &amp; 1/4 cup hazelnut meal
-    1/2 cup dark chocolate chips
-    2/3 cup flour (gluten free blend works fine)
-    2/3 cup raw sugar
-    1 tsp baking powder
-    1/2 tsp salt (ideally fine)
-    
-    Mix above together, set aside.
-    
-    1/2 cup aquafaba
-    
-    Separately, whisk aquafaba until fluffy
-    
-    6 tbsp coconut oil (liquid)
-    1 tsp vanilla extract
-    
-    Add to aquafaba, whisk until combined
-    Add dry ingredients from above
-    Mix until tacky dough forms
-    Place in fridge for 30 minutes
-    
-    Preheat oven to 190C
-    
-    Form a ball from about 1.5 tablespoons of dough.
-    Place ball onto baking paper lined tray.
-    Bake in oven for about 15 minutes."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve used aquafaba in cooking a lot, mostly to avoid using so many eggs in baking. And while I&#39;ve had great results for a few specific recipes, I&#39;ve also found that it&#39;s not a universal egg replacement, and it&#39;s hard to tell which recipes it will and won&#39;t work in.I bake a lot of gluten-free and grain-free breads and biscuits, and aquafaba is a great egg replacement in these. Sometimes it even produces a better texture. But in other recipes, like cookies, it doesn&#39;t work at all; the dough loses its shape completely and deflates into a puddle.I&#39;ve also read about using aquafaba to make meringue or mousse, but I haven&#39;t had good luck with that so far. The chickpea taste is strong, and does not go with sugar at all.I haven&#39;t tried using any beans other than chickpeas. Maybe it would work better with different beans."</p>
-							
-						
-							
-								<p class="story__comment_others">"Aquafaba is amazing. But since we&#39;re talking about egg replacers, here&#39;s one even more remarkable:Carbonated water.No joke. Carbonated water can seamlessly replace egg in almost all things where the egg provides some rising / fluffy texture (not so much binding, like aquafaba does). It won&#39;t be stepping in your quiche any time soon, but cookies, brownies, cupcakes, anything with a fluffy inside.1/4 cup of water equals one egg. Try it, you&#39;ll be amazed.https://iambaker.net/egg-substitutes/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.nytimes.com/2021/01/14/opinion/facebook-far-right.html">Facebook Incubated the Insurrection</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25776225">
-						
-							
-								<p class="story__comment_first line-clamp">"So is Google going to throw them out of the Play store? What&#39;s the argument for banning one social media and not another. Where do you draw the line that manages to keep Facebooks app available, while still being able to defend the removal of Parler.I know many will think I&#39;m defending Parler, I&#39;m not. I just don&#39;t see why Facebook is continuously given a free pass for all the horrible stuff on their platform. Is it just because Facebook has other uses, because they&#39;re bigger or because an app store that doesn&#39;t have a Facebook app will experience a huge backlash from consumers?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Somebody from Facebook recently told me they developed the best system to flag radical/violent content in the world, I pointed out they first developed the best system to spread it."</p>
-							
-						
-							
-								<p class="story__comment_others">"On a side-note, I hate how Facebook sticks to their real name policy and does not allow for the creation of multiple accounts (I&#39;d want one for my startup / work etc. and another for my personal use case for my friends / family etc.).That said, all the mainstream social media apps - Facebook and Twitter had a hand and if Parler was de-platformed with that reason, then they should be as well.I mean, if a 700B and a 50B company can&#39;t solve this issue, than how can we expect a much much smaller company like Parler to tackle it?But it&#39;s obvious that these companies don&#39;t give a damn about the insurrection - This was entirely to pacify the dems by giving them a &#34;Win&#34; considering they have the House, Senate and Presidency.It&#39;s funny because the company I&#39;m currently consulting for a company that has a ~1B/yr account with Amazon and we&#39;ve decided to slow our cloud migration projects. We run a major media site and if AWS decides to capitulate to the pressure from essentially people on social media or the wrath of the US Govt, what&#39;s stopping them from doing the exact same from Govts of other countries?"</p>
 							
 						
 						</a>
