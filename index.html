@@ -33,38 +33,56 @@
 	</div>
 
 	
-	<div class="day__date">06 February 2021</div>
+	<div class="day__date">07 February 2021</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://brew.sh/2021/02/05/homebrew-3.0.0/">
+					<a href="https://matklad.github.io//2021/02/06/ARCHITECTURE.md.html">
 						<picture>
-							<source srcset="default_26035787.webp" type="image/webp">
-							<source srcset="default_26035787.png" type="image/png">
-							<img src="default_26035787.png" alt="Preview of 'Homebrew 3.0'">
+							<source srcset="default_26048784.webp" type="image/webp">
+							<source srcset="default_26048784.png" type="image/png">
+							<img src="default_26048784.png" alt="Preview of 'Architecture.md'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://brew.sh/2021/02/05/homebrew-3.0.0/">Homebrew 3.0</a></h3>
+					<h3><a href="https://matklad.github.io//2021/02/06/ARCHITECTURE.md.html">Architecture.md</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26035787">
+						<a href="https://news.ycombinator.com/item?id=26048784">
 						
 							
-								<p class="story__comment_first line-clamp">"One thing I haven&#39;t seen mentioned here is that Homebrew forced people use Ruby to write formulas (ie packages), whereas MacPorts forced people to use Tcl. This one decision, plus hosting formulas on Github, was a major contributor to their present success.As much as I sympathize (deeply) with all the criticism of Homebrew here on this thread -- I used to use MacPorts religiously and love it -- I don&#39;t think Homebrew took the field purely through sneaky marketing or n00b decisions alone. They leveraged the momentum of a lot of new devs coming to OS X and provided an easier path for people wanting to help out.I hate to say it, but if this was a race (?), Homebrew won. Thankfully we all still have the choice to use MacPorts if we want, but there&#39;s no point in being mean about Homebrew at this point either."</p>
-							
-						
-							
-								<p class="story__comment_others">"Dear Homebrew maintainers,one simple effing thing: thank you! For all the hard work and the sheer pleasure Homebrew adds to the experience of developing software on a Mac."</p>
+								<p class="story__comment_first line-clamp">"Ah, we actually have one of these at Caddy: https://caddyserver.com/docs/architecture(The filename on disk is literally &#34;architecture.md&#34; -- it is a Markdown file rendered by Caddy&#39;s template handler: https://github.com/caddyserver/website/blob/master/src/docs/...)It could use some improvement, but it&#39;s been really great for helping people learn how Caddy 2 works at a high level. Beyond our docs, I always encourage new contributors to thoroughly explore the godoc and code: it&#39;s very well-commented and organized, especially once you know how it all comes together. A single document will never be sufficient. But it can help you map between concepts and code.Code search is also invaluable for this; I recommend Sourcegraph: https://sourcegraph.com/github.com/caddyserver/caddyEdit: One other valuable piece is explaining why the architecture is the way it is. Our architecture.md doc links to a video that explains how I arrived at Caddy 2&#39;s architecture (and why it&#39;s not arbitrary): https://www.youtube.com/watch?v=EhJO8giOqQs"</p>
 							
 						
 							
-								<p class="story__comment_others">"The majority of the ports and software I want installed are essentially Unix/Linux/GNU environment tools.Macports has always seemed to me to be a more &#34;unix-y&#34; way of doing that, and it works politely with Apple&#39;s ways on top of the Unix core (eg locking down the system volume).It also has a very nice &#34;select&#34; and &#34;variants&#34; system that allows you to have multiple versions of a package as well as packages with more or less functionality (eg integrating with the MacOS keychain etc).When I first got into Macs (only around 5 years ago), I looked at both homebrew and macports and as soon as I saw homebrew blasting stuff into /usr/local while macports neatly put everything in /opt, I was convinced to go with macports. I also had previous experience with the BSD&#39;s port systems, which helped push me towards macports.But I&#39;m open to being convinced about homebrew, although I&#39;ve never needed something that it had that macports didnt."</p>
+								<p class="story__comment_others">"I have a similar advice, but I will go one step further: add README.md to other folders as well. It is dope to have a map of your whole system in an Architecture.md (or a README if it&#39;s not too long), but it&#39;s even more dope to be able to click through it and have submaps of how other components are structured.Displaying the folder/file structure and explaining what is what is a must. An example from Diem[1]:  consensus
+  ├── src
+  │   ├── block_storage          # In-memory storage of blocks and related data structures
+  │   ├── consensusdb            # Database interaction to persist consensus data for safety and liveness
+  │   ├── liveness               # RoundState, proposer, and other liveness related code
+  │   └── test_utils             # Mock implementations that are used for testing only
+  └── consensus-types            # Consensus data types (i.e. quorum certificates)
+  └── safety-rules               # Safety (voting) rules
+
+
+I recently digged into dependabot&#39;s code, and I found it extremely well structured. For example you have an Architecture section in the first README[2] with a diagram (how awesome is that!) and with links to the README of all the sub components, which themselves live in the subfolders[3].What I dread the most is going through a new codebase and not seeing any documentation in internal packages. Like how the fuck am I supposed to understand anything in there? By reading all the code?[1]: https://github.com/diem/diem/tree/master/consensus#how-is-th...[2]: https://github.com/dependabot/dependabot-core#architecture[3]: https://github.com/dependabot/dependabot-core/blob/main/comm..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I love architecture docs, but find they&#39;re often written using a funny process:  1. Spend a long time writing the doc.
+  2. Wait for a person to chance upon it.
+  3. Hope you anticipated their questions.
+
+It seems like the most important thing a person can do is reverse this:  1. Say who the doc is for.
+  2. Find that person. Ask them to try a lil contribution.
+  3. Frantically write / revise the doc.
+
+IMO it&#39;s a lot like creating a presentation. The earlier the feedback the better!"</p>
 							
 						
 						</a>
@@ -76,33 +94,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.cake.co/conversations/jNZlq6j/the-man-who-produced-steve-jobs-keynotes-for-20-years">
+					<a href="https://programmingforcats.com/">
 						<picture>
-							<source srcset="default_26033689.webp" type="image/webp">
-							<source srcset="default_26033689.png" type="image/png">
-							<img src="default_26033689.png" alt="Preview of 'The man who produced Steve Jobs’ keynotes for 20 years (2018)'">
+							<source srcset="default_26047238.webp" type="image/webp">
+							<source srcset="default_26047238.png" type="image/png">
+							<img src="default_26047238.png" alt="Preview of 'Programming for Cats'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.cake.co/conversations/jNZlq6j/the-man-who-produced-steve-jobs-keynotes-for-20-years">The man who produced Steve Jobs’ keynotes for 20 years (2018)</a></h3>
+					<h3><a href="https://programmingforcats.com/">Programming for Cats</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26033689">
+						<a href="https://news.ycombinator.com/item?id=26047238">
 						
 							
-								<p class="story__comment_first line-clamp">"It’s always interesting to watch other companies give presentations in their attempt at Apple style. Google comes to mind as being the worst.It’s like everyone has analyzed or identified certain little nuggets of a good presentation and then sprinkled them in... versus truly and innately understanding how to deliver a cohesive performance to an audience. The most famous example of this is the way everyone started to use “we did x y and z and you’re going to love it!” which was thrown around like peanuts on a domestic flight.Richard Feynman’s quote on cargo culting comes to mind."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is one of the most insightful Q&amp;A&#39;s about Steve that I&#39;ve read.  I especially appreciated the part about the risers for the gumdrop iMacs not working perfectly smoothly: he was pissed even though the audience couldn&#39;t possibly see the stuttering risers and even though the keynote was successful.One might think Steve Jobs was an arrogant, perfectionist prick.  But you realize in this small story, that the whole keynote could have been torpedoed, could have gone sideways and been ridiculed, if those mechanical risers had failed.  The big moment for this product that could (and did) save the company, might have been a laughable sad trombone even though Steve had warned Wayne that it was a problem that needed to be fixed.The work of hundreds of people, and hundreds of millions of dollars, were pitted against shitty mechanical hand-cranks -- that&#39;s why small details matter, and why Steve was pissed."</p>
+								<p class="story__comment_first line-clamp">"Author here. Looking to get feedback from programmers before publishing. You can download a sample chapter at: https://programmingforcats.com/download/"</p>
 							
 						
 							
-								<p class="story__comment_others">"Wayne Goodrich was fired by Apple shortly after Steve&#39;s death and subsequently sued the company:https://www.latimes.com/business/la-xpm-2012-aug-21-la-fi-tn..."</p>
+								<p class="story__comment_others">"There&#39;s a POSIX utility named &#34;cat&#34; and cats already know what it does, but if a man wants to know, he just types the following words into the terminal and then presses &lt;Enter&gt;:man cat"</p>
+							
+						
+							
+								<p class="story__comment_others">"This sort of writing is a wonderful departure from the traditional and is underrepresented in programming books. There are a few other examples that I know of which could be considered similar, but don&#39;t focus as heavily on the illustrative approach show here. Some works for comparison would be; Land of Lisp, Realm of Racket, Clojure for the Brave and True, Learn you a Haskell for Great Good!, Learn you some Erlang for Great Good!, and Why&#39;s (Poignant) Guide to Ruby. There may be more I am not aware of. On the topic of cats programming there is also JavaScript for Cats, which is great too."</p>
 							
 						
 						</a>
@@ -114,33 +132,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://supunkavinda.blog/disqus">
+					<a href="http://www.highqaguy.com/">
 						<picture>
-							<source srcset="default_26033052.webp" type="image/webp">
-							<source srcset="default_26033052.png" type="image/png">
-							<img src="default_26033052.png" alt="Preview of 'Disqus, a dark commenting system'">
+							<source srcset="default_26042416.webp" type="image/webp">
+							<source srcset="default_26042416.png" type="image/png">
+							<img src="default_26042416.png" alt="Preview of 'I&#39;m the high QA guy. Let me test your website'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://supunkavinda.blog/disqus">Disqus, a dark commenting system</a></h3>
+					<h3><a href="http://www.highqaguy.com/">I&#39;m the high QA guy. Let me test your website</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26033052">
+						<a href="https://news.ycombinator.com/item?id=26042416">
 						
 							
-								<p class="story__comment_first line-clamp">"Title should probably have [Advert] prefix or something.That said, I deleted my Disqus account as part of a general cleanup and I&#39;m glad I did.The web needs to shift more to a model where people pay openly for services; ideally with micropayments or a Spotify-like subscription to ensure a large user base. Free products are ok as a gateway to the paid product, but not if the business model relies on selling data (either directly, or as in Facebook&#39;s case selling the processing of data)."</p>
-							
-						
-							
-								<p class="story__comment_others">"Shameless plug: My friend and I are building a federated commenting system on top of Matrix if anyone is interested. You control the data, your users choose where they want to be signed up, and the system will not disappear overnight because a company decides to discontinue it. And of course there are no trackers/pixels.This is a hobby project that we&#39;re launching in three weeks. If you are interested, come talk to us on matrix (https://matrix.to/#/#cactus:bordum.dk) or keep an eye on our (for now dummy-) landing page: https://cactus.chat/, https://gitlab.com/cactus-comments"</p>
+								<p class="story__comment_first line-clamp">"I worked at Blizzard and there was a joke that we didn’t have drug testing because we would lose the design team and half the QA testers. In gaming QA getting high is kind of a prerequisite."</p>
 							
 						
 							
-								<p class="story__comment_others">"The author of the post runs a competitor called Hyvor Talk (he discloses this at the end). I&#39;ve had hyvor talk for more than a year. I don&#39;t run a blog thats very popular, but it has been quite easy to integrate (I use React, Gatsby/ static side generation, and Hyvor Talk has a react component). An example of the system is at the bottom of that blog post. There used to be a free tier, but now there isn&#39;t. I am only still using it because existing customers have the free tier and haven&#39;t bothered to look for alternatives. Unfortunately, you can&#39;t get it free anymore. I would love to see free tier reintroduced.I did find some bugs with the React component itself, but it wasn&#39;t bad enough to make me stop using it."</p>
+								<p class="story__comment_others">"I’m a sober devops guy if you need help keeping your site up."</p>
+							
+						
+							
+								<p class="story__comment_others">"Related:&#34;The User is Drunk&#34; (2013) https://youtu.be/r2CbbBLVaPk&#34;The User is Drunk&#34;-as-a-Service (2015): https://theuserisdrunk.com/"</p>
 							
 						
 						</a>
@@ -152,33 +170,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://mitpress.mit.edu/books/elements-computing-systems-second-edition">
+					<a href="https://www.reddit.com/r/assholedesign/comments/ldf9g9/nordvpn_disables_features_when_you_turn_off/">
 						<picture>
-							<source srcset="default_26036790.webp" type="image/webp">
-							<source srcset="default_26036790.png" type="image/png">
-							<img src="default_26036790.png" alt="Preview of 'The Elements of Computing Systems, Second Edition'">
+							<source srcset="default_26046642.webp" type="image/webp">
+							<source srcset="default_26046642.png" type="image/png">
+							<img src="default_26046642.png" alt="Preview of 'NordVPN disables features when you turn off auto-renew'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://mitpress.mit.edu/books/elements-computing-systems-second-edition">The Elements of Computing Systems, Second Edition</a></h3>
+					<h3><a href="https://www.reddit.com/r/assholedesign/comments/ldf9g9/nordvpn_disables_features_when_you_turn_off/">NordVPN disables features when you turn off auto-renew</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26036790">
+						<a href="https://news.ycombinator.com/item?id=26046642">
 						
 							
-								<p class="story__comment_first line-clamp">"I love this book (the first edition), project, and course.It is incomplete, but I thought I would share my implementation of the software stack in F#. Currently, only the assembler is implemented, but in my personal opinion, I think it showcases the beauty of F# for domain modeling. When I return to the project, I hope to restart the VM implementation and continue adding to the FPGA implementation as well. My eventual goal is to have the entire software stack built using F# that can than be run on an FPGA implementation of the CPU.https://github.com/bmitc/nand2tetrisTypes to model the instructions and source file expressions: https://github.com/bmitc/nand2tetris/blob/main/dotnet/Nand2T...The full assembler, mainly consisting of the parser and translator: https://github.com/bmitc/nand2tetris/blob/main/dotnet/Nand2T..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Buy this book if you&#39;re a programmer who wants to know how computers work.I read the first edition in high school, and if I had to choose either this book or my entire undergrad CS education, I&#39;d pick this book."</p>
+								<p class="story__comment_first line-clamp">"Honestly, nothing holds up to Mullvad [1]. They don&#39;t even take an email address while creating accounts, and you can pay easily with Bitcoin or even with cash mailed to them.I&#39;m not affiliated, just a very happy customer.Mullvad is also who Mozilla trusts for the Mozilla VPN [2]. You can sign up with that if you&#39;d like Mozilla to get a cut.[1]: https://mullvad.net/
+[2]: https://vpn.mozilla.org/"</p>
 							
 						
 							
-								<p class="story__comment_others">"As others have commented, the original book was one of those little gems that once you read, you realise how blind you were before, and it is extremely accessible.Often material is either too abstract or far too detailed, ECS managed to find the perfect balance where someone with a CS background can drill down to transistors and come back upwards again and really understand where they are going on that journey."</p>
+								<p class="story__comment_others">"From the thread:&gt;The secret to not dealing with crapty company practices is to avoid ones that advertise literally everywhere 24/7 nonstop around every single corner you look.This is so true it nearly qualifies as physics."</p>
+							
+						
+							
+								<p class="story__comment_others">"Why are these VPNs even a thing?The only reason i would use one is to get cheaper steam keys from brasil and for that i can get a free one.From a security standpoint it is awful because you increase the number of providers you have to trust.Apart from your ISP and the server you connect to, you got a third party involved for no reason.And VPNs can not that trustworhty as shown by the leaks of logs and what not.Maybe someone can enlighten me why these services exist and what usecase they have?"</p>
 							
 						
 						</a>
@@ -190,33 +209,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.lesswrong.com/posts/niQ3heWwF6SydhS7R/making-vaccine">
+					<a href="https://www.spyder-ide.org/">
 						<picture>
-							<source srcset="default_26022750.webp" type="image/webp">
-							<source srcset="default_26022750.png" type="image/png">
-							<img src="default_26022750.png" alt="Preview of 'Making Vaccine'">
+							<source srcset="default_26040234.webp" type="image/webp">
+							<source srcset="default_26040234.png" type="image/png">
+							<img src="default_26040234.png" alt="Preview of 'Spyder – a free and open source scientific environment written in Python'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.lesswrong.com/posts/niQ3heWwF6SydhS7R/making-vaccine">Making Vaccine</a></h3>
+					<h3><a href="https://www.spyder-ide.org/">Spyder – a free and open source scientific environment written in Python</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26022750">
+						<a href="https://news.ycombinator.com/item?id=26040234">
 						
 							
-								<p class="story__comment_first line-clamp">"This is an impressive amount of hubris. Does the author assume that all the certifications and testing stages were for show?I don&#39;t hold the highest view of LessWrong and the whole rationalist shtick. This post exemplifies why. Underneath this post is the assumption that the author is so much smarter than everybody else because they are Rational with a capital R and can therefore harness the power of science to make a vaccine[^1]. Again, that&#39;s an incredible amount of hubris. If there&#39;s one universal truth about science, it&#39;s that it is extremely specialized. Just because someone knows a lot about chemistry doesn&#39;t mean they&#39;re qualified to talk about biology. There is no magic Rationality that can have amateurs making vaccines a good idea. Unless you are an expert in vaccines a priori, you cannot suddenly become one in a few weeks.Heck, I&#39;m skeptical of doctors who are not infectious disease experts giving advice. I still hear a lot of  &#34;well my sister&#39;s neighbor&#39;s brother is a pediatrician and he said XYZ&#34;. Doctors are certainly more educated than the average person, and if this was a minor medical problem I&#39;d certainly take a random doctor&#39;s advice. But this is a pandemic with a novel disease. Listen to the infectious disease experts.[1]: Quite honestly this feels like a plotline from Harry Potter and the Methods of Rationality"</p>
-							
-						
-							
-								<p class="story__comment_others">"If there is one thing I certainly wouldn&#39;t just play around with it&#39;s the immune system. It&#39;s incredibly dangerous and easily capable of causing all kinds of harm to yourself up to killing you outright.A vaccine is designed to produce an immune response of the right magnitude. Too low and it doesn&#39;t work, too high and it&#39;ll cause damage. At least one of the vaccine candidates in development was put back to the drawing board because the immune response wasn&#39;t strong enough. So this is not an area that is entirely predictable, you have to carefully test this to know if it works.I&#39;d also be very careful about the inhalation route. Inhalable insulin is a well-known failure, in part because of side effects due to the inhalation. And that is a protein that isn&#39;t designed to activate your immune system.I also hope the synthesized peptides were carefully purified, you really don&#39;t want to inhale e.g. residual trifluoracetic acid."</p>
+								<p class="story__comment_first line-clamp">"I like spyder a lot for the variable explorer, which makes it feel more like Matlab.  However the constant bothering about installing Kite got annoying. Unfortunately there isn&#39;t a way to use Kite and have it not constantly annoy you about upgrading to the enterprise edition. If Kite had a no ads plan for like ~ $10  a year it would make a lot more sense to integrate it in spyder."</p>
 							
 						
 							
-								<p class="story__comment_others">"TLDR: I attempted to make a COVID vaccine. It was cheap. I have no proof that it worked. Other risks are unknown.The story reminds me of Barry Marshall, but with less science behind it. https://jamesclear.com/barry-marshall"</p>
+								<p class="story__comment_others">"It often causes a double-take for me when I see projects on HN with the same name as projects I once worked on.Way back in time, maybe around 1998, a friend an I worked on a steganography tool that we called Spyder. I don&#39;t remember where it was published or under what license (probably freeware), but the algorithm was incorporated into Hide4PGP (http://www.heinz-repp.onlinehome.de/Hide4PGP.htm), and we stopped work on it.This post just caused a bit of nostalgia. I can still remember my co-developer taking a break jamming on a bass guitar while we tried to figure out the striping problem (the solution was to compress the data to increase entropy first)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can I get the following behavior from Spyder (last time I tried I couldn&#39;t find a way) - for some keyboard shortcut like Cmd/Ctrl + Enter:- the shortcut sends the selected code to the terminal (this is possible)- if I hit the shortcut when nothing is selected, the line where the cursor currently is gets sent to the terminal and the cursor moves to the next line of code- if the cursor is at the beginning of a block of code like an if-statement or a loop, the whole statement is sent to the terminal and the cursor moves to after the statementRStudio has this behaviour by default, I find it very convenient and I haven&#39;t been able to replicate it in other environments."</p>
 							
 						
 						</a>
@@ -228,33 +247,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.buzzfeednews.com/article/meghara/pakistan-forced-down-ahmadiyya-apps">
+					<a href="https://www.economist.com/science-and-technology/2021/02/06/daughters-provoke-parental-strife">
 						<picture>
-							<source srcset="default_26035449.webp" type="image/webp">
-							<source srcset="default_26035449.png" type="image/png">
-							<img src="default_26035449.png" alt="Preview of 'Google, Apple cave to Pakistan pressure to take down apps by Ahmadiyya Muslims'">
+							<source srcset="default_26047444.webp" type="image/webp">
+							<source srcset="default_26047444.png" type="image/png">
+							<img src="default_26047444.png" alt="Preview of 'Parents of daughters are more likely to divorce than those with sons'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.buzzfeednews.com/article/meghara/pakistan-forced-down-ahmadiyya-apps">Google, Apple cave to Pakistan pressure to take down apps by Ahmadiyya Muslims</a></h3>
+					<h3><a href="https://www.economist.com/science-and-technology/2021/02/06/daughters-provoke-parental-strife">Parents of daughters are more likely to divorce than those with sons</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26035449">
+						<a href="https://news.ycombinator.com/item?id=26047444">
 						
 							
-								<p class="story__comment_first line-clamp">"For those defending this practice, consider carefully the implications of what you are advocating.On one hand you have a government deciding who can and cannot refer to themselves as adherents of a particular religion (by declaring that Ahamadis cannot call themselves Muslim).On another hand you have Google and Apple, yet again, being the complicit chokepoints of “free speech”, with regard to app developers.These may seem fair to you, but that may be because these practices have not negatively affected you...yet.But consider: Would it be fair if England declared Catholics “unChristian” and banned their use if the term?  Or what if the USA declared hasidic jews “Unjewish” and banned their use of the term. Or what if Apple caved to pressure theoretical from Israel to ban Jehovah’s Witnesses from using the term “Jehovah”?What next?  Government declaring who is and is not “white”?Oh wait......"</p>
-							
-						
-							
-								<p class="story__comment_others">"I keep thinking about infamous Telegram &#39;war&#39; with russian cenrosship agency, RosKomNadzor. Telegram was blocked via russian ISPs, but was never removed from Russian sections of Google Play and Apple Appstore.We now see that Apple and Google, time after time, easily submit to the will of local governments and remove questionable apps. Yet, Telegram was NOT removed. Russian media agencies claim that RosKomNadzor asked Google&amp;Apple to suspend the app, but the source for all media publications was always the same press-release by RKN. So it keeps me thinking: what if the world was played and all this &#39;blocking&#39; scandal was just a publicity stunt to raise Telegram&#39;s profile as a service that does not give up data to authorities?Does anyone know if we can confirm via Google &amp; Apple that they were asked to remove Telegram from play stores (and refused), or... they weren&#39;t really asked at all?"</p>
+								<p class="story__comment_first line-clamp">"I&#39;ve seen many possible explanations mentioned. Most common seems to be that raising daughters is more stressful than raising sons (for various reasons) leading to more arguments etc. Most intriguing might be that sons conceived into tenuous marriages don&#39;t even make it out of the womb. I&#39;ll add one more: mother/daughter friction. I can&#39;t even count the number of families I&#39;ve seen in which a mother feels betrayed when her daughter doesn&#39;t follow her example in everything, and lets those feelings show. I&#39;ve seen the same with father/son, though less so perhaps because mothers tend to be more active parents. It would also be foolish to ignore the issue of daughters growing into their adult bodies and becoming sexually active right when many mothers are feeling insecure about their own attractiveness. We can argue about causes, but the effect is real.When mothers and daughters fight, it always puts fathers in a difficult position. A dad who consistently sides the mother might get credit for being a good co-parent (usually not) but be alienated from their own child. A dad who consistently sides with the daughter is likely to lose all contact with either due to divorce. All this, regardless of who&#39;s right or wrong between the two. Again, a bit of this happens when fathers and sons are in conflict, but it doesn&#39;t seem quite as severe and has different potential outcomes because of how &#34;family&#34; court works.That&#39;s just one possible factor, affecting some cases, but it seems worth mentioning along with all the others."</p>
 							
 						
 							
-								<p class="story__comment_others">"Just another reason why you don&#39;t want companies like Apple and Google to be the gatekeepers. Technology can set you free, but only if you let it. If you don&#39;t, it can easily become a new tool of oppression."</p>
+								<p class="story__comment_others">"&gt; parents of teenage daughters argue more about parenting than do the parents of sonsFrom my own experience. When my daughter hit 12 it was a fucking nightmare. The hormones hit girls hard and they can become incredibly difficult. That said, now she’s 13 things are much easier and look to be getting easier by the week. Although my wife and I both have to be very understanding and on the same team to deal with difficult behaviour — we have a lot of strategy meetings.Lacking empathy, and wanting independence without responsibility are part of being a teenager. But 12-year old girls can sometimes be super charged griefers.On the flip side, teenagers are actually awesome to hang out with and total joys full of creativity and fun — if you work through the refusal to clean their room, general lack of hygiene and the drama."</p>
+							
+						
+							
+								<p class="story__comment_others">"Anecdotal, but I have three sons and four daughters. In my experience boys are harder when they are younger (wild, causing mayhem and physical destruction in their wake, solving problems using fighting, etc.) but in their teenage years prefer to hang out quietly in their rooms. Girls on the other hand tend to be calmer in their younger years, but then in their teenage years become argumentative, moody, causing lots of emotional and psychological strife. It takes until they are in their early 20s for things to calm down. Though by then the damage has already been done. In an ideal world I&#39;d like to raise girls when they are young and boys when they are older."</p>
 							
 						
 						</a>
@@ -266,34 +285,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.eurekalert.org/pub_releases/2021-02/uop-ftt012921.php">
+					<a href="https://veloren.net/">
 						<picture>
-							<source srcset="default_26037613.webp" type="image/webp">
-							<source srcset="default_26037613.png" type="image/png">
-							<img src="default_26037613.png" alt="Preview of 'Fecal transplant turns cancer immunotherapy non-responders into responders'">
+							<source srcset="default_26037461.webp" type="image/webp">
+							<source srcset="default_26037461.png" type="image/png">
+							<img src="default_26037461.png" alt="Preview of 'Veloren – Open-source MMORPG written in Rust'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.eurekalert.org/pub_releases/2021-02/uop-ftt012921.php">Fecal transplant turns cancer immunotherapy non-responders into responders</a></h3>
+					<h3><a href="https://veloren.net/">Veloren – Open-source MMORPG written in Rust</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26037613">
+						<a href="https://news.ycombinator.com/item?id=26037461">
 						
 							
-								<p class="story__comment_first line-clamp">"The procedure seems to have all kinds of benefits, but I think the name could&#39;ve really used some of the good ol&#39; marketingspeak. I bet a lot more people would be open to getting something like a &#34;digestive microbiome transfer&#34; than the more accurate but gross &#34;fecal transplant&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"When a possible link between gut biomes and disease progression was first proposed, the response by the established science was pretty harsh.That people studying these links persisted and have created many reproducible experiments that demonstrate the connection is a testament both to perseverance and to science.When people try to argue that science is &#34;people making things up.&#34; as a reason for disbelieving science that challenges their beliefs, I use this example of fecal transplants as a real world case of how scientists challenge, confront, debate, and incorporate changes into their world views through process, review, and reproduction."</p>
+								<p class="story__comment_first line-clamp">"I&#39;ve been keeping an eye on this one, it&#39;s not quite there yet if you are looking for a game to play. However, it has a massive amount of potential, and I&#39;m looking forward to seeing where it goes from here.I&#39;ve also read the code looking for examples of how to do things in Rust, and found it quite pleasant."</p>
 							
 						
 							
-								<p class="story__comment_others">"Hacker news is one of the places where I often value the comments more than the linked articles themselves. But wow. This thread is full of pseudo-science type reasoning. 
-Let’s be careful. We have science and the scientific methods to investigate things like this. It’s worked very well for us for a long time, let’s try to have som faith in it."</p>
+								<p class="story__comment_others">"Context:
+For those of you who still remember it, CubeWorld was a Minecraft-like RPG game that had a wildly popular Alpha, was eventually abandoned by its developer, was later revived, and was then universally vilified by the masses because the developers &#34;ruined&#34; the game.Veloren is the spiritual successor to CubeWorld, made by disappointed fans wanting something better."</p>
+							
+						
+							
+								<p class="story__comment_others">"Anybody looking for the actual source code, it’s here:https://gitlab.com/veloren/veloren"</p>
 							
 						
 						</a>
@@ -305,33 +324,33 @@ Let’s be careful. We have science and the scientific methods to investigate th
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://fosdem.org/2021/schedule">
+					<a href="https://complexityexplained.github.io/">
 						<picture>
-							<source srcset="default_26034851.webp" type="image/webp">
-							<source srcset="default_26034851.png" type="image/png">
-							<img src="default_26034851.png" alt="Preview of 'FOSDEM 2021'">
+							<source srcset="default_26045835.webp" type="image/webp">
+							<source srcset="default_26045835.png" type="image/png">
+							<img src="default_26045835.png" alt="Preview of 'Complexity Explained'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://fosdem.org/2021/schedule">FOSDEM 2021</a></h3>
+					<h3><a href="https://complexityexplained.github.io/">Complexity Explained</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26034851">
+						<a href="https://news.ycombinator.com/item?id=26045835">
 						
 							
-								<p class="story__comment_first line-clamp">"Even if not watching the talks (gotta admit, I&#39;m a bit tired of watching streams of talks by now...), I find just browsing through the schedule and seeing what communities I&#39;m not involved with are getting up to really interesting each year. Even if it&#39;s clearly just a subset of things it&#39;s a nice point to start search further."</p>
-							
-						
-							
-								<p class="story__comment_others">"Only thing that&#39;s missing is the cold rain, the food trucks, the collectibles, and the strong ale."</p>
+								<p class="story__comment_first line-clamp">"I got three slides in and the &#34;Swooshing!&#34; was driving me nuts. I&#39;m sure the content is fine, and the presentation is simply gorgeous.For me ... unusable.Edit: In the end, at the end, I found the PDF. It seems a little light on content, but I guess I&#39;m not the audience.  Not sure who the audience would be, though."</p>
 							
 						
 							
-								<p class="story__comment_others">"The amount of free edge-of-industry information out there is staggering, can&#39;t wait till I get to browse the collection and pick and choose talks to watch.You can find FOSDEM 2020 recordings on Youtube[0]. Despite my misgivings about Google, I certainly do use their product for this. Youtube is insanely good for teeing up technical talks to watch.[0]: https://www.youtube.com/watch?v=bagFAfFVruY&amp;list=PL_QKjHDgmN..."</p>
+								<p class="story__comment_others">"Oh, FFS.  Now it&#39;s been pointed out[0] that there are links and animations embedding in the page.  And there are!But their existence is beautifully hidden by the bloody annoying, horribly slow &#34;Swoosh! Swoosh&#34; of the animation.It&#39;s a perfect example of having potentially fantastic content, then making it really, really hard to notice.Urgh.[0] https://news.ycombinator.com/item?id=26048154"</p>
+							
+						
+							
+								<p class="story__comment_others">"I recently had the (possibly flawed) epiphany that all behavior is emergent. If you think about it, all things that we consider objects are just semi-permanent aggregations of fundamental particles that we recognize and label as objects for convenience of thought. When the patterns in such aggregations are outside the space and time scales that allow human minds to recognize them, the only label available is &#34;complex&#34;."</p>
 							
 						
 						</a>
@@ -343,33 +362,36 @@ Let’s be careful. We have science and the scientific methods to investigate th
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.reuters.com/article/ctech-us-parler-ceo-idCAKBN2A33B0-OCATC">
+					<a href="https://arstechnica.com/gadgets/2021/02/new-report-on-apples-vr-headset-8k-in-each-eye-potential-3000-price-tag/">
 						<picture>
-							<source srcset="default_26021191.webp" type="image/webp">
-							<source srcset="default_26021191.png" type="image/png">
-							<img src="default_26021191.png" alt="Preview of 'Parler CEO says he was fired by board'">
+							<source srcset="default_26030519.webp" type="image/webp">
+							<source srcset="default_26030519.png" type="image/png">
+							<img src="default_26030519.png" alt="Preview of 'New report on Apple’s VR headset: 8K in each eye, potential $3k price tag'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.reuters.com/article/ctech-us-parler-ceo-idCAKBN2A33B0-OCATC">Parler CEO says he was fired by board</a></h3>
+					<h3><a href="https://arstechnica.com/gadgets/2021/02/new-report-on-apples-vr-headset-8k-in-each-eye-potential-3000-price-tag/">New report on Apple’s VR headset: 8K in each eye, potential $3k price tag</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26021191">
+						<a href="https://news.ycombinator.com/item?id=26030519">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; We believe privacy is paramount and free speech essential, especially on social media.this, from their &#34;technical difficulties&#34; notice, should have been enough for him to be fired on its own.  requiring some users to provide government identification, building such weak security that anyone can read and archive private messages, and not stripping out damaging meta-data from media posts are three ways to not provide privacy.if this was truly their mission, then their platform was already doomed, and a full housecleaning of most of the leadership should probably be done, not just the CEO.I don&#39;t care what side of a political spectrum you come from, or whether you support the site&#39;s mission or what it became, these failures should be unacceptable in any company."</p>
-							
-						
-							
-								<p class="story__comment_others">"Odd dynamic there as unfortunately, standing on principle means getting martyred, and the quote from the former CEO of, “Over the past few months, I’ve met constant resistance to my product vision, my strong belief in free speech and my view of how the Parler site should be managed” is not CEO level strategic.His investors and board hired him to win, not to pick a principled hill to die on. Martyrs are cheap and nobody making investments can afford cheap things. The irony is Parler positioned itself as less radical than Gab, and it was that very position of bargaining with its platforms is what killed it. How can 4chan, Gab, and the even darker parts of the internet manage to persist online with hardly any money, but someone with Mercer level backing can&#39;t keep a site online? The lesson is an example of things we already know, which is that anyone who needs platform permission do to a disruptive startup is already dead.We absolutely need alternative platforms, and our societies need tools that can survive popular histrionics. Getting owned by some sanctimonious prick at Amazon is not pro level play."</p>
+								<p class="story__comment_first line-clamp">"Bear in mind that the iPad was rumored to cost &gt;$1000 but then launched at $499.On the other hand it might sense to launch this as a pro-workstation for the usual kinds of task: architects, designers and engineers being able to visualize and interact with models directly in space.If they can make that affordable and usable for pro designers at every level, (which $3500 clearly would be), they will have a hit.
+A consumer gaming device can come later."</p>
 							
 						
 							
-								<p class="story__comment_others">"Parler was poor quality because it was a product of extreme political grift. People who work in politics unfortunately don&#39;t understand the mindset of actually high quality products or services. What they&#39;re interested in is quick and loud splashes to attract a huge amount of attention, pull in a bunch of capital/resources, and then underdeliver in the extreme in the hopes that the attention of the crowd will move on and ignore the failures.This is of course a bipartisan trend, but as far as I can tell affects Republicans more.It was absurdly poorly run--literally on Wordpress with very little security and obviously no bug bounty program. They probably have never even heard of the concept of a bug bounty.All around disappointing. The next iteration, if it is to work at all, will require a complete mindset switch."</p>
+								<p class="story__comment_others">"I could see this as a virtual office, as some of the comments speculate.If I had a set of AR glasses that projected what appeared to be an 8K monitor on top of my dining room table, and integrated with my MacBook Pro for input / output, and that had batteries to last a workday, I’d pay $2K/$3K. Even more if it worked well at brightness levels I’d have in my backyard.Never mind gaming, mobile high-quality virtual office is good enough."</p>
+							
+						
+							
+								<p class="story__comment_others">"The #1 use of VR headsets is porn and porn apps are growing. Porn apps have some advantages over video apps because* a VR porn app is 6DOF, VR video is 3DOF
+* a VR porn character has more presence. Their eyes can follow you, they can turn to face you, they can reach to your face, hands.
+* You can interact at a VR character. You can&#39;t with a videoIn other words, either Apple is going to need to support porn apps on the the app store or they&#39;re going to need to allow 3rd party stores."</p>
 							
 						
 						</a>
@@ -381,33 +403,33 @@ Let’s be careful. We have science and the scientific methods to investigate th
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.washingtonpost.com/technology/2021/02/02/amazon-ftc-tip-settlement/">
+					<a href="https://christiantietze.de/posts/2021/01/hyperlegible-font/">
 						<picture>
-							<source srcset="default_26022159.webp" type="image/webp">
-							<source srcset="default_26022159.png" type="image/png">
-							<img src="default_26022159.png" alt="Preview of 'Amazon shortchanged drivers $61.7M in tips'">
+							<source srcset="default_26011945.webp" type="image/webp">
+							<source srcset="default_26011945.png" type="image/png">
+							<img src="default_26011945.png" alt="Preview of 'Atkinson Hyperlegible Font'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.washingtonpost.com/technology/2021/02/02/amazon-ftc-tip-settlement/">Amazon shortchanged drivers $61.7M in tips</a></h3>
+					<h3><a href="https://christiantietze.de/posts/2021/01/hyperlegible-font/">Atkinson Hyperlegible Font</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26022159">
+						<a href="https://news.ycombinator.com/item?id=26011945">
 						
 							
-								<p class="story__comment_first line-clamp">"Just do away with tips. It&#39;s a terrible and stupid system. If you want to do it as a customer, go ahead, but it should never be considered as part of the employee&#39;s compensation. If people aren&#39;t willing to do the job for the hourly wage alone with no tips, raise the wage until they are."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The FTC alleges Amazon changed the way it paid drivers in late 2016, lowering the hourly rate and then used customer tips to make up the difference. Amazon continued to tell drivers they were receiving all of their tips, even after receiving hundreds of complaints from drivers, the agency said.How is this not simply theft? Why does this attract civil charges and not criminal ones?"</p>
+								<p class="story__comment_first line-clamp">"There&#39;s a launcher called BaldPhone, which looks pretty big-shaped and high-contrast, and also open-source: https://baldphone.comPresumably there are Android phones with oldschool physical navigation buttons—at least there were back when the sky was bluer and the grass greener.Dunno how the launcher is on the configuration side. But in general I&#39;m sorta attracted to the idea of using it myself. There&#39;s the rawness and clarity akin to modernism."</p>
 							
 						
 							
-								<p class="story__comment_others">"Previous: https://news.ycombinator.com/item?id=26003836I appreciated samizdis’ comment, which I’ll just copy in full:FTC Commissioner Rohit Chopra has also put out a statement [1], titled Regarding the Deception of Delivery Drivers by Amazon.com Commission File No. 1923123Some extracts:&gt; In total, Amazon stole nearly one-third of drivers’ tips to pad its own bottom line. ...&gt; ... Amazon executives chose not to alter the practice, instead viewing drivers’ complaints as a “PR risk,” which they sought to contain through deception. ...&gt; Today’s order provides substantial redress to the families victimized by Amazon’s anticompetitive deception. However, this cannot be the only action we take to protect workers and families from dominant middlemen. ...&gt; I also agree with Acting Chairwoman Slaughter and Commissioner Phillips that preying on workers justifies punitive measures far beyond the restitution provided here, and I believe the FTC should act now to deploy dormant authorities to trigger civil penalties and other relief in cases like this one.[1] https://www.ftc.gov/system/files/documents/public_statements..."</p>
+								<p class="story__comment_others">"&gt; In the past, she memorized the number of presses on the “down” key that were required to scroll through her phone book to call someone.Some things are lost when everything is touch. I remember writing fast on T9 keyboards, and with time learning the order of suggestions it was trivial to text without even looking.There are also certain games that are hard to play on touch screens. I remember having a gameboy emulator on my old phone, using the number keys for some fast paced games. The same games are impossible to play on touch without feel for the buttons, a lot of misclicking."</p>
+							
+						
+							
+								<p class="story__comment_others">"Interesting that the slash in the slashed zero[1] goes from top left to bottom right, as I have always seen it go from top right to bottom left.I can only guess that this is to differentiate the slashed zero from the slashed O[2] used in Scandinavian.[1] https://en.wikipedia.org/wiki/Slashed_zero[2] https://en.wikipedia.org/wiki/%C3%98"</p>
 							
 						
 						</a>
