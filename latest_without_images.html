@@ -33,46 +33,30 @@
 	</div>
 
 	
-	<div class="day__date">07 February 2021</div>
+	<div class="day__date">08 February 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://matklad.github.io//2021/02/06/ARCHITECTURE.md.html">Architecture.md</a></h3>
+					<h3><a href="https://robotmoon.com/ssh-tunnels/">A visual guide to SSH tunnels</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26048784">
+						<a href="https://news.ycombinator.com/item?id=26053323">
 						
 							
-								<p class="story__comment_first line-clamp">"Ah, we actually have one of these at Caddy: https://caddyserver.com/docs/architecture(The filename on disk is literally &#34;architecture.md&#34; -- it is a Markdown file rendered by Caddy&#39;s template handler: https://github.com/caddyserver/website/blob/master/src/docs/...)It could use some improvement, but it&#39;s been really great for helping people learn how Caddy 2 works at a high level. Beyond our docs, I always encourage new contributors to thoroughly explore the godoc and code: it&#39;s very well-commented and organized, especially once you know how it all comes together. A single document will never be sufficient. But it can help you map between concepts and code.Code search is also invaluable for this; I recommend Sourcegraph: https://sourcegraph.com/github.com/caddyserver/caddyEdit: One other valuable piece is explaining why the architecture is the way it is. Our architecture.md doc links to a video that explains how I arrived at Caddy 2&#39;s architecture (and why it&#39;s not arbitrary): https://www.youtube.com/watch?v=EhJO8giOqQs"</p>
-							
-						
-							
-								<p class="story__comment_others">"I have a similar advice, but I will go one step further: add README.md to other folders as well. It is dope to have a map of your whole system in an Architecture.md (or a README if it&#39;s not too long), but it&#39;s even more dope to be able to click through it and have submaps of how other components are structured.Displaying the folder/file structure and explaining what is what is a must. An example from Diem[1]:  consensus
-  ├── src
-  │   ├── block_storage          # In-memory storage of blocks and related data structures
-  │   ├── consensusdb            # Database interaction to persist consensus data for safety and liveness
-  │   ├── liveness               # RoundState, proposer, and other liveness related code
-  │   └── test_utils             # Mock implementations that are used for testing only
-  └── consensus-types            # Consensus data types (i.e. quorum certificates)
-  └── safety-rules               # Safety (voting) rules
-
-
-I recently digged into dependabot&#39;s code, and I found it extremely well structured. For example you have an Architecture section in the first README[2] with a diagram (how awesome is that!) and with links to the README of all the sub components, which themselves live in the subfolders[3].What I dread the most is going through a new codebase and not seeing any documentation in internal packages. Like how the fuck am I supposed to understand anything in there? By reading all the code?[1]: https://github.com/diem/diem/tree/master/consensus#how-is-th...[2]: https://github.com/dependabot/dependabot-core#architecture[3]: https://github.com/dependabot/dependabot-core/blob/main/comm..."</p>
+								<p class="story__comment_first line-clamp">"Great write up!One thing to add is that you can even open tunnels during an interactive session without disconnection.To do this, type the escape command sequence ~C (will not show) and it will drop you to the control prompt. You can then add tunnels.     ssh&gt;
+     ssh&gt; -L 8000:localhost:9000 
+     Forwarding port."</p>
 							
 						
 							
-								<p class="story__comment_others">"I love architecture docs, but find they&#39;re often written using a funny process:  1. Spend a long time writing the doc.
-  2. Wait for a person to chance upon it.
-  3. Hope you anticipated their questions.
-
-It seems like the most important thing a person can do is reverse this:  1. Say who the doc is for.
-  2. Find that person. Ask them to try a lil contribution.
-  3. Frantically write / revise the doc.
-
-IMO it&#39;s a lot like creating a presentation. The earlier the feedback the better!"</p>
+								<p class="story__comment_others">"There&#39;s a really fancy new -R feature that I love (added in 2017 I think).ssh &lt;target&gt; -R &lt;just a port number&gt;This opens up a localhost port on the target that acts as a socks server which tunnels all your traffic through the source machine.This is great for machines that you can SSH into, but are otherwise completely isolated from the network, or are monitored heavily. You can jump on, and pull down everything you need from the existing SSH connection, rather than using the machine to make requests out to the internet directly.This is also good if the source machine is a web server or something on a secured network which can SSH out, but not much else, and the destination is your command and control server on the internet. Then it opens up a socks port on the C&amp;C machine that gives full access to the internal network, impersonating the source machine.Every other -R is a point to point TCP connection, but setting up a SOCKS proxy with -R is magic. More analogous to a reverse -D than a reverse -L. Super useful."</p>
+							
+						
+							
+								<p class="story__comment_others">"This[1] is probably the best, easiest and most (visually) effective way to learn about SSH tunnels.[1] : https://unix.stackexchange.com/a/118650/289353"</p>
 							
 						
 						</a>
@@ -85,22 +69,23 @@ IMO it&#39;s a lot like creating a presentation. The earlier the feedback the be
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://programmingforcats.com/">Programming for Cats</a></h3>
+					<h3><a href="https://www.propublica.org/article/inside-turbotax-20-year-fight-to-stop-americans-from-filing-their-taxes-for-free">TurboTax’s 20-Year Fight to Stop Americans from Filing Their Taxes for Free</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26047238">
+						<a href="https://news.ycombinator.com/item?id=26060414">
 						
 							
-								<p class="story__comment_first line-clamp">"Author here. Looking to get feedback from programmers before publishing. You can download a sample chapter at: https://programmingforcats.com/download/"</p>
-							
-						
-							
-								<p class="story__comment_others">"There&#39;s a POSIX utility named &#34;cat&#34; and cats already know what it does, but if a man wants to know, he just types the following words into the terminal and then presses &lt;Enter&gt;:man cat"</p>
+								<p class="story__comment_first line-clamp">"The leaked internal slides from Intuit are really disgusting [0][1].From the article:&gt; Internal presentations lay out company tactics for fighting “encroachment,” Intuit’s catchall term for any government initiative to make filing taxes easier — such as creating a free government filing system or pre-filling people’s returns with payroll or other data the IRS already has. “For a decade proposals have sought to create IRS tax software or a ReturnFree Tax System; All were stopped,” reads a confidential 2007 PowerPoint presentation from an Intuit board of directors meeting. The company’s 2014-15 plan included manufacturing “3rd-party grass roots” support. “Buy ads for op-eds/editorials/stories in African American and Latino media,” one internal PowerPoint slide states.I&#39;m always stunned and disappointed at how easy it is to game the American political system. I say that with great respect for this country and the freedoms it affords me, but those freedoms mean little if skullduggery like this goes on.[0]: https://www.documentcloud.org/documents/6483065-Intuit-board...[1]: https://www.documentcloud.org/documents/6483061-Intuit-Turbo..."</p>
 							
 						
 							
-								<p class="story__comment_others">"This sort of writing is a wonderful departure from the traditional and is underrepresented in programming books. There are a few other examples that I know of which could be considered similar, but don&#39;t focus as heavily on the illustrative approach show here. Some works for comparison would be; Land of Lisp, Realm of Racket, Clojure for the Brave and True, Learn you a Haskell for Great Good!, Learn you some Erlang for Great Good!, and Why&#39;s (Poignant) Guide to Ruby. There may be more I am not aware of. On the topic of cats programming there is also JavaScript for Cats, which is great too."</p>
+								<p class="story__comment_others">"It&#39;s little wonder that democracy is in a state of decline and that faith in our public institutions is at an all time low when government can be so easily corrupted by disingenuous carpetbaggers such as Intuit. It&#39;s not as if this corruption of process by Intuit is an isolated instance, the trouble is that it&#39;s commonplace.It seems to me that the first step in citizens reclaiming their democracy back and having our faith and integrity restored in our institutions is to take charge of the lobbying process and rescue it from corporate interests and other bad influences. I would go so far as to suggest all lobbying of politicians be done in public and that to bypass the system of public scrutiny be made a felony.This may sound like highfalutin idealism and overkill but after what we&#39;ve witnessed in Washington in recent weeks we 
+can no longer ignore the fact that trust in our governance is at an alltime low - and that as citizens we have a collective responsibility to ensure we fix the problem.We have to break the nexus of mistrust between the Citizenry and Government and desperate times call for desperate measures."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m not sure why it doesn&#39;t seem to be more well known, but CreditKarma has allowed free filing of taxes (incl. capital gains), and was recently acquired by Intuit. Last I read they were under investigation by the Department of Justice because of the implications they were eliminating a competitor.Comments: https://news.ycombinator.com/item?id=24038559I&#39;ve used it for the past 2 years, and it has worked great for me, albeit I don&#39;t have very complicated taxes. I&#39;m actually afraid of what happens if the acquisition goes through, definitely expecting the free tax filing to disappear soon after that occurs."</p>
 							
 						
 						</a>
@@ -113,22 +98,22 @@ IMO it&#39;s a lot like creating a presentation. The earlier the feedback the be
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://www.highqaguy.com/">I&#39;m the high QA guy. Let me test your website</a></h3>
+					<h3><a href="https://www.niemanlab.org/2021/02/thanks-to-the-internet-archive-the-history-of-american-newspapers-is-more-searchable-than-ever/">A stroll through the archives of Editor &amp; Publisher</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26042416">
+						<a href="https://news.ycombinator.com/item?id=26048737">
 						
 							
-								<p class="story__comment_first line-clamp">"I worked at Blizzard and there was a joke that we didn’t have drug testing because we would lose the design team and half the QA testers. In gaming QA getting high is kind of a prerequisite."</p>
-							
-						
-							
-								<p class="story__comment_others">"I’m a sober devops guy if you need help keeping your site up."</p>
+								<p class="story__comment_first line-clamp">"In case you&#39;re similarly misled by this headline as I was, this is about making the archive specifically of &#34;Editor &amp; Publisher&#34; available, not about some larger archive of the contents of American newspapers."</p>
 							
 						
 							
-								<p class="story__comment_others">"Related:&#34;The User is Drunk&#34; (2013) https://youtu.be/r2CbbBLVaPk&#34;The User is Drunk&#34;-as-a-Service (2015): https://theuserisdrunk.com/"</p>
+								<p class="story__comment_others">"I highly recommend this book: https://www.amazon.com/New-York-Times-Page-One/dp/1578660882It&#39;s a century&#39;s worth of NYTimes front pages. An amazing long term dataset that is fun to flip through to answer infinite questions you might have about both how the last 100 years really went down and also about the evolution of presenting information to readers."</p>
+							
+						
+							
+								<p class="story__comment_others">"I highly recommend everyone go back and read the headlines (and articles) from a year ago from multiple news sources frequently.  It gives great perspective on the narratives at the time with hindsight as to how those narratives changed and if the predictions made were substantiated."</p>
 							
 						
 						</a>
@@ -141,23 +126,22 @@ IMO it&#39;s a lot like creating a presentation. The earlier the feedback the be
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.reddit.com/r/assholedesign/comments/ldf9g9/nordvpn_disables_features_when_you_turn_off/">NordVPN disables features when you turn off auto-renew</a></h3>
+					<h3><a href="https://github.com/jonasstrehle/supercookie">Supercookie: Browser Fingerprinting via Favicon</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26046642">
+						<a href="https://news.ycombinator.com/item?id=26051370">
 						
 							
-								<p class="story__comment_first line-clamp">"Honestly, nothing holds up to Mullvad [1]. They don&#39;t even take an email address while creating accounts, and you can pay easily with Bitcoin or even with cash mailed to them.I&#39;m not affiliated, just a very happy customer.Mullvad is also who Mozilla trusts for the Mozilla VPN [2]. You can sign up with that if you&#39;d like Mozilla to get a cut.[1]: https://mullvad.net/
-[2]: https://vpn.mozilla.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"From the thread:&gt;The secret to not dealing with crapty company practices is to avoid ones that advertise literally everywhere 24/7 nonstop around every single corner you look.This is so true it nearly qualifies as physics."</p>
+								<p class="story__comment_first line-clamp">"This only applies to browsing where the user&#39;s cache is present, yes?At least in Firefox 85.0.1 Desktop and 85.1.1 Android (when I tested) clearing the cache also nukes the favicons as well.Also, I get different hashes when I test on demo.supercookie.me after clearing my cache on mobile, and also across Private windows on desktop.The statement &#34;[...] even in the browser&#39;s incognito mode and is not cleared by flushing the cache, closing the browser [...]&#34; is misleading, at least where Firefox[0] is concerned.[0] https://blog.mozilla.org/security/2021/01/26/supercookie-pro..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Why are these VPNs even a thing?The only reason i would use one is to get cheaper steam keys from brasil and for that i can get a free one.From a security standpoint it is awful because you increase the number of providers you have to trust.Apart from your ISP and the server you connect to, you got a third party involved for no reason.And VPNs can not that trustworhty as shown by the leaks of logs and what not.Maybe someone can enlighten me why these services exist and what usecase they have?"</p>
+								<p class="story__comment_others">"Link to discussion of the paper (55 comments): https://news.ycombinator.com/item?id=25868742"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a neat approach, but I&#39;m not sure I&#39;d expect it to be used in the wild. ~32 consecutive document redirects every time you want to fingerprint a browser would be slow: twelve (?) redirects on my (~fast) internet takes about ten seconds. On 3g, I could imagine this taking much longer.You&#39;d also likely need to do this at the (root) page level (i.e., it wouldn&#39;t work inside an iframe, since iframes don&#39;t have favicons), and it breaks the back button really hard. I&#39;m not sure I can think of a practical situation where this could actually be used for tracking. Maybe if it was done in a popup?"</p>
 							
 						
 						</a>
@@ -170,22 +154,22 @@ IMO it&#39;s a lot like creating a presentation. The earlier the feedback the be
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.spyder-ide.org/">Spyder – a free and open source scientific environment written in Python</a></h3>
+					<h3><a href="https://www.oregonlive.com/health/2021/02/he-died-in-portland-his-legacy-of-helping-the-deaf-communicate-with-the-world.html">Paul Taylor, the engineer who created the TTY machine for the deaf, has died</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26040234">
+						<a href="https://news.ycombinator.com/item?id=26043892">
 						
 							
-								<p class="story__comment_first line-clamp">"I like spyder a lot for the variable explorer, which makes it feel more like Matlab.  However the constant bothering about installing Kite got annoying. Unfortunately there isn&#39;t a way to use Kite and have it not constantly annoy you about upgrading to the enterprise edition. If Kite had a no ads plan for like ~ $10  a year it would make a lot more sense to integrate it in spyder."</p>
-							
-						
-							
-								<p class="story__comment_others">"It often causes a double-take for me when I see projects on HN with the same name as projects I once worked on.Way back in time, maybe around 1998, a friend an I worked on a steganography tool that we called Spyder. I don&#39;t remember where it was published or under what license (probably freeware), but the algorithm was incorporated into Hide4PGP (http://www.heinz-repp.onlinehome.de/Hide4PGP.htm), and we stopped work on it.This post just caused a bit of nostalgia. I can still remember my co-developer taking a break jamming on a bass guitar while we tried to figure out the striping problem (the solution was to compress the data to increase entropy first)."</p>
+								<p class="story__comment_first line-clamp">"Teletypes in Switzerland were ITU V.21 with three modifications:- 110 baud instead of 300 baud- not full duplex- carrier toneI experimented with a Java application and FFT to try to write a soft modem, so I still know the exact specification by heart. Bit 1 was 960 Hz, Bit 0 was 1160 Hz, the carrier tone 1060 Hz, and there were 2 stop bits. This means, the teletype could transmit 11 letters a second.The carrier tone is special: if someone stopped typing, the teletype switched to the carrier tone and kept it on for about 3 seconds then stopped.Being not full-duplex Deaf users used a convention so they know when they can type. The called party begins typing and ends with two stars, like this **. Then the caller knows he can type and also indicates the end with two stars. When a party is ready to hang up the phone he writes four stars.This is what my model (Telescrit) looked like: https://db1.rehadat.de/rehadat/bilder/TC058000/tc058773.jpg"</p>
 							
 						
 							
-								<p class="story__comment_others">"Can I get the following behavior from Spyder (last time I tried I couldn&#39;t find a way) - for some keyboard shortcut like Cmd/Ctrl + Enter:- the shortcut sends the selected code to the terminal (this is possible)- if I hit the shortcut when nothing is selected, the line where the cursor currently is gets sent to the terminal and the cursor moves to the next line of code- if the cursor is at the beginning of a block of code like an if-statement or a loop, the whole statement is sent to the terminal and the cursor moves to after the statementRStudio has this behaviour by default, I find it very convenient and I haven&#39;t been able to replicate it in other environments."</p>
+								<p class="story__comment_others">"Working in IT, the vast majority of engineers and IT adjacent people have little care or desire to learn about phone or communications systems. Especially nowadays when Teams and Zoom take care of your VoIP woes on the backend, and AWS or Azure are always doing something way cooler than a PBX can.I was lucky to work alongside an enterprise PBX architect and not only learn about phone systems, but come to appreciate the history of them as well. One of the more interesting things to me has always been the amount of accessibility that gets designed into phone systems. TTY, translation services, different languages, etc. It&#39;s something that always reminds me we&#39;re designing and dealing with a wide variety of humans that I don&#39;t get when designing a network."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; “He saw there were old World War II teletype machines not being used,” said his daughter. “Another deaf engineer in California had come up with the way to send signals over phone lines. My dad came up with the coupler component the teletype needed. He then pressed Western Union to provide the old machines to deaf people and Bell telephone to use them on their lines.”Another TDD pioneer, James Marsters, is described here:https://www.nytimes.com/2009/08/23/us/23marsters.html"</p>
 							
 						
 						</a>
@@ -198,22 +182,22 @@ IMO it&#39;s a lot like creating a presentation. The earlier the feedback the be
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.economist.com/science-and-technology/2021/02/06/daughters-provoke-parental-strife">Parents of daughters are more likely to divorce than those with sons</a></h3>
+					<h3><a href="https://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26047444">
+						<a href="https://news.ycombinator.com/item?id=26051386">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;ve seen many possible explanations mentioned. Most common seems to be that raising daughters is more stressful than raising sons (for various reasons) leading to more arguments etc. Most intriguing might be that sons conceived into tenuous marriages don&#39;t even make it out of the womb. I&#39;ll add one more: mother/daughter friction. I can&#39;t even count the number of families I&#39;ve seen in which a mother feels betrayed when her daughter doesn&#39;t follow her example in everything, and lets those feelings show. I&#39;ve seen the same with father/son, though less so perhaps because mothers tend to be more active parents. It would also be foolish to ignore the issue of daughters growing into their adult bodies and becoming sexually active right when many mothers are feeling insecure about their own attractiveness. We can argue about causes, but the effect is real.When mothers and daughters fight, it always puts fathers in a difficult position. A dad who consistently sides the mother might get credit for being a good co-parent (usually not) but be alienated from their own child. A dad who consistently sides with the daughter is likely to lose all contact with either due to divorce. All this, regardless of who&#39;s right or wrong between the two. Again, a bit of this happens when fathers and sons are in conflict, but it doesn&#39;t seem quite as severe and has different potential outcomes because of how &#34;family&#34; court works.That&#39;s just one possible factor, affecting some cases, but it seems worth mentioning along with all the others."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; parents of teenage daughters argue more about parenting than do the parents of sonsFrom my own experience. When my daughter hit 12 it was a fucking nightmare. The hormones hit girls hard and they can become incredibly difficult. That said, now she’s 13 things are much easier and look to be getting easier by the week. Although my wife and I both have to be very understanding and on the same team to deal with difficult behaviour — we have a lot of strategy meetings.Lacking empathy, and wanting independence without responsibility are part of being a teenager. But 12-year old girls can sometimes be super charged griefers.On the flip side, teenagers are actually awesome to hang out with and total joys full of creativity and fun — if you work through the refusal to clean their room, general lack of hygiene and the drama."</p>
+								<p class="story__comment_first line-clamp">"This book hadn’t been written yet when I was in undergrad.  But this year, I found it and worked through it.  Even with 20 years writing software professionally under my belt, the ways this book shifted my perceptions on topics I assumed I knew well was surprising!I also find it charming that the book is co-authored by a married couple."</p>
 							
 						
 							
-								<p class="story__comment_others">"Anecdotal, but I have three sons and four daughters. In my experience boys are harder when they are younger (wild, causing mayhem and physical destruction in their wake, solving problems using fighting, etc.) but in their teenage years prefer to hang out quietly in their rooms. Girls on the other hand tend to be calmer in their younger years, but then in their teenage years become argumentative, moody, causing lots of emotional and psychological strife. It takes until they are in their early 20s for things to calm down. Though by then the damage has already been done. In an ideal world I&#39;d like to raise girls when they are young and boys when they are older."</p>
+								<p class="story__comment_others">"I highly recommend this book. The chapters were &#34;bite sized&#34;. Compared with the dinosaur book, it was easier to finish one chapter after I started on it. The chapters on concurrency made me cry with &#34;so this is how XXX works&#34; a lot. I also found the references near the end of each chapter were full of gems.I self-taught CS, so not surprisingly there were lots of &#34;void&#34; and &#34;dots&#34; in my knowledge space. This book connected lots of dots together."</p>
+							
+						
+							
+								<p class="story__comment_others">"I had Remzi as a professor. He is one of the best educators I’ve encountered."</p>
 							
 						
 						</a>
@@ -226,23 +210,22 @@ IMO it&#39;s a lot like creating a presentation. The earlier the feedback the be
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://veloren.net/">Veloren – Open-source MMORPG written in Rust</a></h3>
+					<h3><a href="https://humanevents.com/2021/02/04/the-war-on-disinformation-is-a-war-on-dissent/">The war on disinformation is a war on dissent</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26037461">
+						<a href="https://news.ycombinator.com/item?id=26045088">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;ve been keeping an eye on this one, it&#39;s not quite there yet if you are looking for a game to play. However, it has a massive amount of potential, and I&#39;m looking forward to seeing where it goes from here.I&#39;ve also read the code looking for examples of how to do things in Rust, and found it quite pleasant."</p>
-							
-						
-							
-								<p class="story__comment_others">"Context:
-For those of you who still remember it, CubeWorld was a Minecraft-like RPG game that had a wildly popular Alpha, was eventually abandoned by its developer, was later revived, and was then universally vilified by the masses because the developers &#34;ruined&#34; the game.Veloren is the spiritual successor to CubeWorld, made by disappointed fans wanting something better."</p>
+								<p class="story__comment_first line-clamp">"I find it hilarious that so much disinformation went into this article itself. The mischaracterizations of Fauci and the reckless, the poor sources that themselves are spin machines, all highlight a lot of the issues: a spectrum of people hell bent on manufacturing distrust in various institutions for their own gains, now co-adopted as an identity by the GOP.We need to find a way to fundamentally change the incentives in media, change the public’s expectation of separating opinion versus news, and remove the cancer(s) of “think tanks” that only serve to undermine and destroy."</p>
 							
 						
 							
-								<p class="story__comment_others">"Anybody looking for the actual source code, it’s here:https://gitlab.com/veloren/veloren"</p>
+								<p class="story__comment_others">"As an (European) outsider: Manufacturing consent is a key feature of societies. If societies are not just an accidental aggregation, but do have some actual cohesion, a core body (canon) of shared believes and opinions is absolutely necessary. If a society fails to manufacture consent as a common point of reference in this core domain, we may even speak of a failed society.A certain amount of mis- and disinformation, manipulation, falsely raised expectations (e.g., if masks do not stop CV19 dead in the track, it&#39;s also not a viable tool of mitigation), etc, is to be expected. A certain amount of dissent is vital to a thriving society, as opposed to a slow descent into dogmatism. A certain amount of dysfunctionality is actually functional to societies. However, if we are losing a common point of reference and the discussion turns from an ever varying problem space towards questioning and problematizing consent per se, society itself is at stake, as partitioning and claims to rightful dominance by one side or the other are inevitable. Dealing with this is not a matter of free speech, even, if suppression of free speech may be empirically observed as an – mostly failed – attempt to address this. It&#39;s actually more connected to the question, what speaking freely actually means: Is it to enter into or to contribute to a discussion, or is it a means of claiming dominance? In other words, does the address include those who do not share the specific set of believes and points of reference of the speaker, or does it exclude and/or ignore them, by this turning into an hermetic or even radical argument, meant only to augment the position of the speaker? Is it still pervasive, or has this turned into a hegemonial discourse? If it&#39;s the latter, it&#39;s not about manufacturing consent anymore, but about establishing a new, biased one, probably by force."</p>
+							
+						
+							
+								<p class="story__comment_others">"While it is true that we should be having a discussion about what really constitutes disinformation in a way that treats the concept as more than just a political tactic, this article reads as though it is doing almost the same thing. The bit about disinformation functions like a subterfuge to really assert what seem like the author&#39;s political views: covid skepticism, russiagate, ... If there is anything worse than throwing around the term disinformation to summarily dismiss ideas one disagrees with, it is having a discussion about this practice to underhandedly characterize ones own ideas as being &#34;actually&#34; true; as though these ideas are merely examples of real &#34;fact-based&#34; discourse. It is frustrating to see someone broach an important topic, then author between the lines of the discussion more of the very same problem."</p>
 							
 						
 						</a>
@@ -255,22 +238,22 @@ For those of you who still remember it, CubeWorld was a Minecraft-like RPG game 
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://complexityexplained.github.io/">Complexity Explained</a></h3>
+					<h3><a href="https://www.cbc.ca/1.5902739">Solar-assisted fabrication of large-scale, patternable transparent wood</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26045835">
+						<a href="https://news.ycombinator.com/item?id=26051883">
 						
 							
-								<p class="story__comment_first line-clamp">"I got three slides in and the &#34;Swooshing!&#34; was driving me nuts. I&#39;m sure the content is fine, and the presentation is simply gorgeous.For me ... unusable.Edit: In the end, at the end, I found the PDF. It seems a little light on content, but I guess I&#39;m not the audience.  Not sure who the audience would be, though."</p>
-							
-						
-							
-								<p class="story__comment_others">"Oh, FFS.  Now it&#39;s been pointed out[0] that there are links and animations embedding in the page.  And there are!But their existence is beautifully hidden by the bloody annoying, horribly slow &#34;Swoosh! Swoosh&#34; of the animation.It&#39;s a perfect example of having potentially fantastic content, then making it really, really hard to notice.Urgh.[0] https://news.ycombinator.com/item?id=26048154"</p>
+								<p class="story__comment_first line-clamp">"Transparent Wood Composites [1] &#34;are novel wood materials which have up to 90% transparency and higher mechanical properties than wood itself&#34;. This latest paper Solar-assisted fabrication of large-scale, patternable transparent wood [2] describes a technique that brings this material one step closer to production scale:&gt; Here, we report a method to produce optically transparent wood by modifying the wood’s lignin structure using a solar-assisted chemical brushing approach. This method preserves most of the lignin to act as a binder, providing a robust wood scaffold for polymer infiltration while greatly reducing the chemical and energy consumption as well as processing time. The obtained transparent wood (~1 mm in thickness) demonstrates a high transmittance (&gt;90%), high haze (&gt;60%), and excellent light-guiding effect over visible wavelength. Furthermore, we can achieve diverse patterns directly on wood surfaces using this approach, which endows transparent wood with excellent patternability. Combining its efficient, patternable, and scalable production, this transparent wood is a promising candidate for applications in energy-efficient buildings.This same group has previously described A Clear, Strong, and Thermally Insulated Transparent Wood for Energy Efficient Windows [3].[1] https://en.wikipedia.org/wiki/Transparent_wood_composites[2] https://advances.sciencemag.org/content/7/5/eabd7342[3] https://onlinelibrary.wiley.com/doi/abs/10.1002/adfm.2019075..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I recently had the (possibly flawed) epiphany that all behavior is emergent. If you think about it, all things that we consider objects are just semi-permanent aggregations of fundamental particles that we recognize and label as objects for convenience of thought. When the patterns in such aggregations are outside the space and time scales that allow human minds to recognize them, the only label available is &#34;complex&#34;."</p>
+								<p class="story__comment_others">"I’m really disappointed with this narrative that natural fibres infused with chemicals are somehow still natural.“Bamboo fibre” bowls made with plastic for a recent trend: Not just not biodegradable as the name suggests, but also not recyclable.Like “vegan leather” (made from processed crude oil), these terms only seem to take us away from the products that we are actually looking for when something says “natural”."</p>
+							
+						
+							
+								<p class="story__comment_others">"Because it&#39;s hidden in one of the captions:The volume fraction of wood in the resulting product appears to be around 33%. So by volume it&#39;s two-thirds resin and one-third wood.I was hoping the wood fraction would be slightly higher to justify calling it &#34;transparent wood&#34;."</p>
 							
 						
 						</a>
@@ -283,25 +266,22 @@ For those of you who still remember it, CubeWorld was a Minecraft-like RPG game 
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://arstechnica.com/gadgets/2021/02/new-report-on-apples-vr-headset-8k-in-each-eye-potential-3000-price-tag/">New report on Apple’s VR headset: 8K in each eye, potential $3k price tag</a></h3>
+					<h3><a href="https://www.coindesk.com/ibm-blockchain-revenue-misses-job-cuts-sources">IBM has cut its blockchain team down to almost nothing – sources</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26030519">
+						<a href="https://news.ycombinator.com/item?id=26013535">
 						
 							
-								<p class="story__comment_first line-clamp">"Bear in mind that the iPad was rumored to cost &gt;$1000 but then launched at $499.On the other hand it might sense to launch this as a pro-workstation for the usual kinds of task: architects, designers and engineers being able to visualize and interact with models directly in space.If they can make that affordable and usable for pro designers at every level, (which $3500 clearly would be), they will have a hit.
-A consumer gaming device can come later."</p>
-							
-						
-							
-								<p class="story__comment_others">"I could see this as a virtual office, as some of the comments speculate.If I had a set of AR glasses that projected what appeared to be an 8K monitor on top of my dining room table, and integrated with my MacBook Pro for input / output, and that had batteries to last a workday, I’d pay $2K/$3K. Even more if it worked well at brightness levels I’d have in my backyard.Never mind gaming, mobile high-quality virtual office is good enough."</p>
+								<p class="story__comment_first line-clamp">"In my experience - I have done a lot of pre-sales for an IT service company - the use case for blockchain can usually be solved with classical, cheaper and simpler solutions by having a central trusted authority for storage (like a third-party service provider), and appending using digital signatures.For me personally, blockchain is a solution looking for a problem in most cases..."</p>
 							
 						
 							
-								<p class="story__comment_others">"The #1 use of VR headsets is porn and porn apps are growing. Porn apps have some advantages over video apps because* a VR porn app is 6DOF, VR video is 3DOF
-* a VR porn character has more presence. Their eyes can follow you, they can turn to face you, they can reach to your face, hands.
-* You can interact at a VR character. You can&#39;t with a videoIn other words, either Apple is going to need to support porn apps on the the app store or they&#39;re going to need to allow 3rd party stores."</p>
+								<p class="story__comment_others">"I have plenty of criticism of the blockchain hype, but IBM does this for all buzzwords regardless of how useful the underlying technology is. It is all marketing to get executives at large companies to cut large checks. Once those checks are cashed they drop everyone and move on to the next buzzword.The current buzzword is hybrid cloud. Which is awesome for IBM because most large companies already have some on-prem and cloud resources. So IBM inserts a bunch of people into existing processes and resources and claims credit for creating a hybrid cloud for their customers."</p>
+							
+						
+							
+								<p class="story__comment_others">"Is there an example of a blockchain implementation that is tried and true outside of cryptocurrency?  I remember seeing when large tech firms were jumping on the bandwagon and proposing things that blockchain could do.  Everyone was like &#34;so, that problem has already been solved for years with X, blockchain provides no advantages&#34;."</p>
 							
 						
 						</a>
@@ -314,22 +294,22 @@ A consumer gaming device can come later."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://christiantietze.de/posts/2021/01/hyperlegible-font/">Atkinson Hyperlegible Font</a></h3>
+					<h3><a href="https://hiringengineersbook.com/post/autonomy">Peter Naur&#39;s view of programming</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26011945">
+						<a href="https://news.ycombinator.com/item?id=26027448">
 						
 							
-								<p class="story__comment_first line-clamp">"There&#39;s a launcher called BaldPhone, which looks pretty big-shaped and high-contrast, and also open-source: https://baldphone.comPresumably there are Android phones with oldschool physical navigation buttons—at least there were back when the sky was bluer and the grass greener.Dunno how the launcher is on the configuration side. But in general I&#39;m sorta attracted to the idea of using it myself. There&#39;s the rawness and clarity akin to modernism."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; In the past, she memorized the number of presses on the “down” key that were required to scroll through her phone book to call someone.Some things are lost when everything is touch. I remember writing fast on T9 keyboards, and with time learning the order of suggestions it was trivial to text without even looking.There are also certain games that are hard to play on touch screens. I remember having a gameboy emulator on my old phone, using the number keys for some fast paced games. The same games are impossible to play on touch without feel for the buttons, a lot of misclicking."</p>
+								<p class="story__comment_first line-clamp">"The point about theory-building requiring (or at least being accelerated by) interpersonal communication / teaching rings very true.In the middle of last year, my team went through a major re-org, and I&#39;m now working with a whole bunch of new teammates. My project didn&#39;t get cancelled in the reorg; in fact, it&#39;s actually come to more prominence due to synergy in the projects we work on. Essentially my new teammates are working on applications which have 2-4 years of catching up to reach the same level of maturity as my existing work.It&#39;s taken me the better part of a year to communicate the whys, whats, and hows of the systems we&#39;ve built. I&#39;ve given multiple talks, explained in 1:1s, written docs, and it&#39;s just taken a really long time to get across these ideas. All-remote work has definitely made a big (negative) impact in the velocity that ideas can be communicated."</p>
 							
 						
 							
-								<p class="story__comment_others">"Interesting that the slash in the slashed zero[1] goes from top left to bottom right, as I have always seen it go from top right to bottom left.I can only guess that this is to differentiate the slashed zero from the slashed O[2] used in Scandinavian.[1] https://en.wikipedia.org/wiki/Slashed_zero[2] https://en.wikipedia.org/wiki/%C3%98"</p>
+								<p class="story__comment_others">"I am sometimes guilty of reading the comments before reading the article. I often find the reactions more concise, insightful, and valuable to me than the source material.That said:If you are reading this comment and haven’t read the article, go read the article instead.This is an inverse scenario: imho most of the comments here are interesting but have only marginal value building from the insight of the article."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Worthless&#34; is an exaggeration: any significant body of code running a critical business process would be missed---and expensive to recreate---if it were lost. But I think the article does make a good point about the value to others. Unless you have a dev team whose head is in that code, and a business team built around that software workflow, just having the code won&#39;t be of much value to you. The value of software is inextricably linked to the team that has shaped it. So while it isn&#39;t worthless, it is certainly of much lower value without that team."</p>
 							
 						
 						</a>
