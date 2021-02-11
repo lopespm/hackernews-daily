@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">10 February 2021</div>
+	<div class="day__date">11 February 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/jason_koebler/status/1359213426740895744">Cops are playing music while citizens are filming to trigger copyright filters</a></h3>
+					<h3><a href="https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610">Dependency Confusion: How I Hacked Into Apple, Microsoft and Other Companies</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26082303">
+						<a href="https://news.ycombinator.com/item?id=26087064">
 						
 							
-								<p class="story__comment_first line-clamp">"The real problem here is that there is no consequence for incorrect takedowns.  If content is taken down and then it turns out to be fair use, no one suffers a penalty.The DMCA and similar laws provide protection to the platform if they act quickly on takedown notices, but the law needs to be updated to provide penalties for the reporter for inappropriate takedowns.This would allow Google/Facebook/et al to change their tools from automatic takedown to reporting the violation to the copyright holder, and then it is up to the copyright holder to file a claim.  If perhaps the copyright holder makes too many erroneous claims, they lose their copyright altogether.Let the platforms be neutral, put the liability on the copyright violators and copyright holders equally, so both have a reason to act fairly."</p>
-							
-						
-							
-								<p class="story__comment_others">"So, the police in these instances are breaching copyright, specifically &#34;performance rights&#34;, which prohibit the public playing of music outside of a circle of family and friends, unless they have received permission from the copyright holders.I&#39;ll hold my breath while the individual police officers are pursued for these egregious copyright violations with as much vigour as those receiving take-down notices.https://www.bmi.com/faq/entry/what_is_a_public_performance_o..."</p>
+								<p class="story__comment_first line-clamp">"I see a lot of people saying things like &#34;this is why package signing is important&#34; and &#34;we need to know who the developers are&#34; and &#34;we need to audit everything.&#34; Some of that is true to some degree, but let me ask you this: why do we consider it acceptable that code you install through a package manager implicitly gets to do anything to your system that you can do? That seems silly! Surely we can do better than that?This article from Agoric is extremely relevant here, from a previous such incident (re: the event-stream package on npm): https://medium.com/agoric/pola-would-have-prevented-the-even...Put simply: in many cases, the dependencies you install don&#39;t need nearly as much authority as we give them right now. Maybe some of these packages need network access (I see a few named &#34;logger&#34; which might be shipping logs remotely) but do they need unrestricted filesystem access? Probably not! (They don&#39;t necessarily even need unrestricted network access either; what they&#39;re communicating with is likely pretty well-known.)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Just another of the myriad examples of how the DMCA is abused with no repercussions to the abusers at all.Remember when Youtube removed a video of someone in their garden with the rationale that the sounds of birds chirping infringed on some company&#39;s copyright [1]? And then they upheld the removal even following manual review, so the tired refrain that it was just an automated bot was not even applicable.[1] https://waxy.org/2012/03/youtube_bypasses_the_dmca/"</p>
+								<p class="story__comment_others">"This doesn&#39;t surprise me. Horrify.. yes.I&#39;ve noticed more dev teams succumbing to the temptation of easiness that many modern package managers provide (NPM, Cargo, Ivy, etc.) - especially as someone who has to work with offline systems on a regular basis.Because of that ease there are fewer tools and tutorials out there to support offline package management.  There are more for using caches, though these are often along the lines of either &#39;the package manager will do this for you and it just works (but in case it doesn&#39;t, delete node_modules or cargo clean and re-try)&#39;, or stand up a dependency server on your own machine with these proxy settings (which has it&#39;s own security issues and is frequently disallowed by IT cybersecurity policies).As an example, many blog articles I found a while back suggest using yumdownloader from the yum-utils package. This is unfortunately not reliable, as there are some packages that get skipped.I have found I need to script reading a list of dependencies from a file; then for each dependency: create a directory for it, use repotrack to download its RPM and it&#39;s transitive dependency RPMs in the dependency&#39;s directory; then the script aggregates all the RPMs into one directory, removes the OS installed RPMs, uses createrepo to turn that directory into a RPM repository, and then makes an USF ISO image out of the directory for transfer onto offline system and installation."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m surprised the reverse fully-qualified domain name (FQDN) model used by Java isn&#39;t more widely adopted. If you want to upload artifacts to the main repository (Maven Central) you first need to show ownership of a particular domain. For example, via a DNS TXT record (example [1]). Would make these kind of attacks a lot more difficult.[1] https://issues.sonatype.org/browse/OSSRH-61509"</p>
 							
 						
 						</a>
@@ -67,22 +67,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://eng.lyft.com/how-lyft-discovered-openstreetmap-is-the-freshest-map-for-rideshare-a7a41bf92ec">OpenStreetMap proven to be a highly accurate map in top US cities</a></h3>
+					<h3><a href="https://cbeci.org/cbeci/comparisons">Cambridge Bitcoin Electricity Consumption Index</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26082428">
+						<a href="https://news.ycombinator.com/item?id=26088455">
 						
 							
-								<p class="story__comment_first line-clamp">"Good that OSM is accurate in cities as well, because in hiking, skiing, or even some ferry routes, OSM simply wins because that&#39;s often the only mapping provider to even have _any_ data. Some of my first hand experiences:- French GR-20 routes. Google maps are laughably empty, while OSM has you covered with almost the same information as the hiking maps you can buy on the trail.- Anapurna - similar to GR-20 situation. This route gets changed often due to landslides, but there is always some person doing a great job updating information not too late after.- Volcanoes - OSM maps often contain camping grounds, water sources, etc. This is something I actively contribute too. The level of detail is amazing. Some guides in fact lose potential clients because of this.OSM is a wonderful feat by all its contributors, and isn&#39;t appreciated as much as it deserves."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t know which mapping options Lyft/Uber/etc use, but in my neighborhood, Google Maps has given street names to the allies behind people&#39;s houses. You can tell the drivers that have a clue, and will realize they should not turn down an alley. Drivers that are less cognizant of how the world works, follow the instructions dutifully, and waste time trying to figure out why everyone is confused."</p>
+								<p class="story__comment_first line-clamp">"Nic Carter&#39;s rebuttal to a Bloomberg comparison between Bitcoin/Visa, including assessments of total and per/transaction energy usage:&#34;First of all, Bitcoin and Visa are fundamentally different systems. Bitcoin is a complete, self-contained monetary settlement system; Visa transactions are non-final credit transactions that rely on external underlying settlement rails. Visa relies on ACH, Fedwire, SWIFT, the global correspondent banking system, the Federal Reserve and, of course, the military and diplomatic strength of the U.S. government to ensure all of the above are working smoothly.Any energy comparison must take the above into account – including the externalities from the extraction of oil, which implicitly backs the dollar. As those who make this comparison inevitably fail to mention, the dollar’s ubiquity is partly due to a covert arrangement whereby the U.S. provides military support to countries like Saudi Arabia that agree to sell oil exclusively for dollars. It’s worth noting that the grossly oversized U.S. military, whose presence worldwide is necessary to backstop the international dollar system, is the largest single consumer of oil worldwide.&#34;https://www.coindesk.com/what-bloomberg-gets-wrong-about-bit..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve been looking to replace Google Maps with OSM on my smartphone.  OSM itself is great, but I&#39;ve been having a harder time finding a good app to use it with.  Is anyone familiar with a good option?  I mostly use a maps app for location searches and real-time GPS navigation, but offline maps and location sharing are nice-to-have features.I&#39;ve been using OsmAnd and it&#39;s okay.  The interface is pretty good.  It supports offline maps, but not location sharing.  Map tiles are kind of slow to load compared to Google Maps, which is odd since the tiles have to be downloaded to local storage.  The location search often includes redundant results and whatever database they use to store place data is sparse on details like pictures, hours, or reviews.  I&#39;ll keep using it to stay de-platformed from Google as much as possible, but I&#39;d be willing to pay a bit for something more responsive and polished."</p>
+								<p class="story__comment_others">"At that rate and assuming 4tx per second a single Bitcoin transaction consumes 165kWh. A Tesla battery is bit over 50kWh. So let&#39;s round that to 3 full charges of Tesla battery.That&#39;s 350km/220 miles of range per charge. In total 1050km or 660 miles of driving.So basically if you want to transfer money and the recipient is closer than 660 miles from you it&#39;s more efficient to just get a bunch of bills, drive there with a Tesla rather than send a Bitcoin transaction. Or alternatively 330 miles roundtrip. For each single transaction.It is hilariously inefficient system. It is literally better to drive a full car and give things physically than use Bitcoin.A small addenum: Visa apparently uses 146kWh for 100000 transactions. Coming at 1.46wH per transaction. That can drive a Tesla for 9 meters (0.4 seconds of driving at 80km/h) or alternatively keep a nice led lamp lit for an hour. And that includes everything the company does, not just the actual transaction but the upkeep of their offices etc divided by the amount of transactions they perform per year.EDIT:Apparently on 2020 it was 741kWh per transaction in practice and/or I made a tiny error in my calculation. Either way it&#39;s even better!https://www.statista.com/statistics/881541/bitcoin-energy-co...That simply increases the ranges so that it becomes a 3600 mile trip. Or 1800 mile roundtrip."</p>
+							
+						
+							
+								<p class="story__comment_others">"From what I understand bitcoin currently has a $20+ transaction fee with a transaction time takes 60 minutes+With these issues in addition to the high power consumption, how will Bitcoin become a usable currency?"</p>
 							
 						
 						</a>
@@ -95,23 +95,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://jeffe.cs.illinois.edu/teaching/algorithms/">Algorithms by Jeff Erickson</a></h3>
+					<h3><a href="https://cs193p.sites.stanford.edu/">CS193p: Developing Apps for iOS</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26074289">
+						<a href="https://news.ycombinator.com/item?id=26091085">
 						
 							
-								<p class="story__comment_first line-clamp">"Not proving solutions to textbooks seems to be a common theme in mathematics and theoretical computer science. It makes it difficult for those outside of the traditional classroom to learn the material. Instead textbook writers seem to have this adversarial approach against readers, thinking they’ll “cheat themselves” if they look up solutions or attempt to verify their work. Experts make mistakes, beginners would presumably make even more mistakes. Without a feedback mechanism beginners can’t truly know whether their logic is impeccable or if they have a subtle error that they themselves cannot detect. They could easily fool themselves that they have correct understanding.Due to that I will not recommend this current book to any colleagues.If you want an example of a fellow hacker news member that did things right, check out 
-http://joshua.smcvt.edu/linearalgebra/He provides solutions and lecture videos... this is truly a democratization approach to learning and a model that other academics should follow."</p>
-							
-						
-							
-								<p class="story__comment_others">"From https://jeffe.cs.illinois.edu/teaching/algorithms/hwex.html#...&gt;Please do not ask me for solutions. With very rare exceptions, I will say no, even if you are an instructor. I recognize that my stance limits the utility of these materials, especially for self-learners, but I&#39;m trying to optimize the learning experience of my own students at Illinois. The point of homework is not to solve that particular homework problem, but to practice solving a type of problem and get honest feedback on your progress. I&#39;ve found that when solutions are available, my own students are much more likely to rely on them, rather than trying to figure out the problems themselves, which means they get both less practice and less honest feedback, which means they do worse on exams and in the course overall.Interesting. I was asked multiple times for solutions to my self-pub ebooks that I relented. I didn&#39;t add them initially as I wanted readers to solve by themselves or ask for help if needed (and I did get a few mails, saw one of them asked on stackoverflow as well).See also https://github.com/tayllan/awesome-algorithms for more learning resources, practice problems, visualizations, etc."</p>
+								<p class="story__comment_first line-clamp">"Since this is posted here I&#39;ll ask a question that has been bugging me for the last year: Who does the captions on these YouTube videos? Is it automated? I ask because every CS193p video starts with the same opening scene/music and the caption describing the music is different on every single one. Is this an auto-caption algorithm just getting it wrong? Or is there a person having fun behind the scenes waiting for someone like me to notice and spend an irrational amount of time wondering what happened? I feel like it has to be a person, right? YouTube&#39;s captioning wouldn&#39;t give 12 different results.Edit- For anyone curious, here&#39;s how the music is described in the captions at the beginning of each lecture:1. regal music2. mellow ambient music3. light music4. gentle music5. air whooshing6. gentle music (turns out there is one repeat)7. peaceful music8. [no description]9. ethereal music10. celestial music11. serene music12. dramatic music"</p>
 							
 						
 							
-								<p class="story__comment_others">"Good ‘ole CS 373, had Erickson back in 2002 and it’s def. a defining course in CS at UIUC.The answers to a lot of these are now google-able; you’ll learn more by researching than being spoon fed the solution!Imagine those of us students back then when google wasn’t a verb yet trying to solve these problems!"</p>
+								<p class="story__comment_others">"Is it weird that a /university/ is offering this course on how to work with a specific commercial product? Shouldn&#39;t this be the domain of Apple itself or a company that specialises in training?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Haven&#39;t there been free iphone dev courses from stanford for free for over a decade? I recall iTunesU hosting them, and perhaps Coursera/EdX, and their own website etc.Which is great, of course, but is this different?"</p>
 							
 						
 						</a>
@@ -124,22 +123,22 @@ http://joshua.smcvt.edu/linearalgebra/He provides solutions and lecture videos..
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://viewer.legacysurvey.org/#IC%203206">New 10 Terapixel Image of the Night Sky Contains 1B Galaxies</a></h3>
+					<h3><a href="https://travelhead.medium.com/competitor-reported-our-no-buckle-belts-as-containing-a-dea-controlled-substance-and-got-us-e6df903172a3">Amazon competitor got our belt listing taken down by saying it contains drugs</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26067326">
+						<a href="https://news.ycombinator.com/item?id=26086086">
 						
 							
-								<p class="story__comment_first line-clamp">"Counting the number of galaxies in these image datasets is actually a highly non-trivial, supercomputer-scale problem. I worked on this a few years back! Paper link for those interested: https://arxiv.org/pdf/1801.10277.pdf"</p>
-							
-						
-							
-								<p class="story__comment_others">"I mentioned this elsewhere, but...Pick a region at random. Zoom in, scroll a little, zoom in, scroll a little, repeat until you find a galaxy. There. You&#39;re likely the only human who has ever seen it and all the wonders it may contain. It&#39;s yours to hold. That&#39;s your little galaxy."</p>
+								<p class="story__comment_first line-clamp">"Similar thing happened to me. I built an online Japanese - English dictionary and used AdSense to monetize it. One day I got an email saying that my domain has been permabanned because my website appears to be promoting rape and pedophilia. As an example of one of the many offending pages on my domain they sent me urls to the definition and translation of words &#34;pedophilia&#34; and &#34;rape&#34; in Japanese.Of course none of my competitors using the exact same data set had any such problems.I tried for YEARS to appeal it. There are simply no humans working at Google and nobody reads your emails.Edit: Actually, I did get a response a couple times but it was obviously automated. They just said to remove the ads from the pages where such words are displayed. So I added a simple rule and a column in the database to hide ads for those keywords. That just triggered the bot to move down the list of their &#34;obscene&#34; language. Next it was the names of various sexual positions, acts and fetishes (Japanese does have a very rich vocabulary in that topic), then manga slang, even silly sounding onomatopoeias that when explained in plain English are &#34;vulgar&#34;, etc.. It seems once your website is flagged there is simply no way get clean."</p>
 							
 						
 							
-								<p class="story__comment_others">"The size of this image is comparable to Google Maps.Go to Google maps and zoom out as much as possible. The bottom right hand corner should display a line measuring 1000 miles. Then zoom in so that the line measures 1 mile.This is the same as zooming out on this map so to 30 degrees, then zooming in to 100 arcsec.Google maps can zoom in a bit more to 20ft, but it&#39;s still impressive."</p>
+								<p class="story__comment_others">"I think what we&#39;re learning from many debacles on YouTube, Amazon, and Google is this:Algorithms are not even close to substituting for human customer service, human moderation, and human judgment.Maybe this means web-scale sites like Amazon&#39;s marketplace aren&#39;t viable. I&#39;m fine with that implication. Stores like Target and Walmart seem to have the same prices with human-curated inventories, and I don&#39;t really miss the millions of extra products Amazon has."</p>
+							
+						
+							
+								<p class="story__comment_others">"Nowadays when I want to buy anything on Amazon it takes so much effort to go through which listing is the Sponsored/ad-based listing vs organic in search. Once that hurdle is crossed, it comes to going through the reviews to see which reviews can be trusted and which can not be. And even after that hurdle, once I place order, I am not sure the item I received is counterfeit or genuine. Too much work and definitely not customer-focused experience!I guess going to Target is much easier to get the necessary shopping done."</p>
 							
 						
 						</a>
@@ -152,22 +151,22 @@ http://joshua.smcvt.edu/linearalgebra/He provides solutions and lecture videos..
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/conwnet/github1s">Github1s – One second to read GitHub code with VS Code</a></h3>
+					<h3><a href="https://www.anandtech.com/show/16483/samsung-in-the-usa-a-17-billion-usd-fab-by-late-2023">Samsung Foundry: New $17B Fab in the USA by Late 2023</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26083919">
+						<a href="https://news.ycombinator.com/item?id=26094524">
 						
 							
-								<p class="story__comment_first line-clamp">"There are software projects that get posted once in a while on HN that are on a completely different level of quality, whether it&#39;s product, UX, or tech. This is one of those posts."</p>
-							
-						
-							
-								<p class="story__comment_others">"Feature request: make CMD+P support searching files in the repository. Currently, it shows &#34;No matching results&#34;.To implement this quickly client-side, one easy way would be to use jsdelivr&#39;s data api. For example, to get the directory tree for Ruby on Rails:https://data.jsdelivr.com/v1/package/gh/rails/rails@06e8d5c2..."</p>
+								<p class="story__comment_first line-clamp">"I see a lot of people in this thread who don&#39;t really know much about Samsung&#39;s semiconductor presence in the USA. This expansion has been in the works for years. Samsung has a 100k wafer per month fab in austin texas. They are negotiating for tax abatements for expansion and using alternative sites as leverage.They are not building a new fab they are expanding their S2 fab in austin texas. There was a permit application that was released a few years back that shows the true scale of their expansion plans.https://www.swf.usace.army.mil/Portals/47/docs/regulatory/pu...If this goes through it could made Samsung&#39;s S2 fab larger than even TSMC&#39;s monster gigafabs."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is brilliant.CodeSandbox also has this. For example, you can import this project in CodeSandbox using link https://githubbox.com/conwnet/github1s (adding box between github and .com)https://codesandbox.io/docs/importing"</p>
+								<p class="story__comment_others">"&gt; New $17B Fab in the USA by Late 2023Impossible.Leads times on fab hardware are on all time high.Not to say that construction, and setup itself would be extremely challenging in such timeframe.And not saying that US has no supply chain locally for modern fabs. Intel famously flies a lot of its consumables from abroad.Samsung will have similarly to transport its consumables by air if they go with this plan."</p>
+							
+						
+							
+								<p class="story__comment_others">"Really happy to see this. It&#39;s really frightening how dependent we are on other countries to manufacture our chips. I hope that more American chip companies choose to build fabs here as well, though I recognize how expensive that would be...Also... is every single tech company investing heavily in Austin? It sure feels like it!"</p>
 							
 						
 						</a>
@@ -180,31 +179,22 @@ http://joshua.smcvt.edu/linearalgebra/He provides solutions and lecture videos..
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://lwn.net/Articles/845480/">Pattern matching accepted for Python</a></h3>
+					<h3><a href="https://www.bbc.co.uk/news/technology-56010156">Viral &#39;I&#39;m not a cat&#39; filter is decades-old software</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26080760">
+						<a href="https://news.ycombinator.com/item?id=26093070">
 						
 							
-								<p class="story__comment_first line-clamp">"[Expanding my comment from another post on this¹]Direct links to the PEPs themselves, to perhaps save others a little time.  Although the LWN write up linked in TFA is a very nice introduction to the topic and its big discussion in the community.Accepted:Specification https://www.python.org/dev/peps/pep-0634/Motivation and Rationale https://www.python.org/dev/peps/pep-0635/Tutorial https://www.python.org/dev/peps/pep-0636/Rejected:Unused variable syntax https://www.python.org/dev/peps/pep-0640/Explicit Pattern Syntax for Structural Pattern Matching https://www.python.org/dev/peps/pep-0642/¹ https://news.ycombinator.com/item?id=26073700"</p>
-							
-						
-							
-								<p class="story__comment_others">"Core dev Larry Hastings [0] puts it well. The cost-benefit case for this complicated language feature is limited.&#34;I dislike the syntax and semantics expressed in PEP 634. I see the match statement as a DSL contrived to look like Python, and to be used inside of Python, but with very different semantics. When you enter a PEP 634 match statement, the rules of the language change completely, and code that looks like existing Python code does something surprisingly very different. It also adds unprecedented new rules to Python, e.g. you can replace one expression with another in the exact same spot in your code, and if one has dots and the other doesn’t, the semantics of what the statement expresses changes completely. And it changes to yet a third set of semantics if you replace the expression with a single _.I think the bar for adding new syntax to Python at this point in its life should be set very high. The language is already conceptually pretty large, and every new feature means new concepts one must learn if one is to read an arbitrary blob of someone else’s Python code. The bigger the new syntax, the higher the bar should become, and so the bigger payoff the new syntax has to provide. To me, pattern matching doesn’t seem like it’s anywhere near big enough a win to be worth its enormous new conceptual load.&#34;This while we have elephants in the room such as packaging. Researching best practices to move away from setup.py right now takes you down a rabbit hole of (excellent) blog posts, and yet you still need a setup.py shim to use editable installs, because the new model simply doesn&#39;t yet support this fundamental feature.I can&#39;t afford to spend days immersing myself in packaging to the point of writing a PEP, but would help pay someone to do it well. I can see no way to fund packaging efforts directly on the PSF donations page (edit: see comment). It&#39;s great to see Pip improving but there is still not even a coherent guide that I can find for packaging using up-to-date best practices. This appears to be because the best practices are currently slightly broken.[0] https://discuss.python.org/t/gauging-sentiment-on-pattern-ma..."</p>
+								<p class="story__comment_first line-clamp">"This makes more sense to me, I was wondering how that would have gotten set by a clueless user.The answer turns out to be that old dell machines shipped some shitty avatar software (along with lots of other stuff) that defaulted to on. The lawyer is probably using an ancient dell computer with this software and hasn&#39;t used video chat on it before this.This is extra hostile, because it&#39;s separate from whatever video chat application they were using - so it would have been harder to know about and turn off.As an aside, Microsoft fought in court to force OEMs to not install this crap alongside Windows (reasonably since it was damaging their brand and making the machines less secure), but they lost. Another reason why the macOS model is better for users. OS companies should make their own hardware."</p>
 							
 						
 							
-								<p class="story__comment_others">"IMO the match statement has some very unintuitive behaviour:    match status:
-        case 404:
-            return &#34;Not found&#34;
-
-    not_found = 404
-    match status:
-        case not_found:
-            return &#34;Not found&#34;
-
-The first checks for equality (`status == 404`) and the second performs an assignment (`not_found = status`)."</p>
+								<p class="story__comment_others">"Tangentially, the cat laywer is a piece of shit:https://reason.com/2021/02/10/zoom-cat-lawyer-rod-ponton-use..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Using filters like this reminds me of the discussion in Infinite Jest, where people used masks and tiny dioramas to present a more attractive appearance over video calls before eventually abandoning it all and going back to audio-only.Personally, I keep my webcam off at all times. Constantly mugging for the camera to show that I&#39;m following along gets old."</p>
 							
 						
 						</a>
@@ -217,22 +207,22 @@ The first checks for equality (`status == 404`) and the second performs an assig
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://greenwald.substack.com/p/the-journalistic-tattletale-and-censorship">NYT reporter falsely accuses tech investor of using a slur</a></h3>
+					<h3><a href="https://blog.mozilla.org/blog/2021/02/08/mozilla-welcomes-the-rust-foundation/">Mozilla Welcomes the Rust Foundation</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26056851">
+						<a href="https://news.ycombinator.com/item?id=26088133">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt;the Times’ tech team quickly donned their hall-monitor goggles and Stasi notebooks to warn that the Bad People had migrated to Signal and Telegram. This week they asked: “Are Private Messaging Apps the Next Misinformation Hot Spot?” One reporter “confess[ed] that I am worried about Telegram. Other than private messaging, people love to use Telegram for group chats — up to 200,000 people can meet inside a Telegram chat room. That seems problematic.”I&#39;m already hearing this in local debates. It seems to seriously scare some folks that there are places where they cannot deplatform whoever they want for anything.(PS: Open groups and channels are not encrypted on Telegram servers and can be reported. It is just that Telegram doesn&#39;t have a history of letting other abuse it.)Edit: I&#39;ve been planning to subscribe for a while. I do now.Do it if $5 is pocket money for you. If not for this then for something else he have done.Good journalism is extremely important but much of what we see today is a mix of extreme bias, outright lies and outrage manufacturing."</p>
-							
-						
-							
-								<p class="story__comment_others">"Some thoughts on the bigger picture-1: Really?  Do you have to write &#34;r-word&#34; instead of &#34;retard&#34; when you&#39;re writing about someone saying something?  What if Marc literally said &#34;r-word&#34; and I&#39;m vastly underestimating how woke this reporter is?  Wait, I have a solution. Use the actual word that a person said when quoting them.  Just write the exact sentence where you think Marc said the word retard.  Nobody should prosecute you for quoting someone without endorsing their opinion.  Obfuscating your reporting to avoid a word is bad writing style.1.5: Otherwise, the above seems to limit us to 26 taboo slurs in the English language.  A-word, b-word, c-word, ... There are other rude words, but there can only be a single r-word so bad that I mustn&#39;t spell it.  To prevent confusion, I have to completely spell/say the rest of the r-words.  What I&#39;m getting at is whole thing of not saying a word is silly.  Everyone knows that the c-word means cunt (at least in the USA).  If this wasn&#39;t common knowledge then you couldn&#39;t say c-word and have everyone know what you meant.  (Who decided that cunt was a worse word than chink anyway?  That&#39;s marginalizing Chinese people and totally not-woke. /s)2.  There are people that exaggerate and sensationalize something to get more views.  Some people are even fine trying to ruin someone&#39;s reputation.  But we are getting wise to these sorts of things.  If it&#39;s an isolated event these things kind of go away.  Even if Marc is on record once saying &#34;retard&#34; he&#39;s probably not a bad guy. Just from growing up in the 90&#39;s I&#39;ve easily said it a thousand times.  If I start to hear several other instances accusing Marc of using a slur and saying it in a hurtful manner then I&#39;ll revisit the issue."</p>
+								<p class="story__comment_first line-clamp">"main discussion re Rust Foundation: https://news.ycombinator.com/item?id=26067118"</p>
 							
 						
 							
-								<p class="story__comment_others">"He&#39;s right. When I started writing in the 90&#39;s, there was an idea of journalism as telling stories in the principled defence of minority interests and as a public check on institutional power, but it has mutated into the unhinged and corrupt prosecution of deviance from official narrative lines. Social media is just a way for neighbours to denounce one another in a new snitch culture that rivals any 20th century system. I&#39;m usually a couple of years ahead of the curve on trends, and I even dropped Slack last year because it&#39;s not a place for real discourse."</p>
+								<p class="story__comment_others">"&gt; Mozilla used Rust to build Stylo, the CSS engine in Firefox (replacing approximately 160,000 lines of C++ with 85,000 lines of Rust).I would have loved to see two competing teams rewrite it, one in C++ and the other in Rust.Saying that the rewrite is better does nothing to say WHY it&#39;s better. Refactored code is almost always radically better, even when it&#39;s in the same language, for reasons that might be insulting to explain on HN.Point is, this is not an apples-to-apples comparison.(I&#39;m not arguing Rust isn&#39;t better. Nor that cutting your code base nearly in half isn&#39;t impressive. Simply that this single metric on their part seems like weak sauce.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve never seen the original introduction of Rust from Graydon Hoare before seeing the link in this post: http://venge.net/graydon/talks/intro-talk-2.pdfThe original vision for Rust sounds a lot like a typed Erlang without the BEAM."</p>
 							
 						
 						</a>
@@ -245,22 +235,22 @@ The first checks for equality (`status == 404`) and the second performs an assig
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.askonomm.com/blog/i-dont-want-to-do-frontend-anymore">I don&#39;t want to do front-end anymore</a></h3>
+					<h3><a href="https://blog.wesleyac.com/posts/timezone-bullshit">Timezone Bullshit</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26071906">
+						<a href="https://news.ycombinator.com/item?id=26087502">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; The complicated web was here. [...]&gt; I&#39;ve given in my resignation at my current place of employment and will be seeking an exclusively back-end role for my next adventureOh boy. I sympathise entirely with this post, but the story&#39;s exactly the same on the backend.Kubernetes. Docker. AWS and its gazillion impenetrable product names. The days of security updates, pentests, honeypots and captchas you have to go through in order to put up a webapp that won&#39;t be commandeered by (insert bad guy here) within hours. The endless cycle of breakage on your server because LetsEncrypt or whoever have upgraded their crypto libraries to fight against (insert bad guy here).The need for a lawyer to write you a privacy policy before you can let people log into your site. The endless bullshit of dealing with &#34;Log in with Facebook/Google/Apple&#34; because that&#39;s what people expect these days. And even then it&#39;s better than dealing with email verification because Gmail/Hotmail will kill your emails anyway.The complicated web is everywhere. Retreating to the backend is no escape. Sorry."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s disheartening to explain this over and over again, but these frameworks are a-ok because user&#39;s expectations for the web have grown astronomically. The complicated web is here because users insist on interaction, and if any web page has more than around 10 interactions on it, the resultant complexity is best handled by a framework. I recently got to do a jQuery job for a client-- it wasn&#39;t a pleasant blast from the past but a kludgey swamp to slog through.The build pipeline complaint also strikes me as hollow. Create React App outputs folder you can drag and drop onto a  server and serve, same for Angular and I would assume Vue. Yes, it is a lot of JS from a ton of NPM libraries, but that&#39;s the trade-off when you get an entire ecosystem of code for free. If your application is security critical then consider either writing your own libraries or hosting security vetted copies of the libraries.The real reason to leave this industry is that it&#39;s all the same work at the end of the day. Despite what application you build, whether it&#39;s a social network, a security application or collaborative tool like Figma or Trello, it all runs together as a mish-mash of views, data and DOM elements. Unless you&#39;re really invested in the product, it becomes hard to maintain enthusiasm. You can only roll a CSS library, or auth scheme or API library so many times before you&#39;re ready to start some new adventures in coding."</p>
+								<p class="story__comment_first line-clamp">"Another reason not to use EST/EDT is that they are overspecifying the time zone in most cases. If you ask for output in EDT, but the date is in December (which is not part of daylight savings time) then should the date output be UTC-4 or UTC-5?  Technically you asked for EDT.Using EST as a shortcut isn’t a good idea, either - most software will “know what you mean” and use EST or EDT appropriately... except, both The USA and Canada have been toying with the idea of dropping daylight savings time, so it’s very possible at some point in the future that 6:00pm on July 1st will be EDT in America/New York, but EST in America/Montreal (or vice versa). This is already true for CST - Saskatchewan doesn’t use DST.  And there have been times where one country or another changes the start date or end date of DST too, so there’s no reason to assume those will always be the same between Canada and the US."</p>
 							
 						
 							
-								<p class="story__comment_others">"There&#39;s a bit of hyperbole in the article, but it strikes a nerve.I originally came from Java and was so fed up with the hulking class lib and the arcane build systems sprinkled with Ant snippets and XML galore, so JS felt like a fresh breeze.AngularJS was a bit convoluted and the syntax was not nice. But OK, data binding was nice. Bit like dependency injection on the Java side made the code much harder to reason about but helped build certain classes of applications.Angular 4 was just WTF. Somewhat cleaner module system but now with a clunky OOP language instead of the elegant functional expressions that JS had and Java finally adopted. For which reason exactly?And I tried Vue which is a much lighter framework but like Angular, the build system is just retarded. Instead of many dozens of JARs with dozens of sub-dependencies, modern JS goes for the kill and literally imports several hundred of npm package with thousands of dependencies.And in the end, I end up having to use &#34;browserify&#34; to have JS running in a browser. It&#39;s a clowns world in IT, but modern JS really takes the cake. I&#39;m back in backend, solving real problems instead of wrangling my build chain."</p>
+								<p class="story__comment_others">"The only situation where our datetime instances deal with timezones is on a one way trip to a user&#39;s display, document or email. If you are playing around with parsing timezone strings, you are probably making a huge mistake unless you are parsing someone else&#39;s trash data.I feel the standard interchange format for datetimes really should be 64 bit Unix timestamps. These are trivial to store in any database as a native type, can be compared using the fastest arithmetic instructions possible, and are a locale agnostic representation suitable for direct business logic comparisons.Trying to carry timezone information around is a mistake. This is state that should be terminated and normalized at both ends, not passed through the system.The only thing I would store pertaining to timezone is for user profile or server environment configuration. These would be settings in the application that are used to produce locale-specific UI and reports.There are probably some other use cases I am not thinking of, but that is the extent of how we do it and we have a really complex app that has to serve customers who operate in multiple timezones at once."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#39;There is no good reason to use short timezone codes like EST, CST, PST — doing so will only bring you pain. Either use the tzdb name like America/New_York, or use an offset from UTC, depending on what you want.&#39;All you need to read/remember is this, this applies everywhere not just with date."</p>
 							
 						
 						</a>
@@ -273,22 +263,22 @@ The first checks for equality (`status == 404`) and the second performs an assig
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://blog.lidskialf.net/2021/02/08/turning-an-old-kindle-into-a-eink-development-platform/">Turning an old Amazon Kindle into a eInk development platform</a></h3>
+					<h3><a href="https://www.theguardian.com/commentisfree/2021/feb/08/queen-power-british-law-queens-consent">The Queen has more power over British law than we thought</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26073463">
+						<a href="https://news.ycombinator.com/item?id=26081208">
 						
 							
-								<p class="story__comment_first line-clamp">"The blog post is greatly interesting, yet this bit melted my heart:&gt; In case that site dies here’s the key snippet of Javascript:By taking the initiative and archiving this bit of crucial information and not simply trusting that the link will remain there permanently, they go beyond thoughtfulness."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m eager to see 100% (not dual-screen like Lenovo) eInk laptops and eInk-optimized GUIs to come.I&#39;m thrilled to imagine how much neural energy (sounds stupid, I know, but I hope many understand what I mean) could it save me if I my working display (where I mostly work with eMail, text documents and some code, never really needed anything colorful or dynamic at work) was an eInk and I was only presented the very information I need (rather than tons of bullshit visual effects modern GUIs consist of).There seem to be an emerging trend to &#34;digital minimalism&#34;, perhaps it could drive the sales."</p>
+								<p class="story__comment_first line-clamp">"I used to work as a scholar of Britain (specifically executions in Early Modern England, but you pick up a lot along the way) and I&#39;ve tried to explain to a lot of people the amount of influence and control that the monarch actually holds.  I&#39;m not sure that this is such a bad thing.  The Queen can&#39;t create legislation, she can restrain it.  She is purely a moderating influence in this sense.  She could, in theory, name new people to the House of Lords, but the Lords is no longer a hereditary body and there is a mechanism for the House of Commons to override the Lords.Parliament does have power over the monarch in some senses, of course, in that there is precedent for Parliament changing the order of succession or introducing a regency.  This happened without the monarch&#39;s assent, though admittedly over a hundred years ago.  But the British constitution is one that replies on precedence, not a formal document.I&#39;ve characterized the Queen&#39;s powers as &#34;reserve powers&#34; inasmuch as, if everything goes wrong and Parliament dies from a meteor strike, the government still legally operate provided there is a monarch (even if you have to reach deep into the line of succession to find that person).  By law she has to call elections within a certain amount of time.  Obviously there&#39;s nothing to force her to follow the laws, but that&#39;s true of any country.  She (or her heirs) are the leaders of last resort."</p>
 							
 						
 							
-								<p class="story__comment_others">"I recently bought boox air, a 10.3 inch eink android tablet. I read much more now that i ever used to, i had completely given up doing any kind of even moderate reading. My eyes have hard time adjusting to reading on a screen but do amazingly well on an eink device. I use google play books to read and reference books and it works amazingly well on boox air."</p>
+								<p class="story__comment_others">"The most obvious difference between the American and British legislative systems is the presence of a foundational document like the Constitution.The British system is strictly about convention and precedent, whereas Americans have a little more explicit guidance from the Constitution.I think what we&#39;ve learned as Americans in the last few years is that it isn&#39;t enough to have a foundational document.  Convention and precedent indeed play a large role in the function of how the well government works.  Congress is now terminally defective, largely because of the loss of the norms and violations of precedent, starting roughly in the mid 90&#39;s.Perhaps the idea that convention and precedent is the only thing holding the British system together makes it stronger."</p>
+							
+						
+							
+								<p class="story__comment_others">"Isn&#39;t Britain a Constitutional *Monarchy*?Did they forget that? There&#39;s still the House of Lords and the House of Commons for a reason. The monarchy and the landowners are still a thing and are still a ruling class."</p>
 							
 						
 						</a>
@@ -301,23 +291,22 @@ The first checks for equality (`status == 404`) and the second performs an assig
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.nosupportlinuxhosting.com/">No support Linux hosting shutting down from hack</a></h3>
+					<h3><a href="https://thinkingelixir.com/podcast-episodes/034-jose-valim-reveals-project-nx/">José Valim Reveals “Project Nx” (Numerical Elixir) [audio]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26076050">
+						<a href="https://news.ycombinator.com/item?id=26076680">
 						
 							
-								<p class="story__comment_first line-clamp">"Interesting business model----------Experts Host Sites Here for $1/monthDo you like paying extra so other people can ask amateur questions? That&#39;s how it is at other hosting companies where beginners and experts pay the same price. Beginners drive up the cost by asking a lot of novice support questions while the experts don&#39;t contact support. That is great for amateurs, and unfair to the experts like you.No Support Linux Hosting has a completely different business model. We ignore the support questions, and pass the savings on to you! If you are an expert who does not want to pay extra for help with amateur support issues, then you can host with us and save big money.Experts like you can sign up now for free. We charge $1/month per website, and there is no limit to the number of websites you can host in your account. This is the best deal in the web hosting industry, as long as you are the type of person who can find his or her own answers.-----------From https://web.archive.org/web/20201109042643/https://www.nosup...I guess they took savings from security too."</p>
-							
-						
-							
-								<p class="story__comment_others">"Looks like it was old school shared web hosting with things like WHMCS, Cpanel, Softaculous, Wordpress one-click installers, in-house written web admin, etc.  Where each user was running in the same instance of Linux.  Not, for example, a VM per user.  That kind of setup has a really wide attack surface.  Not surprising it was hacked.  That kind of setup with deliberately narrow support was bound to get hit.Edit: Apparently their &#34;sister company&#34; sells virtual private servers, and appears to still be alive. http://nosupportvpshosting.com/index.php"</p>
+								<p class="story__comment_first line-clamp">"Hi everyone, thanks for the enthusiasm so far!We are going to make the repository open source next week and, for those who haven&#39;t listened to the podcast, I want to align everyone&#39;s expectations and say it is very early material. Expect bugs, breaking changes, etc.On the other hand, it is also a great time for anyone who wants to jump in and help shape things, so feedback will be very welcome!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve worked on the support side of the hosting industry for a Long Time. A few observations. 
-1) Hosting is hard. It doesn&#39;t seem like it should be, but it is. cPanel simplifies and complicates it because you&#39;re locked into doing things The cPanel Way whether you like it or not.2) Hosting is getting more expensive because cPanel keeps jacking up prices, and I strongly suspect that this host threw in the towel due to the severity of the compromise but also the razor thin margins. Digging out from under it was likely more trouble than it was worth, especially if they didn&#39;t have insurance for this kind of thing.3) KEEP YOUR OWN BACKUPS. For the love of all data that is important, keep your own backups. Did I mention that anyone with a website on any provider on any continent should keep their own backups? By all means, keep your own backups. Because if you don&#39;t keep your own backups, you&#39;ll wish you&#39;d kept your own backups."</p>
+								<p class="story__comment_others">"Exciting to see that heavy numerical computation might be available to a language running on BEAM. It has always seemed to me like an area that people would point to where Elixir couldn&#39;t stand up to Python.I&#39;ve always dreamt that someday you might be able to reach for Elixir and get everything you needed for an entire stack of a company and it seems to be getting closer and closer. The building blocks for a web app have been around with Phoenix and Ecto for quite some time. LiveView was introduced to make more user friendly frontends. GenStage, Flow, and Broadway introduced ways to run data processing pipelines. And now we&#39;re seeing the initial steps to potentially have ML capabilities."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m really excited about this project. Seeing Elixir inch this much closer to being a viable option for machine learning and related fields is great.In case someone here wants to read rather than listen to all the details, I wrote down some notes over at: https://elixirforum.com/t/anyone-who-wants-to-speculate-abou..."</p>
 							
 						
 						</a>

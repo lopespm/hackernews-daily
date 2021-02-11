@@ -36,23 +36,407 @@
 	</div>
 
 	
-	<div class="day__date">10 February 2021</div>
+	<div class="day__date">11 February 2021</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://twitter.com/jason_koebler/status/1359213426740895744">
+					<a href="https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610">
 						<picture>
-							<source srcset="default_26082303.webp" type="image/webp">
-							<source srcset="default_26082303.png" type="image/png">
-							<img src="default_26082303.png" alt="Preview of 'Cops are playing music while citizens are filming to trigger copyright filters'">
+							<source srcset="default_26087064.webp" type="image/webp">
+							<source srcset="default_26087064.png" type="image/png">
+							<img src="default_26087064.png" alt="Preview of 'Dependency Confusion: How I Hacked Into Apple, Microsoft and Other Companies'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://twitter.com/jason_koebler/status/1359213426740895744">Cops are playing music while citizens are filming to trigger copyright filters</a></h3>
+					<h3><a href="https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610">Dependency Confusion: How I Hacked Into Apple, Microsoft and Other Companies</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26087064">
+						
+							
+								<p class="story__comment_first line-clamp">"I see a lot of people saying things like &#34;this is why package signing is important&#34; and &#34;we need to know who the developers are&#34; and &#34;we need to audit everything.&#34; Some of that is true to some degree, but let me ask you this: why do we consider it acceptable that code you install through a package manager implicitly gets to do anything to your system that you can do? That seems silly! Surely we can do better than that?This article from Agoric is extremely relevant here, from a previous such incident (re: the event-stream package on npm): https://medium.com/agoric/pola-would-have-prevented-the-even...Put simply: in many cases, the dependencies you install don&#39;t need nearly as much authority as we give them right now. Maybe some of these packages need network access (I see a few named &#34;logger&#34; which might be shipping logs remotely) but do they need unrestricted filesystem access? Probably not! (They don&#39;t necessarily even need unrestricted network access either; what they&#39;re communicating with is likely pretty well-known.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"This doesn&#39;t surprise me. Horrify.. yes.I&#39;ve noticed more dev teams succumbing to the temptation of easiness that many modern package managers provide (NPM, Cargo, Ivy, etc.) - especially as someone who has to work with offline systems on a regular basis.Because of that ease there are fewer tools and tutorials out there to support offline package management.  There are more for using caches, though these are often along the lines of either &#39;the package manager will do this for you and it just works (but in case it doesn&#39;t, delete node_modules or cargo clean and re-try)&#39;, or stand up a dependency server on your own machine with these proxy settings (which has it&#39;s own security issues and is frequently disallowed by IT cybersecurity policies).As an example, many blog articles I found a while back suggest using yumdownloader from the yum-utils package. This is unfortunately not reliable, as there are some packages that get skipped.I have found I need to script reading a list of dependencies from a file; then for each dependency: create a directory for it, use repotrack to download its RPM and it&#39;s transitive dependency RPMs in the dependency&#39;s directory; then the script aggregates all the RPMs into one directory, removes the OS installed RPMs, uses createrepo to turn that directory into a RPM repository, and then makes an USF ISO image out of the directory for transfer onto offline system and installation."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m surprised the reverse fully-qualified domain name (FQDN) model used by Java isn&#39;t more widely adopted. If you want to upload artifacts to the main repository (Maven Central) you first need to show ownership of a particular domain. For example, via a DNS TXT record (example [1]). Would make these kind of attacks a lot more difficult.[1] https://issues.sonatype.org/browse/OSSRH-61509"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://cbeci.org/cbeci/comparisons">
+						<picture>
+							<source srcset="default_26088455.webp" type="image/webp">
+							<source srcset="default_26088455.png" type="image/png">
+							<img src="default_26088455.png" alt="Preview of 'Cambridge Bitcoin Electricity Consumption Index'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://cbeci.org/cbeci/comparisons">Cambridge Bitcoin Electricity Consumption Index</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26088455">
+						
+							
+								<p class="story__comment_first line-clamp">"Nic Carter&#39;s rebuttal to a Bloomberg comparison between Bitcoin/Visa, including assessments of total and per/transaction energy usage:&#34;First of all, Bitcoin and Visa are fundamentally different systems. Bitcoin is a complete, self-contained monetary settlement system; Visa transactions are non-final credit transactions that rely on external underlying settlement rails. Visa relies on ACH, Fedwire, SWIFT, the global correspondent banking system, the Federal Reserve and, of course, the military and diplomatic strength of the U.S. government to ensure all of the above are working smoothly.Any energy comparison must take the above into account – including the externalities from the extraction of oil, which implicitly backs the dollar. As those who make this comparison inevitably fail to mention, the dollar’s ubiquity is partly due to a covert arrangement whereby the U.S. provides military support to countries like Saudi Arabia that agree to sell oil exclusively for dollars. It’s worth noting that the grossly oversized U.S. military, whose presence worldwide is necessary to backstop the international dollar system, is the largest single consumer of oil worldwide.&#34;https://www.coindesk.com/what-bloomberg-gets-wrong-about-bit..."</p>
+							
+						
+							
+								<p class="story__comment_others">"At that rate and assuming 4tx per second a single Bitcoin transaction consumes 165kWh. A Tesla battery is bit over 50kWh. So let&#39;s round that to 3 full charges of Tesla battery.That&#39;s 350km/220 miles of range per charge. In total 1050km or 660 miles of driving.So basically if you want to transfer money and the recipient is closer than 660 miles from you it&#39;s more efficient to just get a bunch of bills, drive there with a Tesla rather than send a Bitcoin transaction. Or alternatively 330 miles roundtrip. For each single transaction.It is hilariously inefficient system. It is literally better to drive a full car and give things physically than use Bitcoin.A small addenum: Visa apparently uses 146kWh for 100000 transactions. Coming at 1.46wH per transaction. That can drive a Tesla for 9 meters (0.4 seconds of driving at 80km/h) or alternatively keep a nice led lamp lit for an hour. And that includes everything the company does, not just the actual transaction but the upkeep of their offices etc divided by the amount of transactions they perform per year.EDIT:Apparently on 2020 it was 741kWh per transaction in practice and/or I made a tiny error in my calculation. Either way it&#39;s even better!https://www.statista.com/statistics/881541/bitcoin-energy-co...That simply increases the ranges so that it becomes a 3600 mile trip. Or 1800 mile roundtrip."</p>
+							
+						
+							
+								<p class="story__comment_others">"From what I understand bitcoin currently has a $20+ transaction fee with a transaction time takes 60 minutes+With these issues in addition to the high power consumption, how will Bitcoin become a usable currency?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://cs193p.sites.stanford.edu/">
+						<picture>
+							<source srcset="default_26091085.webp" type="image/webp">
+							<source srcset="default_26091085.png" type="image/png">
+							<img src="default_26091085.png" alt="Preview of 'CS193p: Developing Apps for iOS'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://cs193p.sites.stanford.edu/">CS193p: Developing Apps for iOS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26091085">
+						
+							
+								<p class="story__comment_first line-clamp">"Since this is posted here I&#39;ll ask a question that has been bugging me for the last year: Who does the captions on these YouTube videos? Is it automated? I ask because every CS193p video starts with the same opening scene/music and the caption describing the music is different on every single one. Is this an auto-caption algorithm just getting it wrong? Or is there a person having fun behind the scenes waiting for someone like me to notice and spend an irrational amount of time wondering what happened? I feel like it has to be a person, right? YouTube&#39;s captioning wouldn&#39;t give 12 different results.Edit- For anyone curious, here&#39;s how the music is described in the captions at the beginning of each lecture:1. regal music2. mellow ambient music3. light music4. gentle music5. air whooshing6. gentle music (turns out there is one repeat)7. peaceful music8. [no description]9. ethereal music10. celestial music11. serene music12. dramatic music"</p>
+							
+						
+							
+								<p class="story__comment_others">"Is it weird that a /university/ is offering this course on how to work with a specific commercial product? Shouldn&#39;t this be the domain of Apple itself or a company that specialises in training?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Haven&#39;t there been free iphone dev courses from stanford for free for over a decade? I recall iTunesU hosting them, and perhaps Coursera/EdX, and their own website etc.Which is great, of course, but is this different?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://travelhead.medium.com/competitor-reported-our-no-buckle-belts-as-containing-a-dea-controlled-substance-and-got-us-e6df903172a3">
+						<picture>
+							<source srcset="default_26086086.webp" type="image/webp">
+							<source srcset="default_26086086.png" type="image/png">
+							<img src="default_26086086.png" alt="Preview of 'Amazon competitor got our belt listing taken down by saying it contains drugs'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://travelhead.medium.com/competitor-reported-our-no-buckle-belts-as-containing-a-dea-controlled-substance-and-got-us-e6df903172a3">Amazon competitor got our belt listing taken down by saying it contains drugs</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26086086">
+						
+							
+								<p class="story__comment_first line-clamp">"Similar thing happened to me. I built an online Japanese - English dictionary and used AdSense to monetize it. One day I got an email saying that my domain has been permabanned because my website appears to be promoting rape and pedophilia. As an example of one of the many offending pages on my domain they sent me urls to the definition and translation of words &#34;pedophilia&#34; and &#34;rape&#34; in Japanese.Of course none of my competitors using the exact same data set had any such problems.I tried for YEARS to appeal it. There are simply no humans working at Google and nobody reads your emails.Edit: Actually, I did get a response a couple times but it was obviously automated. They just said to remove the ads from the pages where such words are displayed. So I added a simple rule and a column in the database to hide ads for those keywords. That just triggered the bot to move down the list of their &#34;obscene&#34; language. Next it was the names of various sexual positions, acts and fetishes (Japanese does have a very rich vocabulary in that topic), then manga slang, even silly sounding onomatopoeias that when explained in plain English are &#34;vulgar&#34;, etc.. It seems once your website is flagged there is simply no way get clean."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think what we&#39;re learning from many debacles on YouTube, Amazon, and Google is this:Algorithms are not even close to substituting for human customer service, human moderation, and human judgment.Maybe this means web-scale sites like Amazon&#39;s marketplace aren&#39;t viable. I&#39;m fine with that implication. Stores like Target and Walmart seem to have the same prices with human-curated inventories, and I don&#39;t really miss the millions of extra products Amazon has."</p>
+							
+						
+							
+								<p class="story__comment_others">"Nowadays when I want to buy anything on Amazon it takes so much effort to go through which listing is the Sponsored/ad-based listing vs organic in search. Once that hurdle is crossed, it comes to going through the reviews to see which reviews can be trusted and which can not be. And even after that hurdle, once I place order, I am not sure the item I received is counterfeit or genuine. Too much work and definitely not customer-focused experience!I guess going to Target is much easier to get the necessary shopping done."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.anandtech.com/show/16483/samsung-in-the-usa-a-17-billion-usd-fab-by-late-2023">
+						<picture>
+							<source srcset="default_26094524.webp" type="image/webp">
+							<source srcset="default_26094524.png" type="image/png">
+							<img src="default_26094524.png" alt="Preview of 'Samsung Foundry: New $17B Fab in the USA by Late 2023'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.anandtech.com/show/16483/samsung-in-the-usa-a-17-billion-usd-fab-by-late-2023">Samsung Foundry: New $17B Fab in the USA by Late 2023</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26094524">
+						
+							
+								<p class="story__comment_first line-clamp">"I see a lot of people in this thread who don&#39;t really know much about Samsung&#39;s semiconductor presence in the USA. This expansion has been in the works for years. Samsung has a 100k wafer per month fab in austin texas. They are negotiating for tax abatements for expansion and using alternative sites as leverage.They are not building a new fab they are expanding their S2 fab in austin texas. There was a permit application that was released a few years back that shows the true scale of their expansion plans.https://www.swf.usace.army.mil/Portals/47/docs/regulatory/pu...If this goes through it could made Samsung&#39;s S2 fab larger than even TSMC&#39;s monster gigafabs."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; New $17B Fab in the USA by Late 2023Impossible.Leads times on fab hardware are on all time high.Not to say that construction, and setup itself would be extremely challenging in such timeframe.And not saying that US has no supply chain locally for modern fabs. Intel famously flies a lot of its consumables from abroad.Samsung will have similarly to transport its consumables by air if they go with this plan."</p>
+							
+						
+							
+								<p class="story__comment_others">"Really happy to see this. It&#39;s really frightening how dependent we are on other countries to manufacture our chips. I hope that more American chip companies choose to build fabs here as well, though I recognize how expensive that would be...Also... is every single tech company investing heavily in Austin? It sure feels like it!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.bbc.co.uk/news/technology-56010156">
+						<picture>
+							<source srcset="default_26093070.webp" type="image/webp">
+							<source srcset="default_26093070.png" type="image/png">
+							<img src="default_26093070.png" alt="Preview of 'Viral &#39;I&#39;m not a cat&#39; filter is decades-old software'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.bbc.co.uk/news/technology-56010156">Viral &#39;I&#39;m not a cat&#39; filter is decades-old software</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26093070">
+						
+							
+								<p class="story__comment_first line-clamp">"This makes more sense to me, I was wondering how that would have gotten set by a clueless user.The answer turns out to be that old dell machines shipped some shitty avatar software (along with lots of other stuff) that defaulted to on. The lawyer is probably using an ancient dell computer with this software and hasn&#39;t used video chat on it before this.This is extra hostile, because it&#39;s separate from whatever video chat application they were using - so it would have been harder to know about and turn off.As an aside, Microsoft fought in court to force OEMs to not install this crap alongside Windows (reasonably since it was damaging their brand and making the machines less secure), but they lost. Another reason why the macOS model is better for users. OS companies should make their own hardware."</p>
+							
+						
+							
+								<p class="story__comment_others">"Tangentially, the cat laywer is a piece of shit:https://reason.com/2021/02/10/zoom-cat-lawyer-rod-ponton-use..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Using filters like this reminds me of the discussion in Infinite Jest, where people used masks and tiny dioramas to present a more attractive appearance over video calls before eventually abandoning it all and going back to audio-only.Personally, I keep my webcam off at all times. Constantly mugging for the camera to show that I&#39;m following along gets old."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.mozilla.org/blog/2021/02/08/mozilla-welcomes-the-rust-foundation/">
+						<picture>
+							<source srcset="default_26088133.webp" type="image/webp">
+							<source srcset="default_26088133.png" type="image/png">
+							<img src="default_26088133.png" alt="Preview of 'Mozilla Welcomes the Rust Foundation'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.mozilla.org/blog/2021/02/08/mozilla-welcomes-the-rust-foundation/">Mozilla Welcomes the Rust Foundation</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26088133">
+						
+							
+								<p class="story__comment_first line-clamp">"main discussion re Rust Foundation: https://news.ycombinator.com/item?id=26067118"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Mozilla used Rust to build Stylo, the CSS engine in Firefox (replacing approximately 160,000 lines of C++ with 85,000 lines of Rust).I would have loved to see two competing teams rewrite it, one in C++ and the other in Rust.Saying that the rewrite is better does nothing to say WHY it&#39;s better. Refactored code is almost always radically better, even when it&#39;s in the same language, for reasons that might be insulting to explain on HN.Point is, this is not an apples-to-apples comparison.(I&#39;m not arguing Rust isn&#39;t better. Nor that cutting your code base nearly in half isn&#39;t impressive. Simply that this single metric on their part seems like weak sauce.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve never seen the original introduction of Rust from Graydon Hoare before seeing the link in this post: http://venge.net/graydon/talks/intro-talk-2.pdfThe original vision for Rust sounds a lot like a typed Erlang without the BEAM."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.wesleyac.com/posts/timezone-bullshit">
+						<picture>
+							<source srcset="default_26087502.webp" type="image/webp">
+							<source srcset="default_26087502.png" type="image/png">
+							<img src="default_26087502.png" alt="Preview of 'Timezone Bullshit'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.wesleyac.com/posts/timezone-bullshit">Timezone Bullshit</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26087502">
+						
+							
+								<p class="story__comment_first line-clamp">"Another reason not to use EST/EDT is that they are overspecifying the time zone in most cases. If you ask for output in EDT, but the date is in December (which is not part of daylight savings time) then should the date output be UTC-4 or UTC-5?  Technically you asked for EDT.Using EST as a shortcut isn’t a good idea, either - most software will “know what you mean” and use EST or EDT appropriately... except, both The USA and Canada have been toying with the idea of dropping daylight savings time, so it’s very possible at some point in the future that 6:00pm on July 1st will be EDT in America/New York, but EST in America/Montreal (or vice versa). This is already true for CST - Saskatchewan doesn’t use DST.  And there have been times where one country or another changes the start date or end date of DST too, so there’s no reason to assume those will always be the same between Canada and the US."</p>
+							
+						
+							
+								<p class="story__comment_others">"The only situation where our datetime instances deal with timezones is on a one way trip to a user&#39;s display, document or email. If you are playing around with parsing timezone strings, you are probably making a huge mistake unless you are parsing someone else&#39;s trash data.I feel the standard interchange format for datetimes really should be 64 bit Unix timestamps. These are trivial to store in any database as a native type, can be compared using the fastest arithmetic instructions possible, and are a locale agnostic representation suitable for direct business logic comparisons.Trying to carry timezone information around is a mistake. This is state that should be terminated and normalized at both ends, not passed through the system.The only thing I would store pertaining to timezone is for user profile or server environment configuration. These would be settings in the application that are used to produce locale-specific UI and reports.There are probably some other use cases I am not thinking of, but that is the extent of how we do it and we have a really complex app that has to serve customers who operate in multiple timezones at once."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#39;There is no good reason to use short timezone codes like EST, CST, PST — doing so will only bring you pain. Either use the tzdb name like America/New_York, or use an offset from UTC, depending on what you want.&#39;All you need to read/remember is this, this applies everywhere not just with date."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.theguardian.com/commentisfree/2021/feb/08/queen-power-british-law-queens-consent">
+						<picture>
+							<source srcset="default_26081208.webp" type="image/webp">
+							<source srcset="default_26081208.png" type="image/png">
+							<img src="default_26081208.png" alt="Preview of 'The Queen has more power over British law than we thought'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.theguardian.com/commentisfree/2021/feb/08/queen-power-british-law-queens-consent">The Queen has more power over British law than we thought</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26081208">
+						
+							
+								<p class="story__comment_first line-clamp">"I used to work as a scholar of Britain (specifically executions in Early Modern England, but you pick up a lot along the way) and I&#39;ve tried to explain to a lot of people the amount of influence and control that the monarch actually holds.  I&#39;m not sure that this is such a bad thing.  The Queen can&#39;t create legislation, she can restrain it.  She is purely a moderating influence in this sense.  She could, in theory, name new people to the House of Lords, but the Lords is no longer a hereditary body and there is a mechanism for the House of Commons to override the Lords.Parliament does have power over the monarch in some senses, of course, in that there is precedent for Parliament changing the order of succession or introducing a regency.  This happened without the monarch&#39;s assent, though admittedly over a hundred years ago.  But the British constitution is one that replies on precedence, not a formal document.I&#39;ve characterized the Queen&#39;s powers as &#34;reserve powers&#34; inasmuch as, if everything goes wrong and Parliament dies from a meteor strike, the government still legally operate provided there is a monarch (even if you have to reach deep into the line of succession to find that person).  By law she has to call elections within a certain amount of time.  Obviously there&#39;s nothing to force her to follow the laws, but that&#39;s true of any country.  She (or her heirs) are the leaders of last resort."</p>
+							
+						
+							
+								<p class="story__comment_others">"The most obvious difference between the American and British legislative systems is the presence of a foundational document like the Constitution.The British system is strictly about convention and precedent, whereas Americans have a little more explicit guidance from the Constitution.I think what we&#39;ve learned as Americans in the last few years is that it isn&#39;t enough to have a foundational document.  Convention and precedent indeed play a large role in the function of how the well government works.  Congress is now terminally defective, largely because of the loss of the norms and violations of precedent, starting roughly in the mid 90&#39;s.Perhaps the idea that convention and precedent is the only thing holding the British system together makes it stronger."</p>
+							
+						
+							
+								<p class="story__comment_others">"Isn&#39;t Britain a Constitutional *Monarchy*?Did they forget that? There&#39;s still the House of Lords and the House of Commons for a reason. The monarchy and the landowners are still a thing and are still a ruling class."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://thinkingelixir.com/podcast-episodes/034-jose-valim-reveals-project-nx/">
+						<picture>
+							<source srcset="default_26076680.webp" type="image/webp">
+							<source srcset="default_26076680.png" type="image/png">
+							<img src="default_26076680.png" alt="Preview of 'José Valim Reveals “Project Nx” (Numerical Elixir) [audio]'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://thinkingelixir.com/podcast-episodes/034-jose-valim-reveals-project-nx/">José Valim Reveals “Project Nx” (Numerical Elixir) [audio]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26076680">
+						
+							
+								<p class="story__comment_first line-clamp">"Hi everyone, thanks for the enthusiasm so far!We are going to make the repository open source next week and, for those who haven&#39;t listened to the podcast, I want to align everyone&#39;s expectations and say it is very early material. Expect bugs, breaking changes, etc.On the other hand, it is also a great time for anyone who wants to jump in and help shape things, so feedback will be very welcome!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Exciting to see that heavy numerical computation might be available to a language running on BEAM. It has always seemed to me like an area that people would point to where Elixir couldn&#39;t stand up to Python.I&#39;ve always dreamt that someday you might be able to reach for Elixir and get everything you needed for an entire stack of a company and it seems to be getting closer and closer. The building blocks for a web app have been around with Phoenix and Ecto for quite some time. LiveView was introduced to make more user friendly frontends. GenStage, Flow, and Broadway introduced ways to run data processing pipelines. And now we&#39;re seeing the initial steps to potentially have ML capabilities."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m really excited about this project. Seeing Elixir inch this much closer to being a viable option for machine learning and related fields is great.In case someone here wants to read rather than listen to all the details, I wrote down some notes over at: https://elixirforum.com/t/anyone-who-wants-to-speculate-abou..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
+	<div class="day__date">10 February 2021</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.vice.com/en/article/bvxb94/is-this-beverly-hills-cop-playing-sublimes-santeria-to-avoid-being-livestreamed">
+						<picture>
+							<source srcset="default_26082303.webp" type="image/webp">
+							<source srcset="default_26082303.png" type="image/png">
+							<img src="default_26082303.png" alt="Preview of 'Police playing music while being filmed, seemingly to trigger copyright filters'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.vice.com/en/article/bvxb94/is-this-beverly-hills-cop-playing-sublimes-santeria-to-avoid-being-livestreamed">Police playing music while being filmed, seemingly to trigger copyright filters</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
@@ -101,11 +485,11 @@
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t know which mapping options Lyft/Uber/etc use, but in my neighborhood, Google Maps has given street names to the allies behind people&#39;s houses. You can tell the drivers that have a clue, and will realize they should not turn down an alley. Drivers that are less cognizant of how the world works, follow the instructions dutifully, and waste time trying to figure out why everyone is confused."</p>
+								<p class="story__comment_others">"I&#39;ve been looking to replace Google Maps with OSM on my smartphone.  OSM itself is great, but I&#39;ve been having a harder time finding a good app to use it with.  Is anyone familiar with a good option?  I mostly use a maps app for location searches and real-time GPS navigation, but offline maps and location sharing are nice-to-have features.I&#39;ve been using OsmAnd and it&#39;s okay.  The interface is pretty good.  It supports offline maps, but not location sharing.  Map tiles are kind of slow to load compared to Google Maps, which is odd since the tiles have to be downloaded to local storage.  The location search often includes redundant results and whatever database they use to store place data is sparse on details like pictures, hours, or reviews.  I&#39;ll keep using it to stay de-platformed from Google as much as possible, but I&#39;d be willing to pay a bit for something more responsive and polished."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve been looking to replace Google Maps with OSM on my smartphone.  OSM itself is great, but I&#39;ve been having a harder time finding a good app to use it with.  Is anyone familiar with a good option?  I mostly use a maps app for location searches and real-time GPS navigation, but offline maps and location sharing are nice-to-have features.I&#39;ve been using OsmAnd and it&#39;s okay.  The interface is pretty good.  It supports offline maps, but not location sharing.  Map tiles are kind of slow to load compared to Google Maps, which is odd since the tiles have to be downloaded to local storage.  The location search often includes redundant results and whatever database they use to store place data is sparse on details like pictures, hours, or reviews.  I&#39;ll keep using it to stay de-platformed from Google as much as possible, but I&#39;d be willing to pay a bit for something more responsive and polished."</p>
+								<p class="story__comment_others">"As Google has lost it&#39;s sheen of benevolence over the last decade public knowledge projects like this become ever more appealing. Wikipedia proves they can be wildly successful all without capital investment and the perverse incentives that follow."</p>
 							
 						
 						</a>
@@ -216,11 +600,18 @@ http://joshua.smcvt.edu/linearalgebra/He provides solutions and lecture videos..
 							
 						
 							
-								<p class="story__comment_others">"Feature request: make CMD+P support searching files in the repository. Currently, it shows &#34;No matching results&#34;.To implement this quickly client-side, one easy way would be to use jsdelivr&#39;s data api. For example, to get the directory tree for Ruby on Rails:https://data.jsdelivr.com/v1/package/gh/rails/rails@06e8d5c2..."</p>
+								<p class="story__comment_others">"If you like the text editor that powers VS Code (Monaco) and would like to use it for writing Markdown on github, check out my foss chrome/Firefox browser extension [1]! It replaces all text areas with a Monaco editor.[1] https://github.com/hediet/browser-ext-github-monaco"</p>
 							
 						
 							
-								<p class="story__comment_others">"This is brilliant.CodeSandbox also has this. For example, you can import this project in CodeSandbox using link https://githubbox.com/conwnet/github1s (adding box between github and .com)https://codesandbox.io/docs/importing"</p>
+								<p class="story__comment_others">"This is really cool, and has inspired the latest function to be added to my zshrc:  vscodetmp () {
+    local repo=$1
+    [[ ! $repo =~ &#34;https://*&#34; ]] &amp;&amp; repo=&#34;https://github.com/${repo}&#34;
+    local temp=&#34;$(mktemp -d)&#34;
+    git clone &#34;${repo}&#34; &#34;${temp}&#34;
+    code --wait -n &#34;${temp}&#34;
+    rm -rf &#34;${temp}&#34;
+  }"</p>
 							
 						
 						</a>
@@ -258,16 +649,31 @@ http://joshua.smcvt.edu/linearalgebra/He provides solutions and lecture videos..
 							
 						
 							
-								<p class="story__comment_others">"IMO the match statement has some very unintuitive behaviour:    match status:
-        case 404:
-            return &#34;Not found&#34;
+								<p class="story__comment_others">"Honestly I&#39;m not sure what all the fuss is about.  I just skimmed over PEP 634 and PEP 636 (the accompanying tutorial) and I&#39;m actually kind of excited to use this.  I&#39;ve missed this feature after using langs like Rust, Haskell, and Scala.  People have pointed out some surprising edge cases such as this:    NOT_FOUND = 404
+    match get_status():
+        case NOT_FOUND:
+            # this actually assigns to the global NOT_FOUND
+            # and is effectively the default case
+        case _:
+            # this never gets triggered
 
-    not_found = 404
-    match status:
-        case not_found:
-            return &#34;Not found&#34;
+Yeah, I agree that&#39;s a bit ugly.  But you can apparently do this:    class Status(Enum):
+        NOT_FOUND = 404
 
-The first checks for equality (`status == 404`) and the second performs an assignment (`not_found = status`)."</p>
+    match get_status():
+        case Status.NOT_FOUND:
+            # works as expected
+        ...
+
+And really how is any of that more ugly than this?    def func_with_default(foo={}):
+        if &#34;bar&#34; not in foo:
+            # &#34;bar&#34; is set in the module-level dict that
+            # was initialized when the func def was parsed,
+            # not in a dict that is created per call
+            foo[&#34;bar&#34;] = ...
+        ...
+
+And we&#39;ve been living with that one for years.  These are just the things that you have to learn when you start using Python, just like any other language.I, for one, am excited to start using this syntax."</p>
 							
 						
 						</a>
@@ -419,8 +825,7 @@ The first checks for equality (`status == 404`) and the second performs an assig
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve worked on the support side of the hosting industry for a Long Time. A few observations. 
-1) Hosting is hard. It doesn&#39;t seem like it should be, but it is. cPanel simplifies and complicates it because you&#39;re locked into doing things The cPanel Way whether you like it or not.2) Hosting is getting more expensive because cPanel keeps jacking up prices, and I strongly suspect that this host threw in the towel due to the severity of the compromise but also the razor thin margins. Digging out from under it was likely more trouble than it was worth, especially if they didn&#39;t have insurance for this kind of thing.3) KEEP YOUR OWN BACKUPS. For the love of all data that is important, keep your own backups. Did I mention that anyone with a website on any provider on any continent should keep their own backups? By all means, keep your own backups. Because if you don&#39;t keep your own backups, you&#39;ll wish you&#39;d kept your own backups."</p>
+								<p class="story__comment_others">"They were almost certainly impacted by the recent sudo bug, considering how they offered cPanel hosting: https://archive.is/PCZ99 I&#39;ve been trying to make contact with virtual hosting providers over the last few weeks to bring the weakness to their attention, but I&#39;ve been ignored. cPanel hasn&#39;t even issued an update. It&#39;s heartbreaking watching websites get destroyed by the bad guys."</p>
 							
 						
 						</a>
@@ -966,11 +1371,11 @@ https://securityheaders.com/?q=https%3A%2F%2Fdashboard.clerk...For me it is also
 							
 						
 							
-								<p class="story__comment_others">"This only applies to browsing where the user&#39;s cache is present, yes?At least in Firefox 85.0.1 Desktop and 85.1.1 Android (when I tested) clearing the cache also nukes the favicons as well.Also, I get different hashes when I test on demo.supercookie.me after clearing my cache on mobile, and also across Private windows on desktop.The statement &#34;[...] even in the browser&#39;s incognito mode and is not cleared by flushing the cache, closing the browser [...]&#34; is misleading, at least where Firefox[0] is concerned.[0] https://blog.mozilla.org/security/2021/01/26/supercookie-pro..."</p>
+								<p class="story__comment_others">"This is a neat approach, but I&#39;m not sure I&#39;d expect it to be used in the wild. ~32 consecutive document redirects every time you want to fingerprint a browser would be slow: twelve (?) redirects on my (~fast) internet takes about ten seconds. On 3g, I could imagine this taking much longer.You&#39;d also likely need to do this at the (root) page level (i.e., it wouldn&#39;t work inside an iframe, since iframes don&#39;t have favicons), and it breaks the back button really hard. I&#39;m not sure I can think of a practical situation where this could actually be used for tracking. Maybe if it was done in a popup?"</p>
 							
 						
 							
-								<p class="story__comment_others">"This is a neat approach, but I&#39;m not sure I&#39;d expect it to be used in the wild. ~32 consecutive document redirects every time you want to fingerprint a browser would be slow: twelve (?) redirects on my (~fast) internet takes about ten seconds. On 3g, I could imagine this taking much longer.You&#39;d also likely need to do this at the (root) page level (i.e., it wouldn&#39;t work inside an iframe, since iframes don&#39;t have favicons), and it breaks the back button really hard. I&#39;m not sure I can think of a practical situation where this could actually be used for tracking. Maybe if it was done in a popup?"</p>
+								<p class="story__comment_others">"This only applies to browsing where the user&#39;s cache is present, yes?At least in Firefox 85.0.1 Desktop and 85.1.1 Android (when I tested) clearing the cache also nukes the favicons as well.Also, I get different hashes when I test on demo.supercookie.me after clearing my cache on mobile, and also across Private windows on desktop.The statement &#34;[...] even in the browser&#39;s incognito mode and is not cleared by flushing the cache, closing the browser [...]&#34; is misleading, at least where Firefox[0] is concerned.[0] https://blog.mozilla.org/security/2021/01/26/supercookie-pro..."</p>
 							
 						
 						</a>
@@ -1076,11 +1481,11 @@ https://securityheaders.com/?q=https%3A%2F%2Fdashboard.clerk...For me it is also
 						<a href="https://news.ycombinator.com/item?id=26045088">
 						
 							
-								<p class="story__comment_first line-clamp">"I find it hilarious that so much disinformation went into this article itself. The mischaracterizations of Fauci and the reckless, the poor sources that themselves are spin machines, all highlight a lot of the issues: a spectrum of people hell bent on manufacturing distrust in various institutions for their own gains, now co-adopted as an identity by the GOP.We need to find a way to fundamentally change the incentives in media, change the public’s expectation of separating opinion versus news, and remove the cancer(s) of “think tanks” that only serve to undermine and destroy."</p>
+								<p class="story__comment_first line-clamp">"As an (European) outsider: Manufacturing consent is a key feature of societies. If societies are not just an accidental aggregation, but do have some actual cohesion, a core body (canon) of shared believes and opinions is absolutely necessary. If a society fails to manufacture consent as a common point of reference in this core domain, we may even speak of a failed society.A certain amount of mis- and disinformation, manipulation, falsely raised expectations (e.g., if masks do not stop CV19 dead in the track, it&#39;s also not a viable tool of mitigation), etc, is to be expected. A certain amount of dissent is vital to a thriving society, as opposed to a slow descent into dogmatism. A certain amount of dysfunctionality is actually functional to societies. However, if we are losing a common point of reference and the discussion turns from an ever varying problem space towards questioning and problematizing consent per se, society itself is at stake, as partitioning and claims to rightful dominance by one side or the other are inevitable. Dealing with this is not a matter of free speech, even, if suppression of free speech may be empirically observed as an – mostly failed – attempt to address this. It&#39;s actually more connected to the question, what speaking freely actually means: Is it to enter into or to contribute to a discussion, or is it a means of claiming dominance? In other words, does the address include those who do not share the specific set of believes and points of reference of the speaker, or does it exclude and/or ignore them, by this turning into an hermetic or even radical argument, meant only to augment the position of the speaker? Is it still pervasive, or has this turned into a hegemonial discourse? If it&#39;s the latter, it&#39;s not about manufacturing consent anymore, but about establishing a new, biased one, probably by force."</p>
 							
 						
 							
-								<p class="story__comment_others">"As an (European) outsider: Manufacturing consent is a key feature of societies. If societies are not just an accidental aggregation, but do have some actual cohesion, a core body (canon) of shared believes and opinions is absolutely necessary. If a society fails to manufacture consent as a common point of reference in this core domain, we may even speak of a failed society.A certain amount of mis- and disinformation, manipulation, falsely raised expectations (e.g., if masks do not stop CV19 dead in the track, it&#39;s also not a viable tool of mitigation), etc, is to be expected. A certain amount of dissent is vital to a thriving society, as opposed to a slow descent into dogmatism. A certain amount of dysfunctionality is actually functional to societies. However, if we are losing a common point of reference and the discussion turns from an ever varying problem space towards questioning and problematizing consent per se, society itself is at stake, as partitioning and claims to rightful dominance by one side or the other are inevitable. Dealing with this is not a matter of free speech, even, if suppression of free speech may be empirically observed as an – mostly failed – attempt to address this. It&#39;s actually more connected to the question, what speaking freely actually means: Is it to enter into or to contribute to a discussion, or is it a means of claiming dominance? In other words, does the address include those who do not share the specific set of believes and points of reference of the speaker, or does it exclude and/or ignore them, by this turning into an hermetic or even radical argument, meant only to augment the position of the speaker? Is it still pervasive, or has this turned into a hegemonial discourse? If it&#39;s the latter, it&#39;s not about manufacturing consent anymore, but about establishing a new, biased one, probably by force."</p>
+								<p class="story__comment_others">"I find it hilarious that so much disinformation went into this article itself. The mischaracterizations of Fauci and the reckless, the poor sources that themselves are spin machines, all highlight a lot of the issues: a spectrum of people hell bent on manufacturing distrust in various institutions for their own gains, now co-adopted as an identity by the GOP.We need to find a way to fundamentally change the incentives in media, change the public’s expectation of separating opinion versus news, and remove the cancer(s) of “think tanks” that only serve to undermine and destroy."</p>
 							
 						
 							
@@ -2138,7 +2543,7 @@ Let’s be careful. We have science and the scientific methods to investigate th
 							
 						
 							
-								<p class="story__comment_others">"Only tangentially related, but are there any projects out there that modify CD or DVD readers to make it possible to read the raw (analog) pits and lands from the disc? When I was rescuing the last batch of burned CDs from my teen years a few years ago I unsurprisingly had some with lots of read errors. Googling around only lead me to forum threads where people recommended certain drives that would be very good at error recovery, but I thought it might be even better if you could get the raw stream from the disc and then do all the EFM reversal etc in software with more advanced analysis, brute forcing etc. But nothing of this kind seemed to exist."</p>
+								<p class="story__comment_others">"What a fantastic piece of work! I just built the open theremin project from the same  group. I love the open hardware movement. As someone who does confocal microscopy all the time this is particularly awesome."</p>
 							
 						
 						</a>
@@ -3512,17 +3917,19 @@ Is this really a license? What about the SQLite blessing?"</p>
 						<a href="https://news.ycombinator.com/item?id=25989764">
 						
 							
-								<p class="story__comment_first line-clamp">"ConvertBots | Lead Frontend Engineer | Remote | ContractConvertBots is an AI marketing tool &amp; service that integrates the growing power of NLP for designing conversations while leveraging conversion rate optimization features and interfaces for websites. We believe this focus will help bring chatbots to the web in a way that will create great user experiences and high performance for converting site visitors.We are looking for an experienced lead front end developer to help us build the future of the web chat experience. As the first front end hire, you will be responsible for architecting and building both the consumer user interface of the chatbot as well as customer portal for managing consumer interactions.This is a 3 month contract with an opportunity to be extended into a full time gig.JD: https://docs.google.com/document/d/1P19M6K1lNu62ArNLZiTsAsgu...Contact Andrew Potapov at andrew@keycto.com if interested"</p>
+								<p class="story__comment_first line-clamp">"APY Finance | Backend Engineer
+Location: REMOTEWe are looking for a backend engineer that has a passion for cryptocurrency, DeFi, and a love for Clubhouse discussions on the latter topics.You will get to touch on all aspects of Ethereum backend engineering.  The right engineer will participate in the development and roll-out of world-class financial products built with next-generation technology on Ethereum.We&#39;re looking for someone with that can cover the following topics:⦿ Developing scalable ETL pipelines for analyzing public blockchain data⦿ Articulate a long term vision for maintaining and scaling our backend systems⦿ Write high quality, well tested code to meet the needs of your customers⦿ Ensure security and hardening of backend systemsEmail recruiting@apy.finance"</p>
 							
 						
 							
-								<p class="story__comment_others">"Monash School of Public Health | Python Developer for Infectious Disease Modelling | Melbourne, Australia | ONSITE (WFH flexibility)You would work with a small team of epidemiologists on modelling COVID-19 and tuberculosis in Australia and Asia-Pacific. The team tries to answer questions like:- what would be the effect of re-opening schools in the Philippines have on the future incidence of COVID-19?- how many COVID-19 cases do we expect to see in Victorian ICU departments in the next two weeks?The closest analogue to this position in industry would be &#34;machine learning engineer&#34; since it involves:- converting mathematical models into robust Python code- running these models on cloud computing- handling the plumbing (data processing, cloud storage, CI/CD jobs)Your teammates, disease modellers and epidemiologists, are analogous to &#34;data scientists&#34;: in that they are domain
-experts who can code and provide the theoretical basis for our models. They require assistance and advice on the
-best way to approach software development practices such as code structure and testing.The current codebase is publicly accessible on GitHub (github.com/monash-emu/AuTuMN) and includes:- a generic framework for building infectious disease models- specific disease modelling applications (e.g. forecasting the COVID-19 epidemic in the Philippines)- auxiliary code for visualisation, data processing, cloud computing, unit testsPay is 95k to 110k plus 9.5% superPosition description at https://bit.ly/3d3YcmZ (skip to &#34;Position Summary&#34; section)Official job ad at https://bit.ly/3cYjuSIEmail James Trauer at james.trauer@monash.edu if you&#39;re interested."</p>
+								<p class="story__comment_others">"Academia.edu | Full Stack Web Engineers; Product Managers; Data Analysts; Sr iOS | San Francisco, CA | Covid compliant; REMOTE OK until “return to work”.About Academia.eduDespite Covid-19, we had no layoffs, are private and profitable, and still growing. This is a great time to join us!Life is short - do something that matters! Our mission is to accelerate research, which will change the world for the better.Academia&#39;s platform has more than 150 million registered users (growing at over 150,000 per day), and has over 65 million unique visitors every month. We have over 280,000 paying premium subscribers, and our revenue has grown 50-60% YoY for the past 2-years.Full Stack Engineers:Must have:
+* Strong Computer Science fundamentals; i.e. data structures, algorithms, system design, web architecture.* Ability and willingness to learn and apply new languages and technologies quickly.* Good coding and debugging habits.* Analytical and problem solving skills.Nice to have:
+We use: Ruby on Rails, React (to make our FE more responsive), RSpec and Jasmine for testing, PostgreSQL for data storage, Redis for in-memory data structures, Elasticsearch for our full-text search engine, Kafka for our publish-subscribe messaging, Neo4J for managing our email lists, all working with AWS, EC2 spot instances and autoscaling, and Ansible for configuration management.Sr. Mobile Engineer - iOS: 
+We are building entirely new iOS mobile apps for Academia. The codebase is brand new and done with Swift with a JSON REST API.  Our mobile engineers will learn some basic backend development to enable them to create database migrations and API endpoints essentially making us “mobile full-stack”.  We are taking our time to get the architecture and design patterns right, in order to build a high-quality product in lieu of taking shortcuts to rush to market.For a list of all our job openings and full details including benefits go here: www.academa.edu/openings"</p>
 							
 						
 							
-								<p class="story__comment_others">"Speakeasy | speakeasy.com | Software Engineer | Remote (US) | Full-timeSpeakeasy is a venture-backed, seed-stage startup that makes it easy for experts to teach live, online seminars and workshops. Our vision is to bring the vibrancy of a university campus to people, wherever they happen to be.Currently, we have one engineer on our team, but we’re entering a hyper-growth stage and are excited to bring on a second engineer to help us scale quickly. Our small team is focused on helping experts around the world lead engaging events and grow their incomes. As one of two engineers on our team, you’d play an integral role in building the product that enables us to achieve that goal.This role is a great fit for a full-stack software engineer who wants to work at a fast-growing startup, ship code that directly affects users, and help shape the product, code base, and engineering practices of a seed-stage startup.More details: https://www.notion.so/Speakeasy-Software-Engineer-0994a348ba...To apply: https://speakeasyco.typeform.com/to/qgQRmgEp"</p>
+								<p class="story__comment_others">"Off World Live Limited | Senior Engineer | REMOTE (must have UK National Insurance number)About Us:- Off World Live is a research-driven technology company supported by back-to-back Innovate UK SMART grants as well as commercial usage of its products across various sectors.- Our main research for 2021-22 relates to enhancing interactivity in live streams from games engines to video clients with a particular focus on frame-accurate metadata.- We also maintain highly popular SPOUT plugins for OBS Studio and Unreal Engine currently used by +30,000 developers.We&#39;re looking for a Senior Backend Engineer to join our team and help us with the building blocks of our games engine to streaming video pipeline.Key requirements:- 5+ years delivering complex coding projects with an emphasis on longer-term research-based tasks.- Experience working with modern cloud infrastructure ideally at scale.- Excellent understanding of internet network protocols (TCP, UDP) and how traffic is routed across the internet.- Extensive experience in C | C++ | Go | Rust or similar low-level systems programming language.- Experience working in a team environment.- Eagerness to break new technological ground.- Some experience of typescript / modern javascript [not essential]Compensation:- Competitive to market (tiered depending on candidate).- Options available.Apply here: https://offworld.live/careers"</p>
 							
 						
 						</a>
@@ -3562,390 +3969,6 @@ I tracked down a performance regression, when an ORM (due to programmer error) g
 						
 							
 								<p class="story__comment_others">"Partial indexes can flip query plans if the covered part becomes so small that it won&#39;t be represented when sampled by the stats collector. The planner could then decide that the index scan isn&#39;t worth it and could try an alternative less efficient index if one exists."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">01 February 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.ankshilp.com/time_for_github_app_store/">
-						<picture>
-							<source srcset="default_25979774.webp" type="image/webp">
-							<source srcset="default_25979774.png" type="image/png">
-							<img src="default_25979774.png" alt="Preview of 'GitHub Should Start an App Store'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.ankshilp.com/time_for_github_app_store/">GitHub Should Start an App Store</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25979774">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; They already host source code of millions of apps. Release integration should be trivial to implement.Release integration is trivial for anyone. It&#39;s the easiest and most irrelevant part of the app stores.&gt; Unlike Google they actually listen to their users. They were awesome during youtube-dl debacle.And controversial on others, like shutting down Popcorn Time&#39;s repository. As any other, they&#39;ll listen if there&#39;s enough outcry.&gt; Backed by Microsoft. Microsoft has been playing good by the developers for years now. I trust them more than Apple and Google.This is situational and opportunistic. It can change any day. In fact, managing an important app store is exactly one way to re-(un)-balance this relationship.&gt; They could finally give the desktop the app store it deservesMicrosoft won&#39;t have GitHub compete with the Microsoft Store and its newer efforts like winget. It would unermine their unifying vision that has been in the works for years for no benefit.&gt; This is a minor but users will be able to raise issues with developers directly instead writing comments over app pages which I think you would agree completely suck.Sure, lets pipe user feedback directly into GitHub issues. Good luck with that if you have a hundred issues a day.I don&#39;t think there&#39;s a single angle that would paint this as a good idea. Phone manufacturers like Samsung are in a much much better position to try. And indeed they have been trying an failing."</p>
-							
-						
-							
-								<p class="story__comment_others">"Sounds like a great way to create incentives that undermine githubs mission while simultaneously taking a huge amount of developer resources for a product that will have niche interest at best.Building app stores is hard. Moderating app stores is hard. Both are significantly different from running GitHub.While I appreciate the author&#39;s intent here, this just doesn&#39;t feel like it was deeply thought out."</p>
-							
-						
-							
-								<p class="story__comment_others">"Or we could just stop using app stores.Honestly, I&#39;ve yet to find an argument for the existence of an app store that holds water. Let people install what they want. Provide reasonable paths to update and upgrade and cut out the middle layer.The layer of control that Google and Apple exert over people is anti-competitive. But the answer isn&#39;t competing app stores. I don&#39;t need someone to tell me what I can or can&#39;t install on the operating system on my device."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://stu2b50.dev/posts/why-robinhood-d3580b">
-						<picture>
-							<source srcset="default_25979673.webp" type="image/webp">
-							<source srcset="default_25979673.png" type="image/png">
-							<img src="default_25979673.png" alt="Preview of 'Why Robinhood disabled buys but not sells'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://stu2b50.dev/posts/why-robinhood-d3580b">Why Robinhood disabled buys but not sells</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25979673">
-						
-							
-								<p class="story__comment_first line-clamp">"Everyone assuming a conspiracy theory needs to read this.Keep in mind that Robinhood also gives everyone a margin account by default. They also let people invest on margin before their inbound bank transfers arrive (Robinhood Instant). The influx of new traders sending money to Robinhood or selling other stocks to buy GME quickly drained their credit lines, reducing the capital they had available for collateral.Keep in mind that when someone sells a different stock to buy GME in the same day, they&#39;re buying GME on margin. Stock trades don&#39;t settle until T+2, so any new purchases using those proceeds are done on margin.This was a capital crunch at Robinhood due to an unexpected herd of new traders all looking to do the same thing in unison. It violated the assumptions of their business model, and the only way to keep the platform from grinding to insolvency (or violating regulations) was to slow down the unexpected event by slowing meme stock purchases.Is it really so hard to believe that such an unprecedented mass movement would break the underlying business assumptions of a pre-IPO startup that was heavily dependent on their credit lines?The biggest problem is Robinhood&#39;s poor messaging. It&#39;s clear their highest priority was to avoid admission that they were running out of money. They didn&#39;t want to trigger a bank run or shake the confidence of their newly acquired users, so they tried to obscure the message as much as possible. As a result, the popular narrative assumed some sort of evil conspiracy theory."</p>
-							
-						
-							
-								<p class="story__comment_others">",,Robinhood legally could not submit trades on $GME until they could muster the deposits for GME that they needed. &#39;&#39;This sounds like a liquidity issue, but Robinhood&#39;s CEO said in the interview that there was no liquidity issue.The why doesn&#39;t matter at this point because Robinhood CEO was caught lying by contradicting himself."</p>
-							
-						
-							
-								<p class="story__comment_others">"Similar explanation was posted Jan 28 on twitter by Silent Cal[1]. This article and the twitter thread do paint a very plausible explanation. And is easy to accept.OTOH, a potentially far more nefarious, yet plausible, underlying motive was posted on /r/wsb today [2] that links GME to counterfeiting shorts.Given Steve Cohen&#39;s numerous scandals through the years as detailed on wikipedia [3], needing to cover up for counterfeiting shorts also seems like a plausible explanation.I hope the finance committee investigations AOC called for take place and consider both points.* - Not invested in GME, and prohibited from doing so by my employer. No intention of committing suicide and happy w/life.[1] - https://twitter.com/KralcTrebor/status/1354952686165225478[2] -  https://www.reddit.com/r/wallstreetbets/comments/l97ykd/the_...[3] - https://en.wikipedia.org/wiki/Steve_Cohen_(businessman))"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://my90stv.com">
-						<picture>
-							<source srcset="default_25973955.webp" type="image/webp">
-							<source srcset="default_25973955.png" type="image/png">
-							<img src="default_25973955.png" alt="Preview of 'My 90s TV: Browse 90s Television'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://my90stv.com">My 90s TV: Browse 90s Television</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25973955">
-						
-							
-								<p class="story__comment_first line-clamp">"I realize this is a site about the past, but I really hope this is the future. I want an internet of specialty sites, browsable curations, diversity of offering, freedom of choice, and full of the quirky/unusual. It might have to do with growing up in the 90s and experiencing that kind of world wide web, w/o walled gardens.Several years back, perhaps even via an HN post or comment, I came across a blog, hosted on a university network (IIRC, perhaps related to media studies). The page consisted of a group of possibly graduate students contributing some of the weirdest and most obscure media I&#39;ve ever seen online. Nothing obscene and nothing seemingly new/current, so it was rather hipster in that sense, but I kick myself for not having saved the URL.Nothing says I need to use walled gardens or get my news from the big networks, but I often feel I&#39;m being pointed that way. In the end, I just want something different than what&#39;s usually being served up.(It doesn&#39;t escape me that this 90&#39;s TV site is full of walled garden/big network type content of the time)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I hit 1993 and David Letterman came on and I’m awash in nostalgia for what seems like such a simpler, happier time.  People liked each other.  They could concentrate longer than three seconds.  Dave and Paul are genuinely laughing and everything is all right.What a fantastic website."</p>
-							
-						
-							
-								<p class="story__comment_others">"I love the way each channel change takes you to a new webpage, meaning you need to press &#34;back&#34; button multiple times to leave. Truly makes it feel like the 90&#39;s."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.sciencefocus.com/the-human-body/afternoon-naps-linked-to-improved-cognitive-function/">
-						<picture>
-							<source srcset="default_25972342.webp" type="image/webp">
-							<source srcset="default_25972342.png" type="image/png">
-							<img src="default_25972342.png" alt="Preview of 'Regular afternoon naps linked to improved cognitive function'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.sciencefocus.com/the-human-body/afternoon-naps-linked-to-improved-cognitive-function/">Regular afternoon naps linked to improved cognitive function</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25972342">
-						
-							
-								<p class="story__comment_first line-clamp">"I tried polyphasic sleeping for a while when I worked at an IBank. I remember it as one of the most productive periods of my life but it was incredibly anti social and got the strangest looks from management.I&#39;d do 35 minute naps with an alarm at 0430, 0830, 1230, 1630, and without an alarm at 2030 and 0030 (on the basis that I thought my body would sleep through if I was &#34;doing any damage&#34;).It made going out at the weekends or playing poker in a casino incredibly difficult so after 3 weeks I had to pack it in.I was lucky to live a 5 minute, folding, bicycle ride from the office but I also had a little card I&#39;d leave on my desk for the corner that said, &#34;I have not collapsed I&#39;m having a nap.&#34;The one thing I&#39;ve kept from those days is that I still wear a sleep mask to bed."</p>
-							
-						
-							
-								<p class="story__comment_others">"I use this concept of a &#34;billable nap&#34; ... it gets to the midafternoon and I&#39;m deep in a programming problem, and my thought process gets far too fuzzy.  So I can either spend a couple of hours or more struggling through, or I can shut my eyes for a bit  20 minutes idelally, and then nail the problem down in a much shorter time than without the nap."</p>
-							
-						
-							
-								<p class="story__comment_others">"I find if I&#39;m working on a difficult problem, I feel like I can make more rapid progress if I take a &#39;nap&#39; early afternoon in that post lunch drowsy period. I often start thinking about the problems again immediately on waking, and typically find that is the most productive period in terms of breakthroughs and making mental connections.I put &#39;nap&#39; in quotes because I don&#39;t set an alarm (unless there is specific need to), and for me that usually means a 2 hour sleep! I figure that is made up of 90 mins of one sleep cycle, and some time either side for falling asleep and waking.https://en.wikipedia.org/wiki/Sleep_cycleAll made possible by pandemic working from home."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://nostalgic-css.github.io/NES.css/">
-						<picture>
-							<source srcset="default_25982999.webp" type="image/webp">
-							<source srcset="default_25982999.png" type="image/png">
-							<img src="default_25982999.png" alt="Preview of 'NES.css – NES-Style CSS Framework'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://nostalgic-css.github.io/NES.css/">NES.css – NES-Style CSS Framework</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25982999">
-						
-							
-								<p class="story__comment_first line-clamp">"But wait! There&#39;s more!98.css https://jdan.github.io/98.css/XP.css https://botoxparty.github.io/XP.css/7.css https://khang-nd.github.io/7.css/Each iteration excoriating layers of usability, pragmatism and clarity heading towards absolute cluster fuck of UX/UI we have today!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I keep a list of these every time they show up on HN:https://github.com/sw-yx/spark-joy/blob/master/README.md#fun...everything from PS1 to Futuristic Sci Fi CSS!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Hey, if anyone at Microsoft is lurking here, the custom cursor on this theme doesn’t[0] scale properly according to the user’s EoA setting in Windows 10.I tried to reach out a few times last year to get someone to fix the affected API[1], or to tell me a suitable replacement so I could patch Blink and Gecko[2][3], and had no luck.If you could look into this, and maybe let me know what to do or what is going on, I would be grateful. Thanks![0] Probably; I don’t run Windows so I don’t have an fully up-to-date version to check right now, but nobody told me it was fixed, so I assume it is still broken.[1] `CreateIconIndirect`, when `fIcon = FALSE`.[2] https://bugzilla.mozilla.org/show_bug.cgi?id=1609827[3] https://bugs.chromium.org/p/chromium/issues/detail?id=104298..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://wiki.eth0.nl/index.php/LackRack">
-						<picture>
-							<source srcset="default_25978013.webp" type="image/webp">
-							<source srcset="default_25978013.png" type="image/png">
-							<img src="default_25978013.png" alt="Preview of 'How to Turn an IKEA Coffee Table into a DIY Server Rack'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://wiki.eth0.nl/index.php/LackRack">How to Turn an IKEA Coffee Table into a DIY Server Rack</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25978013">
-						
-							
-								<p class="story__comment_first line-clamp">"https://wiki.eth0.nl/index.php/LackRack#Enterprise_EditionMy favourite bit on this site re. The long version of the LACK table or &#34;enterprise edition&#34;:&#34;Following ICT tradition, the Enterprise Edition is more than three times as expensive, while providing less stability than two of the regular products combined.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"I used to desire putting rack mounted equipment in my homelab and actually filled a lackrack with decommissioned servers and switches but quickly found that rackmounted equipment tends to have loud, high speed fans which are quite unpleasant to spend any time with."</p>
-							
-						
-							
-								<p class="story__comment_others">"The opposite of turning an Ikea coffee table into a server rack has to be turning an Apple Xserve into a coffee table:https://www.reddit.com/r/homelab/comments/kig3gw/do_coffee_t...https://imgur.com/a/6TLqWks"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.pnas.org/content/118/6/e2008389118">
-						<picture>
-							<source srcset="default_25963589.webp" type="image/webp">
-							<source srcset="default_25963589.png" type="image/png">
-							<img src="default_25963589.png" alt="Preview of 'Personal experiences bridge moral and political divides better than facts'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.pnas.org/content/118/6/e2008389118">Personal experiences bridge moral and political divides better than facts</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25963589">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s interesting to me that this delineates between facts and personal experience as if personal experience doesn&#39;t occupy the same space as facts. Perhaps a more useful way to think about people&#39;s relation to truth is one of proximity. For a given individual, their personal experience is entirely factual, and because it is also most proximate to them, it is weighted the most highly. Intuitively, I think we understand this, so we tend to weight other people&#39;s experiences similarly, knowing that those are as proximate to them as our experiences are to us."</p>
-							
-						
-							
-								<p class="story__comment_others">"Key point:&#34;The problem is that facts—at least today—are themselves subject to doubt, especially when they conflict with our political beliefs (21). In the past decades, America has seen a decentralization of news and information (22) that has allowed people to gather their “own facts” (i.e., alternative facts; ref. 23). Most recently, claims of “fake news” allow people to distrust any information that fails to align with their political beliefs (24, 25) and to trust fake news that aligns with their beliefs (26).&#34;This is the epistemic crisis we&#39;re currently facing. Up until about the late 70s we had 3 news networks that were all pretty much middle of the road politically. Newspapers could have more of a discernible political leaning, but even there most of the mainstream ones we&#39;re pretty centrist. People who hewed to an extreme political position in either direction were ostracized and thus had a very small audience. We had more of a common narrative which is now gone."</p>
-							
-						
-							
-								<p class="story__comment_others">"A personal experience is a fact. It is a fact we can be pretty sure of, and we know the context of that fact. Obviously, once we extrapolate from that experienced fact, it becomes bias.A fact that is not a personal experience is difficult to trust. Even if I trust the source of that fact, I am often not sure if I understand the fact properly. Anyone who has ever tried to understand a math theorem might relate.It is entirely rational to trust more in your personal bias. In fact, I would argue that the only way to trust a fact is to make it somehow into something that you can personally experience. For example, to understand a math theorem, it helps to look at lots of different kinds of examples where it holds (and where it doesn&#39;t)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://webtransparency.cs.princeton.edu/dark-patterns/">
-						<picture>
-							<source srcset="default_25968531.webp" type="image/webp">
-							<source srcset="default_25968531.png" type="image/png">
-							<img src="default_25968531.png" alt="Preview of 'Dark Patterns at Scale: Findings from a Crawl of 11K Shopping Websites (2019)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://webtransparency.cs.princeton.edu/dark-patterns/">Dark Patterns at Scale: Findings from a Crawl of 11K Shopping Websites (2019)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25968531">
-						
-							
-								<p class="story__comment_first line-clamp">"As I write this, I am attempting to reduce the number of licenses allocated in the Adobe admin portal.After hunting through the site, it appears easy to add, but impossible to remove licenses without going through sales support (instant response with a human), who then transfer you to the &#34;Cancellation Team&#34; which are remarkably hard to find online and have not replied to previous attempts at cancellation.This is my third try, and the wait has been ridiculous. After finally being connected to a member of their cancellation team, they are &#34;reviewing my request&#34; and 1-2 minutes (please stand by) has turned into 15+This experience has been so bad (on top of many others), that I&#39;m strongly considering moving our entire org to open source tools (aside from InDesign for the publications group, which our partners require)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I believe this kind of thing is a big contributor to Amazon&#39;s hegemony in online shopping. I&#39;m reluctant to order from other sites because there&#39;s a whole new set of dark patterns I may fall victim to. At least I&#39;m familiar enough with Amazon to know I&#39;m not getting charged for things I didn&#39;t intend to order, the low stock warnings are somewhat legitimate, etc. I&#39;m not saying Amazon doesn&#39;t have its own issues, but at least it&#39;s a known quantity.If it weren&#39;t for Amazon&#39;s dominance, other sites would be able to compete without resorting to these dark patterns, so this is a self-perpetuating cycle: people only shop on Amazon -&gt; the only other sites that can survive are the ones that engage in deception -&gt; trust in non-Amazon shopping sites decreases -&gt; people only shop on Amazon -&gt; ...I don&#39;t mean to cast these scammy shopping websites as victims. My concern is more about how the legitimate sites that could exist don&#39;t because they&#39;re crowded out by Amazon (and other big players like Walmart) and the scammy shopping sites this article discusses."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is interesting - I feel like the site should separate dark patterns that add information from ones that lie or obfuscate. In my experience, consumers feel differently about these categories.I&#39;ve sat in on a few dozen user research sessions for ecommerce. This was qualitative research that included their general shopping habits, and additionally testing new features. The most interesting thing that I learned is that consumers (a) are generally pretty aware of when they&#39;re being pressured, and (b) are fine if it&#39;s transparent and accurate.A classic example of this were low-stock notifications. The shoppers were generally okay with being told that something was low stock if that was really true. Many people could name specific items they lost because they were sold out. Some could also name instances of when they had bought something &#34;1 item remaining&#34; and seen it on sale the next day. They preferred having the information because it helped them make an informed decision. It turns out that lots of people browse the same items for a while, and use sales or almost-out-of-stock as a &#34;now or never&#34; moment.The most interesting user session I ever sat in on was for a countdown timer for a sale ending. The designer refused to design it at first, and then was like, &#34;fine, I&#39;m going to design the hell out of this and then show you in user research that nobody wants this.&#34; And then she showed it to 5 people in user research, who were generally okay with it on the condition that it counted down to the actual sale ending. Some said they actually liked knowing, because when they&#39;re just looking on their phones they might not be in a good position to buy it, and want to know how much time they have later to get it. They said that they&#39;ll often refresh the page to see if the timer resets, because if it starts ticking from the same time, they feel like the site is just scammy and they&#39;ll leave.Anyways, I&#39;m not trying to defend lots of these patterns. Most of them are clearly wrong, and the ones that I mentioned above can also be used to lie and deceive. But I wouldn&#39;t put them all together - in my experience, consumers generally want accurate information even if they&#39;re aware that the company is doing it to pressure them."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://uxdesign.cc/uniwidth-typefaces-for-interface-design-b6e8078dc0f7">
-						<picture>
-							<source srcset="default_25956652.webp" type="image/webp">
-							<source srcset="default_25956652.png" type="image/png">
-							<img src="default_25956652.png" alt="Preview of 'Uniwidth Typefaces for Interface Design'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://uxdesign.cc/uniwidth-typefaces-for-interface-design-b6e8078dc0f7">Uniwidth Typefaces for Interface Design</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25956652">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt;&gt; The solution to this problem: “uniwidth” typefaces, sometimes also called “equal-width”, “duplexed” or “multiplexed” typefaces. And no, I am not talking about monospaced fonts here.I&#39;m not into web design but I think the core problem here is lack of accepted terminology and even awareness that this type of font is a thing.The article certainly brings awareness to something I didn&#39;t know is a thing but seems very useful.My mind wants to say &#34;weight invariant&#34; or &#34;style invariant&#34; but those suggest the thing doesnt look any different rather than just the size not changing with other characteristics.It&#39;s probably obvious that I don&#39;t like &#34;uniwidth&#34;, but at the moment I can&#39;t think of anything better that isn&#39;t super wordy, like &#34;font with style invariant width&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is not a monospaced font used for code:&gt; also called non-proportional font, is a font whose letters and characters each occupy the same amount of horizontal spaceinstead, it preserves the width if you apply a weight like BOLD:&gt; Uniwidth typefaces, on the other hand, are proportionally-spaced typefaces, but every character occupies the same space across different cuts or weights.This allows visual cues other than color in interactive text such as the :hover CSS pseudo-class."</p>
-							
-						
-							
-								<p class="story__comment_others">"Ahh, very satisfying to learn the name of this property.It’s especially important in data tables when coupled with tabular numbers (essentially mono spaced numbers) so you can e.g. bold a cell without having the thousands or decimal separators get out of alignment in a column of numbers. Spreadsheet programs use fonts with this property."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://queue.acm.org/detail.cfm?id=3448307">
-						<picture>
-							<source srcset="default_25968348.webp" type="image/webp">
-							<source srcset="default_25968348.png" type="image/png">
-							<img src="default_25968348.png" alt="Preview of 'Offline Algorithms in Low-Frequency Trading'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://queue.acm.org/detail.cfm?id=3448307">Offline Algorithms in Low-Frequency Trading</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=25968348">
-						
-							
-								<p class="story__comment_first line-clamp">"If low frequency trading interests you, here&#39;s a project some people might want to check out: https://github.com/brndnmtthws/thetagangIt&#39;s designed to sell option premium on major indices (like the S&amp;P500 or NASDAQ-100) to generate mostly passive income, with a fairly reasonable risk-adjusted return. It uses a combination of strategies that involve selling naked puts and covered calls, which both have the same risk profile, but naked puts tend to have higher premiums."</p>
-							
-						
-							
-								<p class="story__comment_others">"Unzipped the code and put it here for easy viewing: https://github.com/breck7/drillBits(Note: if author wants to create a GitHub I&#39;ll edit this link and point to theirs!)"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is worth a read if only because of the clear introductory explanation of the market clearing mechanism.However, it’s not a profit maximizing algo that will make you rich (not that there’s anything wrong with that)."</p>
 							
 						
 						</a>
