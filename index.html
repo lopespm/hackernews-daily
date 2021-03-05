@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">04 March 2021</div>
+	<div class="day__date">05 March 2021</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.theregister.com/2021/03/03/brave_buys_a_search_engine/">
+					<a href="https://httptoolkit.tech/blog/http-wtf/">
 						<picture>
-							<source srcset="default_26328758.webp" type="image/webp">
-							<source srcset="default_26328758.png" type="image/png">
-							<img src="default_26328758.png" alt="Preview of 'Brave buys a search engine, promises no tracking, no profiling'">
+							<source srcset="default_26343577.webp" type="image/webp">
+							<source srcset="default_26343577.png" type="image/png">
+							<img src="default_26343577.png" alt="Preview of 'HTTPWTF'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.theregister.com/2021/03/03/brave_buys_a_search_engine/">Brave buys a search engine, promises no tracking, no profiling</a></h3>
+					<h3><a href="https://httptoolkit.tech/blog/http-wtf/">HTTPWTF</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26328758">
+						<a href="https://news.ycombinator.com/item?id=26343577">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;The service will, eventually, be available as a paid option...&#34;How my viewpoint has shifted over the years. 10-20 years ago this would have instantly turned me off, but now this is the most exciting line in the entire thing to me. As long as we all expect free, we can&#39;t expect privacy.@Brave team, who I rather expect will be reading this, I can&#39;t believe that Cliqz doing tracking on me to improve its results for free will be in my interests if it&#39;s free. But if I&#39;m a paying customer, you might be able to convince me that you&#39;re doing some semi-invasive tracking but not actually selling it to anyone, because it wouldn&#39;t be worth losing me as a customer.I&#39;m actually excited about the idea of a search engine that I pay for. Been waiting for DDG to do it but last I knew there&#39;s still no option there."</p>
-							
-						
-							
-								<p class="story__comment_others">"In my understanding what Cliqz did, at least in the beginning, was to buy clickstream data and then build an index on top of that. So in a sense they just scraped Googles&#39; search index, as almost all users rely on Google for finding stuff on the web. The clickstream data gives you both the search query and the website(s) users visit after searching, so it&#39;s pretty easy to build a search index from that, at least for popular searches (it might be more difficult for the long tail of search queries).A lot of the clickstream data you can buy comes from browser extensions btw, and often gets collected without users knowing about it (looking at you, &#34;Web of Trust&#34;). I think their reliance on such data was the reason Cliqz acquired Ghostery, which also collects a copious amount of &#34;anonymous&#34; data from its users. On one hand it&#39;s a neat idea since you&#39;re basically standing on Googles&#39; shoulders, on the other hand it&#39;s at least questionable for a &#34;privacy-first&#34; company as the generation of the search index is based on personal data mined from (often unwitting) users.That said I don&#39;t know how their system evolved, so maybe today they have another way to build their index."</p>
+								<p class="story__comment_first line-clamp">"I&#39;d add to this list:Chunk extensions. Most people know HTTP/1.1 can return a &#34;chunked&#34; response body: it breaks the body up into chunks, so that we can send a response whose length we don&#39;t know in advance, but also it allows us to keep the connection open after we&#39;re done. What most people don&#39;t know is that chunks can carry key-value metadata. The spec technically requires an implementation to at least parse them, though I think it is permitted to ignore them. I&#39;ve never seen anything ever use this, and I hope that never changes. They&#39;re gone in HTTP/2. (So, also, if you thought HTTP/2 was backwards compatible: not technically!)The &#34;Authorization&#34; header: like &#34;Referer&#34;, this header is misspelled. (It should be spelled, &#34;Authentication&#34;.) Same applies to &#34;401 Unauthorized&#34;, which really ought to be &#34;401 Unauthenticated&#34;. (&#34;Unauthorized&#34; is &#34;403 Forbidden&#34;, or sometimes &#34;404 Not Found&#34;.)Also, header values. They&#39;re basically require implementing a custom string type to handle correctly; they&#39;re a baroque mix of characters &amp; &#34;opaque octets&#34;."</p>
 							
 						
 							
-								<p class="story__comment_others">"Brave has a long way to go to build real trust. Too many reckless stuff: hijacking links, suspicious url-rewriting, crypto-token stunts, forgetting to communicate with users about serious privacy leaks with their faulty TOR window... also it looks like they care about privacy only in their PR brochures."</p>
+								<p class="story__comment_others">"Fun Fact: When http first came out and was hidden in Academia, there were no headers. Then the need for metadata was realized and second-system syndrome took over to create a bunch of crazy headers. My favorite odd-ball header is &#34;Charge-To:&#34;https://www.w3.org/Protocols/HTTP/HTRQ_Headers.htmlThis is not a custom X- header but an official header. Also Email: and some other odd headers were standardized at that time."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been searching for a while for a good way to know whether a client has disconnected in the middle of a long-running HTTP request. (We do heavyweight SQL queries of indeterminate length in response to those requests, and we&#39;d like to be able to cancel them, rather than wasting DB-server CPU cycles calculating reports nobody&#39;s going to consume.)You can&#39;t actually know whether the outgoing side of a TCP socket is closed, unless you write something to it. But it&#39;s hard to come up with something to write to an HTTP/1.1-over-TCP socket before you respond with anything, that would be a valid NOP according to all the protocol layers in play. (TCP keepalives would be perfect for this... if routers didn&#39;t silently drop them.)But I guess sending an HTTP 102 every second or two could be used for exactly this: prodding the socket with something that middleboxes will be sure to pass back to the client.If so, that&#39;s awesome! ...and also something I wish could be handled for me automatically by web frameworks, because getting that working sounds kind of ridiculous :)"</p>
 							
 						
 						</a>
@@ -76,33 +76,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://kunle.app/feb-2021-how-to-dismantle-turbotax.html">
+					<a href="https://github.com/git/git/blob/master/banned.h">
 						<picture>
-							<source srcset="default_26330584.webp" type="image/webp">
-							<source srcset="default_26330584.png" type="image/png">
-							<img src="default_26330584.png" alt="Preview of 'Killing TurboTax'">
+							<source srcset="default_26347867.webp" type="image/webp">
+							<source srcset="default_26347867.png" type="image/png">
+							<img src="default_26347867.png" alt="Preview of 'Git&#39;s list of banned C functions'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://kunle.app/feb-2021-how-to-dismantle-turbotax.html">Killing TurboTax</a></h3>
+					<h3><a href="https://github.com/git/git/blob/master/banned.h">Git&#39;s list of banned C functions</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26330584">
+						<a href="https://news.ycombinator.com/item?id=26347867">
 						
 							
-								<p class="story__comment_first line-clamp">"This is such an ongoing theme on HN that we could maybe use a bibiliography.  If I missed any big ones let me know.In reverse chronological order:Show HN: ustaxes.org – open-source tax filing webapp - https://news.ycombinator.com/item?id=26138446 - Feb 2021 (219 comments)TurboTax Tricked You into Paying to File Your Taxes  (2019) - https://news.ycombinator.com/item?id=26102695 - Feb 2021 (306 comments)TurboTax’s 20-Year Fight to Stop Americans from Filing Taxes for Free (2019) - https://news.ycombinator.com/item?id=26060414 - Feb 2021 (199 comments)FTC Is Investigating Intuit over TurboTax Practices - https://news.ycombinator.com/item?id=24409093 - Sept 2020 (194 comments)IRS Reforms Free File Program, Drops Agreement Not to Compete with TurboTax - https://news.ycombinator.com/item?id=21923220 - Dec 2019 (448 comments)IRS Tried to Hide Emails That Show Tax Industry Influence over Free File Program - https://news.ycombinator.com/item?id=21393758 - Oct 2019 (188 comments)TurboTax’s 20-Year Fight to Stop Americans from Filing Taxes for Free - https://news.ycombinator.com/item?id=21281411 - Oct 2019 (447 comments)TurboTax to charge more lower-income customers - https://news.ycombinator.com/item?id=20461169 - July 2019 (81 comments)Congress Scraps Provision to Restrict IRS from Competing with TurboTax - https://news.ycombinator.com/item?id=20119916 - June 2019 (18 comments)TurboTax Uses a “Military Discount” to Trick Troops into Paying to File Taxes - https://news.ycombinator.com/item?id=19994118 - May 2019 (42 comments)Listen to TurboTax Lie to Get Out of Refunding Overcharged Customers - https://news.ycombinator.com/item?id=19870242 - May 2019 (44 comments)TurboTax and H&amp;R Block Saw Free Tax Filing as a Threat - https://news.ycombinator.com/item?id=19810981 - May 2019 (143 comments)TurboTax Hides Its Free File Page from Search Engines - https://news.ycombinator.com/item?id=19758126 - April 2019 (262 comments)TurboTax Uses Dark Patterns to Trick You into Paying to File Your Taxes - https://news.ycombinator.com/item?id=19718284 - April 2019 (274 comments)Congress Is About to Ban the US Government from Offering Free Online Tax Filing - https://news.ycombinator.com/item?id=19613725 - April 2019 (696 comments)How the Maker of TurboTax Fought Free, Simple Tax Filing (2013) - https://news.ycombinator.com/item?id=19392673 - March 2019 (253 comments)H&amp;R Block and Intuit Lobby Against Free and Simple Tax Filing (2017) - https://news.ycombinator.com/item?id=18956883 - Jan 2019 (190 comments)Would You Let the I.R.S. Prepare Your Taxes? (2015) - https://news.ycombinator.com/item?id=17751383 - Aug 2018 (424 comments)Why I&#39;m boycotting TurboTax this year - https://news.ycombinator.com/item?id=16844458 - April 2018 (23 comments)H&amp;R Block and Intuit Lobbying Against Simpler Tax Filing (2017) - https://news.ycombinator.com/item?id=16841449 - April 2018 (232 comments)H&amp;R Block and Intuit Are Lobbying Against Making Tax Filling Free and Easy - https://news.ycombinator.com/item?id=13922482 - March 2017 (234 comments)How the Maker of TurboTax Fought Free, Simple Tax Filing (2013) - https://news.ycombinator.com/item?id=13853150 - March 2017 (439 comments)TurboTax Takes Aim at Smaller Rival in Fight for Filers - https://news.ycombinator.com/item?id=11150694 - Feb 2016 (87 comments)Would You Let the I.R.S. Prepare Your Taxes? - https://news.ycombinator.com/item?id=9381437 - April 2015 (150 comments)Would You Let the I.R.S. Prepare Your Taxes? - https://news.ycombinator.com/item?id=9380232 - April 2015 (124 comments)Filing taxes: It shouldn&#39;t be so hard - https://news.ycombinator.com/item?id=5488084 - April 2013 (56 comments)How the Maker of TurboTax Fought Free, Simple Tax Filing - https://news.ycombinator.com/item?id=5443203 - March 2013 (330 comments)"</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Killing TurboTax&#34; is essentially a meme until we meaningfully simplify the tax code.There is no software development team on earth who could catch up with the full capabilities of TurboTax without some sort of fundamental shift in the business. I really hate to say this as someone who makes a living out of it, but dealing with the current amount of complexity in the tax code with a piece of software that a non-expert could use is virtually impossible.For the happy path (i.e. single individual, no dependents, no investments, no retirement, rents home), you could certainly build an application that handles these scenarios. The moment you factor in individuals who are bringing stock sales, multiple investment properties, ownerships/K1s and other complex scenarios to bear, its a different hellscape altogether.Also don&#39;t forget that most states have their own independent tax codes as well, which further complicate matters. There&#39;s difficulty multipliers all over this problem domain, and you can be certain that the lobbyists employed by Intuit, et. al. are encouraging this."</p>
+								<p class="story__comment_first line-clamp">"Its really wild, as a person coming from other languages who has written maybe ten lines of C in his life that the functions that seem to be massive footguns in C are, like, &#34;format a string&#34; or &#34;get time in GMT.&#34;  That&#39;s... really scary."</p>
 							
 						
 							
-								<p class="story__comment_others">"I started building my own open source US tax engine, but then found https://github.com/ustaxes/UsTaxes here on HN (https://news.ycombinator.com/item?id=26138446) and decided to throw my efforts with them instead. Check it out!"</p>
+								<p class="story__comment_others">"To respond to some of the comments.It is not that there is anything intrinsically wrong with these functions. You can technically use all of them and I have been using all of them, safely, for decades.The issue is they are huge traps to the point that in a larger piece of software one can say &#34;well, it&#39;s just not worth it&#34;.You can go much, much, much further than that.In couple embedded projects I worked some of the rules were:* dynamic allocation after application has started is banned -- any heap buffers and data structures must be allocated at the start of the application and after that any allocation is a compile time error,* any constructs that would prevent statically calculating stack usage were banned (for example any form of recursion except when exact recursion depth is ensured statically),* any locks were banned,* absolutely every data structure must have size ensured, in a simple way, beyond any reasonable doubt,etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"It would be nice if the error messages generated would suggest replacement functions that they deem appropriate.  I see that I&#39;m not supposed to use gmtime, localtime, ctime, ctime_r, asctime, and asctime_r; but what do they think I should use?"</p>
 							
 						
 						</a>
@@ -114,33 +114,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://torrentfreak.com/icann-refuses-to-accredit-pirate-bay-founder-peter-sunde-due-to-his-background-210303/">
+					<a href="https://medium.com/swlh/user-engagement-is-code-for-addiction-a2f50d36d7ac">
 						<picture>
-							<source srcset="default_26326795.webp" type="image/webp">
-							<source srcset="default_26326795.png" type="image/png">
-							<img src="default_26326795.png" alt="Preview of 'ICANN Refuses to Accredit Pirate Bay Founder Peter Sunde Due to His ‘Background’'">
+							<source srcset="default_26346688.webp" type="image/webp">
+							<source srcset="default_26346688.png" type="image/png">
+							<img src="default_26346688.png" alt="Preview of '“User engagement” is code for “addiction”'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://torrentfreak.com/icann-refuses-to-accredit-pirate-bay-founder-peter-sunde-due-to-his-background-210303/">ICANN Refuses to Accredit Pirate Bay Founder Peter Sunde Due to His ‘Background’</a></h3>
+					<h3><a href="https://medium.com/swlh/user-engagement-is-code-for-addiction-a2f50d36d7ac">“User engagement” is code for “addiction”</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26326795">
+						<a href="https://news.ycombinator.com/item?id=26346688">
 						
 							
-								<p class="story__comment_first line-clamp">"Sunde understands the value of propaganda, so it&#39;s fairly obvious he expected this outcome. He wanted to highlight the undemocratic and corrupt nature of one of the most critical parts of our global infrastructure, and he did it.Ironically, this was a better proof of transparency than what most &#34;problematic&#34; people would subject themselves to. If any vanilla oligarch wanted to be in those circles, he would just pay some squeaky-clean individual to be his stooge, and then make it known, after registration, who the real power is. Sunde could have configured himself as a freelance consultant to his friends, and he would not have appeared on any radar. This would have made his business work, but it would not have advanced the perennial conversation about ICANN&#39;s original sins, which have become more and more untolerable with the years.ICANN were pretty stupid to just veto his admission. That&#39;s not how you deal with institutional critics. They could have simply brought him in, then informally and formally vetoed anything he wanted to do. They have experience with people who tried to blow up things &#34;from inside&#34; in the past, so clearly they&#39;ve developed countermeasures ready for that scenario. Or they could have given him something, enough to behold him, so he&#39;d have an incentive to stay in the tent and piss outside rather than the other way around.This attitude proved Sunde is fundamentally right on the subject matter, like him or not as a person."</p>
-							
-						
-							
-								<p class="story__comment_others">" &gt; They basically admitted that they don’t like me. They’ve banned me for nothing else than my political views. This is typical discrimination. Considering I have no one to appeal to except them, it’s concerning, since they control the actual fucking center of the internet.Next-level deplatforming. From a non-profit. That essential controls the internet. Yay."</p>
+								<p class="story__comment_first line-clamp">"Here&#39;s an anecdote about what happens when you design a product in the opposite way.I own https://www.executeprogram.com, which has interactive in-browser courses on various software development technologies. Currently they all cover languages, more or less: TypeScript, SQL, various JS topics, regexes. (Disclosure: it costs money after you finish your 16th lesson.)Almost all (maybe literally all) of our competitors are amenable to binging. It&#39;s true of books, video learning platforms, and most/all other interactive learning platforms.Execute Program is very intentionally non-bingeable. When you start a course, you get 5 lessons on the first day, then it stops you and tells you to come back tomorrow. On the next day, you get some brief reviews of yesterday&#39;s lessons, then a few new lessons, then it stops you again until the next day. That cadence repeats until you finish the course. You can&#39;t binge/cram even if you want to.(A bit more technical detail: it&#39;s a spaced repetition system with exponential review intervals, similar to those used for language learning in e.g. WaniKani and Anki. But it also has a lot of fine-grained knowledge of its own course structure, so it can use reviews to intelligently unlock different lessons depending on how the user performed on their reviews.)Occasionally, we get support email from new users who don&#39;t like this. They want to cram a whole course in a day. But cramming is a very time-inefficient way to learn, so this is self-defeating! Since launch, we&#39;ve had good success adjusting the app&#39;s behavior and internal explanations to reduce these complaints.However, we still get emails from long-term users who appreciate the time limitations. Generally these fall into two categories:1. Users like that an enforced break before the reviews provides tangible evidence that &#34;yes, I genuinely understood yesterday&#39;s lessons&#34;. If we allowed cramming, that reassurance wouldn&#39;t exist; it&#39;s too easy to succeed at a review when you just finished the lesson 30 seconds ago.2. Users like that the usage limits remove a source of anxiety and worry. You do your reviews and lessons, you finish, and then you wait until tomorrow. There&#39;s no temptation to think &#34;I really should&#39;ve done 10 lessons today instead of 5; I&#39;m so lazy&#34;.It&#39;s still possible for a very dedicated user to do all of our courses in parallel within their first monthly billing cycle. (Median course start-to-finish time is 8-18 days depending on the course.) So this scheme doesn&#39;t make users pay us more than they would otherwise. And they&#39;re spending the same amount of wall-clock time that they&#39;d spend if they crammed all of the lessons in one day. That makes it pure win: they memorize the topics more deeply, they worry less, and they get those benefits for no extra time expenditure. The only exception I can think of would be people who think &#34;I must get exposure to all TypeScript syntax and semantics before tomorrow morning, even if that significantly reduces my ability to remember what I learned.&#34;Obviously I&#39;m very biased here, and the goals that we&#39;re optimizing for don&#39;t even exist in most other product spaces. But I thought it would be nice to have a counterexample to &#34;engagement at all costs&#34;."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Over the phone, ICANN explained that the matter was discussed internally. This unnamed group of people concluded that the organization is ‘not comfortable’ doing business with him.It&#39;s the height of arrogance that they didn&#39;t even feel the need to come up with any better excuse, just this. And of course:&gt; ICANN will also keep the registration fee"</p>
+								<p class="story__comment_others">"I don&#39;t like the current trend of social media apps burying users under push notifications, calls to action, and other engagement hooks.However, there&#39;s a second, parallel problem adding fuel to the fire: The more we talk about overindulgence in social media (or Netflix, or video games, or fast food) as an act perpetrated by evil corporations on us helpless individuals, the less sense of individual agency we give ourselves. I&#39;m not suggesting that we let social media companies off the hook, but battling this problem is going to require more than simply shaming them in Medium posts. We have to start reminding people that they are in control of their decisions, and that they can take steps to reduce their social media usage to healthy levels.I know the common refrain is &#34;Delete Facebook!&#34; but that&#39;s the equivalent of abstinence-only education. We need to start talking about how to configure Screen Time on iOS, or how to use Facebook&#39;s built-in tools to hide content you don&#39;t want to see. We also need to encourage people to take control of their feeds, muting users and topics who draw them into unproductive discussions."</p>
+							
+						
+							
+								<p class="story__comment_others">"A tangential point about the horrifying power of euphemism: I&#39;ve done some consulting work with some large biopharmaceutical companies in the past and found myself consistently shocked at how effective euphemism was at making people comfortable talking about, and doing, very questionable things. E.g. &#34;Maximizing treatment&#34; = &#34;extend how long a patient requires our medication&#34;. This was at a senior level and these were, on the face of it, warm, caring people having a very comfortable and open conversation. I had always assumed decisions that directly disadvantaged the consumer would look different, with some sense of secrecy or at least awareness. Nope, one level of language abstraction is apparently all it takes.There are countless other examples out there. I just finished &#34;Cruel Britannia&#34; regarding the torture practices of the British over the last century. They were particularly adept at it. Euphemism is such a powerful tool for doublethink and systemic abuses of power."</p>
 							
 						
 						</a>
@@ -152,33 +152,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://developers.googleblog.com/2021/03/announcing-flutter-2.html">
+					<a href="https://www.theverge.com/2021/3/4/22312065/fcc-highspeed-broadband-service-ajit-pai-bennet-angus-king-rob-portman">
 						<picture>
-							<source srcset="default_26332944.webp" type="image/webp">
-							<source srcset="default_26332944.png" type="image/png">
-							<img src="default_26332944.png" alt="Preview of 'Flutter 2'">
+							<source srcset="default_26343394.webp" type="image/webp">
+							<source srcset="default_26343394.png" type="image/png">
+							<img src="default_26343394.png" alt="Preview of 'US Senators call on FCC to raise broadband definition to 100Mbs down and up'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://developers.googleblog.com/2021/03/announcing-flutter-2.html">Flutter 2</a></h3>
+					<h3><a href="https://www.theverge.com/2021/3/4/22312065/fcc-highspeed-broadband-service-ajit-pai-bennet-angus-king-rob-portman">US Senators call on FCC to raise broadband definition to 100Mbs down and up</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26332944">
+						<a href="https://news.ycombinator.com/item?id=26343394">
 						
 							
-								<p class="story__comment_first line-clamp">"We&#39;re all complaining about how js is a bad language, tooling is a mess, and how the web is fundamentally built for documents and makes it hard to create app-like experiences. Now, Google comes and creates a whole new UI toolkit from scratch, couples it with a very beautiful SDK and component framework and offers a far better programming language than js could ever be but we&#39;re still nagging. I was also pretty disappointed with the demo at flutterfolio.com that is supposed to show how great Flutter 2.0 for the web is. It&#39;s not that good but it&#39;s gonna get there eventually, given the hype around wasm and &lt;canvas&gt; technologies. Not to mention that Flutter is already better and easier to use than the existing native tools for both Android and iOS. I believe Flutter is an extremely ambitious project and I appreciate that Google is really trying to give an answer to the problem of cross-platform UI development."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Google Pay switched to Flutter a few months ago for their flagship mobile app, and they already achieved major gains in productivity and quality. By unifying the codebase, the team removed feature disparity between platforms and eliminated over half a million lines of code.from pay.google.com&gt; Starting April 5, you won&#39;t be able to use pay.google.com to send and receive money from other people. To send and receive money, use the new Google Pay app."</p>
+								<p class="story__comment_first line-clamp">"Please do. Had to go up to full gigabit down with xfinity to get 35 up. Next highest was 15 I think? Not that you can figure that out easily - their website doesn&#39;t list upload speeds. Or maybe it does - the website is terrible to navigate, slow and I got 404s off their main internet landing page.Anyhow at the risk of this turning into a multi page rant about comcast I&#39;ll cut back to upload speed. I see it as upload is for creation and download is for consumption. What do the cable companies want people to be doing?If you look at the popularity of twitch/youtube/(things I&#39;m too old and unhip to know about) it is a direct threat to cable/traditional content creation. I&#39;d wager the current state of affairs holds a lot of people back from getting into content creation, especially poorer/larger families who have to share a limited connection."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m currently 5 months into developing a mobile app for a startup with flutter and my experience so far is very underwhelming.Flutter as a framework is not the worst but far from best, it&#39;s very OO while trying to use reacts vdom model which just wants to be functional.The biggest limitation of the platform is Dart - it&#39;s a horrible language that should have died once TS and ES6 became mature enough. And I&#39;ve used dart back when it was supposed to be a JS killer shipped with browsers, used dartium to build a MVP for an app using Angular Dart durgin the betas.Back then Dart was miles ahead in terms of tooling and JS the language didn&#39;t even have async/await - so I was singing it&#39;s praises. But the language stagnated and it&#39;s fundamentals with a nominal type system and a closed object model make the language so inflexible and full of boilerplate it&#39;s incredible. It&#39;s very much like Java (the language, without the powerful ecosystem) and people prefer Kotlin for frontend for a reason. C# is similar but they figured out that they need to build a lot of things in to the language to reduce the boilerplate so they are adding stuff like Records and pattern matching.If you look at state management patterns in flutter there&#39;s probably 5-10 competing approaches all lacking in their own way and all severely hampered by how unexpressive dart is. Or how you deal with serialisation/immutability/etc."</p>
+								<p class="story__comment_others">"My local broadband provider admitted to me that they could offer symmetric 1 gig service, but are choosing not to.  The current max a residential customer can purchase is 1 gig down, 25Mbs up.  The monthly non-discount rate is $180, with $110/month possible with certain promotions.  It is an extra 10$/month to go from 20Mbs up to 25Mbs.  Starlink is doing well here."</p>
+							
+						
+							
+								<p class="story__comment_others">"I live in South Africa. Myself and all my friends are sitting on around 100 Mbps up/down uncapped unshaped, no fair use policy each at around $100 USD monthly. A few of my friends are on Gigabit down, 200 up.How is America behind on this? Everything is hosted there and cached there. Is it big business lobbying politicians to prevent them from having to compete? In South Africa we have dozens on ISPs and as an economy we&#39;re probably not far off from one US state. The competition has been great for consumers."</p>
 							
 						
 						</a>
@@ -190,36 +190,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.mattkeeter.com/blog/2021-03-01-happen/">
+					<a href="https://support.apple.com/en-us/HT208514">
 						<picture>
-							<source srcset="default_26337046.webp" type="image/webp">
-							<source srcset="default_26337046.png" type="image/png">
-							<img src="default_26337046.png" alt="Preview of 'It Can Happen to You'">
+							<source srcset="default_26344739.webp" type="image/webp">
+							<source srcset="default_26344739.png" type="image/png">
+							<img src="default_26344739.png" alt="Preview of 'Apple now lets you transfer your iCloud Photos to Google Photos'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.mattkeeter.com/blog/2021-03-01-happen/">It Can Happen to You</a></h3>
+					<h3><a href="https://support.apple.com/en-us/HT208514">Apple now lets you transfer your iCloud Photos to Google Photos</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26337046">
+						<a href="https://news.ycombinator.com/item?id=26344739">
 						
 							
-								<p class="story__comment_first line-clamp">"Loving the progression here. Tomorrow, someone’s going to reduce the boot times of macOS by 90% by the same principle. A week from now, someone will prove P=NP because all the problems we thought were NP were just running strlen() on the whole input."</p>
-							
-						
-							
-								<p class="story__comment_others">"Blog author here!  Thanks to HN for warning me about sscanf at exactly the right time – within a day of me trying to load some ASCII STLs and noticing it was slow...Linked deep in the Twitter replies [1], there&#39;s an open glibc issue about this, dating back to 2014:https://sourceware.org/bugzilla/show_bug.cgi?id=17577C doesn&#39;t have any requirements on the complexity of sscanf, so it might not be a bug per se, but it&#39;s certainly... a pitfall.[1] https://twitter.com/impraxical/status/1367194430835425283"</p>
+								<p class="story__comment_first line-clamp">"This article is a little weird. The title is actually &#34;Transfer a copy of your iCloud Photos collection to another service&#34; but then the small print says &#34;...to Google Photos.&#34;It seems like they plan to support migrating to other services at some point but not yet?It also only allows customers from a small fraction of countries to use this, which I really don&#39;t get. Maybe those are all the places iCloud Photos and Google Photos are currently available together? But I don&#39;t get that either."</p>
 							
 						
 							
-								<p class="story__comment_others">"There&#39;s a bigger potential problem with the *scanf() functions than performance. They are inherently unsafe for reading numeric input.For example, if you do something like this:    int n;
-    sscanf(&#34;9999999999999999999999999&#34;, &#34;%d&#34;, &amp;n);
-
-the behavior is undefined. As the C standard says:&gt; ... the result of the conversion is placed in the object pointed to by the first argument following the format argument that has not already received a conversion result. If this object does not have an appropriate type, or if the result of the conversion cannot be represented in the object, the behavior is undefined.You can control the appropriate type by writing the call directly, but you can&#39;t guarantee that the result can be represented unless you have control over the input.Remember that in C &#34;undefined behavior&#34; doesn&#39;t mean that your program will fail, or will crash, or will tell you there was a problem. It means that a conforming implementation can do literally anything. In the worst case, it will do what what you expect until it fails at the most inconvenient possible moment.Now most implementations will probably do something sane, like setting a floating-point object to infinity or an integer object to some arbitrary value, but the language doesn&#39;t guarantee anything.If you want to write safe code, you can extract a substring that represents a number and pass it to one of the strto*() functions, which do have well defined behavior on overflow. (But I couldn&#39;t tell you exactly what that behavior is without looking it up.)"</p>
+								<p class="story__comment_others">"Just give us a ‘download all’ button with the ability to resume in the event of a failure. RSync has been around for a long time why reinvent the wheel for every different service. Welcome to Modern tech - constantly reinventing (square) wheel"</p>
+							
+						
+							
+								<p class="story__comment_others">"Part of the Data Transfer Project?
+https://datatransferproject.dev/"</p>
 							
 						
 						</a>
@@ -231,33 +229,33 @@ the behavior is undefined. As the C standard says:&gt; ... the result of the con
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.wsj.com/articles/google-to-stop-selling-ads-based-on-your-specific-web-browsing-11614780021">
+					<a href="https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea">
 						<picture>
-							<source srcset="default_26328428.webp" type="image/webp">
-							<source srcset="default_26328428.png" type="image/png">
-							<img src="default_26328428.png" alt="Preview of 'Google to stop selling ads based on your specific web browsing'">
+							<source srcset="default_26344013.webp" type="image/webp">
+							<source srcset="default_26344013.png" type="image/png">
+							<img src="default_26344013.png" alt="Preview of 'Google’s FLoC Is a Terrible Idea'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.wsj.com/articles/google-to-stop-selling-ads-based-on-your-specific-web-browsing-11614780021">Google to stop selling ads based on your specific web browsing</a></h3>
+					<h3><a href="https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea">Google’s FLoC Is a Terrible Idea</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26328428">
+						<a href="https://news.ycombinator.com/item?id=26344013">
 						
 							
-								<p class="story__comment_first line-clamp">"There&#39;s an archived, no-paywall, version here:https://archive.is/qlvcE"</p>
-							
-						
-							
-								<p class="story__comment_others">"I remember a small story, decades ago, about a company/univeristy which was left holding the bag when the government cancelled their contract. They were constructing a lens system to go into a satellite which could purportedly read the issue date on a dime lying on the sidewalk. It was something like $15M. The implication was that the government had found something even better, and gone with that instead. If Google is publicly giving up on a particular, unpopular technology to buy some PR, I strongly suspect that they&#39;ve already figured out something which will work &#34;better&#34; behind the scenes.There&#39;s a lot of confusion over what this story is actually saying, and, given the obscurity with which Google deals with it&#39;s tech, I don&#39;t think this is going to get cleared up, leaving room for a lot of speculation. But one thing is absolutely certain: There&#39;s no possible way that Google is going to make a change to their biggest money maker that would make them LESS money. Maybe that just means that they consider their duopoly enough of a barrier that advertisers will be forced to accept less-targeted marketing, but I doubt it..."</p>
+								<p class="story__comment_first line-clamp">"One of my pet meta-theories about Hacker News is that the frustration expressed over several apparently different stories really has a single source: Hacker News likes the internet of 10-20 years ago a lot more than the average person.One place this shows up is a frequently-expressed sentiment that the internet is a less magical, less weird, and more corporate place than it was 10-20 years ago. Part of this may be because SEO has diluted the voices of individual creators. But part of it is also because way more average, everyday, tech-unsavvy people are on the internet now.Another example is the periodic highlighting of somewhat garish HTML-based websites. I like these too! My own personal website falls in this category! But as far as I know, the generic internet user likes the generic slick-graphics-and-whitespace style, and so go the websites that want to attract them.More relevant to the topic at hand, many comments in this thread argue that targeted ads are unnecessary for a functional internet, since the internet of 20 years ago seemed to work just fine without targeted ads. But, again, it&#39;s less clear to me that general internet users -- that is, mostly people who never experienced the internet of 20 years ago -- have the same preference.It&#39;s funny, because I&#39;m to a large extent on HN&#39;s side on this one. But my enthusiasm is tempered by my sneaking suspicion that the other side is a lot bigger, and my side is actually powered by more elitism and nostalgia than I thought."</p>
 							
 						
 							
-								<p class="story__comment_others">"I feel like the phrase “tracking individual people” is how Google is going to keep tracking you as well as they did before.With the announcement of federated learning of cohorts [0], it allows Google to use their massive amount of information they have on you already, as well as their dominance in AI to cut out the easy way of tracking people, and make it harder for anyone else to personalize ads.Don’t get me wrong it’s a good thing that we are removing third-party cookies, but the idea that Google is confident they can track you without them makes me worried for the future of advertising. This move is undoubtedly going to cement google as the best ad tracking company for some time into the future.[0]: https://www.cnbc.com/2021/01/24/google-extremely-confident-a..."</p>
+								<p class="story__comment_others">"This captures my feelings on the issue:&gt; That framing is based on a false premise that we have to choose between “old tracking” and “new tracking.” It’s not either-or. Instead of re-inventing the tracking wheel, we should imagine a better world without the myriad problems of targeted ads.I don&#39;t want to be tracked. I never have wanted to be tracked. I shouldn&#39;t have to aggressively opt-out of tracking; it should be a service one must opt-in to receive. And it&#39;s not something we can trust industry to correct properly. This is precisely the role that privacy-protecting legislation should be undertaking.Stop spying on us, please."</p>
+							
+						
+							
+								<p class="story__comment_others">"Fully agree with EFF here, and what&#39;s most frustrating is that Google could actually be on the side of banning tracking, and win big over Facebook.Google had a fully working, very lucrative business model in search term based ads. You search for &#34;office rent Arizona&#34;, and Google shows you ads about offices in Arizona. No privacy violations.There was no other problem with search term based ads except that Google wanted to pump up shareholder value faster than what that could give them."</p>
 							
 						
 						</a>
@@ -269,33 +267,33 @@ the behavior is undefined. As the C standard says:&gt; ... the result of the con
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.cnbc.com/2021/03/03/okta-is-buying-security-rival-auth0-for-6point5-billion-stock-falls.html">
+					<a href="https://www.wsj.com/articles/dr-seuss-books-deemed-offensive-will-be-delisted-from-ebay-11614884201">
 						<picture>
-							<source srcset="default_26334516.webp" type="image/webp">
-							<source srcset="default_26334516.png" type="image/png">
-							<img src="default_26334516.png" alt="Preview of 'Okta to Acquire Auth0 for $6.5B'">
+							<source srcset="default_26347654.webp" type="image/webp">
+							<source srcset="default_26347654.png" type="image/png">
+							<img src="default_26347654.png" alt="Preview of 'Dr. Seuss books deemed offensive will be delisted from eBay'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.cnbc.com/2021/03/03/okta-is-buying-security-rival-auth0-for-6point5-billion-stock-falls.html">Okta to Acquire Auth0 for $6.5B</a></h3>
+					<h3><a href="https://www.wsj.com/articles/dr-seuss-books-deemed-offensive-will-be-delisted-from-ebay-11614884201">Dr. Seuss books deemed offensive will be delisted from eBay</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26334516">
+						<a href="https://news.ycombinator.com/item?id=26347654">
 						
 							
-								<p class="story__comment_first line-clamp">"I hope this gives rise to another, smaller viable party outside of Amazon, Google, and Microsoft. Perhaps I&#39;m jaded, perhaps hopelessly biased - but I can only see this as a net negative.Okta&#39;s open source packages receive a pitiful amount of attention (for example: https://github.com/okta/okta-oidc-js/issues?q=is%3Aissue+is%...) with forks almost becoming a requirement. Auth0 by contrast has been &#34;on the ball&#34; for a long time with their offerings. Okta&#39;s interfaces have been disjointed and inconsistent, confusing to users on a scale only surpassed by Jira, while Auth0&#39;s have always been pleasant to use from a user and developer perspective.From a personnel perspective, the two companies couldn&#39;t be more different, with Auth0 embracing a remote-first-class culture with creative interview processes, and Okta (pre-covid) being very much the opposite. I interviewed with both, and the process at Auth0 had me walk away with respect, while contrasted with Okta that left me reminded that tech hiring is broken.I&#39;ll hold my breath for a short time that Auth0 is allowed to operate independently. Sadly I feel it&#39;ll be inevitable that they&#39;re eventually swallowed up by the mothership."</p>
-							
-						
-							
-								<p class="story__comment_others">"I hate this. We moved from Okta a few years ago after we were basically received almost no actual real support for a bunch of issues, even though we were paying a premium cost. Nobody cares about issues on their Github, the kicker was a when we received a support response as suddenly something was no longer working after an update, we got help in the form of &#34;We have no plans to address this anytime soon.&#34; when asking for an ETA.We ended up switching to Auth0, after we had a few calls with them. We shaved a decent amount off our costs with Auth0&#39;s Enterprise plan, and their webtask based rules worked. While the migration sucked for a bit, in the end we were much happier."</p>
+								<p class="story__comment_first line-clamp">"https://archive.is/ZxcpU"</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; and integrated over timeI&#39;m reading too much into this sentence fragment and it fills me with fear.I smell breaking domain changes in the future.  They can&#39;t allow the .auth0.com tenants to operate as-is forever, which means existing tenants will get grandfathered in and eventually forced off the .auth0.com domain onto okta&#39;s domains.I smell messy login sites in the future. I like Auth0&#39;s implementation of their Universal Login page, which didn&#39;t require JavaScript.  In the quest for &#39;one single brand identity&#39; someone will force a migration to Okta&#39;s login implementation instead.That will come with changing client IDs, client secrets, M2Ms and everything else needed in their setup.I might as well create a Jira ticket for this now."</p>
+								<p class="story__comment_others">"Now this part is getting a little too carried away.  It is one thing for libraries and bookstores to decide not to offer for borrowing or sale things that they disagree with.It is another (and overstepping imo) for Ebay to restrict individual people from selling to others goods that are not illegal or in violation of their other practical rules (no selling jewelry, monetary equivalents, etc).This falls into the category of taste / political opinions and has gone too far too quickly.  Much as I don&#39;t like what the silly cartoons are, and of course while I don&#39;t think Ebay is a public forum that has any obligations (they can do what they want), I think Ebay is getting in deeper than it should.Will they apply the logic here to all categories of goods for sale?  T-shirts?  Political buttons?  Historical political pamphlets?  Current political pamphlets or campaign material? How about baseball team merchandise that has racist mascots?  (Why haven’t they?)  Merchandise of companies where the CEO may have bigoted views?How about books that have words in them that discuss race, or in any way describe an unflattering picture of a certain group?  Or scientific studies that may come to race-based findings?I think the other thing that bothers me is that to be protected by such measures, you have to be popular.  And it&#39;s flimsy.  This year it&#39;s &lt;x&gt; group, next year that group is forgotten and it&#39;s on to &lt;y&gt; group.   Woe to the actually wronged group of people who can&#39;t garner enough popular support, and who fall by the wayside of laws that are less enforced because people thought the social-media driven justice system took care of it.Ps. And edit just to add, lest someone discount my opinion as from a privileged position, I am among one of the groups said to be portrayed in a racist way in those books. If only people’s concern about racism in cartoons extended to more important matters as well."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t know any culture that banned books independent of their content that people didn&#39;t regret in the future.A few months ago I was reading about schools banning the book &#34;To Kill a Mockingbird&#34; because it contains basically the &#34;n&#34; word. I&#39;m not american, and and havent read that book. I watched the movie, through, and it seemed to me to be a very anti racism message.I think instead of banning, schools should work provide  context to kids and teens that read this books, of how society was when they where written, so people don&#39;t forget the past, but are able to make better decisions to the future."</p>
 							
 						
 						</a>
@@ -307,33 +305,33 @@ the behavior is undefined. As the C standard says:&gt; ... the result of the con
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://lwn.net/SubscriberLink/847412/d7826b1353e33734">
+					<a href="https://www.thedrive.com/the-war-zone/39537/the-air-force-needs-to-reverse-engineer-parts-of-its-own-stealth-bomber">
 						<picture>
-							<source srcset="default_26327779.webp" type="image/webp">
-							<source srcset="default_26327779.png" type="image/png">
-							<img src="default_26327779.png" alt="Preview of 'PipeWire: The Linux audio/video bus'">
+							<source srcset="default_26333649.webp" type="image/webp">
+							<source srcset="default_26333649.png" type="image/png">
+							<img src="default_26333649.png" alt="Preview of 'The Air Force is having to reverse engineer parts of its own stealth bomber'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://lwn.net/SubscriberLink/847412/d7826b1353e33734">PipeWire: The Linux audio/video bus</a></h3>
+					<h3><a href="https://www.thedrive.com/the-war-zone/39537/the-air-force-needs-to-reverse-engineer-parts-of-its-own-stealth-bomber">The Air Force is having to reverse engineer parts of its own stealth bomber</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26327779">
+						<a href="https://news.ycombinator.com/item?id=26333649">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;ve been trying out the latest master builds of pipewire recently and have been pretty impressed with it:* My bluetooth headset can now use the HFP profile with the mSBC codec (16 kHz sample rate) instead of the terrible CVSD codec (8 kHz sample rate) with the basic HSP profile.* Higher quality A2DP stereo codecs, like LDAC, also work.* AVDTP 1.3 delay reporting works (!!) to delay the video for perfect A/V sync.* DMA-BUF based screen recording works with OBS + obs-xdg-portal + pipewire (for 60fps game capture).For my use cases, the only things still missing are automatic switching between A2DP and HFP bluetooth profiles and support for AVRCP absolute volume (so that the OS changes the headset&#39;s hardware volume instead of having a separate software volume)."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; including the raw Linux ALSA sound API, which typically allows only one application to access the sound card.If the raw in that sentence is not meant as a special qualifier and this is meant as a statement about ALSA in general, this is wrong. I recently read up on this to confirm my memory was right when reading a similar statement. In fact, ALSA had just a very short period where typically only one application accessed the sound card. After that, dmix was enabled by default. Supporting multiple applications was actually the big advantage of ALSA compared to OSS, which at the time really did support only one application per soundcard (without hardware mixing, which broke away at that time). I&#39;m not sure why this seems to be remembered so wrongly?&gt; Speaking of transitions, Fedora 8&#39;s own switch to PulseAudio in late 2007 was not a smooth one. Longtime Linux users still remember having the daemon branded as the software that will break your audio.This wasn&#39;t just a Fedora problem. Ubuntu when making the switch also broke Audio on countless of systems. I was active as supporter in a Ubuntu support forum at that time and we got flooded with help requests. My very own system did not work with Pulseaudio when I tried to switch, that was years later. I still use only ALSA because of that experience. At that time Pulseaudio was garbage, it should never have been used then. It only got acceptable later - but still has bugs and issues.That said, PipeWire has a better vibe than Pulseaudio did. It intends to replace a system that never worked flawlessly, seems to focus on compatibility, and the apparent endorsement from the JACK-developers also does not hurt. User reports I have seen so far have been positive, though I&#39;m not deep into support forums anymore. Maybe this can at least replace Pulseaudio, that would be a win. I&#39;m cautiously optimistic about this one."</p>
+								<p class="story__comment_first line-clamp">"I can&#39;t be certain, but I suspect the real problem was that the original contract was signed without requiring the technical data rights and/or delivery of the technical data. This is a common mistake made by the DoD, and can lead to extraordinarily high costs later.Just look at the notice: &#34;The deliverables will include all technical data related to the heat exchanger disassembly, all technical data related to the cores, all technical data related to the stack up, vacuum brazing, and installation of the cores on existing units. The deliverables will also include all technical data related to the tooling needed...&#34; It&#39;s clear they don&#39;t have the technical data.Here&#39;s how this can happen: the government asks for proposals, and the prospective contractors say &#34;we&#39;ll create it for you for cheaper if you don&#39;t require the technical data &amp; its related rights&#34;. The government program manager (PM) is under a lot of pressure to &#34;get it cheaper&#34;, and this is cheaper in the short term, so the government PM agrees. The PM will be around for a few years, then leave. Later on, the contractor is the only one who can make the parts (because they&#39;re the only ones with the technical data &amp; the technical data rights to do it). The government procurement system is all about competition, but now there is no possibility for real competition. Thus, the parts will cost 10x or more, and the government PM who approved this is long gone (probably with a promotion), and the contractor is happy with incredibly large profit margins.I don&#39;t know if that&#39;s what happened in this case. But it&#39;s very very possible."</p>
 							
 						
 							
-								<p class="story__comment_others">"Just tried it on NixOS, had no idea it was so fleshed out already! Thought it&#39;d be full of bugs but was pleasantly surprised, it just worked. No issues with compatibility, extremely low latency and has JACK and PulseAudio shims, so everything works out of the box, including pro audio stuff like Reaper and Ardour. And thanks to the JACK shim I can patch around the outputs with qjackctl. This is compared to JACK, which I never managed to properly combine with PulseAudio."</p>
+								<p class="story__comment_others">"Reverse engineering seems like a good skillset for the DoD to nurture, anyway. Yes, the US is going to be at the cutting edge of weapons design at least through the medium term, but the leadership isn&#39;t arrogant enough to think that all engineering innovations will come domestically. If the US acquired a next-generation Chinese fighter, wouldn&#39;t it be handy if someone had the expertise to tell you exactly how its parts were made and machine replicas if needed?So, the tinfoil hat interpretation of this story would be, of course the Pentagon has the original blueprints in quintuplicate, but it&#39;s identified reverse engineering as a key strategic advantage China has over the US (pretty reasonable so far, right?) and has announced this as a way to shuffle some money into building up domestic RE expertise in the defence industry."</p>
+							
+						
+							
+								<p class="story__comment_others">"The US nuclear weapons program had to do something similar in the 2000&#39;s with a material known as Fogbank. This is used in the W76 warhead as an interstage material, and they needed more of it to keep the weapons in operational state.Unfortunately, they&#39;d forgotten the manufacturing process, decommissioned the plant that made it, and the people that knew how to do it weren&#39;t around any more. They figured it out, but it doesn&#39;t necessarily look easy to do (nor does the material seem easy at all to make in the first place).https://www.armscontrolwonk.com/archive/201814/fogbank/p20 here says more: https://www.lanl.gov/science/weapons_journal/wj_pubs/17nwj2_...Edit: I somehow missed this other thread in this story, despite a search: https://news.ycombinator.com/item?id=26334367"</p>
 							
 						
 						</a>
@@ -345,33 +343,34 @@ the behavior is undefined. As the C standard says:&gt; ... the result of the con
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/microsoft/power-fx">
+					<a href="https://femfosec.com/fertility/">
 						<picture>
-							<source srcset="default_26324347.webp" type="image/webp">
-							<source srcset="default_26324347.png" type="image/png">
-							<img src="default_26324347.png" alt="Preview of 'Microsoft Power Fx – A low-code general purpose programming language'">
+							<source srcset="default_26345226.webp" type="image/webp">
+							<source srcset="default_26345226.png" type="image/png">
+							<img src="default_26345226.png" alt="Preview of 'Female Founder Secrets: Fertility'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/microsoft/power-fx">Microsoft Power Fx – A low-code general purpose programming language</a></h3>
+					<h3><a href="https://femfosec.com/fertility/">Female Founder Secrets: Fertility</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26324347">
+						<a href="https://news.ycombinator.com/item?id=26345226">
 						
 							
-								<p class="story__comment_first line-clamp">"We recently tried to build a relatively simple PowerApps application - under the assumption it would save time over pumping out a React boilerplate form.  Never again.We wanted it to be able to integrate with our backend which lives outside the MS ecosystem.  No problem we thought - that&#39;s what custom connectors are for.  Except they don&#39;t work with any of the automated form generation functionality.  So we pretty much have to build the form entirely manually.Low code becomes high code all of a sudden - except it&#39;s worse than just coding and learning a new framework.  You can&#39;t just input your code anywhere you want, or import your dependencies, etc... You have to hunt around in a zillion different (laggy as all hell) interfaces to find the right location where that code can live.  Or maybe it&#39;s not code - but a toggle somewhere... OMG... kill me.Good luck if you are trying to learn the lower level aspects... since all the tutorials, blogs, youtube videos - all assume that your data all lives in Sharepoint or some other MS resource - and that your connector actually works as advertised.If you can code - and your stack doesn&#39;t already entirely consist of the MS ecosystem.  Just roll your own."</p>
-							
-						
-							
-								<p class="story__comment_others">"I just read the overview document (docs/overview.md in that repo), and I have to say I&#39;m blown away.Excel is one of the world&#39;s most popular programming environments, because it has such a low barrier to entry, but it&#39;s limited: the input is always a grid of numbers, and the output is always a grid of numbers, which limits how useful it can be to people outside number-crunching professions.Visual Basic (especially the original, pre-.NET incarnation) let you create Real Windows Apps with all the inputs and outputs that entails (images, copy/paste, files, sliders, textboxes, databases) and let you use a fairly simple and forgiving language to wire them together... but the barrier-to-entry was still a lot higher than Excel, even if it was lower than C++, or even Visual Basic.NET.This PowerApps thing seems like an elegant middle-ground between the two - rich inputs and outputs (images, sliders, text-boxes, databases), with a simple, predictable language to wire them together. The inputs and outputs aren&#39;t quite as rich as Visual Basic, but the shift from native apps to web apps has changed people&#39;s expectations since the days of VB6, so that&#39;s probably an advantage."</p>
+								<p class="story__comment_first line-clamp">"Your whole blog resonates deeply with me. All this corporate grifting and women&#39;s empowerment months will do jack shit until we figure out how to make workplaces and lives more equitable for mothers and allowing for gaps, breaks and destigmatizing time off for parents of both genders.Instead, we talk about how sexism is the biggest problem. Sure, sexism might be annoying, but in the west, it is hardly something that creates a genuine barrier for women.Startups have it worst, and everday I count the number of years I have to work in the high stress places I want or do a startup if I want to have two kids before 35. No one talks about planning around fertility. When I mention it to someone that I want to take time off for a couple years to have children in silicon valley, they look at me as if I&#39;m an alien. As if wanting to be pregnant and not working at the same time as being sleep deprived and wanting to spend time with my own baby when they are at their youngest is some strange outlandish fantasy.All careers are built this way. PhD to tenure, startups, generally high stress professions. I wish the world wasn&#39;t so male centric, that feminists actually cared about finding structural solutions instead of forcing women to become copies of men to achieve gender parity. But they care more about power than actual equality where we acknowledge that women have different needs and desires, that those needs and desires are equally valuable and not inferior to desires men have, that the two genders have different strengths and capabilities and it is equally important to reward both. And maybe not wanting to outsource your baby to a nanny during their most vulnerable years is not a heretical thought.I wish we had more focus in allowing people to transition back from taking a few years off to raise young kids, and it wasn&#39;t automatically assumed that you would be a worse founder or professor or software engineer just because you have 2-4 years you didn&#39;t commercially work. Hell, I want to take that time to contribute to open source, something I don&#39;t get to do much usually and I&#39;m looking forward to it because I am willing to face the  consequences. But I wish more women could be less scared of their career prospects for choosing to have children."</p>
 							
 						
 							
-								<p class="story__comment_others">"From the overview document:&gt; Microsoft Power Fx is the low-code language that will be used across the Microsoft Power Platform.The emphasized part above is all you need to know to understand that Microsoft Power Fx is NOT a low-code general purpose programming language, as is mistakenly stated in the README document. It might be general purpose in the Power Apps context, but it&#39;s a moot point from the larger perspective. Generally, Microsoft Power Platform and, thus, its subset Power Apps, present a much stronger lock-in risk than Azure and some other products and services."</p>
+								<p class="story__comment_others">"I agree completely with the premise that most people don&#39;t appreciate just how fleeting fertility can be, but I think rather than freezing eggs, the solution is for people to normalize having children at a younger age and designing work and home life around children existing and even being present in certain work contexts.Obviously freezing your eggs is something that you can do as individual without society&#39;s input, and my preferred solution is a cultural overhaul...But economic productivity is only useful insofar as it leads to better lives for people, economic activity that increases well-being by one unit is pointless if it requires us to spend more than one unit of well-being (by say, freezing our eggs and not becoming grandparents until we&#39;re 80) to achieve it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m not so sure freezing eggs is sound advice.Lord Winston, who is professor of fertility studies at Imperial College London, warned that it was &#34;a very unsuccessful technology&#34; and said: &#34;The number of eggs that actually result in a pregnancy after freezing is about 1%.&#34; He later clarified he was referring to live births.https://www.bbc.com/news/health-51463488#:~:text=Lord%20Wins....“It’s not like I would discourage egg freezing. Women should be doing it because it’s the best option they have, but it is not an insurance policy,” says Christos Coutifaris, past president of the ASRM and a professor of obstetrics and gynecology at the University of Pennsylvania. “Insurance policies usually guarantee a payoff. In this case, there is no guarantee.”
+https://www.technologyreview.com/2019/08/14/133377/mothers-j..."</p>
 							
 						
 						</a>
@@ -383,33 +382,33 @@ the behavior is undefined. As the C standard says:&gt; ... the result of the con
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://pixeljets.com/blog/clickhouse-vs-elasticsearch/">
+					<a href="https://jott.live/markdown/m1_webgpu_perf">
 						<picture>
-							<source srcset="default_26316401.webp" type="image/webp">
-							<source srcset="default_26316401.png" type="image/png">
-							<img src="default_26316401.png" alt="Preview of 'ClickHouse as an alternative to Elasticsearch for log storage and analysis'">
+							<source srcset="default_26333369.webp" type="image/webp">
+							<source srcset="default_26333369.png" type="image/png">
+							<img src="default_26333369.png" alt="Preview of 'M1 MacBook Air hits 900 GFlops in the browser with Safari&#39;s experimental WebGPU'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://pixeljets.com/blog/clickhouse-vs-elasticsearch/">ClickHouse as an alternative to Elasticsearch for log storage and analysis</a></h3>
+					<h3><a href="https://jott.live/markdown/m1_webgpu_perf">M1 MacBook Air hits 900 GFlops in the browser with Safari&#39;s experimental WebGPU</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26316401">
+						<a href="https://news.ycombinator.com/item?id=26333369">
 						
 							
-								<p class="story__comment_first line-clamp">"Also wanted to share my overall positive experience with Clickhouse.UPSIDES* started a 3-node cluster using the official Docker images super quickly* ingested billions of rows super fast* great compression (of course, depends on your data&#39;s characteristics)* features like https://clickhouse.tech/docs/en/engines/table-engines/merget... are amazing to see* ODBC support.  I initially said &#34;Who uses that??&#34;, but we used it to connect PostgreSQL and so we can keep the non-timeseries data in PostgreSQL but still access PostgreSQL tables in Clickhouse (!)* you can go the other way too: read Clickhouse from PostgreSQL (see https://github.com/Percona-Lab/clickhousedb_fdw, although we didn&#39;t try this)* PRs welcome, and quickly reviewed. (We improved the ODBC UUID support)* code quality is pretty high.DOWNSIDES* limited JOIN capabilities, which is expected from a timeseries-oriented database like Clickhouse.  It&#39;s almost impossible to implement JOINs at this kind of scale.  The philosophy is &#34;If it won&#39;t be fast as scale, we don&#39;t support it&#34;* not-quite-standard SQL syntax, but they&#39;ve been improving it* limited DELETE support, which is also expected from this kind of database, but rarely used in the kinds of environments that CH usually runs in (how often do people delete data from ElasticSearch?)It&#39;s really an impressive piece of engineering.  Hats off to the Yandex crew."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think it&#39;s an unfair comparison, notably because:1) Clickhouse is rigid-schema + append-only - you can&#39;t simply dump semi-structured data (csv/json/documents) into it and worry about schema (index definition) + querying later.  The only clickhouse integration I&#39;ve seen up close had a lot of &#34;json&#34; blobs in it as a workaround, which cannot be queried with the same ease as in ES.2) Clickhouse scalability is not as simple/documented as elasticsearch.  You can set up a 200-node ES cluster with a relatively simple helm config or readily-available cloudformation recipe.3) Elastic is more than elasticsearch - kibana and the &#34;on top of elasticsearch&#34; featureset is pretty substantial.4) Every language/platform under the sun (except powerbi... god damnit) has native + mature client drivers for elasticsearch, and you can fall back to bog-standard http calls for querying if you need/want.  ClickHouse supports some very elementary SQL primitives (&#34;ANSI&#34;) and even those have some gotchas and are far from drop-in.In this manner, I think that clickhouse is better compared as a self-hosted alternative to Aurora and other cloud-native scalable SQL databases, and less a replacement for elasticsearch.  If you&#39;re using Elasticsearch for OLAP, you&#39;re probably better to ETL the semi-structured/raw data out of ES that you specifically wan to a more suitable database which is meant for that."</p>
+								<p class="story__comment_first line-clamp">"I usually avoid hype. But the M1 is just unreal. I was back in the office for the first time in months, and since getting my M1 MBP...my overclocked i5 hackintosh with 4x RAM just disappointed. It didn’t feel slow, but it stopped feeling fast."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; SQL is a perfect language for analytics.Slightly off topic, but I strongly agree with this statement and wonder why the languages used for a lot of data science work (R, Python) don&#39;t have such a strong focus on SQL.It might just be my brain, but SQL makes so much logical sense as a query language and, with small variances, is used to directly query so many databases.In R, why learn the data.tables (OK, speed) or dplyr paradigms, when SQL can be easily applied directly to dataframes? There are libraries to support this like sqldf[1], tidyquery[2] and duckdf[3] (author). And I&#39;m sure the situation is similar in Python.This is not a post against great libraries like data.table and dplyr, which I do use from time to time. It&#39;s more of a question about why SQL is not more popular as the query language de jour for data science.[1] https://cran.r-project.org/web/packages/sqldf/index.html[2] https://github.com/ianmcook/tidyquery[3] https://github.com/phillc73/duckdf"</p>
+								<p class="story__comment_others">"In 1996 you needed 1,600 sq ft of supercomputing hardware to reach the same mark.https://en.wikipedia.org/wiki/ASCI_Red"</p>
+							
+						
+							
+								<p class="story__comment_others">"Ok, my Pixel 4 phone has 950 Gigaflops???  https://en.wikipedia.org/wiki/List_of_Qualcomm_Snapdragon_pr..."</p>
 							
 						
 						</a>
