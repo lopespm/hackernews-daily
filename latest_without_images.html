@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">05 March 2021</div>
+	<div class="day__date">06 March 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://httptoolkit.tech/blog/http-wtf/">HTTPWTF</a></h3>
+					<h3><a href="https://boilingsteam.com/7000-windows-games-working-on-linux-with-proton/">Valve&#39;s Proton Has Enabled 7000 Windows Games on Linux</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26343577">
+						<a href="https://news.ycombinator.com/item?id=26356492">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;d add to this list:Chunk extensions. Most people know HTTP/1.1 can return a &#34;chunked&#34; response body: it breaks the body up into chunks, so that we can send a response whose length we don&#39;t know in advance, but also it allows us to keep the connection open after we&#39;re done. What most people don&#39;t know is that chunks can carry key-value metadata. The spec technically requires an implementation to at least parse them, though I think it is permitted to ignore them. I&#39;ve never seen anything ever use this, and I hope that never changes. They&#39;re gone in HTTP/2. (So, also, if you thought HTTP/2 was backwards compatible: not technically!)The &#34;Authorization&#34; header: like &#34;Referer&#34;, this header is misspelled. (It should be spelled, &#34;Authentication&#34;.) Same applies to &#34;401 Unauthorized&#34;, which really ought to be &#34;401 Unauthenticated&#34;. (&#34;Unauthorized&#34; is &#34;403 Forbidden&#34;, or sometimes &#34;404 Not Found&#34;.)Also, header values. They&#39;re basically require implementing a custom string type to handle correctly; they&#39;re a baroque mix of characters &amp; &#34;opaque octets&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"Fun Fact: When http first came out and was hidden in Academia, there were no headers. Then the need for metadata was realized and second-system syndrome took over to create a bunch of crazy headers. My favorite odd-ball header is &#34;Charge-To:&#34;https://www.w3.org/Protocols/HTTP/HTRQ_Headers.htmlThis is not a custom X- header but an official header. Also Email: and some other odd headers were standardized at that time."</p>
+								<p class="story__comment_first line-clamp">"I LOVE Proton. About 85% of my Windows games just... work. And probably 75% of the 15% that fail initially only require a little tweaking to make work.My only complaints are that steam uses arbitrary numbers instead of human readable labels for emulated AppData folders. It can be time consuming to locate a save game file. Also Streaming cross platform isn&#39;t a pleasant experience yet but it&#39;s getting better and I really appreciate the feature. My final gripe is that when adding media to a Steam chat on Linux the file open dialog does not cache the last folder you visited and doesn&#39;t support multiple files. This compounds the first problem I listed making it EXTREMELY time consuming to share multiple game files with friends quickly."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve been searching for a while for a good way to know whether a client has disconnected in the middle of a long-running HTTP request. (We do heavyweight SQL queries of indeterminate length in response to those requests, and we&#39;d like to be able to cancel them, rather than wasting DB-server CPU cycles calculating reports nobody&#39;s going to consume.)You can&#39;t actually know whether the outgoing side of a TCP socket is closed, unless you write something to it. But it&#39;s hard to come up with something to write to an HTTP/1.1-over-TCP socket before you respond with anything, that would be a valid NOP according to all the protocol layers in play. (TCP keepalives would be perfect for this... if routers didn&#39;t silently drop them.)But I guess sending an HTTP 102 every second or two could be used for exactly this: prodding the socket with something that middleboxes will be sure to pass back to the client.If so, that&#39;s awesome! ...and also something I wish could be handled for me automatically by web frameworks, because getting that working sounds kind of ridiculous :)"</p>
+								<p class="story__comment_others">"Proton is the reason I moved from a Windows + MacOS machine to GNU/Linux full time. I understand the concern that some hardcore enthusiasts might have about it making devs lazy when it comes to developing native ports but to be honest I don&#39;t care. I am just glad to have a simple method of gaming on GNU/Linux. Proton plus Lutris and the slew other tools that have come out in recent years has made the transition to GNU/Linux very easy and has opened the door for many who were curious but scared of the learning curb."</p>
+							
+						
+							
+								<p class="story__comment_others">"My problem with Proton is that they are not strict enough with their ratings. I see a game has &#34;platinum&#34; or &#34;gold&#34; support and think &#34;great, this will work well!&#34; but then I discover it crashes after alt-tab and multiplayer doesn&#39;t work at all, which I consider critical bugs.To me, the levels should be:* Paltinum - the game works as well as it does on officially supported platforms* Gold - the game works almost as well as on supported platforms but with minor niggles that don&#39;t significantly affect the experience* Bronze - the game works in some form, but major things might be broken. It would not ship in this state on official platforms.However, the project is a great start and I look forward to what they do next!"</p>
 							
 						
 						</a>
@@ -67,22 +67,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/git/git/blob/master/banned.h">Git&#39;s list of banned C functions</a></h3>
+					<h3><a href="https://simonwillison.net/2021/Feb/19/office-hours/">Open source projects should run office hours</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26347867">
+						<a href="https://news.ycombinator.com/item?id=26351053">
 						
 							
-								<p class="story__comment_first line-clamp">"Its really wild, as a person coming from other languages who has written maybe ten lines of C in his life that the functions that seem to be massive footguns in C are, like, &#34;format a string&#34; or &#34;get time in GMT.&#34;  That&#39;s... really scary."</p>
-							
-						
-							
-								<p class="story__comment_others">"To respond to some of the comments.It is not that there is anything intrinsically wrong with these functions. You can technically use all of them and I have been using all of them, safely, for decades.The issue is they are huge traps to the point that in a larger piece of software one can say &#34;well, it&#39;s just not worth it&#34;.You can go much, much, much further than that.In couple embedded projects I worked some of the rules were:* dynamic allocation after application has started is banned -- any heap buffers and data structures must be allocated at the start of the application and after that any allocation is a compile time error,* any constructs that would prevent statically calculating stack usage were banned (for example any form of recursion except when exact recursion depth is ensured statically),* any locks were banned,* absolutely every data structure must have size ensured, in a simple way, beyond any reasonable doubt,etc."</p>
+								<p class="story__comment_first line-clamp">"I have deep aversion to &#34;Open source projects should run office hours&#34; title.Maybe &#34;Office hours may be a good idea for open source projects&#34;? This would not suggest obligation.In general, fact that someone created or maintains or supports open source projects should not be considered to create any obligations beyond lack of malice and abuse.I am not obligated to support any bugs, create any features and it is perfectly fine to delete all my repos at any time (unless I declared otherwise).I am also not obligated to support anything, help with anything, there is no guarantee of uptime, office hours, resolving issues or anything else.If you want obligations, guarantees or anything like that - feel free to hire a given developer.Many such things are good ideas and some people may decide to promise them (if you describe something as secure then you declared to handle security issues timely). But I reject idea of being obligated to do any of above."</p>
 							
 						
 							
-								<p class="story__comment_others">"It would be nice if the error messages generated would suggest replacement functions that they deem appropriate.  I see that I&#39;m not supposed to use gmtime, localtime, ctime, ctime_r, asctime, and asctime_r; but what do they think I should use?"</p>
+								<p class="story__comment_others">"I think a lot of the comments are concluding from the title that open source maintainers should be working on the projects during office hours.That is not what the article is suggesting.From the article -&gt;&gt;  anyone can book a 25 minute conversation with me on a Friday to talk about the project. I’m interested in talking to people who are using Datasette, or who are considering using it, or who just want to have a chat.&gt;&gt;A challenge of open source is that it’s easy to be starved of feedback. People might file bug reports if something breaks, but other than that it can feel like publishing software into a void.&gt;&gt; Hearing directly from people who are using your stuff is incredibly motivational. It’s also an amazing source of ideas and feedback on where the project should go next.I think that&#39;s really a fantastic suggestion."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve had massive success with this in ML. My twitter DMs have become almost-daily office hour sessions with people trying to solve hard ML problems. The last fellow was so happy he venmo&#39;d me $250 after I merely asked for &#34;pay whatever you thought that was worth.&#34;Apparently putting &#34;DMs open&#34; in your twitter bio is an excellent way to meet new people. Also, tweet (often!) about what you&#39;re working on. Post lots of questions, notes to self, and screenshots or videos.To get followers, you&#39;ll need to go inject yourself into conversations. That seems to be the most reliable way to get noticed.We also run an ML discord server and do informal office hours for people working on various ML products. It may sound cheesy, but I try to emulate what pg would do in a YC office hours session. It seems to keep them pretty focused.So, yes! Glad to see office hours are becoming mainstream. Try it out; you&#39;ll probably be surprised."</p>
 							
 						
 						</a>
@@ -95,22 +95,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://medium.com/swlh/user-engagement-is-code-for-addiction-a2f50d36d7ac">“User engagement” is code for “addiction”</a></h3>
+					<h3><a href="https://krebsonsecurity.com/2021/03/at-least-30000-u-s-organizations-newly-hacked-via-holes-in-microsofts-email-software/">30k U.S. organizations newly hacked via holes in Microsoft Exchange Server</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26346688">
+						<a href="https://news.ycombinator.com/item?id=26362178">
 						
 							
-								<p class="story__comment_first line-clamp">"Here&#39;s an anecdote about what happens when you design a product in the opposite way.I own https://www.executeprogram.com, which has interactive in-browser courses on various software development technologies. Currently they all cover languages, more or less: TypeScript, SQL, various JS topics, regexes. (Disclosure: it costs money after you finish your 16th lesson.)Almost all (maybe literally all) of our competitors are amenable to binging. It&#39;s true of books, video learning platforms, and most/all other interactive learning platforms.Execute Program is very intentionally non-bingeable. When you start a course, you get 5 lessons on the first day, then it stops you and tells you to come back tomorrow. On the next day, you get some brief reviews of yesterday&#39;s lessons, then a few new lessons, then it stops you again until the next day. That cadence repeats until you finish the course. You can&#39;t binge/cram even if you want to.(A bit more technical detail: it&#39;s a spaced repetition system with exponential review intervals, similar to those used for language learning in e.g. WaniKani and Anki. But it also has a lot of fine-grained knowledge of its own course structure, so it can use reviews to intelligently unlock different lessons depending on how the user performed on their reviews.)Occasionally, we get support email from new users who don&#39;t like this. They want to cram a whole course in a day. But cramming is a very time-inefficient way to learn, so this is self-defeating! Since launch, we&#39;ve had good success adjusting the app&#39;s behavior and internal explanations to reduce these complaints.However, we still get emails from long-term users who appreciate the time limitations. Generally these fall into two categories:1. Users like that an enforced break before the reviews provides tangible evidence that &#34;yes, I genuinely understood yesterday&#39;s lessons&#34;. If we allowed cramming, that reassurance wouldn&#39;t exist; it&#39;s too easy to succeed at a review when you just finished the lesson 30 seconds ago.2. Users like that the usage limits remove a source of anxiety and worry. You do your reviews and lessons, you finish, and then you wait until tomorrow. There&#39;s no temptation to think &#34;I really should&#39;ve done 10 lessons today instead of 5; I&#39;m so lazy&#34;.It&#39;s still possible for a very dedicated user to do all of our courses in parallel within their first monthly billing cycle. (Median course start-to-finish time is 8-18 days depending on the course.) So this scheme doesn&#39;t make users pay us more than they would otherwise. And they&#39;re spending the same amount of wall-clock time that they&#39;d spend if they crammed all of the lessons in one day. That makes it pure win: they memorize the topics more deeply, they worry less, and they get those benefits for no extra time expenditure. The only exception I can think of would be people who think &#34;I must get exposure to all TypeScript syntax and semantics before tomorrow morning, even if that significantly reduces my ability to remember what I learned.&#34;Obviously I&#39;m very biased here, and the goals that we&#39;re optimizing for don&#39;t even exist in most other product spaces. But I thought it would be nice to have a counterexample to &#34;engagement at all costs&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t like the current trend of social media apps burying users under push notifications, calls to action, and other engagement hooks.However, there&#39;s a second, parallel problem adding fuel to the fire: The more we talk about overindulgence in social media (or Netflix, or video games, or fast food) as an act perpetrated by evil corporations on us helpless individuals, the less sense of individual agency we give ourselves. I&#39;m not suggesting that we let social media companies off the hook, but battling this problem is going to require more than simply shaming them in Medium posts. We have to start reminding people that they are in control of their decisions, and that they can take steps to reduce their social media usage to healthy levels.I know the common refrain is &#34;Delete Facebook!&#34; but that&#39;s the equivalent of abstinence-only education. We need to start talking about how to configure Screen Time on iOS, or how to use Facebook&#39;s built-in tools to hide content you don&#39;t want to see. We also need to encourage people to take control of their feeds, muting users and topics who draw them into unproductive discussions."</p>
+								<p class="story__comment_first line-clamp">"We&#39;ve got some information on the timeline (and a name) on one of the major exploits here:https://proxylogon.com/Some of the detail on where this is a mess -The relevant security update is only offered for the latest (-1) Cumulative Update for Exchange. So you can open Windows Update and it will say &#34;fully updated and secured&#34;, but you&#39;re not. Complicating matters, Cumulative Updates for Exchange 2019 have to be done from the licensing portal, with a valid logon.So maybe you have a perfectly capable 24x7 tech team, but the guy who manages license acquisition is on leave today. This is how you may basically find yourself resorting to piracy to get this patched."</p>
 							
 						
 							
-								<p class="story__comment_others">"A tangential point about the horrifying power of euphemism: I&#39;ve done some consulting work with some large biopharmaceutical companies in the past and found myself consistently shocked at how effective euphemism was at making people comfortable talking about, and doing, very questionable things. E.g. &#34;Maximizing treatment&#34; = &#34;extend how long a patient requires our medication&#34;. This was at a senior level and these were, on the face of it, warm, caring people having a very comfortable and open conversation. I had always assumed decisions that directly disadvantaged the consumer would look different, with some sense of secrecy or at least awareness. Nope, one level of language abstraction is apparently all it takes.There are countless other examples out there. I just finished &#34;Cruel Britannia&#34; regarding the torture practices of the British over the last century. They were particularly adept at it. Euphemism is such a powerful tool for doublethink and systemic abuses of power."</p>
+								<p class="story__comment_others">"I remember this kind of thing happening all the time in the 90s and part of the 00s... It&#39;s just 10 to 1000 times worse now days since EVERYTHING is online now."</p>
+							
+						
+							
+								<p class="story__comment_others">"The United States Government should actively be trying to protect its businesses. They should create a three letter organization to do so. They should call it the National Security something or another."</p>
 							
 						
 						</a>
@@ -123,22 +123,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.theverge.com/2021/3/4/22312065/fcc-highspeed-broadband-service-ajit-pai-bennet-angus-king-rob-portman">US Senators call on FCC to raise broadband definition to 100Mbs down and up</a></h3>
+					<h3><a href="https://www.bbc.co.uk/news/uk-england-cornwall-56286719">&#39;Hovering ship&#39; photographed off Cornish coast by walker</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26343394">
+						<a href="https://news.ycombinator.com/item?id=26355480">
 						
 							
-								<p class="story__comment_first line-clamp">"Please do. Had to go up to full gigabit down with xfinity to get 35 up. Next highest was 15 I think? Not that you can figure that out easily - their website doesn&#39;t list upload speeds. Or maybe it does - the website is terrible to navigate, slow and I got 404s off their main internet landing page.Anyhow at the risk of this turning into a multi page rant about comcast I&#39;ll cut back to upload speed. I see it as upload is for creation and download is for consumption. What do the cable companies want people to be doing?If you look at the popularity of twitch/youtube/(things I&#39;m too old and unhip to know about) it is a direct threat to cable/traditional content creation. I&#39;d wager the current state of affairs holds a lot of people back from getting into content creation, especially poorer/larger families who have to share a limited connection."</p>
-							
-						
-							
-								<p class="story__comment_others">"My local broadband provider admitted to me that they could offer symmetric 1 gig service, but are choosing not to.  The current max a residential customer can purchase is 1 gig down, 25Mbs up.  The monthly non-discount rate is $180, with $110/month possible with certain promotions.  It is an extra 10$/month to go from 20Mbs up to 25Mbs.  Starlink is doing well here."</p>
+								<p class="story__comment_first line-clamp">"I&#39;ve seen this optical illusion in person, with large container ships, off the US Mid-Atlantic coast, and it&#39;s really cool.The photo in this article is fantastic. It shows an extreme example of the illusion. The ship appears to be, not just hovering over the water, but actually suspended in mid-air.In my view, it&#39;s worth clicking on the link just to see the photo."</p>
 							
 						
 							
-								<p class="story__comment_others">"I live in South Africa. Myself and all my friends are sitting on around 100 Mbps up/down uncapped unshaped, no fair use policy each at around $100 USD monthly. A few of my friends are on Gigabit down, 200 up.How is America behind on this? Everything is hosted there and cached there. Is it big business lobbying politicians to prevent them from having to compete? In South Africa we have dozens on ISPs and as an economy we&#39;re probably not far off from one US state. The competition has been great for consumers."</p>
+								<p class="story__comment_others">"The Action Lab had a great video about this effect recently.https://www.youtube.com/watch?v=CrgKUFbwNf0"</p>
+							
+						
+							
+								<p class="story__comment_others">"I sort of freaked out the first time I saw something like this.Then Wikipedia held my hand and said everything was OK and this even has a name:https://en.wikipedia.org/wiki/Fata_Morgana_(mirage)"</p>
 							
 						
 						</a>
@@ -151,23 +151,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://support.apple.com/en-us/HT208514">Apple now lets you transfer your iCloud Photos to Google Photos</a></h3>
+					<h3><a href="https://www.geoffreylitt.com/2021/03/05/bring-your-own-client.html">Bring Your Own Client</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26344739">
+						<a href="https://news.ycombinator.com/item?id=26355779">
 						
 							
-								<p class="story__comment_first line-clamp">"This article is a little weird. The title is actually &#34;Transfer a copy of your iCloud Photos collection to another service&#34; but then the small print says &#34;...to Google Photos.&#34;It seems like they plan to support migrating to other services at some point but not yet?It also only allows customers from a small fraction of countries to use this, which I really don&#39;t get. Maybe those are all the places iCloud Photos and Google Photos are currently available together? But I don&#39;t get that either."</p>
-							
-						
-							
-								<p class="story__comment_others">"Just give us a ‘download all’ button with the ability to resume in the event of a failure. RSync has been around for a long time why reinvent the wheel for every different service. Welcome to Modern tech - constantly reinventing (square) wheel"</p>
+								<p class="story__comment_first line-clamp">"The competitive advantages of owning both the application and the data are so high that don&#39;t see widespread BYOC ever happening without government intervention.I&#39;d like to see an enforced separation in law between commercial application providers and storage providers. So, if someone writes an app like Google Docs, they can&#39;t just store the data opaquely on their own cloud servers. They legally have to integrate with a separate storage provider. And that storage provider has an obligation to make my data accessible and manageable by me.This wouldn&#39;t be a panacea, but it at least makes it theoretically possible to write a replacement client for Google Docs that could be a drop-in replacement."</p>
 							
 						
 							
-								<p class="story__comment_others">"Part of the Data Transfer Project?
-https://datatransferproject.dev/"</p>
+								<p class="story__comment_others">"This idea suffers from the same problem federation does. It&#39;s harder to move a whole ecosystem. Makes it harder to innovate. Leads to centralized platforms outperforming these BYOC/federated/open options. Basically how Reddit replaced Usenet with upvotes and basic spam filtering.There&#39;s more on this from &#39;moxiehttps://www.youtube.com/watch?v=Nj3YFprqAr8https://signal.org/blog/the-ecosystem-is-moving/"</p>
+							
+						
+							
+								<p class="story__comment_others">"This strikes at something that people often WANT when they say &#34;text files are better than the registry/binary formats&#34; - they want to easily bring their own tooling to bear.Standard APIs let you do this - even if you have a &#34;binary format&#34; like MySQL or PostgreSQL (on disk) - nobody really complains about that because they have a defined API you can interact with."</p>
 							
 						
 						</a>
@@ -180,22 +179,22 @@ https://datatransferproject.dev/"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea">Google’s FLoC Is a Terrible Idea</a></h3>
+					<h3><a href="https://arstechnica.com/tech-policy/2021/03/100mbps-uploads-and-downloads-should-be-us-broadband-standard-senators-say/">100Mbps uploads and downloads should be US broadband standard, senators say</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26344013">
+						<a href="https://news.ycombinator.com/item?id=26347380">
 						
 							
-								<p class="story__comment_first line-clamp">"One of my pet meta-theories about Hacker News is that the frustration expressed over several apparently different stories really has a single source: Hacker News likes the internet of 10-20 years ago a lot more than the average person.One place this shows up is a frequently-expressed sentiment that the internet is a less magical, less weird, and more corporate place than it was 10-20 years ago. Part of this may be because SEO has diluted the voices of individual creators. But part of it is also because way more average, everyday, tech-unsavvy people are on the internet now.Another example is the periodic highlighting of somewhat garish HTML-based websites. I like these too! My own personal website falls in this category! But as far as I know, the generic internet user likes the generic slick-graphics-and-whitespace style, and so go the websites that want to attract them.More relevant to the topic at hand, many comments in this thread argue that targeted ads are unnecessary for a functional internet, since the internet of 20 years ago seemed to work just fine without targeted ads. But, again, it&#39;s less clear to me that general internet users -- that is, mostly people who never experienced the internet of 20 years ago -- have the same preference.It&#39;s funny, because I&#39;m to a large extent on HN&#39;s side on this one. But my enthusiasm is tempered by my sneaking suspicion that the other side is a lot bigger, and my side is actually powered by more elitism and nostalgia than I thought."</p>
-							
-						
-							
-								<p class="story__comment_others">"This captures my feelings on the issue:&gt; That framing is based on a false premise that we have to choose between “old tracking” and “new tracking.” It’s not either-or. Instead of re-inventing the tracking wheel, we should imagine a better world without the myriad problems of targeted ads.I don&#39;t want to be tracked. I never have wanted to be tracked. I shouldn&#39;t have to aggressively opt-out of tracking; it should be a service one must opt-in to receive. And it&#39;s not something we can trust industry to correct properly. This is precisely the role that privacy-protecting legislation should be undertaking.Stop spying on us, please."</p>
+								<p class="story__comment_first line-clamp">"&gt; The funding is going to a mix of cable, fiber, and fixed wireless providers, plus SpaceX&#39;s Starlink satellite network.I think cable providers should be left out. They were already gifted many billions of dollars in the past for this same basic purpose but they pocketed the money.  They can just use the free money they&#39;ve already been given.  Instead, the funding should go to existing munipical fiber ISPs to expand their coverage.  Give money to people with a proven track record of doing what you want, not people with a proven track record of keeping the money for themselves.I&#39;m on municipal fiber and it&#39;s amazing."</p>
 							
 						
 							
-								<p class="story__comment_others">"Fully agree with EFF here, and what&#39;s most frustrating is that Google could actually be on the side of banning tracking, and win big over Facebook.Google had a fully working, very lucrative business model in search term based ads. You search for &#34;office rent Arizona&#34;, and Google shows you ads about offices in Arizona. No privacy violations.There was no other problem with search term based ads except that Google wanted to pump up shareholder value faster than what that could give them."</p>
+								<p class="story__comment_others">"Imagine how good our network technology policy would be if the Senate weren&#39;t run by septagenarians and octogenarian.I fear that data caps for home internet will become standard. There is no technological reason for these caps. For wireless, they could be defended by arguing that companies only get to use so much spectrum because of FCC laws. But the only limit for home internet is the ISP&#39;s willingness to deploy equipment and install cable/fiber runs. That&#39;s exactly what customers are paying them to do."</p>
+							
+						
+							
+								<p class="story__comment_others">"Lets try and suss out some of the multiple issues with US internet:-regulating ISPs as a free market is, to be hyperbolic, a disaster. there is effectively a monopoly in most parts of the country.-25/3 Mbps is a very reasonable speed for most people. the issue is that its provided on a best effort basis that is never maintained for long, if at all. netflix says thats enough to stream UHD[0]-FTA: &#34;Those data points likely undercount the number of unserved Americans because the FCC lets ISPs count an entire census block as served even if it can serve just one home in the block&#34; hilarious - what else is there to say.-FTA: &#34;The senators are also frustrated by differing standards across agencies. [...] the FCC defines [...] Alternatively, the US Department of Agriculture (USDA) defines&#34; why is this the federal government&#39;s job again? the internet is clearly not an enumerated power. is this the interstate commerce clause that keeps on giving in action again? i think decentralizing federal power would help alleviate a lot of the existential dread vis a vi corruption that many americans are feeling.all in all, this reeks of regulatory capture to me. if we&#39;re gonna have a serious discussion about internet infrastructure, i think the starting point is how we classify ISPs and where in the city-state-federal hierarchy the responsibility lies. changing a 25 to a 100 is a cool bullet on a resume, but i dont think this is the low handing fruit here.[0]https://help.netflix.com/en/node/306"</p>
 							
 						
 						</a>
@@ -208,22 +207,25 @@ https://datatransferproject.dev/"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.wsj.com/articles/dr-seuss-books-deemed-offensive-will-be-delisted-from-ebay-11614884201">Dr. Seuss books deemed offensive will be delisted from eBay</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=26345235">Ask HN: Do you think Agile/Scrum is beneficial for software delivery?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26347654">
+						<a href="https://news.ycombinator.com/item?id=26345235">
 						
 							
-								<p class="story__comment_first line-clamp">"https://archive.is/ZxcpU"</p>
+								<p class="story__comment_first line-clamp">"I just don&#39;t get it why developers like Scrum.
+The whole thing was designed to give non-technical people more power over the ones who spent a lifetime honing their craftmanship. Standing around a table in the morning like assholes is not my idea of fun. Same for the &#34;product owner&#34; concept. If I develop something, I am the owner. I generally hate being micromanaged and being assigned microtasks that gives &#34;them&#34; total control over my workday while I have no idea what &#34;they&#34; are doing the whole day. 
+Scrum was the reason why I left my last company and I&#39;m much happier now in my new company, where we do not have any process at all, just a common goal. Instead of standups, the team gathers for a coffee in the morning. If I want to spend 3 days learning a new framework that might do the product good, nobody cares. The only thing that counts is the endresult. That means we are beating the product into submission until its good, even if it means rewriting the thing three times and missing deadlines.
+So no more Scrum for me. Never."</p>
 							
 						
 							
-								<p class="story__comment_others">"Now this part is getting a little too carried away.  It is one thing for libraries and bookstores to decide not to offer for borrowing or sale things that they disagree with.It is another (and overstepping imo) for Ebay to restrict individual people from selling to others goods that are not illegal or in violation of their other practical rules (no selling jewelry, monetary equivalents, etc).This falls into the category of taste / political opinions and has gone too far too quickly.  Much as I don&#39;t like what the silly cartoons are, and of course while I don&#39;t think Ebay is a public forum that has any obligations (they can do what they want), I think Ebay is getting in deeper than it should.Will they apply the logic here to all categories of goods for sale?  T-shirts?  Political buttons?  Historical political pamphlets?  Current political pamphlets or campaign material? How about baseball team merchandise that has racist mascots?  (Why haven’t they?)  Merchandise of companies where the CEO may have bigoted views?How about books that have words in them that discuss race, or in any way describe an unflattering picture of a certain group?  Or scientific studies that may come to race-based findings?I think the other thing that bothers me is that to be protected by such measures, you have to be popular.  And it&#39;s flimsy.  This year it&#39;s &lt;x&gt; group, next year that group is forgotten and it&#39;s on to &lt;y&gt; group.   Woe to the actually wronged group of people who can&#39;t garner enough popular support, and who fall by the wayside of laws that are less enforced because people thought the social-media driven justice system took care of it.Ps. And edit just to add, lest someone discount my opinion as from a privileged position, I am among one of the groups said to be portrayed in a racist way in those books. If only people’s concern about racism in cartoons extended to more important matters as well."</p>
+								<p class="story__comment_others">"I think you need to separate Agile from Scrum to be honest.Agile is at is core just some suggestions for teams to work well together. There are no stand ups or sprints or whatever.Scrum was created by one of the creators of the agile manifesto as a way to see consulting/training around the &#39;Agile&#39; idea (timeframes may differ a bit, but they were linked). There is an interview/article by one of the creators of the agile manifesto (Kent Beck maybe?, will try to dig it up and edit the answer if I find -&gt; was Robert C. Martin, see below) where he explains a bit the story and compares it to Agile (and basically says scrum has nothing to do with the original agile manifesto)On a personal level, I hate scrum. The stand ups, the sprints, the retros or grooming or whatever they have nowadays. It is literally one of the first questions I ask in an interview about their processes and excuse myself from the process if I see if they follow it. It may work for others, but for me personally, I hate it with a fervour.Though I agree with the Agile manifesto though, unfortunately it isn&#39;t very &#39;manager&#39; friendly so you usually get scrum instead.Edit: link to a reference to the article, can&#39;t find the original but found this: https://www.aaron-gray.com/a-criticism-of-scrum/#scrum-strai..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t know any culture that banned books independent of their content that people didn&#39;t regret in the future.A few months ago I was reading about schools banning the book &#34;To Kill a Mockingbird&#34; because it contains basically the &#34;n&#34; word. I&#39;m not american, and and havent read that book. I watched the movie, through, and it seemed to me to be a very anti racism message.I think instead of banning, schools should work provide  context to kids and teens that read this books, of how society was when they where written, so people don&#39;t forget the past, but are able to make better decisions to the future."</p>
+								<p class="story__comment_others">"What’s so funny to me is what you’re describing is the nightmare that’s become scrum as opposed to actual agility. Agile is about ditching managers, bureaucracy, and estimates in favor of empowering the team itself.Agility is just what it says: a philosophy of flexibility and adaptiveness.Heirarchies, heavy processes, etc are by definition inflexible. They are not agile. You do not do agile. You are agile. You are agile because your company has a culture that is agile and you cannot achieve that unless the company is structured to be flexible.I think actual agility is really, really a great way to build software efficiently... but unfortunately most programmers will only experience the cargo cult forced upon them by certified scrum masters... and this is just as bad, perhaps worse, than old fashioned waterfall.More than anything, working in an agile environment is a very pleasant thing to do from a human standpoint. But most companies are incapable of the kind of equality and empowerment necessary to achieve agility, so they will force the terrible cargo cult version upon us."</p>
 							
 						
 						</a>
@@ -236,22 +238,22 @@ https://datatransferproject.dev/"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.thedrive.com/the-war-zone/39537/the-air-force-needs-to-reverse-engineer-parts-of-its-own-stealth-bomber">The Air Force is having to reverse engineer parts of its own stealth bomber</a></h3>
+					<h3><a href="https://help.duckduckgo.com/duckduckgo-help-pages/features/non-javascript/">DuckDuckGo – two non-JavaScript versions of search results</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26333649">
+						<a href="https://news.ycombinator.com/item?id=26344358">
 						
 							
-								<p class="story__comment_first line-clamp">"I can&#39;t be certain, but I suspect the real problem was that the original contract was signed without requiring the technical data rights and/or delivery of the technical data. This is a common mistake made by the DoD, and can lead to extraordinarily high costs later.Just look at the notice: &#34;The deliverables will include all technical data related to the heat exchanger disassembly, all technical data related to the cores, all technical data related to the stack up, vacuum brazing, and installation of the cores on existing units. The deliverables will also include all technical data related to the tooling needed...&#34; It&#39;s clear they don&#39;t have the technical data.Here&#39;s how this can happen: the government asks for proposals, and the prospective contractors say &#34;we&#39;ll create it for you for cheaper if you don&#39;t require the technical data &amp; its related rights&#34;. The government program manager (PM) is under a lot of pressure to &#34;get it cheaper&#34;, and this is cheaper in the short term, so the government PM agrees. The PM will be around for a few years, then leave. Later on, the contractor is the only one who can make the parts (because they&#39;re the only ones with the technical data &amp; the technical data rights to do it). The government procurement system is all about competition, but now there is no possibility for real competition. Thus, the parts will cost 10x or more, and the government PM who approved this is long gone (probably with a promotion), and the contractor is happy with incredibly large profit margins.I don&#39;t know if that&#39;s what happened in this case. But it&#39;s very very possible."</p>
-							
-						
-							
-								<p class="story__comment_others">"Reverse engineering seems like a good skillset for the DoD to nurture, anyway. Yes, the US is going to be at the cutting edge of weapons design at least through the medium term, but the leadership isn&#39;t arrogant enough to think that all engineering innovations will come domestically. If the US acquired a next-generation Chinese fighter, wouldn&#39;t it be handy if someone had the expertise to tell you exactly how its parts were made and machine replicas if needed?So, the tinfoil hat interpretation of this story would be, of course the Pentagon has the original blueprints in quintuplicate, but it&#39;s identified reverse engineering as a key strategic advantage China has over the US (pretty reasonable so far, right?) and has announced this as a way to shuffle some money into building up domestic RE expertise in the defence industry."</p>
+								<p class="story__comment_first line-clamp">"As someone who&#39;s just written about the &#34;small web&#34; [1], this warms my heart. The lite version is probably a little too bare-bones for most people&#39;s tastes, but it sure is tiny -- great for people on very slow or flakey connections. Some numbers:HTML homepage transfers 34KB (94KB uncompressed) over 6 requests. HTML search results page transfers 133KB (248KB uncompressed) over 31 requests.Lite homepage transfers 13KB (11KB uncompressed, ha) over 4 requests. Lite search results page transfers 21KB (43KB uncompressed) over 5 requests.In all cases, all requests are to *.duckduckgo.com, which was very good to see from a privacy perspective. Nice work, DDG![1] https://benhoyt.com/writings/the-small-web-is-beautiful/"</p>
 							
 						
 							
-								<p class="story__comment_others">"The US nuclear weapons program had to do something similar in the 2000&#39;s with a material known as Fogbank. This is used in the W76 warhead as an interstage material, and they needed more of it to keep the weapons in operational state.Unfortunately, they&#39;d forgotten the manufacturing process, decommissioned the plant that made it, and the people that knew how to do it weren&#39;t around any more. They figured it out, but it doesn&#39;t necessarily look easy to do (nor does the material seem easy at all to make in the first place).https://www.armscontrolwonk.com/archive/201814/fogbank/p20 here says more: https://www.lanl.gov/science/weapons_journal/wj_pubs/17nwj2_...Edit: I somehow missed this other thread in this story, despite a search: https://news.ycombinator.com/item?id=26334367"</p>
+								<p class="story__comment_others">"Up until not long ago, Google search result pages worked well without JS, and if you sent a suitably old UA header, you&#39;d get the &#34;original&#34; version without mangled URLs or any of the other bloat. Then in 2019 or so, in what I consider to be an extremely hostile move, they started redirecting (using meta tags) to a horrible dumbed-down mobile-ish version and using styles-removed-by-JS to &#34;hide&#34; the actual content of the &#34;full&#34; version (which has the &#34;modern&#34; mangled URLs) if you managed to reach it anyway, so all you&#39;d see was a blank page. It&#39;s almost like they were deliberately trying to make something that only worked in the latest version of Chrome or whatever few other &#34;modern&#34; browsers exist today, and decided to force non-JS users to a worse experience than they had had for the past decade or more. Nothing a filtering proxy can&#39;t fix (and I brought back true URLs at the same time), but I was absolutely incensed when that happened.I don&#39;t think a search engine should ever require JS to be usable. The existence of search engines[1] predates the existence of JS, and of course the HTML mechanism of form submission and displaying a list of links predates both of those.[1] https://en.wikipedia.org/wiki/JumpStation"</p>
+							
+						
+							
+								<p class="story__comment_others">"Holy shit the lite version is fast. Comparing to google search it&#39;s not even close...wow."</p>
 							
 						
 						</a>
@@ -264,23 +266,22 @@ https://datatransferproject.dev/"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://femfosec.com/fertility/">Female Founder Secrets: Fertility</a></h3>
+					<h3><a href="https://github.com/nodegui/svelte-nodegui">Show HN: Svelte NodeGUI, a lightweight Electron alternative with native UI</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26345226">
+						<a href="https://news.ycombinator.com/item?id=26361423">
 						
 							
-								<p class="story__comment_first line-clamp">"Your whole blog resonates deeply with me. All this corporate grifting and women&#39;s empowerment months will do jack shit until we figure out how to make workplaces and lives more equitable for mothers and allowing for gaps, breaks and destigmatizing time off for parents of both genders.Instead, we talk about how sexism is the biggest problem. Sure, sexism might be annoying, but in the west, it is hardly something that creates a genuine barrier for women.Startups have it worst, and everday I count the number of years I have to work in the high stress places I want or do a startup if I want to have two kids before 35. No one talks about planning around fertility. When I mention it to someone that I want to take time off for a couple years to have children in silicon valley, they look at me as if I&#39;m an alien. As if wanting to be pregnant and not working at the same time as being sleep deprived and wanting to spend time with my own baby when they are at their youngest is some strange outlandish fantasy.All careers are built this way. PhD to tenure, startups, generally high stress professions. I wish the world wasn&#39;t so male centric, that feminists actually cared about finding structural solutions instead of forcing women to become copies of men to achieve gender parity. But they care more about power than actual equality where we acknowledge that women have different needs and desires, that those needs and desires are equally valuable and not inferior to desires men have, that the two genders have different strengths and capabilities and it is equally important to reward both. And maybe not wanting to outsource your baby to a nanny during their most vulnerable years is not a heretical thought.I wish we had more focus in allowing people to transition back from taking a few years off to raise young kids, and it wasn&#39;t automatically assumed that you would be a worse founder or professor or software engineer just because you have 2-4 years you didn&#39;t commercially work. Hell, I want to take that time to contribute to open source, something I don&#39;t get to do much usually and I&#39;m looking forward to it because I am willing to face the  consequences. But I wish more women could be less scared of their career prospects for choosing to have children."</p>
-							
-						
-							
-								<p class="story__comment_others">"I agree completely with the premise that most people don&#39;t appreciate just how fleeting fertility can be, but I think rather than freezing eggs, the solution is for people to normalize having children at a younger age and designing work and home life around children existing and even being present in certain work contexts.Obviously freezing your eggs is something that you can do as individual without society&#39;s input, and my preferred solution is a cultural overhaul...But economic productivity is only useful insofar as it leads to better lives for people, economic activity that increases well-being by one unit is pointless if it requires us to spend more than one unit of well-being (by say, freezing our eggs and not becoming grandparents until we&#39;re 80) to achieve it."</p>
+								<p class="story__comment_first line-clamp">"This looks nice !However... &#34;Low CPU and memory footprint (...) memory usage is under 20 MB for a Hello World program&#34; : I am the only one who still thinks this is huge ? (-&gt; https://tonsky.me/blog/disenchantment )"</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m not so sure freezing eggs is sound advice.Lord Winston, who is professor of fertility studies at Imperial College London, warned that it was &#34;a very unsuccessful technology&#34; and said: &#34;The number of eggs that actually result in a pregnancy after freezing is about 1%.&#34; He later clarified he was referring to live births.https://www.bbc.com/news/health-51463488#:~:text=Lord%20Wins....“It’s not like I would discourage egg freezing. Women should be doing it because it’s the best option they have, but it is not an insurance policy,” says Christos Coutifaris, past president of the ASRM and a professor of obstetrics and gynecology at the University of Pennsylvania. “Insurance policies usually guarantee a payoff. In this case, there is no guarantee.”
-https://www.technologyreview.com/2019/08/14/133377/mothers-j..."</p>
+								<p class="story__comment_others">"Just thought it was worth mentioning that nodegui is a node &amp; qt runtime. There are framework components for not just Svelte, but React and Vue as well... just search on github if you prefer a different framework."</p>
+							
+						
+							
+								<p class="story__comment_others">"Looks really good! At first glance, this seems like probably the best Electron alternative I&#39;ve seen posted on HN.Apart from the consistent GUI layer, I think an underrated reason that many teams stick with Electron is the mature tooling for cross-platform builds and upgrades. It&#39;s pretty painful to DIY.It looks like NodeGUI doesn&#39;t currently support cross-compilation--is that something that&#39;s on the roadmap? How about upgrade/auto-upgrade tooling? Code signing?"</p>
 							
 						
 						</a>
@@ -293,22 +294,22 @@ https://www.technologyreview.com/2019/08/14/133377/mothers-j..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://jott.live/markdown/m1_webgpu_perf">M1 MacBook Air hits 900 GFlops in the browser with Safari&#39;s experimental WebGPU</a></h3>
+					<h3><a href="https://www.economist.com/leaders/2021/03/06/nuclear-power-must-be-well-regulated-not-ditched">Nuclear power must be well regulated, not ditched</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26333369">
+						<a href="https://news.ycombinator.com/item?id=26347073">
 						
 							
-								<p class="story__comment_first line-clamp">"I usually avoid hype. But the M1 is just unreal. I was back in the office for the first time in months, and since getting my M1 MBP...my overclocked i5 hackintosh with 4x RAM just disappointed. It didn’t feel slow, but it stopped feeling fast."</p>
-							
-						
-							
-								<p class="story__comment_others">"In 1996 you needed 1,600 sq ft of supercomputing hardware to reach the same mark.https://en.wikipedia.org/wiki/ASCI_Red"</p>
+								<p class="story__comment_first line-clamp">"Some problems that Fukushima had: 1950s vintage design, active cooling system, backup power at sea level in a seismically active area.  This kind of failure was not just predictable, it was predicted.People travel to Japan from around the world to learn how to build earthquake resistant structures.  Their nuclear engineers are top-notch.  It was the bureaucracy that failed, not the talent.In short, the problems were human not technical.  People get complacent and greedy.  They use every procedural tool they have to delay upgrades, maintenance, and improvement.  I think that is at the core of most nuclear skepticism.  Does anyone honestly think the United States has institutions sound enough to safely manage nuclear power over multiple decades?  Or will they neglect basic maintenance and upgrades?"</p>
 							
 						
 							
-								<p class="story__comment_others">"Ok, my Pixel 4 phone has 950 Gigaflops???  https://en.wikipedia.org/wiki/List_of_Qualcomm_Snapdragon_pr..."</p>
+								<p class="story__comment_others">"The key thing to remember is that power sources like coal and other fossil fuels have a very real health cost. A large number of people die every year. However a nuclear accident is much more &#34;exciting&#34; news and sticks in people&#39;s mind. People dying of cancer, asthma and other conditions are not as direct or as dramatic."</p>
+							
+						
+							
+								<p class="story__comment_others">"The real trouble with the light water reactor is not the nuclear part but the steam turbine it is attached to.Unfortunately people have a way of driving while looking in the rear view mirror and much of the discussion around nuclear energy revolves around issues of the 1970s.In the 1970s coal burning power plants were the cost king of power plants.  There was some concern about making them cleaner,  but by the 1980s gas turbine power plants with 10 times the power density (e.g. 1/10 the capital cost)  were becoming widespread and people quit building coal plants.(A big literature got left behind about how to drive a gas turbine from coal,  on paper it would be lower capital cost than a conventional coal plant,  but the technology never got developed at full scale.)Even if the heat was free it would be hard for a steam turbine based power plant to compete with gas turbines.Now it should be possible to build a nuclear power plant based on the brayton cycle using helium or carbon dioxide or some similar gas as a working fluid.  You then need to use helium or sodium or lead as a coolant because the pressure would be too high with water.Fast reactors are the best developed option,  followed by the prismatic HTGR,  then the thorium reactors.  Pebble-bed HTGR looked pretty good until an expose came out that a German pebble bed reactor had a difficult time...  Turns out pebbles that slide past each other just fine in air will get stuck on each other and crack in helium.When Bill Gates and others go around saying we have to get over the safety issue they are continuing the stigma.  Nuclear power is not going to get out of it&#39;s funk unless it has a cost story that looks good when everything goes right -- which is not the case with the LWR."</p>
 							
 						
 						</a>
