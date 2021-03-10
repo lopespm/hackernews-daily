@@ -36,6 +36,293 @@
 	</div>
 
 	
+	<div class="day__date">10 March 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.plover.com/tech/ui.html">Fuckin&#39; user interface design, I swear</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26381768">
+						
+							
+								<p class="story__comment_first line-clamp">"Archive: https://web.archive.org/web/20210308022841/https://blog.plov..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Why do giant companies do so many hilariously dumb things?As organizational complexity increases, design debt and responsibility becomes diffused among larger and larger groups of people. Leading to the bizarre situation where no individual has power or responsibility over anything specifically.Any individual interface element might have taken input from as many as 100+ different people over many years, each with competing interests and goals (no, I&#39;m not joking). Combine this with the precedents and decisions made on projects in the past (design debt), and you end up with stupid outcomes like this.As a multiple FAANG alumni, I&#39;ve seen this firsthand hundreds of times.I think it&#39;s cute that people think IC designers or engineers have the power to make any real decisions inside large organizations.What&#39;s more likely, is these stupid icons were part of some design system somebody created 7 years ago (have to stay consistent of course!). The circular floating buttons were a precedent somebody set 5 years ago on a completely different product (god forbid it feels &#34;off-brand&#34;). The colors were set 6 years ago on some project where this kind of application was never thought of.And finally, the order &amp; placement of the icons was changed 15 times by some PM, then the PM&#39;s boss, then the accessibility guys, then the brand team, the brand team&#39;s boss, then the director of marketing, etc. etc. The tie breaking vote going to whoever is perceived as having more soft power inside the org at the time.Hence, the inevitable outcome of big company stupidity."</p>
+							
+						
+							
+								<p class="story__comment_others">"I just had an idea that might explain why this happens.Firstly, I&#39;ve observed a phenomenon when I talk to a programmer about a problem I want to solve. They might get excited, learn a bit of the problem domain and then go off and build something that kind of solves part of my problem. But then I&#39;m stuck in a endless cycle of explaining the rest of the problem, to someone who isn&#39;t really interested, then waiting for a new iteration and then evaluating how it doesn&#39;t completely the solve the problem until the programmer gets bored and goes off to find something new and exciting to do with computers. Programming the computerwas always the end for them. They don&#39;t actually care about the problem. I care about the problem. So for me computers are a tool to solve my problem. I might as well write the program myself because it&#39;s less work to become a mediocre programmer than to intimately understand the problem.My theory is that something like this happens in interface design. There are  designers who love to create beautiful designs, and we love that, but beauty is the end of it for them. They don&#39;t actually care about the problem that the program (website, app, whatever) is supposed to solve. If they were stuck in a job filling out forms all day they would quickly learn the lesson to put the reset button out of the way. If they were intimately familiar with the problem, the better design would be obvious. And so it is that people with no &#34;design skills&#34; can point out the obvious mistakes of the designers.It&#39;s also true that good design is hard. Starting with a blank sheet and creating something, let alone something good, is daunting. Perhaps the hardest part is having the humility to admit, &#34;I don&#39;t understand the problem sufficiently&#34; and the empathy to care about the problem enough to learn it well."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="http://catern.com/services.html">Write libraries instead of services, where possible</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26398960">
+						
+							
+								<p class="story__comment_first line-clamp">"Phoenix is practically built with this idea in mind.My startup is built out of a single phoenix monolith. Only external dependency is postgres.Despite this, I&#39;ve managed to completely avoid all the typical scaling issues of a monolith. Need a service or background worker? I juts make a Genserver or Oban worker and mount it in the supervision tree. The Beam takes care of maintaining the process, pubsub to said service and error handling in the event of a crash.I&#39;m basicly getting all the best advantages of a monolith* one codebase to navigate, our team is TINY
+* all functionality is in librariesAnd all the advantages of microservices without the associated costs. (orchestration, management etc)* bottleneck use cases can live on their own nodes* publish subscribe to dispatch background jobs* services that each focus on doing one thing really wellWe&#39;ve accomplished this all through just libraries and a little bit of configuration. At no point so far have we had to..* setup a message broker (phoenix pubsub has been fine for us. we can send messages between different processes on the server and to the clients themselves over channels)* setup external clusters for background workers. (Oban was drop in and jsut works. I&#39;m able to add a new worker without having to tell devops anything. the supervision tree allocates the memory for the process and takes care of fault tolerance for me. That leaves me to focus on solving the business problems)* setup a second github repo. Its a monorepo and at out scale, its fine. We have one library for communicating to the database that every system just uses.Eventually we&#39;ll probably have to start rethinking and building out separate services. But I&#39;m happy that we&#39;re already able to get some of teh benefits of a microservice architecture while sticking to what makes monoliths great for mvps. It will be awhile before we need to think about scaling out web service. It just works. Leaves me more time to work on tuning out database to keep up!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Write libraries AND services, where it makes sense.I wrote a Python library to scrape google news [0]We also have it as a service [1]Want to know why? Because devs who can&#39;t pay won&#39;t pay. Businesses who can pay will rather pay for a service (API in our case), and not care about maintaining it.[0] https://github.com/kotartemiy/pygooglenews[1] https://newscatcherapi.com/google-news-api"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a bad take and a false dichotomy. The reasons for choosing a library or a service are so myriad and context-dependent that any generalization about which is &#34;better&#34; is just silliness. It&#39;s like saying, &#34;If you have to get somewhere, running is better than walking.&#34; Sure, in the case of a race or escaping a predator, running is probably the best option. But what if you want to take in the sights or you can&#39;t sweat in your clothes? Running would be a bad choice, even though it&#39;s faster. There are just too many variables in the real world to make any sort of blanket statement about which approach is &#34;better.&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.quantamagazine.org/new-algorithm-breaks-speed-limit-for-solving-linear-equations-20210308/">New algorithm breaks speed limit for solving linear equations</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26393795">
+						
+							
+								<p class="story__comment_first line-clamp">"I felt the article undersold an important technical detail about this work. Many randomized algorithms have a &#34;with high probability&#34; guarantee, which for linear systems might look like:    for any ε &gt; 0 and 0 &lt; δ &lt; 1, using poly(dimension, #nonzeros, condition, 1/ε, 1/δ) floating-point operations, our algorithm finds a solution having less than ε error with probability 1 - δ.
+
+However, that is not the kind of guarantee stated in Theorem 1.1 in the paper. Even though the algorithm uses randomness, the analysis yields a classic big-O complexity guarantee that does not involve probabilities.This is a big difference, and it makes the result stronger."</p>
+							
+						
+							
+								<p class="story__comment_others">"Stripping out the fluff: The authors proved that iterative methods for solving sparse linear systems can be guaranteed to be faster than the best methods of solving dense linear systems."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; “Philosophically we didn’t know before if you can go faster than matrix multiplication,” said Vempala.&gt; Now we do.This is the part of computer science that I love. It&#39;s a branch of philosophy about what is possible with computing machines.Now all that&#39;s left is the matter of making this practical."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://sylvestre.ledru.info/blog/2021/03/09/debian-running-on-rust-coreutils">Debian Running on Rust Coreutils</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26396798">
+						
+							
+								<p class="story__comment_first line-clamp">"There&#39;s a great opportunity to not just reimplement the GNU coreutils but to actually rethink them. The way I install a Linux system these days and then immediately download ripgrep or fd reminds me of how the first thing I used to do on a Solaris system was install bash and the GNU coreutils. There&#39;s a rich history of doing this - BSD Unix started as a bunch of utilities and patches to the AT&amp;T version, it only became a freestanding distro with its own kernel later on. And the GNU coreutils go way back before the Linux kernel - you just installed them on a commercial Unix to make it more usable. In both cases they went beyond just drop-in replacements and started adding lots of new features and flags. Things have been pretty static for a long time so it&#39;s good to see some innovations coming."</p>
+							
+						
+							
+								<p class="story__comment_others">"The goal of modernizing coreutils is great, and doing it in rust is even better. However, it makes me very sad that this is licensed under the MIT licence.Being licensed under the GPL is an essential part of the GNU project and their philosophy. Of course everyone is free to do as they please. However, IMHO, if one appreciates the GNU project and the ideals it stands for, then, maybe, it could be preferable not to rewrite parts of it under weaker licences that go directly against their mission!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Off topic - but this might of interest.http://maizure.org/projects/decoded-gnu-coreutils/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.openwall.com/lists/oss-security/2021/03/09/3">Git: Malicious repositories can execute remote code while cloning</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26404830">
+						
+							
+								<p class="story__comment_first line-clamp">"The commit that fixes this issue:https://github.com/gitster/git/commit/684dd4c2b414bcf648505e...(Surprise, the root cause is a cache)"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; if Git is configured globally to apply delay-capable clean/smudge filters (such as Git LFS)What is the simple test for whether this is the case or not?Is this a default-on scenario?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Reminds me of another git vulnerability from 2014 on case-insensitive filesystems: https://github.blog/2014-12-18-vulnerability-announced-updat..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.notboring.co/p/excel-never-dies">Excel Never Dies</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26386419">
+						
+							
+								<p class="story__comment_first line-clamp">"People are all talking about how it&#39;s useful for quick stuff with datasets, but it goes far beyond that. It&#39;s useful for quick anything you might want a small database for. Imagination is the limit.For example, if any of you play D&amp;D online, you might be familiar with dndbeyond&#39;s character sheets. They&#39;re a fantastic way to onboard new players who might not have the inclination to spend hours with the rule books before they even start playing. It does all the calculations for you and gives you some buttons like &#34;roll athletics&#34; and doesn&#39;t let you add more spells than your character can have with their stats.I recently persuaded some friends to give FATE a try and built analogous push-button character sheets with google sheets [0]. It was quick and simple. With conditional formatting, you highlight bad states (rules say you can&#39;t have more of X than Y!). With the script editor, you can add full on buttons for dice rolls and other state changes with whatever logic you want (anything you can code up!). Checkboxes are obvious but super useful. And the transparency of the calculations is helpful for teaching people the system (this stat is &#34;min(A4, B1+C5)&#34;).Without google sheets, it would be a serious endeavor to build a stateful, database backed, live collaborative GUI that can be added to and customized on the fly by my users. With google sheets, it was a quick fun afternoon hack. Excel/google sheets is an amazing piece of technology.[0] Screenshot of the &#34;app&#34;: https://raw.githubusercontent.com/imh/public_images/main/Scr..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I hadn&#39;t used Excel in years and now that I do, there&#39;s some things about it that drive me nuts:- It forgets what you&#39;ve copied to clipboard. Copy something. Insert another row so that there&#39;s space for it. Paste. Nothing happens. Huh? It lost my copy. It does this for a large number of operations and it drives me crazy. I&#39;ve never seen any other program do this.- You can&#39;t open two spreadsheets of the same name. This is because spreadsheet formulas can refer to cells in other tables. But I don&#39;t use that feature - can&#39;t I just open the second spreadsheet with a warning that this feature won&#39;t apply to it?- (This one applies to too many pieces of Microsoft technology.) You can&#39;t use common keyboard shortcuts properly. Ctrl-backspace deletes a word in any useful text box. Not in formula editing in excel. And ctrl+delete deletes the rest of the line instead of just the next word. Why?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Excel, and more importantly, the spreadsheet is the best way to build intuition for a dataset, hands down. The alternatives, especially when it comes to Python and the default pandas output in a Jupyter Notebook are horrendous.Where Excel falls short, is data size limitations + auditability. Putting more than 1M rows of data into Excel is not possible, and once you get into the low 100K&#39;s, it becomes almost unbearable. And handing off an Excel workbooks to a colleague is handing them hours of cell dependency tracing. On the other hand, data size + auditability are the super powers of Python data analysis.I&#39;ve been building a Python package, Mito (https://trymito.io/), its an interactive spreadsheet that automatically converts your spreadsheet analysis to the equivalent pandas code. You can write spreadsheet formulas, merge datasets, create pivot tables, etc. And because its implemented in Python, you can manipulate datasets with 10M rows of data with no problem. Our goal is to bring the intuitiveness of Excel data manipulation to Pandas."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bnnbloomberg.ca/hackers-break-into-thousands-of-security-cameras-exposing-tesla-jails-hospitals-1.1574681">Hackers break into thousands of security cameras, exposing Tesla, jail, hospital</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26405056">
+						
+							
+								<p class="story__comment_first line-clamp">"This is the same company that was in the news back in October related to harassing its own female employees with fratboy douchebag behavior:https://www.theverge.com/2020/10/26/21535089/surveillance-co..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Putting surveillance video on the cloud is... kinda dumb. It&#39;s rarely viewed outside your network, and local drives cost drastically less than the bandwidth needs. Also it&#39;s incredibly sensitive data that shouldn&#39;t leave your network without really good reason anyways.The solution to this hack is simple: Shut this company down, because it&#39;s a bad idea."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is amazing. If they would have added software to the cameras to mine bitcoin, it would’ve been absolute peak cyber punk.People that sell video cameras attached to the Internet should always have a disclaimer that the user should assume that the system will probably be accessible by anyone at some point in the future.I believe Samsung started doing this with their TVs in regards to audio.We are certainly building ourselves an interesting future."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://arstechnica.com/?p=1747061">The new Google Pay repeats all the same mistakes of Google Allo</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26382633">
+						
+							
+								<p class="story__comment_first line-clamp">"I own a Google Pixel 3a.Google Play Music is the default, preinstalled music app. It&#39;s discontinued and can&#39;t even play my local MP3s anymore. YouTube Music is unfortunately worse. Play Music can&#39;t be uninstalled.Google Photos is the default, preinstalled Photo Gallery app. Part of its service is discontinued. It can&#39;t be uninstalled."</p>
+							
+						
+							
+								<p class="story__comment_others">"Googlers are like toddlers with all the toys in the world: they quickly get bored and move on.I&#39;m reminded of Paul Graham&#39;s essays about this and payments ticks two of the major themes: it&#39;s both unsexy and it&#39;s a schlep. And that&#39;s why Google won&#39;t succeed in this space.Apple uniquely seems to have maintained the ability to tackle these problems. I remember when Apple Pay launched and was derided (here and elsewhere) but every few weeks there&#39;d be another announcement where another group of financial institutions were brought in to the ecosystem. You keep plugging away at that, customers will start using it and after years of schlep you&#39;ll have mature payments infrastructure.Google chat apps were a meme internally even when I was still there (2017). Deprecating Hangouts features, copying Slack, creating new orgs to make the same mistakes all over again (but hey, lots of people got promoted). It was a joke and still is.And all they had to do was copy iMessage. That&#39;s it. Apple had the foresight, market power and wherewithal to push iMessage onto resistant network operators (who were all too happy to continue nickel-and-diming customers with massively profitable SMS charges long after any cost arguments had disappeared)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Google takes not invented here to an extreme cross-team level. Their internal promotion/reward structure must be utterly broken that this exact scenario seems to keep playing out time and time again. I&#39;m honestly surprised shareholders haven&#39;t started asking questions about the serious mismanagement of capital allocation."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/isostandards/status/1367138676162105344">ISO-8601 date format reference not publicly available</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26400089">
+						
+							
+								<p class="story__comment_first line-clamp">"So? I&#39;d be happy if people would consistently use RFC 3339 (https://tools.ietf.org/html/rfc3339). This will solve 99.999% you&#39;re going to run across. If you&#39;re part of that 0.001% who actually needs the standard - then it will be worth a few bucks to obtain it."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s not freely available, i.e. at zero cost.  This is not the same as not publicly available, which it definitely is.See https://news.ycombinator.com/item?id=26279292 .This has been misrepresented both in the headline here, and by some commenters both here and on Twitter.  The original Twitter post clearly talked about economic value and downloading copies for free, not about hiding things from the public.  Notions of economic value and charging the highest price that the market can bear are a very different discussion to not publicly available."</p>
+							
+						
+							
+								<p class="story__comment_others">"Well I knew this, but it shouldn’t surprise most of the people here either. How many factories, data centers, companies, and products have you seen that are ISO-something certified?It’s an entire industry, of course part of that process is paying to get the specification that you’re already paying for someone to verify you’re abiding by.The last time I went through an audit the consulting firm that was auditing us only very begrudgingly gave us the requirements for a couple of sections because we kept insisting that we were providing proof that we met them and they kept disagreeing. I still think it was just to shut us up...As they mention in the tweet, you can possibly get them from the standards body in your country. For my current country (Estonia) they don’t seem to give it out freely, but you can buy the version they approved as the country’s standard for like €20, compared with the €200 for the official ISO version. So there are options..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.preprints.org/manuscript/202101.0412/v1">Raspberry Pi for Kill Mosquitoes by Laser</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26376376">
+						
+							
+								<p class="story__comment_first line-clamp">"This work (I think) worked with the mosquitos 30cm away with a servo scanning Pi Camera (1080p) and a 1W laser.To work in the real world - cover a whole room or terrace - presumably a much higher resolution camera (or much faster scanning system) would be required.  Even a 1W laser is dangerous to eyesight, if it was being fired at targets mingling with people.The system could be mounted on small drones that would patrol larger areas - but the idea of robotic drones armed with lasers roaming around is beginning to sound worse than the mosquitos."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a nice little firestarter.I&#39;ve had this idea many years ago and my solution to that problem was to use two or more lasers of lower power that all shoot at the same point in 3 dimensional space. If you guess wrong then at least you won&#39;t set your house on fire (or blind someone)."</p>
+							
+						
+							
+								<p class="story__comment_others">"You can do this with sound.   A hybrid system even better.I built tech ~10 years ago to track quiet, sound emitting objects in real time to sub CM resolution using microphone arrays.  And in one demo I even had a laser pointer mounted on a 2 axis.... &#34;swinging thingie&#34; (sorry, I&#39;m not a mech-E) which would constantly stay pointed on the loudest object in the room, as it moved.  Fun stuff.  Creepy even.Shame I never found a use or a buyer for the tech. :/EDIT:  I bet an improved hybrid one would use sound to get within the right 1-2cm, with a zoom camera mounted on the pan/tilt apparatus to get it even more accurate."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">09 March 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -135,12 +422,12 @@
 						<a href="https://news.ycombinator.com/item?id=26383419">
 						
 							
-								<p class="story__comment_first line-clamp">"CPI is a joke, they do something called hedonic adjustments to things like tech products etc. It&#39;s completely subjective and BS. Technology is deflationary, things should get cheaper because we go after producing them in creative ways one demand is high.CPI is absurd, it only perpetuates consumerism and punishes savers.
-We product 2x the food society consumes - mostly wasted away, just with some supply chain efficiency - there&#39;s a lot more room for food not to be expensive though."</p>
+								<p class="story__comment_first line-clamp">"As someone that is the food mostly spice trade prices have started going up in the last 2-3 weeks though prices have not even reached pre pandemic levels. Black Pepper prices have jumped 20+% in the last 20day that price is still 50% cheaper than what it was 4-5 years ago. The largest problem is not availablity of goods rather shipping. I would advise investing in shipping companies if you are active in the stock market. As now days they are charging 3-4 times the freight and still hard to get space so they probably rare raking it in"</p>
 							
 						
 							
-								<p class="story__comment_others">"As someone that is the food mostly spice trade prices have started going up in the last 2-3 weeks though prices have not even reached pre pandemic levels. Black Pepper prices have jumped 20+% in the last 20day that price is still 50% cheaper than what it was 4-5 years ago. The largest problem is not availablity of goods rather shipping. I would advise investing in shipping companies if you are active in the stock market. As now days they are charging 3-4 times the freight and still hard to get space so they probably rare raking it in"</p>
+								<p class="story__comment_others">"CPI is a joke, they do something called hedonic adjustments to things like tech products etc. It&#39;s completely subjective and BS. Technology is deflationary, things should get cheaper because we go after producing them in creative ways one demand is high.CPI is absurd, it only perpetuates consumerism and punishes savers.
+We product 2x the food society consumes - mostly wasted away, just with some supply chain efficiency - there&#39;s a lot more room for food not to be expensive though."</p>
 							
 						
 							
@@ -228,7 +515,7 @@ We product 2x the food society consumes - mostly wasted away, just with some sup
 							
 						
 							
-								<p class="story__comment_others">"This has a Wikipedia entry already:https://en.wikipedia.org/wiki/EuroAsia_Interconnector"</p>
+								<p class="story__comment_others">"I wonder what the Turkish response to this is going to be?As background:https://en.wikipedia.org/wiki/Northern_Cyprushttps://www.theguardian.com/world/2019/may/20/turkey-insists..."</p>
 							
 						
 						</a>
@@ -256,7 +543,7 @@ We product 2x the food society consumes - mostly wasted away, just with some sup
 							
 						
 							
-								<p class="story__comment_others">"The parenthetical &#34;(Consider a loaf of bread, with each slice being dithered Mona Lisa).&#34; is one of my favorites of any technical article"</p>
+								<p class="story__comment_others">"&gt; Running ~1000 iterations for a 483px wide Mona Lisa on the google colab GPU runtime only takes around 40 seconds!. Compared to the CPU version which takes several hours to do the same for a smaller imageIsn&#39;t this excruciatingly slow?  I remember my old 486 computer did run life at full-screen full-resolution in realtime (probably 25fps at 800x600 ?)  How it has come to that after 20 years?  How can a 20 year old CPU outperform a modern GPU by one order of magnitude?  Is it all fault of lots of useless intermediary language layers?"</p>
 							
 						
 						</a>
@@ -542,11 +829,11 @@ to concatenate two videos with different sizes today.My relation with it is almo
 							
 						
 							
-								<p class="story__comment_others">"Wow, somehow looks similar to another site that I discovered few weeks ago: https://cables.gl/I googled and found this: https://nodes.io/story/#background&gt; When we set off to create a tool of our own, there were already plenty of different node-based or visual scripting/programming tools and environments; VVVV, Houdini, TouchDesigner, Cables.gl, Vizor Patches, Lichen, MaxMSP, UE4 Blueprints and Origami were among the most popular."</p>
+								<p class="story__comment_others">"Looks like a new assembly of old ideas that’s different enough it might do better for some purposes. Very exciting.I was about to start prototyping some tool ideas I had in it, but I can’t find it’s source or license info anywhere. By Googling, I found the GitHub repo [0], but it’s empty of code and looks to be used for issue tracking only.I can’t see something that’s trying to be an ecosystem being very successful without being open (see: every closed-source language/runtime ever).I couldn’t even find any example code. I tried clicking the examples on the home page. I even tried clicking “Playground” and it wasn’t a link. The only CTA I could find was “Download Nodes”![0] https://github.com/nodes-io/nodes-io"</p>
 							
 						
 							
-								<p class="story__comment_others">"Looks like a new assembly of old ideas that’s different enough it might do better for some purposes. Very exciting.I was about to start prototyping some tool ideas I had in it, but I can’t find it’s source or license info anywhere. By Googling, I found the GitHub repo [0], but it’s empty of code and looks to be used for issue tracking only.I can’t see something that’s trying to be an ecosystem being very successful without being open (see: every closed-source language/runtime ever).I couldn’t even find any example code. I tried clicking the examples on the home page. I even tried clicking “Playground” and it wasn’t a link. The only CTA I could find was “Download Nodes”![0] https://github.com/nodes-io/nodes-io"</p>
+								<p class="story__comment_others">"Wow, somehow looks similar to another site that I discovered few weeks ago: https://cables.gl/I googled and found this: https://nodes.io/story/#background&gt; When we set off to create a tool of our own, there were already plenty of different node-based or visual scripting/programming tools and environments; VVVV, Houdini, TouchDesigner, Cables.gl, Vizor Patches, Lichen, MaxMSP, UE4 Blueprints and Origami were among the most popular."</p>
 							
 						
 						</a>
@@ -858,9 +1145,7 @@ to concatenate two videos with different sizes today.My relation with it is almo
 							
 						
 							
-								<p class="story__comment_others">"I was curious about how `Deno.permissions` prevents things like &#34;requesting the permissions, then clearing the screen and asking to press &#39;g&#39;&#34;. Apparently, `Deno.permissions.request()` just stops program execution waiting for user response, so it&#39;s impossible to do anything after this call.
-It also seems to reset text color, so it&#39;s impossible to make text invisible.
-iTerm custom escape sequences allows program to change color profile on the fly. Setting bg and fg to the same value hides Deno messages and allows someone to conceal which permissions are being granted."</p>
+								<p class="story__comment_others">"Has anybody here used Deno recently? I tried it out at 1.0 and it was... a little bit rough. Basic APIs like fs weren&#39;t stable yet, the documentation on how to import them was out of date, there were multiple VSCode extensions and it took a couple hours to get one of them working properly.Of course these are all relatively easy things to smooth out over time so I&#39;m curious what the experience is like now."</p>
 							
 						
 						</a>
@@ -1973,12 +2258,17 @@ https://youtu.be/TX_-dXIpPvAEdit2: looks like it was a soda, not a second sandwi
 							
 						
 							
-								<p class="story__comment_others">"NutritionFacts.org (non-profit) | Web Developer | Remote | Full-time | $55k-75kNutritionFacts.org is a remote non-profit organization with a mission to improve public health by providing the latest evidence-based nutrition and health research in an accessible format, to enable the public to make informed dietary choices. (As NutritionFacts.org is mostly represented as a website, this position is crucial to the success of the organization’s mission.)Tech stack: PHP / Laravel and WordPress, JavaScript, Ansible, Vagrant/Docker, Bash Scripting &amp; CLI-based tools(I am neither affiliated with nor compensated or employed by NutritionFacts.org, I just stan them.)Deadline March 18th
-https://nutritionfacts.org/employment/"</p>
+								<p class="story__comment_others">"Together Software | Toronto, Canada or Remote (US Timezones) | Full-Time, Remote-OK | https://togetherplatform.com
+Together Software helps large companies solve their pressing people problems (career development, skills, diversity) with mentorship programs. We pair relevant mentors and mentees within the company for career-building discussions, and provide reporting and insights to companies.We&#39;re hiring 2-3 engineers, and are growing &gt;10% each month with a Series A around the corner.Apply: https://jobs.lever.co/together/86c724e1-9337-487b-a79f-541e8...Tech Stack: Javascript (React, Node, GCP)If you have any questions reach out to me personally (nathan  at togetherplatform dot com)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Amplitude (YC W12) | San Francisco, CA or Vancouver, BC | Onsite | https://amplitude.comAmplitude provides a product intelligence platform to help companies build better products by understanding user behavior. Product, marketing, and growth teams use Amplitude to discover and share insights about user engagement, retention, and revenue.To learn more about who we are, our engineering culture, and whether this is the right place for you, read our Key Values profile: https://www.keyvalues.com/amplitudeSee all of our open roles (in San Francisco and Vancouver): https://grnh.se/73e014a32Tech Stack: React, TypeScript, Node.js, Java, Python"</p>
+								<p class="story__comment_others">"Clear Street | Multiple Roles | New York, NY | Full-time | ONSITE and remote (US, CA) | https://clearstreet.io/careersClear Street is a rapidly growing fintech based in NYC. Our mission is to simplify market access for institutional traders by building a revolutionary, high tech brokerage from scratch.Engineers on our platform team grapple with challenges inherent to large distributed systems, real-time streaming, and product serving APIs.We are actively hiring mid-senior level engineers across our engineering org. We offer the flexibility to work remotely in the US and Canada. Below are a few role highlights as well as a link to a recent blog post. 
+https://medium.com/clear-street-engineering* Senior Distributed Systems Engineer - Platform Team
+https://clearstreet.io/careers/jobs/2190096
+* Senior Data Engineer - Platform Team
+https://clearstreet.io/careers/jobs/2529648
+To see all our open roles, please visit https://clearstreet.io/careers#open-positions"</p>
 							
 						
 						</a>
@@ -2626,301 +2916,6 @@ https://xosh.org/text-to-diagram/Input in this one is very simple and cool."</p>
 						
 							
 								<p class="story__comment_others">"What is the next step in cases like these?  Let&#39;s say social media activity led someone to making an unwise trade.  Suspending trading doesn&#39;t fix the problem for that person, now they&#39;re just stuck in a bad position.  Does the SEC ever &#34;fix it&#34; for that person, or is it all damage control now to reduce the extent of the problem, and those that are already in are kind of screwed?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">28 February 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://thevaluable.dev/vim-advanced/">A Vim Guide for Advanced Users</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26284618">
-						
-							
-								<p class="story__comment_first line-clamp">"The article mentions ”gn” in passing, but it doesn’t give it enough credit: this is an enormously useful motion, almost more useful on its own than the rest of the article.The thing that makes it golden is that it is a motion, and thus combined with a command, it is repeatable! So, like:1. Search for something (either using / or *).2. Type ”cgn” in Normal mode (i.e. change next search match) and replace what you searched for with whatever3. Hammer on ”.” (i.e. repeat last command) to replace other matches.This replaces, like, 97% of uses of :s and is a much more convenient way to do search/replace, especially if you use * to search for the word under the cursor. It’s the bee’s knees!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Vim is getting more popular. Not just within vim, but outside vim! Practically every full-featured editor has a vi or vim mode, and when they say vi, usually they also mean vim.Things that have nothing to do with vim but are inspired by vim are even sprouting up! And apparently it&#39;s OK to name something based on vim: https://groups.google.com/g/vim_use/c/EnSMrx_rGg4/m/d_nVlmLQ...Edit: In Bram&#39;s reply he mentioned the household cleaner. Apparently it&#39;s similar to Ajax. That&#39;s so awesome. https://en.wikipedia.org/wiki/Vim_(cleaning_product)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Practical vim by Drew Neil is hands down the best vim learning resource out there. Nothing even comes close."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/BillDietrich/fake_contacts">Fake_contacts: Android app to create fake phone contacts, to do data-poisoning</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26286194">
-						
-							
-								<p class="story__comment_first line-clamp">"Recently Apple added a feature to iOS that allows you only to allow selected photos to be accessible by an app. This allows the user to respond positively to an access request, but allow the app to see only a subset (or zero) actual photos.It would be a very useful feature for Apple to do the same for contacts: the app would think it&#39;s getting access to your contacts, but would only actually receive a subset of them, and be none the wiser. This would be a tremendous boon for privacy."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t see what the point is.&#34;Data poisoning&#34; gives companies a bunch of fake contacts... on top of all your real ones?Who cares? So they send some e-mails to addresses that don&#39;t exist or something? So it takes up an extra 1% of disk space in their database?If you could share an empty address book then that would actually preserve the privacy of your contacts. But this doesn&#39;t do that.I don&#39;t get it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Clubhouse requires contact list in order to get invites, which are required to sign up right now.I get why they are doing this, and it caused me to share my contacts with them.However, I resented it and it put me immediately in a defensive posture with the product and company.There is no possible way to trust a company with your contact list and Apple should make it how Photos works now--where you can select which data to share.  There are some folks I don&#39;t even want to possibly find in a social app."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/kuchin/awesome-cto">Resources for chief technology officers, with the emphasis on startups</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26284750">
-						
-							
-								<p class="story__comment_first line-clamp">"Here is something similar for Tech Leads: https://techleadcompass.com/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I like that it&#39;s short and somewhat curated, try to make it stay that way. Most awesome lists grow to be link dumps. For instance the awesome-js is over thousands lines long now, containing all sorts of random crap. It can be nice as a way to know what&#39;s out there, but when it contains 40 mvc alternatives in addition to react/angular and other big ones, it&#39;s just not useful."</p>
-							
-						
-							
-								<p class="story__comment_others">"One of the most important skills is learning to communicate clearly.You need to give up details and be able to express the key concepts clearly on different levels of detail and business/technical understanding.Explaining this is something you will be doing again and again, so it is worth a lot of effort to get there.I recommend iterating until you have an A4 with the skeleton you need explain all this. It will include key stakeholders/users/integrations, key technologies/protocols, key services/components and the high-level system landscape with key internal and external systems.Notice that a good diagram for this mixes a lot of different views and formal notations.The key idea is that you should strive to provide a skeleton on which your audience can place their understanding and fill in the blanks that they are interested in based on you explanation.If you try to put everything there or follow a formal model like UML you will drown out the key concepts in the noise of the details."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/trailofbits/graphtage">Graphtage: A semantic diff utility for JSON, HTML, YAML, CSV, etc</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26280266">
-						
-							
-								<p class="story__comment_first line-clamp">"Cheers for making this a local tool. So many versions of this sort of tool are online-only, which is a non-starter for proprietary data."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is neat.  I decided to diff two pods in a replicated Kubernetes service.  It seemed that it was going to take forever to run, so I just wrote a short Go program to do the same thing (load two JSON files into a map[string]interface{}, cmp.Diff them) while it was going:https://gist.github.com/jrockway/73982949b3d2ce9b443528042c4...My program runs in less than 10 milliseconds (/usr/bin/time reports 0.00 seconds), and graphtage takes 5 minutes and 17 seconds.  I&#39;m 317,000x faster!  (Not including the time to write the program; if you do that, then it&#39;s about even assuming graphtage took 0 seconds to write.)Graphtage prints the entire file in JQ colors, with diffs inside fields colored red and green, which I love:    ...
-    &#34;hostIP&#34;: &#34;10.136.13̟9̟2̶1̶.139̟1̶&#34;,
-    &#34;podIP&#34;: &#34;10.244.1.18̟6̟7̶&#34;,
-    ...
-
-(My terminal can&#39;t display the dots under the numbers and the strikethrough, but it looks great on HN!  I really love it.)My program produces relatively boring line-by-line diffs:    -               &#34;hostIP&#34;:    string(&#34;10.136.121.131&#34;),
-    +               &#34;hostIP&#34;:    string(&#34;10.136.139.139&#34;),
-                    &#34;phase&#34;:     string(&#34;Running&#34;),
-    -               &#34;podIP&#34;:     string(&#34;10.244.1.17&#34;),
-    +               &#34;podIP&#34;:     string(&#34;10.244.1.186&#34;),
-
-Honestly, I get what I want out of mine, and wait 317,000x less time, so... I probably won&#39;t be using this on a daily basis.  But I will be stealing those dots and Unicode strikethroughs."</p>
-							
-						
-							
-								<p class="story__comment_others">"Interesting use of U+031F COMBINING PLUS SIGN BELOW to indicate additions, I don&#39;t think I&#39;ve seen that before."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hummingbard.com/hummingbard/introducing-hummingbard">Show HN: Hummingbard – decentralized communities built on Matrix</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26277602">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s insanely cool to see a non-IM use case built out on top of Matrix appearing (almost) out of the blue - congratulations :)The implementation currently freestyles a bit on the event format for the messages, which is somewhat our fault on the Matrix team for running horrifically late on MSC1767 (https://github.com/matrix-org/matrix-doc/blob/matthew/msc176...) which proposes how to do rich custom event formats (e.g. blog posts) which are still renderable and visible to more generic Matrix clients (e.g. Element).  As a result, if you join a Hummingbard conversation via another Matrix client currently you can&#39;t see all the messages (or vice versa). However am hoping that Hummingbard might be a trailblazer for actually exercising MSC1767 in the wild and knocking it into shape, which would hugely benefit the whole Matrix ecosystem :)In terms of licenses, it depend on how you want the project to be used.  If you want folks to run it for personal use as a decentralised social network, I&#39;d personally go GPLv3 or AGPLv3.  If you want commercial folks to be able to build on it too, then Apache is probably the best bet.  copyleft + proprietary dual licensing is another option, but means you&#39;d need any contributors to agree to the dual licensing (could be tricky), and could be seen as not being in the spirit of the GPL.  that said, IANAL, YMMV.(At the risk of going somewhat off topic, another exciting Matrix client also appeared today: https://github.com/pixlwave/Watch-The-Matrix - the first native Matrix client for Apple Watch. https://youtu.be/Jh9iewrBdGQ)"</p>
-							
-						
-							
-								<p class="story__comment_others">"What does it look like to actually write a program ontop of Matrix? Eg i have a key value store that i&#39;d like to use Matrix (or IPFS/etc) for the P2P layer. Is it a lot like IRC channels that you connect to, pushing data into them and getting data out from other clients in the same channel?Ie is it a series of messages? Or is it something more advanced; with built in conflict resolution or other P2P-y features?"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is very cool! If you end up writing about what the developer experience on top of Matrix is like I&#39;d also be curious about that."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://kirby.kevinson.org/blog/iso-8601-the-better-date-format/">ISO 8601: a better date format</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26272084">
-						
-							
-								<p class="story__comment_first line-clamp">"The article is missing one of the best features of iso 8601: it‘s string form is naturally sortable. You don‘t need any specific logic for sorting, so e.g. your filesystem will automatically sort files correctly if you prefix them with a iso 8601 date."</p>
-							
-						
-							
-								<p class="story__comment_others">"Tangentially related: I hate GNOME&#39;s approach at configuring formats.In their format settings, you have to pick a country and that determines the format of dates, time, numbers, and the unit system.Of all the countries, none of them has the sane choice for all of the fields, namely: ISO 8601 for dates and times with 24h (no AM/PM), metric system (or SI, whatever), and dot as decimal separator.You can have sane dates, but then you have AM/PM in the clock. You can have 24h clock, but then you have a comma as decimal separator, etc.Can we add a country &#34;Saneland&#34; with the sensible options for all fields? cause that&#39;s where I want to be from. Saneland: the imaginary place where we use reasonable standards and things work."</p>
-							
-						
-							
-								<p class="story__comment_others">"At the risk of nitpicking, I prefer RFC 3339, which is a profile of ISO 8601. ISO 8601 provides room for things you typically don&#39;t want, e.g. dropping time zone offsets.While I&#39;m typing this I realise that I&#39;ve never actually read the ISO 8601 spec, like probably most people here, because it&#39;s not free. I cannot even be sure it really exists."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://offgridpermaculture.com/Finding_Land/Free_Land___Living_Off_Grid_With_No_Money.html">Free Land – Living Off Grid With No Money</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26281103">
-						
-							
-								<p class="story__comment_first line-clamp">"I love the idea of an off-grid house but it always comes with too much DIY.I wish there were sellers with fixed affordable off-grid packages.You get House A on Plot A for $50,000You own the house and the plot. It is fully off-grid (except WiFi) and we made smart decisions and installed reliable systems.You pay your money and you maintain the house.Unfortunately it’s never like that. It’s all DIY:Come camp with us for 4 weeks without a hot shower while we teach you how to mix AirCrete and sell you a pump. Get 4 friends and spend 4 months slathering cob incorrectly together. Never cut down a tree before? Buy a chainsaw and start stacking 1-ton logs- you’ll be perfectly safe: nobody has blogged yet about having crushed themselves.I realize this is contrary to the spirit.I just want a convention-over-configuration small off-grid house that I can see in models, read specs for, and purchase outright, including the land it’s sitting on."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve ridden the RAGBRAI (Register&#39;s Annual Great Bicycle Ride Across Iowa) three times. Each year, a different route brings you and 15,000 of your closest friends through small towns like Marne and Manilla. The chosen communities always enthusiastically rise to the occasion by providing food, water, beverages, entertainment, fun diversions, historical themes, hospitality, well wishes and much more.Riding out of town after having a stack of pancakes at the firehouse or a piece of pie from the local Rotary Club, you have plenty of time to think about what it takes and how remarkable it is for some of those towns to accommodate everyone.The RAGBRAI is a great way to experience the State of Iowa."</p>
-							
-						
-							
-								<p class="story__comment_others">"Alaska discourages people coming to Alaska without preparation.[1] &#34;You should have a round trip ticket and cash or credit card resources ($2,000 for temporary and $3,000 for permanent work) to live on while looking for work. Many who arrived short of cash encountered serious hardship and shattered dreams. Public assistance programs cannot be counted on by persons relocating to Alaska without adequate funds. Homesteading is not available now. The climate and unpredictable summer weather generally discourage camper or tent living for extended periods.&#34;[1] https://www.labor.alaska.gov/esd_alaska_jobs/ak_over.htm"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://investinglessons.substack.com/p/are-you-trading-or-gambling">Are You Trading or Gambling?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26283650">
-						
-							
-								<p class="story__comment_first line-clamp">"Around 20 years ago, I had the opportunity to listen to a member of Nasdaq top management talk about the stock market. It&#39;s all a _tiny_ bit blurry, being a long time ago, but I remember how he talked about three different perspectives for investing in stock:First, the &#34;company perspective&#34;. An investor would buy stock in a company they believed in. Maybe they had good products, or good management, or something else. The idea was looking at the how well the company would perform.Second, the &#34;stock perspective&#34;. An investor would ignore the underlying company, but look at the stock itself. It didn&#39;t really matter if the company was doing good, but only if the stock itself had good potential. The idea was looking at how well the stock would perform.Finally, the &#34;game perspective&#34;. An investor would not really care about the stock, but only about the behavior of other investors. Day trading would be the example here, profiting mainly on marketplace dynamics, no matter the stock. The idea was looking at how to be a better player than the others.Then he talked about how the game perspective was the only model that really matched the marketplace, and how the stock market had evolved from being place where people would invest in companies, to a place where they would play a game with other peopl."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Gambling occurs when you have a poor understanding of risk, resulting in either (1) negative expected value bets, or (2) poor bet sizing that leads to ruin.&#34; Not so. Top poker players are still gambling, but have an excellent understanding of the risks. Their skill doesn&#39;t turn them into investors. Gambling is taking a high risk bet. Whether the expected pay off is high enough to justify the risk and whether you can afford to lose the bet is a separate issue."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is only scratching the surface of the question.For interest, there&#39;s a very common negative expected value bet that almost everyone is required to make: insurance.We don&#39;t consider that gambling, in fact we often tell our parents to buy some when they fly on holiday.Why? The answer touches on the lottery.We care about not just the average case, we care about what might happen.Regarding Kelly criterion, there&#39;s a good reason why people don&#39;t used exactly the amount it says. If you look at the risk, ie the chance your probability is wrong, there&#39;s a chance you are overbetting."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bbc.com/future/article/20210222-the-unusual-ways-western-parents-raise-children">The unusual ways Western parents raise children</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26249242">
-						
-							
-								<p class="story__comment_first line-clamp">"One of the hardest thing about being a parent today is the constant shame and confusion about the “right” way to do it. We don’t live in a hunter gatherer society anymore, we just don’t. There’s lots of wisdom in that way of life, and sure we could learn from it — but there’s enough anxiety as it is, parents don’t need more of it.We have three kids and we sleep trained them. (Not a pediatrician, standard disclaimer.) This article calls it an ‘extreme’ practice. For us, ‘extreme’ was the sleep deprivation we experienced with baby number one as we tried every ‘no cry’ method in the book. The baby cried and cried and cried. Once we started sleep training, there was a bit of crying and then - a sleeping baby! Through the night! Total amount of crying went from hours to zero. The kid became happier — they weren’t sleep-deprived anymore. And neither were we. I no longer felt like I was going to drop the ball due to extreme exhaustion.Babies two and three had the benefit of our experience, and they barely cried at all. The third one would lay down eyes-open and fall asleep. “So it actually does happen! — I thought the books must be lying.”By all objective measures our kids are happy, healthy, and well-adjusted. But that doesn’t mean we still don’t get the stink eye from people who think it’s a cruel practice.Just raise your kids with love. Be compassionate, and patient. Find a doctor you trust. Don’t let people add to an already stressful endeavor."</p>
-							
-						
-							
-								<p class="story__comment_others">"Of all the &#34;weird&#34; things we do as parents in euro/anglo nations, sleeping arrangements seems nowhere near the top.IMO, the top &#34;offender&#34; is over-scheduling kid&#39;s activities. So many kids in my area have their days booked solid with sports, academic tutoring, music lessons.  Approaching zero free time to enjoy being a kid.Edit - and this isn&#39;t really a western thing, &#34;Tiger Mom&#34; and similar probably pre-dates this behavior in the US."</p>
-							
-						
-							
-								<p class="story__comment_others">"Speaking as a parent of 5. Parental mental health has a much bigger effect on the child than choice of methodologies. You really need to look after yourself before you can look after them - so if you are suffering from sleep deprivation, doing what you have to do is the right thing to do.Put your own oxygen mask on first."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hacks.mozilla.org/2021/02/introducing-state-partitioning/">State Partitioning</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26248595">
-						
-							
-								<p class="story__comment_first line-clamp">"I commend Firefox for trying to do this... but it worries me.3 obvious holes:- Proliferation of dialogs. When you don&#39;t know whether a site will suddenly break or not, standard users will be implicitly trained to say yes to all dialogs.- Domain &#34;homogenizing&#34; (spoofing) services will win. Trackers that offer a widget you can install on your server will win. Facebook et all will still know where they sent you, and will be able to track you server side. If mozilla provide a centralized whitelist, then SSO providers who also provide trackers will win. Essentially, the big players will find a way, the little players (who users weren&#39;t worried about anyway) will still lose.- The web will break. SSO will be broken for a good couple of months on over 50% of websites using it - possibly more. &#34;This only works in Google Chrome&#34; will become more and more popular. Potentially, Firefox doesn&#39;t have the market share to make this work.Those of us who will stick with Firefox regardless are in for a world of pain, and not a lot of gain. I guess it&#39;s necessary to move the web on, but the pessimist in me doesn&#39;t see that happening any time soon."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think what you want is essentially an entirely fresh browser session for every website you visit. Pretty mind-boggling to what lengths we need to go in order to prevent companies from tracking us. That said most tracking companies seem to have devised strategies to construct fingerprints from data like IP addresses, user-agent strings and any other meta-data they can get their hands on, so the next step will probably be to restrict what kind of information can be learned about the browser environment via JS (e.g. getting exact screen resolution).Also, data exfiltration via browser extensions is still not a solved problem, there are very popular extensions (Ghostery for example) that are highly privileged in the browser and often collect a ridiculous amount of data. Really can&#39;t get my head around why browser vendors still allow that while being so strict on all other forms of tracking."</p>
-							
-						
-							
-								<p class="story__comment_others">"This needs to be bypassed to use SSO, to bypass it the SSO providers site will need to ask for Storage Access, in some cases the user will be asked for permission…“After the user has granted access, Firefox will remember the storage permission for 30 days.”So lay users will get used to just clicking through and blindly granting the permission.The end result will be an additional step for trackers, and a bunch of headaches for all the legit services that get broken from this change.I’m all for less tracking but this doesnt seem like a good solution."</p>
 							
 						
 						</a>
