@@ -36,6 +36,393 @@
 	</div>
 
 	
+	<div class="day__date">11 March 2021</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="http://travaux.ovh.net/?do=details&amp;id=49471&amp;">
+						<picture>
+							<source srcset="default_26407323.webp" type="image/webp">
+							<source srcset="default_26407323.png" type="image/png">
+							<img src="default_26407323.png" alt="Preview of 'Fire declared in OVH SBG2 datacentre building'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="http://travaux.ovh.net/?do=details&amp;id=49471&amp;">Fire declared in OVH SBG2 datacentre building</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26407323">
+						
+							
+								<p class="story__comment_first line-clamp">"Back in the late 90s, I implemented the first systematic monitoring of WalMart Store&#39;s global network, including all of the store routers, hubs (not switches yet!) and 900mhz access points.
+Did you know that WalMart had some stores in Indonesia? They did until 1998.So when https://en.wikipedia.org/wiki/May_1998_riots_of_Indonesia started happening, we heard some harrowing stories of US employees being abducted, among other things.Around that same time, the equipment in the Jakarta store started sending high temperature alerts prior to going offline. Our NOC wasn&#39;t able to reach anyone in the store.The alerts were quite accurate: that was one of the many buildings that had been burned down in the riots. I guess it&#39;s slightly surprising that electrical power to the equipment in question lasted long enough to allow temperature alerting. Most of our stores back then used satellite for their permanent network connection, so it&#39;s possible telcom died prior to the fire reaching the UPC office.In a couple of prominent places in the home office, there were large cutouts of all of the countries WalMart was in at the time up on the walls. A couple of weeks after this event, the Indonesia one was taken down over the weekend and the others re-arranged."</p>
+							
+						
+							
+								<p class="story__comment_others">"The classic &#34;lp0 on fire&#34; error message comes to mind:
+https://en.wikipedia.org/wiki/Lp0_on_fireReally though, I feel truly awful for anyone affected by this. The post recommends implementing a disaster recovery plan. The truth is that most people don&#39;t have one. So, let&#39;s use this post to talk about Disaster Recovery Plans!Mine: I have 5 servers at OVH (not at SBG) and they all back up to Amazon S3 or Backblaze B2, and I also have a dedicated server (also OVH/Kimsufi) that gets the backups. I can redeploy in less than a day on fresh hardware, and that&#39;s good enough for my purposes. What&#39;s YOUR Disaster Recovery Plan?"</p>
+							
+						
+							
+								<p class="story__comment_others">"A status update on the OVH tracker for a different datacenter  (LIM-1 / Limburg) says &#34;We are going to intervene in the rack to replace a large number of power supply cables that could have an insulation defect.&#34; [0][1] The same type of issue is &#34;planned&#34; in BHS [3] and GRA [2].Eerie timing: do they possibly suspect some bad cables?[0]: http://travaux.ovh.net/?do=details&amp;id=49016[1]: http://travaux.ovh.net/?do=details&amp;id=49017[3]: http://travaux.ovh.net/?do=details&amp;id=49462[2]: http://travaux.ovh.net/?do=details&amp;id=49465"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://theta.eu.org/2021/03/08/async-rust-2.html">
+						<picture>
+							<source srcset="default_26406989.webp" type="image/webp">
+							<source srcset="default_26406989.png" type="image/png">
+							<img src="default_26406989.png" alt="Preview of 'Why asynchronous Rust doesn&#39;t work'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://theta.eu.org/2021/03/08/async-rust-2.html">Why asynchronous Rust doesn&#39;t work</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26406989">
+						
+							
+								<p class="story__comment_first line-clamp">"A bigger problem in my opinion is that Rust has chosen to follow the poll-based model (you can say that it was effectively designed around epoll), while the completion-based one (e.g. io-uring and IOCP) with high probability will be the way of doing async in future (especially in the light of Spectre and Meltdown).Instead of carefully weighing advantages and disadvantages of both models, the decision was effectively made on the ground of &#34;we want to ship async support as soon as possible&#34; [1]. Unfortunately, because of this rush, Rust got stuck with a poll-based model with a whole bunch of problems without a clear solution in sight (async drop anyone?). And instead of a proper solution for self-referencing structs (yes, a really hard problem), we did end up with the hack-ish Pin solution, which has already caused a number of problems since stabilization and now may block enabling of noalias by default [2].Many believe that Rust async story was unnecessarily rushed. While it may have helped to increase Rust adoption in the mid term, I believe it will cause serious issues in the longer term.[1]: https://github.com/rust-lang/rust/issues/62149#issuecomment-...
+[2]: https://github.com/rust-lang/rust/issues/63818"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been working on a reasonably complicated project that is using rust, and I think about de-asyncing my code somewhat often because there are some nasty side effects you can see when you try to connect async &amp; non async code. E.g., tokio makes it very difficult to correctly &amp; safely (in a way the compiler, not runtime) catches launch an async task in a blocking function (with no runtime) that itself may be inside of a async routine. It makes using libraries kind of tough, and I think you end up with a model where you have a thread-per-library so the library knows it has a valid runtime, which is totally weird.All that said, the author&#39;s article reads as a bit daft. I think anyone who has tried building something complicated in C++ / Go will look at those examples and marvel at how awesome Rust&#39;s ability to understand lifetimes is (i.e. better than your own) and keep you from using resources in an unintended way. E.g., you want to keep some data alive for a closure and locally? Arc. Both need to writable? Arc Mutex. You are a genius and can guarantee this Fn will never leak and it&#39;s safe to have it not capture something by value that is used later in the program and you really need the performance of not using Arc? Cast it to a ptr and read in an unsafe block in the closure. Rust doesn&#39;t stop you from doing whatever you want in this regard, it just makes you explicitly ask for what you want rather than doing something stupid automatically and making you have a hard to find bug later down the line."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m not totally sure what the author is asking for, apart from refcounting and heap allocations that happen behind your back. In my experience async Rust is heavily characterised by tasks (Futures) which own their data. They have to - when you spawn it, you&#39;re offloading ownership of its state to an executor that will keep it alive for some period of time that is out of the spawning code&#39;s control. That means all data/state brought in at spawn time must be enclosed by move closures and/or shared references backed by an owned type (Arc) rather than &amp; or &amp;mut.If you want to, nothing is stopping you emulating a higher-level language - wrap all your data in Arc&lt;_&gt; or Arc&lt;Mutex&lt;_&gt;&gt; and store all your functions as trait objects like Box&lt;dyn Fn(...)&gt;. You pay for extra heap allocations and indirection, but avoid specifying generics that spread up your type hierarchy, and no longer need to play by the borrow checker&#39;s rules.What Rust gives us is the option to _not_ pay all the costs I mentioned in the last paragraph, which is pretty cool if you&#39;re prepared to code for it."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/simonw/status/1369708900216270849">
+						<picture>
+							<source srcset="default_26414741.webp" type="image/webp">
+							<source srcset="default_26414741.png" type="image/png">
+							<img src="default_26414741.png" alt="Preview of 'Apple has gone to extraordinary lengths to make scroll bars invisible'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/simonw/status/1369708900216270849">Apple has gone to extraordinary lengths to make scroll bars invisible</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26414741">
+						
+							
+								<p class="story__comment_first line-clamp">"I really think that Windows 2000-era Windows Forms had the user experience nailed perfectly.  It wasn&#39;t the prettiest UI paradigm ever, but it was the most functional and easiest to teach.  Nothing was omitted, and the user was shown everything they needed to see in order to get a complete idea of the state of the application.I don&#39;t think that efforts to hide UI elements that aren&#39;t in use is going to prove to be a good idea when we look back at today from the future.Here&#39;s a good rule, in my mind: Don&#39;t hide UI elements from the user.  End of rule.  I do not care if it looks better without whatever UI element.  The toolbox in my garage would look better if I could only see the tools I needed at the time I need them, and I would return that toolbox (or never buy it in the first place) because it is constantly lying to me about the state of the toolbox, which is absolutely insulting position for a toolbox designer to adopt."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; I have a really hard time believing anyone would chose this as opposed to some design lead at Apple pushing a weird personal preference for tidyness on their entire user baseMaybe I don&#39;t understand completely what he is referring to, but on mobile I certainly prefer having a bit more space than a always visible scrollbar. It is usually clear enough that there is more to see below the fold.Scrollbars used to be sometimes useful to get a sense of how much content there is. But everyone using infinite scroll broke that, not apple."</p>
+							
+						
+							
+								<p class="story__comment_others">"An interesting output of this is, if you keep scrollbars visible, you&#39;ll find that a lot of websites end up with weird extra scrollbars on random elements.What often causes this is some HTML element overflowing by one pixel, but no one saw it during the QA process because all the webdevs were using Macs, which have invisible scrollbars by default. I always enable visible scrollbars on my dev computers specifically so I can catch problems like this."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.facebook.com/groups/CFprogrammers/permalink/10158154545285036/">
+						<picture>
+							<source srcset="default_26408181.webp" type="image/webp">
+							<source srcset="default_26408181.png" type="image/png">
+							<img src="default_26408181.png" alt="Preview of 'We created a fake language to root out resume liars'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.facebook.com/groups/CFprogrammers/permalink/10158154545285036/">We created a fake language to root out resume liars</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26408181">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt;  That way, when candidates were pitched to us with &#34;X years of MOVA experience&#34;, we knew that somebody was full of it.I&#39;d put my money on the recruiter. I once had an excruciatingly awkward interview at a company on an industrial estate in the middle of nowhereland with no train station nearby that took me bloody ages to get to… which was actually going well until they asked me about my long experience with Exchange 2000. I had no experience with Exchange 2000, so I told them, and watched their faces drop.That was specifically why they wanted to speak to me. The recruiter had inserted it onto the copy of the CV he sent to them. I&#39;m surprised I&#39;m not still doing time for murder.What I&#39;m not surprised about though is why they do it. I&#39;ve been to plenty of interviews where my CV hasn&#39;t been given more than a glance. At moments like those I feel a deep sense of pessimism. The whole recruitment process seems broken from end to end and has been for a while."</p>
+							
+						
+							
+								<p class="story__comment_others">"So, let me get this straight - you lie about your job requirements, but get all bent out of shape when the candidates lie right back at you?Brilliant.I can’t think of a better example of why hiring is broken; of how unequal the power dynamic is between employers and employees."</p>
+							
+						
+							
+								<p class="story__comment_others">"This reminds me of an anecdote I read once, maybe in Liars Poker, about how lots of people applying to this hedge fund put &#34;Chess&#34; on their resume somewhere thinking it made them seem like a deep or strategic thinker. As it happened, at this hedge fund there worked a former Soviet master or grandmaster ranked player. And so, whenever interviewing any candidate who claimed great proficiency with chess on their resume, at the end of the interview they&#39;d take the candidate to go play the master."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://fox8.com/news/u-s-senators-reintroduce-bill-to-make-daylight-saving-time-permanent/">
+						<picture>
+							<source srcset="default_26415657.webp" type="image/webp">
+							<source srcset="default_26415657.png" type="image/png">
+							<img src="default_26415657.png" alt="Preview of 'U.S. senators reintroduce bill to make daylight saving time permanent'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://fox8.com/news/u-s-senators-reintroduce-bill-to-make-daylight-saving-time-permanent/">U.S. senators reintroduce bill to make daylight saving time permanent</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26415657">
+						
+							
+								<p class="story__comment_first line-clamp">"This would benefit the Northeast quite a lot.Assume that your average adult works 9-5, and your average school child is in school 8-3. Broad strokes, these are the two groups to focus on. I know most adults commute earlier than 9, and most students are up earlier than 8, but it&#39;s safe to say that most Americans are up-and-at-&#39;em from 8-5.On the shortest day of the year in Boston, sunrise is at 7:10am and sunset is at 4:14PM. Including civil twilight (&#34;it&#39;s still kind of daytime&#34;) extends it to 6:38am to 4:46PM.Even on the shortest day of the year, if you wake up even before 7 you&#39;re waking up in daylight. But, sunset is super early. Every working adult is commuting home in actual nighttime.Shift that forward 1 hour, and it gets light at 7:30AM and gets dark at 5:45PM. While slightly darker for students in the morning, it&#39;s immensely better for working adults, who at least get some daylight in the evenings, and not actual nighttime before 5PM."</p>
+							
+						
+							
+								<p class="story__comment_others">"The first few articles I could find on this topic neglected to identify the senators co-sponsoring the bill.  Here&#39;s a list from boston.cbslocal.com:* Roy Blunt (R-MO)* Cindy Hyde-Smith (R-MS)* James Lankford (R-OK)* Ed Markey (D-MA)* Marco Rubio (R-FL)* Rick Scott (R-FL)* Sheldon Whitehouse (D-RI)* Ron Wyden (D-OR)Wikipedia has some history on similar, short-lived efforts in the past:&gt; Seasonal observation of DST was first enacted in the US during World Wars I and II, as an attempt conserve fuel. The practice was unpopular and promptly repealed after each war; however, lobbyists from the petroleum industry lobbied to restore DST, as they had noticed it actually increased fuel consumption.&gt; Permanent DST in the US was briefly enacted by President Nixon in 1974, in response to the 1973 oil crisis. The proposal was initially supported by an estimated 79% of the public; that support dropped to 42% after its first winter, owing to the harshness of dark winter mornings that permanent DST creates. An estimated six school children were also killed by motorists due to the new law.https://en.wikipedia.org/wiki/Permanent_time_observation_in_...On the eastern edge of the enormous Eastern time zone, I&#39;m sympathetic to permanent DST, but I&#39;m not sure it&#39;s a good idea nationwide.  I would probably be in favor of the proposed Atlantic time zone, though."</p>
+							
+						
+							
+								<p class="story__comment_others">"DST has become my favorite &#34;holiday&#34; as an adult. Seasonal depression evaporates when I can see the sun after I finish working for the day. I can go work in my yard, or wash my car after work instead of having to cram it in the middle of the day. I feel more motivated to go do other things in the evening instead of feeling like its time for bed at 5pm."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://netherlandsnewslive.com/inventor-of-cassette-tape-lou-ottens-passed-away-financial/107722/">
+						<picture>
+							<source srcset="default_26410135.webp" type="image/webp">
+							<source srcset="default_26410135.png" type="image/png">
+							<img src="default_26410135.png" alt="Preview of 'Lou Ottens, inventor of cassette tape, has died'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://netherlandsnewslive.com/inventor-of-cassette-tape-lou-ottens-passed-away-financial/107722/">Lou Ottens, inventor of cassette tape, has died</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26410135">
+						
+							
+								<p class="story__comment_first line-clamp">"Fun stuff I read since his passing yesterday in the Dutch newspapers.Although he had indeed humility about his contribution to the cassette tape and the CD, he also was frustrated what Sony did in this department. He wanted the CD to be 11,5 cm instead of 12 cm and was disappointed Sony sold the first CD and invented the concept of a walkman instead of Philips.His opinion about cassette tapes and vinyl having a revival because of the analog experience?&#34;I am not a psychologist, but that music experience is of course all nonsense. Nothing can match the sound of the CD. It is absolutely noise and rumble free. That never worked with tape. But who am I to say what&#39;s better, I&#39;m over ninety and have old ears. I have made a lot of record players and I know that the distortion with vinyl is much higher. But some people call it &#34;warm audio.&#34; I think people mostly hear what they want to hear. But there are always madmen who want to look back to the past. There is always a market for that.”"</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s fascinating that someone, within their lifetime, can invent something, watch it become a household item in the entire world and then fade so far into obscurity that new generations only find out about it from encyclopedias."</p>
+							
+						
+							
+								<p class="story__comment_others">"I thank Lou for his contributions.  Cassette mixtapes were a huge part of teen life in the 80s.I fondly remember the mix tape.   Exchanging mix tapes was a huge part of both my friendships and romantic interests.  Spent many hours creating them as well as my own jacket art (while the tapes were recording)."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=26407560">
+						<picture>
+							<source srcset="default_26407560.webp" type="image/webp">
+							<source srcset="default_26407560.png" type="image/png">
+							<img src="default_26407560.png" alt="Preview of 'Ask HN: Those who quit their jobs to travel the world, how did it go?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=26407560">Ask HN: Those who quit their jobs to travel the world, how did it go?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26407560">
+						
+							
+								<p class="story__comment_first line-clamp">"When I quit my job and went travelling I used this framework:1. Go via land. You see everything in between all the places you should see as a tourist. You immerse yourself in how a place actually feels. You meet people who aren’t just trying to extract money from you. I cycled, because I like cycling, but any form of transport works.2. My algorithm was something like “Go east. Stay somewhere if it’s interesting, until you get bored. Continue going east.” I didn’t have a fixed itinerary, but I did have some framework.That was the basis of it, I think. I cycled from London to Italy, stopped for a while in Italy, cycled on to Greece, then fell in love (with the place and somebody in particular). I met some of my best friends, worked on side projects, volunteered for charities, and ended up staying there for several months. I skipped forward to India on a plane, cycled across India, then returned back to Greece.My partner in Greece wanted to visit the Middle East and Central Asia, but she wasn’t quite as excited about cycling through the desert as I was, so we bought a van and drove — to Central Asia, and everything in between.My framework worked extraordinarily well. If I have one regret, I think it was not making an effort to interact with more people. You do that a lot more naturally when travelling by land, but you still need to put in effort to make it happen.For example, I was up late in a bar in an Italian village, and met one of the locals. It was a long cycle ride back to the place I was staying so he offered me his spare room. Turns out he lived with his parents and the next day his elderly Italian mother cooked us pasta for lunch. Possibly one of the best meals of my life.I wish I had done more of that. Just hanging out in bars and making friends. And not tourist bars — real bars. Knowing the local language better would probably help."</p>
+							
+						
+							
+								<p class="story__comment_others">"Absolutely worth it, however I&#39;d offer a few short tips:1. Try to stay in one place for a few months, minimum. If you can stay a year or two, do that. Jumping from city to city every week seems exciting at first, but it quickly makes everywhere feel the same.2. To quote Lao Tzu, when your work is done, forget it. If you work remotely, actively disconnect at the end of the day. It&#39;s too easy to be constantly plugged into the English-speaking media world and ignore what&#39;s right in front of you.3. Try to blend in and adopt local clothing, culture, foods, etc. Read books by local authors, watch local films. A bit obvious, maybe, but I&#39;ve met many people who insisted on only eating Western food, reading Harry Potter, and watching Netflix while abroad. At that point, why even bother traveling?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Did not quit my job, but instead went full remote in 2018 (age 55 at the time).Still doing it, but the pandemic forced me to stay in one country for just about a year now.In that year I put down roots, got long term visas and maybe will spend another few years there while we see how things shape out this and next year.But ya, 2-3 months minimum in a place is what you need, with just a small backpack.Make local friends.Don&#39;t hang around or go out with other tourists or expats. This is the kiss of death.Make it a rule to eat only the food of the city or the country that you find yourself in.Learn a few words of the language &#34;hello&#34;, &#34;thank you&#34;, &#34;bathroom&#34;, &#34;stop&#34;, etc.Don&#39;t think people are less than you. They&#39;re not. They want the same things as you.As an introvert, being forced to make friends with people who speak another language and look the opposite of me (black guy in Asia), was exactly the ticket.Well recommended to do it.The main thing I would say - is have a mission when you travel. Seeing the sights and drinking the bars and mingling with other tourists and shtupping the local girls is fun, but not a mission.You will get bored after some time of doing that.Have some particular work or meaning to each day to keep you grounded, and you can do the moving around for a super-long time.You will find that you&#39;ll set some schedules for work, play and discoveries - regardless of where you are.Just don&#39;t quit your job. Instead go remote (even if you have savings). Ok?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://webmention.io/">
+						<picture>
+							<source srcset="default_26401955.webp" type="image/webp">
+							<source srcset="default_26401955.png" type="image/png">
+							<img src="default_26401955.png" alt="Preview of 'Webmention.io'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://webmention.io/">Webmention.io</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26401955">
+						
+							
+								<p class="story__comment_first line-clamp">"Oooh I like a lot.The whole idea of a two-way links like the wp pingbacks in the good old days is getting traction. For more info about this, see https://indieweb.org/Webmention and https://en.wikipedia.org/wiki/LinkbackAnother useful related thing I saw is https://brid.gy/ which transforms social mentions into webmentions"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m too young to know what are webmentions or pingbacks (love the band Pinback though), you should briefly mention what they are on your homepage."</p>
+							
+						
+							
+								<p class="story__comment_others">"At first, I didn&#39;t get it. Pingbacks, isn&#39;t that from the 90s?Then, I thought: does this mean the bar for joining a conversation on my publication is that you have to publish something too?That seems like a nice bar to set for asking both parties in a conversation to be fully engaged. Trolls seem like they will be too lazy to do that."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.bbc.com/news/technology-56321576">
+						<picture>
+							<source srcset="default_26402682.webp" type="image/webp">
+							<source srcset="default_26402682.png" type="image/png">
+							<img src="default_26402682.png" alt="Preview of 'UK businesses caught buying five-star Google reviews'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.bbc.com/news/technology-56321576">UK businesses caught buying five-star Google reviews</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26402682">
+						
+							
+								<p class="story__comment_first line-clamp">"My personal experience as a business owner. We do not care about reviews since we are a B2B software house. Our customers are mid- to large-size companies so they do not play reviews but lawyers if our service wasn&#39;t of highest quality :) My personal preference would be to prevent 3rd party companies like google from publishing reviews if the business owner doesn&#39;t want them.Anyway - no customer gave us any review on google and our website is full of recommendation letters. But at some point google started nagging our employees to put reviews since they visited our office.Guess what happened. We got our first review from an employee we were not happy with and planned to gracefully close our cooperation with.This is against Google policy. So we complained. We had to spend significant time to get to a real person at Google and get this removed.After a year similar situation happened. I thought ok - this should be easy the second time. No way - this time all the emails we knew did not respond, we could not reach anybody. We flagged the review several times. We could not do anything about that.It is like a person can just put a shit on your office wall and you could not clean it. And shit owner - Google doesn&#39;t care.We were forced to play by the rules and we bought 50 reviews to paint our wall. The company that provided this service was a Google partner. They explained that 80-90% of reviews of everything is written for money.And the best thing - once we started getting our reviews, the flagged reviews were finally removed. Seems like AI decided the we are a good company.Do you think we did something wrong? Immoral? Or just played business on a not leveled field?And to summarize. I do not care about reviews. And we have money to fight back with lawyers or PR. But it is sad that some businesses don&#39;t have this option and somebody (Google) can harm them through reviews they did not ask for."</p>
+							
+						
+							
+								<p class="story__comment_others">"I once wrote a negative review of a business on Google, and it went up, but when I went to look at the business&#39;s reviews under my wife&#39;s Google account, it was not there. I waited an hour and checked. Then a couple hours and checked. Then a day. It never showed up.I posted the review under her account and did the same checks for my account. It never showed up.I do not know why it didn&#39;t show up, but I wouldn&#39;t be surprised if the business had been able to pay money to Google to be able to check reviews before they went live and mark them as spam.Edit: Because some commenters did not seem to get the implied message, what I am actually implying is that in this context, or any context, I don&#39;t trust Google. I have no evidence of what commenters said I have claimed. (I have not claimed anything; I just said I wouldn&#39;t be surprised.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"An interesting thing about paid reviews - you can prove that the reviews are fake, but you usually can&#39;t prove that the business itself actually paid for those reviews. In a hypothetical world where companies with fake reviews are regularly discovered and lambasted in public, it&#39;s easy to imagine a sinister metagame where unscrupulous small businesses can buy bad good reviews (i.e. 5-star reviews that are obviously fake) for their competitors to make them seem sketchy. The folks selling the fake reviews certainly don&#39;t care who&#39;s paying. There&#39;s no obvious solution to me for that potential problem aside from stopping fake reviews before they&#39;re posted (which feels like the kind of thing that&#39;s much harder than it sounds); thankfully it doesn&#39;t appear to be a very common thing yet."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://thehill.com/policy/technology/542303-t-mobile-to-share-customers-web-mobile-app-data-with-advertisers-unless">
+						<picture>
+							<source srcset="default_26403614.webp" type="image/webp">
+							<source srcset="default_26403614.png" type="image/png">
+							<img src="default_26403614.png" alt="Preview of 'T-Mobile to share customers&#39; data with advertisers unless they opt out'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://thehill.com/policy/technology/542303-t-mobile-to-share-customers-web-mobile-app-data-with-advertisers-unless">T-Mobile to share customers&#39; data with advertisers unless they opt out</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26403614">
+						
+							
+								<p class="story__comment_first line-clamp">"What really frustrates me is I had already turned off all of the &#34;personalized advertising&#34; toggles I could find prior to this.  But I log in to turn these off and the ones I&#39;d touched before were back on.Increasingly, the &#34;if you&#39;re not paying then you&#39;re the product&#34; saying is bunk.  I am paying, almost $400 per month, for quite a few SIMs to be active on T-Mobile&#39;s network yet that&#39;s not enough.  They have to harvest data about me for even more.(Don&#39;t come at me with the &#34;a company is legally required to take in all of the money it possibly can for its shareholders&#34; bit.  Nothing says a company can&#39;t make a reasonable business decision to leave money on the table.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"From Mac Rumors:T-Mobile customers can opt out of the advertising program through the T-Mobile app or the T-Mobile website. In the app, access the &#34;MORE&#34; tab, select Advertising &amp; Analytics, and toggle off &#34;Use my data to make ads more relevant to me.&#34;On the website(https://www.t-mobile.com/signin), choose &#34;My Account,&#34; select &#34;Profile, Privacy, and Notifications, then choose Advertising &#34;&amp; Analytics. From there, turn the opt-in toggle off. Sprint users can change the setting through the Sprint website. Select &#34;Visit My Account,&#34; choose &#34;Preferences&#34; and then scroll down to &#34;Manage advertising and analytics preferences.&#34; From here, turn off &#34;Use my data to make ads more relevant to me.&#34;Took me a few reloads throughout this process"</p>
+							
+						
+							
+								<p class="story__comment_others">"John Legere, who was responsible for T-Mobile&#39;s norm-shattering &#34;uncarrier&#34; direction, resigned last year after the Sprint merger went through.Now that T-Mobile isn&#39;t a scrappy underdog anymore, I think we can expect more American business-as-usual customer exploitation from them."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">10 March 2021</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -218,7 +605,7 @@ However, that is not the kind of guarantee stated in Theorem 1.1 in the paper. E
 							
 						
 							
-								<p class="story__comment_others">"&gt; if Git is configured globally to apply delay-capable clean/smudge filters (such as Git LFS)What is the simple test for whether this is the case or not?Is this a default-on scenario?"</p>
+								<p class="story__comment_others">"That could be any Git repository.Have you seen the mayhem that some of mine cause when you clone them and then type ./configure &amp;&amp; make, like you have been socially engineered into doing?"</p>
 							
 						
 							
@@ -290,11 +677,11 @@ However, that is not the kind of guarantee stated in Theorem 1.1 in the paper. E
 						<a href="https://news.ycombinator.com/item?id=26405056">
 						
 							
-								<p class="story__comment_first line-clamp">"This is the same company that was in the news back in October related to harassing its own female employees with fratboy douchebag behavior:https://www.theverge.com/2020/10/26/21535089/surveillance-co..."</p>
+								<p class="story__comment_first line-clamp">"Putting surveillance video on the cloud is... kinda dumb. It&#39;s rarely viewed outside your network, and local drives cost drastically less than the bandwidth needs. Also it&#39;s incredibly sensitive data that shouldn&#39;t leave your network without really good reason anyways.The solution to this hack is simple: Shut this company down, because it&#39;s a bad idea."</p>
 							
 						
 							
-								<p class="story__comment_others">"Putting surveillance video on the cloud is... kinda dumb. It&#39;s rarely viewed outside your network, and local drives cost drastically less than the bandwidth needs. Also it&#39;s incredibly sensitive data that shouldn&#39;t leave your network without really good reason anyways.The solution to this hack is simple: Shut this company down, because it&#39;s a bad idea."</p>
+								<p class="story__comment_others">"This is the same company that was in the news back in October related to harassing its own female employees with fratboy douchebag behavior:https://www.theverge.com/2020/10/26/21535089/surveillance-co..."</p>
 							
 						
 							
@@ -3038,17 +3425,11 @@ https://youtu.be/TX_-dXIpPvAEdit2: looks like it was a soda, not a second sandwi
 							
 						
 							
-								<p class="story__comment_others">"Together Software | Toronto, Canada or Remote (US Timezones) | Full-Time, Remote-OK | https://togetherplatform.com
-Together Software helps large companies solve their pressing people problems (career development, skills, diversity) with mentorship programs. We pair relevant mentors and mentees within the company for career-building discussions, and provide reporting and insights to companies.We&#39;re hiring 2-3 engineers, and are growing &gt;10% each month with a Series A around the corner.Apply: https://jobs.lever.co/together/86c724e1-9337-487b-a79f-541e8...Tech Stack: Javascript (React, Node, GCP)If you have any questions reach out to me personally (nathan  at togetherplatform dot com)"</p>
+								<p class="story__comment_others">"Stronger Teams | Content Writers | Development Leadership | Full-time | Remote |https://strongerteams.com wants to become the #1 resource for remote operations, systems, and culture. Our consulting business grew from 1 to 25 FTEs in 2020, and Stronger Teams is our outlet to share the templates and knowledge that has powered our growth.In September (6 months ago) we launched a SaaS product that has grown to thousands of free trials, hundreds of paid users, and $11,000+ MRR.We&#39;re bootstrapped, but funded through cash flow from our consulting business that allows us to grow faster than we would be if we were only reliant on SaaS revenue.We&#39;re hiring full time content writers and one senior developer. We use a 3rd party dev shop, which we plan to continue to use, but feel like we&#39;re reaching the stage where it makes sense to bring our technical leadership in-house.Learn more (MVP, big refresh coming next week): https://strongerteams.comContact: hello@nickfromseattle.com"</p>
 							
 						
 							
-								<p class="story__comment_others">"Clear Street | Multiple Roles | New York, NY | Full-time | ONSITE and remote (US, CA) | https://clearstreet.io/careersClear Street is a rapidly growing fintech based in NYC. Our mission is to simplify market access for institutional traders by building a revolutionary, high tech brokerage from scratch.Engineers on our platform team grapple with challenges inherent to large distributed systems, real-time streaming, and product serving APIs.We are actively hiring mid-senior level engineers across our engineering org. We offer the flexibility to work remotely in the US and Canada. Below are a few role highlights as well as a link to a recent blog post. 
-https://medium.com/clear-street-engineering* Senior Distributed Systems Engineer - Platform Team
-https://clearstreet.io/careers/jobs/2190096
-* Senior Data Engineer - Platform Team
-https://clearstreet.io/careers/jobs/2529648
-To see all our open roles, please visit https://clearstreet.io/careers#open-positions"</p>
+								<p class="story__comment_others">"NZXT | REMOTE | Senior Software Engineer | Full-time | https://www.nzxt.com/We are looking for senior software engineers for our NZXT CAM team. We build software features for PC hardware such as hardware configuration, GPU overclocking, and performance monitoring and visualizations that impact millions of users daily. Join our team of smart, user-focused, and empathetic developers on this unique opportunity to work at the crossroads of hardware, desktop, and web.We are also looking for a senior Rust/C++ engineer to build an exciting next-generation streaming product from the ground up! If you’re interested in working with/learning about video, streaming overlays, or just product challenges facing up and coming streamers, send us an application!* Senior Software Engineer, CAM (Frontend): https://nzxt.bamboohr.com/jobs/view.php?id=244&amp;source=aWQ9MT...* Senior Software Engineer, CAM (Rust / C++): https://nzxt.bamboohr.com/jobs/view.php?id=259&amp;source=aWQ9MT...* Senior Software Engineer, Streaming (Rust / C++): https://nzxt.bamboohr.com/jobs/view.php?id=317&amp;source=aWQ9MT...Stack: TypeScript/JavaScript, Electron, React, MobX, Rust, C/C++, Win32 APIWe &lt;3 Gamers"</p>
 							
 						
 						</a>
@@ -3532,390 +3913,6 @@ https://xosh.org/text-to-diagram/Input in this one is very simple and cool."</p>
 						
 							
 								<p class="story__comment_others">"Don&#39;t know about crypto. But any open source package, ported to a new environment (one not explicitly tested by the maintainter) is going to have issues. That&#39;s the nature of software.E.g. I just added pnglib to an embedded assembly. Has a display among other things. Wanted to put compressed PNG images into (limited) flash, then decompress into (plentiful) RAM at boot.Of course pnglib didn&#39;t build for my environment. Never mind it has a C library. There are 50+ compile switches in pnglib, and I was setting them in a pattern that wasn&#39;t part of the tested configurations. It didn&#39;t even compile. Once it compiled (after some source changes) it didn&#39;t run. More source changes and it would run until it hit some endianness issues. Fix those, and it would do (just) what I wanted, which was to decompress certain PNG image formats with limited features, once.No problem. That was my goal, achieved. But at no time did I blame the maintainers for not anticipating my use case.I would say this: maintainers, flag compile-time options that aren&#39;t tried both ways in your test environments. To give me some chance of estimating how hard my job is going to be."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">01 March 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://nee.lv/2021/02/28/How-I-cut-GTA-Online-loading-times-by-70/">
-						<picture>
-							<source srcset="default_26296339.webp" type="image/webp">
-							<source srcset="default_26296339.png" type="image/png">
-							<img src="default_26296339.png" alt="Preview of 'How I cut GTA Online loading times by 70%'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://nee.lv/2021/02/28/How-I-cut-GTA-Online-loading-times-by-70/">How I cut GTA Online loading times by 70%</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26296339">
-						
-							
-								<p class="story__comment_first line-clamp">"It is absolutely unbelievable (and unforgivable) that a cash cow such as GTA V has a problem like this present for over 6 years and it turns out to be something so absolutely simple.I do not agree with the sibling comment saying that this problem only looks simple and that we are missing context.This online gamemode alone made $1 billion in 2017 alone.Tweaking two functions to go from a load time of 6 minutes to less than two minutes is something any developer worth their salt should be able to do in a codebase like this equipped with a good profiler.Instead, someone with no source code managed to do this to an obfuscated executable loaded with anti-cheat measures.The fact that this problem is caused by Rockstar&#39;s excessive microtransaction policy (the 10MB of JSON causing this bottleneck are all available microtransaction items) is the cherry on top.(And yes, I might also still be salty because their parent company unjustly DMCA&#39;d re3 (https://github.com/GTAmodding/re3), the reverse engineered version of GTA III and Vice City. A twenty-year-old game. Which wasn&#39;t even playable without purchasing the original game.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Holy cow, I&#39;m a very casual gamer, I was excited about the game but when it came out I decided I don&#39;t want to wait that long and I&#39;ll wait until they sort it out. 2 years later it still sucked. So I abandoned it. But.. this... ?! This is unbelievable. I&#39;m certain that many people left this game because of the waiting time. Then there are man-years wasted (in a way different than desired).Parsing JSON?! I thought it was some network game logic finding session magic. If this is true that&#39;s the biggest WTF I saw in the last few years and we&#39;ve just finished 2020.Stunning work just having binary at hand. But how could R* not do this? GTAV is so full of great engineering. But if it was a CPU bottleneck then who works there that wouldn&#39;t just be irked to try to nail it? I mean it seems like a natural thing to try to understand what&#39;s going on inside when time is much higher than expected even in the case where performance is not crucial. It was crucial here. Almost directly translates to profits. Unbelievable."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is why I come to HN,  I was going to skip this because I thought it was about video games, but really glad to have read it, and loved every line of the article.So much to get from this.Even if you don&#39;t have the source, you can make a change if you are annoyed enough.If you don&#39;t like something, and the source code is out there, really go contribute.Performance matters, know how to profile and if using an external dependency, then figure out their implementation details.Algorithms &amp; Data structures matter, often I see devs talking about how it doesn&#39;t matter much but the difference between using a hashmap vs array is evident.Attentive code reviews matter, chances are they gave this to a junior dev/intern, and it worked with a small dataset and no one noticed."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://ahgamut.github.io/c/2021/02/27/ape-cosmo/">
-						<picture>
-							<source srcset="default_26292166.webp" type="image/webp">
-							<source srcset="default_26292166.png" type="image/png">
-							<img src="default_26292166.png" alt="Preview of 'Actually Portable Executables'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://ahgamut.github.io/c/2021/02/27/ape-cosmo/">Actually Portable Executables</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26292166">
-						
-							
-								<p class="story__comment_first line-clamp">"Cosmopolitan Libc author here. When I saw this article earlier today, it put a big smile on my face, because I would have thought there&#39;d be so many more issues than there turned out to be! For additional context, we&#39;ve got a GitHub issue that&#39;s tracking progress on the changes that need to be made based on what we learned: https://github.com/jart/cosmopolitan/issues/61"</p>
-							
-						
-							
-								<p class="story__comment_others">"I just saw this tweet - https://twitter.com/JustineTunney/status/1365805503561957376Cosmopolitan is going to be a big thing."</p>
-							
-						
-							
-								<p class="story__comment_others">"Previous discussion of Cosmpolitan: https://news.ycombinator.com/item?id=25556286"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.universetoday.com/150224/the-mars-helicopter-is-online-and-getting-ready-to-fly/">
-						<picture>
-							<source srcset="default_26294552.webp" type="image/webp">
-							<source srcset="default_26294552.png" type="image/png">
-							<img src="default_26294552.png" alt="Preview of 'The Mars Helicopter Is Online and Getting Ready to Fly'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.universetoday.com/150224/the-mars-helicopter-is-online-and-getting-ready-to-fly/">The Mars Helicopter Is Online and Getting Ready to Fly</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26294552">
-						
-							
-								<p class="story__comment_first line-clamp">"One of the things I find really cool about Ingenuity is how it is in large based on consumer hardware. The main processor is a Snapdragon 801 running Linux which communicates with Perseverance using the Zigbee protocol [1]. Perseverance on the other hand uses a RAD750 from 2001! If successful I hope this can lead to more modern hardware for these kinds of missions in general.[1] https://en.wikipedia.org/wiki/Ingenuity_(helicopter)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Fun fact: This is not the first time a space program has flown on another planet. The Soviets launched weather balloons on Venus during the Venera missions [1][1] https://en.wikipedia.org/wiki/Vega_program#Balloon"</p>
-							
-						
-							
-								<p class="story__comment_others">"You should watch Dr. Derek Muller of Veritasium, who did a video (2019) details of the Helicopter while it was being built.https://www.youtube.com/watch?v=GhsZUZmJvaM"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://frame.work/blog/in-defense-of-dumb-tvs">
-						<picture>
-							<source srcset="default_26273169.webp" type="image/webp">
-							<source srcset="default_26273169.png" type="image/png">
-							<img src="default_26273169.png" alt="Preview of 'In Defense of Dumb TVs'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://frame.work/blog/in-defense-of-dumb-tvs">In Defense of Dumb TVs</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26273169">
-						
-							
-								<p class="story__comment_first line-clamp">"I fully agree about dumb TVs for personal use. Even having to wait for your TV&#39;s OS to boot up when you turn it on is a terrible UX.However, when it comes to buying a TV for your conference room where you have a TV running 12hrs/day (when you&#39;re not a small startup with 10ppl), invest in a proper commercial TV like NEC or (my personal favorite brand) iiyama: 1) the&#39;re dumb TVs from the start, 2) you get proper warranties and support, 3) you can get larger TVs without 4K HDR (which your computer may not support anyway), 4) the color grading is more apt for your PowerPoint slides, etc and finally, 5) these panels are actually rated for that kind of use and won&#39;t break after a few weeks. From my experience building conference rooms, that investment is actually worth it"</p>
-							
-						
-							
-								<p class="story__comment_others">"I’m really pleased the author called out the Apple TV as a device that lets you avoid ads. We tried to go cheap on another of our TVs and get an Amazon Fire Stick and in addition to it being not as smooth (combo of UX and speed) at the Apple TV, it had a good amount of ads all over the place.There’s lots of griping about the cost of an Apple TV 4k, but I’ll pay that extra $100 to avoid ads and not be tracked so extensively."</p>
-							
-						
-							
-								<p class="story__comment_others">"Vizio&#39;s CTO confirmed in 2019 that smart TV data harvesting subsidizes their prices: https://www.theverge.com/2019/1/7/18172397/airplay-2-homekit..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.propublica.org/article/sheryl-sandberg-and-top-facebook-execs-silenced-an-enemy-of-turkey-to-prevent-a-hit-to-their-business">
-						<picture>
-							<source srcset="default_26292310.webp" type="image/webp">
-							<source srcset="default_26292310.png" type="image/png">
-							<img src="default_26292310.png" alt="Preview of 'Facebook blocked posts by a militia group opposed to the Turkish government'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.propublica.org/article/sheryl-sandberg-and-top-facebook-execs-silenced-an-enemy-of-turkey-to-prevent-a-hit-to-their-business">Facebook blocked posts by a militia group opposed to the Turkish government</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26292310">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s an obvious &#34;following the local law&#34; thingy, Facebook doesn&#39;t give a s*t, I personally reported 3 posts on different FB pages1st was a religion extremist guy who says to Iraqi people that they should protest and fight the &#34;other side&#34; of the religion (aka start a new civil war) instead of protesting against the corrupted government.2nd was a post that was praising the guy who murdered the Danish (Or was he Norwegian?) teacher who mocked Islam, and calling him a hero.and the 3rd was a post that says &#34;Women education is satanic, women&#39;s purpose is marriage&#34;.all of these 3 reports was &#34;The post was reviewed, and though it doesn&#39;t go against one of our specific Community Standards&#34; and then it explains how to block blablabla... I don&#39;t report things anymore lol"</p>
-							
-						
-							
-								<p class="story__comment_others">"I think it is demonstrably proven that Facebook has no qualms about aiding and abetting government campaigns of crushing dissent across the world, despite its claims of &#34;cherishing free speech&#34;. Facebook (and Twitter) has been doing the same in India [1].[1] https://theintercept.com/2021/02/27/india-climate-activists-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s the correct decision (although Facebook likely only cares about its bottom line). the YPG is designated as a terrorist organisation by the Turkish state and it&#39;s quite obvious that Turkey will want to exercise sovereignty over its communication channels rather than letting an opposing military force broadcast freely to its citizens.It&#39;s not really the job of a private company to undermine nations in this way for simple reasons of sovereignty, and because even if Facebook were to somehow win in the short term, the five to ten year consequence would probably be that nations like Turkey decouple entirely and take control over communications back a la Russia or China."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://viewfromthewing.com/american-airlines-pilot-reported-ufo-contact-over-new-mexico-on-sunday/">
-						<picture>
-							<source srcset="default_26245419.webp" type="image/webp">
-							<source srcset="default_26245419.png" type="image/png">
-							<img src="default_26245419.png" alt="Preview of 'American Airlines confirms UFO contact over New Mexico on Sunday'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://viewfromthewing.com/american-airlines-pilot-reported-ufo-contact-over-new-mexico-on-sunday/">American Airlines confirms UFO contact over New Mexico on Sunday</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26245419">
-						
-							
-								<p class="story__comment_first line-clamp">"I won’t be able to provide information that other people haven’t already but I have encountered one of these “aircraft”.I own a small light sport airplane and was flying between UT and CA at 12.5k ft and saw one of these pass 1,000ft below me not far outside of Reno. ATC didn’t call it so presumably they didn’t see it on radar. It was exactly as described, small, shiny, cylindrical, no wings, and fast. If I could guess it was doing 500kts in the opposite direction. By the time I pulled out my phone to snap a picture it was gone. If it was a cruise missile it was flying over a populated area and not in restricted airspace or a MOA. Not sure what conclusions to draw other than these things are real and probably more common than people assume. It was not an airliner or private jet I’ve seen plenty of them."</p>
-							
-						
-							
-								<p class="story__comment_others">"Just a rocket booster reentering? These happen regularly especially now that launches are more frequent in US and China.It seems to match up with https://aerospace.org/reentries/cz-11-rocket-body-id-46463"</p>
-							
-						
-							
-								<p class="story__comment_others">"Sometimes a cigar-shaped object near an air-force base is just a cigar-shaped object near an air-force base."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.cbc.ca/news/politics/uighur-genocide-motion-vote-1.5922711">
-						<picture>
-							<source srcset="default_26253886.webp" type="image/webp">
-							<source srcset="default_26253886.png" type="image/png">
-							<img src="default_26253886.png" alt="Preview of 'Canada&#39;s parliament votes to label China&#39;s persecution of Uighurs as genocide'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.cbc.ca/news/politics/uighur-genocide-motion-vote-1.5922711">Canada&#39;s parliament votes to label China&#39;s persecution of Uighurs as genocide</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26253886">
-						
-							
-								<p class="story__comment_first line-clamp">"Interesting that the parliament went ahead with a vote, from which the &#39;leadership&#39; (cabinet) abstained; I wonder what&#39;s going on behind the scenes.&gt;&#34;Prime Minister Justin Trudeau and almost all of his cabinet colleagues were absent for the vote. Foreign Affairs Minister Marc Garneau was the only cabinet minister present. When it was his turn, he said he abstained &#34;on behalf of the Government of Canada.&#34; &#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"Good to see a stand being taken. Hopefully allows for more pressure put on China to be more humane.Also I think there is too much us vs China going around - another war would be terrible, and even without a war, negative consequences could arise.One world should be the dream we aspire for."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The final tally was 266 in favour and zero opposed.Great news and I hope more countries follow the lead."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://tailscale.com/blog/modules-monoliths-and-microservices/">
-						<picture>
-							<source srcset="default_26247052.webp" type="image/webp">
-							<source srcset="default_26247052.png" type="image/png">
-							<img src="default_26247052.png" alt="Preview of 'Modules, Monoliths, and Microservices'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://tailscale.com/blog/modules-monoliths-and-microservices/">Modules, Monoliths, and Microservices</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26247052">
-						
-							
-								<p class="story__comment_first line-clamp">"My observation is that much of industry does not care about any of these technical or security issues.In theory microservices are technical artifacts, but what they tend to be are cultural artifacts.Microservice adoption is often driven by cargo culting, or (better) a considered decision to work around a lack of organisational cohesion.What microservices let you do is ship your org chart directly, and also map back from some functionality to an owning team. You know who to page when there&#39;s a problem and it&#39;s easier to tell who is late delivering and whose code is slow. In cultures with &#34;lax&#34; technical leadership (aka no everyone uses same thing mandate, I&#39;m not judging) it lets teams use their favourite tools, for better or worse.Other org related things are the ability to have independent (per team) release schedules. Separable billing. Ability to get metrics on performance, cost and failures that can be used as indicators of team performance and promotion material. Microservices can also act as &#34;firewalls&#34;, limiting the impact a bad hire or team can have across your codebase.None of this is intended to be negative judgement; microservices can (among other things), help teams feel a sense of agency and ownership that can be hard to maintain as org size scales up."</p>
-							
-						
-							
-								<p class="story__comment_others">"IMO this is a confused take on modularity. I think isolation and security are related concepts, but not what modules are for. Those things have to follow module boundaries, but they&#39;re not the goal of modules. For me, modules are about understanding; in order to use this code you don&#39;t need to read all of it, you just need to understand the interface. Modularity is for humans, not computers.They do often follow Conway&#39;s law, but that&#39;s not a desirable thing. Most modules are outside of that kind of context -- they&#39;re in libraries written by people you don&#39;t communicate with at all!I&#39;m interested in people&#39;s opinion here. I&#39;m also planning an article on the relationship between services and modularity."</p>
-							
-						
-							
-								<p class="story__comment_others">"I found this to be surprisingly interesting and novel - usually I expect to see really low quality content when it&#39;s a post about microservices, whether for or against the idea. This boils it down to isolation, which I myself have written about in a similar vein[0].&gt; at this point security people simply don&#39;t believe that any of the following (each one the very best technology available at the time) is totally safeTo be fair, we don&#39;t think anything is totally safe :) that&#39;s the point. Actually a lot of those things listed are why Chrome is so secure. I think this is a bit pessimistic about process isolation, which is actually quite powerful, but I get the point - there&#39;s no gap like an air gap.I prefer to think of monoliths and microservices as being completely unrelated ideas - they aren&#39;t on a spectrum of &#34;big to small&#34;, they&#39;re just two totally different ways of approaching software development. I might put &#34;monoliths&#34; closer to SOA, in that they both describe a very basic approach to a problem, whereas Microservices is not &#34;small services&#34; it&#39;s about bounded contexts, patterns, organizations, etc.Anyways, I appreciated this post.[0] https://www.graplsecurity.com/post/architecting-for-performa..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://gizmodo.com/deep-nostalgia-can-turn-old-photos-of-your-relatives-1846363190">
-						<picture>
-							<source srcset="default_26279372.webp" type="image/webp">
-							<source srcset="default_26279372.png" type="image/png">
-							<img src="default_26279372.png" alt="Preview of '‘Deep Nostalgia’ can turn old photos of your relatives into moving videos'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://gizmodo.com/deep-nostalgia-can-turn-old-photos-of-your-relatives-1846363190">‘Deep Nostalgia’ can turn old photos of your relatives into moving videos</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26279372">
-						
-							
-								<p class="story__comment_first line-clamp">"Edit: Seems like its based off of something similar to this (https://github.com/AliaksandrSiarohin/first-order-model)This is pretty cool and eerie at the same time. The biggest thing to keep into mind about these algorithms is that the computer “dream” of these moving videos so they can be inaccurate. Nevertheless, seeing some moving video of my ancestors would be pretty neat."</p>
-							
-						
-							
-								<p class="story__comment_others">"This would also work for a scary room in amusement parks. Imagine Harry Potter-like photos of yourself + previous visitors screaming and trying to get out of the picture frame."</p>
-							
-						
-							
-								<p class="story__comment_others">"So freaking amazing how good the 3D depth perception is on that 3rd GIF. The right side of his hair is correctly obscured when he turns his head and even his eyelids move correctly. The only slight issue is his &#34;lazy eye&#34;, but then you could argue the AI took a little creative liberty"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.sec.gov/news/press-release/2021-35">
-						<picture>
-							<source srcset="default_26280130.webp" type="image/webp">
-							<source srcset="default_26280130.png" type="image/png">
-							<img src="default_26280130.png" alt="Preview of 'SEC suspends trading in 15 securities due to questionable social media activity'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.sec.gov/news/press-release/2021-35">SEC suspends trading in 15 securities due to questionable social media activity</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26280130">
-						
-							
-								<p class="story__comment_first line-clamp">"The list is two clicks away, buried a couple paragraphs deep, here&#39;s the copy paste of what everyone is looking forBebida Beverage Co. (BBDA);Blue Sphere Corporation (BLSP);Ehouse Global Inc. (EHOS);Eventure Interactive Inc. (EVTI);Eyes on the Go Inc. (AXCG);Green Energy Enterprises Inc. (GYOG);Helix Wind Corp. (HLXW);International Power Group Ltd. (IPWG);Marani Brands Inc. (MRIB);MediaTechnics Corp. (MEDT);Net Talk.com Inc. (NTLK);Patten Energy Solutions Group Inc. (PTTN);PTA Holdings Inc. (PTAH);Universal Apparel &amp; Textile Company (DKGR);Wisdom Homes of America Inc. (WOFA).The SEC also recently issued orders temporarily suspending trading in:Bangi Inc. (BNGI);Sylios Corp. (UNGS);Marathon Group Corp. (PDPR);Affinity Beverage Group Inc. (ABVG);All Grade Mining Inc. (HYII);SpectraScience Inc. (SCIE)."</p>
-							
-						
-							
-								<p class="story__comment_others">"Hi all,I am a mod on r/WallStreetBets and wanted to share with you that our bots haven&#39;t seen any of the tickers mentioned in the SEC press release.We filter tickers based on a number of factors, but low market cap (below $1B), is the most common reason for content being removed.One of our biggest issues is data reliability. If you know of an API that can provide accurate data and an exhaustive list of tickers (especially on non-US exchanges), please reach out to our modmail. [0]Best,OIP[0] https://www.reddit.com/message/compose?to=%2Fr%2Fwallstreetb..."</p>
-							
-						
-							
-								<p class="story__comment_others">"What is the next step in cases like these?  Let&#39;s say social media activity led someone to making an unwise trade.  Suspending trading doesn&#39;t fix the problem for that person, now they&#39;re just stuck in a bad position.  Does the SEC ever &#34;fix it&#34; for that person, or is it all damage control now to reduce the extent of the problem, and those that are already in are kind of screwed?"</p>
 							
 						
 						</a>
