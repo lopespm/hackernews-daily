@@ -36,6 +36,298 @@
 	</div>
 
 	
+	<div class="day__date">26 March 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://brianschrader.com/archive/why-all-my-servers-have-an-8gb-empty-file/">All my servers have an 8 GB empty file on disk</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26583791">
+						
+							
+								<p class="story__comment_first line-clamp">"In the mid nineties I worked in a research institute. There was a large shared Novell drive which was always on the verge of full. Almost every day we were asked to clean up our files as much as possible. There were no disc quota for some reason.One day I was working with my colleague and when the fileserver was full he went to a project folder and removed a file called balloon.txt which immediately freed up a few percent of disk space.Turned out that we had a number of people who, as soon as the disk had some free space, created large files in order to reserve that free space for themself. About half the capacity of the fileserver was taken up by balloon.txt files."</p>
+							
+						
+							
+								<p class="story__comment_others">"For everyone saying &#34;This isn&#39;t a real solution!&#34; I&#39;d like to explain why I think you&#39;re wrong.1) It&#39;s not intended to be a Real Solution(tm). It&#39;s intended to buy the admin some time to solve the Real Issue.2) Having a failsafe on standby such as this will save an admin&#39;s butt when it&#39;s 2am and PagerDuty won&#39;t shut up, and you&#39;re just awake enough to apply a temp fix and work on it in the morning.3) Because &#34;FIX IT NOW OR ELSE&#34; is a thing. Okay, sure. Null the file and then fill it with 7GB. Problem solved, for now. Everybody is happy and now I can work on the Real Problem: Bob won&#39;t stop hoarding spam.That is all."</p>
+							
+						
+							
+								<p class="story__comment_others">"Same idea as this game development legendhttps://www.dodgycoder.net/2012/02/coding-tricks-of-game-dev...&gt; he had put aside those two megabytes of memory early in the development cycle. He knew from experience that it was always impossible to cut content down to memory budgets, and that many projects had come close to failing because of it. So now, as a regular practice, he always put aside a nice block of memory to free up when it&#39;s really needed."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://istheshipstillstuck.com/">Is that ship still stuck?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26585282">
+						
+							
+								<p class="story__comment_first line-clamp">"I don&#39;t think people are giving enough credit to how stuck the ship is.Look at some of the photos of the front of it.  Look at how far out of the water it is sitting.  The ship might look like that if it were totally empty, but not when it is full of containers like this.Some people saying: just drag it off of the sand.  Okay!  And what happens when that causes you to rip a hole into the hull of the ship?  Now it&#39;s really stuck.Some people have suggested unloading the ship.  I don&#39;t think you realize the infrastructure required to unload a ship.  You&#39;re basically asking to build a port in the middle of the egyptian desert.  That isn&#39;t going to happen.It&#39;s really stuck.  It&#39;s probably going to take a couple of weeks to get it unstuck."</p>
+							
+						
+							
+								<p class="story__comment_others">"Fun facts:1. The owner is Japanese2. The operator is Taiwanese3. The flag is Panamanian4. The cargo is Chinese5. The insurer is British6. The crew is Indian7. The canal is Egyptian and was built with forced labor by the French8. The dredgers/salvage op managers are Dutch"</p>
+							
+						
+							
+								<p class="story__comment_others">"It will be weeks before this ship is free.Fuel and oil can be pumped out but that only makes up a fraction of the total weight of the vessel. Containers can be unloaded but again the lightest will be at the top so a significant number will need to be removed to make a big enough difference. And unloading them will be a slow process. You can maybe unload a few per hour with helicopters. There doesn&#39;t exist any infrastructure which could get to that location and lift off containers. You could build a custom crane barge but that would take at least a month to fabricate and get to the site. The easiest way to remove containers will be using cutting equipment, winches and possibly explosives. It won&#39;t be easy and will likely take several weeks to unload a significant number of containers, the ship and containers will be damaged in the process.That leaves dredging the sand under the ship. Again the infrastructure to do this rapidly doesn&#39;t exist. You can dig out the sand around the ship but there is a huge amount that the ship is resting on. It will take specialist dredging equipment to start removing this sand."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://antonz.org/sqlite-is-not-a-toy-database/">SQLite is not a toy database</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26580614">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; There is a popular opinion among developers that SQLite is not suitable for the web, because it doesn’t support concurrent access.No, the issue is it doesn&#39;t have high availability features: failover, snapshots, concurrent backups, etc. (Edit: oops, comment pointed out it does have concurrent backups.)SQLite isn&#39;t a toy DBMS, it&#39;s an extremely capable embedded DBMS. An embedded DBMS is geared towards serving a single purpose-built client, which is great for a desktop application that wants a reliable way to store user data.Once you have multiple clients being developed and running concurrently, and you have production data (customer accounts that are effectively legal documents that must be preserved at all times) you want that DBMS to be an independent component. It&#39;s not principally about the concurrent performance, rather it&#39;s the administrative tasks.That requires a level of configuration and control that is contrary to the mission of SQLite to be embedded. They don&#39;t, and shouldn&#39;t, add that kind of functionality."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve built a complex CRM that handles 2.1 million USD in transactions every year. It is running sqlite with a simple in-memory lru cache (just a dict) that gets purged when a mutating query (INSERT, UPDATE or DELETE) is executed. It is very simple and more than fast enough.Friendly reminder that you shouldn&#39;t spend time fine tuning your horizontal autoscaler in k8s before making money."</p>
+							
+						
+							
+								<p class="story__comment_others">"With no sense of overstatement here, SQLite is one of my favorite creations in the entire world, so I have a bunch of links some of you might find interesting if you want to dig further:https://github.com/sql-js/sql.js - SQL.js lets you run SQLite within a Web page as it&#39;s just SQLite compiled to JS with Emscripten.https://litestream.io/blog/why-i-built-litestream/ - Litestream is a SQLite-powered streaming replication system.https://sqlite.org/lang_with.html#rcex3 - you can do graph-style queries against SQLite too (briefly mentioned in the article).https://github.com/aergoio/aergolite - AergoLite is replicated SQLite but secured by a blockchain.https://github.com/simonw/datasette - Datasette (mentioned at the very end of the OP article) is a tool for offering up an SQLite database as a Web accessible service - you can do queries, data analysis, etc. on top of it. I believe Simon, the creator, frequents HN too and is a true SQLite power user :-)https://dogsheep.github.io/ - Dogsheep is a whole roster of tools for doing personal analytics (e.g. analyzing your GitHub or Twitter use, say) using SQLite and Datasette."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.ripgooglereader.com/">RIP Google Reader</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26581434">
+						
+							
+								<p class="story__comment_first line-clamp">"Whatever was said at the time, I’m convinced Google Reader was collateral damage from the Bay of Pigs Google Plus effort. It had social features (which I honestly never used) and anything social had to be G+.Still, I honestly don’t understand why this is the hill people want to die on, what they feel most betrayed about. Like I haven’t seen some people this upset since Firefly was canceled."</p>
+							
+						
+							
+								<p class="story__comment_others">"It was in the summer of 2008, three years after Google launched Reader and had at least 5 million users, when I decided to write my own RSS reader. There were just so many features I wanted that I knew Google would never build and for some strange reason I thought I could make money with my own opinionated take on a news reader.Then at 4pm on March 13th, 2013, I got an email from Nilay at The Verge asking if I&#39;d heard the news. That was a difficult month as I scaled (and wrote about scaling[0]), since by then Google Reader had 10 million active users. After Reader was sunset, about 5 million found their homes on the news readers that remained.It&#39;s strange to think that naively competing with one of the big platforms paid off, but there&#39;s plenty of companies that did well in the wake of a giant choosing to ignore the ecosystem near their feet.[0]: https://blog.newsblur.com/post/45632737156/three-months-to-s..."</p>
+							
+						
+							
+								<p class="story__comment_others">"All these years later, I still use the Google Reader frontend (with newsblur as the backend).It turns out that Reader&#39;s UI assets were stand alone enough that you could just implement the backend API and it all would work.I saw this originally in a project for viewing your Reader Takeout data[1], and just built on that idea to make my own personal Google Reader experience.[1]:  https://github.com/mihaip/readerisdead"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.brixit.nl/do-you-really-want-linux-phones/">Do you really want Linux phones</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26574731">
+						
+							
+								<p class="story__comment_first line-clamp">"Probably an unpopular opinion, but I don&#39;t think most people who buy a Linux phone actually want a Linux phone. They want an open-source phone. The Linux philosophy isn&#39;t important to them, they essentially want open-source iOS (with all of the polish and out-of-the-box doodads). They want the ability to make modifications, and they want the freedom and transparency that open-source gives them, but they don&#39;t necessarily want to open a PR against the camera app if they want it to more closely match the polish of iOS."</p>
+							
+						
+							
+								<p class="story__comment_others">"OK I&#39;ll bite. I wrote a plugin to get mmsd to function with modem manager and I wrote a reference implimentation to integrate MMS functionality into chatty. I also took the time to make sure my patches were upstreamable, and I have taken and worked on every feedback to ensure my patches are upstream able. I filed the ITP bug to include mmsd into Debian proper.I did all of this back from December to February.I still have no idea when Debian will bother to look at the mmsd packaging to include it into their repository, nor when my changes for chatty will be integrated. The ofono mailing list and IRC channel (i.e. the original authors of mmsd, but i think they abandoned it as they have said it hasn&#39;t been maintained in 8 years) have ignored me, so I doubt my changes will ever go back into upstream mmsd (I just consider what I have a fork now). I&#39;m waiting on the chatty dev to finish off a current project to then get to integrating my MMS patches into chatty.I still really want to help, but there&#39;s not much for me to do except wait for upstream devs to get around to integrating my work.Being frank, I&#39;m frustrated that I spent all of that time to implement a feature I want and I know a lot of other folks want, but now I&#39;m just in a limbo hoping that others will get around to it.So I&#39;ll ask, if you want folks to help on the boring things or missing functionality, how do you prevent that from happening?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Yes I want a Linux phone. But I also want one that has similar app support to Android and iOS.The problem is not with the Linux phones that are out there, it is that no apps are and likely never will be compatible with (non-Android) Linux phones. Until that is solved, most people (like me) could not switch out their phone for a Linux phone as a daily driver, however much they would like.Having Linux as an alternative for Windows is a lot easier than having Linux as an alternative for Android/iOS. A lot of the Windows applications we use can be replaced by opensource applications on Linux. And browser based applications already work on both.However, apps on Android/iOS are mostly tied to cloud services. Unfortunately services that most people need in this age. Messaging systems like WhatsApp and Signal are usually tied to your phone, and going without them would result in social isolation for a lot of people. But also for banking and sometimes government services, you likely need to use their apps. And there will never be opensource alternatives for such apps."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.rize.io/blog/phones-and-apps-reduce-your-ability-to-focus-even-when-they-dont-distract-you">Phones and apps reduce your ability to focus even when they don’t distract you</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26582729">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Cal Newport said it best in his book Deep Work: the ability to perform deep work is becoming increasingly rare at exactly the same time it is becoming increasingly valuable in our economy. As a consequence, the few who cultivate this skill, and then make it the core of their working life, will thrive.The people who cultivate that skill, stay up late at night while everyone is asleep so they don’t get distracted. Then they come in late because they need sleep like every one else. As a consequence, deep thought workers are seen by their immediate and responsive counterparts as obtuse, eccentric, or worse: lazy and unable to manage their time.This really comes down to the workers dilemma. Do you spend your time marketing your self to others and letting people know your accomplishments, or do you spend the time doing work that will benefit others? Deep thought workers will bias heavily towards work that will benefit others. This benefit is often non-obvious deep thought workers will run the risk that their peers, that are more connected and more reachable, will take the credit for the results."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m constantly amazed at how the mainstream population uses phones.Most people tend to have phone with alarming-notifications, so they get informed that they have a message, or email or whatever. The phone interrupts them and directs their attention. They train themselves to be controlled by their phones.I&#39;d go crazy trying to live like that. I have no audible notifications, and vibration only for actual calls. Everything else: I&#39;ll see it when I see it. I tend to think of it as receiving a letter -- I&#39;ll see it when I check if there&#39;s any post, I don&#39;t need to be interrupted right away. Personal space and all that.It just seems so mentally unhealthy. The same applies to sleeping with your phone in the same room."</p>
+							
+						
+							
+								<p class="story__comment_others">"this constant urge to check your phone, I don&#39;t think it&#39;s much different from an OCD. OCDs constantly interrupt the normal flow of one&#39;s thought processes with obsessive, intrusive interjections (&#34;you are dirty&#34;, &#34;did I do x/y?&#34;, &#34;maybe you are gay&#34;, etc).that&#39;s what apps have instilled into our minds: a constant urge that interrupts our thought processes, so that we check fb, WA, gmail, etc.I switched all notifications off and I still have this, less than previously, but still. I am thinking of going back to a brick phone because of that."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://julialang.org/blog/2021/03/julia-1.6-highlights/">Julia 1.6 Highlights</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26580926">
+						
+							
+								<p class="story__comment_first line-clamp">"I recently ported a reinforcement learning algorithm from PyTorch to Julia. I did my best to keep the implementations the same, with the same hyperparameters, network sizes, etc. I think I did a pretty good job because the performance was similar, solving the CartPole environment in the a similar number of steps, etc.The Julia implementation ended up being about 2 to 3 times faster. I timed the core learning loops, the network evaluations and gradient calculations and applications, and PyTorch and Julia performed similar here. So it wasn&#39;t that Julia was faster at learning. Instead it was all the in-between, all the &#34;book keeping&#34; in Python ended up being much faster in Julia, enough so that overall it was 2 to 3 times faster.(I was training on a CPU though. Things may be different if you&#39;re using a GPU, I don&#39;t know.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Julia is such a wonderful language. There are many design decisions that I like, but most importantly to me, its ingenious idea of combining multiple dispatch with JIT compilation still leaves me in awe. It is such an elegant solution to achieving efficient multiple dispatch.Thanks to everyone who is working on this language!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been running the 1.6 release candidates, and the compilation speed improvements have been massive. There have been plenty of instances in the past where I&#39;ve tried to &#39;quickly&#39; show off some Julia code, and I end up waiting ~45 seconds for a plot to show or a minute for a Pluto notebook to run, and that&#39;s not to mention waiting for my imports to finish. It&#39;s still slower than Matlab for the first run, but it&#39;s at least in the same ballpark now."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.fws.gov/birds/news/210324eagle-population.php">America’s bald eagle population continues to soar</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26568962">
+						
+							
+								<p class="story__comment_first line-clamp">"This seems as good a time/place as any to remind everyone that the sound an eagle makes isn&#39;t the screech Hollywood has made you believe it is (that&#39;s a red-tailed hawk). It&#39;s actually relatively non-macho (for a superpower&#39;s mascot anyway) and sounds like it&#39;s laughing.The hawk says:
+https://www.allaboutbirds.org/guide/Red-tailed_Hawk/soundsThe eagle says:
+https://www.allaboutbirds.org/guide/Bald_Eagle/sounds"</p>
+							
+						
+							
+								<p class="story__comment_others">"I just moved back to Arkansas after being in California for 20 years. Here&#39;s a picture a local took along AR highway 59. 7 bald eagles hanging out.https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/155912289_4304...I have some good shots of one eating breakfast behind my house as well. Kind of gory though."</p>
+							
+						
+							
+								<p class="story__comment_others">"I find it amusing the article had to clarify the lower 48 states. In the majority of the United States bald eagles are a rare and majestic sight. In Alaska they are on par with seagulls."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://themes.vscode.one">Show HN: I built a VS Code Theme Creator – easily make VS Code themes in browser</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26579936">
+						
+							
+								<p class="story__comment_first line-clamp">"VS Code One features:* Clickable slide show, with 120 slides, each containing approximately 1/5th of any current sentence. Good for school presentations, family movie night, or mundane business meetings.* Subdomains for everything. Excellent SEO utilization for preventing server downtime from user connection surges and spikes.* Static sidebar buttons, such as &#34;Create New Theme&#34;, that create irremovable forced registration overlay popups. Perfect for dimming screens. (Psst, a secret, you can think of the &#34;Browse Themes&#34; button as the &#34;x&#34; button because that&#39;s exactly what it does. Don&#39;t tell anyone.)* Statistics of such prominency that require no citations!* Absolute guarantees and claims of being the &#34;fastest, easiest, most efficient way to master VS code&#34;. Keeps users safe by keeping them informed of their fantastic choice!* World&#39;s first legitimate &#34;shortcut to mastering VS Code&#34;. Now with 50% more rich in getting rich! (Or brain in this matter, get it?)* Usage of proprietary and trademarked assets for commercial purposes. Having licensed logos on your product, as well as &#34;VS Code&#34; in its name, can&#39;t be cheap! Product shows commitment by following copyright laws.Final thoughts: I felt as if I was with a constantly gasconading taxi driver, orating me his years of skill and knowledge, driving me around, showing me all the roads he knows, and then being charged for the hour, miles away from my destination.In all seriousness, this is a scam. He is charging $150 (which is currently a sale discount from the normal $300) for his videos that teach you...basic introductory topics that already have an immense amount of free official educational resources."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is cool! I really enjoyed playing around. Some feedback:1. Do not ask for signup before making a theme. There is so much power in allowing users play around without friction. You will get signups from users that are interested.2. Make the editor preview itself a selection tool for various colors and other items. That would make it a whole lot easier to use3. Allow grouping of colors. Some colors are always set to the same value. Allow setting the colors individually too. But users often want harmony."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hi HN,I built the VS Code Theme Studio after realizing how hard and annoying it is to create a theme the standard way.
+You have to tweak tons of hex color codes in a huge JSON file... yuck.
+Most of the time you don&#39;t even know which settings to edit, or how they actually affect the UI.
+I wanted to build a much more intuitive and user-friendly way of designing VS Code themes, so that anyone could design a beautiful, polished theme in under an hour (instead of a week).
+In a future iteration, I want to make the theme studio even handle the process of publishing your theme to the VS Code marketplace for you.
+This way, all you&#39;ll have to do is design the theme, and click a single button... &#34;Publish&#34;.
+I had a lot of fun building this and I look forward to seeing the themes you create :)(Built with my favorites: Vue.js + Nuxt.js + Firebase)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.texasmonthly.com/news-politics/austin-car-clubs-gentrification/">They Just Moved to Austin. Now They Want to End One of Its Traditions</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26563225">
+						
+							
+								<p class="story__comment_first line-clamp">"There are ways that people talk about gentrification that always makes me slightly uncomfortable. As a non-white person, something always feels like gentrification is something that “good” white people like to blame “bad” white people for doing, when the real problem tends to be wider and more systemic.In this particular instance I find myself asking why it matters that the Weaver residents were originally not from Austin. If you’re born in Chicago, shouldn’t you still have the same rights as someone who was born in Austin? That includes the right to complain. However it doesn’t mean anyone has to listen to you. As other users have pointed out, it’s not exactly a new situation for people to move to a neighborhood and immediately try and kick their neighbours out. It’s just that most of the time they’re told to kick rocks.It seems to me the real crux of this issue is that rich white people are so much more prioritized by the law that a couple of irate Karens can overrule an entire neighbourhoods opinion. It has nothing to do with where they’re from or gentrification.Not that gentrification doesn’t cause it’s own problems. But the way some people talk about it, as though existing residents are entitled to a higher set of rights, leads down some pretty dark paths, especially when newcomers are of a different nationality, or race than current residents. It reminds me of something that used to be said a lot in jest when I was younger in the 90’s and 00’s and working in fast food. Whenever people gave me extra work to do, they justified it by saying something like, “well, he should just be grateful he isn’t working in a rice paddy” (I’m from Singapore originally, but ok). There seemed to be this view that because my parents chose to move to Canada when I was young, I was somehow entitled to fewer rights, even as a citizen."</p>
+							
+						
+							
+								<p class="story__comment_others">"I live in this neighborhood, about three blocks north of where the car club meets. I’m white. I’m a homeowner. You get the picture.Honestly, these people complaining in Weaver sound insane. They moved into a community and it’s their job to integrate with the community. We have a Brit who lives on my street that does community organizing and he’s been wonderful about building a sense of community that integrates the old and new residents. They should really be talking to him or Pio, mentioned in the article, instead of calling the police and accusing the car club of dealing drugs. Yeesh.With that said, I think there are legitimate criticisms about the car club. For one, they absolutely trash the place every Sunday. When I walk down to the lake on Monday, there’s just tons of trash on the ground. I don’t know who picks it up but it’s certainly not the car club.Also, doing burnouts and donuts on public streets sounds fun but it leaves the road covered in tire rubber and I imagine it smells awful while they’re doing it.Those are basically the two things I’d like to see change, and in my humble, gentrifier opinion, they seem like reasonable issues to talk about with the community. Instead of having those conversations, we get white people leveraging their white privilege in the worst ways and anarchist groups like “Defend Our Hoodz” intimidating new businesses that open up. Fun times in my little corner of the world."</p>
+							
+						
+							
+								<p class="story__comment_others">"To be fair, I&#39;m a middle-aged white engineer raised in San Jose, CA relocated to ATX in Dec 2020.I live at the corner of I-35 east-side frontage and 5th in a mega apartment complex. I&#39;ve tried meeting many of my neighbors and most are asocial/antisocial. There are 2 women roommates and an African-American kid who are legit cool that I&#39;ve met so far. Also, I don&#39;t even know the people across the hall. My conclusion from many interactions is my neighbors are mostly phony, little life experience, selfish, corporate clones who steal shopping carts and leave them blocking the hallways, let their dogs pee everywhere in the hallways and don&#39;t clean it up, throw garbage on the floor, don&#39;t wear masks, don&#39;t talk to one another, sit by the pool on their phones, and act phony cool like they&#39;re still in high-school. Heck, my upstairs neighbor complained about my music on the weekend during the day without introducing themselves and not diplomatically. Point being: gentrifiers tend to be mostly uncool and don&#39;t care about anything other than forcing their own bubbles on everyone else.More power to Austin car clubs. Let the gentrifiers pound salt.Edit: I would like to move somewhere near cooler people, but I&#39;m probably going to have to grow a social circle to find that. Also, I wonder if more upscale or cheaper housing tends to attract or repel cool peeps."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">25 March 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -50,6 +342,10 @@
 						
 							
 								<p class="story__comment_first line-clamp">"I&#39;d love to use ClearURLs, though last I checked it had a major flaw: it allows arbitrary code execution by the provider of the filter list. Among other things, it can redirect script URLs to arbitrary sources, and the filter list is periodically updated from a GitLab page, which enables the filter list provider to perform a targeted attack by serving a malicious filter list to a specific device.The only filter list provider is the extension maintainer, so this information should be safe to share. I have not had the time to set up a PoC, but I&#39;m confident that the filter rules are way too powerful.At the very minimum, the current filter list should be included in the extension package rather than periodically updated from a remote URL. That way the filter list can be audited and must pass a review, without having a negative impact on the effectiveness of the extension, since the filter list does not appear to frequently change.https://github.com/ClearURLs/Addon/wiki/Ruleshttps://gitlab.com/anti-tracking/ClearURLs/ruleshttps://kevinroebert.gitlab.io/ClearUrls/data/data.minify.js..."</p>
+							
+						
+							
+								<p class="story__comment_others">"It looks like the developer may be in the EU. If they offer the add-on as a business, it may be worth looking at if any of the internet rights legal groups will help take the case up under the 2019 EU platform rules.https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32...These make various requirements around how Google act, and include requirements around removing products from platforms.As an aside, it seems crazy that we allow platforms to take action when in positions of such clear conflict of interest, but that seems to be the way of the tech sector."</p>
 							
 						
 							
@@ -76,10 +372,6 @@ A lot of the cases it handled were redirectors, which usually meant only the tar
 would skip the redirector, to be simply:     http://www.shopping.com/xGS-AAA_BBB~NS-1~linkin_id-111
 
 I was going to link here to the code of `urlskip`, but it&#39;s no longer in the package repository where it used to be.  (I added a lot of libraries to that repository, and don&#39;t recall whether there was some reason to remove this particular library.)  It was a pretty niche library, and in a fringe language, so its impact might&#39;ve only been as an example, pointing out that this could be done, and some rules for it."</p>
-							
-						
-							
-								<p class="story__comment_others">"It looks like the developer may be in the EU. If they offer the add-on as a business, it may be worth looking at if any of the internet rights legal groups will help take the case up under the 2019 EU platform rules.https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32...These make various requirements around how Google act, and include requirements around removing products from platforms.As an aside, it seems crazy that we allow platforms to take action when in positions of such clear conflict of interest, but that seems to be the way of the tech sector."</p>
 							
 						
 						</a>
@@ -157,15 +449,15 @@ Apparently, a basic google search is too difficult for HR.Second, it says this:
 						<a href="https://news.ycombinator.com/item?id=26570795">
 						
 							
-								<p class="story__comment_first line-clamp">"Amazing work, but I can&#39;t help but to think that despite all of the effort put into it, it was still cracked by a handful of individuals over the course of a few months using standard statistical/mathematical programming tools.Why haven&#39;t FBI analysts done the same already? Is it conceivable that it was already done, just simply never publicized for whatever unknown government reason? One imagines that solving this publicly unsolvable mystery is actually a standard initiation exercise for new recruits into the elite circles of NSA codebreakers."</p>
+								<p class="story__comment_first line-clamp">"I really like New Zealand&#39;s policy(1) to not name the killers and not giving them any validation at all.While the puzzle has been solved and it turned out to be real mind bender, it may be the end result that that killer may have wanted all along.There is so much buzz around it (movie, subreddits, forums, and whatnot) that it really bums me out that we gave such a heinous criminal so much time and attention.(1) &#34;He sought many things from his act of terror, but one was notoriety - that is why you will never hear me mention his name,&#34; Ms Ardern said in an emotional address at New Zealand&#39;s parliament."</p>
+							
+						
+							
+								<p class="story__comment_others">"Amazing work, but I can&#39;t help but to think that despite all of the effort put into it, it was still cracked by a handful of individuals over the course of a few months using standard statistical/mathematical programming tools.Why haven&#39;t FBI analysts done the same already? Is it conceivable that it was already done, just simply never publicized for whatever unknown government reason? One imagines that solving this publicly unsolvable mystery is actually a standard initiation exercise for new recruits into the elite circles of NSA codebreakers."</p>
 							
 						
 							
 								<p class="story__comment_others">"Some questions1/how do we know we found the solution and not a decryption that gives a plausible message/solution. Aka how do we know this isn’t a false positive solution2/have cryptologists studied possibility of “synthetic” cypher generation to bootstrap examples upon which an ML model could be trained to decrypt such message in the future ?"</p>
-							
-						
-							
-								<p class="story__comment_others">"This cipher is pure security-through obscurity and it held up well."</p>
 							
 						
 						</a>
@@ -363,15 +655,15 @@ I would pay up to $200 USD for such a product. Why not an intel NUC? Because I w
 						<a href="https://news.ycombinator.com/item?id=26554539">
 						
 							
-								<p class="story__comment_first line-clamp">"Twitter announcement: https://twitter.com/plan9foundation/status/13743504723168174...Plan 9 Foundation: https://p9f.org/Wikipedia: https://en.wikipedia.org/wiki/Plan_9_from_Bell_LabsThere&#39;s still a pretty active community around Plan 9, too.9Front, a popular fork of Plan 9: http://9front.org/Interviews with some Plan 9 community members: https://0intro.dev/Some videos: [A Tour of Acme](https://www.youtube.com/watch?v=dP1xVpMPn8M), [Peertube channel of sigrid&#39;s](https://diode.zone/video-channels/necrocheesecake/videos)"</p>
+								<p class="story__comment_first line-clamp">"A lot of people miss the fact that Plan 9 was a real distributed operating system. It&#39;s not just UNIX with a couple features (&#34;ooh everything is a file&#34; &#34;ooh UTF8&#34;). You can effortlessly execute any program across multiple hosts on a network. You can use any resource of any host on the network, including files, processes, graphics, networks, disks. It all just works like magic, using a single message-oriented protocol.If Linux worked like this today, you would not need Kubernetes. You could run systemd on a single host and it would just schedule services across all the hosts on the network. Namespaces would already be independent and distributed, so containers would only be used for their esoteric features (network address translation, chroot environment, image layers). Configurations, files, secrets, etc would just be regular files that any process in any container on any host could access using regular permissions models. About 50 layers of abstraction BS would disappear.I think because nobody&#39;s actually seen how it can work, they can&#39;t imagine it being this simple."</p>
+							
+						
+							
+								<p class="story__comment_others">"Twitter announcement: https://twitter.com/plan9foundation/status/13743504723168174...Plan 9 Foundation: https://p9f.org/Wikipedia: https://en.wikipedia.org/wiki/Plan_9_from_Bell_LabsThere&#39;s still a pretty active community around Plan 9, too.9Front, a popular fork of Plan 9: http://9front.org/Interviews with some Plan 9 community members: https://0intro.dev/Some videos: [A Tour of Acme](https://www.youtube.com/watch?v=dP1xVpMPn8M), [Peertube channel of sigrid&#39;s](https://diode.zone/video-channels/necrocheesecake/videos)"</p>
 							
 						
 							
 								<p class="story__comment_others">"Plan 9 elicits in my head the same kind of thoughts as Lisp -- I find them both extremely appealing on an intellectual level, and can&#39;t help but wonder why there isn&#39;t more of them around in the &#34;real world&#34;.As a software developer, my main use of my computer is writing / building / running code and surfing the web, mostly in read-only mode but also to interact with others via stuff like slack.  I have always wondered how difficult it would be to make Plan 9 a viable platform for these requirements, and why this is not so today (or maybe it is and I just don&#39;t know where to look): does the difficulty lie in porting programs that already run on other operating systems?  Are there other, deeper reasons?  Is it possible today to run stuff like vim, gcc / g++, python, java, node, zig, rust, firefox on Plan 9?  If not, is it possible to port these, or are there fundamental architectural reasons against it?Note: I am willing and happy to try other paradigms, such as acme for editing, but also find it quite baffling that, if it is technically possible, you could not install vim / emacs / vscode alongside acme."</p>
-							
-						
-							
-								<p class="story__comment_others">"Plan9 and Inferno are shining examples of not being opened early enough. They could conquer the world, but their licences were not open enough at the critical time, and technically inferior but open Linux ate their lunch, along with the dinner."</p>
 							
 						
 						</a>
@@ -513,11 +805,11 @@ I fully understand and agree that the platform is privately owned, etc. etc., bu
 							
 						
 							
-								<p class="story__comment_others">"Here is another accident of the &#34;Ever Given&#34; in Hamburg [0] in which a harbour ferry suffered a total loss after being rammed by her. Supposed cause was an unfortunate combination of slow speeds and severe wind which seems to be a difficult situation for ships as tall as these.Maybe a similar combination of events happened here?[0] https://www.mopo.de/hamburg/frachter-rammt-faehre-knapp-an-d..."</p>
+								<p class="story__comment_others">"If you go to vesselfinder you can follow the drama in real-time! Seems it&#39;s still stuck: https://www.vesselfinder.com/?imo=9811000"</p>
 							
 						
 							
-								<p class="story__comment_others">"If you go to vesselfinder you can follow the drama in real-time! Seems it&#39;s still stuck: https://www.vesselfinder.com/?imo=9811000"</p>
+								<p class="story__comment_others">"Here is another accident of the &#34;Ever Given&#34; in Hamburg [0] in which a harbour ferry suffered a total loss after being rammed by her. Supposed cause was an unfortunate combination of slow speeds and severe wind which seems to be a difficult situation for ships as tall as these.Maybe a similar combination of events happened here?[0] https://www.mopo.de/hamburg/frachter-rammt-faehre-knapp-an-d..."</p>
 							
 						
 						</a>
@@ -2658,290 +2950,6 @@ https://en.wikipedia.org/wiki/Richard_ProennekeRichard Louis Proenneke (/ˈprɛn
 						
 							
 								<p class="story__comment_others">"I&#39;m really addicted to these rebuild-civilization-from-scratch youtube channels.The one who got me into it was of course &#34;Primitive Technology&#34;: https://www.youtube.com/channel/UCAL3JXZSzSm8AlZyD3nQdBA/vid...Which spawned a huge number of copy-cat channels which are all pretty good too:Survival Skills Primitive: https://www.youtube.com/channel/UChUP6B_3zcdFYZnOdMM21og/vid...Primitive Skills: https://www.youtube.com/c/PrimitiveSkillsnet/videos"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">16 March 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.pcgamer.com/rockstar-thanks-gta-online-player-who-fixed-poor-load-times-official-update-coming/">Rockstar thanks GTA Online player who fixed load times, official update coming</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26469753">
-						
-							
-								<p class="story__comment_first line-clamp">"The original fix’s author updated the post about this: https://nee.lv/2021/02/28/How-I-cut-GTA-Online-loading-times...Rockstar awarded them 10k for it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Good on them for acknowledging something a little embarrassing and responding with gratitude instead ignoring to try to save some face."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is going to be a great point on his resume.How many people get to say something like, &#34;Reduced GTA 5 load times by 70%&#34;?!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/HNStatus/status/1371525940656803848">HN was down</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26469116">
-						
-							
-								<p class="story__comment_first line-clamp">"Founder and CEO of M5 Hosting here. We did have a network outage today that affected Hacker News. As with any outage, we will do an RCA and we will learn and improve as a result.I&#39;m a big fan of HN and YC in general, we host of other YC alum, and I have taken a few things through YC Startup School. During this incident, I spoke to YC personally when they called this morning."</p>
-							
-						
-							
-								<p class="story__comment_others">"HN is one of the few sites I always keep zoomed-in (around 200%), which led to me finding an interesting bug in Chrome while HN was down: Chrome&#39;s internal &#34;This site can&#39;t be reached&#34; page uses the zoom level of the site you would be visiting (if it were up), rather than Chrome&#39;s default zoom.Screenshot: https://i.imgur.com/VwFtgQh.png"</p>
-							
-						
-							
-								<p class="story__comment_others">"Hacker News is hosted at M5 and they are having a network outage:http://status.m5hosting.com/pages/incident/5407b8e2b00244251...edit: Unrelated to the Azure outage."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.eff.org/deeplinks/2021/03/fbi-should-stop-attacking-encryption-and-tell-congress-about-all-encrypted-phones">The FBI Should Stop Attacking Encryption</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26463446">
-						
-							
-								<p class="story__comment_first line-clamp">"Another argument against the &#34;going dark&#34; claim is that before smartphones and the internet, the only conversations the FBI could monitor was through phonelines and mail. These were known to be easily monitored and I doubt there was much more criminal activity happening through those then than now.I would argue that the conversations that have gone online are the interactions that were previously happening in-person (at least in term of criminal activity), to which the FBI didn&#39;t have access before.There is something Orwellian with the idea that there shouldn&#39;t be a word that can be pronounced in the country that the government cannot record and listen to after the fact. The limits of what is legal or not have always moved (see homosexuality, drug and alcohol consumption, etc). So a 100% enforcement of the law is counter-intuitively undesirable."</p>
-							
-						
-							
-								<p class="story__comment_others">"I dont understand why the US people still trust these agencies. FBI, CIA, NSA have all shown to act against the democracy in many cases. If they could be trusted, they could be trusted with a backdoor. Since they cannot be trusted, the backdoor only makes them a more dangerous enemy of the people."</p>
-							
-						
-							
-								<p class="story__comment_others">"The article&#39;s title is a little misleading, but I agree with their overarching message.Law enforcement should never be given the easy way out in terms of breaking encryption. Asking for backdoors to be installed in every device is extremely lazy police work. I&#39;m sure there are other ways of breaking encryption like the rubber-hose technique (of course with valid arrest warrant).Arguing that law enforcement should stop attacking encryption because it jeopardises privacy seems a little naive to me. What about criminals that profit from creating spyware? In fact, allowing law enforcement to actively research new ways to break encryption can be productive for improving security in the long run. Stop using weak passwords people."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://benhoyt.com/writings/count-words/">Performance comparison: counting words in Python, Go, C++, C, Awk, Forth, Rust</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26463967">
-						
-							
-								<p class="story__comment_first line-clamp">"Very interesting, these kinds of articles are (to me) some of the best content we get on here.I&#39;m no expert in any of the languages used except maybe C, at least I&#39;m quick to form opinions about C code. In C, I&#39;m not so sure that there is a well-established &#34;idiomatic&#34; concept, since C is not so tightly bound to a community as more modern languages. At least that&#39;s my feeling.That said, I was shocked to see that the example code did heap-allocations to store integers. Single integers, one per allocation, per &#34;counting bucket&#34;. I would store the count in the data pointer without a second thought, I just &#34;can&#39;t&#34; make 4/8-byte heap allocations and still sleep at night. Especially after all the concern about processing the input in large blocks for performance! Casting an integer to/from a void pointer should be pretty safe according to my gut feel. If that turns out to be false, I would dump the libc&#39;s hash API altogether, since it makes me do heap allocations to store single integers.I tried making the change locally, and the time taken (as measured with the OP&#39;s benchmarking program) dropped from 0.11 to 0.10 on my system (a Dell laptop running an Intel i5-7300). That&#39;s at least something."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is definitely the most interesting part of the article for me:Incidentally, this problem set the scene for a wizard duel between two computer scientists several decades ago. In 1986, Jon Bentley asked Donald Knuth to show off “literate programming” with a solution to this problem, and he came up with an exquisite, ten-page Knuthian masterpiece. Then Doug McIlroy (the inventor of Unix pipelines) replied with a one-liner Unix shell version using tr, sort, and uniq.http://www.leancrew.com/all-this/2011/12/more-shell-less-egg..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Knuth-McIlroy comes up a lot.  Previous discussion [1].  For this example I can make a very similar Nim program [2] run almost exactly the same speed as `wc -w`, yet the optimized C program runs 1.2x faster not 1.15x slower than `wc -w` - a 1.4x discrepancy - bigger than many ratios in the table.  So, people should be very cautious about conclusions from any of this.[1] https://news.ycombinator.com/item?id=24817594[2] https://github.com/c-blake/adix/blob/master/tests/wf.nim"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://iism.org/article/so-why-are-software-engineers-better-ceos-60">Why are so many successful founding CEOs software engineers?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26462443">
-						
-							
-								<p class="story__comment_first line-clamp">"All of the people on this list are &#34;software engineers&#34; in the sense that they have some rudimentary education in the field. Almost none of them could get a job as a software engineer at their own company, if they had to, because they would be completely unqualified. And I&#39;m not looking down my nose at anyone: I have an undergraduate degree in CS, but I got it 16 years ago and then went to law school, and there is not a serious place on earth that would let me touch their codebase. But if I started a really valuable company tomorrow (maybe I should), I would code as a software engineer on this list.I mean, come at it from the other direction: Why are there so many software engineers who are not successful CEOs? My God, they have the secrets of for loops, S-expressions, they know about vim---and yet they aren&#39;t running Pfizer? Why not?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Wow, talk about assuming correlation implies causation.I think the obvious lesson here is when society becomes reoriented around a new field (in this case software), people with experience in that field are going to do well."</p>
-							
-						
-							
-								<p class="story__comment_others">"What this seems to show is that CEOs in a particular sector often have expertise in that sector. And that Tech is currently the most highly valued sector as measured by market capitalisation. To find evidence of Software Engineers being the best CEOs overall you&#39;d really need to find examples of them running non-tech firms successfully or examples of non-Software Engineers running tech firms poorly."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.vice.com/en/article/y3g8wb/hacker-got-my-texts-16-dollars-sakari-netnumber">A hacker got all my texts for $16</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26468892">
-						
-							
-								<p class="story__comment_first line-clamp">"In Australia it&#39;s mandated you&#39;re sent a message before rerouting or migrating to another provider. Surprised this isn&#39;t enforced in the other countries, it costs next to nothing to implement and is just an additional step in the account migration process.I&#39;d love to see companies allow for opt in additional security measures, like banks or telco&#39;s calling me - having a verbal password to confirm things, that level of security seems to only be available to VIPs."</p>
-							
-						
-							
-								<p class="story__comment_others">"SMS is irredeemably broken, like all telco-designed garbage protocols. The only way you can incentivize companies to stop using it as security theater is to shift liability so any losses incurred by SMS jacking is automatically the liability of the company using SMS, just as nowadays any credit card fraud is borne by the company that is not using the EMV chip to secure a transaction."</p>
-							
-						
-							
-								<p class="story__comment_others">"Reminder: SMS 2FA adds only a negligible amount of security, if your company does 2FA via SMS you&#39;re doing nothing more than lulling your users into a false sense of security. Don&#39;t do it. Support proper 2FA. (And while you&#39;re at it, allow your users to decide how much they care about their account. Don&#39;t make the decision for them.)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.ghacks.net/2021/03/14/mozilla-plans-to-remove-the-compact-density-option-from-firefoxs-customize-menu/">Mozilla plans to remove the Compact Density option from Firefox&#39;s Customize menu</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26464533">
-						
-							
-								<p class="story__comment_first line-clamp">"I use this feature. On a large monitor, Firefox wastes quite a lot of space with the default layout. To be honest, I wish there was an option to make it more compact than the &#34;compact&#34; layout. There used to be an XUL extension to do this, before XUL was killed off.Seems like every time I see coverage about Firefox, it&#39;s Mozilla removing or crippling some feature I care about.Why bother using FF at this point? Most sites don&#39;t work as well, and Mozilla seems actively hostile to my use case. If I&#39;m going to use a browser that is hostile to me, I may as well get better website compatibility out of the bargain.Not surprised their market share keeps shrinking. At this point, what&#39;s the sell?Edit 1: worth noting, there is a lower-down comment thread[0] with relevant links - Mozilla does not care if you like this feature.0 - https://news.ycombinator.com/item?id=26464973"</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t get it.  The wording of the bugzilla specifically says&gt;  The &#34;Compact&#34; density is a feature of the &#34;Customize toolbar&#34; view which is currently fairly hard to discover, and we assume gets low engagement.So not only do they not have telemetry for that, they aren&#39;t even attempting to make it more discoverable to test if there&#39;s a correlation between &#34;hard to discover&#34; and &#34;low engagement&#34;?I would use this but never knew this could be changed."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t think Mozilla has a clear vision of what they want to achieve. They&#39;ve been randomly removing features, or even plain butchering their  products (eg the recent Firefox mobile update) for several years, and all they probably achieved is to lose more and more users.Yet with their tiny market share they aren&#39;t exactly in a position to lose users."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/hermaritz/status/1371383715381805061">Our app was banned because the button says “Report User” and not just “Report”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26464111">
-						
-							
-								<p class="story__comment_first line-clamp">"For those not from South Africa, this app is primarily for people to be able to get notifications or look up when their area will be affected by a &#34;planned power outage&#34;, or as Eskom (our state owned power utility) refers to it, &#34;load shedding&#34;. &#34;Load shedding&#34; is enacted whenever they have a power production capacity issue where different areas take turns without power so as to not let the power grid collapse.This app aggregates information from various data sources and provides push notifications too. It is without a doubt the best source of this information and the app being unavailable significantly affects the day to day lives of a significant portion of the South African population who use it to plan around these power outages.While the app also has a &#34;chat&#34; feature, it&#39;s really tangental to the primary purpose of the app and I expect that most users of the app, like myself, don&#39;t use that feature at all and only care about knowing when they will be without electricity.In case you&#39;re wondering why they hell we have load shedding, it&#39;s because Eskom is grossly incompetent. Their incompetence is hugely exacerbated by nepitism and corruption where government has historically appointed people to Eskom management positions solely as &#34;favours&#34;, rather than on qualification for the job."</p>
-							
-						
-							
-								<p class="story__comment_others">"The company I work for has forbidden the use of Google and their services such as GCP etc. due to how they treat their Play Store developers and other customer, in particular that there never seems to be any human being that you can talk to and find out what you need to do to fix the situation. We do not want the same to occur to our servers or if there is an overflow from Play Store ban to GCP etc. The business risk is too high when you rely on Google&#39;s services.Some examples:Terraria banned - https://twitter.com/Demilogic/status/1358661840402845696New project banned - https://medium.com/@amton15127/why-you-should-not-use-fireba...Google bans company - https://www.reddit.com/r/tifu/comments/8kvias/tifu_by_gettin...Google bans mail - https://talkingpointsmemo.com/edblog/a-serf-on-googles-farmBan app for communicating changes during covid - https://news.ycombinator.com/item?id=23221447Adwords ban - https://news.ycombinator.com/item?id=23224791Serverpunch bad support - https://news.ycombinator.com/item?id=17431609Delete app - https://news.ycombinator.com/item?id=20826618Google bans game with pandemic - https://news.ycombinator.com/item?id=23229073Google bans dev with no recourse - https://news.ycombinator.com/item?id=15197357"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is the other side of the Play-store problem. The other side is the tax.Play store employee can ban your app = destroy your business at any time. The reason can be &#39;new policy&#39;, &#39;misunderstanding&#39; or something more problematic, such as influence from your competitor to the employee.A &#39;power to destroy business&#39;, should not be a click away from some random employee."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/article/health-coronavirus-germany-astrazeneca/update-1-germany-to-halt-astrazeneca-vaccinations-health-ministry-idUSL8N2LD4T9">Germany pauses AstraZeneca vaccinations as a &#39;precaution&#39;</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26467045">
-						
-							
-								<p class="story__comment_first line-clamp">"Looks like this may be a bit more relevant than many of the snarky comments would suggest - the relevant German authority on this said that they have seen a unexpected increase in a specific type of blood clotting issue that usually is very rare: https://www.pei.de/DE/newsroom/hp-meldungen/2021/210315-voru..."</p>
-							
-						
-							
-								<p class="story__comment_others">"You do have to wonder if some of this is politically driven. Germany are losing hundreds of life&#39;s a day, while in the meantime the UK has administrated 23 million doses (not sure the ratio of those that were AstraZeneca) and not recorded a single fatality or adverse reaction and are seeing infection rates / deaths drop. I can understand caution under normal circumstances, but nothing is normal right now."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve mentioned it in a comment in the previous thread but it&#39;s not completely unexpected and with no causal link. Adenovirus induced blood coagulation problems are known:Adenovirus-induced thrombocytopenia: the role of von Willebrand factor and P-selectin in mediating accelerated platelet clearancehttps://www.sciencedirect.com/science/article/pii/S000649712...You can see the number of reported cases across Europe in the EUDRA Vigilance database (if you manage to get through the Oracle BI interface and if it doesn&#39;t error out)https://www.ema.europa.eu/en/human-regulatory/research-devel...I don&#39;t understand why AstraZeneca doesn&#39;t just say: yeah blood clots are a risk, incidence 1/100,000 and everyone can move on. Why does everything needs to be so politicized with this vaccine."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/harporoeder/ebpfsnitch">EBPFSnitch: An eBPF based Linux Application Firewall</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26455058">
-						
-							
-								<p class="story__comment_first line-clamp">"If you&#39;re interested in this, you may be interested in this as well: https://github.com/evilsocket/opensnitchIt has a GUI interface as well."</p>
-							
-						
-							
-								<p class="story__comment_others">"This looks spectacular! Finally! This is functionality I&#39;ve desperately wanted on Linux desktop. Link that up with with some of the SELinux on-demand tools and you have a plausible way to run untrusted binaries without the overhead of completely containerizing them up front."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those who&#39;re unaware.ebpf: extended berkeley packet filterUnfortunately, even the website https://ebpf.io/what-is-ebpf doesn&#39;t mention this. Interestingly, I was unable to find the words packet filter used together as well or firewall. I might be wrong.I know that if you know what it is you&#39;d know but trying to explain that to my partner here just glancing at my screen wasn&#39;t easy."</p>
 							
 						
 						</a>
