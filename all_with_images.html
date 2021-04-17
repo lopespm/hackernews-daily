@@ -36,6 +36,420 @@
 	</div>
 
 	
+	<div class="day__date">17 April 2021</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://lkml.org/lkml/2021/4/14/1099">
+						<picture>
+							<source srcset="default_26831841.webp" type="image/webp">
+							<source srcset="default_26831841.png" type="image/png">
+							<img src="default_26831841.png" alt="Preview of 'Linus Torvalds on Rust support in kernel'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://lkml.org/lkml/2021/4/14/1099">Linus Torvalds on Rust support in kernel</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26831841">
+						
+							
+								<p class="story__comment_first line-clamp">"The title is slightly misleading, and so is Linus&#39; response here. This RFC never claimed to be in shape to be immediately mergeable into the mainline kernel as-is. Miguel (the author of the patch) has replied to this mail (and in other places in the thread) that the Rust alloc() is currently called only as a temporary measure to speed up development, and all panic() calls from allocation failures are just as temporary. This is all because the Rust code that hooks into the kernel memory allocation functions is not yet usable.The main point of this RFC is that &#34;the [in-kernel Rust] support is good enough that prototyping modules can start today.&#34; There&#39;s no point in making long arguments about alpha-quality design shortcuts on an alpha-quality prototype that are also explicitly mentioned by the patch authors to be of alpha quality.See e.g. https://lkml.org/lkml/2021/4/14/1130 and https://lkml.org/lkml/2021/4/14/1023EDIT: Thanks for the child comments; it seems that Linus is simply not aware of all the specifics and is asking for more information and/or decided to look at the code before reading the full mail thread."</p>
+							
+						
+							
+								<p class="story__comment_others">"What I would love to see is Rust in the kernel, with a caveat. That caveat is something akin to Erlang&#39;s OTP supervision trees. Erlang has a similar philosophy to Rust in that if something erroneous happens the process fails. The difference is that Erlang OTP is designed to have supervisor processes of the worker processes. The only thing the supervisors do is monitor the processes under them and control when, if, and how those processes are restarted on failure or other conditions. The supervisors themselves have supervisors, right up to the root supervisor for each Erlang application.Rust got the language and the tooling perfect, but Erlang got the services and service infrastructure perfect.  The more I think about it the more I think I should shut up and put up. In other words, apply my knowledge of Erlang and OTP to create a gen_server in Rust as a jumping off point for a OTP like Rust framework, perhaps called OARS (Open Advanced Rust Services).  This is definitely bigger than one person. If you&#39;d like to join me on this journey then reply to this comment and I&#39;ll send you project details by the end of the weekend."</p>
+							
+						
+							
+								<p class="story__comment_others">"Aside from Linus&#39; reaction, there are some really interesting pearls in that thread, for example:Regarding code style[1]:&gt; The more you make it look like (Kernel) C, the easier it is for us C people to actually read. My eyes have been reading C for almost 30 years by now, they have a lexer built in the optical nerve; reading something that looks vaguely like C but is definitely not C is an utterly painful experience.&gt; You&#39;re asking to join us, not the other way around. I&#39;m fine in a world without Rust.CoC was already brought into battle[2]:&gt;&gt; I could be mistaken but you seem angry. Perhaps it wouldn&#39;t be a bad idea to read your own code of conduct, I don&#39;t think you need a browser for that either.&gt; Welcome to LKML. CoC does not forbid human emotions just yet. Deal with
+it.These ([3] [4]) messages have an interesting perspective about maintenance.&gt; I&#39;m sure about one thing, the C bugs we have today will be
+fixable in 20 years. I&#39;m not even sure the Rust code we&#39;ll merge today
+will still be compilable in 10 years nor will support the relevant
+architectures available by then, and probably this code will have to
+be rewritten in C to become maintained again.Linus wants to see a real, working kernel driver instead of Android Binder[5]:&gt;Would there be some kind of real driver or something that people could
+use as a example of a real piece of code that actually does something
+meaningful?[1] https://lkml.org/lkml/2021/4/16/118[2] https://lkml.org/lkml/2021/4/16/143[3] https://lkml.org/lkml/2021/4/16/181[4] https://lkml.org/lkml/2021/4/16/283[5] https://lkml.org/lkml/2021/4/14/1091"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://paramdeo.com/blog/opting-your-website-out-of-googles-floc-network">
+						<picture>
+							<source srcset="default_26828967.webp" type="image/webp">
+							<source srcset="default_26828967.png" type="image/png">
+							<img src="default_26828967.png" alt="Preview of 'Opting Your Website Out of Google&#39;s FLoC Network'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://paramdeo.com/blog/opting-your-website-out-of-googles-floc-network">Opting Your Website Out of Google&#39;s FLoC Network</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26828967">
+						
+							
+								<p class="story__comment_first line-clamp">"Ok, so let me see if I understand this correctly:I run a website with no trackers, no ads, nothing at all to do with Google or any other company in any way.
+You come along, with Google Chrome, and visit my site.
+Google adds the fact that you visited my site to their massive dataset (as well as who-knows-what-else)
+And to opt out of something I have never been asked to be involved with in any way, I need to contact Google and ask them to please leave my site alone?Am I understanding this shit correctly?Whether I like it or not, my site, by proxy, is participating in Google&#39;s data mining?If my guess is correct, how the actual fuck is this not illegal?Edit: Ok, I guess I&#39;m off the mark here with my assumptions so I&#39;ll put my pitchfork down.Google are just using your Chrome browsing data, matching it with site id&#39;s (or hashes?) and then analysing the shit out of it for their gain.As a website owner, nothing has changed other than I can tell them not to use my site as part of their analysis... that sound about right?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Let me get this straight: even if my site has no ads or trackers, Chrome will now use my visitors data for advertising and surveillance???Does anyone else see FLoC as worse than the current state we&#39;re in?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Has nobody bothered to read anything about FLoC?The purpose of this permission is to prevent embedded third-party content from using FLoC. Besides that it’s a no-op.FLoC does not track arbitrary websites, it tracks sites which retrieve the FLoC cohort via JS. So instead of dropping a unique third party cookie, and associating it with the data on the page, sites can now retrieve a k-anonymous cohort id and associate it with the data on the page. If you’re not doing that (or serving ads) there’s nothing you need to do.That’s not to say that FLoC doesn’t deserve criticism just that most criticism I’ve encountered is not grounded in reality."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.washingtonpost.com/technology/2021/04/16/nasa-lunar-lander-contract-spacex/">
+						<picture>
+							<source srcset="default_26837004.webp" type="image/webp">
+							<source srcset="default_26837004.png" type="image/png">
+							<img src="default_26837004.png" alt="Preview of 'SpaceX wins contract to develop spacecraft to land astronauts on the moon'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.washingtonpost.com/technology/2021/04/16/nasa-lunar-lander-contract-spacex/">SpaceX wins contract to develop spacecraft to land astronauts on the moon</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26837004">
+						
+							
+								<p class="story__comment_first line-clamp">"This is really huge news. Starship has in about 18 months gone from a Elon standing next to a steel grain silo duct-taped into the shape of a rocket, to all the eggs in NASA&#39;s moon basket. The thing I kept thinking - and I have to believe was considered within NASA - is given the rapid progress SpaceX has been making along with the delays in Congressional funding, SLS, BlueOrigin&#39;s other projects etc ... if NASA hadn&#39;t selected SpaceX there was at least some chance they&#39;d go ahead and do their own private Moon landing mission before NASA&#39;s, a massive egg-on-face moment.There are still major risks with the Starship program so I don&#39;t think anyone should be 100% confident they can pull this off, but the massive side benefit is if they do NASA will have proven out a generic system, fully reusable and with orbital refueling, that can with minimal modification cost-effectively send humans to Mars and much of the rest of the solar system as well. A Model T or 737 in space. The original Artemis plan never made much sense as a Mars &#34;proof-of-concept&#34;, but it actually does now.If at some point say 2025, NASA says to the President &#34;we can get the first human on Mars in 4 years for $15 billion&#34; I have to imagine any American president being eager to sign their name on that accomplishment and give the JFK speech, &#34;We choose to go to Mars in this decade, not because it is easy, but because it is hard; because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one we intend to win&#34;To me that&#39;s the real takeaway here: this is implicitly a huge NASA bet not just on the Moon, but Mars and the rest of the solar system. Finally."</p>
+							
+						
+							
+								<p class="story__comment_others">"The biggest news IMO is that there&#39;s only a single winner.   There was a lot of pressure to make Commercial Crew a sole contact to Boeing, and it now appears that Boeing is going to deliver Starliner two years later than SpaceX delivered Crew Dragon.  So going with two winners saved NASA&#39;s bacon.    It&#39;s surprising to see them only choose a single winner here.  Yes SpaceX may be considered a safe bet, but ten years ago it was Boeing who was considered the safe bet.   Things change over years."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have to say, I am completely skeptical of Blue Origin&#39;s ability to do anything in a reasonable amount of time and that they will amount of anything but Bezo&#39;s hobby. At least until they change their approaches.That said, it&#39;s a very secretive firm with an unknown amount of progress.I&#39;ll believe in Blue Origin when I see it."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.accc.gov.au/media-release/google-misled-consumers-about-the-collection-and-use-of-location-data">
+						<picture>
+							<source srcset="default_26832123.webp" type="image/webp">
+							<source srcset="default_26832123.png" type="image/png">
+							<img src="default_26832123.png" alt="Preview of 'Google misled consumers about the collection and use of location data'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.accc.gov.au/media-release/google-misled-consumers-about-the-collection-and-use-of-location-data">Google misled consumers about the collection and use of location data</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26832123">
+						
+							
+								<p class="story__comment_first line-clamp">"The important parts:&gt; The Court ruled that when consumers created a new Google Account during the initial set-up process of their Android device, Google misrepresented that the ‘Location History’ setting was the only Google Account setting that affected whether Google collected, kept or used personally identifiable data about their location. In fact, another Google Account setting titled ‘Web &amp; App Activity’ also enabled Google to collect, store and use personally identifiable location data when it was turned on, and that setting was turned on by default.&gt; 
+The Court also found that when consumers later accessed the ‘Location History’ setting on their Android device during the same time period to turn that setting off, they were also misled because Google did not inform them that by leaving the ‘Web &amp; App Activity’ setting switched on, Google would continue to collect, store and use their personally identifiable location data."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m guessing that a literal slap on the wrist of the CEO, executed by a random internet user would hurt more than the fine they would get for this."</p>
+							
+						
+							
+								<p class="story__comment_others">"Ironically, the ACCC website also attempts to load a script from *.google-analytics.com."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.ccc.de/en/updates/2021/luca-app-ccc-fordert-bundesnotbremse">
+						<picture>
+							<source srcset="default_26832525.webp" type="image/webp">
+							<source srcset="default_26832525.png" type="image/png">
+							<img src="default_26832525.png" alt="Preview of 'Luca App: CCC calls for a moratorium'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.ccc.de/en/updates/2021/luca-app-ccc-fordert-bundesnotbremse">Luca App: CCC calls for a moratorium</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26832525">
+						
+							
+								<p class="story__comment_first line-clamp">"The Luca app really is a complete train wreck. And what&#39;s worse is that the federal governments don&#39;t even have any direct control over the app itself, they just bought access to the contact tracing data for 12 months from the company operating the app. Meanwhile the company controls the app and all connected user accounts and can repurpose it in whichever way they see fit (and they already announced they have plans for the app beyond the pandemic).It&#39;s absolutely mind-boggling to me how our government(s) can get the idea to &#34;rent&#34; contact tracing data from a private company like this, it just reeks of corruption. I wasn&#39;t a big fan of the Covid tracing app in the beginning, but in retrospect the concept of that app seems miles ahead of the current situation with the Luca app."</p>
+							
+						
+							
+								<p class="story__comment_others">"There is so much incompetency in governmental IT/software decisions and software it&#39;s actually sad.Is it a  product of smart people simply not working in this sector or corruption?. It seems from the outside to be filled with imbeciles masquerading as administrators.We need to somehow make the government way more accountable, if only there was an organization that could do that, we could call it the media."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is amazing.There should be hacker clubs in each country double checking all suspicious public procurements."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=26825017">
+						<picture>
+							<source srcset="default_26825017.webp" type="image/webp">
+							<source srcset="default_26825017.png" type="image/png">
+							<img src="default_26825017.png" alt="Preview of 'Ask HN: How can a unhireable person get a job?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=26825017">Ask HN: How can a unhireable person get a job?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26825017">
+						
+							
+								<p class="story__comment_first line-clamp">"As a hiring manager, the things that stand out to me in your post:- You said you quit a job at EA, quit a job at IBM, dropped out of college your freshman year. You may have valid reasons for leaving each of these, but you have to see this from the manager&#39;s perspective: You had 3 different great opportunities that all came to a dead end at the beginning of your career. You need an alternate narrative.- You talk about applying to Google, Facebook, Airbnb, Palantir, and other companies known to be very competitive, yet the only real job experience you list in your post is low level customer support. Nothing wrong with aiming high, but you need to also be applying to jobs that are a logical next step in your career. It&#39;s extraordinarily difficult to jump from customer support to FAANG engineer, so have a backup plan.- You spoofed e-mails to manipulate executives into meetings. This kind of thing sounds clever in movies or from anecdotes in the 90s or 2000s, but in this era everyone is on high alert for phishing attacks and security breaches. Read the room, and don&#39;t commit computer fraud during your application process. Big companies have systems in place to catch these things and you&#39;ll get blocked in short order.- No mention of your network. Do you have any contacts or friends or acquaintances anywhere in the industry? Even people you knew briefly from school? People who you worked with in the past who moved up? Reach out and ask if they have any advice for your job search. Going forward, make a point to stay on good terms with the people around you. You can help each other as your careers progress."</p>
+							
+						
+							
+								<p class="story__comment_others">"Have you tried asking any of the jobs that rejected you&#39;re getting rejected?Honestly, just a guess, you&#39;re probably giving off bad interpersonal vibes/people don&#39;t really like talking to you. Half of interviewing is just being very personable/being able to talk comfortably with other people. Generally in this space (this space meaning those interested in tech/startups/etc) sometimes people struggle in this area but really shine in tech. I would encourage you to spend some time reflecting on your interpersonal skills.Some other red-ish flags from your post - you kinda seem like you might struggle just doing exactly what you&#39;re asked to do. Bringing up how frequently you quit things for various reasons or finding issues and bringing them up with your superiors&#39; superiors, spoofing numbers to get in touch with very very senior people. Lots of lower-tiered jobs literally just need people to show up and do what they&#39;re asked. A part of getting a &#34;first&#34; or &#34;entry level&#34; job is accepting you&#39;re there mostly to learn, not to teach/move outside of your lane. The fact that you would even bring up Bill Landreth seems like you might not necessarily see yourself how the rest of the world sees you.I&#39;m not trying to offend you - I really hope you can line something up soon. I apologize if this feedback seems cold - I think reflecting on things like this can be hard because you have to face things about yourself you may disagree with or not realize. Unfortunately interviewing is such a biased game, you kind of have to play your opponent (meaning, be the person they want, not the person you are).Happy to chat through any of this stuff if you have questions. Wish you all the best."</p>
+							
+						
+							
+								<p class="story__comment_others">"Your writing is not strong, i can tell you did not attend college. Written communication is important in tech.Your applying to those companies with 0 experience or college degree is unrealistic. The entry level is extremely competitive and you have nothing to make you interesting to hire. They get thousands of applications for those jobs.You are still young, plenty of time to learn, but I recommend taking a step back and rethink your strategy. There are plenty of companies that do not get thousands of applications for jobs.Let me put it bluntly: you are not qualified to be a software engineer. There is no reason anyone would currently hire you, unless you are personable and fun to talk to.You show immaturity in the way you handled the flaw in the system you described. Calling your boss&#39;s boss because you think you are right is childish.Additionally, you do not understand how to get a software job, you do not have realistic expectations for what kind of jobs you are qualified to acquire.A few years ago my brother, who is in his thirties, was stuck in a dead end job he hated. So he took some classes in 3D modeling. He worked hard, built out his portfolio, networked, and eventually landed a job at a world famous video game studio making AAA games at an interesting role that builds his skills.What he did not do was blindly apply to jobs he was not qualified to do with zero training"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.nysfocus.com/2021/04/13/new-york-bitcoin-mining-threat/">
+						<picture>
+							<source srcset="default_26828479.webp" type="image/webp">
+							<source srcset="default_26828479.png" type="image/png">
+							<img src="default_26828479.png" alt="Preview of 'Bitcoin miners are buying power plants'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.nysfocus.com/2021/04/13/new-york-bitcoin-mining-threat/">Bitcoin miners are buying power plants</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26828479">
+						
+							
+								<p class="story__comment_first line-clamp">"It’s a simple equation:
+So long as there is more money in mining BTC than there is cost in energy to mine it, mining will proceed.No entity in the world can control the price of crypto. But, we can and already do regulate energy production.I think we need a carbon tax, that is specifically a financial disincentive towards any means of energy production that directly pollutes the atmosphere.Seriously, what are the current best arguments against levying such a disincentive?Moreover, if energy were priced correctly (its toll on the climate priced in) would BTC become higher in value? That is, we have a supply, increasing at a rate fixed between the arbitrage of energy and mining efficiency. If energy were to become more expensive, the growth in supply would slow. Assuming demand remains constant or continues to grow as well, the only way for price to go is up."</p>
+							
+						
+							
+								<p class="story__comment_others">"Easy solution: tax carbon emissions.Who cares if you’re using energy to mine Bitcoin? Or if you’re using it to play video games? Or to run the AC all day?If it you’re internalizing the cost of any emissions, then you’ll use those resources efficiently."</p>
+							
+						
+							
+								<p class="story__comment_others">"Who cares? Everyone is fixated on Bitcoin... there are tons of energy inefficient processes out there. The solution has nothing to do with Bitcoin... environmental impact needs to be priced into energy itself, whatever the application. This is a failure of the markets (and therefore ourselves). Bitcoin is a scapegoat."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.reuters.com/business/us-house-committee-approves-blueprint-big-tech-crackdown-2021-04-15/">
+						<picture>
+							<source srcset="default_26831555.webp" type="image/webp">
+							<source srcset="default_26831555.png" type="image/png">
+							<img src="default_26831555.png" alt="Preview of 'U.S. House committee approves blueprint for Big Tech crackdown'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/business/us-house-committee-approves-blueprint-big-tech-crackdown-2021-04-15/">U.S. House committee approves blueprint for Big Tech crackdown</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26831555">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; potentially barring companies like Amazon.com from operating the markets in which they also competeAbsolutely bananas that this haven&#39;t been fixed yet! How can Google own the entire ads market and still be allowed to compete in it? Obviously for-profit companies will abuse their positions if it&#39;ll earn them more money, and fines ends up being the cost of doing business instead of deterrents.How is Apple allowed to disallow any other web browsers on their mobile devices? We already went through this with Microsoft in the past but suddenly it&#39;s different?How can Amazon be allowed to sell competing products in their own marketplace, when they own the actual marketplace? They should have been forced to divide their business long time ago. Of course they are gonna use metrics from competitors that only they have access to, in order to make their own product line get better.Why is Google allowed to rank their own products in front of more general results? Try searching for &#34;Earth&#34; on Google and see what the top hit is. Is that really a fair ranking? We don&#39;t even know, because no one knows how their algorithm is working, but one thing is clear, Google products consistently rank higher than anything else in the search engine.The list goes on. I&#39;m happy that it&#39;s being suggested, I&#39;m just worried how it took so long to get here."</p>
+							
+						
+							
+								<p class="story__comment_others">"Given the volume and profitably of tech trading by members of Congress (see https://news.ycombinator.com/item?id=26821601) I have ZERO confidence that any useful legislation will come of it. It will just be a bunch of earnest and disingenuous theatre by the very people profiting from a bunch of companies who make Microsoft circa 1995 look like a kitten.For my part, I think the fundamental business model of profiting from user engagement (where screen time is money) is toxic, and we can’t fix anything until we find a way to effectively eliminate it."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;A year after initiating the investigation, we received testimony from the Chief Executive
+Officers of the investigated companies: Jeff Bezos, Tim Cook, Mark Zuckerberg, and Sundar Pichai.
+For nearly six hours, we pressed for answers about their business practices, including about evidence
+concerning the extent to which they have exploited, entrenched, and expanded their power over digital
+markets in anticompetitive and abusive ways. Their answers were often evasive and non-responsive,
+raising fresh questions about whether they believe they are beyond the reach of democratic oversight.Although these four corporations differ in important ways, studying their business practices has
+revealed common problems. First, each platform now serves as a gatekeeper over a key channel of
+distribution. By controlling access to markets, these giants can pick winners and losers throughout our
+economy. They not only wield tremendous power, but they also abuse it by charging exorbitant fees,
+imposing oppressive contract terms, and extracting valuable data from the people and businesses that
+rely on them. Second, each platform uses its gatekeeper position to maintain its market power.By controlling the infrastructure of the digital age, they have surveilled other businesses to identify
+potential rivals, and have ultimately bought out, copied, or cut off their competitive threats. And,
+finally, these firms have abused their role as intermediaries to further entrench and expand their
+dominance. Whether through self-preferencing, predatory pricing, or exclusionary conduct, the
+dominant platforms have exploited their power in order to become even more dominant.&#34;Well they&#39;re not wrong..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.filestash.app/2021/04/16/ftp-is-50-years-old/">
+						<picture>
+							<source srcset="default_26834119.webp" type="image/webp">
+							<source srcset="default_26834119.png" type="image/png">
+							<img src="default_26834119.png" alt="Preview of 'FTP is 50 years old'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.filestash.app/2021/04/16/ftp-is-50-years-old/">FTP is 50 years old</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26834119">
+						
+							
+								<p class="story__comment_first line-clamp">"Amazing.I never thought I would say this, but I actually implemented an FTP server in 2020. This was needed to support firmware updates to specific hardware (Electric Vehicle charging stations). Apparently embedded software developers choose FTP whenever a spec doesn&#39;t specify how binary file transfers should work.It was kind of amusing getting FTP to work in a modern cloud environment. I run a single Kubernetes pod with a Node.js based FTP server optimized for one thing: Transferring files between FTP and Google Cloud Storage. A series of ports are specified in the Docker file to enable passive FTP transfers.Even more amusing was the number of varieties in which FTP was implemented by different hardware manufacturers. I regularly had to dive into the FTP libraries to add support for crazy edge cases (tcpflow in kubectl exec -it is your friend!). Example: one device added a newline in the middle of a command (USER\n myusername)..The latest curve ball I received this week is that a certain firmware version of a Qualcomm modem chip cannot deal with the size of the IP packets coming from our FTP server... Fun stuff!"</p>
+							
+						
+							
+								<p class="story__comment_others">"From rfc801 (transition from NCP to TCP/IP) :
+&#34;FTP: This is specified in RFC 765.  It is very similar to the FTP used with the NCP.  The primary differences are that in addition to the changes for Telnet, that the data channel is limited to 8-bit bytes so FTP features to use other transmission byte sizes are eliminated.&#34;So FTP is older than the standardisation of byte size :-)"</p>
+							
+						
+							
+								<p class="story__comment_others">"On the other side upcoming Firefox 90 is removing support for FTP:https://blog.mozilla.org/addons/2021/04/15/built-in-ftp-impl..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://uxdesign.cc/why-has-no-one-made-a-better-goodreads-dfc9cb9e149a">
+						<picture>
+							<source srcset="default_26834833.webp" type="image/webp">
+							<source srcset="default_26834833.png" type="image/png">
+							<img src="default_26834833.png" alt="Preview of 'Why has no one made a better Goodreads'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://uxdesign.cc/why-has-no-one-made-a-better-goodreads-dfc9cb9e149a">Why has no one made a better Goodreads</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26834833">
+						
+							
+								<p class="story__comment_first line-clamp">"Mek here from internet archive&#39;s OpenLibrary.org.Open Library was started by @aaronsw.We&#39;re a library catalog with 3M+ books to read &amp; borrow.We&#39;ve been around for 15 years, not going anywhere.We&#39;re open source and non profit:
+https://github.com/internetarchive/openlibraryWe defend patron privacy, offer free APIs, and release all public data openly: 
+https://openlibrary.org/developers/dumpsMost projects on this page have likely used our data.We have a Reading Log and several other more substantial features in the works.Our catalog spans more than 20M works: https://openlibrary.org/statsYou can help!
+https://openlibrary.org/volunteer"</p>
+							
+						
+							
+								<p class="story__comment_others">"If it&#39;s not broken, why fix it? I go to goodreads for the high-quality book reviews and community. I literally don&#39;t care about UX or fancy algorithms. I&#39;d rather use an old algorithm called &#39;talking to someone I know&#39; for book recommendations. Right now it feels like a clunky old site made for books reviews and I like that feel. I don&#39;t want some Amazon product manager who only cares about monetising (where can I smack ads?!) to touch it thank you very much. And god forbid some UX person gets hold of it and redesigns it in the boring/minimal feel (so it loads fast and we can smack lots of ads on it)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Readng is a great alternative to GoodReads: https://beta.readng.co/It’s currently in private beta."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">16 April 2021</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -2461,11 +2875,11 @@ might cause the database engine to perform difficult_calculation() on all rows, 
 							
 						
 							
-								<p class="story__comment_others">"&gt;At browser launch, Firefox will wait for uBO to be up and ready before network requests are fired from already opened tab(s).&gt;This is not the case with Chromium-based browsers, i.e. tracker/advertisement payloads may find their way into already opened tabs before uBO is up and ready in Chromium-based browsers, while these are properly filtered in Firefox.&gt;Reliably blocking at browser launch is especially important for whoever uses default-deny mode for 3rd-party resources and/or JavaScript.Oof.  TIL.  That makes blockers kinda crippled in chromes, if you expect them to actually block things."</p>
+								<p class="story__comment_others">"Such a shame uMatrix was discontinued.uBlock Origin comes close, and surpasses in some ways (I used both for that reason) but lacks separate control of cookies, images, scripts, etc. So you can&#39;t accept a particular third party&#39;s images without also accepting its scripts, cookies, etc.I mention it mainly in the hope that we can popularise its maintained fork &#39;nuTensor&#39;.After trying uBlock (as in attempting to also cover what I used to use uMatrix for) for a few weeks I think it&#39;s insufficient and nuTensor is the better option for me, but it quickly won&#39;t be if ~nobody uses it and it falls by the wayside.Alternatively uBO could support the few details it lacks from uM? It seems like the problem basically was difficulty/time constraints in supporting both.. but I don&#39;t know why they were ever separate? There&#39;s plenty of overlap. If uBO had uM&#39;s granularity in &#39;advanced mode&#39;, that&#39;d be perfect."</p>
 							
 						
 							
-								<p class="story__comment_others">"Such a shame uMatrix was discontinued.uBlock Origin comes close, and surpasses in some ways (I used both for that reason) but lacks separate control of cookies, images, scripts, etc. So you can&#39;t accept a particular third party&#39;s images without also accepting its scripts, cookies, etc.I mention it mainly in the hope that we can popularise its maintained fork &#39;nuTensor&#39;.After trying uBlock (as in attempting to also cover what I used to use uMatrix for) for a few weeks I think it&#39;s insufficient and nuTensor is the better option for me, but it quickly won&#39;t be if ~nobody uses it and it falls by the wayside.Alternatively uBO could support the few details it lacks from uM? It seems like the problem basically was difficulty/time constraints in supporting both.. but I don&#39;t know why they were ever separate? There&#39;s plenty of overlap. If uBO had uM&#39;s granularity in &#39;advanced mode&#39;, that&#39;d be perfect."</p>
+								<p class="story__comment_others">"&gt;At browser launch, Firefox will wait for uBO to be up and ready before network requests are fired from already opened tab(s).&gt;This is not the case with Chromium-based browsers, i.e. tracker/advertisement payloads may find their way into already opened tabs before uBO is up and ready in Chromium-based browsers, while these are properly filtered in Firefox.&gt;Reliably blocking at browser launch is especially important for whoever uses default-deny mode for 3rd-party resources and/or JavaScript.Oof.  TIL.  That makes blockers kinda crippled in chromes, if you expect them to actually block things."</p>
 							
 						
 						</a>
@@ -3581,396 +3995,6 @@ Is it possible that all of our previous experiments have had some sort of correl
 						
 							
 								<p class="story__comment_others">"Troy just added phone number search to Have I Been Pwned as well: https://www.troyhunt.com/the-facebook-phone-numbers-are-now-... (https://news.ycombinator.com/item?id=26709848)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">07 April 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=26721951">
-						<picture>
-							<source srcset="default_26721951.webp" type="image/webp">
-							<source srcset="default_26721951.png" type="image/png">
-							<img src="default_26721951.png" alt="Preview of 'Ask HN: What tech job would let me get away with the least real work possible?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=26721951">Ask HN: What tech job would let me get away with the least real work possible?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26721951">
-						
-							
-								<p class="story__comment_first line-clamp">"This is an awesome question. I hope someone has good strategies for you. Life should be spent doing the things you find worthwhile, and the fact is, not all of those things are monetizable.Given how esteem- and success driven HN as a platform is... you might not get too many ideas since I suppose people want to maintain their &#34;hireable&#34; status.Success and &#34;loving your job&#34; are more or less empty phrases unless you are actually a professional moving your field forward or learning a highly complex subject matter - or you own a stake in a company.Beyond that you are toiling, and if you like your job, it&#39;s glorious toiling like gardening (pleasing, but not important, but you love it, so it&#39;s great) or terrible toiling for living that eats your soul.I&#39;m basically in a job that is quite important for my org, I get compliments for good job, but I hate most aspects of my daily work since the tech stack is complex and fugly. I probably _appear_ motivated but I&#39;m just a neurotic who hates failing. If I didn&#39;t need to feed and house my family I would have moved to a lower paying position long ago that is intrinsically more motivating.Success and &#34;loving your job&#34; have nothing in common in my experience."</p>
-							
-						
-							
-								<p class="story__comment_others">"If you want my advice, it is simply this: look for dysfunctional companies. They&#39;re easy to recognize, because they look like pretty much the opposite of those companies everybody really want to work at.Take everything you see from a website like Elastic[1] for example and invert it:- It should NOT be clear what the value proposition is.- The website should NOT adhere to modern design standards, or at least do so very poorly.- Bonus points for lots of unnecessary, buzz-heavy text that does not give any further indication of what the product/service offers.Just look for any remote developer job via linkedin or any other place recruiters frequent and just invert what seems to be a &#34;good&#34; job and look for that instead. Approach it with your current attitude (maybe not in the actual interview) and assume that you probably won&#39;t even want to add it to your resume.I think you won&#39;t have any problem finding a role where you can get away with this: how it will affect your mental health is another question, but that&#39;s for you to find out. If you ever want to bail out, you can just drop it and fill this gap period with something else in your resume, like whatever hobbies you were busy with.For the record, I think the incredulity in some of these responses is pretty hilarious. 99,9 % of companies do not care about your well being as a person, by choosing this attitude you&#39;re really just treating them the way they are already treating you: a disposable business partner that will be removed from the equation as soon as they are no longer beneficial for you.[1]: https://www.elastic.co/"</p>
-							
-						
-							
-								<p class="story__comment_others">"You just described my job to a T. I&#39;m a systems analyst at a university.This was a big, demanding job when I first started. But after being here for 2 years, I&#39;ve automated a lot of the complicated stuff. So now most routine tasks that took the other guy a week takes me about 15 minutes. To be fair though, the other guy was *really bad*. Like, couldn&#39;t even open IIS manager and restart a single website, bad.The pay is not fantastic / FAANG, but it does offer a decent salary in a mid/low cost of living area. Combined with my wife&#39;s salary we make more than enough.Also I get a free master&#39;s degree out of it. So that&#39;s awesome."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.aclu.org/news/national-security/i-refused-to-become-an-fbi-informant-and-the-government-put-me-on-the-no-fly-list/">
-						<picture>
-							<source srcset="default_26715644.webp" type="image/webp">
-							<source srcset="default_26715644.png" type="image/png">
-							<img src="default_26715644.png" alt="Preview of 'I refused to become an FBI informant, the government put me on the no fly list'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.aclu.org/news/national-security/i-refused-to-become-an-fbi-informant-and-the-government-put-me-on-the-no-fly-list/">I refused to become an FBI informant, the government put me on the no fly list</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26715644">
-						
-							
-								<p class="story__comment_first line-clamp">"I refused to be an FBI informant once. They threatened to make up false charges on me. I held my ground.They harrassed me at home twice, talked to my employer and made a huge stink trying to create pressure.I didn&#39;t cave and they eventually went away, because I committed no crimes and they knew it.As a security researcher I sometimes make contact with controversial people in order to get information, like a journalist might. They wanted those contacts. Too bad."</p>
-							
-						
-							
-								<p class="story__comment_others">"There was a similar, much more terrifying, story was in the New Yorker about six months ago.An Iranian physicist, Sirous Asgari, visited some US universities. On his next entry into the US he was detailed by the FBI as he entered and handed a completely-invented indictment of numerous crimes, and they demanded that he become an informant.He refused, since the indictment was completely phony. The FBI, furious, ensured he was charged with everything under the sun.Even though the government lost its case against him (due to clear lies by the FBI), he was then thrown in an ICE jail, through utter Kafkaesque bureaucratic hand-offs. Had to endure near-prison revolts as the inmates tries to keep themselves free of Covid. A judge almost granted him release due to the dangers of getting ill, but then he caught Covid and nearly died, so his petition was rejected. He was finally swapped as part of a  prisoner-swap deal with Iran. And yet he seems to be persona-no-grata now in Iran, as the assumption is that he must now be working for the FBI.https://www.newyorker.com/magazine/2020/09/21/the-man-who-re..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Happy that the ACLU is taking this on.  It shouldn&#39;t matter, but if you look at the filed complaint[1] Ahmad is a US citizen. This treatment seems clearly unconstitutional to me.Also, this excerpt from the complaint:&gt;In response, the agents pulled out two newspaper articles about Hezbollah and told Mr. Chebli, “We know you are a Hezbollah agent and were sent here by Hezbollah.” What a couple of assholes.[1] https://www.aclu.org/legal-document/chebli-v-kable-complaint..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://robertchen.cc/blog/2021/04/03/github-pages-xss">
-						<picture>
-							<source srcset="default_26709159.webp" type="image/webp">
-							<source srcset="default_26709159.png" type="image/png">
-							<img src="default_26709159.png" alt="Preview of 'Breaking GitHub Private Pages for $35k'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://robertchen.cc/blog/2021/04/03/github-pages-xss">Breaking GitHub Private Pages for $35k</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26709159">
-						
-							
-								<p class="story__comment_first line-clamp">"Hi from the Pages team! This was such a great find and can&#39;t thank you enough for helping ensure Private Pages is as secure as possible.This report helped uncover:- A bug in Openresty where `ngx.redirect` didn&#39;t handle unsafe characters [1]. While the fix is now in the latest version of Openresty, a quick patch was to build the URL safely before using it in the redirect.- You should check for case sensitivity when reading `__Host` prefixed cookies, and verify the values against your expected format. It&#39;s possible for both `__HOST-Foo` and `__Host-Foo` cookies to exist, and only the `__Host` prefix requires the `Secure` and `HttpOnly` attributes [2]. In our case we strip all cookies at the edge using Varnish (VCL) to ensure no user-supplied cookies make it to our origin, and now we also ignore any &#34;Secure&#34; cookies that don&#39;t appear to have been set by our servers.[1]: https://github.com/openresty/lua-nginx-module/pull/1654[2]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Se..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Well, colour me impressed. The dude&#39;s in high school and finds stuff like this? Hopefully it won&#39;t get to his head, we&#39;ve got enough &#34;rock star&#34; devs :)"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; &#34;That’s because .github.io is not on the Public Suffix List.&#34;*I&#39;m confused because I remember github.io always mentioned in explanations of the public suffix list and as rationale why the list exists. Looking at the list it sure enough is there. What am I missing?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.stephendiehl.com/blog/signal.html">
-						<picture>
-							<source srcset="default_26724237.webp" type="image/webp">
-							<source srcset="default_26724237.png" type="image/png">
-							<img src="default_26724237.png" alt="Preview of 'Et Tu, Signal?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.stephendiehl.com/blog/signal.html">Et Tu, Signal?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26724237">
-						
-							
-								<p class="story__comment_first line-clamp">"I definitely agree with the article that it felt a bit like a betrayal. I&#39;ve pushed some friends and family to use it over Telegram despite significant usability issue, and now I see that instead of implementing some IMO basic features like proper message sync and easy backup when you get a new phone, they prefer to implement a... micropayment system? Based on some niche altcoin which doesn&#39;t even exist on mainstream exchanges?It goes beyond the usual issue with cryptocurrencies. Let&#39;s assume that they integrated with Bitcoin or Litecoin or some &#34;mainstream&#34; CC, would it still be a good idea? You can already send wallet addresses over signal if you care to do it.I&#39;m willing to give the Signal devs the benefit of the doubt and assume that they meant well and aren&#39;t actively trying to benefit from the move (even though I&#39;m not completely dismissing this possibility) but at the very least it&#39;s just showcases a very strange way to lead the project and prioritize issues. I can think of a dozen things out of the top that would do more to drive Signal adoption than integrating with some &#34;literally what?&#34; cryptocoin.This is going to drive the adoption of this niche cryptocoin, it&#39;s not going to do anything at all for Signal."</p>
-							
-						
-							
-								<p class="story__comment_others">"This article mirrors my feelings toward this announcement well. I spent a significant amount of time trying out different messaging apps and convincing my friends and family to move over from Telegram and WhatsApp. I used my reputation and their trust in my expertise.The whole blockchain industry is just too mixed with scams that I feel comfortable to have my non-tech relatives dealing with it. It&#39;s enough that I have to educate them on &#39;investments&#39; in random coins (it&#39;s gambling) and cure their FOMO regarding NFTs. Now the technology will be integrated into the messaging app that I endorsed, well-packed together with the smelly involvement of Moxie with the currency.What now?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Throwaway for obvious reasons.I interviewed at signal a while back, and none of their recent mishaps surprise me. At first, they had me talk to Brian Acton on the phone for about an hour, who seemed to think I was already getting an offer, and he was there to sell me on it. He was cool to talk to, so I didn&#39;t mind, but I was surprised at this level of confusion for a company that small.Next, I was given a lengthy take home project (which I was warned not to do in a language other than Java, because Moxie would reject candidates if they didn&#39;t pick a language he liked). After I finished it, they disappeared for a month.Apparently I passed. They said I was basically the only one out of 200 people they sent it to that did pass. I assumed this meant I would be getting an offer, but they then wanted me to do a full onsite. The &#34;onsite&#34; weirdly consisted of another take home, but shorter, and a live interview. After not hearing back again for a while, I got an email titled: &#34;Hello from Signal!&#34;. Great! I opened it, excited: it was a rejection.I tried to get feedback on why I was rejected but never heard back. The best thing I can come up with: in the system design interview, as a solution to a postgres node being overloaded, I didn&#39;t come up with the solution of having a SPOF redis node with a full key scan every 10 minutes acting as an intermediate data store before transferring to postgres. I was told this is how they actually do things.Take this with a grain of salt, since I&#39;m obviously still irked by the experience, but it&#39;s all true."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.ryanmercer.com/ryansthoughts/2021/4/6/some-of-the-reasons-i-hope-work-from-home-continues-and-i-never-have-to-return-to-an-office">
-						<picture>
-							<source srcset="default_26712524.webp" type="image/webp">
-							<source srcset="default_26712524.png" type="image/png">
-							<img src="default_26712524.png" alt="Preview of 'I hope work from home continues'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.ryanmercer.com/ryansthoughts/2021/4/6/some-of-the-reasons-i-hope-work-from-home-continues-and-i-never-have-to-return-to-an-office">I hope work from home continues</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26712524">
-						
-							
-								<p class="story__comment_first line-clamp">"Wow, the author has a pretty miserable company :(.That said, I share most of the opinions even though I quite like the office environment of my company.I abso-fking-love choosing where I work (and to some degree, when).  Being able to take my laptop and go sit under a canopy in my back yard when the weather is nice, seeing my rabbits hopping around the yard, my cats avoiding the aggressive she-rabbit, hearing the birds, etc., while working, is just about as happy as I can be while also working on stuff that doesn&#39;t really matter much.As I begin to form my own company, one of my priorities is to allow my employees to have at least some of their time completely at their own discretion.  They choose when and where they work as long as they can attend some important anchor meetings (and obviously be productive).  And for the social aspect, weekend or week-long dev retreats are ideal.  4 hours of intense serious work, plus a couple of hours of colleague social interaction, and the rest left to the individual to spend however they like, is the kind of situation I would have not even been able to dream of when I was younger.And from a bean-counter owner perspective, do not underestimate the employee loyalty and overachievement motivation you can get by giving some nice free trips, nice free food, and quality equipment.Big companies lack this freedom to treat their creative talent not because they cannot afford it but because the people in charge tend to not be creative thinkers.  This is why most interesting things happen in smaller companies (and ultimately tend to get bought by the laggard big companies)."</p>
-							
-						
-							
-								<p class="story__comment_others">"What kind of office was this person working in? Having to breathe jet exhaust fumes while suffering through 85 degree indoor temperatures and drinking algae-filled water is nowhere near normal.The company he’s describing is  severely broken if everything he’s describing is true. Most of what he describes are not normal office problems. Some of them are even health and safety violations. Working from home will only distance him from those problems, but it can’t fix an inherently broken company that doesn’t care about employees. He should be searching for another remote job ASAP"</p>
-							
-						
-							
-								<p class="story__comment_others">"Things I miss:- interacting with my colleagues, going out to lunch- the very high-speed and reliability of being on the network wire- dedicated work-space outside of my home where home-chores don&#39;t press on my mind while I&#39;m trying to work- my commute: I cycled into work, and the daily exercise was great- a clearer separation of work and home lifeThings I don&#39;t miss:- interacting with my colleagues, when i don&#39;t want to (group office, oy)- having my boss pop in over my shoulder (my bosses are great though)- my commute: I cycled into work, and the daily ride was sometimes a grind, in cold or wet weather. And it takes a lot of time- not having my work at home when I need to work late (I have a work laptop, but still)- having the campus police officer give me the eye when they see me working at 2amI&#39;m considering coming in Thursday/Fridays."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://dorinlazar.ro/2021-02-programming-is-hard/">
-						<picture>
-							<source srcset="default_26711862.webp" type="image/webp">
-							<source srcset="default_26711862.png" type="image/png">
-							<img src="default_26711862.png" alt="Preview of 'Programming is hard'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://dorinlazar.ro/2021-02-programming-is-hard/">Programming is hard</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26711862">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;ve been programming for a long, long time. Went to college for it when I was a pre-teen. The more and more I code the more I see it closer to something like music than something like engineering. Getting a little garage band together isn&#39;t hard. A couple years of practice and you and your friends can play at a little bar or at least at a high school shindig.The same is more or less true for programming. A simple stack of JS, HTML, and CSS is pretty easy to get going. And if you&#39;re content to make marketing sites for advertising companies or similar, then go nuts. That&#39;s your simple jam and you rock out on it as much as you like.Other people want to learn violin or weird keys or timings or cross rhythm. They want to woodshed some African drums and mix them into complex arrangements. And you know what? It is harder than playing a simple guitar for a simple song.We have the same thing with software, and once you&#39;ve put in the years you find a sort of series of specializations that make you stand out a bit more and get you a bit more money.So when people say &#34;programming is easy&#34; what they really mean is that it&#39;s easier than most people expect it will be for the financial incentives it provides. Compared to, say, structural engineering which takes four years of focussed study then a long period of practical understudy, software is easy and it pays more. Almost any structural engineer can become a data analyst or junior data scientist and make around double the salary within a year or two.Yes we&#39;ve all had the frustrating semicolon days, but there are highlights too. Fast feedback, ease of learning new technologies, ease of scaling to millions of customers. There are many advantages and I think they make up for it."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; I said that the programming field is a fertile ground for beginners, and it is. But what’s fertile for grain is fertile for weeds too, even moreso. And we need to talk about these people, taking advantage of the fertile ground.Yikes. What a gross, self-congratulatory rant. The author tries to defend against the term &#34;gatekeeping&#34; by getting out ahead of it, but that doesn&#39;t change how deeply exclusionary the result is.It doesn&#39;t even stick to a specific complaint; it jumps around to different things that emotionally feel related in the author&#39;s mind but aren&#39;t actually. First we&#39;re talking about boot camps, then we&#39;re talking about how StackOverflow is &#34;the scariest thing that happened to the programming community in the past 10 years&#34;, then we&#39;re talking about &#34;diversity&#34; speakers at conferences riling up &#34;mobs&#34; in some kind of conspiracy against the author and people like him?Buried under all of this (literally, at the very end) is perhaps a poorly-executed attempt to tell beginners something of value, that it may not be easy now, but you can push through and it will get better. But I don&#39;t see any actual beginner reaching that part before getting discouraged by the rest into doubting whether they should be in this career field at all."</p>
-							
-						
-							
-								<p class="story__comment_others">"Why is this always discussed only in relation to programming? Is being a doctor hard? How about an architect? Lawyer? Welder? Car mechanic? Airline pilot? Are they all gatekeepers if they say their job is hard?There are different jobs labeled as programming, some easier, some harder.Where does this narrative come from that programming at all professional levels must be easy for everyone, else you are a gatekeeper? Is it anxiety about future automation and the idea that the only remaining jobs will be programming?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.troyhunt.com/the-facebook-phone-numbers-are-now-searchable-in-have-i-been-pwned/">
-						<picture>
-							<source srcset="default_26709848.webp" type="image/webp">
-							<source srcset="default_26709848.png" type="image/png">
-							<img src="default_26709848.png" alt="Preview of 'The Facebook phone numbers are now searchable in Have I Been Pwned'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.troyhunt.com/the-facebook-phone-numbers-are-now-searchable-in-have-i-been-pwned/">The Facebook phone numbers are now searchable in Have I Been Pwned</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26709848">
-						
-							
-								<p class="story__comment_first line-clamp">"A note for people with US numbers who aren&#39;t finding their info:&gt; And finally, one last note on the data load process: At the time of publishing this blog post, all phone numbers beginning with international codes 4, 6, 8 and 8 have completed loading. The other codes are in progress and may take several hours more before they&#39;re searchable.US numbers begin with international code 1, and it seems that they aren&#39;t yet searchable.I was surprised that mine hadn&#39;t come up, since I&#39;ve had a few Facebook accounts over the years with my phone number, and this explains it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m completely unsurprised that my phone number is in there despite the fact that I deleted and closed my account 10 years ago."</p>
-							
-						
-							
-								<p class="story__comment_others">"Every time Facebook/Gmail/Google/Amazon/LinkedIn/Tinder/whoever asks me to give them phone number &#34;just in case&#34; my first and only thought is &#34;hell no&#34;. I haven&#39;t been wrong a single time."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.wired.com/story/signal-mobilecoin-payments-messaging-cryptocurrency/">
-						<picture>
-							<source srcset="default_26713827.webp" type="image/webp">
-							<source srcset="default_26713827.png" type="image/png">
-							<img src="default_26713827.png" alt="Preview of 'Signal adds a payments feature with a privacy-focused cryptocurrency'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.wired.com/story/signal-mobilecoin-payments-messaging-cryptocurrency/">Signal adds a payments feature with a privacy-focused cryptocurrency</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26713827">
-						
-							
-								<p class="story__comment_first line-clamp">"The comment from the article echos my own sentiments:&gt; Speaking solely as a person who is really into encrypted messaging, it terrifies me that they&#39;re going to take this really clean story of an encrypted messenger and mix it up with the nightmare of laws and regulations and vulnerability that is cryptocurrency.Moreover, there are three other points I&#39;d add:1. I don&#39;t like &#34;do everything&#34; apps like WeChat or Line. One of Signals strengths was UX that focused on it&#39;s core competency. Early in Signal&#39;s development they would add privacy features. Lately they have been adding social features. This, however, feels especially out of left field and likely to hurt the UX.2. This smells like dev resources will be spent building and maintaining something not related to messaging.3. I&#39;ve always had a &#34;don&#39;t let perfect be the enemy of good&#34; rationalization that gives Signal autonomy to grow a privacy centric messaging app despite the deficits (e.g lack of federation). In contrast, I personally associate &#34;crypto&#34; with &#34;scam&#34;. There have been so many shady ICOs and pump-dump schemes around crypto. This will taint the product for those of us who don&#39;t think of crypto currency as being anything more than pump-and-dump schemes and a way to buy dab rigs online."</p>
-							
-						
-							
-								<p class="story__comment_others">"There are 250 million units of mobilecoin, and majority of them are owned by the founders. Only 37.5 million have been distributed. With current price ($65), they&#39;re worth $14B already. This makes the project a scam and impossible for it to work as a reliable money that holds value. Bitcoin had no pre-mine and has been fairly distributed from the start."</p>
-							
-						
-							
-								<p class="story__comment_others">"Long-time Signal user here, with a number of technical and non-technical friends, colleagues and acquaintances who also use it. I don&#39;t know who was asking for this. And I think it really dilutes Signal&#39;s message.I believe that everyone has a fundamental right to secure, private communication. Some people may hold the same belief for the right to transfer funds. I don&#39;t agree and I suspect many others feel the same. That tension alone makes this look like a bad decision to me."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.markozivanovic.com/screw-it-ill-host-it-myself/">
-						<picture>
-							<source srcset="default_26725185.webp" type="image/webp">
-							<source srcset="default_26725185.png" type="image/png">
-							<img src="default_26725185.png" alt="Preview of 'Screw it, I’ll host it myself'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.markozivanovic.com/screw-it-ill-host-it-myself/">Screw it, I’ll host it myself</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26725185">
-						
-							
-								<p class="story__comment_first line-clamp">"The problem I have always had when building elaborate home server setups is the &#34;set it and forget it&#34; nature of the systems I&#39;ve installed bites me in the ass.  Since it&#39;s not my full-time job to manage these systems, I&#39;m really not familiar with them the way I might be with the systems I manage at work.  These systems cruise along for years, and when something finally does go belly-up, I can&#39;t remember how I set it up in the first place.  Now I have a giant chore looming over me, ruining a perfectly good weekend.These days, I design everything for home with extreme simplicity coupled with detailed documentation on how I set things up.Docker has helped tremendously, since you can essentially use an out-of-the-box Linux distro with docker installed, and you don&#39;t really have to install anything else on the hardware.  Then if at all possible, I use standard docker images provided by the software developer with no modifications (maybe some small tweaks in a docker-compose file to map to local resources).Anyway, my advice is to keep the number of customizations to a bare minimum, minimize the number of moving parts in your home solutions, document everything you do (starting with installing the OS all the way through configuring your applications), capture as much of the configuration as you can in declarative formats (like docker compose files), back up all your data, and just as importantly, back up every single configuration file."</p>
-							
-						
-							
-								<p class="story__comment_others">"The diagram alone is more than enough of an argument to dissuade me from giving this a shot right now - it&#39;s simply too complicated and too much to manage for the amount of time I can dedicate to it.BUT - I&#39;m really thankful for people who keep posting and sharing these sorts of projects; they&#39;re the ones iterating the process for the rest of us who need something a bit more turn-key.I&#39;m excited to see this eventually result in something like the following:- Standard / Easy to update containerized setup.- Out of the box multi-location syncs (e.g. home, VPS, etc.)- Takes 5 minutes to configure/add new locationsI want this to be as easy as adding a new AP to my mesh wifi system at home: plug it in, open the app, name the AP, and click &#34;Done&#34;.(Edit - formatting)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Ok, I’m SUPER into self hosting, but this article? No way.
-1) Duck out isn’t a thing, just stop it.
-2) Half the articles cited as examples of corporate abuse were later revealed to be mistakes by the user or easily avoidable pitfalls.
-3) Self hosting still requires trust (software you’re running, DNS, domains, ISP, etc...) The line of who to trust and how far is a tough one to answer, even for the informed.How I solved it:
-1) I use well vetted cloud services for things that are difficult/impossible to self host or have a low impact if lost. (Email, domains, github, etc...)
-2) I self host things that are absolutely critical with cloud backups. (Files, Photos, code, notes, etc..)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://hacks.mozilla.org/2021/04/eliminating-data-races-in-firefox-a-technical-report/">
-						<picture>
-							<source srcset="default_26713037.webp" type="image/webp">
-							<source srcset="default_26713037.png" type="image/png">
-							<img src="default_26713037.png" alt="Preview of 'Eliminating Data Races in Firefox'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://hacks.mozilla.org/2021/04/eliminating-data-races-in-firefox-a-technical-report/">Eliminating Data Races in Firefox</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26713037">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; What is ThreadSanitizer?  ThreadSanitizer (TSan) is compile-time instrumentation to detect data races according to the C/C++ memory model on Linux. It is important to note that these data races are considered undefined behavior within the C/C++ specification.TSan, ASan, UBSan - if you are writing code and your toolchain supports these, you should use them.  Over the past 6-7+ years I&#39;ve used them, I have never seen a false positive (I&#39;m sure some have occasionally existed but they seem rare in practice).&gt; However, developers claimed on various occasions that a particular report must be a false positive. In all of these cases, it turned out that TSan was indeed right and the problem was just very subtle and hard to understand.Yes, I have seen this phenomenon!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Two pieces of information that I found interesting:* Rust had poor support for sanitizers (&#34;Rust, which has much less mature support for sanitizers)&#34;. Work was done to improve this, but it&#39;s not clear how well it works now - it would be worth a blog post in itself IMO. This was surprising, because at least I assumed that it works flawlessly thanks to clang.* Rust / C++ bridges are predictably problematic and weaken Rust&#39;s guarantees (&#34;races in C++ code being obfuscated by passing through Rust&#34;). 
-This is the problem to solve for most companies working in a traditionally C and C++ oriented domain, as the C* code will dwarf the Rust code. Because of the shared memory space any problems in that code will be just as critical as if the entire code was unsafe. It would be quite awesome if Rust were able to isolate unsafe code not just at compile time, but also at runtime, by e.g. offering the option of executing the unsafe code in a separate address space. This would require some manual work for moving the data back and forth, but it could offer the tools to support such a work mode e.g. unsafe blocks could take parameters.I wish Mozilla would be more transparent about the absolutely normal and typical difficulties they must be encountering in a mixed code base. I have the feeling that there&#39;s plenty of them, but they don&#39;t want to emphasise them in order not to discourage Rust adoption."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Overall Rust appears to be fulfilling one of its original design goals: allowing us to write more concurrent code safely. Both WebRender and Stylo are very large and pervasively multi-threaded, but have had minimal threading issues. What issues we did find were mistakes in the implementations of low-level and explicitly unsafe multithreading abstractions — and those mistakes were simple to fix.&gt; This is in contrast to many of our C++ races, which often involved things being randomly accessed on different threads with unclear semantics, necessitating non-trivial refactorings of the code."</p>
 							
 						
 						</a>

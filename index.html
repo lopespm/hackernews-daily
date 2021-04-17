@@ -33,38 +33,45 @@
 	</div>
 
 	
-	<div class="day__date">16 April 2021</div>
+	<div class="day__date">17 April 2021</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://blog.google/products/earth/timelapse-in-google-earth/">
+					<a href="https://lkml.org/lkml/2021/4/14/1099">
 						<picture>
-							<source srcset="default_26821356.webp" type="image/webp">
-							<source srcset="default_26821356.png" type="image/png">
-							<img src="default_26821356.png" alt="Preview of 'Time flies in Google Earth’s biggest update in years'">
+							<source srcset="default_26831841.webp" type="image/webp">
+							<source srcset="default_26831841.png" type="image/png">
+							<img src="default_26831841.png" alt="Preview of 'Linus Torvalds on Rust support in kernel'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://blog.google/products/earth/timelapse-in-google-earth/">Time flies in Google Earth’s biggest update in years</a></h3>
+					<h3><a href="https://lkml.org/lkml/2021/4/14/1099">Linus Torvalds on Rust support in kernel</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26821356">
+						<a href="https://news.ycombinator.com/item?id=26831841">
 						
 							
-								<p class="story__comment_first line-clamp">"What&#39;s really striking to me about timelapse videos of the Earth is how, at a grand enough scale, the growth of human settlements on Earth really looks no different than the growth of bacterial and fungal colonies on Petri dishes.We think of ourself as special, as having conquered environments, technology and more - and when zoomed out you could explain everything we&#39;ve built and accomplished as the achievements of a sufficiently robust slime mold simply using available resources to continue growing."</p>
-							
-						
-							
-								<p class="story__comment_others">"With Timelapse in Google Earth, 24 million satellite photos from the past 37 years have been compiled into an interactive 4D experience. Now anyone can watch time unfold and witness nearly four decades of planetary change.This is amazing, will this be included in the VR versions of google earth? For those who haven&#39;t tried it yet Google Earth is the first thing I show friends who&#39;ve never tried VR before by giving them a Godzilla&#39;s eye view of Tokyo. I&#39;ve yet to find someone who doesn&#39;t &#34;:o&#34;"</p>
+								<p class="story__comment_first line-clamp">"The title is slightly misleading, and so is Linus&#39; response here. This RFC never claimed to be in shape to be immediately mergeable into the mainline kernel as-is. Miguel (the author of the patch) has replied to this mail (and in other places in the thread) that the Rust alloc() is currently called only as a temporary measure to speed up development, and all panic() calls from allocation failures are just as temporary. This is all because the Rust code that hooks into the kernel memory allocation functions is not yet usable.The main point of this RFC is that &#34;the [in-kernel Rust] support is good enough that prototyping modules can start today.&#34; There&#39;s no point in making long arguments about alpha-quality design shortcuts on an alpha-quality prototype that are also explicitly mentioned by the patch authors to be of alpha quality.See e.g. https://lkml.org/lkml/2021/4/14/1130 and https://lkml.org/lkml/2021/4/14/1023EDIT: Thanks for the child comments; it seems that Linus is simply not aware of all the specifics and is asking for more information and/or decided to look at the code before reading the full mail thread."</p>
 							
 						
 							
-								<p class="story__comment_others">"Google Earth may be one of the most wondrous things ever created. When else in human history can you zoom in on the entire geography of the Earth, and now the timelapsed geography of the Earth? Can you imagine what someone like Socrates, Newton, Galileo, or Darwin would say using this tool?"</p>
+								<p class="story__comment_others">"What I would love to see is Rust in the kernel, with a caveat. That caveat is something akin to Erlang&#39;s OTP supervision trees. Erlang has a similar philosophy to Rust in that if something erroneous happens the process fails. The difference is that Erlang OTP is designed to have supervisor processes of the worker processes. The only thing the supervisors do is monitor the processes under them and control when, if, and how those processes are restarted on failure or other conditions. The supervisors themselves have supervisors, right up to the root supervisor for each Erlang application.Rust got the language and the tooling perfect, but Erlang got the services and service infrastructure perfect.  The more I think about it the more I think I should shut up and put up. In other words, apply my knowledge of Erlang and OTP to create a gen_server in Rust as a jumping off point for a OTP like Rust framework, perhaps called OARS (Open Advanced Rust Services).  This is definitely bigger than one person. If you&#39;d like to join me on this journey then reply to this comment and I&#39;ll send you project details by the end of the weekend."</p>
+							
+						
+							
+								<p class="story__comment_others">"Aside from Linus&#39; reaction, there are some really interesting pearls in that thread, for example:Regarding code style[1]:&gt; The more you make it look like (Kernel) C, the easier it is for us C people to actually read. My eyes have been reading C for almost 30 years by now, they have a lexer built in the optical nerve; reading something that looks vaguely like C but is definitely not C is an utterly painful experience.&gt; You&#39;re asking to join us, not the other way around. I&#39;m fine in a world without Rust.CoC was already brought into battle[2]:&gt;&gt; I could be mistaken but you seem angry. Perhaps it wouldn&#39;t be a bad idea to read your own code of conduct, I don&#39;t think you need a browser for that either.&gt; Welcome to LKML. CoC does not forbid human emotions just yet. Deal with
+it.These ([3] [4]) messages have an interesting perspective about maintenance.&gt; I&#39;m sure about one thing, the C bugs we have today will be
+fixable in 20 years. I&#39;m not even sure the Rust code we&#39;ll merge today
+will still be compilable in 10 years nor will support the relevant
+architectures available by then, and probably this code will have to
+be rewritten in C to become maintained again.Linus wants to see a real, working kernel driver instead of Android Binder[5]:&gt;Would there be some kind of real driver or something that people could
+use as a example of a real piece of code that actually does something
+meaningful?[1] https://lkml.org/lkml/2021/4/16/118[2] https://lkml.org/lkml/2021/4/16/143[3] https://lkml.org/lkml/2021/4/16/181[4] https://lkml.org/lkml/2021/4/16/283[5] https://lkml.org/lkml/2021/4/14/1091"</p>
 							
 						
 						</a>
@@ -76,34 +83,36 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://unusualwhales.com/i_am_the_senate">
+					<a href="https://paramdeo.com/blog/opting-your-website-out-of-googles-floc-network">
 						<picture>
-							<source srcset="default_26821601.webp" type="image/webp">
-							<source srcset="default_26821601.png" type="image/png">
-							<img src="default_26821601.png" alt="Preview of 'Unusual Stock Trading by Whales in US Congress'">
+							<source srcset="default_26828967.webp" type="image/webp">
+							<source srcset="default_26828967.png" type="image/png">
+							<img src="default_26828967.png" alt="Preview of 'Opting Your Website Out of Google&#39;s FLoC Network'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://unusualwhales.com/i_am_the_senate">Unusual Stock Trading by Whales in US Congress</a></h3>
+					<h3><a href="https://paramdeo.com/blog/opting-your-website-out-of-googles-floc-network">Opting Your Website Out of Google&#39;s FLoC Network</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26821601">
+						<a href="https://news.ycombinator.com/item?id=26828967">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; For example, Pelosi in Dec 22 was against more stimulus. Her husband buys deep ITM TSLA and AAPL calls that day. December 23rd, she is suddenly for stimulus again, with those same companies ralling 5%, giving her an instant +30 return.&gt; Congressman Gottheimer is absolutely an incredible options trader. He’s been selling calls at peaks on $MSFT all 2021, &amp; seemingly buying back the contracts on dips. This in blocks of $250,000 - $5,000,000, which is incredible size given the amount of $MSFT shares he owns. For ex, on 02-12 he sold 500k $MSFT $160 strike expiring 06/18/2021. On that same day, he bought deep ITM calls of $1M-5M at $145 expiring 03/19/2021. The whale caught both of his movements as well.This is fucking unreal."</p>
+								<p class="story__comment_first line-clamp">"Ok, so let me see if I understand this correctly:I run a website with no trackers, no ads, nothing at all to do with Google or any other company in any way.
+You come along, with Google Chrome, and visit my site.
+Google adds the fact that you visited my site to their massive dataset (as well as who-knows-what-else)
+And to opt out of something I have never been asked to be involved with in any way, I need to contact Google and ask them to please leave my site alone?Am I understanding this shit correctly?Whether I like it or not, my site, by proxy, is participating in Google&#39;s data mining?If my guess is correct, how the actual fuck is this not illegal?Edit: Ok, I guess I&#39;m off the mark here with my assumptions so I&#39;ll put my pitchfork down.Google are just using your Chrome browsing data, matching it with site id&#39;s (or hashes?) and then analysing the shit out of it for their gain.As a website owner, nothing has changed other than I can tell them not to use my site as part of their analysis... that sound about right?"</p>
 							
 						
 							
-								<p class="story__comment_others">"The very people whose job it should be to stop this sort of thing are the ones who are profiting from it. How do you change this?No really, how can we force congress to change the rules so that elected officials can&#39;t profit from inside information? Why would they ever vote for such a bill?"</p>
+								<p class="story__comment_others">"Let me get this straight: even if my site has no ads or trackers, Chrome will now use my visitors data for advertising and surveillance???Does anyone else see FLoC as worse than the current state we&#39;re in?"</p>
 							
 						
 							
-								<p class="story__comment_others">"Of course if you actually work in financial services industry, your personal trading is extremely restricted.
-This is regardless of being in no position to see positions/flow/etc that would give you any insider edge.The industry generally sees it as easier to show compliance by having locked down personal trading by employees.Usually this takes the form of - ETFs only, pre-clearance required, 30 day holding periods, limited to using only a list of 5 approved brokers.. and sometimes all of the above.The restrictions apply not just to spouses but to anyone in household, and you have to attest you are reporting any holdings of say.. your parents, if you still live at home.So the mother of a live-at-home college grad tech support analyst who plugs in phones at a bank has more trading restrictions than senior politicians :-)"</p>
+								<p class="story__comment_others">"Has nobody bothered to read anything about FLoC?The purpose of this permission is to prevent embedded third-party content from using FLoC. Besides that it’s a no-op.FLoC does not track arbitrary websites, it tracks sites which retrieve the FLoC cohort via JS. So instead of dropping a unique third party cookie, and associating it with the data on the page, sites can now retrieve a k-anonymous cohort id and associate it with the data on the page. If you’re not doing that (or serving ads) there’s nothing you need to do.That’s not to say that FLoC doesn’t deserve criticism just that most criticism I’ve encountered is not grounded in reality."</p>
 							
 						
 						</a>
@@ -115,33 +124,33 @@ This is regardless of being in no position to see positions/flow/etc that would 
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://tips.ariyh.com/p/good-sound-quality-smarter">
+					<a href="https://www.washingtonpost.com/technology/2021/04/16/nasa-lunar-lander-contract-spacex/">
 						<picture>
-							<source srcset="default_26818774.webp" type="image/webp">
-							<source srcset="default_26818774.png" type="image/png">
-							<img src="default_26818774.png" alt="Preview of 'Higher quality audio makes people sound smarter'">
+							<source srcset="default_26837004.webp" type="image/webp">
+							<source srcset="default_26837004.png" type="image/png">
+							<img src="default_26837004.png" alt="Preview of 'SpaceX wins contract to develop spacecraft to land astronauts on the moon'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://tips.ariyh.com/p/good-sound-quality-smarter">Higher quality audio makes people sound smarter</a></h3>
+					<h3><a href="https://www.washingtonpost.com/technology/2021/04/16/nasa-lunar-lander-contract-spacex/">SpaceX wins contract to develop spacecraft to land astronauts on the moon</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26818774">
+						<a href="https://news.ycombinator.com/item?id=26837004">
 						
 							
-								<p class="story__comment_first line-clamp">"It&#39;s also really easy to have high quality audio! The author recommends a &#34;podcasting&#34; microphone, but a $35 standalone headset mic[1] is almost as good and much easier to use. If you want to hear a comparison, I got kind of obsessed with this problem at one point and took some comparison recordings here[2].(You need a standalone mic since most headsets, even really nice ones, have really bad mics because most headset buyers don&#39;t care about or even know how good their mic sounds. The one I linked is wired because wireless is evil[3] and in particular, Bluetooth will silently degrade your audio quality. If you want a pair of wired headphones, I like these[4] which are &#34;open back&#34; and therefore sound more natural + cool your ears better, although the open back also means they &#34;leak&#34; sound and are only suitable for working without people next to you. But you shouldn&#39;t be having calls with people next to you anyway!)[1]: https://www.amazon.com/V-MODA-BoomPro-Microphone-Gaming-Comm...[2]: https://www.benkuhn.net/vc/#get-a-better-microphone[3]: https://www.benkuhn.net/wireless/[4]: https://www.amazon.com/Philips-SHP9500S-Precision-Over-ear-H..."</p>
-							
-						
-							
-								<p class="story__comment_others">"People vastly undervalue good audio quality. It also often makes the difference (given equal visuals) between great amateur and pro in e.g. the YouTube scene.I didn&#39;t have data to back this up before, but I bought a good microphone specifically for this purpose. People will simply like the audio, and by extension what I am saying and also me as a person, better.Meanwhile, my ears will continue to bleed from the awful audio people broadcast into this world. I wonder, most people must notice how terrible everyone in e.g. video conferences sounds; why don&#39;t they make the connection that they themselves have it in their hand to improve the situation? Maybe it&#39;s like wearing masks."</p>
+								<p class="story__comment_first line-clamp">"This is really huge news. Starship has in about 18 months gone from a Elon standing next to a steel grain silo duct-taped into the shape of a rocket, to all the eggs in NASA&#39;s moon basket. The thing I kept thinking - and I have to believe was considered within NASA - is given the rapid progress SpaceX has been making along with the delays in Congressional funding, SLS, BlueOrigin&#39;s other projects etc ... if NASA hadn&#39;t selected SpaceX there was at least some chance they&#39;d go ahead and do their own private Moon landing mission before NASA&#39;s, a massive egg-on-face moment.There are still major risks with the Starship program so I don&#39;t think anyone should be 100% confident they can pull this off, but the massive side benefit is if they do NASA will have proven out a generic system, fully reusable and with orbital refueling, that can with minimal modification cost-effectively send humans to Mars and much of the rest of the solar system as well. A Model T or 737 in space. The original Artemis plan never made much sense as a Mars &#34;proof-of-concept&#34;, but it actually does now.If at some point say 2025, NASA says to the President &#34;we can get the first human on Mars in 4 years for $15 billion&#34; I have to imagine any American president being eager to sign their name on that accomplishment and give the JFK speech, &#34;We choose to go to Mars in this decade, not because it is easy, but because it is hard; because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one we intend to win&#34;To me that&#39;s the real takeaway here: this is implicitly a huge NASA bet not just on the Moon, but Mars and the rest of the solar system. Finally."</p>
 							
 						
 							
-								<p class="story__comment_others">"A cheap and usable condenser mic costs 30 bucks (e.g. Fifine), a lavalier mic costs between 2 bucks on aliexpress and 50 for e.g. from Rode. (I found that the ultra cheap aliexpress are the exact same like the no-brand 10 bucks on amazon, like so many things)I got both but mostly use the condenser mic and it is an absolute game changer. If you want to explain something it is so noticeable in the eyes of your conference participants how good they can hear you. And it makes a huge difference if you finally feel like what you are saying is not painful for others to endure.Check out this very lovely video series on how to pimp up your conferencing setup. Especially this episode about mics:https://www.youtube.com/watch?v=BKOx4hZKmOsEdit: And this is the mic I can recommend using on Linux:https://www.amazon.com/Microphone-FIFINE-Computers-Podcastin..."</p>
+								<p class="story__comment_others">"The biggest news IMO is that there&#39;s only a single winner.   There was a lot of pressure to make Commercial Crew a sole contact to Boeing, and it now appears that Boeing is going to deliver Starliner two years later than SpaceX delivered Crew Dragon.  So going with two winners saved NASA&#39;s bacon.    It&#39;s surprising to see them only choose a single winner here.  Yes SpaceX may be considered a safe bet, but ten years ago it was Boeing who was considered the safe bet.   Things change over years."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have to say, I am completely skeptical of Blue Origin&#39;s ability to do anything in a reasonable amount of time and that they will amount of anything but Bezo&#39;s hobby. At least until they change their approaches.That said, it&#39;s a very secretive firm with an unknown amount of progress.I&#39;ll believe in Blue Origin when I see it."</p>
 							
 						
 						</a>
@@ -153,34 +162,34 @@ This is regardless of being in no position to see positions/flow/etc that would 
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://spreadprivacy.com/block-floc-with-duckduckgo/">
+					<a href="https://www.accc.gov.au/media-release/google-misled-consumers-about-the-collection-and-use-of-location-data">
 						<picture>
-							<source srcset="default_26817034.webp" type="image/webp">
-							<source srcset="default_26817034.png" type="image/png">
-							<img src="default_26817034.png" alt="Preview of 'DuckDuckGo Extension to Block FLoC, Google’s New Tracking Method in Chrome'">
+							<source srcset="default_26832123.webp" type="image/webp">
+							<source srcset="default_26832123.png" type="image/png">
+							<img src="default_26832123.png" alt="Preview of 'Google misled consumers about the collection and use of location data'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://spreadprivacy.com/block-floc-with-duckduckgo/">DuckDuckGo Extension to Block FLoC, Google’s New Tracking Method in Chrome</a></h3>
+					<h3><a href="https://www.accc.gov.au/media-release/google-misled-consumers-about-the-collection-and-use-of-location-data">Google misled consumers about the collection and use of location data</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26817034">
+						<a href="https://news.ycombinator.com/item?id=26832123">
 						
 							
-								<p class="story__comment_first line-clamp">"I use Firefox. So does my family. Everything I make for personal use works in Firefox and I don&#39;t bother testing with anything else.However, almost every web site or web app I make in my professional capacity gets tested with, and is expected to work with, ~95% of browsers. That means testing against Chrome, Firefox, Edge, Opera, UC Browser, Samsung Internet, and Internet Explorer.
-Edit: I forgot to add Safari, which I also test with.Anything less is not my brand of professionalism, because I am convinced my clients expect me to leave my personal thoughts and convictions at the door. If you want to only create sites that work in Firefox and maybe not elsewhere, then you can do that - but doing it ethically means telling the client upfront that you won&#39;t accept work that requires the site work for the widest audience reasonably possible.That said, there are two caveats.  The first is ethics. I do not leave my ethics at the door and if I am being asked to do something unethical I will refund the money and walk. If it is illegal it will be reported, as otherwise I am an accessory. Clients agree to this upfront. The second is client requests. If the client wants it to work in Firefox and they tell me not to bother with the other websites, despite my advice against it, then that&#39;s what I do."</p>
-							
-						
-							
-								<p class="story__comment_others">"I started displaying a banner on my website [1] a while back for visitors using Chrome/Chromium telling them to &#34;give Firefox a try for the future of the open web&#34;.I don&#39;t know how many people came across that or clicked the link, as I don&#39;t track that, but I enjoy doing my tiny part in letting people know.[1]: https://www.gkbrk.com"</p>
+								<p class="story__comment_first line-clamp">"The important parts:&gt; The Court ruled that when consumers created a new Google Account during the initial set-up process of their Android device, Google misrepresented that the ‘Location History’ setting was the only Google Account setting that affected whether Google collected, kept or used personally identifiable data about their location. In fact, another Google Account setting titled ‘Web &amp; App Activity’ also enabled Google to collect, store and use personally identifiable location data when it was turned on, and that setting was turned on by default.&gt; 
+The Court also found that when consumers later accessed the ‘Location History’ setting on their Android device during the same time period to turn that setting off, they were also misled because Google did not inform them that by leaving the ‘Web &amp; App Activity’ setting switched on, Google would continue to collect, store and use their personally identifiable location data."</p>
 							
 						
 							
-								<p class="story__comment_others">"No thank you. I appreciate what DDG is trying to do but in the end, a search engine that makes money from selling ads trying to protect me from another search engine that also sells ads is just feeding the ecosystem.I am going to put my money into FF no matter how annoying some of the things in it are."</p>
+								<p class="story__comment_others">"I&#39;m guessing that a literal slap on the wrist of the CEO, executed by a random internet user would hurt more than the fine they would get for this."</p>
+							
+						
+							
+								<p class="story__comment_others">"Ironically, the ACCC website also attempts to load a script from *.google-analytics.com."</p>
 							
 						
 						</a>
@@ -192,33 +201,33 @@ Edit: I forgot to add Safari, which I also test with.Anything less is not my bra
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html">
+					<a href="https://www.ccc.de/en/updates/2021/luca-app-ccc-fordert-bundesnotbremse">
 						<picture>
-							<source srcset="default_26816954.webp" type="image/webp">
-							<source srcset="default_26816954.png" type="image/png">
-							<img src="default_26816954.png" alt="Preview of 'SQLite the only database you will ever need in most cases'">
+							<source srcset="default_26832525.webp" type="image/webp">
+							<source srcset="default_26832525.png" type="image/png">
+							<img src="default_26832525.png" alt="Preview of 'Luca App: CCC calls for a moratorium'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html">SQLite the only database you will ever need in most cases</a></h3>
+					<h3><a href="https://www.ccc.de/en/updates/2021/luca-app-ccc-fordert-bundesnotbremse">Luca App: CCC calls for a moratorium</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26816954">
+						<a href="https://news.ycombinator.com/item?id=26832525">
 						
 							
-								<p class="story__comment_first line-clamp">"Postgres is the database I use for everything.I find databases of all sorts extremely interesting and I&#39;ve tried many of them, of all flavors.In the end, I always come back to Postgres.  It&#39;s unbelievably powerful, lightweight and there&#39;s not much it can&#39;t do.Why not use sqlite?  Here&#39;s one example - I like to access my database from my IDE remotely - my understanding is that remote access is not possible with sqlite.Another example - multitenancy is dead easy in postgres, makes things more secure and makes coding easier.Another is that Postgres had an extremely rich set of data types, including arrays and json.Also Postgres is designed for symmetric multiprocessing which matters in today&#39;s multicore world."</p>
-							
-						
-							
-								<p class="story__comment_others">"We&#39;ve been using SQLite as our principal data store for 6 years. Our application services potentially hundreds of simultaneous users at once, each pushing 1-15 megabytes of business state to/from disk 1-2 times per second.We have not had a single incident involving performance or data integrity issues throughout this time. The trick to this success is as follows:- Use a single SqliteConnection instance per physical database file and share it responsibly within your application. I have seen some incorrect comments in this thread already regarding the best way to extract performance from SQLite using multiple connections. SQLite (by default for most distributions) is built with serialized mode enabled, so it would be very counterproductive to throw a Parallel.ForEach against one of these.- Use WAL. Make sure you copy all 3 files if you are grabbing a snapshot of a running system, or moving databases around after an unclean shutdown.- Batch operations if feasible. Leverage application-level primitives for this. Investigate techniques like LMAX Disruptor and other fancy ring-buffer-like abstractions if you are worried about millions of things per second on a single machine. You can insert many orders of magnitude faster if you have an array of contiguous items you want to put to disk.- Just snapshot the whole VM if you need a backup. This is dead simple. We&#39;ve never had a snapshot that wouldn&#39;t restore to a perfectly-functional application, and we test it all the time. This is a huge advantage of going all-in with SQLite. One app, one machine, one snapshot, etc..."</p>
+								<p class="story__comment_first line-clamp">"The Luca app really is a complete train wreck. And what&#39;s worse is that the federal governments don&#39;t even have any direct control over the app itself, they just bought access to the contact tracing data for 12 months from the company operating the app. Meanwhile the company controls the app and all connected user accounts and can repurpose it in whichever way they see fit (and they already announced they have plans for the app beyond the pandemic).It&#39;s absolutely mind-boggling to me how our government(s) can get the idea to &#34;rent&#34; contact tracing data from a private company like this, it just reeks of corruption. I wasn&#39;t a big fan of the Covid tracing app in the beginning, but in retrospect the concept of that app seems miles ahead of the current situation with the Luca app."</p>
 							
 						
 							
-								<p class="story__comment_others">"Cool article. I definitely agree that SQLite is the way to go in 99% of the cases you&#39;re making some kind of app.I have often seen Postgres, MySQL and MongoDB in places where they were really overkill and added unnecessary network and deployment complexity. And upon asking the designers it turns out they simply didn&#39;t know about SQLite...Small gripe in case the poster reads this: There&#39;s a malopropism in the opening bit:&gt; SQLite is properly the only database you will ever need in most cases.Should be:&gt; SQLite is probably"</p>
+								<p class="story__comment_others">"There is so much incompetency in governmental IT/software decisions and software it&#39;s actually sad.Is it a  product of smart people simply not working in this sector or corruption?. It seems from the outside to be filled with imbeciles masquerading as administrators.We need to somehow make the government way more accountable, if only there was an organization that could do that, we could call it the media."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is amazing.There should be hacker clubs in each country double checking all suspicious public procurements."</p>
 							
 						
 						</a>
@@ -230,33 +239,33 @@ Edit: I forgot to add Safari, which I also test with.Anything less is not my bra
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/WICG/floc/issues/100">
+					<a href="https://news.ycombinator.com/item?id=26825017">
 						<picture>
-							<source srcset="default_26819540.webp" type="image/webp">
-							<source srcset="default_26819540.png" type="image/png">
-							<img src="default_26819540.png" alt="Preview of 'Cohort IDs can be collected over time to create cross-site tracking IDs'">
+							<source srcset="default_26825017.webp" type="image/webp">
+							<source srcset="default_26825017.png" type="image/png">
+							<img src="default_26825017.png" alt="Preview of 'Ask HN: How can a unhireable person get a job?'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/WICG/floc/issues/100">Cohort IDs can be collected over time to create cross-site tracking IDs</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=26825017">Ask HN: How can a unhireable person get a job?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26819540">
+						<a href="https://news.ycombinator.com/item?id=26825017">
 						
 							
-								<p class="story__comment_first line-clamp">"I call it the privacy doom principle. Any information which separates you into a subset of a larger group can eventually be compounded to fully break your anonymity.I did a lot of work on privacy coins, and the power of statistics is staggering. Doesn&#39;t matter if you shield yourself by grouping with 100,000 people per transaction, if your anonymity set isn&#39;t _everyone_, eventually you can be singly identified.Same goes for browsers, tracking, and &#34;anonymized data&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"Switch browser while you can. Firefox might not be perfect (or even getting slightly worse), but at least it&#39;s an alternative and I can easily say it&#39;s better than Chromium in most. At least ad blocking worka as it should."</p>
+								<p class="story__comment_first line-clamp">"As a hiring manager, the things that stand out to me in your post:- You said you quit a job at EA, quit a job at IBM, dropped out of college your freshman year. You may have valid reasons for leaving each of these, but you have to see this from the manager&#39;s perspective: You had 3 different great opportunities that all came to a dead end at the beginning of your career. You need an alternate narrative.- You talk about applying to Google, Facebook, Airbnb, Palantir, and other companies known to be very competitive, yet the only real job experience you list in your post is low level customer support. Nothing wrong with aiming high, but you need to also be applying to jobs that are a logical next step in your career. It&#39;s extraordinarily difficult to jump from customer support to FAANG engineer, so have a backup plan.- You spoofed e-mails to manipulate executives into meetings. This kind of thing sounds clever in movies or from anecdotes in the 90s or 2000s, but in this era everyone is on high alert for phishing attacks and security breaches. Read the room, and don&#39;t commit computer fraud during your application process. Big companies have systems in place to catch these things and you&#39;ll get blocked in short order.- No mention of your network. Do you have any contacts or friends or acquaintances anywhere in the industry? Even people you knew briefly from school? People who you worked with in the past who moved up? Reach out and ask if they have any advice for your job search. Going forward, make a point to stay on good terms with the people around you. You can help each other as your careers progress."</p>
 							
 						
 							
-								<p class="story__comment_others">"Google&#39;s FLOC has an unfixable problem. As soon as other advertisers create their own FLOC&#39;s, anonymity goes away. No matter how careful Google is to make sure these ID&#39;s aren&#39;t unique, as soon as users have several FLOC identifiers, maybe even two, they&#39;re uniquely identifiable.Behavioral tracking needs to die. It was a mistake created from lack of web security in the early days, nothing more. It&#39;s a bug, not a feature.Google is finally showing us what Chrome was meant to be. A browser monopoly to defend Google&#39;s user tracking interests."</p>
+								<p class="story__comment_others">"Have you tried asking any of the jobs that rejected you&#39;re getting rejected?Honestly, just a guess, you&#39;re probably giving off bad interpersonal vibes/people don&#39;t really like talking to you. Half of interviewing is just being very personable/being able to talk comfortably with other people. Generally in this space (this space meaning those interested in tech/startups/etc) sometimes people struggle in this area but really shine in tech. I would encourage you to spend some time reflecting on your interpersonal skills.Some other red-ish flags from your post - you kinda seem like you might struggle just doing exactly what you&#39;re asked to do. Bringing up how frequently you quit things for various reasons or finding issues and bringing them up with your superiors&#39; superiors, spoofing numbers to get in touch with very very senior people. Lots of lower-tiered jobs literally just need people to show up and do what they&#39;re asked. A part of getting a &#34;first&#34; or &#34;entry level&#34; job is accepting you&#39;re there mostly to learn, not to teach/move outside of your lane. The fact that you would even bring up Bill Landreth seems like you might not necessarily see yourself how the rest of the world sees you.I&#39;m not trying to offend you - I really hope you can line something up soon. I apologize if this feedback seems cold - I think reflecting on things like this can be hard because you have to face things about yourself you may disagree with or not realize. Unfortunately interviewing is such a biased game, you kind of have to play your opponent (meaning, be the person they want, not the person you are).Happy to chat through any of this stuff if you have questions. Wish you all the best."</p>
+							
+						
+							
+								<p class="story__comment_others">"Your writing is not strong, i can tell you did not attend college. Written communication is important in tech.Your applying to those companies with 0 experience or college degree is unrealistic. The entry level is extremely competitive and you have nothing to make you interesting to hire. They get thousands of applications for those jobs.You are still young, plenty of time to learn, but I recommend taking a step back and rethink your strategy. There are plenty of companies that do not get thousands of applications for jobs.Let me put it bluntly: you are not qualified to be a software engineer. There is no reason anyone would currently hire you, unless you are personable and fun to talk to.You show immaturity in the way you handled the flaw in the system you described. Calling your boss&#39;s boss because you think you are right is childish.Additionally, you do not understand how to get a software job, you do not have realistic expectations for what kind of jobs you are qualified to acquire.A few years ago my brother, who is in his thirties, was stuck in a dead end job he hated. So he took some classes in 3D modeling. He worked hard, built out his portfolio, networked, and eventually landed a job at a world famous video game studio making AAA games at an interesting role that builds his skills.What he did not do was blindly apply to jobs he was not qualified to do with zero training"</p>
 							
 						
 						</a>
@@ -268,33 +277,34 @@ Edit: I forgot to add Safari, which I also test with.Anything less is not my bra
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://vivaldi.com/blog/no-google-vivaldi-users-will-not-get-floced/">
+					<a href="https://www.nysfocus.com/2021/04/13/new-york-bitcoin-mining-threat/">
 						<picture>
-							<source srcset="default_26795505.webp" type="image/webp">
-							<source srcset="default_26795505.png" type="image/png">
-							<img src="default_26795505.png" alt="Preview of 'The Vivaldi browser will not support Google’s FLoC'">
+							<source srcset="default_26828479.webp" type="image/webp">
+							<source srcset="default_26828479.png" type="image/png">
+							<img src="default_26828479.png" alt="Preview of 'Bitcoin miners are buying power plants'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://vivaldi.com/blog/no-google-vivaldi-users-will-not-get-floced/">The Vivaldi browser will not support Google’s FLoC</a></h3>
+					<h3><a href="https://www.nysfocus.com/2021/04/13/new-york-bitcoin-mining-threat/">Bitcoin miners are buying power plants</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26795505">
+						<a href="https://news.ycombinator.com/item?id=26828479">
 						
 							
-								<p class="story__comment_first line-clamp">"Recent related threads:Brave disables Chromium FLoC features - https://news.ycombinator.com/item?id=26765084 - April 2021 (335 comments)Am I FLoCed? - https://news.ycombinator.com/item?id=26755313 - April 2021 (33 comments)Google’s FLoC Is a Terrible Idea - https://news.ycombinator.com/item?id=26344013 - March 2021 (348 comments)I know there have been others - if anyone finds them, I&#39;ll add to the above list."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t see how the entire FLoC concept can succeed.There is zero incentive for Chromium forks, let alone any other browser vendor, to implement/leave-in this technology.  For other browser vendors, it is zero-effort to not support it.For Chromium forks, implementing it is zero effort but also comes with the same negative gain it would have for other vendors (that end-users are blind to).  Unless you consider &#34;more relevant advertisements&#34; a win for users.Although Chrome/Edgium have enough market share to make advertisers happy with this change, I see this entire concept as something that could further erode that given enough negative publicity.  Which is fine by me."</p>
+								<p class="story__comment_first line-clamp">"It’s a simple equation:
+So long as there is more money in mining BTC than there is cost in energy to mine it, mining will proceed.No entity in the world can control the price of crypto. But, we can and already do regulate energy production.I think we need a carbon tax, that is specifically a financial disincentive towards any means of energy production that directly pollutes the atmosphere.Seriously, what are the current best arguments against levying such a disincentive?Moreover, if energy were priced correctly (its toll on the climate priced in) would BTC become higher in value? That is, we have a supply, increasing at a rate fixed between the arbitrage of energy and mining efficiency. If energy were to become more expensive, the growth in supply would slow. Assuming demand remains constant or continues to grow as well, the only way for price to go is up."</p>
 							
 						
 							
-								<p class="story__comment_others">"I’m sure there has to be a better way to introduce the audience to FLoC. I’m over five paragraphs in and the article hasn’t properly articulated what is FLoC and _why_ it is bad. Just that it is bad."</p>
+								<p class="story__comment_others">"Easy solution: tax carbon emissions.Who cares if you’re using energy to mine Bitcoin? Or if you’re using it to play video games? Or to run the AC all day?If it you’re internalizing the cost of any emissions, then you’ll use those resources efficiently."</p>
+							
+						
+							
+								<p class="story__comment_others">"Who cares? Everyone is fixated on Bitcoin... there are tons of energy inefficient processes out there. The solution has nothing to do with Bitcoin... environmental impact needs to be priced into energy itself, whatever the application. This is a failure of the markets (and therefore ourselves). Bitcoin is a scapegoat."</p>
 							
 						
 						</a>
@@ -306,39 +316,47 @@ Edit: I forgot to add Safari, which I also test with.Anything less is not my bra
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://blogs.windows.com/devices/2021/04/13/introducing-surface-laptop-4-and-new-accessories-for-enhanced-meeting-experiences/">
+					<a href="https://www.reuters.com/business/us-house-committee-approves-blueprint-big-tech-crackdown-2021-04-15/">
 						<picture>
-							<source srcset="default_26796533.webp" type="image/webp">
-							<source srcset="default_26796533.png" type="image/png">
-							<img src="default_26796533.png" alt="Preview of 'Surface Laptop 4'">
+							<source srcset="default_26831555.webp" type="image/webp">
+							<source srcset="default_26831555.png" type="image/png">
+							<img src="default_26831555.png" alt="Preview of 'U.S. House committee approves blueprint for Big Tech crackdown'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://blogs.windows.com/devices/2021/04/13/introducing-surface-laptop-4-and-new-accessories-for-enhanced-meeting-experiences/">Surface Laptop 4</a></h3>
+					<h3><a href="https://www.reuters.com/business/us-house-committee-approves-blueprint-big-tech-crackdown-2021-04-15/">U.S. House committee approves blueprint for Big Tech crackdown</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26796533">
+						<a href="https://news.ycombinator.com/item?id=26831555">
 						
 							
-								<p class="story__comment_first line-clamp">"The video [1] has much more explanation.3:2 screen ratio, I really wish the whole PC industry including Mac moves towards it. Even 16:10 is not enough when we increasingly clutter the vertical space with OS menus, controls, dock. And then Browsers address bar, tab bar, then we have the WebSite layout which is also taking vertical space at the top for navigation.1.3mm Key Travel. Which is the same as the old perfect MacBook Scissors Keyboard. Instead Apple went to 1.0mm Key travel in their magic keyboard just to save face.Sane size precision trackpad, no more absurdly large trackpad that has easy false positive when you are typing on it.Replaceable SSD, Keyboard, and Monitor for easy repair. Wow.Surface Connect - Is that Microsoft version of MagSafe?Larger sensor for better quality HD Video Call. They even compare it to MacBook Air 2020 LoL.I haven&#39;t looked at PC Laptop hardware for quite some time, but in mid 2010, Dell or HP&#39;s motherboard and Laptop layout just aren&#39;t anywhere near as good as Apple. But this Surface Laptop definitely took lots of clues from the old MacBook ( I am wondering if they have ex-Apple MacBook Engineers on their team ).Ignoring the Software, this Laptop looks exceptionally good![1] https://www.youtube.com/watch?v=Z3N3u6NyWSY"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll be skipping this and future MS hardware for a while.Using a Surface Laptop 3 right now and everything except for the display is pretty much a dumpster fire. The display hardware is incredible in every way. 3:2 is the correct aspect ratio for laptops if you care about running visual studio or other apps which gobble up vertical real estate.I have reloaded this thing from official image 3x and it will still randomly fuck up important things like hardware accelerated video playback and WiFi, both of which require a hard reset to resolve. There is also some really annoying bullshit with the ambient brightness adjustment feature where I have to manually disable it in the registry every time a driver or windows update hits.The most painful problem with the machine is that WiFi is entirely unusable if you are simultaneously using bluetooth. I have had to get external dongles to resolve this.All of that said, I have had few-to-no issues with the Surface Pro product line at work, and my sample size is 1. Might be bad luck or just really demanding expectations. I have been debating going back to Apple, but there are some HP/Asus machines that look compelling now."</p>
+								<p class="story__comment_first line-clamp">"&gt; potentially barring companies like Amazon.com from operating the markets in which they also competeAbsolutely bananas that this haven&#39;t been fixed yet! How can Google own the entire ads market and still be allowed to compete in it? Obviously for-profit companies will abuse their positions if it&#39;ll earn them more money, and fines ends up being the cost of doing business instead of deterrents.How is Apple allowed to disallow any other web browsers on their mobile devices? We already went through this with Microsoft in the past but suddenly it&#39;s different?How can Amazon be allowed to sell competing products in their own marketplace, when they own the actual marketplace? They should have been forced to divide their business long time ago. Of course they are gonna use metrics from competitors that only they have access to, in order to make their own product line get better.Why is Google allowed to rank their own products in front of more general results? Try searching for &#34;Earth&#34; on Google and see what the top hit is. Is that really a fair ranking? We don&#39;t even know, because no one knows how their algorithm is working, but one thing is clear, Google products consistently rank higher than anything else in the search engine.The list goes on. I&#39;m happy that it&#39;s being suggested, I&#39;m just worried how it took so long to get here."</p>
 							
 						
 							
-								<p class="story__comment_others">"The AMD versions are much cheaper, and have longer battery life:https://www.microsoft.com/en-us/p/surface-laptop-4/946627fb1...    Up to 19 hours of battery life on 13.5” with AMD Ryzen™ Microsoft Surface® Edition processor
-    Up to 17 hours of battery life on 13.5” with Intel® Core™ processor
-
-    Up to 17.5 hours of battery life on 15” with AMD Ryzen™ Microsoft Surface® Edition processor
-    Up to 16.5 hours of battery life on 15” with Intel® Core™ processor
-
-The 13&#34; AMD version only seems to be available with 16GB RAM and 256 GB storage, while the Intel versions go up to 32 GB and 1 TB."</p>
+								<p class="story__comment_others">"Given the volume and profitably of tech trading by members of Congress (see https://news.ycombinator.com/item?id=26821601) I have ZERO confidence that any useful legislation will come of it. It will just be a bunch of earnest and disingenuous theatre by the very people profiting from a bunch of companies who make Microsoft circa 1995 look like a kitten.For my part, I think the fundamental business model of profiting from user engagement (where screen time is money) is toxic, and we can’t fix anything until we find a way to effectively eliminate it."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;A year after initiating the investigation, we received testimony from the Chief Executive
+Officers of the investigated companies: Jeff Bezos, Tim Cook, Mark Zuckerberg, and Sundar Pichai.
+For nearly six hours, we pressed for answers about their business practices, including about evidence
+concerning the extent to which they have exploited, entrenched, and expanded their power over digital
+markets in anticompetitive and abusive ways. Their answers were often evasive and non-responsive,
+raising fresh questions about whether they believe they are beyond the reach of democratic oversight.Although these four corporations differ in important ways, studying their business practices has
+revealed common problems. First, each platform now serves as a gatekeeper over a key channel of
+distribution. By controlling access to markets, these giants can pick winners and losers throughout our
+economy. They not only wield tremendous power, but they also abuse it by charging exorbitant fees,
+imposing oppressive contract terms, and extracting valuable data from the people and businesses that
+rely on them. Second, each platform uses its gatekeeper position to maintain its market power.By controlling the infrastructure of the digital age, they have surveilled other businesses to identify
+potential rivals, and have ultimately bought out, copied, or cut off their competitive threats. And,
+finally, these firms have abused their role as intermediaries to further entrench and expand their
+dominance. Whether through self-preferencing, predatory pricing, or exclusionary conduct, the
+dominant platforms have exploited their power in order to become even more dominant.&#34;Well they&#39;re not wrong..."</p>
 							
 						
 						</a>
@@ -350,33 +368,34 @@ The 13&#34; AMD version only seems to be available with 16GB RAM and 256 GB stor
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://surma.dev/things/js-to-asc/">
+					<a href="https://www.filestash.app/2021/04/16/ftp-is-50-years-old/">
 						<picture>
-							<source srcset="default_26803155.webp" type="image/webp">
-							<source srcset="default_26803155.png" type="image/png">
-							<img src="default_26803155.png" alt="Preview of 'Is WebAssembly magic performance pixie dust?'">
+							<source srcset="default_26834119.webp" type="image/webp">
+							<source srcset="default_26834119.png" type="image/png">
+							<img src="default_26834119.png" alt="Preview of 'FTP is 50 years old'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://surma.dev/things/js-to-asc/">Is WebAssembly magic performance pixie dust?</a></h3>
+					<h3><a href="https://www.filestash.app/2021/04/16/ftp-is-50-years-old/">FTP is 50 years old</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26803155">
+						<a href="https://news.ycombinator.com/item?id=26834119">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; As described above, it is important to “warm-up” JavaScript when benchmarking, giving V8 a chance to optimize it. If you don’t do that, you may very well end up measuring a mixture of the performance characteristics of interpreted JS and optimized machine code.Since unwarmed first execution is a very common use case on the web, and a very intentional improvement for WASM, it seems foolish to discard that when comparing. I understand for benchmark determinism warming is important in long-running systems, but when parsing/warming is a common part of every run, it deserves to be factored in. I can make WASM look better by removing intentional benefits from JS before comparing too."</p>
-							
-						
-							
-								<p class="story__comment_others">"Still, you can archive significant speed-ups with WebAssembly at some use cases.For example, I have a hash function library (https://github.com/Daninet/hash-wasm) where I was able to archive 14x speedup at SHA-1 and 5x speedup at MD5 compared to the best JS implementations.You can run the benchmarks on your computer here: https://daninet.github.io/hash-wasm-benchmark/"</p>
+								<p class="story__comment_first line-clamp">"Amazing.I never thought I would say this, but I actually implemented an FTP server in 2020. This was needed to support firmware updates to specific hardware (Electric Vehicle charging stations). Apparently embedded software developers choose FTP whenever a spec doesn&#39;t specify how binary file transfers should work.It was kind of amusing getting FTP to work in a modern cloud environment. I run a single Kubernetes pod with a Node.js based FTP server optimized for one thing: Transferring files between FTP and Google Cloud Storage. A series of ports are specified in the Docker file to enable passive FTP transfers.Even more amusing was the number of varieties in which FTP was implemented by different hardware manufacturers. I regularly had to dive into the FTP libraries to add support for crazy edge cases (tcpflow in kubectl exec -it is your friend!). Example: one device added a newline in the middle of a command (USER\n myusername)..The latest curve ball I received this week is that a certain firmware version of a Qualcomm modem chip cannot deal with the size of the IP packets coming from our FTP server... Fun stuff!"</p>
 							
 						
 							
-								<p class="story__comment_others">"There was a project zero article on HN recently [1] that said that bound check eliminations were removed from v8 because they allowed attackers to easily turn a type confusion into a memory read-write primitive:&gt; As a result, last year the V8 team issued a hardening patch designed to prevent attackers from abusing bounds check elimination. Instead of removing the checks, the compiler started marking them as “aborting”But this post, which also appears to be written by someone from google with access to v8 developers, states that :&gt; You never go out of bounds. This means TurboFan does not need to emit bounds checks [...]Does someone here know more about bound checks eliminations in TurboFan ? Are they removed in some cases but not others ?[1] https://googleprojectzero.blogspot.com/2021/01/in-wild-serie..."</p>
+								<p class="story__comment_others">"From rfc801 (transition from NCP to TCP/IP) :
+&#34;FTP: This is specified in RFC 765.  It is very similar to the FTP used with the NCP.  The primary differences are that in addition to the changes for Telnet, that the data channel is limited to 8-bit bytes so FTP features to use other transmission byte sizes are eliminated.&#34;So FTP is older than the standardisation of byte size :-)"</p>
+							
+						
+							
+								<p class="story__comment_others">"On the other side upcoming Firefox 90 is removing support for FTP:https://blog.mozilla.org/addons/2021/04/15/built-in-ftp-impl..."</p>
 							
 						
 						</a>
@@ -388,33 +407,36 @@ The 13&#34; AMD version only seems to be available with 16GB RAM and 256 GB stor
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://opensource.googleblog.com/2021/04/logica-organizing-your-data-queries.html">
+					<a href="https://uxdesign.cc/why-has-no-one-made-a-better-goodreads-dfc9cb9e149a">
 						<picture>
-							<source srcset="default_26805121.webp" type="image/webp">
-							<source srcset="default_26805121.png" type="image/png">
-							<img src="default_26805121.png" alt="Preview of 'Logica, a novel open-source logic programming language'">
+							<source srcset="default_26834833.webp" type="image/webp">
+							<source srcset="default_26834833.png" type="image/png">
+							<img src="default_26834833.png" alt="Preview of 'Why has no one made a better Goodreads'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://opensource.googleblog.com/2021/04/logica-organizing-your-data-queries.html">Logica, a novel open-source logic programming language</a></h3>
+					<h3><a href="https://uxdesign.cc/why-has-no-one-made-a-better-goodreads-dfc9cb9e149a">Why has no one made a better Goodreads</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26805121">
+						<a href="https://news.ycombinator.com/item?id=26834833">
 						
 							
-								<p class="story__comment_first line-clamp">"I have yet to check it out, but it&#39;s very cool when people try to rethink SQL, and also revive Datalog. I (morally) support this effort.Myself, I would like to see data query/manipulation language as a total functional language, possibly based on the idea of categorical data transformations: https://www.categoricaldata.net/Also - bit of a rant - if you&#39;re creating a new programming language, consider making syntax and semantics separate in the specification. Lots of people get hung up on arguing about language syntax but it&#39;s really semantics differences that are important for compatibility. Lot of new languages comes up only to fix syntactic problems with existing languages but create small semantic differences in the process, making automated translation from and to existing languages difficult. I wish we could move to a world where syntax and semantics in programming languages are discussed separately from each other."</p>
+								<p class="story__comment_first line-clamp">"Mek here from internet archive&#39;s OpenLibrary.org.Open Library was started by @aaronsw.We&#39;re a library catalog with 3M+ books to read &amp; borrow.We&#39;ve been around for 15 years, not going anywhere.We&#39;re open source and non profit:
+https://github.com/internetarchive/openlibraryWe defend patron privacy, offer free APIs, and release all public data openly: 
+https://openlibrary.org/developers/dumpsMost projects on this page have likely used our data.We have a Reading Log and several other more substantial features in the works.Our catalog spans more than 20M works: https://openlibrary.org/statsYou can help!
+https://openlibrary.org/volunteer"</p>
 							
 						
 							
-								<p class="story__comment_others">"Nice to see Datalog being validated by a big name, though I don&#39;t see what&#39;s modern about Logica in particular, or why one should use it over plain Datalog (as syntactical Prolog subset) when the available backends are restricted to SQL rewriters or locked-in to BigQuery. Will have to look into the model for aggregate queries which I guess is a selling point for Logica (as is modularization/composition with optimization), and a weak point since typically neither in Datalog (the decidable logic fragment) nor portable.Edit: also I find the title a bit grandiose since this isn&#39;t about Logic Programming in general, but only database querying"</p>
+								<p class="story__comment_others">"If it&#39;s not broken, why fix it? I go to goodreads for the high-quality book reviews and community. I literally don&#39;t care about UX or fancy algorithms. I&#39;d rather use an old algorithm called &#39;talking to someone I know&#39; for book recommendations. Right now it feels like a clunky old site made for books reviews and I like that feel. I don&#39;t want some Amazon product manager who only cares about monetising (where can I smack ads?!) to touch it thank you very much. And god forbid some UX person gets hold of it and redesigns it in the boring/minimal feel (so it loads fast and we can smack lots of ads on it)."</p>
 							
 						
 							
-								<p class="story__comment_others">"Not a great introduction to the language, IMHO. There is not a clear use of logic to automatically reason about anything, just query composition. It seems the language is much more powerful than what this introduction makes it to be!&gt; English words (...) often capitalized to keep the old-fashioned COBOL spirit of the 70s alive!I like logic programming a lot but a convention not technologically enforced is a poor reason to argue for a language change. When arguing about SQL limited abstraction capabilities that space would have been better spent talking about CTE limitations, for example.Also:&gt; To make things worse, SQL code is rarely tested, because “testing SQL queries” sounds rather esoteric to most engineers, at bestSo nonexisting best practices require a language change, apparently. It was also not showcased how this can be done in Logica, beyond the table mocking that could be done with a &#34;with xxx as (values a, b, c) select (query to be tested)&#34; approach in sql."</p>
+								<p class="story__comment_others">"Readng is a great alternative to GoodReads: https://beta.readng.co/It’s currently in private beta."</p>
 							
 						
 						</a>
