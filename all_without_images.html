@@ -36,6 +36,296 @@
 	</div>
 
 	
+	<div class="day__date">19 April 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://dashbit.co/blog/announcing-livebook?new=1">Livebook: A collaborative and interactive code notebook for Elixir</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26853285">
+						
+							
+								<p class="story__comment_first line-clamp">"&#34;connect to an existing node&#34; is going to be amazing.I imagine two interesting uses for this.1. producing reports.  Connect a livebook session to your system in prod, run a livebook (which pulls data from DB eg), then get back a report.  User engagement, cloud resources consumed, p90s, or an incident report...2. manual database intervention.  Suppose you need to manually make a batch of changes to the DB.  It would be very cool if you could run a livebook inside of a sandboxed checkout (a temporary transaction) and write your db changes, then write your code that verifies that the db is in a state that you want it to be in.  If you mess up your code, then you just terminate the transaction without committing.  Then when you&#39;re happy with your notebook, you run it once with a commit at the end, and then save your notebook immutably in your records so that you can keep track of what you&#39;ve done.I think for intervening in prod, it would be very cool if someone could figure out how to extend erlang distribution over websockets so you don&#39;t have to figure out complicated mechanisms (open up ssh port, forward encrypted epmd, e.g.) to get into your system in prod"</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow, this is great.The fact is can connect to existing nodes also makes it can also be great for operation and administration - instead of building an awkward admin panel, you can just having a collection of scripts.The Elixir community is insanely productive. Also, the Elixir system is impressively pretty balanced - productivity-wise like Rails, concurrent-wise like Erlang, and continuously brings novel yet practical ideas to life in a robust manner!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m pretty excited about this. I&#39;m admit I was skeptical when I saw a similar LiveView based notebook a couple months ago, and wondered why not just make a kernel for Jupyter.But with the idea of real-time collaboration I get it. And with the momentum of Jose and team behind it, I think there&#39;s real promise here, especially once they figure out widgets and charts, which they have an open issue for.I program in Elixir at work, so I usually have an iex shell open, but lately I&#39;ve been using a LiveBook and it&#39;s great.And I love the new Mix.install in Elixir 1.12 demonstrated here. Using a hex package in an adhoc way was a real shortcoming in Elixir before. Shows the power of having this thing developed by the language team."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://make.wordpress.org/core/2021/04/18/proposal-treat-floc-as-a-security-concern/">Proposal: Treat FLoC as a security concern</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26854073">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Why is this bad? As the Electronic Frontier Foundation explains in their post “Google’s FLoC is a terrible idea“, placing people in groups based on their browsing habits is likely to facilitate employment, housing and other types of discrimination, as well as predatory targeting of unsophisticated consumers.All of this has been happening with tracking cookies, fingerprint tracking, pixel tracking and so on. And will continue to happen.I find it so bizarre it took Google to talk about phasing out 3rd party cookies and replacing it with a much lesser technology in the face of FLoC, for people to suddenly be all up in arms about it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am hopeful that this will help get rid of FLoC but I worry about two things. One, this will end up being treated like the &#34;no track&#34; headers. That&#39;s just totally ignored after IE (was it IE?) enabled it be default. That gave all the trackers a reason to just ignore it and track everyone. I don&#39;t know if that exact same thing can happen here, but something similar maybe? The other thing I worry about is that FLoC 2.0 or whatever might replace it, will be worse.&#34;Kill it before it lays eggs.&#34; but do we worry about what evolves from this if it dies?"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve not been following this proposal closely I did findhttps://github.com/WICG/floc&gt;Tracking people via their cohort&gt;A cohort could be used as a user identifier. It may not have enough bits of information to individually identify someone, but in combination with other information (such as an IP address), it might.Whose purpose is:&gt;A FLoC cohort is a short name that is shared by a large number (thousands) of people, derived by the browser from its user’s browsing history.I wonder if it&#39;s possible to define a large enough number X that people are OK with the idea. (Cookies are effectively &#34;1&#34; and nothing is &#34;3,010,000,000&#34; ie on the internet)Could the cohort minimum size be configurable?Given the IP address can be known today: what&#39;s the existing accidental &#34;FLoC proxy&#34; or &#34;How unique are you online?&#34; Or &#34;online finger print&#34; (something I&#39;d not thought of before: my timezone can significantly narrow down who I am)
+You can try using yourself on: 
+https://amiunique.org/fp"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.quantamagazine.org/the-brain-rotates-memories-to-save-them-from-new-sensations-20210415/">The brain ‘rotates’ memories to save them from new sensations</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26830105">
+						
+							
+								<p class="story__comment_first line-clamp">"Take a binary array of length N, where N is in the hundreds to thousands range. Choose 2% of the bits to set to 1. Now you have a &#34;sparse array&#34;.Now, you want to use this sparse array to represent a note in a song. So you need every note to consistently map to a distinct* sparse array.However, you also want to be able distinguish a note as being in one song or another. The representation should tell you not only that this is note A but note A in song X.How might you do that? Well some portion of the ON bits could be held consistent for every A note and some could be used to represent specific contexts.Stable and variable bits of you will.Now if you look at two representations of the note A from two songs you&#39;ll see they&#39;re different. How different are they? Well you could just count the bits they have in common or not, or you can treat them as vectors. (Lines in high dimensional space) Then you can calculate the angle between those two lines. As that angle increases its easier to distinguish the two lines. They won&#39;t ever get to full &#34;right angles&#34; between them because of the shared stable bits, but they can be more or less orthogonal.That&#39;s what&#39;s happening here. The brain is encoding notes in a way that it can both recognize A, but also recall it in different contexts.*But not perfectly consistent, we use sparse representations because the brain is noisy and it&#39;s more energy efficient. Pretty close is good enough in the brain and you can encode a lot of values in 1000 choose 20 options."</p>
+							
+						
+							
+								<p class="story__comment_others">"This really would have been harder for me to understand had I not taken linear and abstract algebra courses a few years ago. That area of maths reused common words like &#34;rotation&#34; but with more generalized definitions, which made it was jarring and confusing to hear and take in at the time. When someone said the word &#34;rotate&#34; my mind as if by reflex was already trying visualize a 3d or 2d rotation even when it made no sense for the problem at hand. Being an English speaker my whole life I thought I understood what a rotation was or could be but I didn&#39;t.Same goes for what&#39;s being alleged here: Is there even a way to visualize this that makes mathematical sense?
+What will be the corollaries to this discovery simply as a result of what the mathematics of rotations will dictate?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Something to keep in mind though is that in a high-dimensional space, approximate orthogonality of independent vectors is almost guaranteed."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://projectlovelace.net/problems/">Show HN: Science and math-flavored programming problems for beginners</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26843339">
+						
+							
+								<p class="story__comment_first line-clamp">"Really nice! When I was in college we had all sorts of online systems that automatically graded assignments based on how close to the correct answer your supplied answer was. I think it&#39;d be nice if in the future there was more of an overlap between science classes and programming classes (almost like a freshman / junior level scientific computation class) where instead of approaching problems from a pure theoretical perspective, we involved these types of computational approaches in parallel. Personally I have found that while I often know how to perform various theoretical computations, it&#39;s faster for me to just throw together a quick script to approximate the result (e.g. what&#39;s the expected value of the product of two gaussians?)"</p>
+							
+						
+							
+								<p class="story__comment_others">"It is already mentioned in Project Lovelace&#39;s About page, but people who like this and Project Euler may also like Rosalind, which is a programming problem site focused on bioinformatics and adjacent algorithms."</p>
+							
+						
+							
+								<p class="story__comment_others">"I like the eclectic selection of problems. I wish I had seen something like this when I was growing up; a manageable set of problems with the hint of depth.It’s easy to snipe a nerd, but nerd sniping a non-nerd.. That’s gold.FWIW:
+- No margins on the side on iPhone in portrait.
+- Math formulas are clipped on the top in landscape."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://nvlabs.github.io/GANcraft/">GANcraft: Unsupervised 3D Neural Rendering of Minecraft Worlds</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26833972">
+						
+							
+								<p class="story__comment_first line-clamp">"Take this idea, and apply it to Google Earth. Have it procedurally generate the rest of the data as I zoom in.Its incredible I can check out my small home town on Google Earth now entirely in 3d (which wasnt the case just a few months ago). Yet the trees/cars are still these blocky low resolution things sticking out of the ground. Imagine Google Earth procedurally generating a high resolution mesh as I zoomed in. Train it with high resolution photogrammetry of other similar locations for the ground truth - and let me zoom in endless in their VR app"</p>
+							
+						
+							
+								<p class="story__comment_others">"Super cool.With that said I bet this would choke on lots of actual Minecraft worlds, because people often build things using blocks where the semantics get thrown completely out the window in favor of aesthetics. Want a big mural on the wall? You&#39;re going to be building the wall itself out of differently-colored blocks of woolMaybe they&#39;ll solve that part one day :)Edit: That said, it could choke in some really interesting ways..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Question for the experts: Is it possible that GANs will be used for rendering video game environments in the near-ish future? This has been one of my private predictions with respect to upcoming tech, but I&#39;d love to know if people are already thinking about this, or alternatively, why it won&#39;t happen."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.floc-away-from-chrome.com/">FLoC Away from Chrome</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26830557">
+						
+							
+								<p class="story__comment_first line-clamp">"I feel like I&#39;ve seen this cycle a few times now. Around the 2010-2013 time Firefox was pretty popular and the browser wars had cooled down a bit, various standards had progressed to the point where the web was mostly the same for Firefox users and Chrome users.Then Google Docs, Drive, Voice and a few other apps with the addition of Chromebooks started to appear and all of the sudden a few key features stopped working for Firefox. Probably the most important teachable moment was just how few features it takes to flip users.Maybe we&#39;ll see Firefox regain browser share are users dump Chrome. Edge even has a shot at this point - a strange irony bringing us full circle.I guess the real question is how long until we iterate on this loop again? What will compel users to jump back into the embrace of &lt;insert not yet but eventually evil company&gt; versus the relatively consistent arms of Mozilla.Also, FWIW, Mozilla isn&#39;t innocent either. Despite being very much _less scummy_ they have still upped their scum factor a bit over the years. Let&#39;s not forget they are quite happy to trade millions of dollars to make Google the homepage for their users. While nowhere near as egregious they have some tracking happening (&#34;experiments&#34;), they aggressively push their Firefox Accounts stuff, appear to be selling spots on the homepage tabs, etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"Don&#39;t use Chrome and don&#39;t use other browser based on Chromium either. As long as Google&#39;s engine has 85%+ market share, they can just unilaterally do whatever they want to the web.Use Firefox if you actually want to fix the web."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is just a rant and not very helpful for anyone that gets redirected here. I can’t really see anyone that care about their visitors doing this.Do as the good old times when we showed a banner to IE users below a certain version, and suggest better alternatives."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bbc.com/news/science-environment-56749105">&#39;Whitest ever&#39; paint reflects 98% of sunlight</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26832589">
+						
+							
+								<p class="story__comment_first line-clamp">"Someone needs to compile a list of all this fringe tech that I see popping up in my feeds, almost daily now. I know there are techpress blogs that pump out articles like this, but there doesn&#39;t seem to be an authoritative compendium of such tech anywhere on the net. I could curate this by hand with 3 hours of free time and some Red Bull I suppose.The reason I want this is because we seem to be swimming in innovation, but nobody to aggregate and make sense of it all, and `join-the-dots` of all this tech so we can make even bigger leaps with it. Also: A lot of these articles are great, but too quickly shoved into people&#39;s bookmarks and forgotten about, without any real action taken on them. Put simply: we are addicted to innovation, but with little action taken on this innovation!!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I bet this would look fantastic mixed with some vantablack, for the greyest grey achievable."</p>
+							
+						
+							
+								<p class="story__comment_others">"Reminds me of “anti-flash white,” developed for bombers during the early years of the cold war. The theory was that the specially formulated white paint would reflect enough of a nuclear explosion’s thermal energy to allow the aircraft to survive the explosion as the bomber departed the scene.https://en.wikipedia.org/wiki/Anti-flash_whiteIt was also used on interceptors like the Avro Arrow prototypes."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://en.wikipedia.org/wiki/Kelly_criterion">Kelly Criterion</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26834333">
+						
+							
+								<p class="story__comment_first line-clamp">"For anyone actively managing investment portfolios, a deep understanding of the Kelley criterion is very important. For example, it is common practice to use &#34;Half Kelly&#34; to size positions, but most sources only provide a hand-wavey intuitive explanation. Thorp&#39;s paper[2] quantifies the benefits for any fraction of the &#34;full Kelly&#34; bet and its implications.  In addition to Poundstone&#39;s book [1] I strongly recommend Ed Thorp&#39;s highly readable paper[2].[1] Poundstone, William (2005), Fortune&#39;s Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street,
+[2]https://wayback.archive-it.org/all/20090320125959/http://www..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Kelly himself ended up using 1/n for his own personal portfolio management.Gerd Gigerenzer has a lot to say about how harmful this model has been to finance and the world, because it creates &#34;false certainty&#34;.https://news.ycombinator.com/item?id=26325425 has further discussion."</p>
+							
+						
+							
+								<p class="story__comment_others">"Many here are correct that the Kelly criterion is relatively useless compared to standard portfolio management techniques for a basket of assets.However... I will say that it&#39;s incredible useful when deciding on more high risk bets based on binary outcomes which is not something portfolio managers would dream of doing for their clients. Consider a long dated call spread on the SPY that goes out to 12/2023.Say you think the SPY will be over $600. Today, for $140 of risk, you stand to make $1,860 if you&#39;re right if you buy a $570 call and sell a $590.This is exactly what Kelly was made for.The proper strategy, IMO, is to find a comfortable allocation for trades of this sort as a portion of an overall portfolio (Say 1-2%), then of that percentage use Kelly to allocate capital to different bets of this nature to lower the variance.So sure, Kelly isn&#39;t useful for portfolio management writ large, but for managing a portfolio of binary trades, it&#39;s a useful metric."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://mailbox.org/en/post/it-companies-warn-eu-plans-to-ban-encryption">IT companies warn in open letter: EU wants to ban encryption</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26825653">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Under the EU Internet Forum, the Commission has launched an expert process with industry to map and preliminarily assess, by the end of 2020, possible technical solutions to detect and report child sexual abuse in end-to-end encrypted electronic communications, and to address regulatory and operational challenges and opportunities in the fight against these crimes.It is a spectacular overreaction to equate this to &#34;EU wants to ban encryption&#34;. This will never happen."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Banning encryption&#34; is such a dumb premise. If I lived in some future, hellish Europe, I&#39;d simply mail USB drives with GPG keys on them to the people I love. Costs $15 if you buy the drives in bulk. After that, chat away using PGP encrypted messages. Good luck, EU."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve thought about this since last year, and I can’t understand how this proposal has been able to survive this long. First of all, the EU is very pro-business, which means it should be pro-encryption. Second, the structures of its governing bodies does not make it very prone to populism. Based on what I know from this Kurzgesagt video: https://youtu.be/h4Uu5eyN6VUIs this all some hidden plot to turn the EU into a totalitarian state? I’m (half) joking, but I really can’t see the motivation."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://liw.fi/readme-review/">I&#39;d like to review your README</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=26842191">
+						
+							
+								<p class="story__comment_first line-clamp">"Pet peeve of mine: READMEs starting to explain hoe efficient, performant or minimal something is without explaining wat it is and why it should exist in the first place.Or using overly vague terms that only make sense in a very narrow technical context. A ‘minimal isomorphic asynchronous worker framework’. Can mean a million things."</p>
+							
+						
+							
+								<p class="story__comment_others">"I really appreciate folks who commit time to open source projects for things other than code (e.g. things that may be otherwise neglected).There was a user on GitHub back in 2019[0] who went around and created logos for a bunch of projects (including one I was working on actively at the time). Out of curiosity I looked the account up recently while working on a new project but it&#39;s not longer active.Translations are another great example of this. That same project that got the logo has also been translated by various people in to eight different languages!Other ways I&#39;d love to find people devoting time to smaller projects -- accessibility and UX audits. It&#39;s hard to account for all this stuff on smaller projects with only one or two primary developers.[0] https://github.com/reallinfo?tab=overview&amp;from=2019-12-01&amp;to..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wish people would find a way to include any code present in a README in some kind of automated test.Nothing more frustrating than if you copy something from there but it turns out the README wasn&#39;t updated since the very first day and all the &#34;hello world&#34; code or install instructions are completely outdatedMaybe not include any code is the better solution, instead add an example folder."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">18 April 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -53,11 +343,11 @@
 							
 						
 							
-								<p class="story__comment_others">"This reminds me of my first job as a developer, age 21. I haven’t shared it before, so here goes...There was a ‘crunch’ coming up at work (i.e. IMHO, bad planning) and so the boss offered everyone a bonus if they performed well.However, the older employees warned me that the criteria for such bonuses were often ill-defined. I therefore pushed for clear achievable objectives. These pre-agreed objectives were promised, but never provided.Anyway, we all work hard, some more than others, but we met all the deadlines.Then comes bonus time, and they propose that I be given 30% of the maximum bonus. I explained that I felt this was entirely unreasonable, as I met all my deadlines. No other objectives were set, and therefore I felt I deserved the full bonus.They didn’t agree, and we went three rounds of meetings with more and more people in the meeting. Each time they tried to convince me what I was asking for was unreasonable.At this point I should add that I had seen this boss (CEO, small company) be what I would now call abusive. Verbally abusive to junior staff members, and insulting members of staff behind their backs. So my loyalty was, well, absent.So on the third round of weirdly manipulative meetings, we come to an impasse. So I explained that I still stand by my request, and I pulled out my letter of resignation.At which point there is a long silence. My boss puts his head in his, and the other two people in the meeting (another boss, and my coworker) looked surprised, to put it mildly.After collecting his thoughts, my boss asks: what is to stop me threatening to resign every time I don’t get my way? To which I calmly explain that he didn’t have to pay (Ie. I could just quit).After a bit more stunned silence, the boss relents, and agrees to give me the full bonus.I wait until the bonus is in my account then I hand in my notice anyway. Abusive bosses don’t get loyalty.The best part is, the coworker in the meeting also didn’t get the full bonus, despite working much harder than me. He’d only asked her into the meeting to try to guilt/manipulate me. So not only did the boss have to give me the full bonus, he had to do the same for her too.After that I went freelance. And 15 years later I can say it was the best decision ever."</p>
+								<p class="story__comment_others">"&gt; I remember being in shouting matches with our signal integrity team about among other things, how many capacitors we needed.I think the place where big companies go wrong is by having teams that are too specialized.  If you&#39;re the Signal Integrity team, the only thing you care about is signal integrity.  You should just say no to anything but the most conservative arrangement possible; you&#39;re responsible for Signal Integrity, not profit or time to market!  Block the project until the signal integrity is as good as it can be, that&#39;s your one and only job.The even bigger problem is that the existence of the signal integrity team means that signal integrity experts aren&#39;t embedded on the product team.  The product team can happily say &#34;they&#39;re handling that&#34;, and cut whatever corners are necessary to get their $25,000 bonus, not caring at all about the tickets the Customer Service Team will have to handle as a result of poor signal integrity, the weird bugs the Software Engineering Team will have to work around, and the terrible reviews caused by a computer that randomly flips bits in memory.Engineering is a discipline about balance, and I think the balance has to be done inside the team.  You need to make a conscious decision to trade off a lower BOM cost for more customer service tickets, and the team needs to own that decision and plan for the future under the constraints of that decision.  (Instead of sending out an order for capacitors, send out a req for more customer service.)  If there is someone in the &#34;out group&#34; that you can pass your concerns off to (i.e. that makes the cost of your balance decision cost 0 for you), then you&#39;ll never make the right balance for the product and company as a whole.  You&#39;ll just maximize for your own gain.  From there, you ship your org chart, the company becomes entirely about politics, and you&#39;re out of business... just like DEC apparently.(I guess I also want to comment on the article as a whole -- being bitter about too small a bonus.  Something similar happened to me and I sure was bitter about it.  I actually quit over it.  It all sounds very rational to me, knowing how humans work, and I can&#39;t believe management would do something so stupid.  It&#39;s the kind of thing that kills your company, and yup! it killed them!  If there is one constant in the field of engineering, it&#39;s that we forget the mistakes of the past much too quickly.  Except Therac-25, everyone remembers that one, but integer overflows are still killing people to this day.  Sigh!)"</p>
 							
 						
 							
-								<p class="story__comment_others">"I see a lot of comments bemoaning performance-based bonuses, but consider the following:&gt; I remember being in shouting matches with our signal integrity team about among other things, how many capacitors we needed. These tiny devices evened out the power of the system, but they wanted far too many to be added to allow the design cheap and easy to build&gt; Meanwhile I was waking up at 4AM on most days, in full-stress-insomnia. Sometimes I would just give up on sleep and go into work at that early hour, and while there, sometimes run into other stressed-out engineers who also could not sleep. I had shaved as much time as I could possibly get off the schedule, and a little cost. A $25K bonus was out of the question at this point, but $10K or more, still in the running.&gt; Because manufacturing, as discussed, was not on the secret bonus program, did not even know it existed, and had very little incentive to speed up the rework. As far as they were concerned the project was slightly ahead of schedule, so why rush the job and make another mistake? More time ticked by. They actually did make another mistake anyway, and mounted incorrect rams a second time, which I remember being really mad about.&gt; Meanwhile, our sister project had managed to minimize their cost target and beat the target schedule of their project, such that each member of that team received the full $25,000.Sounds to me like the bonus program was working exactly as intended. OP got into shouting matches with other stakeholders to trim overly cautious expenses. He and his teammates voluntarily worked far outside regular working hours. Both him and his sister team succeeded in delivering a successful project ahead of time, with lower costs, and were ultimately tripped up only by the incompetence of other teams that had minimal bonus incentives.I&#39;ve noticed a huge difference between orgs where people have skin in the game, and orgs where people don&#39;t. People with skin in the game, have a real fire under their ass. It&#39;s inspiring to see how much they are able to get done, and how quickly. At orgs where people don&#39;t have skin in the game, I spend half my time sitting in meetings, discussing what doc we should write next, what format we should use for the doc, and when to schedule the next meeting to review that doc. It&#39;s as though people are more interesting in impressing one another and putting in facetime, rather than actually getting stuff done. In fact, I&#39;ve noticed that people often add a net-negative value to many projects - their urge to add their 2 cents and make their impact felt, results in goalposts getting constantly shifted and launches getting continually delayed.Is it possible for a badly designed bonus program to produce disastrously bad results? Definitely. But there has to be a better way to give people more skin in the game, when it comes to doing their job as effectively as possible."</p>
+								<p class="story__comment_others">"In my last job I worked at a company that paid slightly below the market rate, not including the bonus. At the time I got the job, I didn&#39;t realise that I was already being significantly underpaid. I thought it was a bit low but didn&#39;t realise the extent of it. So when I got the new job, I was blown over by the huge jump in salary and couldn&#39;t be happier. What was better? I was entitled to receive each year up to a 10% bonus for just doing my job, 15% if I went above and beyond, or 20% if I was a &#34;role model&#34;.At the time, both the recruiter and my new manager explained to me that I should think of the 10% bonus as a baseline expected part of my salary &#34;you will always get this unless you are doing something egregiously wrong&#34;. This was indeed what everyone was told, and what management was told to tell people. Of course, this made me recalculate what I thought I was worth and it did in actual fact bring my salary up to roughly market rate.What the recruiter and my manager said was right. Come bonus time, I and almost everyone else in the company got their bonuses (apart from the people that did egregiously bad, and they saw it coming). In the second year I even qualified for 15% and when I got paid out I really felt that I had actually gotten a bonus. I was banking on 10%, but not 15%! I treated myself to something I&#39;d wanted for ages but could never justify.Then Covid hit, and suddenly upper upper upper management started signaling that bonuses might not be paid that year. Needless to say, absolutely everyone apart from the CFO was up in arms. Morale, which already wasn&#39;t amazing because of Covid, plunged even further and the number of &#34;hallway conversations&#34; increased significantly. People started to leave in larger numbers because the bonus was an expected part of their salary. Each year they waited expectantly to receive it, and if they weren&#39;t going to get it this year they would need to go and find a job that paid market rate as base salary. The thing that made this worse was that we were working at one of those few companies that actually did better during Covid. For better or worse, we sold a service that had an increased demand for Covid.By this time I was a manager, and we were told in a leadership meeting by our head of department where we were all vocally pissed, and were told that we had to pass the message on to the people we managed. Clearly, this is what had happened to him, and to his manager.The company didn&#39;t want to come out and say &#34;you aren&#39;t getting bonuses even though we&#39;re projected to do better&#34; presumably because it would provide a platform for people to ask why. Instead, they thought it would be better if it came from the direct line manager. Great idea except that we received the message from someone who at the same time said to us &#34;I can&#39;t imagine how they&#39;ll get away without giving bonuses&#34;. It just served to add to the feeling of being cheated.Anyway, they ended up actually paying the bonuses because the annual revenue figures had increased so much that it was basically impossible for them not to pay them. When we got them, we didn&#39;t feel happy that we had received a bonus, we just felt bitter that the company put us through hell for seemingly no reason.I no longer work at that company."</p>
 							
 						
 						</a>
@@ -170,7 +460,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Bitcoin has spectacularly succeeded as a reliable litmus test to identify people and companies who are actually charlatans and get-rich-quick scammers with nothing better to offer than self-serving shilling and crypto-woo-woo, who contribute nothing to the world but hot air, burning coal, and global warming."</p>
+								<p class="story__comment_others">"That &#34;article&#34; doesn&#39;t add anything beyond the fact that &#34;this guy wrote a tweet and here&#39;s what it said&#34;.Why is such low quality filler getting traction on HN? Is it because anti-crypto posts push people&#39;s buttons? Every day there is something like this posted, and like clockwork the comments are full of the same arguments both on the pro and anti crypto sides.Am I an idiot for expecting better from HN?"</p>
 							
 						
 						</a>
@@ -228,7 +518,7 @@ Is this some new kind of war?"</p>
 							
 						
 							
-								<p class="story__comment_others">"As I&#39;m repeating myself too often regarding this: the statistical norm is to be trackable. Every browser that isn&#39;t will get flagged.Privacy does only exist if you seem to look exactly like any other person visiting the website.That is why user agent, web apis, asset loading order and behaviours, http stack behaviours, tcp fingerprints all have to look like they came from the Browser Engine you&#39;re trying to identify with.If you don&#39;t, you&#39;re watched. It&#39;s as simple as that. Don&#39;t kid yourself into safety if you think that the Content-Security-Policy hack of adblockers work to prevent tracking and fingerprinting. Sure, you send less data, but less data means more obvious than the norm.As there was not a single concept that could fix this (in regards to looking like another Browser) I started to build my own &#34;web filtering browser&#34; [1] that is able to emulate fingerprinting, and sticks them to specific domains and their originating uncached CDN requests so that if you have the same IP for the same website, they cannot correlate it to ptevious visits.The most effective way to not get tracked is to not visit the website. And I think that there&#39;s a huge potential in offloading traffic to peers that have the same URL already in their caches. Peer-to-peer Browser Caches would fix so many issues on their own, I don&#39;t understand why nobody is doing that. To the end user it doesn&#39;t matter where the assets come from, as long as the website is rendered in the same way afterwards.[1] https://github.com/tholian-network/stealth"</p>
+								<p class="story__comment_others">"Author doesn&#39;t actually know what this information is being used for. Sure there can be a discussion about whether this information should be recorded at all (say, to determine if your site doesn&#39;t work on certain hardware), but claiming it _is_ fingerprinting is baseless."</p>
 							
 						
 						</a>
@@ -312,7 +602,7 @@ Is this some new kind of war?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I haven&#39;t been coding as long as most (about 10 years) but I&#39;ve had phases of Java, Ruby, Python, JS, TS, ObjC, etc.If I go onto my GitHub and try to get any of my old projects running I am extremely confident that the non-Android Java  ones will still work. All of the other ones will probably have &#34;rotted&#34; over the years and send me down a day-long rabbit hole looking for old dependencies or build systems.There&#39;s something to be said for that amazing stability. I can&#39;t think of another language where you can find some .edu page from 2001 with a link to a library (.jar) that does what you need and you can actually use it in a modern application."</p>
+								<p class="story__comment_others">"The amount of vitriol Java receives in the game development space is rather strong. However, whenever people dismiss Java as being a bad language, I can&#39;t help but think of Minecraft.Yes, it&#39;s one of the few mainstream titles where Java has been successfully applied, but I believe Minecraft&#39;s success was specifically because it was written in Java.With no JVM, there would have been no Minecraft mods at the level of flexibility that Forge provides, and the game would probably have stagnated in comparison with the sheer amount of community content from the past ten years that&#39;s available. Being able to use libraries like ASM that allow you to transform the compiled bytecode in radical ways were possible only because Minecraft targeted a virtual machine. The incredible thing was that this was in spite of the obfuscation Mojang applied to the compiled source. If it was possible to create a flexible mod system at all thanks to the JVM, people were just too motivated for any deterrence to stop them.For the people who say that Minecraft should have been written in C++ or something from the start, because Java is a mediocre programming language, there&#39;s Bedrock Edition. Nobody I know cares about it enough to play it. For all its bloat and performance issues, the benefits of the JVM were simply too convincing."</p>
 							
 						
 						</a>
@@ -615,7 +905,11 @@ dominant platforms have exploited their power in order to become even more domin
 						<a href="https://news.ycombinator.com/item?id=26834833">
 						
 							
-								<p class="story__comment_first line-clamp">"Mek here from internet archive&#39;s OpenLibrary.org.Open Library was started by @aaronsw.We&#39;re a library catalog with 3M+ books to read &amp; borrow.We&#39;ve been around for 15 years, not going anywhere.We&#39;re open source and non profit:
+								<p class="story__comment_first line-clamp">"I tried making their Quotes section better. Contains 1m+ quotes. but since goodreads has lot of backlinks my site never comes on Google.http://satya.co/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Mek here from internet archive&#39;s OpenLibrary.org.Open Library was started by @aaronsw.We&#39;re a library catalog with 3M+ books to read &amp; borrow.We&#39;ve been around for 15 years, not going anywhere.We&#39;re open source and non profit:
 https://github.com/internetarchive/openlibraryWe defend patron privacy, offer free APIs, and release all public data openly: 
 https://openlibrary.org/developers/dumpsMost projects on this page have likely used our data.We have a Reading Log and several other more substantial features in the works.Our catalog spans more than 20M works: https://openlibrary.org/statsYou can help!
 https://openlibrary.org/volunteer"</p>
@@ -623,10 +917,6 @@ https://openlibrary.org/volunteer"</p>
 						
 							
 								<p class="story__comment_others">"If it&#39;s not broken, why fix it? I go to goodreads for the high-quality book reviews and community. I literally don&#39;t care about UX or fancy algorithms. I&#39;d rather use an old algorithm called &#39;talking to someone I know&#39; for book recommendations. Right now it feels like a clunky old site made for books reviews and I like that feel. I don&#39;t want some Amazon product manager who only cares about monetising (where can I smack ads?!) to touch it thank you very much. And god forbid some UX person gets hold of it and redesigns it in the boring/minimal feel (so it loads fast and we can smack lots of ads on it)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I am actually working to peel Goodreads apart and focus on doing one thing better, which is book discovery. I am actually launching into Beta on Monday -&gt; https://shepherd.com/If anyone is interested let me know what you think. The goal is to create an online experience that is like wandering through a bookstore and seeing little notes about which books are the staff&#39;s favorites."</p>
 							
 						
 						</a>
@@ -2711,291 +3001,6 @@ might cause the database engine to perform difficult_calculation() on all rows, 
 						
 							
 								<p class="story__comment_others">"ELI5:1) any input vector can be represented by a &#34;similar&#34; another vector, e.g. [.4, -.3, .1] =&gt; [+1, -1, 0]INIT:2) generate a set of random input vectors using only {+1, 0, -1} numbers3) for every neuron: compute a set of activations for every random input vector4) combine those sets producing a large hash table where keys are random vectors and values are indices of active neuronsFEED-FORWARD:5) for every input vector, find its nearest neighbor, e.g.: [.4, -.3, .1] =&gt; [+1, -1, 0]6) use this vector as hash key to get indices of neurons7) compute activations for only these neurons using only their weights and the input vector8) repeat for all layersetc.This way, you avoid lots of computations, but the key is to have a good hash function and a lot of memory."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">09 April 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://anthonynsimon.com/blog/one-man-saas-architecture/">The architecture behind a one-person tech startup</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26737771">
-						
-							
-								<p class="story__comment_first line-clamp">"My one-man-SaaS setup:- Static frontend hosted on Netlify (free unlimited scale)- Backend server on Google App Engine (connecting to Gcloud storage and managed DB via magic)I realize I&#39;m opening myself up to vendor lock-in and increased costs down the road (if I even get that far), but I&#39;ve wrangled enough Docker/k8s/Ingress setups in the past to know it&#39;s just not worth the time and effort for a non-master."</p>
-							
-						
-							
-								<p class="story__comment_others">"Anthony - if you&#39;re reading this, thank you!! To arrive at this architecture takes 100s if not 100s of hours, and to share it with the community is dang inspiring.I was feeling a bit down on my projects, but this has me amped up seeing how the ultimate goal of working on features rather than deployment is possible, and very real!Best of luck with Panelbear!"</p>
-							
-						
-							
-								<p class="story__comment_others">"The author almost seems to apologize for having a django monolith.But it&#39;s worth realising that one purpose of code organisation in larger companies is to mirror the team organisation. That&#39;s a constraint on code that can interfere with the best technical architecture.You can do better with a monolith in a one-man team!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/article/us-facebook-data-leak-idUSKBN2BU2ZY">Facebook does not plan to notify half-billion users affected by data leak</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26736285">
-						
-							
-								<p class="story__comment_first line-clamp">"@dang duplicate https://news.ycombinator.com/item?id=26729989"</p>
-							
-						
-							
-								<p class="story__comment_others">"I’ve said it before and I’ll say it again, unless and until, companies like Facebook are fined appropriate amounts they’ll never stop.Quite literally, every business school on the fucking planet will tell you do something if it’s cheaper. It is cheaper for them to not give a fuck, than to give one. Unless they are fined upwards of $20-50bn it’ll never stop because it’s always going to benefit their bottom line. Full stop.If you don’t take 10-15% from a company they won’t ever be incentivized to stop. This 5% or less bullshit has to stop if folks want change.Edit: small grammar fix."</p>
-							
-						
-							
-								<p class="story__comment_others">"For years companies have been steadily asking, mandating or even trickling users to give them their phone numbers under the excuse of security (while the real reasons were different), now what?How can they be trusted anymore?This also strikes a great point about the data sharing between Facebook and WhatsApp. Linking data between services augments the dangers and the consequences are not obvious to the end user.I think Facebook should offer their users the option to remove their phone numbers with a real deletion."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.thecut.com/2021/04/a-q-and-a-with-the-man-who-keeps-uploading-my-feet-to-wikifeet.html">An interview with the man who keeps uploading my feet to WikiFeet</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26735665">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; So why not just look at feet on Instagram, or screenshot them for yourself? What do you get out of posting them to another website?This question has always been weird to me, but apparently there are people who don’t experience “this thing is good, i wish to contribute” or “this has brought me joy, i wish to give something back”. I mean, thankfully there are still enough others that we can have Wikipedia, where you also don’t get anything in return. Not even “clout”. Sometimes someone will send you a thank you and that’ll make your day. Open Source is another obvious one, but it extends to the real world, too. Some people will plant flowers in public places or do yarnbombing or pick up trash in the neighborhood or whatever. Why do it? What do you get out of it? I mean, I don’t want to be harsh saying “what a dumb question”, but it just kind of makes me uncomfortable how it challenges something that should be celebrated.The next question about it being invasive is good and valid, but this one on its own just sounds like “why not content yourself with passively consuming”. I’m glad he called himself “generous” because it’s true."</p>
-							
-						
-							
-								<p class="story__comment_others">"I went in thinking &#34;meh, let&#39;s check&#34; and was surprised and quite amused about the &#34;wholesomeness&#34; of what could have been a very strange encounter.He seemed respectful and she seemed unbothered by the whole ordeal. Interesting, not my cup of tea, but definitely interesting.Something else that caught my attention was how early he believes his interest for feet developed, as early as six and nine years of age. I wonder how this slightly amusing predilection grows and develops over time, as to even gain sexual connotation."</p>
-							
-						
-							
-								<p class="story__comment_others">"For every weird niche hobby there is a guy who is creating literal database of something with almost scientific precision.Mix it with rule 34 and you got things like WikiFeet or some Czech site which is literal database of nude scenes in our whole cinema history (sorted by movies, actresses and director including screencaps of course)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://gregoryszorc.com/blog/2021/04/06/surprisingly-slow/">Surprisingly Slow</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26710763">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; CPUs have somewhat plateaued in their single core performance in the past decadeIn fact for many cases single core performance has dropped at a given relative price-point. Look at renting inexpensive (not bleeding edge) bare-metal servers: the brand new boxes often have a little less single-core performance than units a few years old, but have two, three, or four times the number of cores at a similar inflation/other adjusted cost.For most server workloads, at least where there is more than near-zero concurrency, adding more cores is far more effective than trying to make a single core go faster (up to a point - there are diminishing returns when shoving more and more cores into one machine, even for embarrassingly parallel workloads, due to other bottlenecks, unless using specialist kit for your task).It can be more power efficient too despite all the extra silicon - one of the reasons for the slight drop (rather than a plateau) in single core oomph is that a small drop in core speed (or a reduction in the complexity via pipeline depth and other features) can create a significant reduction in power consumption. Once you take into account modern CPUs being able to properly idle unused cores (so they aren&#39;t consuming more than a trickle of energy unless actively doing something) it becomes a bit of a no-brainer in many data-centre environments. There are exceptions to every rule of course - the power dynamic flips if you are running every core at full capacity most or all of the time (i.e. crypto mining)."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Historically, the Windows Command Prompt and the built-in Terminal.app on macOS were very slow at handling tons of output.A very old trick I remember on Windows, is to minimize command prompts if a lot of output was expected and would otherwise slow down the process. I don&#39;t know if it turned write operations into a no-op, or bypassed some slow GDI functions, but it had an extremely noticeable difference in performance."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;&#34;Closing File Handles on WindowsMany years ago I was profiling Mercurial to help improve the working directory checkout speed on Windows, as users were observing that checkout times on Windows were much slower than on Linux, even on the same machine.I thought I could chalk this up to NTFS versus Linux filesystems or general kernel/OS level efficiency differences. What I actually learned was much more surprising.When I started profiling Mercurial on Windows, I observed that most I/O APIs were completing in a few dozen microseconds, maybe a single millisecond or two ever now and then. Windows/NTFS performance seemed great!Except for CloseHandle(). These calls were often taking 1-10+ milliseconds to complete. It seemed odd to me that file writes - even sustained file writes that were sufficient to blow past any write buffering capacity - were fast but closes slow. It was even more perplexing that CloseHandle() was slow even if you were using completion ports (i.e. async I/O). This behavior for completion ports was counter to what the MSDN documentation said should happen (the function should return immediately and its status can be retrieved later).While I didn&#39;t realize it at the time, the cause for this was/is Windows Defender. Windows Defender (and other anti-virus / scanning software) typically work on Windows by installing what&#39;s called a filesystem filter driver. This is a kernel driver that essentially hooks itself into the kernel and receives callbacks on I/O and filesystem events. It turns out the close file callback triggers scanning of written data. And this scanning appears to occur synchronously, blocking CloseHandle() from returning. This adds milliseconds of overhead.&#34;PDS: Observation: In an OS, if I/O (or more generally, API calls) are initially written to run and return quickly -- this doesn&#39;t mean that they won&#39;t degrade (for whatever reason), as the OS expands and/or underlying hardware changes, over time...For any OS writer, present or future, a key aspect of OS development is writing I/O (and API) performance tests, running them regularly, and immediately halting development to understand/fix the root cause -- if and when performance anomalies are detected... in large software systems, in large codebases, it&#39;s usually much harder to gain back performance several versions after performance has been lost (i.e., Browsers), than to be disciplined, constantly test performance, and halt development (and understand/fix the root cause) the instant any performance anomaly is detected..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://99percentinvisible.org/episode/the-real-book/">The Real Book</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26737142">
-						
-							
-								<p class="story__comment_first line-clamp">"When I was a teenager, my music teacher always had a copy of the Real Book around. I went to a local music store and was looking through their music books when one of the employees asked, &#39;is there something I can help you find?&#39; When I said the Real Book, he said, &#39;oh, we don&#39;t keep that out here&#39;... he disappeared for a minute and came back with a copy from the back room. At the time, I felt like I had been admitted into a secret club."</p>
-							
-						
-							
-								<p class="story__comment_others">"When I was learning to play the saxophone my instructor had an old copy of the Real Book. The transcriptions of songs by some of the jazz legends  would blow my mind. I thought the people being able to transcribe those were geniuses (still do). They had no sophisticated software to help them. It was all done manually by listening to countless hours of recordings over and over again. All those chord changes, harmonies, the extra fast tempo...That also reminds me of Phil Schapp. He used to run (probably still does) a radio program at Columbia University. Most astonishing encyclopedic knowledge of jazz!! Have a listen sometime. https://en.wikipedia.org/wiki/Phil_SchaapEdit: Added Wikipedia link."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m a bassist. I got my Real Book in 1982. I was already playing in the high school jazz band, but as a suburban kid, I had zero exposure to things like jam sessions and live jazz performances. Nobody had taught me how to learn harmonies from recordings, so I was kind of lost. The Real Book gave me a way to follow recorded tunes and grasp what the players were doing. Later on, being able to play from &#34;lead sheets&#34; enabled me to play with musicians who were a lot better than me, and was really how I learned to play.But eventually, I was hauling a ton of fake books to every gig. About 20 years ago, I was running late, and decided to leave my fake books behind. And I survived. I had memorized most of the tunes that were played regularly in my locale, and forced myself to learn the rest by ear, on the bandstand.So I tell people that the two best things I&#39;ve done for my jazz playing were: Getting a Real Book, and getting rid of my Real Book. Today, those tunes are hopelessly overplayed, and I prefer finding bands to play with, who are willing to venture off the beaten path, with less familiar tunes or especially original material."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.berkeley.edu/2021/03/30/fda-approves-first-test-of-crispr-to-correct-genetic-defect-causing-sickle-cell-disease/">FDA approves first test of CRISPR for genetic defect causing sickle cell disease</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26733033">
-						
-							
-								<p class="story__comment_first line-clamp">"For people interested in Crispr, Rich Horgan started a non-profit called Cure Rare Disease working to fast-track customized therapeutics for his brother and other families with Duchenne Muscular Dystrophy using in-vivo gene editing.https://cureraredisease.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Can someone answer, what is the entry method of CRISPR in adults, don&#39;t it need to change all instances of a cell to be effective?I don&#39;t really understand the delivery method."</p>
-							
-						
-							
-								<p class="story__comment_others">"I was super pumped for this tech to start being used in human clinical trials, but a couple of years ago, there was a study[0] that raised some key concerns about CRISPR therapeutics increasing the risk of cancer due to some edited cells self-destructing once their genomes have been modified, leaving behind cells with a higher risk of cancer due to not being as sensitive to genomic edits. Have these challenges been overcome yet?[0]: https://www.scientificamerican.com/article/crispr-edited-cel..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://innocenceproject.org/new-mexico-historic-legislation-to-end-qualified-immunity/">New Mexico is the second state to ban qualified immunity</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26735216">
-						
-							
-								<p class="story__comment_first line-clamp">"The purpose of qualified immunity is to permit officials to carry out their discretionary duties without fear of personal liability or harassing litigation.It applies to all parts of government. Didn&#39;t get the building permit for your kids horse barn? Sue the planning commission members individually. Animal control writes you a citation for Puddles not being on a leash? Unleash the lawyers. Health department gave your wine bar a bad rating? Sue the inspector personally.The way to fix policing isn&#39;t by making the rest of government worse. Reform unions for employees of the people. Create independent civilian oversight boards with the teeth to suspend and terminate. Invest more in mental health and drug rehabilitation services. Invest in educational resources to teach communities how to deal with law enforcement.Edit to add: People are confusing civil liability with criminal liability. If you are found guilty of a crime, then you can be sued."</p>
-							
-						
-							
-								<p class="story__comment_others">"I understand the arguments that &#34;QI has reasonable goals in theory&#34;, but it is time to throw the baby out with the bathwater. If cops didn&#39;t want to lose QI, they should have held themselves to account for the last few decades. Maybe the unions should have spoken up when cops steal tens of thousands of dollars in cash from a suspect, and get away with it due to QI.San Antonio, TX will be voting in May on whether to disband the police union. &#34;Back the Blue&#34; types are saying it&#39;s Defund in disguise, that we won&#39;t be able to find good cops, and so on.Except several large cities in Texas don&#39;t have unionized police, and they do alright. Furthermore, the cops in San Antonio can commit really awful crimes, and still have months- or years-long appeals.Being a cop isn&#39;t a right, it is a privilege and a critical duty. It should be easy to fire bad cops. SAPD, if you didn&#39;t want your union to be busted, maybe you should have  held yourselves to a higher standard."</p>
-							
-						
-							
-								<p class="story__comment_others">"From the outside, the US has big issues with race, poverty, mental health and access to firearms. That makes policing very difficult and pushes towards a &#34;shoot first&#34; approach.But since the US refuses to address any of the issues, it&#39;s stuck trying to fix the problem without being able to fix the problem.What concerns me most (and I see it here in the UK too) isn&#39;t these issues themselves, it is the inability of people (media, politicians and everyday citizens) to have an adult conversation about any of it. If the US collectively said &#34;we accept these events as a downside of our way of life&#34; I might not agree but I&#39;d understand. Instead people act like they&#39;re surprised or pretend they can be fixed by tinkering around the edges. It seems quite dishonest..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://antonz.org/python-packaging/">How to make a Python package in 2021</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26733423">
-						
-							
-								<p class="story__comment_first line-clamp">"The number of extra tools used in this article boggles my mind.Are you writing a simple library? Create a setup.py. Copy paste an existing setup.py and modify it to suit your purposes. Now you have a working, pip installable python package.Want to publish to PyPI? Use twine. It&#39;s standard and it&#39;s simple.You don&#39;t need complicated tooling for simple projects."</p>
-							
-						
-							
-								<p class="story__comment_others">"Just use Poetry [1]. It&#39;s popular and works well.[1] https://python-poetry.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I hadn&#39;t heard of flit, it does seem like it&#39;s not brand new on the scene, however it is primarily a single author, so expect a tool which is opinionated and for which the opinions may not necessarily reflect a broad consensus:https://github.com/takluyver/flit/graphs/contributorsWith a title like this, I&#39;d be expecting to see an article describing the latest tools and recommendations from the PyPA, which are here:https://packaging.python.org/tutorials/packaging-projects/(In short, it&#39;s setup.cfg + pyproject.toml, `python3 -m build` to build, twine to upload.)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/article/us-twitch-moderation/twitch-will-ban-users-for-severe-misconduct-that-occurs-away-from-its-site-idUSKBN2BU2QJ">Twitch will ban users for &#39;severe misconduct&#39; that occurs away from its site</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26727975">
-						
-							
-								<p class="story__comment_first line-clamp">"I had to type in this box more times than I&#39;m willing to admit to produce something that didn&#39;t violate the guidelines.Let&#39;s examine why this is problematic:- This will absolutely be leveraged on anyone in a precarious position. It&#39;s their ultimate out. Minority groups, majority groups, it doesn&#39;t matter - you&#39;re in trouble and need a platform to tell your story? Not happening on Twitch. Expect more to sign on to this idea; it is the ultimate tool for cancel culture proponents.- Foreword: I am not making a constitutional argument. Private companies now own most of the highways we use for speech, much less widespread speech. Sure, Newspapers and mail can be argued, but there&#39;s plenty of examples where they had to tolerate nasty messages for some self-imposed access to speech principles. Secondarily, nobody used a newspaper to talk to their auntie, while Twitch isn&#39;t Facebook or Twitter self-expression is not limited to certain platforms. That is lost on tech companies.This new stage of American moralism is pretty tiring no matter what group or direction it comes from. I can&#39;t imagine staying in this country much longer."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s strange to see a company that once prided itself on active engagement with its users to find product-market fit antagonize its content creators so much. And as a user, it gives me the perception that the platform is just plainly unfair. (Plus the platform is unusable without Adblock).Top streamers have been banned or lost partnerships for playing their own music[0], stating controversial political opinions[1][2], getting trolled by users who &#34;snipe&#34; streamers and shout vulgarities, or just accidentally showing movie clips with nudity [3]. From what I gather, the ban appeal process is byzantine and is heavily biased towards inaction. Oftentimes appeals are never even considered, or partnership staff plainly doesn&#39;t respond.The upsetting part is Twitch is such a great platform technology wise, and its competitors can&#39;t seem to recreate the same magic. I guess we&#39;re stuck with lousy moderation until the streaming fad dies down.[0] https://www.sportskeeda.com/esports/twitch-reportedly-suspen...[1] https://dotesports.com/streaming/news/hasanabi-banned-from-t...[2] https://win.gg/news/5496/destiny-loses-twitch-partnership-fo...[3] https://www.ginx.tv/en/twitch/vinesauce-banned-on-twitch-ove..."</p>
-							
-						
-							
-								<p class="story__comment_others">"After reddit started banning people for upvoting the wrong things, this is a logical next step. Contrary to the popular belief, slippery slope isn&#39;t a logical fallacy.Anonymity is the only way to combat this. Make sure your online identity isn&#39;t connected to your real name. Ideally, you should have separate identities for each website. Using Tor or a VPN is also a good idea."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.indiatoday.in/technology/news/story/leaked-phone-number-of-mark-zuckerberg-reveals-he-is-on-signal-1787396-2021-04-05">Leaked phone number of Mark Zuckerberg reveals he is on Signal</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26704472">
-						
-							
-								<p class="story__comment_first line-clamp">"Funny comments, but jokes aside, I think we&#39;re missing a very obvious reason why he has signal. Mark most likely has contacts that are super high up in governments and coorporations who use signal since they can&#39;t trust any other app. People who say that he just tested out competition, I think you guys underestimate his technological knowledge and his resources waaay too much. If he wanted to do that he could have easily ordered someone to get him a clean phone with a sim card not linked to his name and let that device sit on his desk for testing."</p>
-							
-						
-							
-								<p class="story__comment_others">"Is it really surprising that he would have all of the most popular messaging apps? Facebook’s playbook of copying popular features from apps gaining traction is by no means a secret.I’m not totally convinced by the narrative that Mark doesn’t trust his own tools so he prefers Signal."</p>
-							
-						
-							
-								<p class="story__comment_others">"How dare you suggest Mark Zuckerberg is a hypocrite after said
-&#34;Privacy is no longer a social norm&#34;, and then bought all houses surrounding his one.https://www.theguardian.com/technology/2010/jan/11/facebook-...https://www.businessinsider.com/mark-zuckerberg-buys-4-homes..."</p>
 							
 						
 						</a>
