@@ -33,28 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">19 April 2021</div>
+	<div class="day__date">20 April 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://dashbit.co/blog/announcing-livebook?new=1">Livebook: A collaborative and interactive code notebook for Elixir</a></h3>
+					<h3><a href="https://arstechnica.com/information-technology/2019/06/microsoft-says-mandatory-password-changing-is-ancient-and-obsolete/">Microsoft says mandatory password changing is “ancient and obsolete” (2019)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26853285">
+						<a href="https://news.ycombinator.com/item?id=26863907">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;connect to an existing node&#34; is going to be amazing.I imagine two interesting uses for this.1. producing reports.  Connect a livebook session to your system in prod, run a livebook (which pulls data from DB eg), then get back a report.  User engagement, cloud resources consumed, p90s, or an incident report...2. manual database intervention.  Suppose you need to manually make a batch of changes to the DB.  It would be very cool if you could run a livebook inside of a sandboxed checkout (a temporary transaction) and write your db changes, then write your code that verifies that the db is in a state that you want it to be in.  If you mess up your code, then you just terminate the transaction without committing.  Then when you&#39;re happy with your notebook, you run it once with a commit at the end, and then save your notebook immutably in your records so that you can keep track of what you&#39;ve done.I think for intervening in prod, it would be very cool if someone could figure out how to extend erlang distribution over websockets so you don&#39;t have to figure out complicated mechanisms (open up ssh port, forward encrypted epmd, e.g.) to get into your system in prod"</p>
+								<p class="story__comment_first line-clamp">"I believe this has been Microsoft&#39;s guidance as far back as 2016, with the caveat of using Azure AD risk analysis /MFA.[1]&gt;Password expiration policies do more harm than good, because these policies drive users to very
+predictable passwords composed of sequential words and numbers which are closely related to each
+other (that is, the next password can be predicted based on the previous password). Password change
+offers no containment benefits cyber criminals almost always use credentials as soon as they
+compromise them.&gt;Mandated password changes are a long-standing security practice, but current research strongly
+indicates that password expiration has a negative effect. Experiments have shown that users do not
+choose a new independent password; rather, they choose an update of the old one. There is evidence to
+suggest that users who are required to change their passwords frequently select weaker passwords to
+begin with and then change them in predictable ways that attackers can guess easily.&gt;One study at the University of North Carolina found that 17% of new passwords could be guessed given
+the old one in at most 5 tries, and almost 50% in a few seconds of un-throttled guessing. Furthermore,
+cyber criminals generally exploit stolen passwords immediately.[1]https://www.microsoft.com/en-us/research/wp-content/uploads/..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Wow, this is great.The fact is can connect to existing nodes also makes it can also be great for operation and administration - instead of building an awkward admin panel, you can just having a collection of scripts.The Elixir community is insanely productive. Also, the Elixir system is impressively pretty balanced - productivity-wise like Rails, concurrent-wise like Erlang, and continuously brings novel yet practical ideas to life in a robust manner!"</p>
+								<p class="story__comment_others">"Agreed - there&#39;s so much I find frustrating about how companies manage passwords in addition to mandatory changing.- Maximum length requirements (often secret until you try to put a password in)- Requiring some symbols, but not others- Silent truncation of the the password without telling you- Failure because the password is too long, but the error says something else (like missing symbol)This isn&#39;t just small unknown companies either. If you use a password longer than 32chars in Zoom when creating your account it just truncates the remaining without telling you. Login works on the websites, but if you try to login via the client it fails. If I manually backspace to 32chars it works. I tried to tell it to their US Twitter support and they just kept sending me a password reset link so I gave up (they&#39;re a bad company anyway [0]). Tmobile&#39;s website used to do the same thing, except worse because it would truncate on creation but not on validation.How is this not standardized in some sane way?An old credit union I was part of in NY (SEFCU) mandated passwords with exactly 6 characters. When I complained about this I was told it was secure because they forced one of the characters to be a symbol.[0]: https://zalberico.com/essay/2020/06/13/zoom-in-china.html"</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m pretty excited about this. I&#39;m admit I was skeptical when I saw a similar LiveView based notebook a couple months ago, and wondered why not just make a kernel for Jupyter.But with the idea of real-time collaboration I get it. And with the momentum of Jose and team behind it, I think there&#39;s real promise here, especially once they figure out widgets and charts, which they have an open issue for.I program in Elixir at work, so I usually have an iex shell open, but lately I&#39;ve been using a LiveBook and it&#39;s great.And I love the new Mix.install in Elixir 1.12 demonstrated here. Using a hex package in an adhoc way was a real shortcoming in Elixir before. Shows the power of having this thing developed by the language team."</p>
+								<p class="story__comment_others">"The article kinda misses the reason why mandatory password changes existed in the first place -- unknown breaches. The idea was that if there was an undetected breach, the attacker would have a maximum of the mandatory password change to use credentials. You would still have mandatory password changes upon discovering a breach, which would reset the counter.  And the article wasn&#39;t very clear as to why this is no longer recommended, but when mandatory password changes are enforced, users tend to make new passwords which are trivial to crack if you have a known old password. So if there&#39;s an unknown (or even known) breach, users will tend to make a new password which an attacker can easily guess given the older known passwords, losing any benefit gained from mandatory password changes. And this is worse than not having mandatory password changes, because rare password changes (when a breach is discovered) don&#39;t put people into the habit of just iterating off of an old password."</p>
 							
 						
 						</a>
@@ -67,24 +77,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://make.wordpress.org/core/2021/04/18/proposal-treat-floc-as-a-security-concern/">Proposal: Treat FLoC as a security concern</a></h3>
+					<h3><a href="https://www.youtube.com/watch?v=p1KolyCqICI">First Flight of the Ingenuity Mars Helicopter [video]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26854073">
+						<a href="https://news.ycombinator.com/item?id=26860842">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; Why is this bad? As the Electronic Frontier Foundation explains in their post “Google’s FLoC is a terrible idea“, placing people in groups based on their browsing habits is likely to facilitate employment, housing and other types of discrimination, as well as predatory targeting of unsophisticated consumers.All of this has been happening with tracking cookies, fingerprint tracking, pixel tracking and so on. And will continue to happen.I find it so bizarre it took Google to talk about phasing out 3rd party cookies and replacing it with a much lesser technology in the face of FLoC, for people to suddenly be all up in arms about it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I am hopeful that this will help get rid of FLoC but I worry about two things. One, this will end up being treated like the &#34;no track&#34; headers. That&#39;s just totally ignored after IE (was it IE?) enabled it be default. That gave all the trackers a reason to just ignore it and track everyone. I don&#39;t know if that exact same thing can happen here, but something similar maybe? The other thing I worry about is that FLoC 2.0 or whatever might replace it, will be worse.&#34;Kill it before it lays eggs.&#34; but do we worry about what evolves from this if it dies?"</p>
+								<p class="story__comment_first line-clamp">"Roughly the start of success from the livestream: https://youtu.be/p1KolyCqICI?t=2265Video (of the video from Perseverance): https://twitter.com/NASA/status/1384099167832735748 (Better version from the livestream in child comment https://news.ycombinator.com/item?id=26861334)"</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve not been following this proposal closely I did findhttps://github.com/WICG/floc&gt;Tracking people via their cohort&gt;A cohort could be used as a user identifier. It may not have enough bits of information to individually identify someone, but in combination with other information (such as an IP address), it might.Whose purpose is:&gt;A FLoC cohort is a short name that is shared by a large number (thousands) of people, derived by the browser from its user’s browsing history.I wonder if it&#39;s possible to define a large enough number X that people are OK with the idea. (Cookies are effectively &#34;1&#34; and nothing is &#34;3,010,000,000&#34; ie on the internet)Could the cohort minimum size be configurable?Given the IP address can be known today: what&#39;s the existing accidental &#34;FLoC proxy&#34; or &#34;How unique are you online?&#34; Or &#34;online finger print&#34; (something I&#39;d not thought of before: my timezone can significantly narrow down who I am)
-You can try using yourself on: 
-https://amiunique.org/fp"</p>
+								<p class="story__comment_others">"Congrats to the whole Ingenuity team!Exciting to see so many young faces and women on the team.Also, I read up on the project lead MiMi Aung [1] - she&#39;s very insipring. I remember seeing her interview at the time when the rover was about to land, so much anticipation and hope. Now, so much excitement is truly uplifting.Congrats![1]: https://en.m.wikipedia.org/wiki/MiMi_Aung"</p>
+							
+						
+							
+								<p class="story__comment_others">"From https://www.jpl.nasa.gov/news/nasas-ingenuity-mars-helicopte... , the International Civil Aviation organization gave Ingenuity the the designator the aircraft type designator IGY, the call sign INGENUITY, and designated the Wright Brothers Field in Jezero Crater on mars as JZRO.Hopefully that last one sticks when commercial service begins."</p>
 							
 						
 						</a>
@@ -97,23 +105,22 @@ https://amiunique.org/fp"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.quantamagazine.org/the-brain-rotates-memories-to-save-them-from-new-sensations-20210415/">The brain ‘rotates’ memories to save them from new sensations</a></h3>
+					<h3><a href="https://art-by-kaine-shields.tumblr.com/post/643105913844154368/fun-fact-about-me-is-that-when-i-was-a-kid-id">Unsettling capital letters</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26830105">
+						<a href="https://news.ycombinator.com/item?id=26858659">
 						
 							
-								<p class="story__comment_first line-clamp">"Take a binary array of length N, where N is in the hundreds to thousands range. Choose 2% of the bits to set to 1. Now you have a &#34;sparse array&#34;.Now, you want to use this sparse array to represent a note in a song. So you need every note to consistently map to a distinct* sparse array.However, you also want to be able distinguish a note as being in one song or another. The representation should tell you not only that this is note A but note A in song X.How might you do that? Well some portion of the ON bits could be held consistent for every A note and some could be used to represent specific contexts.Stable and variable bits of you will.Now if you look at two representations of the note A from two songs you&#39;ll see they&#39;re different. How different are they? Well you could just count the bits they have in common or not, or you can treat them as vectors. (Lines in high dimensional space) Then you can calculate the angle between those two lines. As that angle increases its easier to distinguish the two lines. They won&#39;t ever get to full &#34;right angles&#34; between them because of the shared stable bits, but they can be more or less orthogonal.That&#39;s what&#39;s happening here. The brain is encoding notes in a way that it can both recognize A, but also recall it in different contexts.*But not perfectly consistent, we use sparse representations because the brain is noisy and it&#39;s more energy efficient. Pretty close is good enough in the brain and you can encode a lot of values in 1000 choose 20 options."</p>
-							
-						
-							
-								<p class="story__comment_others">"This really would have been harder for me to understand had I not taken linear and abstract algebra courses a few years ago. That area of maths reused common words like &#34;rotation&#34; but with more generalized definitions, which made it was jarring and confusing to hear and take in at the time. When someone said the word &#34;rotate&#34; my mind as if by reflex was already trying visualize a 3d or 2d rotation even when it made no sense for the problem at hand. Being an English speaker my whole life I thought I understood what a rotation was or could be but I didn&#39;t.Same goes for what&#39;s being alleged here: Is there even a way to visualize this that makes mathematical sense?
-What will be the corollaries to this discovery simply as a result of what the mathematics of rotations will dictate?"</p>
+								<p class="story__comment_first line-clamp">"The post notes that adults &#34;fucking hated&#34; the ladder E. Does anyone else find it creepy, or just me? I can&#39;t explain exactly why.As the alphabet develops in the replies, it loses some of the creepiness and gains something else. Not friendliness exactly, but.... not sure. Something.I think the first ladder E is creepy partly because it&#39;s unexpected, and is placed among normal letters. It&#39;s a cuckoo, an interloper, alien.Others have pointed out similarities with some machine learning outputs. I was reminded of the spooky, spidery lettering from fashion GANs, e.g. check out what happens to the text &#34;bisou&#34; and &#34;100% love machine&#34; in [0] taken from [1].[0] https://images.deepai.org/converted-papers/2007.10947/figure...[1] https://deepai.org/publication/garment-design-with-generativ..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Something to keep in mind though is that in a high-dimensional space, approximate orthogonality of independent vectors is almost guaranteed."</p>
+								<p class="story__comment_others">"I find it incredibly fascinating how readable the end results are. They’re so wrong, so fun and attention-grabbing, and somehow it makes sense.I’d really like to understand better how it is that we can decipher language so well. At least, it seems like we’re good at it. Why can I read that font or that calligraphy? It’s almost an abomination, haha. Yet my brain troops on, parsing and processing, turning those squiggles back into what it knows.Truly fascinating stuff. I also enjoy the back story here. Exploring written language as a kid was a lot of fun. I settled on a strange way of writing, not much unlike the runes on the inside of the ring in the LOTR movies, and it was entirely arbitrary and almost an artistic decision. Totally impractical. I still write like that to this day."</p>
+							
+						
+							
+								<p class="story__comment_others">"ꙮMeet &#39;multi-ocular o&#39;. This is the fever-dream of some 15th-century Russian scribe. He was writing about &#39;many-eyed seraphim&#39;, and decided that no ordinary O could do justice to them. Somehow, his doodle found its way into unicode.For the more sedate eye-lovers, there is also Ꙩ (monocular o), and Ꙫ (binocular o)"</p>
 							
 						
 						</a>
@@ -126,24 +133,22 @@ What will be the corollaries to this discovery simply as a result of what the ma
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://projectlovelace.net/problems/">Show HN: Science and math-flavored programming problems for beginners</a></h3>
+					<h3><a href="https://rosenzweig.io/blog/asahi-gpu-part-3.html">Dissecting the Apple M1 GPU, Part III</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26843339">
+						<a href="https://news.ycombinator.com/item?id=26858053">
 						
 							
-								<p class="story__comment_first line-clamp">"Really nice! When I was in college we had all sorts of online systems that automatically graded assignments based on how close to the correct answer your supplied answer was. I think it&#39;d be nice if in the future there was more of an overlap between science classes and programming classes (almost like a freshman / junior level scientific computation class) where instead of approaching problems from a pure theoretical perspective, we involved these types of computational approaches in parallel. Personally I have found that while I often know how to perform various theoretical computations, it&#39;s faster for me to just throw together a quick script to approximate the result (e.g. what&#39;s the expected value of the product of two gaussians?)"</p>
-							
-						
-							
-								<p class="story__comment_others">"It is already mentioned in Project Lovelace&#39;s About page, but people who like this and Project Euler may also like Rosalind, which is a programming problem site focused on bioinformatics and adjacent algorithms."</p>
+								<p class="story__comment_first line-clamp">"That&#39;s very exciting!A nit:&gt;  For example, I have not encountered hardware for reading vertex attributes or uniform buffer objects. The OpenGL and Vulkan specifications assume dedicated hardware for each, so what’s the catch?That is not my understanding of those specs (as someone that&#39;s written graphics drivers). Uniform Buffer Objects are not a &#34;hardware&#34; thing. They&#39;re just a way to communicate uniforms faster than one uniform per API call. What happens on the backend is undefined by those specs and is not remotely tied to some hardware implementation. Vertex Attributes might have been a hardware thing long ago but. I&#39;m pretty sure there are older references but this 9yr old 2012 book already talks about GPUs that don&#39;t have hardware based vertex attributes.https://xeolabs.com/pdfs/OpenGLInsights.pdf chapter 21"</p>
 							
 						
 							
-								<p class="story__comment_others">"I like the eclectic selection of problems. I wish I had seen something like this when I was growing up; a manageable set of problems with the hint of depth.It’s easy to snipe a nerd, but nerd sniping a non-nerd.. That’s gold.FWIW:
-- No margins on the side on iPhone in portrait.
-- Math formulas are clipped on the top in landscape."</p>
+								<p class="story__comment_others">"This is great work—I&#39;m glad to see this being tackled with such speed.From the Phoronix comments on this post[0]:&gt; I have an idea. Why not support exclusively Vulkan, and then do the rest using Zink (that keeps getting faster and faster)?&gt; This way you could finish the driver in one year or two.(For context: Zink is an OpenGL to Vulkan translator integrated into Mesa)I had the same thought in my mind—Zink is 95% the speed of Intel&#39;s OpenGL driver[1], so why not completely ignore anything but Vulkan? On the Windows side, dxvk (DirectX to Vulkan) already is much faster (in most cases) than Microsoft&#39;s DX9-11 implementation, so it&#39;s completely feasible that Zink could become faster than most vendors&#39; OpenGL implementation.I have no knowledge of low-level graphics, so I don&#39;t know the ease of implementing the two APIs. I could envision, however, that because this GPU was never designed for OpenGL, there may be some small optimizations that could be made if Vulkan was skipped.[0]: https://www.phoronix.com/forums/forum/phoronix/latest-phoron...[1]: https://www.phoronix.com/scan.php?page=news_item&amp;px=Zink-95-..."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is top-notch and very impressive work. I&#39;m currently in the middle of tuning performance of piet-gpu for the Pixel 4[1], and I find myself relying on similar open resources from the Freedreno project. When the time comes to get this running efficiently on M1, having detailed knowledge of the hardware will be similarly invaluable - just the info on registers and occupancy is an important start.Is there a way to support the work?[1]: https://github.com/linebender/piet-gpu/issues/83"</p>
 							
 						
 						</a>
@@ -156,22 +161,22 @@ What will be the corollaries to this discovery simply as a result of what the ma
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://nvlabs.github.io/GANcraft/">GANcraft: Unsupervised 3D Neural Rendering of Minecraft Worlds</a></h3>
+					<h3><a href="https://truzzi.me/hire-me-pay-what-you-want-interesting-work/">Hire me and pay what you want, just give me interesting work</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26833972">
+						<a href="https://news.ycombinator.com/item?id=26863052">
 						
 							
-								<p class="story__comment_first line-clamp">"Take this idea, and apply it to Google Earth. Have it procedurally generate the rest of the data as I zoom in.Its incredible I can check out my small home town on Google Earth now entirely in 3d (which wasnt the case just a few months ago). Yet the trees/cars are still these blocky low resolution things sticking out of the ground. Imagine Google Earth procedurally generating a high resolution mesh as I zoomed in. Train it with high resolution photogrammetry of other similar locations for the ground truth - and let me zoom in endless in their VR app"</p>
-							
-						
-							
-								<p class="story__comment_others">"Super cool.With that said I bet this would choke on lots of actual Minecraft worlds, because people often build things using blocks where the semantics get thrown completely out the window in favor of aesthetics. Want a big mural on the wall? You&#39;re going to be building the wall itself out of differently-colored blocks of woolMaybe they&#39;ll solve that part one day :)Edit: That said, it could choke in some really interesting ways..."</p>
+								<p class="story__comment_first line-clamp">"So there are two issues with this:1. If I were looking to hire someone and read this, I would immediately be turned off. Why? Because part of being an engineer (or any employee really) is doing a bunch of stuff people don&#39;t enjoy doing. This includes:- Writing documentation- Writing tests- Fixing bugs- Talking to partners about a change/launch- Talking to lawyers- etcSo I would be wondering: if you&#39;re signaling you don&#39;t want to do those things, that means someone else will need to do all that for your code, which is not great for them and tends to be much worse.Like you&#39;re basically saying you want to cherrypick the parts you enjoy and not give a damn about anything else. You might say you&#39;re only costing $1/hour but the risk of a bad engineer can mean you&#39;re still expensive or a loss.2. You don&#39;t factor in the time cost of me or my team in onboarding you, dealing with you, dealing with your code and so on. That&#39;s a big part of the filtering in hiring. People are deciding if they can justify that time investment and the opportunity cost involved."</p>
 							
 						
 							
-								<p class="story__comment_others">"Question for the experts: Is it possible that GANs will be used for rendering video game environments in the near-ish future? This has been one of my private predictions with respect to upcoming tech, but I&#39;d love to know if people are already thinking about this, or alternatively, why it won&#39;t happen."</p>
+								<p class="story__comment_others">"If you expect the interesting work to land in your lap you are either one of those people that redefine (maybe invent) entire fields of research or you&#39;re incredibly lucky. In other words, your work speaks for itself and people want to give you more of it. For most people we need a job in order to keep up with the rising costs of living.If, however, you&#39;re like 99.99% of people and are good at what you do then you&#39;ll have to find what is interesting about the job. I&#39;ve worked at a company that replaced clipboards with iPads in a factory. If all it was to me was a form-builder application and the technology under it I would have been turned off ages ago. But I was incredibly curious as to why the product as successful and growing, what our customers liked about it, and I pushed for developers to visit the factories and see how people used the app. The results were quite surprising and it fed out team with dozens of ideas.Technology for technology&#39;s sake is fun for a while but will eventually bore you. It helps to have a reason to work on what you do. Which I think is part of what OP is saying but I think  you can find the reason in a &#34;boring&#34; job as well. You just have to be curious and look for it.Although avoiding working at feature factories where the developers are just cogs in a Kafka-esque Agile Machine is a whole other can of worms. The OP&#39;s strategy seems like an interesting way to avoid it. Best of luck!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve been on the receiving end of similar requests before.“I’ll work for free or nothing if you let me do what I love under the umbrella of your organization because I love it so much.”I did one or two agreements like this and then stopped altogether. The individual would start their work, others would start to depend on its existence and the individual would leave in a matter or weeks or months because something else better came along for them. There was no incentive to keep the relationship going over a longer term. My organization just wasn’t setup to see any upside to short lived but high quality team members.Is there anyone out there who does work agreements like this currently and benefits from them? Would love to hear more details. Perhaps that feedback could help Franceso with his pitch.Franceso please come back in a week and let us know what kinds of offers you received. Will be very interested to see where this goes."</p>
 							
 						
 						</a>
@@ -184,22 +189,22 @@ What will be the corollaries to this discovery simply as a result of what the ma
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.floc-away-from-chrome.com/">FLoC Away from Chrome</a></h3>
+					<h3><a href="https://www.fieggen.com/shoelace/grannyknot.htm">The “Granny Knot”</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26830557">
+						<a href="https://news.ycombinator.com/item?id=26867300">
 						
 							
-								<p class="story__comment_first line-clamp">"I feel like I&#39;ve seen this cycle a few times now. Around the 2010-2013 time Firefox was pretty popular and the browser wars had cooled down a bit, various standards had progressed to the point where the web was mostly the same for Firefox users and Chrome users.Then Google Docs, Drive, Voice and a few other apps with the addition of Chromebooks started to appear and all of the sudden a few key features stopped working for Firefox. Probably the most important teachable moment was just how few features it takes to flip users.Maybe we&#39;ll see Firefox regain browser share are users dump Chrome. Edge even has a shot at this point - a strange irony bringing us full circle.I guess the real question is how long until we iterate on this loop again? What will compel users to jump back into the embrace of &lt;insert not yet but eventually evil company&gt; versus the relatively consistent arms of Mozilla.Also, FWIW, Mozilla isn&#39;t innocent either. Despite being very much _less scummy_ they have still upped their scum factor a bit over the years. Let&#39;s not forget they are quite happy to trade millions of dollars to make Google the homepage for their users. While nowhere near as egregious they have some tracking happening (&#34;experiments&#34;), they aggressively push their Firefox Accounts stuff, appear to be selling spots on the homepage tabs, etc."</p>
-							
-						
-							
-								<p class="story__comment_others">"Don&#39;t use Chrome and don&#39;t use other browser based on Chromium either. As long as Google&#39;s engine has 85%+ market share, they can just unilaterally do whatever they want to the web.Use Firefox if you actually want to fix the web."</p>
+								<p class="story__comment_first line-clamp">"A few years ago I switched from the &#34;Granny Knot&#34; to the &#34;Ian Knot&#34; [0] in order to (1) eliminate the need for &#34;double knotting&#34; and (2) straighten the bow. Despite the few embarrassing times early in the process where friends observed me struggling to tie my shoes, I can confidently say the switch has been worth it.[0] https://www.fieggen.com/shoelace/ianknot.htm"</p>
 							
 						
 							
-								<p class="story__comment_others">"This is just a rant and not very helpful for anyone that gets redirected here. I can’t really see anyone that care about their visitors doing this.Do as the good old times when we showed a banner to IE users below a certain version, and suggest better alternatives."</p>
+								<p class="story__comment_others">"The &#34;Ian Knot&#34;[0] (which, I just discovered, was invented by the author of that site) is quite possibly the coolest and fastest way to tie your shoes.[0] - https://www.fieggen.com/shoelace/ianknot.htm"</p>
+							
+						
+							
+								<p class="story__comment_others">"As others have mentioned, Ian&#39;s knots has great reccommendations, but overlooked is the &#34;surgeon&#39;s knot&#34;.This one has two twists instead of the normal one, and comes out like a square knot if done right.  It won&#39;t come untied by itself, ever.  But you can untie it by tugging on the tails of the laces.  You can do this one with a thumb on the initial bend, unlike the &#34;bunny ears&#34; style knots.It&#39;s a hell of a lot better than the &#34;double knot&#34; your kids&#39; teachers will do if they go to school with any kind of single knot, square or not.  Double knotting just results in big jams when one tries to untie it later.Check out the surgeon&#39;s knot: https://www.fieggen.com/shoelace/surgeonknot.htm"</p>
 							
 						
 						</a>
@@ -212,22 +217,22 @@ What will be the corollaries to this discovery simply as a result of what the ma
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.bbc.com/news/science-environment-56749105">&#39;Whitest ever&#39; paint reflects 98% of sunlight</a></h3>
+					<h3><a href="https://www.youtube.com/watch?v=HuegrU_kIq8">Thinkpad X230 with “e-Ink” display at 30fps [video]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26832589">
+						<a href="https://news.ycombinator.com/item?id=26860609">
 						
 							
-								<p class="story__comment_first line-clamp">"Someone needs to compile a list of all this fringe tech that I see popping up in my feeds, almost daily now. I know there are techpress blogs that pump out articles like this, but there doesn&#39;t seem to be an authoritative compendium of such tech anywhere on the net. I could curate this by hand with 3 hours of free time and some Red Bull I suppose.The reason I want this is because we seem to be swimming in innovation, but nobody to aggregate and make sense of it all, and `join-the-dots` of all this tech so we can make even bigger leaps with it. Also: A lot of these articles are great, but too quickly shoved into people&#39;s bookmarks and forgotten about, without any real action taken on them. Put simply: we are addicted to innovation, but with little action taken on this innovation!!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I bet this would look fantastic mixed with some vantablack, for the greyest grey achievable."</p>
+								<p class="story__comment_first line-clamp">"The fact that this type of device is virtually inaccessible, short of DIY, is for me a prime example of market failure ever since I learned about transflectives.Btw I&#39;d opt to replace the &#34;E-INK&#34; in the title with &#34;transflective&#34; assuming HN folks know to tell the two apart."</p>
 							
 						
 							
-								<p class="story__comment_others">"Reminds me of “anti-flash white,” developed for bombers during the early years of the cold war. The theory was that the specially formulated white paint would reflect enough of a nuclear explosion’s thermal energy to allow the aircraft to survive the explosion as the bomber departed the scene.https://en.wikipedia.org/wiki/Anti-flash_whiteIt was also used on interceptors like the Avro Arrow prototypes."</p>
+								<p class="story__comment_others">"Let&#39;s create some market demand here (and hope it goes anywhere).I want a transflective display.If any tech company reads this and wants to change the world: getting this in the hands of people means that many more people have the capability of sitting outside. This means more vitamin D intake. More vitamin D means improved mood (a lack of vitamin D could lead to depression [1]).[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2908269/"</p>
+							
+						
+							
+								<p class="story__comment_others">"You should join our eink community: we are working on an open source eink laptop. Join our Discord server: https://forum.ei2030.org/t/welcome-to-the-ei2030-forum/7"</p>
 							
 						
 						</a>
@@ -240,23 +245,22 @@ What will be the corollaries to this discovery simply as a result of what the ma
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://en.wikipedia.org/wiki/Kelly_criterion">Kelly Criterion</a></h3>
+					<h3><a href="https://www.mvanga.com/blog/basic-music-theory-in-200-lines-of-python">Basic Music Theory in ~200 Lines of Python</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26834333">
+						<a href="https://news.ycombinator.com/item?id=26859907">
 						
 							
-								<p class="story__comment_first line-clamp">"For anyone actively managing investment portfolios, a deep understanding of the Kelley criterion is very important. For example, it is common practice to use &#34;Half Kelly&#34; to size positions, but most sources only provide a hand-wavey intuitive explanation. Thorp&#39;s paper[2] quantifies the benefits for any fraction of the &#34;full Kelly&#34; bet and its implications.  In addition to Poundstone&#39;s book [1] I strongly recommend Ed Thorp&#39;s highly readable paper[2].[1] Poundstone, William (2005), Fortune&#39;s Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street,
-[2]https://wayback.archive-it.org/all/20090320125959/http://www..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Kelly himself ended up using 1/n for his own personal portfolio management.Gerd Gigerenzer has a lot to say about how harmful this model has been to finance and the world, because it creates &#34;false certainty&#34;.https://news.ycombinator.com/item?id=26325425 has further discussion."</p>
+								<p class="story__comment_first line-clamp">"Apropos, some years ago I had written this blog post and Python program:Play the piano on your computer with Python:https://jugad2.blogspot.com/2013/04/play-piano-on-your-compu...The post got some interesting  comments with info about Western music theory, which I knew nothing about. And suggestions on how to improve the program to make calculation of note frequencies more accurate."</p>
 							
 						
 							
-								<p class="story__comment_others">"Many here are correct that the Kelly criterion is relatively useless compared to standard portfolio management techniques for a basket of assets.However... I will say that it&#39;s incredible useful when deciding on more high risk bets based on binary outcomes which is not something portfolio managers would dream of doing for their clients. Consider a long dated call spread on the SPY that goes out to 12/2023.Say you think the SPY will be over $600. Today, for $140 of risk, you stand to make $1,860 if you&#39;re right if you buy a $570 call and sell a $590.This is exactly what Kelly was made for.The proper strategy, IMO, is to find a comfortable allocation for trades of this sort as a portion of an overall portfolio (Say 1-2%), then of that percentage use Kelly to allocate capital to different bets of this nature to lower the variance.So sure, Kelly isn&#39;t useful for portfolio management writ large, but for managing a portfolio of binary trades, it&#39;s a useful metric."</p>
+								<p class="story__comment_others">"As a primer for music theory, this post doesn&#39;t teach much. It&#39;s using Python to derive various sets of notes in scales and modes, which is already easily available via google search, and in a more learnable format than Python code.The most basic aspect of Western music theory overlooked here is the relationship between tonic and dominant. If you know the &#34;home&#34; chord aka &#34;the I&#34; aka &#34;tonic&#34; is C major, the dominant will be G major, aka the V chord. Add just the F major chord, and you&#39;ll know 1-4-5 in a &#34;basic&#34; key: C major. 1-4-5 is the simplest chord progression, you can play amazing grace, you are my sunshine, even The Beatles, you&#39;ll be rocking with 1-4-5.Next level, if you add in the minor 6 (a minor) and minor 2 (d minor), you realistically know 95% of the chords you&#39;ll ever hear in C major pieces. And on the piano, this is ALL white notes, so even someone with zero musical knowledge can &#34;solo&#34; over your chords by just plunking any white notes while you play these chords (kids LOVE LOVE this btw, highly recommend trying with a kiddo).I wouldn&#39;t consider double-sharps and double-flats &#34;basic&#34; music theory. They really aren&#39;t needed for beginners, since they&#39;re relegated to keys like C# major where you&#39;ll occasionally sharpen a note like E# (aka F) into E## (aka F#). I didn&#39;t run into these until around 5 years into my piano training, playing Chopin&#39;s F# major nocturne Op 15 No 2, there&#39;s a bunch of double sharps in that piece.In any case, don&#39;t worry about double-flats and double-sharps or the precise notes of various modes and scales. Just learn pieces you enjoy, preferably with a mentor or teacher who can suggest improvements based on their trained ear."</p>
+							
+						
+							
+								<p class="story__comment_others">"It can be tricky to deal with the intersection of music and programming. For example:&gt; The chromatic scale is the easiest scale possibleSo far so good-- in both programming and music we&#39;re just stepping through the smallest values (half step for music, the integer &#34;1&#34; in programming). So &#34;easy&#34; definitely applies to both domains.&gt; We can generate a chromatic scale for any given key very easilyFor programming, sure-- you just find your offset and go to town.For music, however, this is a wrong warp. The chromatic scale is a special case of a symmetric scale which cannot be transposed. There&#39;s literally only one such scale-- each transposition brings you back to the same exact set of pitch classes.Figuring out what it means to have a chromatic scale &#34;for a given key&#34; is advanced music theory. In fact, I can only think of a few places where that makes sense:* studying the complex harmony of late-19th century Romantic music* studying the choice of accidentals in chromatic passages of Bach, Beethoven, etc. to infer the implied harmonyThose are important things, but they are definitely advanced concepts.Long story short for programming, the author moves logically from an array to stepping through an array. But in terms of music, they start with the simplest possible scale and then jump to a third year undergrad theory concept."</p>
 							
 						
 						</a>
@@ -269,22 +273,23 @@ What will be the corollaries to this discovery simply as a result of what the ma
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://mailbox.org/en/post/it-companies-warn-eu-plans-to-ban-encryption">IT companies warn in open letter: EU wants to ban encryption</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=26855037">Ask HN: Does anyone else find the AWS Lambda developer experience frustrating?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26825653">
+						<a href="https://news.ycombinator.com/item?id=26855037">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; Under the EU Internet Forum, the Commission has launched an expert process with industry to map and preliminarily assess, by the end of 2020, possible technical solutions to detect and report child sexual abuse in end-to-end encrypted electronic communications, and to address regulatory and operational challenges and opportunities in the fight against these crimes.It is a spectacular overreaction to equate this to &#34;EU wants to ban encryption&#34;. This will never happen."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Banning encryption&#34; is such a dumb premise. If I lived in some future, hellish Europe, I&#39;d simply mail USB drives with GPG keys on them to the people I love. Costs $15 if you buy the drives in bulk. After that, chat away using PGP encrypted messages. Good luck, EU."</p>
+								<p class="story__comment_first line-clamp">"You&#39;ve discovered what many other people have: The cloud is the new time-share mainframe.Programming in the 1960s to 80s was like this too. You&#39;d develop some program in isolation, unable to properly run it. You &#34;submit&#34; it to the system, and it would be scheduled to run along with other workloads. You&#39;d get a printout of the results back hours later, or even tomorrow. Rinse and repeat.This work loop is incredibly inefficient, and was replaced by development that happened entirely locally on a workstation. This dramatically tightened the edit-compile-debug loop, down to seconds or at most minutes. Productivity skyrocketed, and most enterprises shifted the majority of their workload away from mainframes.Now, in the 2020s, mainframes are back! They&#39;re just called &#34;the cloud&#34; now, but not much of their essential nature has changed other than the vendor name.The cloud, just like mainframes:- Does not provide all-local workstations. The only full-fidelity platform is the shared server.- Is closed source. Only Amazon provides AWS. Only Microsoft provides Azure. Only Google provides GCP. You can&#39;t peer into their source code, it is all proprietary and even secret.- Has a poor debugging experience. Shared platforms can&#39;t generally allow &#34;invasive&#34; debugging for security reasons. Their sheer size and complexity will mean that your visibility will always be limited. You&#39;ll never been able to get a stack trace that crosses into the internal calls of the platform services like S3 or Lambda. Contrast this with typical debugging where you can even trace into the OS kernel if you so choose.- Are generally based on the &#34;print the logs out&#34; feedback mechanism, with all the usual issues of mainframes such as hours-long delays."</p>
 							
 						
 							
-								<p class="story__comment_others">"I’ve thought about this since last year, and I can’t understand how this proposal has been able to survive this long. First of all, the EU is very pro-business, which means it should be pro-encryption. Second, the structures of its governing bodies does not make it very prone to populism. Based on what I know from this Kurzgesagt video: https://youtu.be/h4Uu5eyN6VUIs this all some hidden plot to turn the EU into a totalitarian state? I’m (half) joking, but I really can’t see the motivation."</p>
+								<p class="story__comment_others">"I&#39;ve been in the AWS world for 4+ years now and my immediate feedback is don&#39;t run any local emulators. None!
+Write unit tests for the internals and test your system end-to-end. I say that both because AWS services can have unpredictable behavior that you need to account for but also because local emulators are at best functional, but in reality far from emulating the AWS world on a 1:1 scale (especially the unpredictable behaviors i mentioned). So instead optimize for many local unit tests and many live end-to-end tests (implies many deployments and parallel environments prod, staging, dev, etc)When it comes to Lambdas, given the reasons above, there&#39;s only one thing that can improve the experience: PROXY. Before i went on parental leave i had the idea is creating a proxy lambda which can be configured with an IP and port number. That IP and port is for your local dev environment. This way, when developing you can instruct a live system to short-circuit and to proxy calls to a local lambda available om the respective port. Trigger end-to-end tests by invoking AWS services that will eventually call the proxy lambda, and then your local lambda with the same environment/context/input, reply with output which will reach the proxy lambda, which will output the same content forward."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Think of the history of data access strategies to come out of Microsoft. ODBC, RDO, DAO, ADO, OLEDB, now ADO.NET – All New! Are these technological imperatives? The result of an incompetent design group that needs to reinvent data access every goddamn year? (That’s probably it, actually.) But the end result is just cover fire. The competition has no choice but to spend all their time porting and keeping up, time that they can’t spend writing new features. Look closely at the software landscape. The companies that do well are the ones who rely least on big companies and don’t have to spend all their cycles catching up and reimplementing and fixing bugs that crop up only on Windows XP.&#34; - Fire And Motion, Joel on SoftwareIn my own work with serverless I think about this a lot. In my day job, we built a new service and we pay AWS a few dollars per month to run. It would have cost us around $100 a month in AWS costs. However, the operational complexity is extremely high and we are also coupled to another service via Kinesis. For a billion dollar business, the trade off doesn&#39;t seem worth it.I wonder how much of serverless is just AWS firing at Google (and Heroku, DO, etc) and other competitors. It certainly hasn&#39;t made my life as a developer easier. It&#39;s certainly much cheaper for some use cases but the complexity of the system goes up very quickly, and you&#39;re end up having to manage a lot of that complexity using an inferior tool like Cloud Formation (or Terraform)."</p>
 							
 						
 						</a>
@@ -297,22 +302,23 @@ What will be the corollaries to this discovery simply as a result of what the ma
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://liw.fi/readme-review/">I&#39;d like to review your README</a></h3>
+					<h3><a href="https://www.ndss-symposium.org/wp-content/uploads/ndss2021_1C-3_23159_paper.pdf">Large-Scale Abuse of Contact Discovery in Mobile Messengers [pdf]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=26842191">
+						<a href="https://news.ycombinator.com/item?id=26860150">
 						
 							
-								<p class="story__comment_first line-clamp">"Pet peeve of mine: READMEs starting to explain hoe efficient, performant or minimal something is without explaining wat it is and why it should exist in the first place.Or using overly vague terms that only make sense in a very narrow technical context. A ‘minimal isomorphic asynchronous worker framework’. Can mean a million things."</p>
-							
-						
-							
-								<p class="story__comment_others">"I really appreciate folks who commit time to open source projects for things other than code (e.g. things that may be otherwise neglected).There was a user on GitHub back in 2019[0] who went around and created logos for a bunch of projects (including one I was working on actively at the time). Out of curiosity I looked the account up recently while working on a new project but it&#39;s not longer active.Translations are another great example of this. That same project that got the logo has also been translated by various people in to eight different languages!Other ways I&#39;d love to find people devoting time to smaller projects -- accessibility and UX audits. It&#39;s hard to account for all this stuff on smaller projects with only one or two primary developers.[0] https://github.com/reallinfo?tab=overview&amp;from=2019-12-01&amp;to..."</p>
+								<p class="story__comment_first line-clamp">"Wire (from the creators of Skype) does not mandate a mobile phone number (SIM cards are tied to government identity in many countries). Only an email address is required to open a free account. Nor does Wire mandate upload of your phone&#39;s address book with personal social graph of contacts. Free for consumers with paid teams offering for enterprises, optional on-prem server.  Open-source clients and server.  Cross-device history if the device logs in within a few weeks of the sent message. Basic export/import for moving your device&#39;s message archive to a new device of the same type.https://wire.com/download/They are contributing to IETF MLS for end-to-end encrypted group messaging: https://datatracker.ietf.org/wg/mls/about/"</p>
 							
 						
 							
-								<p class="story__comment_others">"I wish people would find a way to include any code present in a README in some kind of automated test.Nothing more frustrating than if you copy something from there but it turns out the README wasn&#39;t updated since the very first day and all the &#34;hello world&#34; code or install instructions are completely outdatedMaybe not include any code is the better solution, instead add an example folder."</p>
+								<p class="story__comment_others">"Every time I open the Snapchat Android app it prompts me with a Snapchat-styled (not the system) dialog to share my contacts. Every time I hit &#34;Don&#39;t allow&#34;. Every time it prompts me again.This is an inexcusable dark pattern. Two things need to happen:1. The operating system needs to provide a &#34;screw you, never&#34; option for any permissions.2. We as engineers need to say &#34;screw you, never&#34; to requests to implement behavior like this. Sure, this could be a bug, but I see the same behavior with Venmo and location access.Personally I&#39;m rather disillusioned with where we&#39;ve found ourselves. This sort of adversarial relationship in which people are property of a platform and treated as such is winning.Edit: Venmo had been set to &#34;Only while using the app&#34; and was prompting to enable location services on the device, not for permission. That&#39;s my own fault."</p>
+							
+						
+							
+								<p class="story__comment_others">"There needs to be two lists of contacts.One which I allow to be shared with apps
+And another which are my contacts I use with my dialer.People don&#39;t need their messenger apps knowing the phone number of their doctor"</p>
 							
 						
 						</a>
