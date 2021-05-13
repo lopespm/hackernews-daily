@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">12 May 2021</div>
+	<div class="day__date">13 May 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.caniemail.com/">Can I Email?</a></h3>
+					<h3><a href="https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html">Google Docs will now use canvas based rendering</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27112960">
+						<a href="https://news.ycombinator.com/item?id=27129858">
 						
 							
-								<p class="story__comment_first line-clamp">"Another way of looking at this scoreboard is as an approximate inverse ranking of webmail client security and leak vectors, with Gmail stripping far more dangerous elements than most webmail clients.This is actually a great tool to find vulnerabilities in various webmail clients such as ProtonMail and Hey, just compare the HTML or CSS features they do not yet filter compared to Gmail, then do a search for &#34;[feature] + exploit&#34; to see how a feature could be abused, and then submit a bounty report.For example, there are alot of good reasons that you may not want your webmail rendering SVG images (mXSS, appcache poisoning) or allowing CSS variables or imports.And I&#39;m pretty sure the list supported by Gmail could also be narrowed down further. There are some fantastic bounties lurking in here, just waiting to be discovered."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;This page ranks email clients based on their support among the 182 HTML and CSS featuresNo thanks.  I still recoil at the sight of a read-receipt and the only reason most companies include any of this dreck in an email in 2021 is to either track me or market to me.make email text again."</p>
+								<p class="story__comment_first line-clamp">"Speaking as one of the original three authors of Google Docs (Writely), but zero involvement in this project (I left Google in 2010): I&#39;m seeing a lot of comments asking how JavaScript-on-Canvas could possibly outperform the highly optimized native code built into the browser engines. It&#39;s been a long time since I&#39;ve really been involved in browser coding, but having written both Writely and, farther back, several native-app word processing engines, here are some thoughts.Word processors have extremely specific requirements for layout, rendering, and incremental updates. I&#39;ll name just two examples. First, to highlight a text selection in mixed left-to-right / right-to-left text, it&#39;s necessary to obtain extremely specific information regarding text layout; information that the DOM may not be set up to provide. Second, to smoothly update as the user is typing text, it&#39;s often desirable to &#34;cheat&#34; the reflow process and focus on updating just the line of text containing the insertion point. (Obviously browser engines support text selections, but they probably don&#39;t expose the underlying primitives the way a word processor would need. Similarly, they support incremental layout + rendering, but probably not specifically optimized in the precise way a word processor would need.)Modern browser engines are amazing feats of engineering, but the feature set they provide, while enormous, is unlikely to exactly match the exacting requirements of a WYSIWYG word processor. As soon as your requirements differ even slightly from the feature set provided, you start tipping over into complex workarounds which impact performance and are hell on developer productivity and application stability / compatibility.This is loosely analogous to CISC vs. RISC: browsers are amazing &#34;CISCy&#34; engines but if your use case doesn&#39;t precisely fit the expectations of the instruction set designer then you&#39;re better off with something lower-level, like Canvas and WASM. (I don&#39;t know whether Docs uses WASM but it would seem like a good fit for this Canvas project.)Frameworks in general suffer from this problem. If you&#39;ve ever had to fight with an app framework, or orchestration framework, or whatever sort of framework to accomplish something 5% outside of what the framework is set up to support, then you understand the concept.Also, as noted in many comments here, browser engines have to solve a much more general problem than Docs, and thus have extra overhead."</p>
 							
 						
 							
-								<p class="story__comment_others">"&#34;Outlook (Windows)&#34; is dead last in the &#34;rankings&#34;. That&#39;s pretty much the only page on there that matters sadly; Determining which features work on Outlook for Windows and that&#39;s the maximum that can go into an HTML EMail.Sure, I&#39;d love to only send txt mails but that sadly does not align with the expectations/desires of the companies I&#39;ve worked with."</p>
+								<p class="story__comment_others">"In 2009, I joined Mozilla and started working on the Bespin[1] project, which Ben Galbraith &amp; Dion Almaer had brought to Moz. Bespin was built with a canvas-based renderer. Bespin was way faster than other browser-based code editors at the time.Then the Ajax.org/Cloud9 folks came along with their Ace editor[2], which was DOM-based and still very fast. We ended up merging the projects. edit to add: and switching to DOM renderingRik Arends[3] was one of the Ajax.org folks and he&#39;s been working on a WebGL-based code environment called Makepad[4], which is entirely built in Rust and has its own UI toolkit. He&#39;s complained a lot about how difficult it is to make a performant JS-based editing environment.My point in all of this is just that there are absolutely tradeoffs in performance, accessibility, ease-of-development, internationalization, and likely other aspects. If raw performance is what you&#39;re going for, it&#39;s hard to beat just drawing on a canvas or using WebGL. Google Docs needs to worry about all of that other stuff, too, so I&#39;ll be interested to see how this shapes up.[1]: https://en.wikipedia.org/wiki/Mozilla_Skywriter[2]: https://en.wikipedia.org/wiki/Ace_(editor)[3]: https://twitter.com/rikarends[4]: https://makepad.dev"</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t build extensions or work on much front end web lately but this reads like Google wants more control over their stuff. The web is becoming less open.&gt; By moving away from HTML-based rendering to a canvas-based rendering, some Chrome extensions may not function as intended on docs.google.com and may need to be updated.&gt; If you are building your own integrations with Google Docs, we recommend using Google Workspace Add-ons framework, which uses the supported Workspace APIs and integration points. This will help ensure there will be less work in the future to support periodic UI implementation changes to Docs.This is basically putting an API on top of an API as far as I&#39;m concerned. The web renders markup and executes javascript to produce experience. Putting an API on top and using canvas to render your content creates a more closed system.For those more deep in web technology, I&#39;d like to know if there are reasons to move to canvas for strictly technical merits."</p>
 							
 						
 						</a>
@@ -67,23 +67,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://babeljs.io/blog/2021/05/10/funding-update.html">Babel is used by millions, so why are we running out of money?</a></h3>
+					<h3><a href="https://github.com/eduard-permyakov/permafrost-engine">Show HN: I wrote my own RTS game engine in C</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27114718">
+						<a href="https://news.ycombinator.com/item?id=27132334">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; we settled on $11,000 per month as a baseline salary for working full-time on open source.&gt; For now, Nicolò, Henry, and Jùnliàng will all be paid a temporary rate of $6,000 per month. This doesn&#39;t solve the problem,I used to donate to Babel, before they made it apparent they are just interested in funneling the money to one developer. 11K per month?! That is absolutely bananas and same reaction I had the last time this came up, but this time I cannot do anything as a reaction as I&#39;ve already pulled my funding.But my guess is that a lot of people feel the same way, as the donations seems to be going down. 11K per month could pay for many developers if you hire people outside of Sillicon Valley, which since you&#39;re doing open source, you should really really consider.Open source is not &#34;VC fueled develoment&#34; and I don&#39;t think we should go that way either. Make your operation nimble and survive on little, otherwise you&#39;ll soon disappear. Optimize for sustainability, not for paying the one of the highest salary in the world (minus SV bubble of course).It&#39;s not wonder Babel is going the way it&#39;s going, as the economy you&#39;ve setup for yourself is nowhere near sustainable."</p>
-							
-						
-							
-								<p class="story__comment_others">"This whole thread is basically a testament as to why the OSS model, unfortunately, is broken. Very competent people are expected to write widely used software for a salary that basically merely guarantees subsistence. It never ceases to amaze me how great software engineers allow themselves to be exploited in such a way. If you consider the societal impact that some of these projects have and the skill set that some of their maintainers have, which pretty much dwarfs the skill sets of people in other well paid professions such as lawyers or doctors, it&#39;s frankly ridiculous that they are expected to work for significantly less money. Not to mention that the abstractions some of these people wrote basically allow a significant number of people to enter the industry in the first place."</p>
+								<p class="story__comment_first line-clamp">"Very nice code quality.C gets a hard time and this code base highlights some of the modern features C is missing by its use of perfectly clear workarounds. E.g. The prefix “namespacing” done here works just fine, easy to understand. The go-style visibility approach is growing on me lately and it works well here.C does deserve some of the criticism right enough, e.g. the same macros re-defined in a few places - it’d be nice if c had a better way than its version of macros although its not actually a problem here because the macros aren’t really big enough to have subtle sharp edges.Ahh a beautifully written project, just shows that maybe C is entirely workable in the right hands."</p>
 							
 						
 							
-								<p class="story__comment_others">"Savage of Sebastian to call out Henry like that on twitter. Are you on drugs or something?
-https://twitter.com/sebmck/status/1392019586833387522Publicly accusing Henry of not actually working on the project seems short sighted. Only looking at a one year slice of contribution rather than the lifetime of the project masks the full picture of Henry&#39;s contributions. Also in Henry&#39;s defense, the past year has been a terribly difficult one for most all of us to get through this pandemic.Not a good look for you Sebastian. Feels like you are looking for a place to point blame and unfortunately decided to direct that blame in Henry&#39;s direction. Henry Zhu is a great developer and contributor. Really deserves better than this."</p>
+								<p class="story__comment_others">"What an extremely talented individual you are. Thanks for sharing your work and your process in the YouTube videos.As someone who comes from a web dev background and who&#39;s completely unfamiliar with developing large projects in C, I&#39;m curious about your setup. What does it look like? In terms of what kind of IDE, OS, interesting tooling, etc. you use on a regular basis to work on this.Also, I&#39;ve seen the first commit goes back to Oct 2017. Did you work on this full time during the whole time / how many full-time months you would say you devoted to this project? Also, if I may ask – what do you do for a living?Thanks again and congrats on the project!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Sometimes I feel like i&#39;m an untalented, unproductive waste of oxygen.Then I see a post like this and know for sure that I am."</p>
 							
 						
 						</a>
@@ -96,24 +95,22 @@ https://twitter.com/sebmck/status/1392019586833387522Publicly accusing Henry of 
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.amazon.com/Amazon-Sidewalk/b?node=21328123011">Amazon Sidewalk</a></h3>
+					<h3><a href="https://build.mmm.page">Show HN: Mmm.page – Drag and drop personal website creator</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27115809">
+						<a href="https://news.ycombinator.com/item?id=27128424">
 						
 							
-								<p class="story__comment_first line-clamp">"If anyone is interested, I wouldn&#39;t mind collaborating to create a privacy oriented SmartTV or PC for devs or simply an industrial grade dumb TV. I have experience designing and building 70&#34; industrial displays that utilize Samsung LCD panels. These &#34;industrial&#34; panels are normally twice the price of consumer grade ones but are designed to operate 24/7 with a MTBF of 100k hours (approx. 11 years) and are usually twice the brightness of normal ones (a very noticeable difference). I also have direct relations with Samsung for sourcing. Displays I&#39;ve designed and built: https://bit.ly/3vV9jVm"</p>
-							
-						
-							
-								<p class="story__comment_others">"So, if I buy a so called Smart-TV (not because I like it but because traditional ones are getting harder to find) but don&#39;t set up it on my home network so it can&#39;t phone home, it could scan around anyway and find other open devices more than willing to participate in my personal data exfiltration?
-If the Amazon project succeeds, I would expect in a few months most home devices manufacturers, to partner to implement it so they have a way to circumvent users choices."</p>
+								<p class="story__comment_first line-clamp">"&gt; Websites shouldn&#39;t all look the same. We prefer campy, kitschy, messy, imperfect.I really like the design aesthethic this product encourages. There&#39;s so much charm and fun and eccentricity that&#39;s lost in a web where full-height responsive image backgrounds and blocky design frameworks are ubiquitous.If this can help people express just a little bit of the wild creativity of things like early 2000&#39;s MySpace layouts or GeoCities pages I&#39;ll be a big fan!"</p>
 							
 						
 							
-								<p class="story__comment_others">"This is a blatant attempt at using their market power to gain a dominant position in IoT connectivity by creating a parallel Network where Net Neutrality does not apply. If this succeeds, only Amazon approved devices will be allowed on this global Network connecting only to aws provided services thereby establishing a monopoly on non-cellular IoT connectivity.
-After Apples recent move in the same direction with their „find my“ mesh network of apple devices being used to introduce a whole new mode of operation to support their Air Tags the Question of Net Neutrality has to be extended from just ISPs to Dominant Platforms that have the ability to create derivative Mesh-Networks."</p>
+								<p class="story__comment_others">"Congrats, it&#39;s really great!A small comment:- Instagram has recently become much more aggressive in not showing anything to logged out users. Because of this, when you create a button (on your site) linking to an Instagram page, the button name ends up being &#34;Login • Instagram&#34; (that&#39;s because you&#39;re getting the Open Graph preview of the page you&#39;re redirected to, i.e. the login..!)You could probably have an exception for Instagram and when linking to instagram.com/&lt;username&gt;, force the button name to be @&lt;username&gt;. Not ideal, certainly, but maybe a bit better?Congrats again and happy launch!EDIT: I initially didn&#39;t see that the mobile viewport /is/ visible when designing on desktop! my bad! I removed my original note"</p>
+							
+						
+							
+								<p class="story__comment_others">"I hate making a new login that I have to remember for things I might not even use. It would be nice if you could create the website first, then only sign up if you liked it and wanted to save it. This stops me from testing cool looking projects like this all the time :(EDIT: that being said, I love that you can edit the landing page itself, that at least gives me some idea of how it works, although then if I turn it into something interesting I have to start over when I sign up."</p>
 							
 						
 						</a>
@@ -126,22 +123,22 @@ After Apples recent move in the same direction with their „find my“ mesh net
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.fragattacks.com/">FragAttacks: new security vulnerabilities that affect wi-fi devices</a></h3>
+					<h3><a href="https://intel-isl.github.io/PhotorealismEnhancement/">Enhancing Photorealism Enhancement</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27121918">
+						<a href="https://news.ycombinator.com/item?id=27126092">
 						
 							
-								<p class="story__comment_first line-clamp">"Future Wi-Fi devices will be able to see through your home and business walls, for activity monitoring and biometric identification, https://www.theregister.com/2021/03/31/wifi_devices_monitori...&gt; In three years or so, the Wi-Fi specification is scheduled to get an upgrade that will turn wireless devices into sensors capable of gathering data about the people and objects bathed in their signals... When 802.11bf will be finalized and introduced as an IEEE standard in September 2024, Wi-Fi will cease to be a communication-only standard and will legitimately become a full-fledged sensing paradigm... tracking can be done surreptitiously because Wi-Fi signals can penetrate walls, don&#39;t require light, and don&#39;t offer any visible indicator of their presence.IEEE 802.11bf paper: https://arxiv.org/abs/2103.14918Papers on device-free wireless sensing (DFWS): https://dhalperi.github.io/linux-80211n-csitool/Remote sensing with low-cost ESP32 and 802.11n: https://academic.oup.com/jcde/article/7/5/644/5837600"</p>
-							
-						
-							
-								<p class="story__comment_others">"From the industry response[1]:&gt;  &#34;It’s important to note that there is presently no evidence of the vulnerabilities being used against Wi-Fi users maliciously and these issues are mitigated through routine device updates once updated firmware becomes available.&gt; &#34;Like many previous vulnerabilities, FragAttacks has been academically well-researched and responsibly reported in a manner allowing the industry to proactively prepare and begin to roll out updates that fully eliminate the vulnerabilities. This set of vulnerabilities requires a potential attacker to be physically within range of the Wi-Fi network (or user device) in order to exploit it. This significantly reduces the likelihood of actual exploitation or attack.&#34;[1] https://www.commscope.com/blog/2021/wi-fi-alliance-discloses..."</p>
+								<p class="story__comment_first line-clamp">"The number of comments here that are negative is just staggering to me.These images are within a hair&#39;s breadth of being indistinguishable from reality. It&#39;s an enormous leap. An enormous leap from the previous techniques and an enormous leap towards photorealistic realtime graphics.You don&#39;t want your games to look realistic? Go play pacman or outrun.You want to use path tracing instead? You have no idea how much cheaper this technique is. And on top of that the neural network is also fixing up the unrealistic texture work on all kinds of things in the scene.The first games to use this are going to be from small game studios with less investment in the status quo and they are going to blow the competition out of the water."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; By default devices don&#39;t send fragmented frames. This means that the mixed key attack and the fragment cache attack, on their own, will be hard to exploit in practice, unless Wi-Fi 6 is used. When using Wi-Fi 6, which is based on the 802.11ax standard, a device may dynamically fragment frames to fill up available airtime.Why does this feel like Spectre? We&#39;re trying to speed things up in a way that eventually blows back into our face."</p>
+								<p class="story__comment_others">"I am especially impressed by how much more realistic the lighting ends up looking despite the network probably having less information to work with than the engine! Though it ends up turning the lighting very flat. I guess that is an effect of the source images they were using.As others have said, using this directly in the engine (tuned to work with the intended art style etc) could probably produce almost miraculous results, if it can be made to work at a reasonable frame rate.That would also allow the developers to use high-quality rendered images instead of these green-tinted, low-contrast &#34;automotive grade&#34; camera images as source of truth (there are good reasons these images look like that ... but they don&#39;t look pleasant)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Impressive, but I think that photorealism is not necessarily what you would want to strive for in games, as it is not true realism. It emulates the deficiencies of the camera that we perceive it as realistic, because we are trained on thousands of photo images and video footage. I prefer visionrealism instead of photorealism in my games and don&#39;t really find that lens effects like flares, chromatic aberration, and depth of field enhances the experience of realism. It feels like I&#39;m looking through a camera rather than being there myself. For me it breaks immersion instead of enhancing it."</p>
 							
 						
 						</a>
@@ -154,22 +151,22 @@ After Apples recent move in the same direction with their „find my“ mesh net
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.intego.com/mac-security-blog/i-mailed-an-airtag-and-tracked-its-progress-heres-what-happened/">I mailed an AirTag and tracked its progress</a></h3>
+					<h3><a href="https://positive.security/blog/send-my">Emulating AirTags to upload arbitrary data via Apple&#39;s FindMy network</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27121461">
+						<a href="https://news.ycombinator.com/item?id=27130355">
 						
 							
-								<p class="story__comment_first line-clamp">"Regarding &#34;my friend left the envelope on a table in his house&#34; not producing the &#34;AirTag found moving with you&#34; alert, this is obviously by design. You get the alert if the tag is planted on your person/vehicle and following you around, not if it happens to be sitting still in a location that you frequent.The alternative is being constantly bombarded with alerts because other residents of an apartment building also own AirTags, which is not going to be useful to anyone."</p>
-							
-						
-							
-								<p class="story__comment_others">"As a user, I&#39;d love the option to decide whether I want to help in this system or not. Similar to how I can opt-in to sharing analytics with Apple.I just might help out. But the idea that by owning an iPhone I&#39;m automatically opted into this and I can&#39;t (temporarily) disable it is concerning. Especially since the feature to alert users of the possible privacy invasion outlined here, seems to not yet be working as advertised.It&#39;s unclear to me if the &#34;Participate in &#39;Find My Network&#39;&#34; option is what I&#39;m talking about. But I also don&#39;t remember being asked about this at any point."</p>
+								<p class="story__comment_first line-clamp">"I was wondering if something like could be done to upload sensor data without a data connection and it looks like that&#39;s exactly what the authors here had in mind!:&gt; Potential use cases&gt; While I was mostly just curious about whether it would be possible, I wouldimagine the most common use case to be uploading sensor readings or any data from IoT devices without a broadband modem, SIM card, data plan or Wifi connectivity.The use case I had in mind is gathering sensor data from boat out in a harbor (away from wifi) that other boats with iPhone-bearing crew pass by frequently. This ESP32 AirTag emulator could send out battery level and bilge pump data any time someone sailed by, without the need for a dedicated modem. Might have to try this out!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Back in the early 2000s when hand-held GPS receivers/loggers started becoming relatively cheap, some white-hat hackers tried sending them through the mail to see how the postal system worked and produced several articles and presentations on the results.It turned out the USPS took a very dim view of this kind of thing.I can&#39;t find any of this research now, of course, because all the search engines want to sell me tracking devices and package tracking services."</p>
+								<p class="story__comment_others">"As there&#39;s a limit of 16 AirTags per Apple ID, and each AirTag&#39;s keys rotate every 15 minutes, presumably Apple can detect if anyone is abusing the system by sending more than 16 different &#34;messages&#34; per 15 minutes. They can&#39;t detect this when the fake airtags are sending, but can detect it from stored message timestamps when you query.  If they start to see this being abused a lot, they can then block Apple IDs.  To avoid Apple being able to see this, you probably need to either use multiple Apple IDs, or send less than 16 bits per 15 minutes."</p>
+							
+						
+							
+								<p class="story__comment_others">"Does this fall within Apple&#39;s policy of fair use? Would be great if there were an officially supported (paid) API for this, the technology and potential use cases are great. I&#39;m afraid hooking something like this up to my Apple ID will get me banned somehow."</p>
 							
 						
 						</a>
@@ -182,22 +179,23 @@ After Apples recent move in the same direction with their „find my“ mesh net
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://scp-wiki.wikidot.com/scp-2521">●●|●●●●●|●●|●</a></h3>
+					<h3><a href="http://blog.erlang.org/My-OTP-24-Highlights/">Erlang/OTP 24 highlights</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27120460">
+						<a href="https://news.ycombinator.com/item?id=27128994">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; SCP-2521 (also known as ●●|●●●●●|●●|●) is a Keter-level SCP not currently contained by the SCP Foundation. He is a creature who steals every piece of information about his nature, as long as the information is expressed in textual or verbal form. Because of that, nearly everything about him is registered by ideograms and pictures.from https://villains.fandom.com/wiki/SCP-2521"</p>
-							
-						
-							
-								<p class="story__comment_others">"For additional context: this was the winning entry in the SCP&#39;s Short Works Contest[1]. The idea was: can you make a good SCP entry in under 500 words? Bonus points if it&#39;s under 237 words, the length of the first ever entry.Of course, the entry with zero words won.[1]: http://scp-wiki.wikidot.com/short-works-contest"</p>
+								<p class="story__comment_first line-clamp">"Seems like there is less and less reason for  not using Erlang for distributed coordinated compute broker tasks.I have a stateless java backend servicing REST APIs.
+These backends are load-balanced by nginx.Now the time is approaching where I need to introduce some form of global state (that involves global caching, message passing, registering/discovery of known workers, periodic (cron-like tasks), etc).I would much prefer a single tool to add to my backend stack (currently Java + postgres) to cover most of the above needs.With the performance improvement + persistent_term [1] -- in current Erlang, I basically get:- a light weight distributed K/V cache- a ZeroMQ like on-wire messaging system (built into erlang)- discovery/coordination- a distributed compute grid- a way to write my own routines within that compute grid, and have them exposed via Java interface to my existing backend.I do not need &#39;fastest&#39; possible performance or least memory consumption. I just need them to be &#39;reasonable&#39;, &#39;known&#39; and &#39;controllable&#39; (not to exceed some baseline).Erlang is just looking better and better (and I prefer its syntax to Elixir, for some reason.).[1] https://erlang.org/doc/man/persistent_term.html"</p>
 							
 						
 							
-								<p class="story__comment_others">"SCP Wiki has really matured over the years; it started out as creepypasta and murder monsters -- many of them well-written, to be sure, and an interesting setting -- but still just basically straightforward horror stories.In recent years some of the writers there have really upped their game, they&#39;re tackling much more nuanced and complicated issues than &#34;SCARY THING WILL DESTROY WORLD&#34;.  I&#39;m particularly fond of http://www.scpwiki.com/scp-5031, for example, which directly addresses those aspects of the early site in a very humorous way."</p>
+								<p class="story__comment_others">"&gt; there are still 260k lines of code added and 320k lines removedSo a net reduction of 60K lines of code? And yet functionality was added to the system as well. That&#39;s praiseworthy IMO.Imagine if &#34;we did more with less&#34; infected much of software development today."</p>
+							
+						
+							
+								<p class="story__comment_others">"OMG, YES! The JIT is here... and holy crap, if you haven&#39;t tried it yet... it&#39;s awesome (everything feels snappier). I&#39;m particularly stoked for the receive optimizations and process aliases.BEAM just gets better and better. It&#39;s a good time to be an Erlanger/Elixirist..."</p>
 							
 						
 						</a>
@@ -210,22 +208,22 @@ After Apples recent move in the same direction with their „find my“ mesh net
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.narrator.ai/blog/using-postgresql-as-a-data-warehouse/">Using PostgreSQL as a Data Warehouse</a></h3>
+					<h3><a href="https://arstechnica.com/science/2021/05/neural-implant-lets-paralyzed-person-type-by-imagining-writing/">Neural implant lets paralyzed person type by imagining writing</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27109960">
+						<a href="https://news.ycombinator.com/item?id=27134049">
 						
 							
-								<p class="story__comment_first line-clamp">"Dr. Martin Loetzsch did a great video, ETL Patterns with Postgres. He covers some really good topics:- Instead of updating tables build their replacements under a different name then rename them. This makes updating heavy-to-compute table instant. Works even for schemas: rebuild a schema  as schemaname_next rename the current to schemaname_old then rename schemaname_next to schemaname.- Keep all the source data raw and disable WAL, you don&#39;t need it for ETL.- Set memory limitis high.And lots of other good tips for doing ETL/DW in postgres. It&#39;s here: https://www.youtube.com/watch?v=whwNi21jAm4I really appreciate having data in postgres. It&#39;s often easy to think that a specialised DW tool will solve all your problems, but that often fails to consider things like:- Developer experience. Postgres runs very easily on a local machine, more specialized solutions often don&#39;t or are tricky to setup.- Learning another tool costs time. A developer can learn postgres really well in the time it takes them to figure out how to use several more specialised tools. And many devs already know postgres because it&#39;s pretty much the default  DB nowadays.- Analytics queries often don&#39;t need to run at warp speed. Bigquery might give you the answer in a second but if postgres does it in a minute and it&#39;s a weekly report, who cares?- Postgres is boring and has been around for many years now, it will probably still be here in 10 years so time spent learning it is time well spent. More niche systems will probably be superseded by fancier, faster replacements.I would go so far as to say don&#39;t necessarily need to split out your DW from your prod DB in every case. As soon as you start splitting out a DW to a separate server you need some way to keep it in sync, so you&#39;ll probably end up duplicating some business logic for a report, maintaining some ingestion app, shuffling data around S3 or whatever. Keeping your analytics in your prod DB (or just a snapshot of yesterdays DB) is often good enough and means you will be more likely to avoid gnarly business-rules going out of sync between your app and your DW."</p>
-							
-						
-							
-								<p class="story__comment_others">"A new Postgres-based darling is TimescaleDB.  It’s a drop-in for Postgres.It is a hybrid row column store with excellent compression and performance.It would be interesting to see how it compares if narrator would try it out.  Benchmarks would be cool.One very neat feature I am enamored  by is “continuous aggregates”.  These are materialized views that auto-update as you change the fact table.Continuous aggregates are a great idea.  InfluxDB had “continuous queries” (but the implementation of influx generally is not so neat), and firebolt has “aggregate indexes” which are much the same thing.I think all olap dbs will eventually have them as staple, and that they will trickle down into oltp too."</p>
+								<p class="story__comment_first line-clamp">"If anybody from the project is reading this, could you tell me where I should send the application, entrance form, fee or even straight up bribes to get my brain and this technology smushed together please?I&#39;m quadriplegic and since lockdown began last March I&#39;ve not left this bed once. That&#39;s not hyperbole, I literally mean that I haven&#39;t left the spot in this bed I&#39;m in right now, writing this comment to you all.So Yeah, connecting with the world like this is something I need to be a part of. I really don&#39;t have words to describe how life changing this would be."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Avoid Common Table Expressions (or upgrade to 12)Upgrading to 12 (or 13) seems like the better option here, whenever you&#39;re able to do so. The improvements are very much worth it."</p>
+								<p class="story__comment_others">"I remember when I first learned to touch-type as a child, and for many years after, I would sometimes &#39;type&#39; things out on my legs, tabletops, notebooks. At first it was to practice, but after I had mastered typing I kept doing it just because it was still novel to be able to type and feel like I knew how to use technology. Doing that made me realize that typing a character is a very specific and atomic action (compared to writing by hand), as well as an automatic one (once you learn how to touch-type). I wonder if the performance of this solution could be improved by training it to detect the mental impulses that occur when a trained typist imagines typing a character, rather than when the person imagines writing out a character."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can someone explain what is new about this generation of the tech?People have been able to move mouse cursors and type using only their brain and tiny implants for decades... so far Neuralink seems to just be repeating these experiments, but receives a lot more hype.Here&#39;s an article from 2006[1] with someone moving a mouse cursor and clicking things with a similar tiny brain implant.Is there something new here, or just the Musk train?[1] https://www.nytimes.com/2006/07/13/science/13brain.html"</p>
 							
 						
 						</a>
@@ -238,22 +236,22 @@ After Apples recent move in the same direction with their „find my“ mesh net
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://blog.thermoworks.com/thermometer/new-warning-thermoworks-website-2/">Why you can’t buy a thermapen on Amazon (2016)</a></h3>
+					<h3><a href="https://www.reuters.com/article/israel-palestinians-socialmedia-idUSL8N2MU624">Instagram, Twitter blame glitches for deleting Palestinian posts</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27113222">
+						<a href="https://news.ycombinator.com/item?id=27134995">
 						
 							
-								<p class="story__comment_first line-clamp">"The real reason they don&#39;t want their thermometers sold on amazon is because they are merely official US distributors of the Thermapen which is made by a British company, ETI.https://thermometer.co.uk/99-thermapen-thermometersYou can buy them from European distributors in bulk for less than MSRP and sell them for the same price as thermoworks on amazon and still make a profit. The only reason they were going for $179 previously is because thermoworks was buying the thermometers from sellers and reporting them as counterfeit. Thus making it difficult for sellers to sell them which keeps supply low.They have fraudulently filed copyright removals and counterfeit accusations on amazon multiple times for Thermapen listings that don&#39;t use the &#34;thermoworks&#34; name.You can see that thermoworks does not own the Thermapen trademark.https://tmsearch.uspto.gov/bin/showfield?f=doc&amp;state=4803:hv...Edit: apparently, you can&#39;t link to a trademark search directly, so you would need to go to the basic search and enter&#34;Thermapen&#34;.https://tmsearch.uspto.gov/bin/gate.exe?f=login&amp;p_lang=engli..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Has anyone else started to change their buying habits to buy direct from brands websites instead of buying on Amazon?I simply don&#39;t trust Amazon for certain purchases. I feel like it&#39;s actually made me trust brands more instead of commoditized products."</p>
+								<p class="story__comment_first line-clamp">"The most likely explanation is that coordinated mass reporting of these posts is triggering removal algorithms.In that sense, the &#34;glitch&#34; is that the removal algorithms are susceptible to being gamed."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; We DO have carefully selected, authorized resellers.USA is a free market.  Everyone is authorized all the time to sell every safe product.  The term &#34;authorized reseller&#34; is a linguistic manipulation which benefits manufacturers at the expense of everyone else in society.&gt; We cannot vouch for the quality of products sold by unauthorized resellers, therefore, we cannot provide warranty or technical support on any products sold by unauthorized resellers.This is not true in California.  Manufacturers must honor the warranty on all products they originally sold in USA, no matter who later re-sold it.  And for products they sold for &gt;$99, they must provide technical documentation for 7 years.  I wrote about this in [0].[0] https://news.ycombinator.com/item?id=24426635"</p>
+								<p class="story__comment_others">"reminds of the &#39;accidental glitches&#39; after anti-Modi posts vanished in India, curiously enough shortly after India pressured social media companies into silencing dissent.People who think of centralised social media as an empowerement of voice of minority dissent have made a grave mistake. It&#39;s only contingently supportive as long as the position of the minority voices isn&#39;t in conflict with political or economic interests of the powers that be. And big anything be it government, business and so on is always run by people who come from the same power-centres that minorities are trying to speak up against."</p>
+							
+						
+							
+								<p class="story__comment_others">"My wild guess is JIDF [1], or a similar organization, is using multiple accounts to flag posts as violating community standards. Once it reaches a certain threshold of “downvotes”, some algorithm by Twitter/Instagram hides the content.1 - https://en.m.wikipedia.org/wiki/Jewish_Internet_Defense_Forc..."</p>
 							
 						
 						</a>
@@ -266,22 +264,23 @@ After Apples recent move in the same direction with their „find my“ mesh net
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.euronews.com/2021/05/11/germany-bans-facebook-from-handling-whatsapp-data-over-privacy-concerns">Germany bans Facebook from handling WhatsApp data over privacy concerns</a></h3>
+					<h3><a href="https://panic.com/blog/the-future-of-code-editor/">We’ll stop selling our Code Editor app for iOS soon</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27121332">
+						<a href="https://news.ycombinator.com/item?id=27116203">
 						
 							
-								<p class="story__comment_first line-clamp">"The aspect I find most interesting and internationally relevant is that as these local rulings proliferate, they kinda make it visible to what degree companies finance their operations by selling user data.  The more the business model relies on this, the more likely companies are to get hit with a ruling like this — and it&#39;s not just the ruling that&#39;s interesting, but also what Facebook&#39;s reaction will be.  If they stop offering or reduce WhatsApp services in Germany (or India), that&#39;s a great indicator that the service isn&#39;t profitable without the sale (or other commercial exploitation, Facebook is an ad company after all) of large amounts of user data."</p>
-							
-						
-							
-								<p class="story__comment_others">"Another Source - https://www.bloomberg.com/news/articles/2021-05-11/facebook-...&gt; Johannes Caspar, who heads Hamburg’s privacy authority, issued a three-month emergency ban, prohibiting Facebook from continuing with the data collection. He also asked a panel of European Union data regulators to take action and issue a ruling across the 27-nation bloc. The new WhatsApp terms enabling the data scoop are invalid because they are intransparent, inconsistent and overly broad, he said."</p>
+								<p class="story__comment_first line-clamp">"&gt; The biggest technical hurdle is the inability to run external processes on iOS and iPadOS.&gt; Apps on iOS and iPadOS must use Apple’s Javascript interpreter, JavaScriptCore.Both of these really suck because they are policy, not technical, decisions. Even setting aside the arguments of whether JIT code is a security concern (it is not unless your security model is one where codesigning exists to prevent the addition of new native code) that you cannot spawn a new process, nor can you ship another JavaScript interpreter, is really unfortunate.Allowing apps to spawn new processes is easy (I mean, just inherit sandboxing rules and resource limits…) and allows for a lot of new usecases, like robust crash reporting, web servers, privilege separation, and more. That Apple allows this on macOS and even uses it for its own apps on iOS just shows how useful this can be and how little it affects the security model of iOS.Likewise, not allowing other JavaScript interpreters is just…annoying. Regardless of your opinions of JavaScriptCore, this is an unfair limitation on an already slanted playing field. Coupled with the fact that the JavaScriptCore interpreter (which the framework uses for anything you run in-process) is literally designed for low resource consumption instead of than performance makes this even more infuriating."</p>
 							
 						
 							
-								<p class="story__comment_others">"This works in WA&#39;s favor in some contexts. I have a fresh wave of friends who tell me I should reinstall WA, because they &#34;don&#39;t do data sharing in Germany&#34;.I note that their terms still say that they do share data; they just have a PR line outside the terms that says they&#39;ll do it as soon as they &#34;reach an agreement&#34; with regulators.I further note that their entire business model for WA depends on sharing data for advertising. Trusting them on their PR agent&#39;s word not to share data is the fox guarding the hen house."</p>
+								<p class="story__comment_others">"I have a different view of this than most in this topic. I am disappointed, though not surprised, that Panic is abandoning yet another of their iOS apps. They’ve done it several times before and while I am grateful they’ve continued to provide some bug fixes, feature work stopped years ago.In my view, the biggest hurdle does not seem to have been technical, but ideological/business. These old school Mac developers like Panic and Omni have had a very difficult time adapting to (or failing to) the iOS/mobile era. 
+I know we all hate subscriptions, but continued app development and management requires continued labor so subscriptions seem like the only business option that makes any sense to me. Panic and Omni want paid upgrades but Apple has never, ever even hinted at providing that as an option. The option is subscriptions. Even on desktop Sketch, Adobe, and Microsoft are going with subscriptions. (We’ll see how Affinity does. They charge a lot more for their apps and seem to be in a growth phase so I imagine their sales at the moment are fast enough to make up for the fact that each sale is only a one time source of revenue).Honestly, Panic and Omni and other old school Mac developers really, really need to adapt to the modern era. They’ve had years and it feels like the runway is about to end (see Omni’s recent layoffs.) Wishing for paid upgrades and writing “only AppKit apps are real Mac apps” blog posts isn’t going to change anything."</p>
+							
+						
+							
+								<p class="story__comment_others">"It’s a real shame that the otherwise very capable iPad cannot sustain an enormous subcategory of professional grade software, solely because of Apple’s policies.People know this going in of course, but it doesn’t make it any less of a shame, especially now you can spec out an iPad Pro with the exact same specs as the laptop I use for work."</p>
 							
 						
 						</a>
@@ -294,22 +293,22 @@ After Apples recent move in the same direction with their „find my“ mesh net
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.reuters.com/article/usa-semiconductors-idUSL1N2MX2MK">Tech giants join call for funding U.S. chip production</a></h3>
+					<h3><a href="http://atlasengineering.io">Atlas, a hopefully better engineering IDE</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27121586">
+						<a href="https://news.ycombinator.com/item?id=27112529">
 						
 							
-								<p class="story__comment_first line-clamp">"All: this thread got a flash flood of angry-predictable-obvious comments. Please don&#39;t post those! They&#39;re really bad for this site. (Edit: if you want to see the comments I&#39;m talking about, they&#39;re collapsed at the bottom of the page now. Before that, they were the page.)The issue with such points isn&#39;t that they&#39;re wrong, it&#39;s that they&#39;re not interesting. Nothing predictable and obvious is. We want interesting conversation here, and that comes from curiosity. If you&#39;re feeling agitation rather than curiosity, please wait until that polarity flips.The interesting things in a story like this are any diffs from what one would have expected.https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=false&amp;so...It&#39;s a significant move, so there must be interesting diffs. But sometimes one has to hunt for those, or at least wait for them to occur to one. That sort of waiting is key to getting good HN discussion, which is reflective rather than reflexive.https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;sor..."</p>
-							
-						
-							
-								<p class="story__comment_others">"If the US tax payer gets a significant stake in the chip fab venture, I would be OK with this. We want to secure national security via chip manufacturing and you want billions of dollars? Give us some upside.I don&#39;t want to hear it creates jobs, it generates blah blah blah, a real equity stake and possibly repayment of the capital. Creating jobs should be a happy by-product of subsidizing an industry that is probably more well capitalized than any other in existence.According to (https://startupanz.com/5-tech-giants-hold-588b-cash-reserves...) Amazon, Apple, Google, and Microsoft had 526 billion dollars between the four of them in cash reserves. They have over half a TRILLION dollars in cash. If this were life or death, they could afford anything.But the calculus is offload risk onto the tax payer (despite being a shareholder directly in all those companies or indirectly via mutual funds/etfs), I don&#39;t want to be left holding the bag with no upside beyond the general sentiment of &#39;national security was secured&#39; while private companies reap all the benefits."</p>
+								<p class="story__comment_first line-clamp">"Tracking units is a thing that I rarely have a use for (as a non-engineer), but when I do, I’m totally mystified by how bad almost every language is at it. F# is the only actual programming language I found that even tries. It does a pretty decent job, but even it has some disappointing holes (e.g. not being able to understand g and kg as scaled versions of the same dimension).I guess the overlap between physicists/engineers and type system/PLT people isn’t large enough."</p>
 							
 						
 							
-								<p class="story__comment_others">"These industries squeezed the blood out of US suppliers to compete on cost. I don&#39;t think a correct solution is the government building capacity and supply chains.IMHO a more sustainable strategy is the government taxing the environmental and human rights externalities of off-shore production."</p>
+								<p class="story__comment_others">"&gt; Write equations; not codeThis is a little odd to me - I generally prefer to write my math in code if its going to be executed. I find my preferences to be pen and paper (or whiteboard)&gt; latex, so perhaps I am not the target demographic here."</p>
+							
+						
+							
+								<p class="story__comment_others">"When I see this sort of thing I always want to know something that is seldom made clear: what is actually implemented so far?.The video begins &#34;This is Atlas, a concept for a new engineering IDE&#34;. (To me, that strongly suggests that rather little is actually implemented yet, and that what we&#39;re about to see is a lot of canned demos, because otherwise it would be a new engineering IDE, not just a &#34;concept&#34; for one.) But then most of what follows, and pretty much everything on the webpage, says that Atlas does this or that, not &#34;will do&#34;.And the trouble with &#34;concepts&#34; is that unlike actual implementations they aren&#39;t much of a guide to what you&#39;re ever actually going to get. It&#39;s easy to think &#34;X would be cool&#34; and say &#34;Atlas does X&#34;, but some Xs are much more realistically implementable than others, and how interesting Atlas actually is depends on which of those Xs are ever actually going to be implemented.But reading the page and watching the video I have literally no idea where the project is on a scale from &#34;we wrote down some things it would be cool to do and rigged up a demo that pretends to do them&#34; to &#34;everything here is already implemented, though there are a few gaps and bugs here and there&#34;."</p>
 							
 						
 						</a>
