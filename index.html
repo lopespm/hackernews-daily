@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">12 June 2021</div>
+	<div class="day__date">13 June 2021</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://alien-project.org/">
+					<a href="https://spin.atomicobject.com/2021/02/04/redis-postgresql/">
 						<picture>
-							<source srcset="default_27472224.webp" type="image/webp">
-							<source srcset="default_27472224.png" type="image/png">
-							<img src="default_27472224.png" alt="Preview of 'ALiEn – a GPU-accelerated artificial life simulation program'">
+							<source srcset="default_27482243.webp" type="image/webp">
+							<source srcset="default_27482243.png" type="image/png">
+							<img src="default_27482243.png" alt="Preview of 'Do you really need Redis? How to get away with just PostgreSQL'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://alien-project.org/">ALiEn – a GPU-accelerated artificial life simulation program</a></h3>
+					<h3><a href="https://spin.atomicobject.com/2021/02/04/redis-postgresql/">Do you really need Redis? How to get away with just PostgreSQL</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27472224">
+						<a href="https://news.ycombinator.com/item?id=27482243">
 						
 							
-								<p class="story__comment_first line-clamp">"When I was learning to program, I tried to make a toy artificial life evolution simulation. Particle organisms on a 2D plane had &#39;dna&#39; which was a list of heritable traits, like size, speed, number of offspring.  Bigger organisms could eat smaller organisms, but they burn energy faster. 0 energy = death. When two organisms of opposite gender collided and had sufficient energy, they&#39;d give some of their energy split among the offspring, with each offspring&#39;s &#39;dna&#39; values set to one of the parent&#39;s +/- 5%.As I was developing this, I hadn&#39;t figured out how I wanted to do food yet, so as an easy first step, I just had a constant amount of energy that was split amongst all organisms on the screen.  Lots of little dots buzzing around, was kind of neat but nothing too special. I left it to run overnight.When I came back I was very surprised:  previously i was running at about 30FPS - now it was running at about 4 seconds per frame.  The screen was filled with dense expanding circles of tiny slow organisms emanating from where organisms had mated and nothing else.My simulation evolved to outsmart my simple food algorithm: when food is divided equally among all organisms, the best strategy is to use minimal energy and maximize offspring count.  I had populated the world with a default offspring count of ~5 and they had evolved to the tens of thousands. The more offspring an organism had, the greater the amount of the energy pool would go to their offspring.It was a very cool &#34;Life, uh, finds a way&#34; moment - that such a simple toy simulation of evolution was able to find an unanticipated optimal solution to the environment I created overnight was very humbling and gave me a lot of respect for the power of evolution."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;The Autoverse is an artificial life simulator based on a cellular automaton complex enough to represent the substratum of an artificial chemistry. It is deterministic, internally consistent and vaguely resembles real chemistry. Tiny environments, simulated in the Autoverse and filled with populations of a simple, designed lifeform, Autobacterium lamberti, are maintained by a community of enthusiasts obsessed with getting A. lamberti to evolve, something the Autoverse chemistry seems to make extremely difficult.https://en.wikipedia.org/wiki/Permutation_City"</p>
+								<p class="story__comment_first line-clamp">"You really don&#39;t need anything fancy to implement a queue using SQL. You need a table with a primary id and a &#34;status&#34; field. An &#34;expired&#34; field can be used instead of the &#34;status&#34;. We used the latter because it allows easy retries.1. SELECT item_id WHERE expire = 0. If this is empty, no items are available.2. UPDATE SET expire = some_future_time WHERE item_id = $selected_item_id AND expire = 0. Then check whether UPDATE affected any rows. If it did, item_id is yours. If not, loop. If the database has a sane optimizer it&#39;ll note at most one document needs locking as the primary id is given.All this needs is a very weak property: document level atomic UPDATE which can return whether it changed anything. (How weak? MongoDB could do that in 2009.)Source code at https://git.drupalcode.org/project/drupal/-/blob/9.2.x/core/... (We cooked this up for Drupal in 2009 but I am reasonably sure we didn&#39;t invent anything new.)Of course, this is not the fastest job queue there is but it is quite often good enough."</p>
 							
 						
 							
-								<p class="story__comment_others">"Since the title isn&#39;t informative: &#34;ALiEn is a GPU-accelerated artificial life simulation program.&#34; https://alien-project.org/"</p>
+								<p class="story__comment_others">"Redis to me is the magic solution to solve so many complex multiple process syncing issues, a global lock, rate limiter, uniqueness with a set, stasher of all the temporary things… no migration, quick solution to complex problems- streams of events to organize pending tasks, etc… to me it’s all about the temporal / temporary state my application needs to keep track in order to work in a multiuser - multiprocess and multi service environment… just a different tool for a different job then what I would use a database for… but really it’s computer science, to each is their own"</p>
+							
+						
+							
+								<p class="story__comment_others">"I think one of the biggest advantages of using Redis for job queing vs Postgres comes down to library support.For example Python has Celery and Ruby has Sidekiq. As far as I know there&#39;s no libraries in either language that has something as battle hardened with comparable features for background tasks using Postgres as a backend.There&#39;s a big difference between getting something to work in a demo (achievable by skimming PG&#39;s docs and rolling your own job queue) vs using something that has tens of thousands of hours of dev time and tons of real world usage.I&#39;m all for using PG for things like full text search when I can because it drastically reduces operation complexity if you can avoid needing to run Elasticsearch, but Redis on the other hand is a swiss army knife of awesome. It&#39;s often used for caching or as a session back-end so you probably have it as part of your stack already. It&#39;s also really easy to run, uses almost no resources and is in the same tier as nginx in terms of how crazy efficient it is and how reliable it is. I don&#39;t see not using Redis for a job queue as that big of a win."</p>
 							
 						
 						</a>
@@ -76,35 +76,35 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.ifixit.com/News/50722/victory-new-york-senate-passes-landmark-right-to-repair-bill">
+					<a href="https://gizmodo.com/how-fighter-jets-lock-on-and-how-the-targets-know-1644871272">
 						<picture>
-							<source srcset="default_27472083.webp" type="image/webp">
-							<source srcset="default_27472083.png" type="image/png">
-							<img src="default_27472083.png" alt="Preview of 'New York Senate passes Right to Repair bill'">
+							<source srcset="default_27483412.webp" type="image/webp">
+							<source srcset="default_27483412.png" type="image/png">
+							<img src="default_27483412.png" alt="Preview of 'How fighter jets lock on, and how the targets know (2014)'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.ifixit.com/News/50722/victory-new-york-senate-passes-landmark-right-to-repair-bill">New York Senate passes Right to Repair bill</a></h3>
+					<h3><a href="https://gizmodo.com/how-fighter-jets-lock-on-and-how-the-targets-know-1644871272">How fighter jets lock on, and how the targets know (2014)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27472083">
+						<a href="https://news.ycombinator.com/item?id=27483412">
 						
 							
-								<p class="story__comment_first line-clamp">"4. Excludes motor vehicle manufacturers, manufacturer of motor vehicle
-equipment, or motor vehicle dealers and medical devices or a digital
-electronic product or embedded software found in medical settings.For all the bravado about standing up to powerful interests, this shows you who the most powerful interests are in that space."</p>
-							
-						
-							
-								<p class="story__comment_others">"If I loosely quote Louis Rossmann, one of the issue of right to repair is that more and more companies (Apple leading the trend) are using slightly modified chips from manufacturers, and them make then sign contracts that prevent any part selling to anyone.So technically even you can replace those chips, you can&#39;t buy them.And next Apple if putting serial numbers to prevent that even if you get the part, you will have a non-functional device.This bill does not appear to address that.Besides, the &#34;information they need to repair&#34; is also where the devil will be. Companies like Apple provide instructions on how to unscrew the laptop cover with a screwdriver (literally), but won&#39;t provide any data sheets."</p>
+								<p class="story__comment_first line-clamp">"https://archive.is/OHCwT"</p>
 							
 						
 							
-								<p class="story__comment_others">"Normally the next step would be a vote on an identical bill in the state’s Assembly.But Thursday is the last day of session for the NY legislature, and the bill has not yet escaped committee, making a vote by the full Assembly unlikely.The battle for fair repair in New York will continue into next year’s session, with a strong record of success.So eventually... maybe."</p>
+								<p class="story__comment_others">"If you happen to have a VR headset and are looking to play around with the toys described in the article, I recommend VTOL VR. It has pretty low system requirements, and takes advantage of VR to create a virtual hotas (It is much more effective than you would expect). The physics simulation is, to my understanding, very good. And everything described in this article is present in the game to be played around with.VTOL VR taught me about &#34;Radar Notching&#34;. The article briefly mentions how radar can actively detect the doppler shift of targets. If you think about it, the doppler shift of the ground would be neutral, right? Or roughly the speed of the aircraft. So lets say you&#39;ve been locked on by a fighter at high altitude and they&#39;ve fired a radar seeker at you. Your backdrop is the ground, it can pick you out because you&#39;re moving so fast. So what you do is bank your aircraft to fly at a 90 degree angle to the oncoming missile. Now your doppler shift is the same as the ground and you blend in, the radar filters out the ground because of it&#39;s expected speed, which is now the relative speed you are moving. You get &#34;notched out&#34;, and the missile will lose track."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The strength of the radar is plotted as distance from the center — the closer to the center, the stronger the detected radar signal, and therefore possibly the closer the transmitting aircraft.I believe this is wrong, the computer actually determines what are most pertinent threats and puts it on the inner circle and puts the rest on the outer circle.. The inner band (critical) is generally missiles in flight
+. The middle band (lethal) is for radars actively tracking you
+. The outer band is classified as non-lethal since these are radars searching for you, not actively tracking you.&gt; RWR also has an audio component. Each time a new radar signal is detected, it is converted into an audio wave and played for the pilot. Because different radars &#34;sound&#34; different, pilots learn to recognize different airborne or surface threats by their distinctive tones.Pretty sure this is wrong too, they all emit the same tones for tracking and another tone for searching tone...watch this: https://www.youtube.com/watch?v=MOLk_Je0NKg"</p>
 							
 						
 						</a>
@@ -116,33 +116,33 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://twitter.com/kashhill/status/1402986015107653647">
+					<a href="https://www.theatlantic.com/magazine/archive/2021/04/america-politics-religion/618072/">
 						<picture>
-							<source srcset="default_27477797.webp" type="image/webp">
-							<source srcset="default_27477797.png" type="image/png">
-							<img src="default_27477797.png" alt="Preview of 'Few people know that Google voluntarily removes some search results'">
+							<source srcset="default_27473167.webp" type="image/webp">
+							<source srcset="default_27473167.png" type="image/png">
+							<img src="default_27473167.png" alt="Preview of 'As religious faith has declined, ideological intensity has risen'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://twitter.com/kashhill/status/1402986015107653647">Few people know that Google voluntarily removes some search results</a></h3>
+					<h3><a href="https://www.theatlantic.com/magazine/archive/2021/04/america-politics-religion/618072/">As religious faith has declined, ideological intensity has risen</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27477797">
+						<a href="https://news.ycombinator.com/item?id=27473167">
 						
 							
-								<p class="story__comment_first line-clamp">"Couldn&#39;t fit the whole tweet, so just to be clear, she&#39;s talking about manual, non-legal requests:&gt; One of the surprising things about working on the slander series is how few people in the field, even experts, know that Google voluntarily removes some search results. (No court order needed!) You have to visit this generic url: https://support.google.com/websearch/troubleshooter/3111061?...Down the thread, she adds this:&gt; Because so few people know about it, &#34;reputation managers&#34; are charging people like $500 a pop to &#34;remove damaging information from Google results.&#34; And ALL THEY DO is fill out that form for free. Someone tried to hawk this service to my husband after he came under attack.I didn&#39;t know about this service URL, and had just assumed &#34;reputation managers&#34;, if they did anything at all, were limited to SEO spamming.edit: Searched HN for mention of this link and found exactly 5 results, 3 of which look unique, and the earliest in Dec. 23, 2015:https://imgur.com/EEUJn9M"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;d like to take this opportunity to share some relevant exercepts from In The Plex[^1] about Eric Schmidt, then-CEO of Google.&gt; One day Denise Griffin got a call from Eric Schmidt’s assistant. “There’s this information about Eric in the indexes,” she told Griffin. “And we want it out.” In Griffin’s recollection, it dealt with donor information from a political campaign, exactly the type of public information that Google dedicated itself to making accessible. Griffin explained that it wasn’t Google policy to take things like that out of the index just because people didn’t want it there. Principles always make sense until it’s personal,” she says.&gt; Then in July 2005, a CNET reporter used Schmidt as an example of how much personal information Google search could expose. Though she used only information that anyone would see if they typed Schmidt’s name into his company’s search box, Schmidt was so furious that he blackballed the news organization for a year.&gt; “My personal view is that private information that is really private, you should be able to delete from history,” Schmidt once said. But that wasn’t Google’s policy...I guess they&#39;ve since changed the policy a bit?[^1]: https://www.amazon.com/Plex-Google-Thinks-Works-Shapes/dp/14..."</p>
+								<p class="story__comment_first line-clamp">"Becoming more religious has helped me identify religious tendencies in the secular world. Ideology doesn’t imply supernatural deities, and some worldly phenomenon can be elevated to a supernatural level.  Secular belief contains rituals, origin stories, deities, saints, priesthood, blasphemy, vice &amp; virtue just as religion does.One aspect of religion I appreciate is that these aspects are well codified and debated – i.e. much more explicit.In the secular world these aspects exist but they are implicit, making them difficult to debate and attack.Few people understand that most religions e.g. Judaism and Christianity have an apologetic discipline – a deliberate arm open to debate.The secular world would benefit from adopting more formal definitions of their belief system. I think that would reduce the conflict and neurosis that comes from engaging a nebulous system.If you believe you are not religious, it just means that you don’t have the cognitive tools to recognize the secular ideology that you have adopted."</p>
 							
 						
 							
-								<p class="story__comment_others">"To Google&#39;s credit, it&#39;s literally the first search results for &#34;how do I remove myself from Google&#34;. It is a bit ironic that people looking to remove something for being too easy to find via search are being stymied by a simple search.Still, good to provide some visibility about it. I certainly never knew this was a thing."</p>
+								<p class="story__comment_others">"I want to point out that this is incorrect:&gt; It’s rare to hear someone accused of being un-Swedish or un-British—but un-American is a common slur, slung by both left and right against the other. Being called un-American is like being called “un-Christian” or “un-Islamic,” a charge akin to heresy.In fact to be unswedish is not just a common idiom it’s a positive one. It’s when you don’t show the typical negative Swedishness. You aren’t “accused” of it, you are congratulated.“-I went to say hello to all the neighbors in my building. -What a nice and unswedish thing to do!”"</p>
+							
+						
+							
+								<p class="story__comment_others">"The themes here remind me of another politics-is-the-new-religion article by David French, &#34;America Is in the Grips of a Fundamentalist Revival&#34;. [1]In it he draws a distinction between religion and fundamentalist religion (which the author has a background with), with a key quality of the latter being a lack of a sort of humility, a certainty that they&#39;re right.  Which in turn leads them to be less tolerant of opposing viewpoints - because (in their view) they can see right and wrong so clearly, it pulls them to the position that &#34;error has no rights&#34;.That being said, I think it is easy to pay too much attention to the extremes.An analysis of the US&#39;s political problems is out of scope of a HN comment, but one thing I did recently was read books by two prolific authors on the US left and right [2] (who each have historically been aligned with one of our two political parties).  They both contained opposing narratives covering the last 100 years or so, but what was very interesting was how they both overlapped around certain key historical/political events.I think reading these books was quite helpful for my understanding of US politics in a way that isn&#39;t really covered by the news cycle (in the future, I&#39;d like to spend more time reading these sorts of books and less time on news).[1] https://frenchpress.thedispatch.com/p/america-is-in-the-grip...[2] Paul Krugman&#39;s &#34;The Conscience of a Liberal&#34; and Charles Murray&#39;s &#34;By the People&#34;"</p>
 							
 						
 						</a>
@@ -154,33 +154,33 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://tryapl.org">
+					<a href="https://capecodtimes.com/story/news/2021/06/11/humpback-whale-catches-michael-packard-lobster-driver-mouth-proviencetown-cape-cod/7653838002/">
 						<picture>
-							<source srcset="default_27460887.webp" type="image/webp">
-							<source srcset="default_27460887.png" type="image/png">
-							<img src="default_27460887.png" alt="Preview of 'Try APL'">
+							<source srcset="default_27479712.webp" type="image/webp">
+							<source srcset="default_27479712.png" type="image/png">
+							<img src="default_27479712.png" alt="Preview of '&#39;I was completely inside&#39;: Lobster diver swallowed by humpback whale'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://tryapl.org">Try APL</a></h3>
+					<h3><a href="https://capecodtimes.com/story/news/2021/06/11/humpback-whale-catches-michael-packard-lobster-driver-mouth-proviencetown-cape-cod/7653838002/">&#39;I was completely inside&#39;: Lobster diver swallowed by humpback whale</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27460887">
+						<a href="https://news.ycombinator.com/item?id=27479712">
 						
 							
-								<p class="story__comment_first line-clamp">"In the mid-seventies at Swarthmore College, we were mired in punched card Fortran programming on a single IBM 1130. The horror, a machine less powerful than the first Apple II. My job six hours a week was to reboot after each crash. People waited hours for their turn to crash the machine. I let a line form once people had their printouts. I&#39;d find the single pair of brackets in a ten line listing, and I&#39;d explain how their index was out of bounds. They thought I was a genius. Late one Saturday night, I made a misguided visit to the computer center while high, smelled sweat and fear, and spun to leave. Too late, a woman&#39;s voice: &#34;Dave! I told Professor Pryor he needed you!&#34; We didn&#39;t know that Fred Pryor was the economics graduate student freed in the 1962 &#34;Bridge of Spies&#34; prisoner exchange. Later he’d learn that I was his beagle’s favorite human, and I’d dog-sit to find steaks for me I couldn’t afford, but for now I feared him. So busted! Then I heard this voice “See these square brackets? See where you initialize this index?” He was spectacularly grateful.One cannot overstate the rend in the universe that an APL terminal presented, catapulting me decades into the future. I quickly dreamed in APL. For $3 an hour for ten hours (a massive overcharge) I took a professor’s 300 line APL program translated literally from BASIC, and wrote a ten line APL program that was much faster. One line was classic APL, swapping + and * in an iterated matrix product for max and min. The other nine lines were input, output. The professor took years to realize I wasn’t also calling his code, then published my program.Summer of 1977 I worked as a commercial APL programmer. Normally one never hires college students for the summer and expects them to be productive. The New York-based vice president was taking the train every day to Philadelphia because the Philly office was so far underwater, and desperate to try anything to save himself the commute. He knew Swarthmore had a terminal, and heard about me. At my interview I made a home-run derby of the questions from the Philly boss. The VP kept trying to intervene so he could put me in my place before hiring me. The tough questions were “dead key problems”. How do you write the following program, if the following keys are broken?Our client was a mineral mining company, our task a reporting system. The reports were 2-dimensional projections of a 9-dimensional database. The accountants wanted all totals to be consistent across reports, and to be exactly the sums of their rounded components. I broke the news to our team that we needed to start over, rounding the 9-dimensional database once and for all, before generating each report. This took a few weeks; I wrote plenty of report generation helper routines. My coworkers overheard me say on a phone call that I was being paid $5 an hour, and at the time I didn’t understand which way they were shocked. I didn’t have much to do, the rest of the summer.The mining company VP found me one morning, to ask for a different report, a few pages. He sketched it for me. He found me a few hours later to update his spec. He loved the printout he saw, imagining it was a prototype. “It’s done. I can make your changes in half an hour.”At a later meeting he explained his own background in computing, how it had been key to his corporate rise. Their Fortran shop would take a month to even begin a project like I had knocked off in a morning, then weeks to finish it. He pleaded with me to pass on Harvard grad school and become his protege.Some Lisp programmers had similar experiences, back in the day. Today, APL just sounds like another exotic language. In its heyday it was radical."</p>
-							
-						
-							
-								<p class="story__comment_others">"Back in university (1974), I took a course in AI. The prof wanted us to write a brute-force solution to solve the 8-queens problem -- any language!I wrote the solution in APL in about an hour and it only had 3 lines of code. The rest of the class spent days on their terminals and keypunches trying to solve it. Most solutions took hundreds of lines of code.I got a D from my professor. I questioned why and was told that it was unreadable, and that the solution was inefficient. This annoyed me because he didn&#39;t know APL, and I figured that  since I solved the problem in one hour, while the rest took days, it was very efficient.I protested the result with the department head (who liked APL) and ended up getting an A+. As you can imagine, all the rest of my assignments, written in a variety of languages, were graded by that AI prof with significant prejudice.I passed nonetheless. I loved APL and ended up working for one of the major APL providers as my first job out of school."</p>
+								<p class="story__comment_first line-clamp">"I wonder what the whale felt.  Would it be swimming around telling its disgusted friends a cetacean equivalent of:&#34;So I was just picking up strawberries in the backyard and all of a sudden this giant winged cockroach appears out of nowhere and before I know it that goddamn thing is in my mouth!!!  Dammit I can still taste it.  It&#39;s something you can&#39;t forget...&#34;"</p>
 							
 						
 							
-								<p class="story__comment_others">"If you want to learn more about array programming languages there is a new podcast series at https://www.arraycast.com with some banter, philosophy, history and a collection of related resources https://www.arraycast.com/resources"</p>
+								<p class="story__comment_others">"&#34;Ten years ago, while traveling in Costa Rica, he was a passenger in a small plane that crashed in the jungle, killing the pilot, co-pilot and a passenger. Packard sustained multiple serious injuries to his abdomen and upper body. The rescuers that found the remaining five passengers after two nights in the jungle said they wouldn’t have survived another night.&#34;This guy&#39;s luck is clearly maxed out. What a crazy pair of stories."</p>
+							
+						
+							
+								<p class="story__comment_others">"After the worst day of meetings, after not being to track down the most elusive bug, at the end of that day, I absolutely do not have to worry about being eaten whole. So I guess there are worse jobs."</p>
 							
 						
 						</a>
@@ -192,33 +192,33 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://iism.org/article/developers-can-t-fix-bad-management-57">
+					<a href="https://www.bloomberg.com/news/articles/2021-06-11/fewer-young-men-are-in-the-labor-force-more-are-living-at-home">
 						<picture>
-							<source srcset="default_27458785.webp" type="image/webp">
-							<source srcset="default_27458785.png" type="image/png">
-							<img src="default_27458785.png" alt="Preview of 'Developers can&#39;t fix bad management (2020)'">
+							<source srcset="default_27473199.webp" type="image/webp">
+							<source srcset="default_27473199.png" type="image/png">
+							<img src="default_27473199.png" alt="Preview of 'Fewer young men are in the labor force, more are living at home'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://iism.org/article/developers-can-t-fix-bad-management-57">Developers can&#39;t fix bad management (2020)</a></h3>
+					<h3><a href="https://www.bloomberg.com/news/articles/2021-06-11/fewer-young-men-are-in-the-labor-force-more-are-living-at-home">Fewer young men are in the labor force, more are living at home</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27458785">
+						<a href="https://news.ycombinator.com/item?id=27473199">
 						
 							
-								<p class="story__comment_first line-clamp">"I have a theory on why we&#39;re seeing so much &#34;bad management&#34; for software engineers: most leaders at workplaces have not been engineers themselves at a company with a great engineering culture (I wrote about what I think this means [1]: it&#39;s all the high-growth small and large tech companies we know)The CEO, and the people under the CEO know and understand traditional, top-down management. Let the people with context and decision power make the big decisions, and pass this downwards. Works with finance, works with marketing, works with IT support, and should work with engineering as well... right?But it actually doesn&#39;t work with software engineers as well as it could. Or with designers. UX researchers. PMs... all these people would produce a magnitude more output when given proper context and autonomy.A few leaders read about this, and try giving autonomy. These results end up even worse than the status quo, as you can&#39;t just make it a free-for-all and expect it works overnight.And to prove this point: look at companies where the founder had worked at a high-performing company before. Before founding Twilio, Jeff Lawson spent years at Amazon (he was one of the first AWS PMs), and in his book Ask Your Developer, he writes about just how much this experience shaped him, and all the practices he adopted from Amazon.There&#39;s this really weird divide between &#34;forward-looking tech companies&#34;[2] who &#34;get it&#34;, and everyone else. Which heavily benefits this first group.[1] https://blog.pragmaticengineer.com/the-developer-culture-tes...[2] https://news.ycombinator.com/item?id=25717390"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; In most companies, management is actually to blame for deliberately isolating engineers from discovering the customer&#39;s needs. News flash! Developers actually like the idea of figuring out and fulfilling needs with epic software solutions and are fairly neutral-to-downright-annoyed at spending their time creating something that no customer wants.I agree with the first statement but disagree with the second. Yes, management is often at fault for not involving or engaging developers. That said, I&#39;ve seen many really solid developers be motivated by solving complex technical challenges instead of work that actually creates business/product value. Of course, it&#39;s management&#39;s responsibility to harness that energy and align it with creating value... But just saying, a lot of really smart people are driven more by intellectual challenges than product impact."</p>
+								<p class="story__comment_first line-clamp">"Men are not doing as well as women in school.  If you look in the wrong places on the internet, media, or daily life, all you see is negativity towards masculinity.  In addition, there doesn&#39;t appear to be any broad social system that is geared towards supporting men.  The fact that men don&#39;t tend to be a socially adept doesn&#39;t help.  This all feels like the perfect storm and there are plenty of people who act like &#34;men have had it coming and deserve any ensuing suffering&#34;.  I don&#39;t know how to fix this but I am sure glad I am no longer a young man."</p>
 							
 						
 							
-								<p class="story__comment_others">"Developers have opportunities to improve management by increasing management-visible headlines about user goals, and decreasing management-visible headlines about implementation details such as UI, WBS, wireframes, flowcharts, and tech.Try this thought experiment: Imagine you have team task list with headlines such as &#34;Add red button to top of home page&#34;. Imagine rewriting the headlines such as &#34;Customer wants to contact us&#34; and similar kinds of user stories.When managers continually see headlines with user emphasis, and do not see headlines with implementation details, then management improves and developer autonomy improves, because both groups are looking toward users.It turns out focus on user stories can help significantly, even more than some developers might intuit. Look at your task board headlines and the opening paragraphs of your management-visible writing-- can you improve your writing to emphasize user goals?"</p>
+								<p class="story__comment_others">"I&#39;ve got two nephews aged 34 and 32 who still live at home and play video games all the time and rarely leave their rooms. Neither has ever had a job that lasted more than a month or so. Neither ever learned to drive even though they live in a town with little or no public transit. They haven&#39;t had any education beyond high school. They seem wholly unprepared to navigate life without their parents. It&#39;s a slow motion tragedy."</p>
+							
+						
+							
+								<p class="story__comment_others">"I see this on the fringes of those within my circle of friends. I know one man in this age cohort who doesn&#39;t seem to have a job, just plays video games all the time, and I don&#39;t get it. But one thing I think about is what he has been exposed to: this is what he knows. I don&#39;t think this individual I&#39;m speaking of was raised with anything differently.In this same light, as I believe the two concepts are directly related: another friend of mine basically refuses to date anymore because he thinks the sort of culture of Tinder dating is a waste of time that favors women disproportionately.I suspect all of this is primarily cultural first, and not related specifically to work, the economy, pricing of good or services like buying a home and starting a family, which would come second.That being said, if we were just talking about young single men, well, of course they&#39;re staying at home. It makes no economic sense to move out and get an apartment. The cost of living in major metros makes renting nearly equivalent to paying a mortgage. Except no one is building affordable homes."</p>
 							
 						
 						</a>
@@ -230,33 +230,33 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://keathley.io/blog/good-and-bad-elixir.html">
+					<a href="https://thesystemisdown.substack.com/p/how-to-win-at-risk-every-time-by">
 						<picture>
-							<source srcset="default_27463725.webp" type="image/webp">
-							<source srcset="default_27463725.png" type="image/png">
-							<img src="default_27463725.png" alt="Preview of 'Good and Bad Elixir'">
+							<source srcset="default_27484288.webp" type="image/webp">
+							<source srcset="default_27484288.png" type="image/png">
+							<img src="default_27484288.png" alt="Preview of 'Win at Risk by using systems thinking'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://keathley.io/blog/good-and-bad-elixir.html">Good and Bad Elixir</a></h3>
+					<h3><a href="https://thesystemisdown.substack.com/p/how-to-win-at-risk-every-time-by">Win at Risk by using systems thinking</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27463725">
+						<a href="https://news.ycombinator.com/item?id=27484288">
 						
 							
-								<p class="story__comment_first line-clamp">"I disagree with so much of this! Though I can tell the author is coming from a lot of experience.How often is it that you don&#39;t know if you&#39;re expecting a map or a keyword list? I don&#39;t think I&#39;ve ever intentionally put myself in that situation (though it&#39;s nice that access supports both).They say to avoid piping result tuples, but I actually think their example code shows the strength and weaknesses of both approaches. I use pattern matching on tuples when you want more complicated behavior (that might be hard to read in a big else block for a with) and a nice with statement when there&#39;s &#39;one true path.&#39;In general, I think one of my favorite things about Elixir is that they&#39;ve done a good job of avoiding adding features you should never use. These all feel like personal judgements about tradeoffs rather than actual hard rules."</p>
-							
-						
-							
-								<p class="story__comment_others">"I love this article to bits. The elixir community loves blogging, but so much elixir content is absolute beginner stuff, and so much of the remainder is unopinionated, descriptive stuff. I&#39;ve found it really hard to strike on some good &#34;how to best do xyz, what are the tradeoffs&#34; style knowledge. This article is the first elixir thing I&#39;ve read in a long time that really made me go &#34;o wow yeah, I&#39;ve been doing that wrong&#34;. Cool stuff!"</p>
+								<p class="story__comment_first line-clamp">"This article suggests that you should not play too aggressive and not take continents too early (maximizing Reinforcing Feedback), because other players will then unite against you (Balancing Feedback).However, this article fails to understand that in Risk, most players are not willing to unite. In fact, if player A and player B decide to unite against me and player A had his turn and stopped me, player B is highly likely to backstab player A and then emerge as the winner.I&#39;ve found that playing very aggressively, and really get as many continents as possible within the first few turns, is the best way to win the game. I always win if I can get 2-3 continents in the first few turns, and if I fail then the game is usually won by whomever did manage to do just that.Being a turtle or &#34;mongolian horde&#34; as we call it can be interesting, but your only viable strategy is to wait for an opening while everyone else stockpiles their continental forces. If you wait too long, you&#39;re just an annoyance to the other players, but you don&#39;t actually have a good chance to win."</p>
 							
 						
 							
-								<p class="story__comment_others">"Good stuff. I disagree about the first point, though, and have actually gone the opposite way, going from generic Access via `[]` to specific `Map.get` and `Keyword.get`.The reason is that the underlying data structures are quite different, and operations and access patterns on them shouldn&#39;t be agnostic.You should use Keywords basically only as options to functions, in my opinion, and that&#39;s just for historical consistency and interop with Erlang. Otherwise key-value pairs should be a map. And using `Keyword.get` and `Map.get` make it immediately obvious what the underlying data structure is, as well as prompt you to think about whether you should use the `!` version or provide defaults.Otherwise, I think the tips are all decent to great. I am a little on the fence with exceptions, though. I know there&#39;s a meme in the community of &#34;let it crash&#34;, but in my experience, that rarely feels like the right thing to do. I much prefer a Rust-style, &#34;Result-all-the-things&#34;. It seems hard, in practice, to rely on crashes and restarts to maintain the right state invariants."</p>
+								<p class="story__comment_others">"In our gaming group, we decided Risk just isn&#39;t that good of a game. It&#39;s old and clunky and extremely long, there are 100 other better board games now. Our main plays have been Dominion, DnD, Gloomhaven, Wingspan, and Crokinole, all of which we greatly prefer."</p>
+							
+						
+							
+								<p class="story__comment_others">"This author doesn&#39;t have much experience with competitive gaming and it&#39;s quite obvious. This is only a strategy he devised to play against his friends and relatives, most probably. He assumes a lot of player behavior, and what other explanation could there be? His bathtub example is very bad because there ain&#39;t no players, and when there&#39;s players the meta absolutely depends upon who you are playing against. there&#39;s not such a thing as an optimal universal strategy at all, in fact it makes a player predictable and low-skilled in most competitive games.Systems thinking without game philosophy understanding is very shallow.To illustrate my point of the strategy being entirely reliant upon opponents (meta): in cs:go, most unexperienced players will go through a hot spot (that&#39;s probably being targeted by pre-positioned opponents) without jumping, making themselves easy targets. this is the behavior you will find in low ranks. eventually, some of the players will learn that jumping may be a good tactic in these situations instead, to make it harder for opponents to hit headshot, and behavior becomes very common in mid-ranks. Eventually, though, mid-rank players will start to notice this tendency to jumping, and will position their crosshairs looking for a jumping headshot - they will progress in rank by doing so. At high-ranks, however, a lot of times it is expected that your opponent will be waiting for a jumping cross, and therefore the low-rank behavior would be the best one: don&#39;t jump. In conclusion, it&#39;s impossible to point out the best possible behavior without knowing who you&#39;re playing against and their skill in the game."</p>
 							
 						
 						</a>
@@ -268,33 +268,37 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://engineering.theblueground.com/blog/zero-downtime-postgres-migration-done-right/">
+					<a href="https://www.theverge.com/2021/6/11/22528701/apple-rank-own-app-over-competitor-files-dropbox-wwdc-2017">
 						<picture>
-							<source srcset="default_27473788.webp" type="image/webp">
-							<source srcset="default_27473788.png" type="image/png">
-							<img src="default_27473788.png" alt="Preview of 'Zero downtime Postgres migration, done right'">
+							<source srcset="default_27476206.webp" type="image/webp">
+							<source srcset="default_27476206.png" type="image/png">
+							<img src="default_27476206.png" alt="Preview of 'Apple admits it ranked its Files app ahead of competitor Dropbox'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://engineering.theblueground.com/blog/zero-downtime-postgres-migration-done-right/">Zero downtime Postgres migration, done right</a></h3>
+					<h3><a href="https://www.theverge.com/2021/6/11/22528701/apple-rank-own-app-over-competitor-files-dropbox-wwdc-2017">Apple admits it ranked its Files app ahead of competitor Dropbox</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27473788">
+						<a href="https://news.ycombinator.com/item?id=27476206">
 						
 							
-								<p class="story__comment_first line-clamp">"If you can afford a one off 1 second of latency for your SQL queries, then using logical replication with pgbouncer seems way easier :- setup logical replication between the old and the new server (limitations exist on what is replicated, read the docs)- PAUSE the pgbouncer (virtual) database. Your app will hang, but not disconnect from pgbouncer- Copy the sequences from the old to new server. Sequences are not replicated with logical replication- RESUME the pgbouncer virtual database.You&#39;re done. If everything is automated, your app will see a temporary increase of the SQL latency. But they will keep their TCP connections, so virtually no outage."</p>
-							
-						
-							
-								<p class="story__comment_others">"Braintree (IIRC) had a really clever migration strategy, although I can&#39;t seem to find the blog post now.  They paused all traffic at the load balancer, cut over to the new DB, and then resumed traffic.  No requests failed, just a slight bump in latency while the LBs were paused.This app apparently had robust enough retry mechanisms that they were able just eat the errors and not have customer issues—Color me impressed!  I&#39;m not sure how many teams can make that claim; that&#39;s a hard thing to nail down."</p>
+								<p class="story__comment_first line-clamp">"Apple PR:&gt; we do not advantage our apps over those of any developer or competitorApple employee Debankur Naskar:&gt; I think the Files app was manually boosted ... during last WWDC. We are removing the manual boostSo which of these is true? Or is PR technically correct because they do not currently &#34;advantage&#34; their apps?"</p>
 							
 						
 							
-								<p class="story__comment_others">"This is one of the areas where Postgres is so far behind MySQL is embarrassing. Zero downtime migrations in MySQL have been a common method for over 10 years. This solution is far from ideal due to the use of Triggers which can greatly increase the load on the database and slow down transactions. If you don&#39;t have a lot of load on your DB thats fine, but if you are pushing your DB this will bring it down.In MySQL they started with triggers with PT-OSC, but now there is GH-OST which does it with Replication. You can do something like this with Postgres by using Logical replication, but its still requires hand holding, and to my knowledge there is no way to &#34;throttle&#34; the migration like you can with GH-OST. Where I work now we are building all this out so we can have first class online migrations, but the chasm is still pretty big."</p>
+								<p class="story__comment_others">"This is an issue which is part of the problem.Whether it&#39;s cool or not,
+Product placement is very common practice in retail.
+Also Spotify has similar tools to promote music.The problem always comes back to the main issue,
+You got a platform where you have only one monopolistic way of use.While people can complaint about Google. you&#39;re allowed to install you apps. only if you&#39;d like to use Google&#39;s services (location, In-App-Purchase, etc) you need to use the Google Play.With Apple not only I need to pay 99$ just to put an app with one year certificate (signed by Apple) on my device.
+(including the use of some basic OS APIs, aka &#34;entitlements&#34; not allowed without paid account)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I tend to think of Files as less like Dropbox and more like the macOS Finder.You can actually browse Dropbox in Files, much as you can in the Finder, although there are some limitations.https://help.dropbox.com/installs-integrations/mobile/ios-fi..."</p>
 							
 						
 						</a>
@@ -306,33 +310,33 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.openhistoricalmap.org/">
+					<a href="https://www.chronicle.com/article/how-meritocracy-became-trickle-down-education">
 						<picture>
-							<source srcset="default_27469715.webp" type="image/webp">
-							<source srcset="default_27469715.png" type="image/png">
-							<img src="default_27469715.png" alt="Preview of 'OpenHistoricalMap'">
+							<source srcset="default_27478647.webp" type="image/webp">
+							<source srcset="default_27478647.png" type="image/png">
+							<img src="default_27478647.png" alt="Preview of 'It’s time to break up the Ivy League cartel'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.openhistoricalmap.org/">OpenHistoricalMap</a></h3>
+					<h3><a href="https://www.chronicle.com/article/how-meritocracy-became-trickle-down-education">It’s time to break up the Ivy League cartel</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27469715">
+						<a href="https://news.ycombinator.com/item?id=27478647">
 						
 							
-								<p class="story__comment_first line-clamp">"If this gets enough traction this could make historical maps so much more accessible. Instead of every historian writing their own magnum opus of a particular area and timespan, all the geographical information can be combined in a single system. Is there a system built in for keeping track of annotations/sources? How are debated topics/unresolved locations dealt with?What if different schools of thought exist for where something was in the past, could multiple hypothesized locations exist for a single object? Direct link with Wikipedia would also be usefulVery nice project, hope it becomes as useful and detailed as the present day OSM"</p>
-							
-						
-							
-								<p class="story__comment_others">"Being Dutch and a history-buff, I have one mayor gripe with historical maps, that sees land as &#39;moving lines&#39; on a fixed map. When I look at a historical maps (also in books), I often see the Netherlands represented in it&#39;s current form, i.e. containing land that is not even 50 years old, being prestent hundreds or even thousands of years. I get that it is an intricate history, and maybe too much effort in some cases, but please at least remove flevoland. https://en.wikipedia.org/wiki/Flevoland"</p>
+								<p class="story__comment_first line-clamp">"https://archive.is/kk0CY"</p>
 							
 						
 							
-								<p class="story__comment_others">"My favourite historical map resource on the internet is the National Library of Scotland&#39;s georeferenced side-by-side viewer: https://maps.nls.uk/geo/explore/side-by-side/#zoom=5&amp;lat=56....View a variety of historical maps on the left, with the same area &#34;now&#34; on the right, with the pointer synced between the two sides so that you can trace roads, building outlines, etc."</p>
+								<p class="story__comment_others">"&gt; Faculty members at prestigious universities are 50 times more likely than the average person to have a parent with a Ph.D. American meritocracy has become a complex, inefficient, and rigged system conferring its graces on ambitious children of highly educated and prosperous families.What’s the ratio in other fields of top achievement for kids to follow in their parents’ footsteps? It’s entirely unsurprising that academics raise academics, doctors doctors, Olympians Olympians, teachers teachers, etc.It’s equally unsurprising that the ambitious children of highly educated and prosperous families themselves pursue such a similar path and achieve similar outcomes. I’m an engineer and my spouse a scientist. Our kids have commensurately higher chance to pursue one of those or a closely related field due to exposure and biases."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; recirculating resources among the most exclusive and wealthy while chanting social-justice keywordsIndeed, Harvard aggressively defends its admissions program as &#34;holistic&#34; while rating Asians as having lower personal ratings that they define as measuring &#34;likeability&#34;, &#34;courage&#34;, and &#34;kindness&#34; [1]. You might ask yourself how an institution which claims to be anti-racist exhibits behavior of the opposite kind.[1]: https://nypost.com/2018/10/19/harvards-own-study-reveals-uni..."</p>
 							
 						
 						</a>
@@ -344,33 +348,33 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://digiday.com/marketing/as-ad-tech-firms-test-ways-to-connect-googles-floc-to-other-data-privacy-watchers-see-fears-coming-true/">
+					<a href="http://mathman.biz/materials/Calculus%20By%20and%20For%20Young%20People%20Worksheets.pdf">
 						<picture>
-							<source srcset="default_27459247.webp" type="image/webp">
-							<source srcset="default_27459247.png" type="image/png">
-							<img src="default_27459247.png" alt="Preview of 'Ad tech firms test ways to connect Google’s FLoC to other data'">
+							<source srcset="default_27458227.webp" type="image/webp">
+							<source srcset="default_27458227.png" type="image/png">
+							<img src="default_27458227.png" alt="Preview of 'Calculus for Seven Year Olds [pdf]'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://digiday.com/marketing/as-ad-tech-firms-test-ways-to-connect-googles-floc-to-other-data-privacy-watchers-see-fears-coming-true/">Ad tech firms test ways to connect Google’s FLoC to other data</a></h3>
+					<h3><a href="http://mathman.biz/materials/Calculus%20By%20and%20For%20Young%20People%20Worksheets.pdf">Calculus for Seven Year Olds [pdf]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27459247">
+						<a href="https://news.ycombinator.com/item?id=27458227">
 						
 							
-								<p class="story__comment_first line-clamp">"Ongoing related thread:Privacy Analysis of FLoC - https://news.ycombinator.com/item?id=27463794 - June 2021 (2 comments)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I might be missing something, but wasn&#39;t it part of the plan? Of course the goal was to offload the actual interpretation of the FLoC id to third-parties, as FLoC id themselves do not have any semantic signification.Not saying this is ok, but this was the plan from the beginning, being able to offload responsability far from Google. This article[1] actually shows what it&#39;s like for an advertiser.[1] :https://cafemedia.com/early-status-of-the-floc-origin-trials...EDIT: Did not finished the article before posting, they actually talk about cafemedia&#39;s work."</p>
+								<p class="story__comment_first line-clamp">"Copyright 1991. This was probably making the rounds of homeschooling circles I hung out in.We tend to do a sucky job of teaching math to kids. A lot of elementary school teachers are women who were encouraged to go into early education because they weren&#39;t doing so well in math and this is very much gender bias.My ex husband wasn&#39;t good at math. No one told him he should spend his days teaching little kids because of it. He was a career soldier and he just got tutored in college (by me) for his math classes. He was just expected to work at it if it didn&#39;t come naturally and he did.So we just culturally pass around this idea that math is scary and little kids can&#39;t learn it rather than going &#34;Well, adults just need to up their game and, by god, explain it better.&#34;My oldest was math phobic by the time I pulled him out of school to homeschool. My one and only goal for math was to get him over his phobia.He loves physics. I hate calculus. Calculus makes sense to him and he has read calculus books for fun.I was good at explaining the math to him and he learned lots of solid math concepts even though he likely has dyscalculia and isn&#39;t good at crunching the numbers. But I got the concepts through to him and that&#39;s more important.He&#39;s what gets called &#34;calculator dependent&#34; in some circles."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is exactly how FLoC is supposed to work, and this is exactly what privacy watchdogs have criticized about it.The proper headline should be &#34;Ad tech films test FLoC&#34;."</p>
+								<p class="story__comment_others">"I&#39;ve taught 7-year olds, rich kids specifically in technology magnet program.The pre-requisite information necessary for this would be way above their heads. Adding fractions, conceptualizing fractions to graphs, graphing functions... and that&#39;s just the first part!Most 7-year olds can barely conceptualize fractions. First/second grade math curriculums are centered around basic multiplication, shape recognition and counting.7-year olds aside, I don&#39;t even think most of the high-schooler freshmen I&#39;ve taught would be able to grasp this content."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t know how I feel about this.  I&#39;ve always been good at math, and was one of five kids (out of class of 120) that took Calculus as a senior in high school in the early 1990&#39;s.  To even take Calculus as a senior, you had to have taken four years of math in the previous three years.  I was even the HS Math Champion&#34; for my state.However, when I took Calculus in High School, it was taught similarly to this.  Lots and lots and lots of math foundations, infinite series, areas under curves, and I was able to trudge through it but I didn&#39;t really grasp what it all meant or why I was doing it.  Finally, about 2/3 of the way through the year, I was working on a problem and had an &#34;oh, shit, this is just about how things are changing&#34;.  It was a Eureka moment, and entirely based on such a simple statement that was never brought up in lectures or our crusty 1960&#39;s texbook."</p>
 							
 						
 						</a>
@@ -382,33 +386,33 @@ electronic product or embedded software found in medical settings.For all the br
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.vice.com/en/article/7kvkqb/how-ea-games-was-hacked-slack">
+					<a href="https://www.reuters.com/business/energy/tc-energy-terminates-keystone-xl-pipeline-project-2021-06-09/">
 						<picture>
-							<source srcset="default_27473038.webp" type="image/webp">
-							<source srcset="default_27473038.png" type="image/png">
-							<img src="default_27473038.png" alt="Preview of 'Hackers used Slack to break into EA Games'">
+							<source srcset="default_27453226.webp" type="image/webp">
+							<source srcset="default_27453226.png" type="image/png">
+							<img src="default_27453226.png" alt="Preview of 'TC Energy scraps Keystone XL pipeline project after Biden revokes key permit'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.vice.com/en/article/7kvkqb/how-ea-games-was-hacked-slack">Hackers used Slack to break into EA Games</a></h3>
+					<h3><a href="https://www.reuters.com/business/energy/tc-energy-terminates-keystone-xl-pipeline-project-2021-06-09/">TC Energy scraps Keystone XL pipeline project after Biden revokes key permit</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27473038">
+						<a href="https://news.ycombinator.com/item?id=27453226">
 						
 							
-								<p class="story__comment_first line-clamp">"The key bit is &#34;The hackers then requested a multifactor authentication token from EA IT support to gain access to EA&#39;s corporate network. The representative said this was successful two times.&#34;So this was primarily a social engineering hack after Slack was used to get access to a trusted messaging channel."</p>
-							
-						
-							
-								<p class="story__comment_others">"Recent related threads:Hackers breach Electronic Arts, stealing game source code and tools - https://news.ycombinator.com/item?id=27470577 - June 2021 (111 comments)EA got hacked and games source code leaked including new game Battlefield 2042 - https://news.ycombinator.com/item?id=27468766 - June 2021 (139 comments)EA hacked and source code stolen - https://news.ycombinator.com/item?id=27462952 - June 2021 (35 comments)"</p>
+								<p class="story__comment_first line-clamp">"From How To Save a Planet, a podcast I like:Alex Blumberg: ...and, [pipeline company] Enbridge says, stopping the pipeline won&#39;t stop the development of tar-sands oil. The oil will just travel in less safe ways, like by rail.Ayana Elizabeth Johnson: But Tara says that argument is missing the entire point.[Attorney and activist] Tara Houska: The idea is always like, you know, we&#39;re replacing old ones that are leaking. How about instead of replacing them and expanding them—which is what you&#39;re actually doing—you decommission the old one and pull it out of the ground and clean up the earth that you&#39;ve contaminated?Ayana: I like that option better.Tara: And there&#39;s always, like, this premise of, well, it&#39;s gonna get shipped anyway. No, it&#39;s not. Like, that&#39;s the whole point. No, it&#39;s not. Your industry is on its way out. And that&#39;s the point. And we all know that. You can&#39;t sit there and say, &#34;Oh, well, it&#39;s gonna go by rail or it&#39;s gonna go by ship anyway. No, it&#39;s not. The tar sands are on their way out. And that&#39;s the reality.https://gimletmedia.com/shows/howtosaveaplanet/76h4r25"</p>
 							
 						
 							
-								<p class="story__comment_others">"&#34;the process started by purchasing stolen cookies being sold online for $10&#34;Anyone know the details of how this actually works? Does it mean browser cookies? How do cookies end up being sold in this way?"</p>
+								<p class="story__comment_others">"Oil pipelines do one thing - transport oil. Not water, not milk, not corn syrup. Just oil.Rail can transport anything. Containers, tankers, even rocket booster segments.Yes, we&#39;re absolutely taking a short term hit, but investing in general purpose infrastructure that can be adapted for new technology and demands is a good thing. The continental rail network started off with coal powered steam trains, then diesel, now diesel-electric and even some pure electric locomotives. Maybe this century it will evolve past fossil fuels as well.So yes, cancel the pipeline, but in its place invest in the safety and reliability of rail networks."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t see how we can ever get off oil practically and environmentally friendly without more nuclear energy generation capacity in the US and globally.https://www.epa.gov/sites/production/files/2016-05/global_em...https://upload.wikimedia.org/wikipedia/commons/e/e2/Electric...https://www.epa.gov/sites/production/files/styles/medium/pub...https://www.epa.gov/sites/production/files/2016-05/global_em...https://c.files.bbci.co.uk/16D76/production/_108485539_optim...Transportation is 14% which is not insignificant. But EV transport still requires charging from the powerplant, materials, mining, disposal. I am hopeful we will overcome them but we will exchange pollution problems for new different pollution problems."</p>
 							
 						
 						</a>

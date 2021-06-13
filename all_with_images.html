@@ -36,6 +36,396 @@
 	</div>
 
 	
+	<div class="day__date">13 June 2021</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://spin.atomicobject.com/2021/02/04/redis-postgresql/">
+						<picture>
+							<source srcset="default_27482243.webp" type="image/webp">
+							<source srcset="default_27482243.png" type="image/png">
+							<img src="default_27482243.png" alt="Preview of 'Do you really need Redis? How to get away with just PostgreSQL'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://spin.atomicobject.com/2021/02/04/redis-postgresql/">Do you really need Redis? How to get away with just PostgreSQL</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27482243">
+						
+							
+								<p class="story__comment_first line-clamp">"You really don&#39;t need anything fancy to implement a queue using SQL. You need a table with a primary id and a &#34;status&#34; field. An &#34;expired&#34; field can be used instead of the &#34;status&#34;. We used the latter because it allows easy retries.1. SELECT item_id WHERE expire = 0. If this is empty, no items are available.2. UPDATE SET expire = some_future_time WHERE item_id = $selected_item_id AND expire = 0. Then check whether UPDATE affected any rows. If it did, item_id is yours. If not, loop. If the database has a sane optimizer it&#39;ll note at most one document needs locking as the primary id is given.All this needs is a very weak property: document level atomic UPDATE which can return whether it changed anything. (How weak? MongoDB could do that in 2009.)Source code at https://git.drupalcode.org/project/drupal/-/blob/9.2.x/core/... (We cooked this up for Drupal in 2009 but I am reasonably sure we didn&#39;t invent anything new.)Of course, this is not the fastest job queue there is but it is quite often good enough."</p>
+							
+						
+							
+								<p class="story__comment_others">"Redis to me is the magic solution to solve so many complex multiple process syncing issues, a global lock, rate limiter, uniqueness with a set, stasher of all the temporary things… no migration, quick solution to complex problems- streams of events to organize pending tasks, etc… to me it’s all about the temporal / temporary state my application needs to keep track in order to work in a multiuser - multiprocess and multi service environment… just a different tool for a different job then what I would use a database for… but really it’s computer science, to each is their own"</p>
+							
+						
+							
+								<p class="story__comment_others">"I think one of the biggest advantages of using Redis for job queing vs Postgres comes down to library support.For example Python has Celery and Ruby has Sidekiq. As far as I know there&#39;s no libraries in either language that has something as battle hardened with comparable features for background tasks using Postgres as a backend.There&#39;s a big difference between getting something to work in a demo (achievable by skimming PG&#39;s docs and rolling your own job queue) vs using something that has tens of thousands of hours of dev time and tons of real world usage.I&#39;m all for using PG for things like full text search when I can because it drastically reduces operation complexity if you can avoid needing to run Elasticsearch, but Redis on the other hand is a swiss army knife of awesome. It&#39;s often used for caching or as a session back-end so you probably have it as part of your stack already. It&#39;s also really easy to run, uses almost no resources and is in the same tier as nginx in terms of how crazy efficient it is and how reliable it is. I don&#39;t see not using Redis for a job queue as that big of a win."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://gizmodo.com/how-fighter-jets-lock-on-and-how-the-targets-know-1644871272">
+						<picture>
+							<source srcset="default_27483412.webp" type="image/webp">
+							<source srcset="default_27483412.png" type="image/png">
+							<img src="default_27483412.png" alt="Preview of 'How fighter jets lock on, and how the targets know (2014)'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://gizmodo.com/how-fighter-jets-lock-on-and-how-the-targets-know-1644871272">How fighter jets lock on, and how the targets know (2014)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27483412">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.is/OHCwT"</p>
+							
+						
+							
+								<p class="story__comment_others">"If you happen to have a VR headset and are looking to play around with the toys described in the article, I recommend VTOL VR. It has pretty low system requirements, and takes advantage of VR to create a virtual hotas (It is much more effective than you would expect). The physics simulation is, to my understanding, very good. And everything described in this article is present in the game to be played around with.VTOL VR taught me about &#34;Radar Notching&#34;. The article briefly mentions how radar can actively detect the doppler shift of targets. If you think about it, the doppler shift of the ground would be neutral, right? Or roughly the speed of the aircraft. So lets say you&#39;ve been locked on by a fighter at high altitude and they&#39;ve fired a radar seeker at you. Your backdrop is the ground, it can pick you out because you&#39;re moving so fast. So what you do is bank your aircraft to fly at a 90 degree angle to the oncoming missile. Now your doppler shift is the same as the ground and you blend in, the radar filters out the ground because of it&#39;s expected speed, which is now the relative speed you are moving. You get &#34;notched out&#34;, and the missile will lose track."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The strength of the radar is plotted as distance from the center — the closer to the center, the stronger the detected radar signal, and therefore possibly the closer the transmitting aircraft.I believe this is wrong, the computer actually determines what are most pertinent threats and puts it on the inner circle and puts the rest on the outer circle.. The inner band (critical) is generally missiles in flight
+. The middle band (lethal) is for radars actively tracking you
+. The outer band is classified as non-lethal since these are radars searching for you, not actively tracking you.&gt; RWR also has an audio component. Each time a new radar signal is detected, it is converted into an audio wave and played for the pilot. Because different radars &#34;sound&#34; different, pilots learn to recognize different airborne or surface threats by their distinctive tones.Pretty sure this is wrong too, they all emit the same tones for tracking and another tone for searching tone...watch this: https://www.youtube.com/watch?v=MOLk_Je0NKg"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.theatlantic.com/magazine/archive/2021/04/america-politics-religion/618072/">
+						<picture>
+							<source srcset="default_27473167.webp" type="image/webp">
+							<source srcset="default_27473167.png" type="image/png">
+							<img src="default_27473167.png" alt="Preview of 'As religious faith has declined, ideological intensity has risen'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.theatlantic.com/magazine/archive/2021/04/america-politics-religion/618072/">As religious faith has declined, ideological intensity has risen</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27473167">
+						
+							
+								<p class="story__comment_first line-clamp">"Becoming more religious has helped me identify religious tendencies in the secular world. Ideology doesn’t imply supernatural deities, and some worldly phenomenon can be elevated to a supernatural level.  Secular belief contains rituals, origin stories, deities, saints, priesthood, blasphemy, vice &amp; virtue just as religion does.One aspect of religion I appreciate is that these aspects are well codified and debated – i.e. much more explicit.In the secular world these aspects exist but they are implicit, making them difficult to debate and attack.Few people understand that most religions e.g. Judaism and Christianity have an apologetic discipline – a deliberate arm open to debate.The secular world would benefit from adopting more formal definitions of their belief system. I think that would reduce the conflict and neurosis that comes from engaging a nebulous system.If you believe you are not religious, it just means that you don’t have the cognitive tools to recognize the secular ideology that you have adopted."</p>
+							
+						
+							
+								<p class="story__comment_others">"I want to point out that this is incorrect:&gt; It’s rare to hear someone accused of being un-Swedish or un-British—but un-American is a common slur, slung by both left and right against the other. Being called un-American is like being called “un-Christian” or “un-Islamic,” a charge akin to heresy.In fact to be unswedish is not just a common idiom it’s a positive one. It’s when you don’t show the typical negative Swedishness. You aren’t “accused” of it, you are congratulated.“-I went to say hello to all the neighbors in my building. -What a nice and unswedish thing to do!”"</p>
+							
+						
+							
+								<p class="story__comment_others">"The themes here remind me of another politics-is-the-new-religion article by David French, &#34;America Is in the Grips of a Fundamentalist Revival&#34;. [1]In it he draws a distinction between religion and fundamentalist religion (which the author has a background with), with a key quality of the latter being a lack of a sort of humility, a certainty that they&#39;re right.  Which in turn leads them to be less tolerant of opposing viewpoints - because (in their view) they can see right and wrong so clearly, it pulls them to the position that &#34;error has no rights&#34;.That being said, I think it is easy to pay too much attention to the extremes.An analysis of the US&#39;s political problems is out of scope of a HN comment, but one thing I did recently was read books by two prolific authors on the US left and right [2] (who each have historically been aligned with one of our two political parties).  They both contained opposing narratives covering the last 100 years or so, but what was very interesting was how they both overlapped around certain key historical/political events.I think reading these books was quite helpful for my understanding of US politics in a way that isn&#39;t really covered by the news cycle (in the future, I&#39;d like to spend more time reading these sorts of books and less time on news).[1] https://frenchpress.thedispatch.com/p/america-is-in-the-grip...[2] Paul Krugman&#39;s &#34;The Conscience of a Liberal&#34; and Charles Murray&#39;s &#34;By the People&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://capecodtimes.com/story/news/2021/06/11/humpback-whale-catches-michael-packard-lobster-driver-mouth-proviencetown-cape-cod/7653838002/">
+						<picture>
+							<source srcset="default_27479712.webp" type="image/webp">
+							<source srcset="default_27479712.png" type="image/png">
+							<img src="default_27479712.png" alt="Preview of '&#39;I was completely inside&#39;: Lobster diver swallowed by humpback whale'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://capecodtimes.com/story/news/2021/06/11/humpback-whale-catches-michael-packard-lobster-driver-mouth-proviencetown-cape-cod/7653838002/">&#39;I was completely inside&#39;: Lobster diver swallowed by humpback whale</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27479712">
+						
+							
+								<p class="story__comment_first line-clamp">"I wonder what the whale felt.  Would it be swimming around telling its disgusted friends a cetacean equivalent of:&#34;So I was just picking up strawberries in the backyard and all of a sudden this giant winged cockroach appears out of nowhere and before I know it that goddamn thing is in my mouth!!!  Dammit I can still taste it.  It&#39;s something you can&#39;t forget...&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Ten years ago, while traveling in Costa Rica, he was a passenger in a small plane that crashed in the jungle, killing the pilot, co-pilot and a passenger. Packard sustained multiple serious injuries to his abdomen and upper body. The rescuers that found the remaining five passengers after two nights in the jungle said they wouldn’t have survived another night.&#34;This guy&#39;s luck is clearly maxed out. What a crazy pair of stories."</p>
+							
+						
+							
+								<p class="story__comment_others">"After the worst day of meetings, after not being to track down the most elusive bug, at the end of that day, I absolutely do not have to worry about being eaten whole. So I guess there are worse jobs."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.bloomberg.com/news/articles/2021-06-11/fewer-young-men-are-in-the-labor-force-more-are-living-at-home">
+						<picture>
+							<source srcset="default_27473199.webp" type="image/webp">
+							<source srcset="default_27473199.png" type="image/png">
+							<img src="default_27473199.png" alt="Preview of 'Fewer young men are in the labor force, more are living at home'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.bloomberg.com/news/articles/2021-06-11/fewer-young-men-are-in-the-labor-force-more-are-living-at-home">Fewer young men are in the labor force, more are living at home</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27473199">
+						
+							
+								<p class="story__comment_first line-clamp">"Men are not doing as well as women in school.  If you look in the wrong places on the internet, media, or daily life, all you see is negativity towards masculinity.  In addition, there doesn&#39;t appear to be any broad social system that is geared towards supporting men.  The fact that men don&#39;t tend to be a socially adept doesn&#39;t help.  This all feels like the perfect storm and there are plenty of people who act like &#34;men have had it coming and deserve any ensuing suffering&#34;.  I don&#39;t know how to fix this but I am sure glad I am no longer a young man."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve got two nephews aged 34 and 32 who still live at home and play video games all the time and rarely leave their rooms. Neither has ever had a job that lasted more than a month or so. Neither ever learned to drive even though they live in a town with little or no public transit. They haven&#39;t had any education beyond high school. They seem wholly unprepared to navigate life without their parents. It&#39;s a slow motion tragedy."</p>
+							
+						
+							
+								<p class="story__comment_others">"I see this on the fringes of those within my circle of friends. I know one man in this age cohort who doesn&#39;t seem to have a job, just plays video games all the time, and I don&#39;t get it. But one thing I think about is what he has been exposed to: this is what he knows. I don&#39;t think this individual I&#39;m speaking of was raised with anything differently.In this same light, as I believe the two concepts are directly related: another friend of mine basically refuses to date anymore because he thinks the sort of culture of Tinder dating is a waste of time that favors women disproportionately.I suspect all of this is primarily cultural first, and not related specifically to work, the economy, pricing of good or services like buying a home and starting a family, which would come second.That being said, if we were just talking about young single men, well, of course they&#39;re staying at home. It makes no economic sense to move out and get an apartment. The cost of living in major metros makes renting nearly equivalent to paying a mortgage. Except no one is building affordable homes."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://thesystemisdown.substack.com/p/how-to-win-at-risk-every-time-by">
+						<picture>
+							<source srcset="default_27484288.webp" type="image/webp">
+							<source srcset="default_27484288.png" type="image/png">
+							<img src="default_27484288.png" alt="Preview of 'Win at Risk by using systems thinking'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://thesystemisdown.substack.com/p/how-to-win-at-risk-every-time-by">Win at Risk by using systems thinking</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27484288">
+						
+							
+								<p class="story__comment_first line-clamp">"This article suggests that you should not play too aggressive and not take continents too early (maximizing Reinforcing Feedback), because other players will then unite against you (Balancing Feedback).However, this article fails to understand that in Risk, most players are not willing to unite. In fact, if player A and player B decide to unite against me and player A had his turn and stopped me, player B is highly likely to backstab player A and then emerge as the winner.I&#39;ve found that playing very aggressively, and really get as many continents as possible within the first few turns, is the best way to win the game. I always win if I can get 2-3 continents in the first few turns, and if I fail then the game is usually won by whomever did manage to do just that.Being a turtle or &#34;mongolian horde&#34; as we call it can be interesting, but your only viable strategy is to wait for an opening while everyone else stockpiles their continental forces. If you wait too long, you&#39;re just an annoyance to the other players, but you don&#39;t actually have a good chance to win."</p>
+							
+						
+							
+								<p class="story__comment_others">"In our gaming group, we decided Risk just isn&#39;t that good of a game. It&#39;s old and clunky and extremely long, there are 100 other better board games now. Our main plays have been Dominion, DnD, Gloomhaven, Wingspan, and Crokinole, all of which we greatly prefer."</p>
+							
+						
+							
+								<p class="story__comment_others">"This author doesn&#39;t have much experience with competitive gaming and it&#39;s quite obvious. This is only a strategy he devised to play against his friends and relatives, most probably. He assumes a lot of player behavior, and what other explanation could there be? His bathtub example is very bad because there ain&#39;t no players, and when there&#39;s players the meta absolutely depends upon who you are playing against. there&#39;s not such a thing as an optimal universal strategy at all, in fact it makes a player predictable and low-skilled in most competitive games.Systems thinking without game philosophy understanding is very shallow.To illustrate my point of the strategy being entirely reliant upon opponents (meta): in cs:go, most unexperienced players will go through a hot spot (that&#39;s probably being targeted by pre-positioned opponents) without jumping, making themselves easy targets. this is the behavior you will find in low ranks. eventually, some of the players will learn that jumping may be a good tactic in these situations instead, to make it harder for opponents to hit headshot, and behavior becomes very common in mid-ranks. Eventually, though, mid-rank players will start to notice this tendency to jumping, and will position their crosshairs looking for a jumping headshot - they will progress in rank by doing so. At high-ranks, however, a lot of times it is expected that your opponent will be waiting for a jumping cross, and therefore the low-rank behavior would be the best one: don&#39;t jump. In conclusion, it&#39;s impossible to point out the best possible behavior without knowing who you&#39;re playing against and their skill in the game."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.theverge.com/2021/6/11/22528701/apple-rank-own-app-over-competitor-files-dropbox-wwdc-2017">
+						<picture>
+							<source srcset="default_27476206.webp" type="image/webp">
+							<source srcset="default_27476206.png" type="image/png">
+							<img src="default_27476206.png" alt="Preview of 'Apple admits it ranked its Files app ahead of competitor Dropbox'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.theverge.com/2021/6/11/22528701/apple-rank-own-app-over-competitor-files-dropbox-wwdc-2017">Apple admits it ranked its Files app ahead of competitor Dropbox</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27476206">
+						
+							
+								<p class="story__comment_first line-clamp">"Apple PR:&gt; we do not advantage our apps over those of any developer or competitorApple employee Debankur Naskar:&gt; I think the Files app was manually boosted ... during last WWDC. We are removing the manual boostSo which of these is true? Or is PR technically correct because they do not currently &#34;advantage&#34; their apps?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is an issue which is part of the problem.Whether it&#39;s cool or not,
+Product placement is very common practice in retail.
+Also Spotify has similar tools to promote music.The problem always comes back to the main issue,
+You got a platform where you have only one monopolistic way of use.While people can complaint about Google. you&#39;re allowed to install you apps. only if you&#39;d like to use Google&#39;s services (location, In-App-Purchase, etc) you need to use the Google Play.With Apple not only I need to pay 99$ just to put an app with one year certificate (signed by Apple) on my device.
+(including the use of some basic OS APIs, aka &#34;entitlements&#34; not allowed without paid account)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I tend to think of Files as less like Dropbox and more like the macOS Finder.You can actually browse Dropbox in Files, much as you can in the Finder, although there are some limitations.https://help.dropbox.com/installs-integrations/mobile/ios-fi..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.chronicle.com/article/how-meritocracy-became-trickle-down-education">
+						<picture>
+							<source srcset="default_27478647.webp" type="image/webp">
+							<source srcset="default_27478647.png" type="image/png">
+							<img src="default_27478647.png" alt="Preview of 'It’s time to break up the Ivy League cartel'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.chronicle.com/article/how-meritocracy-became-trickle-down-education">It’s time to break up the Ivy League cartel</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27478647">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.is/kk0CY"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Faculty members at prestigious universities are 50 times more likely than the average person to have a parent with a Ph.D. American meritocracy has become a complex, inefficient, and rigged system conferring its graces on ambitious children of highly educated and prosperous families.What’s the ratio in other fields of top achievement for kids to follow in their parents’ footsteps? It’s entirely unsurprising that academics raise academics, doctors doctors, Olympians Olympians, teachers teachers, etc.It’s equally unsurprising that the ambitious children of highly educated and prosperous families themselves pursue such a similar path and achieve similar outcomes. I’m an engineer and my spouse a scientist. Our kids have commensurately higher chance to pursue one of those or a closely related field due to exposure and biases."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; recirculating resources among the most exclusive and wealthy while chanting social-justice keywordsIndeed, Harvard aggressively defends its admissions program as &#34;holistic&#34; while rating Asians as having lower personal ratings that they define as measuring &#34;likeability&#34;, &#34;courage&#34;, and &#34;kindness&#34; [1]. You might ask yourself how an institution which claims to be anti-racist exhibits behavior of the opposite kind.[1]: https://nypost.com/2018/10/19/harvards-own-study-reveals-uni..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="http://mathman.biz/materials/Calculus%20By%20and%20For%20Young%20People%20Worksheets.pdf">
+						<picture>
+							<source srcset="default_27458227.webp" type="image/webp">
+							<source srcset="default_27458227.png" type="image/png">
+							<img src="default_27458227.png" alt="Preview of 'Calculus for Seven Year Olds [pdf]'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="http://mathman.biz/materials/Calculus%20By%20and%20For%20Young%20People%20Worksheets.pdf">Calculus for Seven Year Olds [pdf]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27458227">
+						
+							
+								<p class="story__comment_first line-clamp">"Copyright 1991. This was probably making the rounds of homeschooling circles I hung out in.We tend to do a sucky job of teaching math to kids. A lot of elementary school teachers are women who were encouraged to go into early education because they weren&#39;t doing so well in math and this is very much gender bias.My ex husband wasn&#39;t good at math. No one told him he should spend his days teaching little kids because of it. He was a career soldier and he just got tutored in college (by me) for his math classes. He was just expected to work at it if it didn&#39;t come naturally and he did.So we just culturally pass around this idea that math is scary and little kids can&#39;t learn it rather than going &#34;Well, adults just need to up their game and, by god, explain it better.&#34;My oldest was math phobic by the time I pulled him out of school to homeschool. My one and only goal for math was to get him over his phobia.He loves physics. I hate calculus. Calculus makes sense to him and he has read calculus books for fun.I was good at explaining the math to him and he learned lots of solid math concepts even though he likely has dyscalculia and isn&#39;t good at crunching the numbers. But I got the concepts through to him and that&#39;s more important.He&#39;s what gets called &#34;calculator dependent&#34; in some circles."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve taught 7-year olds, rich kids specifically in technology magnet program.The pre-requisite information necessary for this would be way above their heads. Adding fractions, conceptualizing fractions to graphs, graphing functions... and that&#39;s just the first part!Most 7-year olds can barely conceptualize fractions. First/second grade math curriculums are centered around basic multiplication, shape recognition and counting.7-year olds aside, I don&#39;t even think most of the high-schooler freshmen I&#39;ve taught would be able to grasp this content."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t know how I feel about this.  I&#39;ve always been good at math, and was one of five kids (out of class of 120) that took Calculus as a senior in high school in the early 1990&#39;s.  To even take Calculus as a senior, you had to have taken four years of math in the previous three years.  I was even the HS Math Champion&#34; for my state.However, when I took Calculus in High School, it was taught similarly to this.  Lots and lots and lots of math foundations, infinite series, areas under curves, and I was able to trudge through it but I didn&#39;t really grasp what it all meant or why I was doing it.  Finally, about 2/3 of the way through the year, I was working on a problem and had an &#34;oh, shit, this is just about how things are changing&#34;.  It was a Eureka moment, and entirely based on such a simple statement that was never brought up in lectures or our crusty 1960&#39;s texbook."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.reuters.com/business/energy/tc-energy-terminates-keystone-xl-pipeline-project-2021-06-09/">
+						<picture>
+							<source srcset="default_27453226.webp" type="image/webp">
+							<source srcset="default_27453226.png" type="image/png">
+							<img src="default_27453226.png" alt="Preview of 'TC Energy scraps Keystone XL pipeline project after Biden revokes key permit'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/business/energy/tc-energy-terminates-keystone-xl-pipeline-project-2021-06-09/">TC Energy scraps Keystone XL pipeline project after Biden revokes key permit</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27453226">
+						
+							
+								<p class="story__comment_first line-clamp">"From How To Save a Planet, a podcast I like:Alex Blumberg: ...and, [pipeline company] Enbridge says, stopping the pipeline won&#39;t stop the development of tar-sands oil. The oil will just travel in less safe ways, like by rail.Ayana Elizabeth Johnson: But Tara says that argument is missing the entire point.[Attorney and activist] Tara Houska: The idea is always like, you know, we&#39;re replacing old ones that are leaking. How about instead of replacing them and expanding them—which is what you&#39;re actually doing—you decommission the old one and pull it out of the ground and clean up the earth that you&#39;ve contaminated?Ayana: I like that option better.Tara: And there&#39;s always, like, this premise of, well, it&#39;s gonna get shipped anyway. No, it&#39;s not. Like, that&#39;s the whole point. No, it&#39;s not. Your industry is on its way out. And that&#39;s the point. And we all know that. You can&#39;t sit there and say, &#34;Oh, well, it&#39;s gonna go by rail or it&#39;s gonna go by ship anyway. No, it&#39;s not. The tar sands are on their way out. And that&#39;s the reality.https://gimletmedia.com/shows/howtosaveaplanet/76h4r25"</p>
+							
+						
+							
+								<p class="story__comment_others">"Oil pipelines do one thing - transport oil. Not water, not milk, not corn syrup. Just oil.Rail can transport anything. Containers, tankers, even rocket booster segments.Yes, we&#39;re absolutely taking a short term hit, but investing in general purpose infrastructure that can be adapted for new technology and demands is a good thing. The continental rail network started off with coal powered steam trains, then diesel, now diesel-electric and even some pure electric locomotives. Maybe this century it will evolve past fossil fuels as well.So yes, cancel the pipeline, but in its place invest in the safety and reliability of rail networks."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t see how we can ever get off oil practically and environmentally friendly without more nuclear energy generation capacity in the US and globally.https://www.epa.gov/sites/production/files/2016-05/global_em...https://upload.wikimedia.org/wikipedia/commons/e/e2/Electric...https://www.epa.gov/sites/production/files/styles/medium/pub...https://www.epa.gov/sites/production/files/2016-05/global_em...https://c.files.bbci.co.uk/16D76/production/_108485539_optim...Transportation is 14% which is not insignificant. But EV transport still requires charging from the powerplant, materials, mining, disposal. I am hopeful we will overcome them but we will exchange pollution problems for new different pollution problems."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">12 June 2021</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -765,15 +1155,15 @@ Apple built a platform, where they take some cut for themselves, while allowing 
 							
 						
 							
+								<p class="story__comment_others">"It&#39;s cathartic to read other people who have to go through this.I&#39;m fighting red tape for my team as we build out a dashboard.Outlook is packed with 1–2 hour meetings for the next 3 months where so far I&#39;m:* being asked to load test our system to make sure it can handle the load (of 3 people?)* being asked to integrate with various analytics platforms so we can alert some poor schmuck at 3 AM in case the API goes down then (it&#39;s not a vital part of any platform)* told to have this run in k8s since everything runs in k8s* other pedantic tasks by Sys Ops who think everything is a nail and love to argue their points ad exhaustium (or worse, argue why their fav stack is the golden child)I understand the need for standards and making sure they&#39;re followed, but there really needs to be a human element of, &#34;is this truly needed for what I&#39;m trying to do?&#34;. So many engineering departments are all about automation, but don&#39;t truly think through how much automation is needed, rather than a 1 size fits all approach.I appreciate that this article comes to the conclusion that the more correct an answer will be, the more complicated it tends to be. I wish more people in decision making positions would understand this."</p>
+							
+						
+							
 								<p class="story__comment_others">"I enjoyed that read. I suspect that it probably pissed off a few folks.I&#39;m a grizzled, scarred old codger that spent most of his career, saying &#34;Are you sure that&#39;s a good idea?&#34;, only to be ignored, and then put in charge of mopping up the blood.I have learned that &#34;I told you so.&#34; is absolutely, 1000% worthless. It doesn&#39;t even feel good, saying it.What I have learned, is that, when I see someone dancing along a cliff edge, I quietly start figuring out where the mops are kept. If that person has any authority at all, I&#39;ll never be able to stop them from their calisthenics.One of my favorite quotes is one that pretty much describes &#34;hedgehogs&#34;:    &#34;There&#39;s always an easy solution to every human problem; Neat, plausible and wrong.&#34;
 
 There&#39;s another one, by the same chap (H. L. Mencken):    &#34;The fact that I have no remedy for all the sorrows of the world is no reason for my accepting yours. It simply supports the strong probability that yours is a fake.&#34;
 
 Of course, the issue is that for every 10,000 appalling, messy, featured-on-rotten-dot-com failures, there&#39;s one spectacular success. Since humans are biased to think of successful outcomes as more likely than they actually are, the ingredients for that success become a &#34;recipe,&#34; and are slavishly reproduced, without any critical thought, or flexibility.It&#39;s like a witch doctor&#39;s formula for headache cure is bat urine, dandruff from the shrunken head of a fallen warrior chief, eye of newt, boiled alligator snot, and ground willow bark. The willow bark is what did it, but the dandruff thing is the most eye-catching ingredient, so it gets the credit, and everytime the chief gets a hangover, they start a war.Somewhere down the road, a copycat substitutes hemlock for the willow bark, and headaches become a death sentence."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s cathartic to read other people who have to go through this.I&#39;m fighting red tape for my team as we build out a dashboard.Outlook is packed with 1–2 hour meetings for the next 3 months where so far I&#39;m:* being asked to load test our system to make sure it can handle the load (of 3 people?)* being asked to integrate with various analytics platforms so we can alert some poor schmuck at 3 AM in case the API goes down then (it&#39;s not a vital part of any platform)* told to have this run in k8s since everything runs in k8s* other pedantic tasks by Sys Ops who think everything is a nail and love to argue their points ad exhaustium (or worse, argue why their fav stack is the golden child)I understand the need for standards and making sure they&#39;re followed, but there really needs to be a human element of, &#34;is this truly needed for what I&#39;m trying to do?&#34;. So many engineering departments are all about automation, but don&#39;t truly think through how much automation is needed, rather than a 1 size fits all approach.I appreciate that this article comes to the conclusion that the more correct an answer will be, the more complicated it tends to be. I wish more people in decision making positions would understand this."</p>
 							
 						
 						</a>
@@ -2072,15 +2462,15 @@ Canada, Australia, US, Sweden, The Netherlands, Lithuania, Finland, Hungary, Nor
 						<a href="https://news.ycombinator.com/item?id=27415537">
 						
 							
-								<p class="story__comment_first line-clamp">"It is pretty good; no HTML or anything else like that is needed. I sometimes use it (not very often, but occasionally it is useful); I have a shell script that calls curl to access it.As long as it is continuing working, OK. (I can verify that the returned data is correct without too much difficulty)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Wow so this person has been running this site for so many years, paying bills, answering god knows how many idiots and even getting close to trouble with 3 letter agencies and senators for absolutely nothing.. hats off to you sir, any other person would have thrown in the towel a long time ago.Also i feel little bad you didn&#39;t get any money out of it whether the site was designed to make money or not. It would have been a wonderful end to the story if you got something back for all the years of hardwork you put into running it. You do have my appreciation if that means anything though.P.S. this story is very similar to rawgit which was a wonderful site but also fell prey to malware aholes."</p>
+								<p class="story__comment_first line-clamp">"Wow so this person has been running this site for so many years, paying bills, answering god knows how many idiots and even getting close to trouble with 3 letter agencies and senators for absolutely nothing.. hats off to you sir, any other person would have thrown in the towel a long time ago.Also i feel little bad you didn&#39;t get any money out of it whether the site was designed to make money or not. It would have been a wonderful end to the story if you got something back for all the years of hardwork you put into running it. You do have my appreciation if that means anything though.P.S. this story is very similar to rawgit which was a wonderful site but also fell prey to malware aholes."</p>
 							
 						
 							
 								<p class="story__comment_others">"I was using icanhazip to check if my Tor circuit was complete, and probably made 50-100 requests per week. The site was getting slow, and I thought it is just a random site that the author didn&#39;t really care too much.I dropped my jaw when I read it was getting 30B req/day.Thank you for running this site for so long, and thank you for keeping it up for free, and deciding to not monetize it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Reminds me of `echo $(dig @ns1.google.com o-o.myaddr.l.google.com TXT +short | tr -d \&#34;)`. I have no idea where this DNS query came from, because searching all of Google turns up nothing but https://github.com/GoogleCloudPlatform/cloud-self-test-kit/b..., which is never referenced by anyone. I had to track it down myself for a bootstrap.sh, but I don&#39;t like using undocumented sources for critical infrastructure.My use case was needing to set the result of `hostname -f` in /etc/hosts in an automated fashion if a VPS provider didn&#39;t already add a line for the public Internet address in that file. You need to do this so that sendmail doesn&#39;t fail on `apt install` when it attempts to read your FQDN. So I couldn&#39;t use the NGINX example posted elsewhere here.It seems like https://checkip.amazonaws.com/ is much more &#34;reliable&#34; in that it is publicly documented at https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/s....To anyone who needs to read this: please don&#39;t use &#34;services&#34; like icanhazip for your provisioning. Even my examples above are bad.It does strike me as weird that there is seemingly no POSIX-compliant way to get your public Internet address, from my readings.Edit: Oh goodness... even Amazon&#39;s documentation recommends using Google&#39;s undocumented DNS query.[1][1]: https://aws.amazon.com/premiumsupport/knowledge-center/route..."</p>
 							
 						
 						</a>
@@ -3564,396 +3954,6 @@ he used it under circumstances that were expressly forbidden? In my view, the an
 						
 							
 								<p class="story__comment_others">"Previously Microsoft shifted 39 billion in North and South American profits to Puerto Rico.  (It used Singapore for Asian profits and Ireland for EU profits.)  The IRS&#39;s case against the company is still active.  This was the largest IRS audit in history by dollar amount.https://www.propublica.org/article/the-irs-decided-to-get-to...The ProPublica reporting apparently inspired the Judge to get things moving again.https://thehill.com/policy/technology/479417-microsoft-order...Truly sickening."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">03 June 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.wsj.com/articles/software-developer-community-stack-overflow-sold-to-tech-giant-prosus-for-1-8-billion-11622648400">
-						<picture>
-							<source srcset="default_27370026.webp" type="image/webp">
-							<source srcset="default_27370026.png" type="image/png">
-							<img src="default_27370026.png" alt="Preview of 'Stack Overflow sold to Prosus for $1.8B'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.wsj.com/articles/software-developer-community-stack-overflow-sold-to-tech-giant-prosus-for-1-8-billion-11622648400">Stack Overflow sold to Prosus for $1.8B</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27370026">
-						
-							
-								<p class="story__comment_first line-clamp">"I always thought Microsoft would be a natural buyer given the tech stack and Microsoft&#39;s support for developers.Unrelated story, I have a day one Stack Overflow account. I don&#39;t remember how I found it but I&#39;m sure it was posted on digg or slashdot or something at the time. I had a lot of posts in the first few years about some generally broad concepts, and completely inactive since.In spite of this, I am in the top 7% of accounts on the site, which is a nice reminder on the power of compound interest!"</p>
-							
-						
-							
-								<p class="story__comment_others">"While I&#39;m happy for the people who made a lot of money in this transaction, I always read these announcements with a bit of angst.From a user point of view, I expect this to go like Reddit has, for example.  Everyone building that value saw high use value, returns on their investment in the form of information they need, lean, easy to find, high signal to noise.Now there is a debt to be paid.  The new owner needs to extract the purchase price, and whatever additional additional returns they intend.  Everything costs something.So what will it be?Subscription access?Less favorable signal to noise?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Fun fact and one of my dinner party anecdotes; I have the accepted answer for one of Ross Ulbricht’s (Silk Road’s Dread Pirate Roberts) SO questions that got him busted.https://stackoverflow.com/questions/9563675/destroying-a-spe..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://actu.epfl.ch/news/mass-scale-manipulation-of-twitter-trends-discov-2/">
-						<picture>
-							<source srcset="default_27368214.webp" type="image/webp">
-							<source srcset="default_27368214.png" type="image/png">
-							<img src="default_27368214.png" alt="Preview of 'Almost half of local Twitter trending topics in Turkey are fake – study'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://actu.epfl.ch/news/mass-scale-manipulation-of-twitter-trends-discov-2/">Almost half of local Twitter trending topics in Turkey are fake – study</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27368214">
-						
-							
-								<p class="story__comment_first line-clamp">"The original source is much better written and explains the core of what the paper actually uncovers:&gt; [...] found a vulnerability in the algorithm that decides Twitter Trending Topics: it does not take deletions into account. This allows attackers to push the trends they want to the top of Twitter Trends despite deleting their tweets which contain the candidate trend shortly afterwards.Source: https://actu.epfl.ch/news/mass-scale-manipulation-of-twitter...Paper: https://arxiv.org/pdf/1910.07783.pdf"</p>
-							
-						
-							
-								<p class="story__comment_others">"I think this must be happening on every social media platform in some way. The fact is that people seem to love being afraid and anxious. Bad news spreads like wild fire. All that X bad actor has to do is just figure out any worrying take on a topic of choice and then just sit back and watch the mayhem.I also think the most likely originators of this content are state actors. If they can pay a group of people to drop intellectual bombs in the public spheres of their enemies all day, I&#39;m sure they see that as an overall (and very cheap) win. Honestly, it&#39;s more a question of why they wouldn&#39;t do this than why would they."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Relevance&#34; is not the signal that people think it is. It can be trusted when it is coming from people we&#39;ve already vetted, but at a mass scale, it is easily weaponized to manufacture and manipulate public opinion. An algorithm that decides relevance can be gamed, as we see here.These features won&#39;t go away, however. Twitter and the media at large rely on the veneer of relevance to ensure they retain an audience."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.eff.org/deeplinks/2021/06/paypal-shuts-down-long-time-tor-supporter-no-recourse">
-						<picture>
-							<source srcset="default_27371787.webp" type="image/webp">
-							<source srcset="default_27371787.png" type="image/png">
-							<img src="default_27371787.png" alt="Preview of 'PayPal shuts down long-time Tor supporter'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.eff.org/deeplinks/2021/06/paypal-shuts-down-long-time-tor-supporter-no-recourse">PayPal shuts down long-time Tor supporter</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27371787">
-						
-							
-								<p class="story__comment_first line-clamp">"Holding the money hostage for half a year on a 20 year old account? Not surprising. Paypal and their other entities like Ebay are pretty shit when it comes to nuance and their impact on others.Had a 15 year old Paypal business account (parent started it and I took it over ~7 years ago) and last year they shut it down because I, as the new owner, was not 18 when the account was created. Nothing from the support but &#34;computer said you bad, nothing we can do&#34;.In Ebays case I sold an item, got the regular email from Ebay (DMARK/SPF/IP verified) that they had received payment and was holding it until the item had been delivered. Then a week later I got another email from them saying they had blocked the buyer for abuse (i.e. a fraudulent transaction to them) and that I shouldn&#39;t ship the item they told me to ship a week ago. After 2 months of trying to get through to the support they just claimed that someone spoofed their DMARK, SPF, and servers IP. After explaining how impossible that would be their &#39;proof&#39; that it was &#39;spoofed&#39; was that there should be a copy of the message in the Ebay inbox where, after the reply, all messages about the auction ever existing were suddenly gone."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;We don&#39;t like what you are doing, and are going to hold your money for six months. I hope you don&#39;t subsist on it, or have any business obligations to attend to. We&#39;ll call you.&#34;This should be illegal for Paypal to do, period. Absolutely illegal.And if it is on behalf of a government or banking/fraud regulations, then the person should be referred to relevant agencies.Let&#39;s be clear and drop the pretense: They are confiscating his property."</p>
-							
-						
-							
-								<p class="story__comment_others">"News like this is proof that cryptocurrencies like Monero are necessary.It’s proof (not that we needed any) that centralized finance does not have your best interests at heart, and they can and will abuse their power."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.scientificamerican.com/article/pesticides-are-killing-the-worlds-soils/">
-						<picture>
-							<source srcset="default_27364618.webp" type="image/webp">
-							<source srcset="default_27364618.png" type="image/png">
-							<img src="default_27364618.png" alt="Preview of 'Pesticides are killing the world&#39;s soils'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.scientificamerican.com/article/pesticides-are-killing-the-worlds-soils/">Pesticides are killing the world&#39;s soils</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27364618">
-						
-							
-								<p class="story__comment_first line-clamp">"In Switzerland, we&#39;re soon going to vote on two initiatives ¹² aiming at reducing pesticide use.
-The first is essentially about forbidding the use of all artificial pesticides by 2031 (also importation of food that was produced abroad using pesticides).
-The second is about removing subsidies to farmers that use any kind of pesticide, or regularly use antibiotics on their livestock, etc.I feel like they are quite drastic initiatives, but it&#39;s good to at least have a desire for change.
-I&#39;m interested in any opinion from knowledgeable people on the subject!¹ https://www.admin.ch/gov/en/start/documentation/votes/202106...
-²https://www.admin.ch/gov/en/start/documentation/votes/202106..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve watched the entire cycle in the past thirty years as a former agronomist.  We were able to genetically modify plants so they generated natural pesticides as a defense against insects.  This allowed us to stop spraying thousands of tons of less insecticides.But the very people complaining about spraying chemicals rejected these new enhanced plants saying they weren&#39;t &#39;natural&#39;.  We have been breeding plants to do things the past 170 years ever since Gregor Mendel and his pea breeding.  The only difference now is that we have better tools.  You cannot win everyone over.https://en.wikipedia.org/wiki/Gregor_Mendel"</p>
-							
-						
-							
-								<p class="story__comment_others">"Dengue is a serious health threat in Singapore. Fogging (1) is pretty common.Now, the Singapore government says fogging should be used judiciously, not routinely. But, that doesn&#39;t seem to be the case. Many condos will fog once a week, year-round. Supposedly all operations must be submitted in the an &#34;E-fogging Submission System&#34;, but as far as I can tell, there&#39;s no visibility into this.Singapore has also recently declared a &#34;climate change emergency&#34;, and I&#39;d consider biodiversity, at the very least, a part of that.My point is that: if the Singapore Government is unable or unwilling to manage this with a sense of urgency (or &#34;emergency&#34;), then I&#39;m not generally hopeful.(1) https://en.wikipedia.org/wiki/Fogging_(insect_control)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://dlang.org/blog/2021/06/01/driving-with-d/">
-						<picture>
-							<source srcset="default_27354761.webp" type="image/webp">
-							<source srcset="default_27354761.png" type="image/png">
-							<img src="default_27354761.png" alt="Preview of 'Driving with D'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://dlang.org/blog/2021/06/01/driving-with-d/">Driving with D</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27354761">
-						
-							
-								<p class="story__comment_first line-clamp">"Hi, I&#39;m the author of the article. Feel free to ask any questions you may have.I have to go to bed, I have work in about 4 hours, so I&#39;ll reply when I can."</p>
-							
-						
-							
-								<p class="story__comment_others">"Any reasons D never caught on more?  No big tech company anchor behind it?"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Uniform Function Call Syntax (UFCS)&gt; This has made my code significantly clearer. My code can accurately follow the flow of data without polluting my stack with single-use variables, nesting many function calls, or other sorts of clutter.This is also pretty common practice in Haskell.  Though Haskeller&#39;s typically have a higher tolerance for reading their code backwards.  (But you don&#39;t need to.  It&#39;s easy to define operators that arrange your code in the other direction.)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=27355392">
-						<picture>
-							<source srcset="default_27355392.webp" type="image/webp">
-							<source srcset="default_27355392.png" type="image/png">
-							<img src="default_27355392.png" alt="Preview of 'Ask HN: Who is hiring? (June 2021)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=27355392">Ask HN: Who is hiring? (June 2021)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27355392">
-						
-							
-								<p class="story__comment_first line-clamp">"AppLovin | Mobile Engineer (SDK) | Palo Alto, CA | Onsite | Full-TimeAppLovin’s leading marketing software provides mobile app developers a powerful set of solutions to grow their mobile apps. AppLovin’s technology platform enables developers to market, monetize, analyze and publish their apps and reaches over 1.5 billion devices monthly.We&#39;re looking for skilled mobile engineers (iOS and Android) to develop AppLovin&#39;s mobile SDK that powers monetization and analytics for thousands of apps from top developers around the world. Our team is lean, fast-paced, multi-platform, and gets to work on new and interesting problems every day.https://jobs.lever.co/applovin/61cfe159-2962-4705-812a-6d599..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Universe | Full time | Remote | Engineering | workatuniverse.comWith Universe (http://apple.co/Universe), anyone on earth can build a custom website or online store in seconds — without code, all from a phone. We&#39;re looking for a few engineers to join our team:1. Senior DevOps Engineer to take our infrastructure to the next level and unlock our development team’s potential: https://workatuniverse.com/senior-devops-engineer2. Senior CSS Engineer, a problem solver who loves CSS way more than is reasonable: https://workatuniverse.com/senior-css-engineer3. UI-focused React Web Engineer who loves building tools to help others: https://workatuniverse.com/react-web-engineerWe are a remote-first 25+ person company with people all over the US. We joined Y Combinator in 2018 and have raised $17.2MM in funding from Google Ventures, General Catalyst, Javelin Venture Partners, Box Group, and more top investors.We value individual agency and ownership — which guides our product design and our company’s culture. We believe that an individual’s capacity for growth is far larger than most understand, and we’ve designed an environment to support rapid, continuous learning. Ideas here come from everyone, initiative is respected, and quality matters. We are here to build something special and enduring.Mention HN in the text box at the bottom when you apply!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Amazon Web Services Developer Tools | Software Development Engineer | Seattle, WA | Onsite | Full TimeAWS Developer Tools is looking to hire for a couple of roles to help build and implement new automation tooling to increase the efficiency of expanding AWS Developer Tools services into new regions and zones. This is a new team focused on achieving hands off or zero touch expansions of existing and new AWS services. We&#39;re currently a small team looking to rapidly expand and are particularly interested in engineers with a passion for building developer tools and automation platforms.Software Engineer, AWS Developer Tools - https://www.amazon.jobs/en/jobs/1559515/software-development...Senior Software Engeineer, AWS Developer Tools - 
-https://www.amazon.jobs/en/jobs/1559504/software-development..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.theverge.com/2021/6/2/22465846/apple-employees-return-office-three-days-week-september">
-						<picture>
-							<source srcset="default_27375067.webp" type="image/webp">
-							<source srcset="default_27375067.png" type="image/png">
-							<img src="default_27375067.png" alt="Preview of 'Apple asks staff to return to office 3 days a week starting in early September'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.theverge.com/2021/6/2/22465846/apple-employees-return-office-three-days-week-september">Apple asks staff to return to office 3 days a week starting in early September</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27375067">
-						
-							
-								<p class="story__comment_first line-clamp">"I work for another company that is going to do a partial return to office.  I will be looking at options for companies that offer full in person office (or 90% in person office) after things settle down.  I  have worked full remote for a total of 5 years of my career, and I believe working in the office is a competitive advantage.* Overhearing hallway conversations (and joining them) helps spawn invocation.* I often do/did paired programming, and over-the-shoulder code reviews.  These are easier in person* Having a workforce socially close improves productivity because everyone wants to step up for each other.* Being seen by my fellow employees helps keep me from becoming distracted.* Working at the office helps prevent home life from being distracting during work hours.There are some personal benefits I enjoy from being in the office.* I save money by spending less on food, drinks, and electricity.* I enjoy the routine.* I had a stronger work/life separation.  I rarely turned on my work laptop at home."</p>
-							
-						
-							
-								<p class="story__comment_others">"Some here are being honest, so I&#39;ll be brutally honest: Covid has upset the master-slave relationship, and they&#39;re realizing they&#39;re giving up too much control.  Yes, even the supposedly forward-thinking, progressive tech world.It&#39;s so much easier to ignore the BS of &#34;company culture,&#34; &#34;a new family&#34; and other such nonsense when working remote.  Plenty of people here have outright stated they work as a way to fund their lives and they couldn&#39;t care less about &#34;the mission,&#34; &#34;changing the world&#34; and other similar lies.  When WFH you only need to put on a show (and sometimes pants!) when on a video call, then you can relax and get your work done and shut out the BS."</p>
-							
-						
-							
-								<p class="story__comment_others">"I never thought I&#39;d handle WFH well. When job-hunting, I&#39;d always ignore fully remote jobs. It sounded totally depressing and demotivating to sit at home and interact with my coworkers virtually. I also always valued the office perks.During the first few months, it felt like WFH stripped out all the non-work aspects of my job. At Google those perks were substantial, and it put the work itself in full focus.But you know what? I like it now. I&#39;m able to put in more focused work between 9 and 6 because I can take real breaks. There&#39;s less BS intruding on my life. In the office, your breaks feel more limited to 1) walking to grab a snack in the kitchen, 2) scrolling through something at your desk, or 3) going all the way outside to take a walk. 2/3 of these make you look like a slacker when you do them too much, so I always ended up doing a lot of &#34;pretending to work&#34; breaks to refresh my mind. That said, nobody ever had a problem with my performance.Now I can pop out and walk around the block in 10 minutes, or wander into my back yard. I can do manual chores and intersperse them with knowledge work to give myself a break. I also don&#39;t have to commute for 2 hours each day. This means I have more time and willpower and actually get more done. I actually measure every minute of focused work, which is how I know."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://textslashplain.com/2021/06/02/leaky-abstractions/">
-						<picture>
-							<source srcset="default_27372292.webp" type="image/webp">
-							<source srcset="default_27372292.png" type="image/png">
-							<img src="default_27372292.png" alt="Preview of 'Leaky Abstractions'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://textslashplain.com/2021/06/02/leaky-abstractions/">Leaky Abstractions</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27372292">
-						
-							
-								<p class="story__comment_first line-clamp">"These are the kinds of articles I love to see on HN!I think it&#39;s so interesting to see how different OS&#39; have approached these long lived operations over the years. Arguably, *nix OS&#39; have been able to move past these problems since it appears that package management is much more of a first party concern. &#34;Oh, you want to upgrade this utility? Well, I rely on these other things so you should update them too.&#34;I&#39;m a webdev so a lot of this is foreign to me w/ how it actually all functions but it&#39;s cool to read about these problems and speculate how/why they came to be and why they may only exist on certain platforms."</p>
-							
-						
-							
-								<p class="story__comment_others">"Interesting, didn&#39;t even know you can cut files from a zip in that Windows zip file viewer. I would have thought it&#39;s some read-only filesystem like viewing a mounted CD or so.In that context I wonder if you could cut from rewritable CD-RWs as well back in the day (can&#39;t remember) - that seems like another abstraction that&#39;s similarly slow in reality."</p>
-							
-						
-							
-								<p class="story__comment_others">"Having written a shell namespace extension, I now use the concept as a great example of making the wrong abstraction interestingly enough. Shell namespaces are a odd win32 concept rather than a filesystem concept and cause a lot of headaches (read support calls) when people see that they work in explorer, but not from arbitrary applications depending on how they use the underlying APIs. If you&#39;re trying to abstract the filesystem with pluggable components... abstract _the filesystem_ with pluggable components.It&#39;d be interesting to now what lead to the architectural decision of wear to cut that abstraction. It feels like a Microsoft team balkanization issue (the explorer team and POs being different from the NT kernel ones, I assume?), but it&#39;s near impossible to know without inside knowledge."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.diybookscanner.org/">
-						<picture>
-							<source srcset="default_27361815.webp" type="image/webp">
-							<source srcset="default_27361815.png" type="image/png">
-							<img src="default_27361815.png" alt="Preview of 'DIY Book Scanner'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.diybookscanner.org/">DIY Book Scanner</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27361815">
-						
-							
-								<p class="story__comment_first line-clamp">"My first job out of college was scanning books for the Internet Archive down in the basement of the Library of Congress. Their scanning machines used a foot pedal to raise and lower the glass Platen, so I&#39;d use one hand to flip the page and wiggle the cradle to get things nice and flat and the other would snap the photo. You can get pretty fast after a while, but boy is it mindless. Older books that had been rebound a couple times already were the hardest to work with as you have the least amount of margin. There&#39;s a bunch of different sized dowels that we would put under the spine in the cradle so the glass could gain a couple millimeters of margin, just enough to avoid cutting off text. Worst case scenario the book had to be unbound in order to capture. I did get to flip through a lot of cool old illustrated catalogues like this: https://archive.org/details/illustratedcatal00keil/page/14/m..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I built one of these out of pine 2x4s and plywood. I thought it would be cheaper than buying one (I was wrong) but I&#39;m also not a skilled woodworker and had to buy most of the tools.It works quite well and I digitised dozens of textbooks I&#39;d purchased and needed to reference but couldn&#39;t carry around every day while finishing my masters. My one had 2 Nikon mirrorless cameras controlled via Pi-Scan. https://github.com/Tenrec-Builders/pi-scanI had a smaller toggle switch wired to the GPIO pins so I could click the scan next button without having to take my hands of the book. Once I got used to the workflow I could scan about 1000 pages per hour while watching Netflix.I replaced it with a Czur scanner that isn&#39;t as good, but is a lot smaller and is good enough for my less demanding needs now that I&#39;m not doing a masters degree :D"</p>
-							
-						
-							
-								<p class="story__comment_others">"At Japan in the meantime, people in book scanning community (that exists) often just cut the book spine and scan the pages using normal scanner, throw it away once all the pages are scanned.People (rightly) value room spaces than books there.
-It&#39;s called &#34;Ji-sui&#34; (scanning by oneself)  and gear recommendation sites like [1] are abundant. Another reason of &#34;Ji-sui&#34; prevalence was the poor availability of ebooks, although that reason was less relevant today.[1] http://monomania.sblo.jp/article/60578693.html"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.nationalgeographic.com/animals/article/chinese-paddlefish-one-of-largest-fish-extinct?loggedin=true">
-						<picture>
-							<source srcset="default_27342763.webp" type="image/webp">
-							<source srcset="default_27342763.png" type="image/png">
-							<img src="default_27342763.png" alt="Preview of 'Chinese paddlefish, one of the world&#39;s largest fish, declared extinct'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.nationalgeographic.com/animals/article/chinese-paddlefish-one-of-largest-fish-extinct?loggedin=true">Chinese paddlefish, one of the world&#39;s largest fish, declared extinct</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27342763">
-						
-							
-								<p class="story__comment_first line-clamp">"I recall visiting the Yangtze river by boat tour around 1997. This was before the dam was built and the place was beautiful.  Imagine the grand canyon but it was covered with lush vegetation. We visited a center where there were models of the three gorges dam would soon to be built. On the tour they said we would be the last tourists to see the Yangtze as it stands, after the dam, many landmarks/settlements would be flooded, and even back then people critiqued how many species of fish would die because they can no longer swim up river to spawn."</p>
-							
-						
-							
-								<p class="story__comment_others">"Interestingly there is a term for the last known member of a species: Endling [1]. Scrolling through that Wikipedia article always gives me an eerie feeling. It looks like the Chinese paddlefish is not listed yet though.[1] https://en.wikipedia.org/wiki/Endling"</p>
-							
-						
-							
-								<p class="story__comment_others">"Its cousin, the American paddlefish, is still around, though it&#39;s vulnerable.Among other similar reasons (overfishing, pollution), dams are related to its decline: &#34;Series of dams on rivers such as those constructed on the Missouri River have impounded large populations of American paddlefish, and blocked their upstream migration to spawning shoals.[29]&#34;But it&#39;s not too late...https://en.wikipedia.org/wiki/American_paddlefish#Population..."</p>
 							
 						
 						</a>
