@@ -33,29 +33,44 @@
 	</div>
 
 	
-	<div class="day__date">19 June 2021</div>
+	<div class="day__date">20 June 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://venturebeat.com/2021/06/16/cybereason-80-of-orgs-that-paid-the-ransom-were-hit-again/">80% of orgs that paid the ransom were hit again</a></h3>
+					<h3><a href="https://play.google.com/store/apps/details?id=gov.ma.covid19.exposurenotifications.v3&amp;showAllReviews=true">Massachusetts health notifications app installed without users’ knowledge</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27552611">
+						<a href="https://news.ycombinator.com/item?id=27558500">
 						
 							
-								<p class="story__comment_first line-clamp">"What I suspect: the first ransom was paid by insurance, therefore it didn&#39;t hurt them, therefore they didn&#39;t bother protect themselves for the second.Now just wait to see what will happen to your insurance rate after you pay the third ransom.They certainly will begin to understand the need for backups."</p>
+								<p class="story__comment_first line-clamp">"I was reading about this yesterday and confirmed that I did not havegov.ma.covid19.exposurenotifications.v3 nor gov.ma.covid19.exposurenotifications installed. I turned off auto-updates in the Play store (Settings -&gt; Network preferences -&gt; Auto update apps -&gt; Don&#39;t auto update apps) and went to sleep. This morning I woke up with a cheerful notification that Google can help with COVID notifications and gov.ma.covid19.exposurenotifications.v3 installed -- the app was pushed overnight over explicit instructions NOT to update (sure, one can say auto-install != auto-update, but it is worrying that forced pushes can happen even with every single relevant UI switch turned off).adb logcat seems to have the following relevant lines:    06-19 09:27:54.481  1689  1990 I PackageManager: Integrity check passed for file:///data/app/vmdl1074248108.tmp
+    [..]
+    06-19 09:27:55.580  1689  5456 D PackageInstallerSession: Ignoring abandon after commit relinquished control
+    [..]
+    06-19 09:27:55.649  1689  2530 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:gov.ma.covid19.exposurenotifications.v3 flg=0x4000010 (has extras) } to com.google.android.packageinstaller/com.android.packageinstaller.PackageInstalledReceiver
+    (+ lots of other similar intents)
+
+After that the package immediately becomes active:    06-19 09:27:56.539  1689 13571 D ConnectivityService: requestNetwork for uid/pid:10450/30673 NetworkRequest [ TRACK_DEFAULT id=1249, [ Capabilities: INTERNET&amp;NOT_RESTRICTED&amp;TRUSTED Uid: 10450 AdministratorUids: [] RequestorUid: 10450 RequestorPackageName: gov.ma.covid19.exposurenotifications.v3] ]
+    06-19 09:27:56.540  1689  3625 D ConnectivityService: NetReassign [1249 : null → 102]
+    [..]
+    06-19 09:27:56.833  1689  3750 E JobScheduler.Background: App gov.ma.covid19.exposurenotifications.v3 became active but still in NEVER bucket
+
+So no, it is not just &#34;oh those people opted in and just forgot&#34;."</p>
 							
 						
 							
-								<p class="story__comment_others">"The most important line:&gt; 80% of organizations that paid the ransom were hit by a second attack, and almost half were hit by the same threat group.The same group!"</p>
+								<p class="story__comment_others">"It is obvious that we need better legislation to deal with all the new possibilities that technologies have opened.The installation of this app, even done with good intent, open a lot of questions on what should be possible or not to be done by government and corporations.When you get a device with pre-installed, uninstallable, or auto-installed apps. What are the rules?&gt; &#34;By enabling this service, you can be quickly notified if you’ve likely been exposed to the virus by another MassNotify user, allowing you to reduce risk to your loved ones, seek medical attention, and slow the spread in your community.&#34;In this case it seems that the same goal could have been better achieved by SMS that do not depend on the brand of your phone. The dependency on proprietary app stores and OSs seems a risk for the continuation of a free and reliable communications.The only thing that is impossible to achieve without an app is to allow the user to select contacts to whom send a notification. Corporations like Google, and Apple know the list of all your contacts. So, it seems that the intention of the app is to reduce friction and send notifications as easy and effortlessly as possible to avoid that procrastination causes people to delay the warning.But, instead of the silent install the government could have spend money in advertisement campaigns to assure a correct amount of installations. It costs money, but, people pay taxes so the government can engage on this type of initiative at a scale. This could have been a very good alternative, even if it means increasing the budged. Medical emergencies are worth the investing."</p>
 							
 						
 							
-								<p class="story__comment_others">"Rudyard Kipling explained this:---But we&#39;ve  proved it again and  again, / That if once you have paid him the Dane-geld / You never get rid of the Dane.--- 
-https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you’ve just proven that you are a profitable target to hit."</p>
+								<p class="story__comment_others">"Fellow humans, there are alternatives! Your neck need not be under FAANG&#39;s boot! You don&#39;t even need to give up any functionality:CalyxOS: https://calyxos.org/
+Privacy-respecting Android distribution that replaces Google spyware with MicroG, so you can have your cake and eat it too. Most everything will work as you&#39;re used to, but it does still talk to Google to make that happen.GrapheneOS: https://grapheneos.org/
+Very much like Calyx, but extra-hardened and with no MicroG. No involvement with Google at all.LineageOS: https://lineageos.org/
+The successor to CyanogenMod, will work with many different phones. More privacy and control than stock Android.There are also many others: Sailfish, Replicant, eHardware-wise: CalyxOS and GrapheneOS run best on Pixel 3, 3a, 3XL, 4, 4a, 4XL, 5. The path of least resistance is to get one of these phones and run CalyxOS (if there is an app you need to use that needs Google services like Firebase Cloud Messaging...note that many that can use FCM will run fine without), otherwise run GrapheneOS.You can also buy a Librem 5 https://puri.sm/products/librem-5/
+If privacy and security and hacking are really important to you.Or a pinephone: https://www.pine64.org/pinephone/"</p>
 							
 						
 						</a>
@@ -68,22 +83,22 @@ https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you�
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://ebin.city/%7Ewerwolf/posts/brave-is-shit/">Brave, the false sensation of privacy</a></h3>
+					<h3><a href="https://ntdotdev.wordpress.com/2021/02/06/state-of-the-windows-how-many-layers-of-ui-inconsistencies-are-in-windows-10/">State of the Windows: How many layers of UI inconsistencies are in Windows 10?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27549604">
+						<a href="https://news.ycombinator.com/item?id=27556754">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; Their adblocker is just a fork of uBlock Origin,This does not appear to be true.  Here is the github repo for their open source adblock engine written in rust:https://github.com/brave/adblock-rustHere is a (somewhat dated) article describing it by the authors:https://brave.com/improved-ad-blocker-performance/&gt; Google will take decisions that benefit their advertisement business, like making impossible to use adblockers on any Chromium based browser.Because the brave adblocker is integrated directly into the browser (ie. not an extension) the Manifest V3 limitations don&#39;t apply."</p>
-							
-						
-							
-								<p class="story__comment_others">"I find Brave Rewards very egregious. You get lots of BAT and the marketing copy hypes it up immensely without mentioning, anywhere, that you need to provide your SSN and Driver&#39;s License to a third-party (Uphold) if you actually, you know, want to cash out.This seems particularly irritating because, let&#39;s say you set your browser to show you the max amount of ads for a while. You saved up for a few months, decided you had enough, tried to cash out only to discover that slap in your face that they never mentioned. Of course this benefits them, but the fact that the browser puts you in the situation of giving up your privacy to receive money is ridiculous for a &#34;privacy&#34; browser."</p>
+								<p class="story__comment_first line-clamp">"Disclaimer: I work at Microsoft, but not on Windows (and I deal with a SaaS at MSFT). I am a FreeBSD committer and help maintain FreeBSD&#39;s GNOME packages and (very recently) the graphics drivers.The reason why Windows is full of UI inconsistencies is (largely) because of one thing: backwards compatibility.While backwards compatibility has it&#39;s perks, it also means having lots of old code in Windows that can&#39;t be touched very easily without breaking compatibility, And that means many old UI elements may stay, that&#39;s a side effect.While desktop Linux/BSD isn&#39;t exactly well known for it&#39;s UIs, I found GNOME 3/40 to be more consistent UI-wise than Windows 10, being a user of GNOME 3 on FreeBSD at home (which I am typing this comment from), and helping port GNOME 40, while (unsurprisingly) using Windows 10 at $DAYJOB.But then GNOME, KDE, Apple, et al. is more willing to break things than Windows is. They aren&#39;t as bound to legacy compatibility, so old UI elements can be shed easily."</p>
 							
 						
 							
-								<p class="story__comment_others">"I always find it odd that we worry so much about how much our browsers are tracking us, but almost nothing about what our ISPs are doing. Every time I&#39;ve looked into it, it seems much worse. As far as I can tell, ISPs are legally allowed to sell your browsing history to third parties: https://arstechnica.com/tech-policy/2017/03/for-sale-your-pr..."</p>
+								<p class="story__comment_others">"I like the Run dialog and the folder properties menu and others that have been untouched since the early days. Their utility has been proven and so much muscle memory has been built up. I can not possibly imagine a revision that could be done to them that would have more benefits than simply leaving them be.All of the Fluent/Metro designs have made things markedly worse. For example, check out the Metro control panel widget for selecting a default program for a file extension. It&#39;s a list view with 5 file extensions visible at a time, with no search. That&#39;s what I think of when I hear about a Windows UI update, and I&#39;d love to be proven wrong."</p>
+							
+						
+							
+								<p class="story__comment_others">"This issue is way overblown here on HN.In day-to-day usage, I have rarely been annoyed by these &#34;inconsistencies&#34;.The best example to illustrate this article is: Installing a driver with the Windows XP layer. That&#39;s probably something that will only happen to people installing very old hardware with drivers from over 10 years ago. I consider that a backward compatibility win: It is great that it even works in Windows 10."</p>
 							
 						
 						</a>
@@ -96,22 +111,22 @@ https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you�
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/internetofshit/status/1405682888545349635">HBO Max accidentally sent an integration email test to users</a></h3>
+					<h3><a href="https://ij.org/press-release/north-carolina-board-tells-retired-engineer-he-cant-talk-about-engineering/">North Carolina tells retired engineer he can&#39;t talk about engineering</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27546017">
+						<a href="https://news.ycombinator.com/item?id=27559804">
 						
 							
-								<p class="story__comment_first line-clamp">"Amateur mistake, compared to my professional mistakes.I once wrote a bot that sent email within the company (100K+ employees). I kick-started the bot on a server remotely and only then discovered it&#39;s an endless loop. It required server admin rights to stop it, which I did not have.I couldn&#39;t immediately reach server admins so had to physically drive there. An hour or so later somebody helped me kill the process.The emails already sent could not be cleared out server-side, which meant that recipients had freezing email clients for over a week, unable to handle the volume, a typical 300K new emails per recipient. They had to Ctrl+A and Delete 100 emails, do this for the next 100, and so on, whilst not deleting real and useful emails.I pretty much destroyed email for those people.I don&#39;t just destroy things at scale though, also at home. Around the time we had our first home broadband internet connection, I set up a web server and just kept my PC running. Unknown to me, the web server software included an email server with open relay enabled by default.About 3 days later, my dad complained about the internet connection not working. The IPS detected the issue (millions of emails sent out via my home server) and gave us a red card, fully shutting us down, permanently."</p>
-							
-						
-							
-								<p class="story__comment_others">"Aww I’m feeling bad for the poor engineer who is saying “crap” a thousand times now, or is blissfully unaware that their day is about to get much worse.Once during a system upgrade we ran some scripts and they triggered emails to about 8,000 people before we realized it (would’ve been 150k people otherwise). The next day was all about clean up, sending an apology email etc.My mother had visited the next day and asked why I wasn’t hanging out and my son (6 at the time) said, totally unphased, “oh he can’t come now because he’s saying sorry to 8,000 people”Hope you get through it! These mistakes happen. Oh, and your test passed. :-)"</p>
+								<p class="story__comment_first line-clamp">"What a fascinating case. There are so many details in such a short articles that is each worth its own discussion!Let’s start with my personally theory that hopefully won’t color all of the conversation about the individual points. This guy pissed off some people and those people are using their petty power to make his life hell. It’s like the 10’s of thousands of people jaywalking without issue and then the homeless guy that gets arrested for jaw walking. We all know that’s not why he was arrested but the law is clear, he was breaking the law, and they enforced it. So the individual incident dots it’s I’s and crosses it’s t’s as long as you don’t bring up the dreaded ‘uneven enforcement’ issue which is at the heart of everything wrong with the law in America. I have no evidence for the theory but it makes sense with the multiple issues involving this guy mentioned in such a short article.Next interesting point. Is giving a speech about how to treat a broken bone considered ‘practicing medicine’? Who gets to decide the answer. Is a PHD candidate writing an exploration of the efficacy of the various methods for treating a migraine practicing medicine? What if he’s selling copies of his paper on the checkout counter at the drug store? I use medicine instead of engineering because I think it’s easier to discuss but the point should hold the same regardless of which licensed profession we are discussing.Shit I have to run but hope to return to this conversation to discuss the other fun questions raised."</p>
 							
 						
 							
-								<p class="story__comment_others">"Now imagine it didn&#39;t just say &#34;test&#34; or &#34;asdf&#34;.I still might sometimes put a funny/lighthearted twist on debugging logs that nobody outside the company would see, but I never put in swear words, condescending things, or anything else I wouldn&#39;t be okay with if it was accidentally logged in production.I fortunately did not have to make that experience myself, but I&#39;ve seen too many supposedly &#34;internal only&#34; messages turn uninternal."</p>
+								<p class="story__comment_others">"Texas may do a lot of crazy things when it comes to state government, but one thing I think we definitely got right is the Texas Sunset Commission (https://www.sunset.texas.gov/). Basically, all boards set up by the state government are automatically abolished every 10 years I believe unless the state legislature passes a law to continue the board.  So every 10 years the Sunset Commission evaluates agencies/boards about to expire and gives recommendations on if they should be merged, eliminated, etc.The whole idea is to prevent these little long-running fiefdoms from continuing indefinitely, where board members just become more concerned about their own power than their stated purpose.People being people it&#39;s not perfect, but it does go a long way to cut down on this type of abuse."</p>
+							
+						
+							
+								<p class="story__comment_others">"Of course it&#39;s corporate corruption of government that is driving this case.&#34;he is an engineer at heart and speaks up when he sees people make what he believes to be engineering mistakes. He has written letters to state and county governments and testified before a county commission. But Wayne’s troubles began when he when he agreed to help his son, Kyle, a North Carolina attorney, with a case about a piping system that allegedly flooded a few local homes&#34;If he were telling lies, he would be legally accountable to the individuals or companies that his lies harmed.  That would probably be an easy case to bring against him to stop him from telling lies.  But this approach of trying to silence him on grounds of not technically being an engineer shows plainly that he is telling enough truth that he wouldn&#39;t be accountable for lying and causing harm.Cases like this are probably common, although the methods of silencing vary from situation to situation.  While the US may not be as corrupt as many other countries, it still has a significant amount which ultimately harms the general public and certainly harms the few individuals that find themselves on the wrong side of a corrupt authority."</p>
 							
 						
 						</a>
@@ -124,22 +139,22 @@ https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you�
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.justingarrison.com/blog/2021-03-15-the-document-culture-of-amazon/">The Document Culture of Amazon</a></h3>
+					<h3><a href="https://morrick.me/archives/9368">Safari 15 on Mac OS, a user interface mess</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27545331">
+						<a href="https://news.ycombinator.com/item?id=27559832">
 						
 							
-								<p class="story__comment_first line-clamp">"When I joined, I was perplexed by this way of operating meetings. It surprised me greatly that people wouldn&#39;t want to read the doc at ahead, give it time for thinking and researching, and then come to the table feeling prepare to contribute to the best if your ability.Now, I understand and deeply appreciate this method. I believe it provides lots of benefits. It drives towards better docs that can be understood quickly by non-experts. When there are just a few minutes to review the doc, we don&#39;t have time to go digging for information on our own - the critical information must be provided in the material given. There will also be SMEs in the room who can clarify any shortcomings here. Because the audience of the docs is non-SMEs, it drives towards inclusion of other teams. From this, you get more diverse viewpoints, considerations, and experience. It also contributes towards cross-team awareness and education. It makes it much easier to participate as a contributor to the meeting while simultaneously less impactful when you don&#39;t. It let&#39;s us timebox our attention span - you won&#39;t accidentally spend hours rabbit-holing into a doc."</p>
-							
-						
-							
-								<p class="story__comment_others">"Amazonion here. The purpose of doc writing is for the author to dump their ideas and convey the critical pieces of information. It lets the reader consume the information at their pace, and re-read even after the meeting. The document starts the conversation and let’s the reader understand the problem, why it’s important, what things we have or have not considered, what trade offs have been made, and how we arrived at the conclusion or solution.There are many, many things Amazon does not get right. The document writing culture is probably one of our not so secret, “secret weapons”.At many companies I worked at, we had a PowerPoint or presentation driven culture. And the purpose of those meetings is to listen to the presenter, at the presenters pace. The meeting becomes about the presenter and what they think is important, as opposed to being about the reader. In presentation driven meetings, the presenter talks and questions actually distract from the presentation - often times presenters will bluntly ask for questions to be saved to the end.My own team has a strong culture of getting engineers to write, and help them write well. It’s not about perfect English, but it is about touching on the key points and letting readers comment and ask questions.Meetings without documents often go completely off the rails - especially because if the kinds of problems we’re solving. Without focus, meetings delve into tangents and branches off of those tangents. To be fair - this still happens if the document hasn’t been adequately prepared, but often because you find the document owner hasn’t fully thought through the problem or fully did their homework."</p>
+								<p class="story__comment_first line-clamp">"&gt; It seems as if the people in the design team are all working exclusively on 32-inch Apple XDR Pro Displays.Makes me think of the complaints in video game text over the past few years and how it had become so small as to be nearly unreadable on normal TVs at normal viewing distances. The natural assumption here is that the game devs were doing all their work inches away from large fancy monitors not thinking of the so-called 10’ experience most people use to consume the content.At least many console games now have text size sliders (with varying levels of usefulness).https://kotaku.com/the-year-in-tiny-video-game-text-2019-184..."</p>
 							
 						
 							
-								<p class="story__comment_others">"An ex-Amazon PM ‘promoted’ the silent reading culture in my previous company. Definitely brought a lot of benefits:- forced more senior / leadership members to read through and internalize the details. Reduces wasted time asking already answered questions.- we used google docs. Question and answers were posted as comments. This formed a log of the majority of the discussion. Less note taking needed.- allowed less assertive members to ask questions or give answers.The only drawback - the overwhelming silence at the start that I never really got over…"</p>
+								<p class="story__comment_others">"Why do browser updates keep fucking with the basic interface design? None of these changes are ever necessary.If designers need to justify their jobs, fine. They should design the interface layout with modular components that can be entirely customized by the user.IMO no user should ever be forced to use designs that are the product of meaningless fads in the design world."</p>
+							
+						
+							
+								<p class="story__comment_others">"I vehemently disagree that vertical space used is negligible.  Due to standard aspect ratios, the vertical space of the display is at a premium. 1920*1080 means you have 840 less vertical pixels than horizontal - it makes a lot of sense to me to try to reclaim some of that space for actual content instead of widgets."</p>
 							
 						
 						</a>
@@ -152,22 +167,23 @@ https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you�
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://factorio.com/blog/post/fff-366">TDD from the Factorio Team</a></h3>
+					<h3><a href="https://github.com/VitorVilela7/wide-snes">SNES – Super Mario World Widescreen</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27549143">
+						<a href="https://news.ycombinator.com/item?id=27554765">
 						
 							
-								<p class="story__comment_first line-clamp">"Two interesting takeaways:&gt; This is the beautiful thing about having a company that isn&#39;t on the stock market. Imagine you have a company that goes slower and slower every quarter, and then you confront the shareholders with the statement, that the way to solve it, is to do absolutely no new features for a quarter or two, refactor the code, learn new methodologies etc. I doubt that the shareholders would allow that. Luckily, we don&#39;t have any shareholders, and we understand the vital importance of this investment in the long run. Not only in the project, but also in our skill and knowledge, so we do better next time.This is reassuring the notion of what I think actually matters, what the real essence is of developing a product, may that be a piece of art and entertainment (like here) or a productivity tool etc.There are creators and there are consumers. We split them up by developers, designers, domain experts and so on, but what matters is that all the other participants, especially those who can exert power traditionally are not part of the essence and if not being careful and responsible, can easily add complexity and limitations that are entirely accidental and can even be harmful.This reminds me of the agile manifesto, modern UX approaches and other processes that are driven by creators, but are often and very unfortunately being bent over backwards to fit into hierarchical power structures.&gt; TDD actually is the constant fast swithing between extending the tests and making them pass continously. So as you write tests, you write code to satisfy them basically at the same time. This allows you to instantly test what you write, and mainly use tests as specifiation of what the code should acctually do, which guides the thought process to make you think about where you are headed to, and to write code that is more structured and testable from the very beginning.The important notion here is that TDD is not about tests and correctness, but about development. It continuously checks assumptions and explores the surrounding code, state and data until a sufficient solution is found.If we squint a little we can see how closely related TDD with REPL Driven Development is. In essence it is the same thing and even has similar results, where the tests or REPL code can be left as an artifact for further, likely historical understanding.We know now that neither is sufficient for a high degree of correctness, but they are certainly useful for understanding and development."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;d be curious to hear what kovarex thinks in 2-3 months.TDD is often sold as a fix-all solution, which is incredibly appealing to mgmt and quite fun for most programmers as a new paradigm, allowing for quick adoption.It also has its uses, especially in the enterprise space where requirements aren&#39;t often clear. But I don&#39;t know many good programmers that truly stick to the dogma after the honeymoon period. It becomes just another tool in your toolset.Uncle bob is a salesman, not a &#34;craftsman&#34;."</p>
+								<p class="story__comment_first line-clamp">"This is nuts. I didn&#39;t even know this would be possible.I can&#39;t remember -- does Super Mario World have any &#34;single-room&#34; fixed-width gameplay areas? I mean, it must, right?I&#39;m wondering how they addressed those, since making any room wider would change gameplay. I also can&#39;t help but wonder if being able to see a little bit further to the right would ever make anything easier? Or is the distance forward (to the right) fixed to the same value, so you&#39;re mostly just getting more visibility into where you&#39;ve already passed?The video and GitHub repo don&#39;t seem to explain it. But I&#39;m now super curious..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Every time a Factorio thread makes it to HN I feel like a fully recovered meth addict who suddenly has their old dealer knocking at their door:--Dealer: &#34;Hey? You there? I got some meth for you.&#34;Me: &#34;Go away! I don&#39;t want any!&#34;Dealer: &#34;Oh now don&#39;t say that. You remember how good it is? I know you do.&#34;Me: &#34;I can&#39;t, I can&#39;t afford it, the price is too high.&#34;Dealer: &#34;What? Come on, it&#39;s free! You already paid for it!.Me: &#34;I&#39;ll lose my job, I can&#39;t, just go away!&#34;Dealer: &#34;Your JOB? This IS your job. Open the damn door, THE FACTORY MUST GROW&#34;Me: ::cowers in the closet chanting please leave please leave please leave::--Also it was never good. It was more like a mind virus. Like the sort of problem or project at work you can&#39;t stop thinking about until it&#39;s done. Only with Factorio, it&#39;s never done. Never.My best defense against it are other video games I can stop &amp; start when needed. Or booting up my VPN connection and picking a work task from my back log until the cravings go away."</p>
+								<p class="story__comment_others">"I&#39;ve been a very happy patron of Vitor for months. I&#39;m elated that this project is finally out in the world.He has a framerate improvement patch for Starfox in the works that I am beyond excited about."</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh this is Vitor!
+They made a series of patches that allow games to utilize one of the SNES enhancement chips on various games. A fun example was using it in Super Mario World (notoriously minimal slowdown), where the enhancement reduced the slowdown from the end of level where the black circle encloses on Mario. That&#39;s actually a bit of slowdown rather than an effect."</p>
 							
 						
 						</a>
@@ -180,24 +196,22 @@ https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you�
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.reuters.com/world/asia-pacific/hong-kongs-apple-daily-newspaper-says-police-arrest-five-directors-2021-06-16">HK&#39;s Apple Daily raided by 500 officers over national security law</a></h3>
+					<h3><a href="http://adamcadre.ac/calendar/202105m.html">Life as a public school teacher in the San Francisco Bay Area in 2021</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27546138">
+						<a href="https://news.ycombinator.com/item?id=27560440">
 						
 							
-								<p class="story__comment_first line-clamp">"This is another nail in the coffin of the Hong Kong we knew and loved…I was a resident for many years, I witnessed the peaceful protests of 2014, I witnessed horrifying wanton violence in 2019, I witnessed the rapid destruction of the freest laissez faire city state in the world. Above all I feel great sadness for the people of Hong Kong.The CCP cannot tolerate any dissenting voices as a matter of preserving their total grip on power. It was an inevitability Hong Kong would be crushed and silenced although the world and Hong Kong was caught off guard by the speed at which this has occurred. I take some consolation with the G7&#39;s recent communique."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is tragic, the US, Japan, Canada, GB, AUS, the EU need to band together to counter China’s egregious rights abuses instead of solely pursuing their own business and national interests. They could all offer residency programs for the bright students and others that are currently suffocating there. China can’t punish all these countries together. If no one stands up Taiwan will be next to fall and then China would have unprecedented power by controlling the chip industry…."</p>
+								<p class="story__comment_first line-clamp">"In North America, teachers are grossly underpaid and their ability to discipline poor performance has been entirely eviscerated. It’s not just SF, look at what’s happening in Vancouver: https://nationalpost.com/opinion/rex-murphy-cutting-honours-...The problem is the administration: The board that sets the standards and the parents and politicians who sit on those boards.The solution is this: Ban anyone without a minimum teaching experience of x years from participating on boards, bring all teacher salaries up to comfortable middle-class in every district and give them back their authority in the classroom. Otherwise this downward slide into illiteracy will continue until North America is dominated by an idiot majority."</p>
 							
 						
 							
-								<p class="story__comment_others">"Feel truly bad for Hong Kong here.
-Sadly nothing will be done here by the west. 
-Let&#39;s not forget a &#34;social justice&#34; warrior LeBron James criticized an NBA owner for tweeting &#34;Stand with Hong Kong&#34; not too long ago. It&#39;s all about money in the west."</p>
+								<p class="story__comment_others">"&gt;Another thing I’ve discovered is that many students— not just a couple here and there, but several in every class— consistently use umlauts in place of quotation marks and acute accent marks in place of apostrophes.&gt;I don’t know how this happens— I had to do some poking around on character code tables just to figure out how to replicate the effect.Look at the Spanish Mexican keyboard layout: http://kbdlayout.info/KBDLA/It has the umlaut (actually diaeresis in a Spanish context I think) and acute accent mark pretty prominently available.Look at the Spanish Spain keyboard layout: http://kbdlayout.info/kbdspIt has them even more prominently available, right on the same key that an English American keyboard would have the single and double quote.I wonder whether the students&#39; families are from Spain or Mexico, and whether they&#39;re using the Spain vs the Mexico keyboard. I wonder how many people from Mexico use the Spain keyboard due to software confusion."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Another initiative headed for mandate status is a school policy that no assignment can receive a grade of less than 50%&gt; And my direct supervisor repeatedly demanded that I pace my classes for the benefit of the single student in each section who was struggling the mostI don&#39;t understand school.  Why do they do things like this?  Who actually thinks this is a good idea?  I&#39;ve never met anyone who does. How have we gotten to the point where standards are not allowed?"</p>
 							
 						
 						</a>
@@ -210,22 +224,22 @@ Let&#39;s not forget a &#34;social justice&#34; warrior LeBron James criticized 
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/streetcomplete/StreetComplete">StreetComplete: Easy to use editor of OpenStreetMap data</a></h3>
+					<h3><a href="https://robert.ocallahan.org/2021/06/spectre-mitigations-murder-userspace.html">Spectre mitigations murder userspace performance</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27549300">
+						<a href="https://news.ycombinator.com/item?id=27559795">
 						
 							
-								<p class="story__comment_first line-clamp">"If you like Street Complete, please consider sponsoring it on Libera Pay [0], Github Sponsors [1], or Patreon [2]. For the last year, it was funded by OSMF by a grant to help develop alternative OSM editors. This grant has come to an end so they no longer have funding other than donations.[0] https://liberapay.com/westnordost[1] https://github.com/sponsors/westnordost[2] https://www.patreon.com/westnordost"</p>
-							
-						
-							
-								<p class="story__comment_others">"I think anybody developing open source / collaborative commons software that targets non-technical users could learn some tricks from streetcomplete. It has managed to lower barriers to entry and seems to get many people engaged in what is quite a technical area. Some UI expert might be better able break it down but here is my braindump of some key factors:* at a basic level, generally smooth handling of drawing of a legible map and basic UI functions (esp. compared with some other foss openstreetmap apps, no need to name names :-)* considerably narrows down the map editing options. by presenting controlled choice lists the novice editor feels &#34;safe&#34;* uses simple and innocent gamification (scoreboards, &#34;unlocking&#34; websites etc)There are ofcourse glitches and indeed a keen openstreetmap enthousiast may &#34;outgrow&#34; it relatively quickly but assuming the devs get further support and build on the initial success it could be a reference point for highly usable open source apps targeting larger audiences"</p>
+								<p class="story__comment_first line-clamp">"`mitigations=off` in your GRUB_CMDLINE_LINUX_DEFAULT to disable Spectre/Meltdown mitigations, in case anyone is wondering. This page has a pretty decent write-up on it: https://leochavez.org/index.php/2020/11/16/disabling-intel-a...."</p>
 							
 						
 							
-								<p class="story__comment_others">"I can recommend installing this and opening it while you are bored on a walk somewhere through your city. The questions are very well phrased, come with intuitive pictures to help you answer.I&#39;m not sure how useful the edits are in practice but I&#39;ve contributed hundreds of questions about wheelchair-accessible  sidewalks, street lighting etc and hope that this is helping some people make better navigation decisions."</p>
+								<p class="story__comment_others">"Should we have a debate as to whether or not Spectre mitigations matter for some (or all) desktop computers?  I know that, theoretically, I could install a piece of software on my Linux box that is malware and could try to read my memory via those methods, but let&#39;s be honest - we&#39;re all mostly concerned with servers that run code for dozens or hundreds of different clients.I&#39;m a foil hat as much as the next - security is of the utmost concern to me, but for once I actually just don&#39;t care and would take the performance back on my local dev machine."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve made similar comments in the past but I think we’re just trying to predict too much about what programs are trying to do in hardware.I’d rather have simple hardware that is light on energy requirements and easier to understand. I don’t think software as an industry really has a “this chip isn’t fast enough problem”. Most of the real slowdowns anyone has in day to day performance has more to do with inefficient code than hardware anyways.Look at old game consoles (like a regular old PlayStation) and what they were able to render on what today would be laughably slow hardware. They could do it because developers learned the stack inside and out.I’m hopeful that the emergence of arm as a desktop/server competitor will help in some ways by putting enough pressure on companies like intel to really rethink some of their core stuff, but who knows."</p>
 							
 						
 						</a>
@@ -238,22 +252,23 @@ Let&#39;s not forget a &#34;social justice&#34; warrior LeBron James criticized 
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://quotulatiousness.ca/blog/2016/02/02/qotd-the-hair-dryer-incident/">The Hair Dryer Incident (2014)</a></h3>
+					<h3><a href="https://www.reuters.com/article/ctech-us-usa-semiconductors-congress-idCAKCN2DT29F-OCATC">U.S. senators propose 25% tax credit for semiconductor manufacturing</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27542217">
+						<a href="https://news.ycombinator.com/item?id=27561238">
 						
 							
-								<p class="story__comment_first line-clamp">"I personally have problems with doors, and stuff that should be locked. I can never be sure I locked properly.Totally did backtrack unreasonable distances just to check if I had closed the door.It&#39;s all fine when it&#39;s my door. Worst case scenario, I get robbed.However it&#39;s more of a problem when it&#39;s someone else&#39;s door. Worst case scenario, they get robbed, and that&#39;s a different story. Or pets get out...Obviously I can&#39;t take the door on my front seat... So my solution is to take a picture of me trying to open the door, a kind of proof that it&#39;s closed.And, would you know it, it works! When I get anxious, I pull out my phone and look at the pictures.It&#39;s getting better, actually. I believe I&#39;m fixing it slowly. Good riddance!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I remember a panel on a news program years ago where the one guest was a psychologist who was treating &#34;untreatable&#34; drug addicts by getting them &#34;hooked&#34; on running or weightlifting or martial arts.  They would stop drugs but would instead be doing martial arts for hours a day or running 20 miles every morning.  Then he would start treating the addiction personality and causes, but in many cases the patients would just stop coming and live three or more hours of every day in the gym.The other guests were various degrees of horrified.His patients went from literally living on the street as heroin addicts to doing 3 hour gym sessions and holding down a job; and his peers thought he shouldn&#39;t be allowed to practice.Recently I was reading a book on ADHD and the author was quite adamant that you could only be diagnosed with ADHD if your life was worse than  &#34;the norm&#34;.  In this view, if you have symptoms of ADHD but can, for instance, hold down a good job then by definition you don&#39;t have ADHD.  I deleted the book from my Audible account."</p>
+								<p class="story__comment_first line-clamp">"I know this is so different, but I can&#39;t help but think of the 1950&#39;s DoD Heavy Press Program[0]. I think about these special industrial monsters a lot when I read about semi fabs.In WW2 after examining the components from aircraft kills, german wing spars would often survive. It was discovered that Germany used unique forged alloy wing spars to achieve their excellent aircraft performance, perplexing allied engineers. These wing spars&#39; strength and weight is critical to the structural properties of modern air frames. Without them, jet air craft like the f-15 would have been impossible.Machining these advanced alloy parts proved difficult, expensive, error prone, and impossible to manufacture but a die forged alloy wing spar was stronger, lighter, cheaper and beyond the industrial capability of every allied nation. We did not have the metallurgical technology to create such a large forged alloy wing spar in 1945.After the war, the US and Soviets recovered designs for the extremely large press assemblies required for advanced air frames. In the 1950s, a huge national program was geared up to create absolutely massive Heavy Press machines. The Soviets had a massive 30,000lb press for these parts, and we created a couple of monstrous 50,000lb machines[1] that are still in operation today. These things are older than we are and still out there cranking out air frame parts today for modern air frames in 2021.Without this kind of national investment in this kind of unique manufacturing, we would be unable to fly without importing 747 parts from wherever they could be created.[0] https://en.wikipedia.org/wiki/Heavy_Press_Program
+[1] https://www.youtube.com/watch?v=iZ50nZU3oG8"</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve read most of Scott&#39;s blog posts and he rarely mentions OCD and when he does it tends to be &#34;this is what I think people with OCD experience&#34; and not &#34;this is what my patients have told me&#34; which leads me to believe that he is not an expert in OCD.I have OCD and it&#39;s ruined my life in ways that are hard to articulate. Which is why I can point out two good reasons why what&#39;s being described might not be a good idea. First, giving into compulsions just legitimizes them and reinforces the patterns that are central to OCD and can ultimately make things worse. Secondly, OCD has a habit of changing how it manifests. Sure, maybe the woman is no longer bothered by the hairdryer, but what happens when it becomes changes to worrying if the oven is on? She&#39;ll be right back where she started.I doubt that the anecdote actually happened as described. It&#39;s way too contrived, simplistic and borders on &#34;Psychiatrists hate her! Cure your OCD with this one simple trick!&#34;. Realistically, OCD is incredibly insidious and if it were that simple to cure then nobody would have OCD. What&#39;s described is, at best, a short-term fix and half the psychiatrists likely knew that such things rarely stick.I&#39;ve had the same thing happen to me more times than I can count. I think I found the silver bullet, a way to permanently defeat my obsessive thoughts. If I&#39;m lucky then it&#39;ll last a week before my OCD comes back in full force. But the truth is that you cannot directly fight OCD, it&#39;s like squeezing dough. When you clamp down in one spot, it just squirts out somewhere else. There&#39;s a quote that I think describes it perfectly &#34;To hate me is to give me breath, to fight me is to give me strength&#34;. Fighting OCD or giving into its demands is just falling into its traps. You only truly win when you reach a point where you don&#39;t respond to it."</p>
+								<p class="story__comment_others">"I wonder what the deeper thinking is here.So right now China consumes most of the world&#39;s semiconductors but only produces a modest fraction of them. China is going through a whole of society effort to expand its semiconductor sector in order to not be dependent on anything the US can cut off via sanctions. China will expand its semiconductor sector, regardless whether it is economical feasible, because it is a matter of national security.The countries that are going to be hurt by these US semiconductor subsidies are going be Taiwan, South Korea, Japan ... not China."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can we also offer tax credits to encourage making the next hardware innovation hub somewhere other than Phoenix, Arizona? I thought the southwest is being ravaged by the effects of climate change (120+ degree weather, massive droughts)"</p>
 							
 						
 						</a>
@@ -266,23 +281,22 @@ Let&#39;s not forget a &#34;social justice&#34; warrior LeBron James criticized 
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/organicmaps/organicmaps">Organicmaps: Android and iOS offline maps app for travelers, tourists, hikers</a></h3>
+					<h3><a href="https://reprieve.org/uk/2021/06/15/saudi-arabia-executes-mustafa-al-darwish-for-teenage-protests/">Saudi Arabia executes Mustafa al-Darwish for teenage protests</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27543012">
+						<a href="https://news.ycombinator.com/item?id=27535667">
 						
 							
-								<p class="story__comment_first line-clamp">"Ah, this is fantastic! OsmAnd is a staple in the open source OpenStreetMap client ecosystem, but its UI is so dated and slow. MAPS.ME was a much better client, with faster and prettier UI until they started monetizing the app in the last year or so (?). Glad to see this new fork of MAPS.ME in the same privacy-first and open-source spirit of earlier clients.Another OSM client that I&#39;ve recently fallen in love with is StreetComplete. Its UI is fantastic, though it is geared towards gamification of map metadata enrichment. I wish they would do a full OSM client using whatever technology its uses in the future. It&#39;s so slick and fast even on my old phone!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I would love to learn how the routing algorithm works. This is probably one of a few opensource-but-in-production implementation of such kind of algorithms. here seems no doc in the repo unfortunately.Still, it&#39;s very exciting to see they started from a &#34;Helicoptor Router&#34; [1] five years ago! The author clearly knew what they were doing.[1] https://github.com/organicmaps/organicmaps/commit/7123f71eec..."</p>
+								<p class="story__comment_first line-clamp">"I got some flack giving a presentation that mentioned civilian participation in my organisations business by Chinese companies. The US Admiral that I was talking to (the topic was innovation - so no secrets) railed about us collaborating with entities that were alien to our core values. I could not reply - without unemployment - but all the time I thought about US support for Saudi - where the Admiral undoubtedly had served, and what kind of core values does that demonstrate?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I have used maps.me until a few years ago but was never really happy with the performance of the bike routing algorithm.I&#39;ve switched to Osmand [1] and BRouter [2] (both available on F-Droid) and nerver looked back. BRouter on Android is a bit tricky to set up (you need to download routing tiles in addition to the map files through a really ugly UI), but once you&#39;re done it&#39;s the best bike navigator I can think of (and it&#39;s really fast).The BRouter profiles are highly customizable, check out Poutnik&#39;s repositories [3] for examples.
-Some of his profiles and many others con be tested on https://brouter.m11n.de/ (german).[1] https://osmand.net/[2] https://brouter.de/[3] https://github.com/poutnikl/Brouter-profiles"</p>
+								<p class="story__comment_others">"When I hear Saudi Arabia I always remember William Sampson, a Canadian citizen who was arrested while working in SA and tortured so badly he lost his mind for a time. Needless to say he confessed to everything countless times.https://www.youtube.com/watch?v=iNM-zZgNSM8https://en.wikipedia.org/wiki/William_Sampson_(author)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Like China, there is really nothing… Dissuading murderous governments like Saudi Arabia from changing their ways. They can execute children, they can harvest organs, in prison huge numbers of religious minorities, and really there’s absolutely nothing any of us can do about it. Short of war, there’s absolutely nothing that can be done."</p>
 							
 						
 						</a>
@@ -295,22 +309,22 @@ Some of his profiles and many others con be tested on https://brouter.m11n.de/ (
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://people.idsia.ch/~juergen/goedel-1931-founder-theoretical-computer-science-AI.html">1931: Kurt Gödel shows limits of math, logic, computing, AI</a></h3>
+					<h3><a href="https://www.bbc.com/news/world-us-canada-57442175">Troubled teens left traumatised by tough love camps</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27536974">
+						<a href="https://news.ycombinator.com/item?id=27557516">
 						
 							
-								<p class="story__comment_first line-clamp">"I appeciate how Schmidhuber puts focus on non-US-centric history of Deep Learning and modern AI.He sometimes overdoes these. Even when something is not related to Deep Learning and modern AI. He tries to push very narrow and one-sided views without much room for nuance.For example- &#34;Turing used his (quite inefficient) model only to rephrase the results of Gödel and Church on the limits of computability.&#34;He is trying to say that Turing did nothing new, his work is a mere extension of Godel&#39;s (!), and he only accounted for practical computational reality. That is not true.He goes on further by saying, &#34;Later, however, the simplicity of these machines made them a convenient tool for theoretical studies of complexity.&#34; Like, Turing and Church&#39;s work was only good for that. I digress. I believe that Turing&#39;s work is more seminal and paved the way for modern general computers.Another bit here says &#34;The formal models of Gödel (1931-34), Church (1935), Turing (1936), and Post (1936) were theoretical pen &amp; paper constructs that cannot directly serve as a foundation for practical computers.&#34;It is putting the works of Turing, Post, Church, and Godel all together. Like they are the same. I see the logic as they are all impractical, but they are different levels of impractical. Putting them all under one bracket like that makes no sense.I respect Schmidhuber a lot, but some of his behaviour is borderline childish which are more pronounced in his claims about AI history. You should be skeptical about what he says (and what anyone says).Despite all this, I did not know many things written in this article. I learned a lot and had fun reading it.I first read about Zuse in Isaacson&#39;s Innovators book. Did not know that he used a high-level language for a chess program. Fascinating. He is very underrated."</p>
-							
-						
-							
-								<p class="story__comment_others">"How can you leave out von Neumann from such a list?Also, I feel like Schmidhuber tends to be German-speaking-centric.And overall, acknowledging that this is his signature shtick and it&#39;s good to have a voice like this too, he does a lot of anachronistic reinterpretations of early discoveries in light of later results. It streamlines the story as if it was always headed towards the today, culling aspects that didn&#39;t pan out or magnifying aspects that were at the time more minor and not considered the central issue or angle."</p>
+								<p class="story__comment_first line-clamp">"I went to one of these places when I was 13. Same thing, picked up in the middle of the night, and sent to a wilderness program that turned into 18 months of boarding school.The school was burnt down by the students a few years after I left and I got a couple thousand dollars in a class action lawsuit when it came out that they were hiring unlicensed therapists and admitting students who should have been in intensive  psychiatric care and were an immediate danger to others around them.I look back on it as one of the most valuable experiences in my life, not because there was any validity to the program but because it just confronted me with a lot of intense challenges at a young age that really developed my critical thinking and mindset at a young age."</p>
 							
 						
 							
-								<p class="story__comment_others">"Veritasium recently released a very good video that explains Gödels incompletenes theorem such that even I could understand it: https://www.youtube.com/watch?v=HeQX2HjkcNo"</p>
+								<p class="story__comment_others">"My first thought: wow, the US is crazy, I’m glad they don’t have this in the UK! Then I remembered that I was at a famous boarding school for five years, the most miserable years of my life. Thirty years later I’m still coping with the aftereffects. I think of that place as a form of institutionalised child abuse, and frankly if someone pipebombed it, I would not shed a tear.One simple thing: it wasn’t authoritarian adults or teachers. If anything, they were AWOL. It was the students that really made each other’s life hell. Of course, we were teenagers. Much later, I stopped blaming the individuals and started blaming the institution.Here’s a tiny anecdote. One guy, who I think was genuinely evil, took psychology as a minor subject. As an experiment, he decided to drive another, younger, vulnerable pupil mad. Gaslighting him, messing with his head, that kind of stuff. And he succeeded!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I was sent to an “emotional growth boarding school” in the ‘90s. I wasn’t kidnapped but many of my schoolmates were. A few years later the department of education (can’t remember if it was state or federal) shut the school down after stories got out about the horrific things that were going on there. Kids forced to sit in corners for days at a time, ambulances not being called for kids who had very seriously self-harmed, strip searches (administered by other kids), physical restraints... I could go on. The place had a cult-like atmosphere that was centered on the headmaster and his weird homegrown therapeutic method.I had nightmares for years afterwards and still haven’t fully come to grips with what happened there."</p>
 							
 						
 						</a>

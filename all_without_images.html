@@ -36,6 +36,308 @@
 	</div>
 
 	
+	<div class="day__date">20 June 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://play.google.com/store/apps/details?id=gov.ma.covid19.exposurenotifications.v3&amp;showAllReviews=true">Massachusetts health notifications app installed without users’ knowledge</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27558500">
+						
+							
+								<p class="story__comment_first line-clamp">"I was reading about this yesterday and confirmed that I did not havegov.ma.covid19.exposurenotifications.v3 nor gov.ma.covid19.exposurenotifications installed. I turned off auto-updates in the Play store (Settings -&gt; Network preferences -&gt; Auto update apps -&gt; Don&#39;t auto update apps) and went to sleep. This morning I woke up with a cheerful notification that Google can help with COVID notifications and gov.ma.covid19.exposurenotifications.v3 installed -- the app was pushed overnight over explicit instructions NOT to update (sure, one can say auto-install != auto-update, but it is worrying that forced pushes can happen even with every single relevant UI switch turned off).adb logcat seems to have the following relevant lines:    06-19 09:27:54.481  1689  1990 I PackageManager: Integrity check passed for file:///data/app/vmdl1074248108.tmp
+    [..]
+    06-19 09:27:55.580  1689  5456 D PackageInstallerSession: Ignoring abandon after commit relinquished control
+    [..]
+    06-19 09:27:55.649  1689  2530 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:gov.ma.covid19.exposurenotifications.v3 flg=0x4000010 (has extras) } to com.google.android.packageinstaller/com.android.packageinstaller.PackageInstalledReceiver
+    (+ lots of other similar intents)
+
+After that the package immediately becomes active:    06-19 09:27:56.539  1689 13571 D ConnectivityService: requestNetwork for uid/pid:10450/30673 NetworkRequest [ TRACK_DEFAULT id=1249, [ Capabilities: INTERNET&amp;NOT_RESTRICTED&amp;TRUSTED Uid: 10450 AdministratorUids: [] RequestorUid: 10450 RequestorPackageName: gov.ma.covid19.exposurenotifications.v3] ]
+    06-19 09:27:56.540  1689  3625 D ConnectivityService: NetReassign [1249 : null → 102]
+    [..]
+    06-19 09:27:56.833  1689  3750 E JobScheduler.Background: App gov.ma.covid19.exposurenotifications.v3 became active but still in NEVER bucket
+
+So no, it is not just &#34;oh those people opted in and just forgot&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"It is obvious that we need better legislation to deal with all the new possibilities that technologies have opened.The installation of this app, even done with good intent, open a lot of questions on what should be possible or not to be done by government and corporations.When you get a device with pre-installed, uninstallable, or auto-installed apps. What are the rules?&gt; &#34;By enabling this service, you can be quickly notified if you’ve likely been exposed to the virus by another MassNotify user, allowing you to reduce risk to your loved ones, seek medical attention, and slow the spread in your community.&#34;In this case it seems that the same goal could have been better achieved by SMS that do not depend on the brand of your phone. The dependency on proprietary app stores and OSs seems a risk for the continuation of a free and reliable communications.The only thing that is impossible to achieve without an app is to allow the user to select contacts to whom send a notification. Corporations like Google, and Apple know the list of all your contacts. So, it seems that the intention of the app is to reduce friction and send notifications as easy and effortlessly as possible to avoid that procrastination causes people to delay the warning.But, instead of the silent install the government could have spend money in advertisement campaigns to assure a correct amount of installations. It costs money, but, people pay taxes so the government can engage on this type of initiative at a scale. This could have been a very good alternative, even if it means increasing the budged. Medical emergencies are worth the investing."</p>
+							
+						
+							
+								<p class="story__comment_others">"Fellow humans, there are alternatives! Your neck need not be under FAANG&#39;s boot! You don&#39;t even need to give up any functionality:CalyxOS: https://calyxos.org/
+Privacy-respecting Android distribution that replaces Google spyware with MicroG, so you can have your cake and eat it too. Most everything will work as you&#39;re used to, but it does still talk to Google to make that happen.GrapheneOS: https://grapheneos.org/
+Very much like Calyx, but extra-hardened and with no MicroG. No involvement with Google at all.LineageOS: https://lineageos.org/
+The successor to CyanogenMod, will work with many different phones. More privacy and control than stock Android.There are also many others: Sailfish, Replicant, eHardware-wise: CalyxOS and GrapheneOS run best on Pixel 3, 3a, 3XL, 4, 4a, 4XL, 5. The path of least resistance is to get one of these phones and run CalyxOS (if there is an app you need to use that needs Google services like Firebase Cloud Messaging...note that many that can use FCM will run fine without), otherwise run GrapheneOS.You can also buy a Librem 5 https://puri.sm/products/librem-5/
+If privacy and security and hacking are really important to you.Or a pinephone: https://www.pine64.org/pinephone/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://ntdotdev.wordpress.com/2021/02/06/state-of-the-windows-how-many-layers-of-ui-inconsistencies-are-in-windows-10/">State of the Windows: How many layers of UI inconsistencies are in Windows 10?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27556754">
+						
+							
+								<p class="story__comment_first line-clamp">"Disclaimer: I work at Microsoft, but not on Windows (and I deal with a SaaS at MSFT). I am a FreeBSD committer and help maintain FreeBSD&#39;s GNOME packages and (very recently) the graphics drivers.The reason why Windows is full of UI inconsistencies is (largely) because of one thing: backwards compatibility.While backwards compatibility has it&#39;s perks, it also means having lots of old code in Windows that can&#39;t be touched very easily without breaking compatibility, And that means many old UI elements may stay, that&#39;s a side effect.While desktop Linux/BSD isn&#39;t exactly well known for it&#39;s UIs, I found GNOME 3/40 to be more consistent UI-wise than Windows 10, being a user of GNOME 3 on FreeBSD at home (which I am typing this comment from), and helping port GNOME 40, while (unsurprisingly) using Windows 10 at $DAYJOB.But then GNOME, KDE, Apple, et al. is more willing to break things than Windows is. They aren&#39;t as bound to legacy compatibility, so old UI elements can be shed easily."</p>
+							
+						
+							
+								<p class="story__comment_others">"I like the Run dialog and the folder properties menu and others that have been untouched since the early days. Their utility has been proven and so much muscle memory has been built up. I can not possibly imagine a revision that could be done to them that would have more benefits than simply leaving them be.All of the Fluent/Metro designs have made things markedly worse. For example, check out the Metro control panel widget for selecting a default program for a file extension. It&#39;s a list view with 5 file extensions visible at a time, with no search. That&#39;s what I think of when I hear about a Windows UI update, and I&#39;d love to be proven wrong."</p>
+							
+						
+							
+								<p class="story__comment_others">"This issue is way overblown here on HN.In day-to-day usage, I have rarely been annoyed by these &#34;inconsistencies&#34;.The best example to illustrate this article is: Installing a driver with the Windows XP layer. That&#39;s probably something that will only happen to people installing very old hardware with drivers from over 10 years ago. I consider that a backward compatibility win: It is great that it even works in Windows 10."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://ij.org/press-release/north-carolina-board-tells-retired-engineer-he-cant-talk-about-engineering/">North Carolina tells retired engineer he can&#39;t talk about engineering</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27559804">
+						
+							
+								<p class="story__comment_first line-clamp">"What a fascinating case. There are so many details in such a short articles that is each worth its own discussion!Let’s start with my personally theory that hopefully won’t color all of the conversation about the individual points. This guy pissed off some people and those people are using their petty power to make his life hell. It’s like the 10’s of thousands of people jaywalking without issue and then the homeless guy that gets arrested for jaw walking. We all know that’s not why he was arrested but the law is clear, he was breaking the law, and they enforced it. So the individual incident dots it’s I’s and crosses it’s t’s as long as you don’t bring up the dreaded ‘uneven enforcement’ issue which is at the heart of everything wrong with the law in America. I have no evidence for the theory but it makes sense with the multiple issues involving this guy mentioned in such a short article.Next interesting point. Is giving a speech about how to treat a broken bone considered ‘practicing medicine’? Who gets to decide the answer. Is a PHD candidate writing an exploration of the efficacy of the various methods for treating a migraine practicing medicine? What if he’s selling copies of his paper on the checkout counter at the drug store? I use medicine instead of engineering because I think it’s easier to discuss but the point should hold the same regardless of which licensed profession we are discussing.Shit I have to run but hope to return to this conversation to discuss the other fun questions raised."</p>
+							
+						
+							
+								<p class="story__comment_others">"Texas may do a lot of crazy things when it comes to state government, but one thing I think we definitely got right is the Texas Sunset Commission (https://www.sunset.texas.gov/). Basically, all boards set up by the state government are automatically abolished every 10 years I believe unless the state legislature passes a law to continue the board.  So every 10 years the Sunset Commission evaluates agencies/boards about to expire and gives recommendations on if they should be merged, eliminated, etc.The whole idea is to prevent these little long-running fiefdoms from continuing indefinitely, where board members just become more concerned about their own power than their stated purpose.People being people it&#39;s not perfect, but it does go a long way to cut down on this type of abuse."</p>
+							
+						
+							
+								<p class="story__comment_others">"Of course it&#39;s corporate corruption of government that is driving this case.&#34;he is an engineer at heart and speaks up when he sees people make what he believes to be engineering mistakes. He has written letters to state and county governments and testified before a county commission. But Wayne’s troubles began when he when he agreed to help his son, Kyle, a North Carolina attorney, with a case about a piping system that allegedly flooded a few local homes&#34;If he were telling lies, he would be legally accountable to the individuals or companies that his lies harmed.  That would probably be an easy case to bring against him to stop him from telling lies.  But this approach of trying to silence him on grounds of not technically being an engineer shows plainly that he is telling enough truth that he wouldn&#39;t be accountable for lying and causing harm.Cases like this are probably common, although the methods of silencing vary from situation to situation.  While the US may not be as corrupt as many other countries, it still has a significant amount which ultimately harms the general public and certainly harms the few individuals that find themselves on the wrong side of a corrupt authority."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://morrick.me/archives/9368">Safari 15 on Mac OS, a user interface mess</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27559832">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; It seems as if the people in the design team are all working exclusively on 32-inch Apple XDR Pro Displays.Makes me think of the complaints in video game text over the past few years and how it had become so small as to be nearly unreadable on normal TVs at normal viewing distances. The natural assumption here is that the game devs were doing all their work inches away from large fancy monitors not thinking of the so-called 10’ experience most people use to consume the content.At least many console games now have text size sliders (with varying levels of usefulness).https://kotaku.com/the-year-in-tiny-video-game-text-2019-184..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Why do browser updates keep fucking with the basic interface design? None of these changes are ever necessary.If designers need to justify their jobs, fine. They should design the interface layout with modular components that can be entirely customized by the user.IMO no user should ever be forced to use designs that are the product of meaningless fads in the design world."</p>
+							
+						
+							
+								<p class="story__comment_others">"I vehemently disagree that vertical space used is negligible.  Due to standard aspect ratios, the vertical space of the display is at a premium. 1920*1080 means you have 840 less vertical pixels than horizontal - it makes a lot of sense to me to try to reclaim some of that space for actual content instead of widgets."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/VitorVilela7/wide-snes">SNES – Super Mario World Widescreen</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27554765">
+						
+							
+								<p class="story__comment_first line-clamp">"This is nuts. I didn&#39;t even know this would be possible.I can&#39;t remember -- does Super Mario World have any &#34;single-room&#34; fixed-width gameplay areas? I mean, it must, right?I&#39;m wondering how they addressed those, since making any room wider would change gameplay. I also can&#39;t help but wonder if being able to see a little bit further to the right would ever make anything easier? Or is the distance forward (to the right) fixed to the same value, so you&#39;re mostly just getting more visibility into where you&#39;ve already passed?The video and GitHub repo don&#39;t seem to explain it. But I&#39;m now super curious..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been a very happy patron of Vitor for months. I&#39;m elated that this project is finally out in the world.He has a framerate improvement patch for Starfox in the works that I am beyond excited about."</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh this is Vitor!
+They made a series of patches that allow games to utilize one of the SNES enhancement chips on various games. A fun example was using it in Super Mario World (notoriously minimal slowdown), where the enhancement reduced the slowdown from the end of level where the black circle encloses on Mario. That&#39;s actually a bit of slowdown rather than an effect."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="http://adamcadre.ac/calendar/202105m.html">Life as a public school teacher in the San Francisco Bay Area in 2021</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27560440">
+						
+							
+								<p class="story__comment_first line-clamp">"In North America, teachers are grossly underpaid and their ability to discipline poor performance has been entirely eviscerated. It’s not just SF, look at what’s happening in Vancouver: https://nationalpost.com/opinion/rex-murphy-cutting-honours-...The problem is the administration: The board that sets the standards and the parents and politicians who sit on those boards.The solution is this: Ban anyone without a minimum teaching experience of x years from participating on boards, bring all teacher salaries up to comfortable middle-class in every district and give them back their authority in the classroom. Otherwise this downward slide into illiteracy will continue until North America is dominated by an idiot majority."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt;Another thing I’ve discovered is that many students— not just a couple here and there, but several in every class— consistently use umlauts in place of quotation marks and acute accent marks in place of apostrophes.&gt;I don’t know how this happens— I had to do some poking around on character code tables just to figure out how to replicate the effect.Look at the Spanish Mexican keyboard layout: http://kbdlayout.info/KBDLA/It has the umlaut (actually diaeresis in a Spanish context I think) and acute accent mark pretty prominently available.Look at the Spanish Spain keyboard layout: http://kbdlayout.info/kbdspIt has them even more prominently available, right on the same key that an English American keyboard would have the single and double quote.I wonder whether the students&#39; families are from Spain or Mexico, and whether they&#39;re using the Spain vs the Mexico keyboard. I wonder how many people from Mexico use the Spain keyboard due to software confusion."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Another initiative headed for mandate status is a school policy that no assignment can receive a grade of less than 50%&gt; And my direct supervisor repeatedly demanded that I pace my classes for the benefit of the single student in each section who was struggling the mostI don&#39;t understand school.  Why do they do things like this?  Who actually thinks this is a good idea?  I&#39;ve never met anyone who does. How have we gotten to the point where standards are not allowed?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://robert.ocallahan.org/2021/06/spectre-mitigations-murder-userspace.html">Spectre mitigations murder userspace performance</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27559795">
+						
+							
+								<p class="story__comment_first line-clamp">"`mitigations=off` in your GRUB_CMDLINE_LINUX_DEFAULT to disable Spectre/Meltdown mitigations, in case anyone is wondering. This page has a pretty decent write-up on it: https://leochavez.org/index.php/2020/11/16/disabling-intel-a...."</p>
+							
+						
+							
+								<p class="story__comment_others">"Should we have a debate as to whether or not Spectre mitigations matter for some (or all) desktop computers?  I know that, theoretically, I could install a piece of software on my Linux box that is malware and could try to read my memory via those methods, but let&#39;s be honest - we&#39;re all mostly concerned with servers that run code for dozens or hundreds of different clients.I&#39;m a foil hat as much as the next - security is of the utmost concern to me, but for once I actually just don&#39;t care and would take the performance back on my local dev machine."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve made similar comments in the past but I think we’re just trying to predict too much about what programs are trying to do in hardware.I’d rather have simple hardware that is light on energy requirements and easier to understand. I don’t think software as an industry really has a “this chip isn’t fast enough problem”. Most of the real slowdowns anyone has in day to day performance has more to do with inefficient code than hardware anyways.Look at old game consoles (like a regular old PlayStation) and what they were able to render on what today would be laughably slow hardware. They could do it because developers learned the stack inside and out.I’m hopeful that the emergence of arm as a desktop/server competitor will help in some ways by putting enough pressure on companies like intel to really rethink some of their core stuff, but who knows."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/article/ctech-us-usa-semiconductors-congress-idCAKCN2DT29F-OCATC">U.S. senators propose 25% tax credit for semiconductor manufacturing</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27561238">
+						
+							
+								<p class="story__comment_first line-clamp">"I know this is so different, but I can&#39;t help but think of the 1950&#39;s DoD Heavy Press Program[0]. I think about these special industrial monsters a lot when I read about semi fabs.In WW2 after examining the components from aircraft kills, german wing spars would often survive. It was discovered that Germany used unique forged alloy wing spars to achieve their excellent aircraft performance, perplexing allied engineers. These wing spars&#39; strength and weight is critical to the structural properties of modern air frames. Without them, jet air craft like the f-15 would have been impossible.Machining these advanced alloy parts proved difficult, expensive, error prone, and impossible to manufacture but a die forged alloy wing spar was stronger, lighter, cheaper and beyond the industrial capability of every allied nation. We did not have the metallurgical technology to create such a large forged alloy wing spar in 1945.After the war, the US and Soviets recovered designs for the extremely large press assemblies required for advanced air frames. In the 1950s, a huge national program was geared up to create absolutely massive Heavy Press machines. The Soviets had a massive 30,000lb press for these parts, and we created a couple of monstrous 50,000lb machines[1] that are still in operation today. These things are older than we are and still out there cranking out air frame parts today for modern air frames in 2021.Without this kind of national investment in this kind of unique manufacturing, we would be unable to fly without importing 747 parts from wherever they could be created.[0] https://en.wikipedia.org/wiki/Heavy_Press_Program
+[1] https://www.youtube.com/watch?v=iZ50nZU3oG8"</p>
+							
+						
+							
+								<p class="story__comment_others">"I wonder what the deeper thinking is here.So right now China consumes most of the world&#39;s semiconductors but only produces a modest fraction of them. China is going through a whole of society effort to expand its semiconductor sector in order to not be dependent on anything the US can cut off via sanctions. China will expand its semiconductor sector, regardless whether it is economical feasible, because it is a matter of national security.The countries that are going to be hurt by these US semiconductor subsidies are going be Taiwan, South Korea, Japan ... not China."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can we also offer tax credits to encourage making the next hardware innovation hub somewhere other than Phoenix, Arizona? I thought the southwest is being ravaged by the effects of climate change (120+ degree weather, massive droughts)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://reprieve.org/uk/2021/06/15/saudi-arabia-executes-mustafa-al-darwish-for-teenage-protests/">Saudi Arabia executes Mustafa al-Darwish for teenage protests</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27535667">
+						
+							
+								<p class="story__comment_first line-clamp">"I got some flack giving a presentation that mentioned civilian participation in my organisations business by Chinese companies. The US Admiral that I was talking to (the topic was innovation - so no secrets) railed about us collaborating with entities that were alien to our core values. I could not reply - without unemployment - but all the time I thought about US support for Saudi - where the Admiral undoubtedly had served, and what kind of core values does that demonstrate?"</p>
+							
+						
+							
+								<p class="story__comment_others">"When I hear Saudi Arabia I always remember William Sampson, a Canadian citizen who was arrested while working in SA and tortured so badly he lost his mind for a time. Needless to say he confessed to everything countless times.https://www.youtube.com/watch?v=iNM-zZgNSM8https://en.wikipedia.org/wiki/William_Sampson_(author)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Like China, there is really nothing… Dissuading murderous governments like Saudi Arabia from changing their ways. They can execute children, they can harvest organs, in prison huge numbers of religious minorities, and really there’s absolutely nothing any of us can do about it. Short of war, there’s absolutely nothing that can be done."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bbc.com/news/world-us-canada-57442175">Troubled teens left traumatised by tough love camps</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27557516">
+						
+							
+								<p class="story__comment_first line-clamp">"I went to one of these places when I was 13. Same thing, picked up in the middle of the night, and sent to a wilderness program that turned into 18 months of boarding school.The school was burnt down by the students a few years after I left and I got a couple thousand dollars in a class action lawsuit when it came out that they were hiring unlicensed therapists and admitting students who should have been in intensive  psychiatric care and were an immediate danger to others around them.I look back on it as one of the most valuable experiences in my life, not because there was any validity to the program but because it just confronted me with a lot of intense challenges at a young age that really developed my critical thinking and mindset at a young age."</p>
+							
+						
+							
+								<p class="story__comment_others">"My first thought: wow, the US is crazy, I’m glad they don’t have this in the UK! Then I remembered that I was at a famous boarding school for five years, the most miserable years of my life. Thirty years later I’m still coping with the aftereffects. I think of that place as a form of institutionalised child abuse, and frankly if someone pipebombed it, I would not shed a tear.One simple thing: it wasn’t authoritarian adults or teachers. If anything, they were AWOL. It was the students that really made each other’s life hell. Of course, we were teenagers. Much later, I stopped blaming the individuals and started blaming the institution.Here’s a tiny anecdote. One guy, who I think was genuinely evil, took psychology as a minor subject. As an experiment, he decided to drive another, younger, vulnerable pupil mad. Gaslighting him, messing with his head, that kind of stuff. And he succeeded!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I was sent to an “emotional growth boarding school” in the ‘90s. I wasn’t kidnapped but many of my schoolmates were. A few years later the department of education (can’t remember if it was state or federal) shut the school down after stories got out about the horrific things that were going on there. Kids forced to sit in corners for days at a time, ambulances not being called for kids who had very seriously self-harmed, strip searches (administered by other kids), physical restraints... I could go on. The place had a cult-like atmosphere that was centered on the headmaster and his weird homegrown therapeutic method.I had nightmares for years afterwards and still haven’t fully come to grips with what happened there."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">19 June 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -53,12 +355,12 @@
 							
 						
 							
-								<p class="story__comment_others">"The most important line:&gt; 80% of organizations that paid the ransom were hit by a second attack, and almost half were hit by the same threat group.The same group!"</p>
+								<p class="story__comment_others">"Rudyard Kipling explained this:---But we&#39;ve  proved it again and  again, / That if once you have paid him the Dane-geld / You never get rid of the Dane.--- 
+https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you’ve just proven that you are a profitable target to hit."</p>
 							
 						
 							
-								<p class="story__comment_others">"Rudyard Kipling explained this:---But we&#39;ve  proved it again and  again, / That if once you have paid him the Dane-geld / You never get rid of the Dane.--- 
-https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you’ve just proven that you are a profitable target to hit."</p>
+								<p class="story__comment_others">"The most important line:&gt; 80% of organizations that paid the ransom were hit by a second attack, and almost half were hit by the same threat group.The same group!"</p>
 							
 						
 						</a>
@@ -142,7 +444,7 @@ https://www.poetryloverspage.com/poets/kipling/dane_geld.htm....By paying, you�
 							
 						
 							
-								<p class="story__comment_others">"An ex-Amazon PM ‘promoted’ the silent reading culture in my previous company. Definitely brought a lot of benefits:- forced more senior / leadership members to read through and internalize the details. Reduces wasted time asking already answered questions.- we used google docs. Question and answers were posted as comments. This formed a log of the majority of the discussion. Less note taking needed.- allowed less assertive members to ask questions or give answers.The only drawback - the overwhelming silence at the start that I never really got over…"</p>
+								<p class="story__comment_others">"Having witnessed this through a flood of incoming ex-Amazon folks I agree that it brings so much more content and focus on a meeting. It is amazing. The silence, the reading, the staying on topic (apart from tangents that sometimes need to be brought up, but are vulnerable to being just dismissed with the power of The Document) all helps to get the attention and feedback you need.The thing is though, that while the article mentions briefly challenges with the writing, it does not shine light on the hours and hours or reviews, rewrites and re-reviews when preparing the document. The endless and often times pointless arguments and bad blood between people on how to write a sentence so that it would be &#34;correct&#34; and every word and number counts. Arguments if a given word should be &#34;benefit&#34; or &#34;impact&#34;. If the word should be &#34;system&#34; or &#34;solution&#34;. It does not feel productive and I am not sure if counting the hours spent would actually add up classical &#34;hours wasted&#34; in a typical 10 person &#34;pointless meeting&#34;. And also when usually a piece of writing has some soul of the writer, in these documents they end up being soulless, blank format robotic texts only aiming to convincing the reader to fund your project or sell your idea over others. And that leads to quite an Amazonian culture that is a subject of many different articles.I just felt there was something omitted by OP. So while it has benefits, it does have a cost associated."</p>
 							
 						
 						</a>
@@ -513,7 +815,7 @@ Some of his profiles and many others con be tested on https://brouter.m11n.de/ (
 							
 						
 							
-								<p class="story__comment_others">"Thank $diety for emojis making sure most user facing code ends up handling extended code points correctly, and teaching devs about the multibyte encodings.I imagine in a world without them existing a lot of the non-ascii paths would not be regularly used."</p>
+								<p class="story__comment_others">"This reminds me of a game I made! Matching emojis to produce the given emoji prompt. I didn&#39;t use any complex math tho, and my list of combinations is arbitrarily made by hand.https://emojibang.com/"</p>
 							
 						
 						</a>
@@ -2626,292 +2928,6 @@ Of course, the issue is that for every 10,000 appalling, messy, featured-on-rott
 						
 							
 								<p class="story__comment_others">"I&#39;ve been a huge fan of Factorio since 2014.A huge fan of the game, the team, and the entrepreneurial adventure.Their willingness to share insights, every weeks, for 7 years is quite rare in the industry.It was also awesome to read the thought process behind each design decision alongside some nerdy story about C++ optimization.Factorio team, if you&#39;re ready this, thank you!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">10 June 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/technology/bosch-opens-german-chip-plant-its-biggest-ever-investment-2021-06-07/">Bosch opens German chip plant</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27441545">
-						
-							
-								<p class="story__comment_first line-clamp">"Bosch started the project way before chip shortage, around 2017 [1] and opening it right on schedule.  This is the second factory of this type, good foresight by Germans and EU.[1]https://www.reuters.com/article/bosch-factory/robert-bosch-t..."</p>
-							
-						
-							
-								<p class="story__comment_others">"1B is like three last-gen ASML machines, good start I guess, but chip manufacturing can easily absorb 10x of that.As I understand it, there are no plans to turn Europe into a chip leader, they just want to protect automotive supply chain."</p>
-							
-						
-							
-								<p class="story__comment_others">"I never realized Bosch was so big (77 billion euros in annual revenue). The corporate structure is also really interesting. 92% owned by charity, 7% by the bosch family, 0.01% by the this trust made up of old membership, family, and &#34;eminent people from the industry&#34;, but that last 0.01% has 93% of the vote.I&#39;m now curious how this all works in practice.https://en.wikipedia.org/wiki/Robert_Bosch_GmbH#Corporate_af..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.wsj.com/articles/if-you-sell-a-house-these-days-the-buyer-might-be-a-pension-fund-11617544801">If you sell a house these days, the buyer might be a pension fund</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27448175">
-						
-							
-								<p class="story__comment_first line-clamp">"https://archive.is/aBK10"</p>
-							
-						
-							
-								<p class="story__comment_others">"Here&#39;s why investors buy up houses: they know your neighbors will do the dirty work of artificially constraining the housing supply, which makes it a good investment.Here&#39;s one who comes right out and explains this:&gt; Meanwhile, local opposition to building is so commonplace and the approval process so cumbersome, time consuming, and expensive, even when a proposed project complies entirely with requirements, approvals are not forthcoming, at least in an expeditious manner and needed supply is simply not provided.  Recently I heard of a new acronym to add to my vocabulary: CAVE, Citizens Against Virtually Everything, to be added to NIMBYISM and BANANA (Build Absolutely Nothing Anywhere Near Anyone).https://www.clearcapllc.com/2021/04/27/q1-2021-clear-capital...Support groups like https://yimbyaction.org/ if you want to &#39;stick it to the investors&#39;. If there&#39;s a credible threat to build plenty of housing, they&#39;ll move on."</p>
-							
-						
-							
-								<p class="story__comment_others">"If only so many people didn&#39;t treat land and houses like investments, there wouldn&#39;t be such a disastrous hoarding problem. Henry George&#39;s Land Value Tax [1][2] seems like an obvious economic fix that would require a large fraction of the population to change how they think about land and natural resources, but most of them are invested in such a way (i.e. owning multiple houses on multiple parcels of land, often without renting anything out) that it is in their economic self-interest to block any such proposals. Although, I suppose this situation isn&#39;t unique. The world has long been doomed by coordination problems.[1] https://astralcodexten.substack.com/p/your-book-review-progr...[2] https://en.m.wikipedia.org/wiki/Land_value_tax"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bbc.com/news/world-latin-america-57398274">El Salvador makes Bitcoin legal tender</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27447757">
-						
-							
-								<p class="story__comment_first line-clamp">"&#34;Bitcoin is positioned to disrupt the remittances industry in El Salvador, estimated at about $5 billion annually. Most families in towns like El Zonte do not have bank accounts, and rely on services such as Western Union WU +0.5%, which take 5-10% in fees. The closest Western Union is approximately one hour by bus, requiring the recipient of the cash transfer to take the bus back with cash on hand, creating a safety issue.&#34; [0][0] https://www.forbes.com/sites/tatianakoffman/2020/07/14/this-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Amazingly shortsighted. The primary beneficiaries of this will be organised crime, who will now be able to wash the Bitcoin via El Salvador to convert it to dollars, which they can use to buy trade items and export the profits.The number one export of El Salvador is actually people. If they were concerned about remittance fees they could just set up a bank in the US with low fees, instead of getting kickbacks from OCGs and Western Union / Money Gram etc.El Salvador is set to be a big climate change loser, and every joule spent on bitcoin is bringing them closer to disaster.&#34;El Salvador has seen a steady increase in extreme events (storms, floods and droughts) during the last 30 years. The Pacific coastline is already experiencing rising sea levels and it is expected that 10–28 percent of the country’s coastal zone territory will be lost by the end of the century. Coastal areas, home to over 30 percent of the population, are highly vulnerable to the combination of sea level rise and El Niño events.&#34;https://www.climatelinks.org/resources/climate-risk-profile-...Coastal flooding risk is significant due to loss of mangroves.https://thinkhazard.org/en/report/75-el-salvador/CF"</p>
-							
-						
-							
-								<p class="story__comment_others">"To give some technical background: yes, using Lightning (as they seem to do) for affordable BTC payments is challenging for most. As far as I am aware that is why they rely on custodial solutions [1]. People hold their money with someone from their village they trust, which is not ideal but neither is being unbanked. Down the road I could easily see this trust being spread over multiple people using multisig wallets.The amazing thing about all this is that everyone can become a BTC &#34;bank&#34;. You need a bit of capital but orders of magnitude less than a normal bank would require, maybe 2k$ to get started of which you might spend 400$ on hardware and fees to open some channels. The trustless nature of lightning lets you and your users then join the global payment network without asking for permission from anyone and you can engage in commerce internationally.I think, while we are still early, that this is an awesome experiment. It will highlight the UX problems so we can fix them. Hopefully at some point all this will make sense to the average westerner too, so we can finally have a money not controlled by anyone (states, incumbent banks) again. But that might take a long time.[1] https://github.com/GaloyMoney/galoy#status-of-the-project"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=27447206">Tell HN: SMS-based two-factor authentication is not secure</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27447206">
-						
-							
-								<p class="story__comment_first line-clamp">"Your problem is not with SMS as a second factor though. (Unless you think the attacker had your password as well). It is with the use of SMS as a single recovery factor.The very things that make SMS a uniquely good second factor make it an awful only factor. Use of SMS for account recovery should in general (or at least for important accounts) have a delay (order of days) that allows the real user to intervene."</p>
-							
-						
-							
-								<p class="story__comment_others">"I lost my Microsoft account years ago. I still get emails from Microsoft stating that there&#39;s suspicious activity on the account. I got two just yesterday.Despite that, despite still having access to the email the account is on, I cannot recover the Microsoft account. Despite Microsoft notifying me that the account is still, years later to this day, being abused, cannot use any form of recovery. I cannot access the account with help from support or even after visiting a brick-and-mortar store.It&#39;s one big reason that I&#39;ve long since refused to purchase anything more from Microsoft and have ditched Windows.Good luck recovering your stuff."</p>
-							
-						
-							
-								<p class="story__comment_others">"As others have said, it is not that SMS 2FA is insecure; it is that thieves have figured out how to defeat it using SIM jacking and a bit of facebooking and googling.  It is now trivial to figure out your home town, your favorite pet, etc.  Also as others have said, the current alternatives have their problems.  What if you lose all your Yubi keys?  What if your phone was accidentally wiped and you never got around to backing it up?  You cannot prove you are you and so customer support cannot help you.  Google, Microsoft, and Apple are not known for helping consumers get themselves out of this catch-22.It is a mistake to ask consumers to protect, backup, and secure their digital lives themselves.  Consumers don&#39;t have the time or skills to keep up with the hackers.  If Apple, Google, ATT, Verizon etc. cannot provide digital security, this is an opportunity for someone else to step in.  My personal suggestion is this is a ripe opportunity for someone like the US Post Office or Department of Motor Vehicles.  Consumers would go to the US Post Office or DMV and purchase a Yubi key from them.  The additional value they add, is they can verify the identity of the consumers who is purchasing the Yubi key and replace the key if it is lost/stolen.  Similar to how they process driver licenses or passports.  This service is optional and would actually cost money.  I would gladly pay a monthly fee for this peace of mind."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.cnbc.com/2021/06/09/facebook-will-let-all-employees-who-can-work-remotely-to-request-full-time-remote-work.html">Facebook extends its work-at-home policy to most employees</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27453909">
-						
-							
-								<p class="story__comment_first line-clamp">"I am really curious to see where we&#39;ll be in a year, two, three down the line wrt remote/office/hybrid work at major companies.This forced experiment has had some surprising outcomes about the effectiveness of remote workplaces, but working from home for only a year, in pandemic conditions, is clearly not the same as indefinitely in normal times. But there&#39;s reason to think that may go even better, not worse; I am really curious to see how it plays out and glad more companies are continuing to let people work remotely."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve been back in my company&#39;s office in person (medium-sized tech company) for the last week with a small subset of employees before we all go back, and I&#39;ve become pretty convinced that these hybrid models will not go well. Even while wearing masks and social distancing, I feel far more connected to the others that work in the office, and whether it&#39;s fair or not, personal connection and trust play a huge role in collaborating effectively and deciding who gets what work, who gets promoted, etc. If everyone can choose whatever combination of remote and in-person they want, it seems impossible to me that there won&#39;t be extremely strong in-group/out-group effects that will cause big organizational problems for companies. But I&#39;m saying this as a young person excited to work in person, so maybe others (parents, those with long commutes) feel it&#39;s still worth it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I currently have 10 fully remote engineering jobs. The bar is so low, oversight is non-existent, and everyone is so forgiving for under performance I can coast about 4-8 weeks before a given job fires me. Currently on a $1.5M run-rate for comp
-this year. And the interviewing process is so much faster today, companies are desperate, it takes me 2-3hrs of total effort to land a new job with thousands to chose from."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://vivaldi.com/blog/vivaldi-4-0/">Vivaldi 4.0</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27445282">
-						
-							
-								<p class="story__comment_first line-clamp">"Vivaldi Mail? That took a while :-DVivaldi is developed by a team created by the former Opera founder and CEO. Vivaldi kind of tries to re-create the spirit of Opera, but I think it&#39;s going to be too hard to do it.For those who didn&#39;t use it, Opera was first a paid browser (which limited its reach), then an ad-supported browser (which again limited its reach). It then finally became a free browser but by then it was too late.It had its own, super fast, rendering engine (I forget its name, Presto?). It had a built in email client, feed reader, calendar (unfortunately with no Exchange or Gmail integration), a notes app, a powerful download manager and even a Bitorrent client. And a TON of features and UI flexibility.It was super compact, a marvel of engineering and UX design that managed to pack all those things in a package of about 5MB at the time, and you wouldn&#39;t even see or load the extra functionality like the email client if you didn&#39;t use it.Unfortunately with HTML5 and the Chrome-ification of the web, it couldn&#39;t keep up :-(Vivaldi tries to do the same on top of web techs and web techs just can&#39;t handle it. Web techs are almost as flexible but they&#39;re really slow and bulky.Still, I wish them luck."</p>
-							
-						
-							
-								<p class="story__comment_others">"I want to offer Vivaldi some praise, I switched to it as my main browser a few years ago, and it&#39;s been great. I had to look for a new browser when Firefox (that I had used since the Firebird days) kept breaking my settings and plugins with their updates. After yet another Firefox update I wasn&#39;t able to restore the browser to how I want it to be, so I tried Vivaldi.I&#39;m not even a big fan of the original Opera, but love Vivaldi&#39;s features such as easy screen splitting between two tabs and one-click actions to disable images or apply certain filters to a page. Picture-in-picture and pop-outs for media are also great, periodic tab reload is occasionally very useful.Ideally I&#39;d like to use a fully FOSS browser, but my patience with Firefox ran out, and Vivaldi is Chromium + custom open-source parts + closed-source UI layer. Good enough for me, though not ideal."</p>
-							
-						
-							
-								<p class="story__comment_others">"I switched to Vivaldi from Chrome earlier this year as I was uncomfortable with the level of Google integration in that browser.Vivaldi is based on Chromium and has lots of improvements over Chrome, like gestures out of the box, side panels, lots of clear options. And Chrome extensions work perfectly.
-I&#39;ve had no issues so far.The complexity of managing a browser engine that does what everyone expects requires humongous resources so I can understand the move to Chromium. As long as the google bits are removed and the extensions work, it&#39;s great to have an alternative to Edge and Chrome.I mostly use Firefox as my daily browser and nothing would make me abandon it but it&#39;s nice to be able to segregate your various professional/private persona using different browsers."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/grafana/grafana/releases/tag/v8.0.0">Grafana 8.0</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27433552">
-						
-							
-								<p class="story__comment_first line-clamp">"Over the years I&#39;ve evaluated multiple other solutions like Grafana but none of them came even near the feature set and simplicity of Grafana.Awesome work, huge thanks to all contributors."</p>
-							
-						
-							
-								<p class="story__comment_others">"A better list of new features in 8.0:https://grafana.com/docs/grafana/latest/whatsnew/whats-new-i...I like grafana.It&#39;s the de facto realtime graph consolidation platform where I work; if the thing you want to use for monitoring doesn&#39;t interact with grafana, you shouldn&#39;t bother trying to deploy it because the rest of the org will be blind to it."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is the first release under AGPL - feels like a major licensing change should be called out in the changelog."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/Foone/status/1058676834940776450">“It is 2018 and this error message is a mistake from 1974”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27426775">
-						
-							
-								<p class="story__comment_first line-clamp">"As I&#39;ve pointed out before, I think this problem didn&#39;t exist in 01974, or in CP/M at all, ever; I think CP/M was perfectly capable of creating files named AUX.H, or PRN.H, RDR.H, CON.H, LPR.H, etc.  IIRC, even CP/M PIP (which is what actually implemented the special device names) required the colon to indicate that you meant a device.  So if you wanted to print FOO.DOC on the printer in CP/M PIP you could say PRN: = FOO.DOC but not PRN = FOO.DOC.  You could also, I think, say B: = FOO.DOC to copy FOO.DOC onto drive B:.The problem was introduced, IIRC, in MS-DOS."</p>
-							
-						
-							
-								<p class="story__comment_others">"I knew what this was going to be as soon as I saw &#34;aux.h&#34; in the screenshot.Some years ago I was working on an embedded system that involved DisplayPort. For those unaware, DP&#39;s control channel is called AUX. One day, my new co-worker who used Windows asked me, who used Linux, why my AUX-related code wasn&#39;t checked in - which it most certainly was.And that, folks, is how I learned about this absurd property of Windows that exists to this day."</p>
-							
-						
-							
-								<p class="story__comment_others">"The thread inaccurately describes the limitation of these special names being on the &#34;OS level&#34; -- it&#39;s actually one layer down, in the DOS and Win32 subsystems. Windows NT doesn&#39;t throw fits about these file names if the subsystem you run under (see: POSIX, LXSS, OS/2) doesn&#39;t care about them. Cygwin can even override the Win32 behavior by just passing all its file handlers through the native NT API instead of the Win32 API."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.disgustinglyoptimistic.com/post/don-t-let-social-media-think-for-you">Don&#39;t let social media think for you</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27432355">
-						
-							
-								<p class="story__comment_first line-clamp">"The mob is a huge problem with Twitter (and adjacent social media), and the issue with a mob is purely that of its size. It&#39;s the size that makes the mob, and everyone who has ever considered chiming in to add their voice why so-and-so was bad should stop to think about whether the world really needs that additional voice. Each individual voice may be perfectly right. So-and-so may really have done wrong. But did they really do such wrong that the 10,000th voice is needed?I am ashamed to say I&#39;ve done it myself, back when I was on Twitter. My feed would start lighting up with some really Bad thing that so-and-so said -- and generally it was &#34;Bad&#34; -- and I&#39;d add my voice somewhere to that cacophony. Not necessarily writing to the Bad Person, but chiming in on someone&#39;s long thread.Now I look back and see I was another participant in the mob.Look, the author described in the post absolutely did herself no favors. Her book may have been great, but the way she interacted with people on social media was absolutely not. But being the 10,000th person to tell her that is never necessary. That&#39;s just wanting to join a mob, because mobs are fun, because you&#39;re all justified in this act together.Mobs are scary, because everyone thinks they are justified. A good friend of mine grew up in Kenya and recounted that when he was about nine, he saw a mob catch a thief. Joining in with everyone else, he took a wire and whipped the man. Next thing he knew, the crowd had put tires over the alleged thief and set him on fire. He has never forgotten the guilt he felt."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s not that the people who form a twitter mob don&#39;t think or &#34;let twitter think for them&#34;.It&#39;s that they actively enjoy hurting someone as a mob. They get a kick out of it, and it&#39;s not discouraged (as would be actually forming a mob out in the streets be). If anything, it&#39;s encouraging, and gives them not just the joy of kicking someone who is down, but also &#34;good person&#34; credits (because the one getting kicked is a bad person, of course).In other words, people are not mislead &#34;against their better nature&#34;: they are just encouraged to embrace their badness."</p>
-							
-						
-							
-								<p class="story__comment_others">"There are so many comments here blaming Twitter while blissfully unaware that HN fuels the exact same online outrage. Almost every day there&#39;s a &#34;&lt;company&gt; did bad thing to me&#34; article on the front page and people immediately pick up their pitchforks and join the mob. You cannot fix the problem without acknowledging that we are all part of it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://fragile-credences.github.io/scihub-proxy/">How to circumvent Sci-Hub ISP block</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27451844">
-						
-							
-								<p class="story__comment_first line-clamp">"By the way, Sci-Hub has stopped adding new articles to the database for a few months now (background: https://www.reddit.com/r/scihub/comments/mk46x4/scihub_v_els...).It would be great to develop a truly decentralised solution. Having a database of individual torrent links for each paper might be a start."</p>
-							
-						
-							
-								<p class="story__comment_others">"The way SciHub is being treated by governments is pretty infuriating. There&#39;s a tiny minority of people who have an interest in keeping SciHub off the internet, and they&#39;re generally neither the researchers who write the papers, nor those who want to read them. Despite this, the power of the state has been used repeatedly to keep SciHub inaccessible and limit their ability to get funding."</p>
-							
-						
-							
-								<p class="story__comment_others">"A few years back, frustrated with increasaed DNS blocking of Sci-Hub, I wrote a quick DNSMasq hack (haq?) to return Sci-Hub IPs for any &#34;sci-hub.&lt;domain&gt;&#34; possible.  The shins-n-grits factor of surfing &#34;scihub.elsevier.com&#34; were palpable.https://old.reddit.com/r/Scholar/comments/7m3uin/meta_if_you...As others have mentioned, Sci-Hub also maintains a Tor presence, and you can access the Onion link using the Tor browser (provided you can install that on your desktop or device).https://scihub22266oqcxt.onion"</p>
 							
 						
 						</a>
