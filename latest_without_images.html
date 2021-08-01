@@ -33,28 +33,32 @@
 	</div>
 
 	
-	<div class="day__date">31 July 2021</div>
+	<div class="day__date">01 August 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://amandamarieknox.medium.com/who-owns-my-name-93561f83e502">Who Owns My Name?</a></h3>
+					<h3><a href="https://josephg.com/blog/crdts-go-brrr/">Faster CRDTs: An Adventure in Optimization</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28007547">
+						<a href="https://news.ycombinator.com/item?id=28017204">
 						
 							
-								<p class="story__comment_first line-clamp">"It’s a really powerful article, and it’s hard to argue with any of it. What a nightmare it must be to have what happened to Amanda Knox happen to you. A totally innocent person, who was not only imprisoned for years for a crime she had nothing to do with, but also had her name dragged in the mud by the global press for years. To such an extent that most casual observers still think she had something to do with the crime.It’s clear that the filmmakers have no legal obligation to Knox (and she acknowledges as much in the article), but I think it is equally clear that they have a moral obligation to not slander her using a thinly veiled fictional character.It’s a shame too, because the real “Amanda Knox saga” would make for a much more interesting movie: what is it like to have your roomate murdered, your life destroyed, and your identity robbed from you by the global tabloid press? That’s the real Amanda Knox story."</p>
+								<p class="story__comment_first line-clamp">"About a decade ago, I implemented the Causal Tree CRDT (aka RGA, Timestamped Insertion Tree) in regular expressions using a Unicode string as a storage. Later we made a collaborative editor for Yandex based on that code.
+It used many of the tricks as described in the text, even the optimization where you remember the last insertion point. So I am terribly glad it all gets rediscovered.The code is on GitHub [1] There is also an article which might be a tough reading, so no link.
+Recently I greatly improved CTs by introducing the Chronofold data structure [2].
+Regarding that benchmark article, I spent many years in academia, so the quality of content problem is familiar to me. In other words, I don&#39;t take such articles seriously.
+CRDTs are fast enough, that is not a concern.[1]: https://github.com/gritzko/citrea-model[2]: https://arxiv.org/abs/2002.09511"</p>
 							
 						
 							
-								<p class="story__comment_others">"Fascinating article.  I thought she was exaggerating when she complained about people accusing her of being a media whore, until I scrolled down to the [flagged] [dead] and saw someone doing just that.But I don&#39;t think she has a choice.  In the past, it would&#39;ve been possible for someone in her shoes to choose obscurity.  In the past, the real Amanda Knox and the idea of Amanda Knox that exists in the collective unconscious of the media and media consumers would&#39;ve drifted apart.  Now, it&#39;s hard to imagine how that could happen.  Even if she invented a new identity and moved to a small town in Alaska (which would be a new kind of prison sentence in some ways), it&#39;d be newsworthy."</p>
+								<p class="story__comment_others">"On a meta-level, does anyone else think that the whole idea of writing a peer reviewed paper that is just a benchmark of different algorithms should be really rigorously reviewed before being accepted? Writing good benchmarks is hard, and so highly contextual that writing fair comparisons beteen algorithms (or data structures) is almost impossible unless you&#39;re an expert in all of the algorithms involved."</p>
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s interesting to me how the truth got lost, and how uninterested people are in the aftermath.  The real killer ended up with a sentence almost half the length of what Amanda Knox got.  And he is already out of prison.  Italy&#39;s justice system is very different from the US&#39;s, for better or worse."</p>
+								<p class="story__comment_others">"By the way, as someone who has published academic papers, if you&#39;re ever bothered about a paper or have some comments, don&#39;t hesitate to mail the authors. (Their e-mail addresses are always on the paper; especially target the first author because they have normally done the work.) We are happy to hear when someone has read our work and I at least would&#39;ve liked to have known if someone found a problem with my papers."</p>
 							
 						
 						</a>
@@ -67,56 +71,88 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.businessinsider.com/amazon-employees-number-1-of-153-us-workers-head-count-2021-7">1 out of every 153 American workers is an Amazon employee</a></h3>
+					<h3><a href="https://phiresky.netlify.app/blog/2021/hosting-sqlite-databases-on-github-pages/">Hosting SQLite Databases on GitHub Pages</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28009868">
+						<a href="https://news.ycombinator.com/item?id=28015980">
 						
 							
-								<p class="story__comment_first line-clamp">"I’m torn badly with Amazon. After read The Everything Store, and what has been written all over the place, Jeff Bezos is a massive turd. Employees are horribly treated, wages suppressed, and all sorts of terrible and abusive practices.Then it comes time for me to buy something. I needed a new pair of size 14 sneakers. I drove to Adidas, Footlocker, dicks, and a few other stores but I just couldn’t justify $100 sneakers that didn’t look like prison issued.Opened my Amazon app in my car after leaving the crowded mall, and find what appear to be a decent pair of shoes. FakeSpot agreed with the reviews, and I bought then for $35. They will arrive tomorrow.That kind of convenience is terribly addicting. I haven’t figured out the solution, but I remember what it was like when Walmart came to town, put others out of business, mistreated employees, etc. We were unable to stop it then, how the heck are we going to stop it now?So aside from “just stop buying from Amazon” what can we do ?"</p>
+								<p class="story__comment_first line-clamp">"Here&#39;s the original post https://news.ycombinator.com/item?id=27016630 
+This guy is a genius"</p>
 							
 						
 							
-								<p class="story__comment_others">"That makes Amazon #3, after the federal government and Walmart:     Entity        US Employees
-  1. US Government         2.7M
-  2. Walmart               1.6M
-  3. Amazon                1.0M
+								<p class="story__comment_others">"That&#39;s one lovely trick.If I may suggest one thing... instead of range requests on a single huge file how about splitting the file in 1-page fragments in separate files and fetching them individually? This buys you caching (e.g. on CDNs) and compression (that you could also perform ahead of time), both things that are somewhat tricky with a single giant file and range requests.With the reduction in size you get from compression, you can also use larger pages almost for free, potentially further decreasing the number of roundtrips.There&#39;s also a bunch of other things that could be tried later, like using a custom dictionary for compressing the individual pages."</p>
+							
+						
+							
+								<p class="story__comment_others">"I get this error on Firefox 90.0.2 on Debian 10. It works in chrome though.[error: RuntimeError: abort(Error: Couldn&#39;t load https://phiresky.netlify.app/world-development-indicators-sq.... Status: 0). Build with -s ASSERTIONS=1 for more info.]Other than that, is pretty awesome and exactly what I was hoping for."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://alinpanaitiu.com/blog/journey-to-ddc-on-m1-macs/">The journey to controlling external monitors on M1 Macs</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28011861">
+						
+							
+								<p class="story__comment_first line-clamp">"Apple seems to be making a lot of display related things difficult lately. This, and Display Stream Compression are two.Just as high refresh and HDR were becoming really mainstream, Big Sur completely broke what was working flawlessly in Catalina (and it has not been fixed as of either 11.5, or the Monterey betas so far - and by completely broke, I mean does not work, at all, for anybody, not just &#39;some edge case&#39;).With Catalina, my Mac Pro happily drove 2 27&#34; 4K monitors in 10 bit color at 144Hz.With Big Sur? I can run those same screens at 60Hz 10 bit, or 95Hz 8 bit.I guess I just need to get a Pro Display XDR..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Great write-up and a fun read.I was caught off guard by this note:&gt; the delivery guy called me about a laptop: the custom configured M1 MacBook Pro that costed as much as 7 junior developer monthly salaries has arrived!I tried the MacBook Pro configurator and could only get up to $2300 USD (excluding optional software like Logic Pro). I’m sure the price and taxation are higher in the author’s country, but I still don’t understand how that could cost the equivalent of 7 months of junior developer salary anywhere."</p>
+							
+						
+							
+								<p class="story__comment_others">"Yes why can’t a mac control the volume of an external monitor on usb c/display port/thunderbolt.
+It’s completely ridiculous when you think about it, that such a fundamental and important requirement for so many users, is completely missing, in 2021!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.openai.com/blog/triton/">Triton: Open-Source GPU Programming for Neural Networks</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=27985594">
+						
+							
+								<p class="story__comment_first line-clamp">"Folks might find the author’s research paper [1] while at Harvard more informative. This is a great high-level description, but if you want more detail, I recommend the paper.[1] https://dl.acm.org/doi/abs/10.1145/3315508.3329973"</p>
+							
+						
+							
+								<p class="story__comment_others">"A toy illustrative example, summing two arrays:  CUDA
+    c[i] = a[i] + b[i]
+    i += 1
 
-If Amazon continues to grow at current rates, it will surpass Walmart&#39;s figure within 2 years.Looking at these figures, it&#39;s evident that these three entities are far larger, wealthier, more connected, and likely more powerful than the vast majority of US cities, the vast majority of small countries in the world, and maybe even a few smaller US states."</p>
+  Triton
+    c[i:i+16] = a[i:i+16] + b[i:i+16]
+    i += 16
+
+The 16 in this example is the &#34;block size&#34;, and could be anything. But this notion of expressing computation over blocks of dense data seems to be the big difference from other approaches.A very exciting result of the incredible performance that Triton achieves, is the ability to fuse NN operations such as Matrix Multiply + LeakyReLU + Batch Norm. Previously, you needed to rely on cuBLAS for fast hand-written Matrix Multiply kernels, and then your LeakyReLU would need to read that result out of memory, and then your Batch Norm would read the LeakyReLU out of memory again.The ability to write very fast kernels, and especially being able to fuse them together, to avoid unnecessary memory round-trips is a big deal!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I’m not sure why everyone continually romanticizes brick and mortar retail. Its terribly inefficient, and wasteful of time, energy, space etc.Think of all the Walmart, Dicks, Big Lots parking lots and strip malls that could be converted into better space. Think of how much waste there is when you have to pack, unpack, stage and repack merchandise.Amazon’s distribution is a superior business model which is why it is popular. I’d also reckon that the carbon footprint per package is lower if you account for the driving that is required for more traditional shopping.I’d rather see more competition using a similar business model than a return to concrete strip malls full of big box retailers."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="http://static.wiki/">Static.wiki – read-only Wikipedia using a 43GB SQLite file</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28012829">
-						
-							
-								<p class="story__comment_first line-clamp">"Author of the referenced blog (and library) here. This is great!The full text search engine in SQLite is sadly not really good for this - one reason is that it uses standard B-Trees, another is that it forces storing all token positions if you want BM25 sorting, which is a huge overhead for articles as long as Wikipedia&#39;s.But that doesn&#39;t mean full text search isn&#39;t possible in a very efficient manner with statically hosted data! I wrote a proof of concept of making the Rust-based tantivy library work in the same way, which has a lot of internal things that can make the index much smaller and more efficient than SQLite&#39;s. It&#39;s also &gt;10x faster in creating the search index.Here&#39;s the demo also for Wikipedia: https://demo.phiresky.xyz/tmp-ytccrzsovkcjoylr/dist/index.ht...
-I&#39;m not sure if it&#39;s more efficient than the SQlite version in this form, but it definitely has more upward potential and is more fun to work with.And the corresponding draft PR: https://github.com/tantivy-search/tantivy/pull/1067I sadly haven&#39;t gotten around to working on it more and writing an article about it.Other people are also working on using this stuff to make Sci-hub and LibGen more available by using this in combination with IPFS for distributed and &#34;uncensorable&#34; hosting which is pretty awesome.Edit: Just realized that the OP demo only searches in article titles, while mine searches in full article contents by default. You can search in only the titles in my demo by querying `title:harry title:potter`"</p>
-							
-						
-							
-								<p class="story__comment_others">"Shocked to find out that this is very much a static website, it&#39;s &#34;merely&#34; downloading a small portion of the 43GB SQLite file in question with HTTP Range requests, and then it uses a WASM-compiled copy of SQLite to query the requested data. Very impressive."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m nervous on your behalf for your S3 bill, have you done napkin maths for how much this will cost to host, especially given the relative inefficiency of the autocomplete queries?A trick that might help: create a separate SQLite table containing just the article titles to autocomplete against. That might give you queries that use smaller ranges of the file."</p>
+								<p class="story__comment_others">"Unfortunate name clash with NVIDIAs Triton Inference Server: https://developer.nvidia.com/nvidia-triton-inference-server"</p>
 							
 						
 						</a>
@@ -129,32 +165,22 @@ I&#39;m not sure if it&#39;s more efficient than the SQlite version in this form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://phys.org/news/2021-07-exotic-particle-tetraquark.html">New exotic matter particle, a tetraquark, discovered at CERN</a></h3>
+					<h3><a href="https://www.reuters.com/technology/duolingo-valued-65-bln-shares-soar-debut-2021-07-28/">Duolingo reaches $6.5B valuation on day of IPO</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28008771">
+						<a href="https://news.ycombinator.com/item?id=27992500">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; The new particle contains two charm quarks and an up and a down antiquark. Several tetraquarks have been discovered in recent years (including one with two charm quarks and two charm antiquarks), but this is the first one that contains two charm quarks, without charm antiquarks to balance them.This is not the first time a tetraquark has been measured, but instead it&#39;s the first time a tetraquark with two charm quarks and no charm antiquarks. That&#39;s still nice work, but I was initially confused by the headline (&#34;didn&#39;t they discover those already?&#34;)."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Quarks are the fundamental building blocks from which matter is constructed.&#34;I sometimes wish would include &#34;In our current model&#34;,
-&#34;We now think that&#34;, or some other qualifier.Such absolute statements have been made frequently prior to our current understanding.I have no special knowledge to lead me to believe that quarks are not the end all of parties.But I was happy with atom being the fundamental thing, 
-and then electrons, neutrons, protons were the thing as well.The other day I read about Fractons &#34;quasiparticles or Partial Particles&#34;, so now I have to figure those out as well.I have lost track if the graviton has been found yet.
-I dont think it has.From a purely layman&#39;s sense of esthetics the current model for particle physics is messy and a little spooky.I have an odd hobby.
-I collect old paper encyclopedias from pre 1970
-For every language that I speak.  
-It takes up MASSIVE amounts of space.The oldest I have been able to acquire on a limited budget
-Is 1880.It is always fun to track concepts over time.They all state what the world is like, and how it works as bombastic facts.Yet over time, most of it gets replaced or at least highly refined
-and things are removed.Particle physics is an active field with much still to learn or figure out.
-Let us keep that in mind."</p>
+								<p class="story__comment_first line-clamp">"I was a cryptologic linguist for the army and went through a 16 month course of 6-7 hours of classroom instruction per day M-F, native speaking instructors, tons of immersion, and a couple hours of homework each night and left still feeling like I hardly knew the language that I was supposed to be interpreting. Unless your major in college is a specific language, you probably won&#39;t achieve any sort of fluency in your target language from taking a course in it, either.Language learning is hard and a multifaceted thing that no single application is going to adequately prepare you for. Speaking and listening are related skills yet speaking is much harder than listening, and both are much harder than reading (for the vast majority of languages). Rote memorization is necessary. Immersion is necessary. Comprehensible input is necessary.Language learning apps like Duolingo sell the idea of learning a language which is an extremely attractive idea to a lot of people. They also make it a fun activity and incentivize engagement with humor and gamification. The problem is that you can&#39;t possibly become fluent in a language with an app like it and there isn&#39;t any single app that will.I suppose in the end Duolingo&#39;s valuation is more a reflection of people&#39;s desire to learn a language rather than people actually learning a language, though."</p>
 							
 						
 							
-								<p class="story__comment_others">"Two more technical treatments:https://cerncourier.com/a/new-tetraquark-a-whisker-away-from...
-https://lhcb-public.web.cern.ch/Welcome.html#Tcc"</p>
+								<p class="story__comment_others">"Honestly from using duolingo pretty heavily for a couple of years, attending language classes and doing my own individual study I&#39;ve found duolingo pretty useless. It&#39;s &#34;fun&#34; and gives one the sense of progress without really accomplishing much."</p>
+							
+						
+							
+								<p class="story__comment_others">"As an English speaker, DuoLingo didn’t seem that interesting to me. Then I listened to a podcast where the found Luis von Ahn explained why he started the company [1]. He grew up in Guatemala, and he noticed that learning English would essentially triple anyone’s earning potential in his country. Sure, I might never learn Chinese in DuoLingo, but if I could triple my income by doing it I bet I’d be much more motivated. English speakers that think this app is a toy aren’t the target market.Luis also invented the captcha and used it to digitize the full archive of the New York Times. I can’t speak to the quality of the instruction in DuoLingo, but I’m willing to bet that if there’s a computer-assisted approach to language learning that works, Luis is one of the people most likely to invent it.[1] https://www.npr.org/2020/05/22/860884062/recaptcha-and-duoli..."</p>
 							
 						
 						</a>
@@ -167,22 +193,22 @@ https://lhcb-public.web.cern.ch/Welcome.html#Tcc"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://daisyui.com/">DaisyUI – Tailwind CSS Components</a></h3>
+					<h3><a href="https://locusmag.com/2020/11/cory-doctorow-past-performance-is-not-indicative-of-future-results/">Past Performance is Not Indicative of Future Results (2020)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28004515">
+						<a href="https://news.ycombinator.com/item?id=28019094">
 						
 							
-								<p class="story__comment_first line-clamp">"We&#39;ve gone full circle - CSS components to inline CSS-in-HTML back to CSS components.But I actually think I will use this. A big problem with CSS is that you end up making overrides no matter how composable you make the classes. And some simple things (e.g. responsiveness) are unintuitive and / or annoying to do in CSS. Hence Tailwind&#39;s &#34;CSS-in-HTML&#34; mini classes. But that doesn&#39;t fill the core purpose of CSS, bigger general-purpose classes to avoid repetition. Combine the two (general classes + mini classes for slight case-by-case fixes) and you get the best CSS experience I&#39;ve seen so far (at least I think, I haven&#39;t tried it yet)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I’m not saying this is ugly but the visual execution of some of these components is poor. No good usage of padding in some examples, poor ratios between the typography and the containers, inconsistent use of different line widths and border radius, weird and incosistent design choices in spacing and proportions…I mean. This looks alright and it will certainly make any UI look pretty decent, but the execution is not superb like the actual TailwindUI library which is incredibly well thought from a visual design perspective. Those components are perhaps less shiny than these but they are incredibly functional and way more intentional.This is a good effort though and I hope to see it improving."</p>
+								<p class="story__comment_first line-clamp">"&gt; I am an AI skeptic. I am baffled by anyone who isn’t. I don’t see any path from continuous improvements to the (admittedly impressive) ‘machine learning’ field that leads to a general AI- I share the skepticism towards any progress towards &#39;general AI&#39; - I don&#39;t think that we&#39;re remotely close or even on the right path in any way.- That doesn&#39;t make me a skeptic towards the current state of machine learning though. ML doesn&#39;t need to lead to general AI. It&#39;s already useful in its current forms. That&#39;s good enough. It doesn&#39;t need to solve all of humanity&#39;s problems to be a great tool.I think it&#39;s important to make this distinction and for some reason it&#39;s left implicit or it&#39;s purposefully omitted from the article."</p>
 							
 						
 							
-								<p class="story__comment_others">"Ok, I&#39;ll guess I&#39;ll be the lone voice of dissent here. I don&#39;t like it. I think it goes against the concept of utility classes / functional CSS. As soon as you start making component-level classes, things begin to become opinionated and you lose the universality.My understanding of the functional CSS approach was that you&#39;d make a button component, and use the variety of &#34;atomic&#34; classes to style it. If you&#39;re using a &#34;btn&#34; class etc, it muddles the distinction of where the semantics live, and things get harder to reason about / debug."</p>
+								<p class="story__comment_others">"What a confused and muddled post, trying to touch on psychology, philosophy, and mathematics, and missing the mark on basically all three. I&#39;m quite bearish on AI/ML, but calling it a &#34;parlor trick&#34; is like calling modern computers a parlor trick. I mean, at the end of the day, they&#39;re just very fast abacuses, right? Let&#39;s face it: what ML has brought to the forefront -- from self-landing airplanes to self-driving cars, to AI-assisted diagnoses -- is pretty impressive. If you insist on being reductive, sure, I guess it&#39;s &#34;merely&#34; statistics.Bringing up quantitative vs qualitative analysis is just silly, since science has had this problem way before AI. Hume famously described it as the is/ought problem†. And that was a few hundred years ago.Finally, dropping the mic with &#34;I don&#39;t think we&#39;re anywhere close to consciousness&#34; is just bizarre. I don&#39;t think that any serious academic working in AI/ML has made any arguments that claim machine learning models are &#34;conscious.&#34; And Strong AI will probably remain unattainable for a very long time (I&#39;d argue forever). This is not a particularly controversial position.† Okay, it&#39;s not the same thing, but closely related. I suppose the fact–value distinction might be a bit closer."</p>
+							
+						
+							
+								<p class="story__comment_others">"What baffles me is the number of humans who think they are in the personal possession of some super special sacred form of magical and unexplainable intelligence. &#34;AI is just stats&#34; yes, indeed, but so is human intelligence. In many ways, AI from 2010 was already better than human intelligence.Three remarks:- The task many people seem to be benchmarking against is not just a measure of general intelligence, but a measure of how well AI is able to emulate human intelligence. That&#39;s not wrong, but I do find it amusing. Emulating any system within another generally requires an order of magnitude higher performance.- The degree to which human intelligence fails catastrophically in each of our lives, on a continuous basis, is way too quickly forgotten. We have a very selective memory indeed. We have absolutely terrible judgment, are super irrational, and pretty reliably make decisions that are against our own interests, whether it&#39;s with regard to tobacco use, avoidance of physical exercise, or refusal of life-saving medications or prophylactics. We avoid spending time learning maths and science because it&#39;s not cool, and we openly display pride in our anti-intellectual behaviours and attitudes. We&#39;re all incredibly stupid by default.- AI researchers need to work more closely with neuroanatomists. The main thing preventing AI from behaving like a human is the different macro structure of human NNs vs artificial NNs. Our brains aren&#39;t random assortments of randomly connected neurons: there&#39;s structure in there that explains our patterns of behaviour, and that is lacking in even the most modern AI. We can&#39;t expect AI to be human if we don&#39;t give it human structures."</p>
 							
 						
 						</a>
@@ -195,22 +221,25 @@ https://lhcb-public.web.cern.ch/Welcome.html#Tcc"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.bryanbraun.com/after-dark-css/">Berkeley Systems “After Dark” screensavers recreated in CSS</a></h3>
+					<h3><a href="https://rsms.me/inter/">The Inter typeface family</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28006679">
+						<a href="https://news.ycombinator.com/item?id=28009042">
 						
 							
-								<p class="story__comment_first line-clamp">"Beautiful. The nostalgia hit me very hard with this.I remember in the original version you had all sorts of options, and could even combine screensavers.For people who may not remember: screensavers used to be a neccessity as old CRT tubes would &#39;burn in&#39; an image if they held it static for too long - leaving a shadow of the static image permanently. Screensavers kicked in after a few minutes and displayed something dynamic so as to save your screen from burn in.In the 90&#39;s, having a cool custom screensaver was cool (around the same time that having a custom ringtone on your 3210 was cool), and you&#39;d pay money for software like After Dark."</p>
-							
-						
-							
-								<p class="story__comment_others">"https://uxfactor.ca/1151/I know one of the authors of Flying Toasters and sent him the link. Here&#39;s what he had to say:&#34;It&#39;s a rough approximation, which is super cool, but misses all of the nuance.&#34;You see, back in the day, there were very strong competitors to After Dark that had as much or more animations. The thing that set After Dark was a &#34;je ne sais quoi&#34; that felt like an elevated experience. Both the customers &amp; the competitors thought this was some sort of accident, or that the animations were important, but neither of these things was true.&#34;The secret was that people loved the nuance of interacting with the product (&amp; subtlety in the animations) and it was very carefully designed with cognitive science. I pushed the team very hard before I would let anything be released because I insisted on the nuance.&#34;"</p>
+								<p class="story__comment_first line-clamp">"Designer here: Inter is my go-to font - a free (and incredibly made!) cross between Helvetica and SF Pro! Rasmus himself has worked at his fair share of Big Important Brands (part of the original team at Spotify, worked at Facebook, NodeJS, Dropbox, Figma) [0] and it&#39;s kinda crazy to me how much Rasmus has affected me: I see the Figma icon he created every day, I see the Spotify branding he founded, I use Inter, it&#39;s kinda crazy.Inter is the kind of font that you use when you need something that just works. Not too fancy, not too simple, it&#39;s perfect for so many things. And it&#39;s free. And it&#39;s open source [1]. What&#39;s not to like![0] https://rsms.me/work
+[1] https://github.com/rsms/interEdit: it&#39;s also not a new thing, and not a &#39;new SF clone&#39; - it&#39;s been around since 2016[2].[2] https://rsms.me/work/inter/"</p>
 							
 						
 							
-								<p class="story__comment_others">"When I was a kid in the 90s learning to program, writing screen savers was one of the best ways to demo your &#34;skills&#34;. Also just something creative to do when you didn&#39;t really have a project in mind. I still think they&#39;re an underappreciated art form, and it&#39;s kind of disappointing that OSX only ships with a couple really basic ones. Apple should bundle in all the AfterDark modules (there were several releases).There was also an amazing set of screensavers which I don&#39;t remember the name of, but one of the set was called &#39;kaos&#39;, and a lot of them were based on fractals. If anyone recalls the name of that software...[edit] I found it! DarkSide of the Mac by Tom Dowdy. Brilliant. http://poubelle.com/DarkSideDocs.html"</p>
+								<p class="story__comment_others">"I&#39;ve loved using Inter for a long time, and I&#39;m glad they finally fixed some odd kerning/letter spacing issues between certain letters that always bothered me and prevented me from using it on projects.I think Inter is getting more popular (since it&#39;s free) and replacing other popular ones like Circular that cost an arm and a leg, and pretty &#34;look the same&#34; in the lay-person&#39;s eyes.There&#39;s a whole slew of similar, free typefaces now: Public Sans (https://public-sans.digital.gov/), Work Sans (https://fonts.google.com/specimen/Work+Sans), Metropolis (https://fontsarena.com/metropolis-by-chris-simpson/)"</p>
+							
+						
+							
+								<p class="story__comment_others">"We are also fans:
+For our everyday workhorse typeface, we exchanged Roboto for Inter. Roboto is a little bit narrow, and it turns out that Inter was developed by a Swede living in San Francisco, Rasmus Andersson, as a solution to a bunch of limitations he found with Roboto. It looked good and it was widely available free of charge. Tack själv, Rasmus!
+https://bcdevices.com/blogs/the-watershed/our-rebranding-eff..."</p>
 							
 						
 						</a>
@@ -223,22 +252,22 @@ https://lhcb-public.web.cern.ch/Welcome.html#Tcc"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://blog.ikuamike.io/posts/2021/netcat/">Netcat – All you need to know</a></h3>
+					<h3><a href="https://thedissenter.org/whistleblower-craig-murray-will-surrender-himself-for-prison/">Craig Murray will surrender himself for prison</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27973020">
+						<a href="https://news.ycombinator.com/item?id=28007015">
 						
 							
-								<p class="story__comment_first line-clamp">"nmap not only comes with ncat, but with nping, which I used to find incredibly useful for troubleshooting when I was a network engineer.  Especially with load balancing, wccp, and other things that change routes based on port.  I think it was based on a program called hping, but I haven&#39;t really followed that world in a while."</p>
-							
-						
-							
-								<p class="story__comment_others">"Besides quickly transferring files, which is mentioned in the article, one of the most useful things I&#39;ve done with netcat was when the company&#39;s cloud-based IM+email service went down and everyone in the office couldn&#39;t send messages to each other despite being in the same network. After some brief in-person discussion we used netcats for IM, and it worked quite well."</p>
+								<p class="story__comment_first line-clamp">"I knew nothing of this case until today but it seems like he breached an injunction against reporting the identity of complainants or information that could lead to their identification. From the little bit of reading I’ve done it seems pretty like an open and shut case (and I actually went into my reading expecting my be on Murray’s side).Can anybody explain why there is an injustice here? Almost every comment I see here in his favour gives no reason why this is unjust."</p>
 							
 						
 							
-								<p class="story__comment_others">"Bash has a /dev/tcp/$host/$port pseudo device which covers almost all use cases of Netcat just in case your machine has no Netcat installed.I still don&#39;t understand why such a device/file is not shipped with Unix/Linux by default so it would work with any shell or program."</p>
+								<p class="story__comment_others">"Craig Murray is a gem! I knew him for his reporting on the Assange trial [0]. The fact that they convicted him is absolute lunacy. I happen to agree with his interpretation of the conviction, because I don&#39;t see how anyone could reasonably convict him. Godspeed Mr. Murray.[0] https://www.craigmurray.org.uk/archives/2020/02/your-man-in-..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Title is misleading. He wasn&#39;t jailed for whistleblowing. He was jailed for apparently revealing identities of victims. Not sure about the specifics, I haven&#39;t been following the case and I&#39;m not familiar with it. Sounds like its pretty contentious. All I know is many places including the UK have a far more restricted concept of freedom of speech than the US does. So its probably a lot easier for them to jail journalists over what they publish"</p>
 							
 						
 						</a>
@@ -251,22 +280,22 @@ https://lhcb-public.web.cern.ch/Welcome.html#Tcc"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.axios.com/38-percent-remote-workers-work-bed-f8708125-a068-47ff-9519-bb7870011cd5.html">38% of remote workers work from bed</a></h3>
+					<h3><a href="https://www.theverge.com/2021/7/28/22598747/kindle-3g-network-shutdown-e-readers-no-internet">Amazon Kindles with 3G will start to lose cellular network access in December</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28003412">
+						<a href="https://news.ycombinator.com/item?id=27998058">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;ve been working remote for about 10 years.I&#39;ve had &#34;real&#34; offices.  I&#39;ve worked in open-plan offices.  I&#39;ve had a home office.  I&#39;ve worked from bed.There are tons of good ways to do it.Lately I swap between a kitchen table and a chair on my porch. I no longer use multiple screens, I&#39;ve just gotten really fast at swapping windows on my 15&#34; laptop; I&#39;ve gotten good at figuring out how wide my terminal window breaks should be and where my browser dev tools should sit.Surely there are more optimal ways of doing stuff.  Odds are that there is a Taylorist approach that would pull more productivity out of me.  But much like my typing speed (~50WPM) isn&#39;t really the limiting factor in my programming skill, screen real estate isn&#39;t a big factor in getting stuff done for me.But the big thing for me is that, in the end, it&#39;s fine for me to switch stuff up on a monthly or quarterly or yearly basis.I could never have done that when I was in an office.  I couldn&#39;t take 20 min and play banjo or accordion and come back to my problem with a fresh eye.  I couldn&#39;t put on my laundry and hang it up while I listen to other folks on the daily stand up.  I couldn&#39;t start my lunch cooking in the instapot while waiting for a script to finish running.It would take a hard, hard sell to get me back in an office, not matter how much real and legitimate enjoyment and utility other folks get in an office."</p>
-							
-						
-							
-								<p class="story__comment_others">"For the past 2 weeks, I&#39;ve been working from a treadmill. It has been incredible. I got a small under-the-desk treadmill for my standing desk and I walk at about 2.5km/hour and get around 20,000 steps in per day. It has improved my mood, my clarity, and also has improved my sleep (because I&#39;m tired of walking). I also find it easier to focus on tasks for some reason.If you can make a setup like this work for you, I highly recommend it. Your body will thank you in the long run.EDIT&gt;&gt; A few of you are asking about the model. I actually bought 2, one for myself and one for my partner, who also loves it.This one is mine https://www.amazon.com/gp/product/B07V7F8QYK. I got it when it had a $100-off coupon, so the price wasn&#39;t as steep. No real complaints so far, except you can&#39;t store it upright. I just roll it out of the way when I want to sit.The one for my partner is https://www.amazon.com/gp/product/B0895DRWVY. She likes it. It&#39;s a little smaller and can be stored upright and out of the way, which is nice. There have been complaints about the remote (and it only comes with 1), but the manufacturer claims to ship new remotes free of charge if yours breaks.They&#39;re both a little quirky with a very simple LCD screen. Supposedly mine has an app integration for step counting, but I just use my phone in my pocket. They both get the job done."</p>
+								<p class="story__comment_first line-clamp">"Now that it&#39;s closing, it seems safe to reveal - the SIM cards from these kindles made for the best emergency data SIM that money could (not) buy.Everything passed via an http proxy, with a key that could be easily extracted from the Kindle via SSH.The SIM worked globally - I&#39;d used it in China, Iran, Iraq, etc - all sorts of places that normally are not covered by providers.At some point others must have abused the system, because the unlimited data got capped to 150MB a month, but in a pinch, it was an incredible tool.Ditto with first generation Lime scooters that had unlocked global twillio SIMs ..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Survey seems pretty flawed and potentially biased. The survey was done by a contractor/home improvement company so maybe they used customer&#39;s as their population?While SWEs might need/want a good desk setup, many office jobs just don&#39;t need it. I&#39;m not sure people are really improvising but rather find sitting with a laptop is how they normally work anyway.And working in the bedroom can be misleading... it&#39;s often a private place you can put a proper desk.I WFH and went from living alone to having 3 roommates who all WFH. I have my bed, desk, and theater setup all in the (master bedroom). It&#39;s actually better than a 1bdr apartment, it&#39;s quieter (no leafblowers!) and I don&#39;t have dirty dishes right behind me.I have a small desk but a 4K 32&#34; monitor and a vertical 1080p one. A microphone on an arm and NO webcam; I use screen sharing 90% of the time but I don&#39;t need to see peoples faces. (I really wish video calling didn&#39;t compress &gt;1080p screens so much). If I need a webcam, I use my laptop.Maybe the pandemic changed things but you could get decent chairs for $20 at goodwill.I guess I&#39;m just skeptical that a majority of people have difficulty working from their home... You know the place you live and pick your own furniture."</p>
+								<p class="story__comment_others">"This is for cellular connections.&#34;Amazon’s Kindle e-readers with built-in 3G will begin to lose the ability to connect to the internet on their own in the US in December, according to an email sent to customers on Wednesday. The change is due to mobile carriers transitioning from older 2G and 3G networking technology to newer 4G and 5G networks. For older Kindles without Wi-Fi, this change could mean not connecting to the internet at all.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"Amazon is sending brand-new Kindles to replace the affected devices: https://i.imgur.com/NiRn1a9.jpg"</p>
 							
 						
 						</a>
@@ -279,50 +308,22 @@ https://lhcb-public.web.cern.ch/Welcome.html#Tcc"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.npr.org/2021/07/28/1021687616/pbs-kids-show-arthur-ending">&#39;Arthur,&#39; the longest-running kids animated series, is ending</a></h3>
+					<h3><a href="https://data.firefox.com/dashboard/user-activity">Firefox lost 50M users since 2019</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=27989775">
+						<a href="https://news.ycombinator.com/item?id=28015335">
 						
 							
-								<p class="story__comment_first line-clamp">"Grew up watching Arthur every morning before school well into middle school (have a sister who&#39;s three years younger). Arthur&#39;s family and life was more precisely like mine than any other I ever saw on TV growing up, and for that it will always be special. Standout episodes include the time the Brain sleeps over and Arthur gets mad about how clean and well-mannered he is, then goes to the Brain&#39;s house and finds out he&#39;s a slob, the lesson being he was just being a good guest, something childhood me took to heart; the Hurl-i-whirl ep; the ep where Arthur hits DW with the swing and gets in trouble (very relevant to my life with a little sister); and of course the seminal &#34;trapped overnight in the library&#34; ep."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;the Longest-Running Kids Animated Series in HistoryThere are at least 4 still in production animes which are all longerBut I guess &#34;history&#34; = US historySazea-san 1969 https://myanimelist.net/anime/2406/Sazae-sanAnpanman 1988 https://myanimelist.net/anime/1960/Sore_Ike_AnpanmanShin-chan 1992 https://myanimelist.net/anime/966/Crayon_Shin-chanNintama Rantaro 1993 https://myanimelist.net/anime/1199/Nintama_Rantarou"</p>
+								<p class="story__comment_first line-clamp">"I have contacted local authorities twice about anti competitive behavior from Chrome.If two - three other Norwegians do the same that should start to look like an earthquake ;-)Same if ten - twenty Germans or Brits or French do the same.I would mention:1. that some of their web properties (calendar and YouTube) have been intentionally incompatible with Firefox as evidenced by how well they work in Firefox if one changes how the browser identify itself.2. How they have pushed Chrome as a &#34;better browser&#34; on the front page of Google (were no one else have been allowed to advertise) to Firefox users since way before Chrome was anywere nearly as good as Firefox, making it both a lie and - more importantly - a massive abuse of dominance in one market to gain monopoly in another just like Microsoft did with IE.As we saw yesterday with AWS authorities are willing to punish rampant abuse if they have a good case and this definitely is one.Edit: since this comment is getting a lot of attention the relevant authority in Norway is Konkurransetilsynet with web address https://konkurransetilsynet.no(Finding the exact correct form on that site and for this purpose seems to be an art and/or science it seems but if you can&#39;t find any just submit somewhere and explain the situation.)It would be beautiful if everyone could post underneath with the address to the equivalent office in your jurisdiction."</p>
 							
 						
 							
-								<p class="story__comment_others">"I genuinely had no idea they were still making Arthur.I thought it was just a circle of reruns like how I watched Mr. Rogers as a kid.Seems to me like you&#39;d only need to make a couple seasons worth of any kids show, you&#39;ve got a continuing cycle of aging out and brand new audience."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bloomberg.com/news/articles/2021-07-30/amazon-given-record-888-million-eu-fine-for-data-privacy-breach">Amazon Gets Record $888M EU Fine over Data Violations</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28006989">
-						
-							
-								<p class="story__comment_first line-clamp">"https://archive.md/Uc2bg"</p>
+								<p class="story__comment_others">"I&#39;ve been using Firefox daily for over 15 years now.My experience with Firefox over the last 2-3 years in particular leaves me very disappointed and frustrated.The constant nonsense UI redesigns that come about with every new update. The instability, and ridiculous resources consumption. The slowness and slugishness.I want a browser that works, respects my privacy, stays out of my way and lets me get shit done. A browser built for professionals, by professionals. I want a consistent UI that remains stable over time. I&#39;m easily willing to pay for such a browser.Firefox used to be it, but I no longer feel like it is. Any suggestions for what to try next?"</p>
 							
 						
 							
-								<p class="story__comment_others">"Well, that&#39;s not chicken feed, even for Amazon. Still a bit light on detail?The original complaint is linked from https://www.laquadrature.net/en/personnal-data/ - it&#39;s in French https://gafam.laquadrature.net/wp-content/uploads/sites/9/20...The lack of publicity or even publicly available copy of the ruling is odd. I guess the choice of Amazon to reside in one of the secretive tax haven jurisdictions of Europe has the side effect that it also has a really secretive information commissioner."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s sad this article makes absolutely no attempt to describe what, exactly, Amazon did wrong."</p>
+								<p class="story__comment_others">"It&#39;s honestly a pity. Firefox is it perfect but the Internet is becoming worse because of chrome. Google is able to fast track any non standard Web tech and the hordes follow. Soon after, that become the standard. I don&#39;t want to  cheer for a broken browser, but only Safari is able to stop this madness now.Also, Firefox on the Desktop is really good and still let&#39;s you do so much more than chrome clones. But it suffers specially when using Google websites."</p>
 							
 						
 						</a>
