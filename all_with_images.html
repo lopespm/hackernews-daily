@@ -36,6 +36,415 @@
 	</div>
 
 	
+	<div class="day__date">08 September 2021</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/mgdm/htmlq">
+						<picture>
+							<source srcset="default_28441880.webp" type="image/webp">
+							<source srcset="default_28441880.png" type="image/png">
+							<img src="default_28441880.png" alt="Preview of 'Htmlq: like jq, but for html'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/mgdm/htmlq">Htmlq: like jq, but for html</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28441880">
+						
+							
+								<p class="story__comment_first line-clamp">"This is very nice!For reasoning about tree-based data such as HTML, I also highly recommend the declarative programming language Prolog. HTML documents map naturally to Prolog terms and can be readily reasoned about with built-in language mechanisms. For instance, here is the sample query from the htmlq README, fetching all elements with id get-help from https://www.rust-lang.org, using Scryer Prolog and its SGML and HTTP libraries in combination with the XPath-inspired query language from library(xpath):    ?- http_open(&#34;https://www.rust-lang.org&#34;, Stream, []),
+       load_html(stream(Stream), DOM, []),
+       xpath(DOM, //(*(@id=&#34;get-help&#34;)), E).
+
+Yielding:       E = element(div,[class=&#34;flex flex-colum ...&#34;,id=&#34;get-help&#34;],[&#34;\n        &#34;,element(h4,[],[&#34;Get help!&#34;]),&#34;\n        &#34;,element(ul,[],[&#34;\n       ...&#34;,element(li,[],[element(a,[... = ...],[...])]),&#34;\n   ...&#34;,element(li,[],[...]),...|...]),&#34;\n        ...&#34;,element(div,[class=&#34;la ...&#34;],[&#34;\n   ...&#34;,element(label,[...],[...]),...|...]),&#34;\n    ...&#34;])
+    ;  false.
+
+The selector //(*(@id=&#34;get-help&#34;)) is used to obtain all HTML elements whose id attribute is get-help. On backtracking, all solutions are reported.The other example from the README, extracting all links from the page, can be obtained with Scryer Prolog like this:    ?- http_open(&#34;https://www.rust-lang.org&#34;, Stream, []),
+       load_html(stream(Stream), DOM, []),
+       xpath(DOM, //a(@href), Link),
+       portray_clause(Link),
+       false.
+
+This query uses forced backtracking to write all links on standard output, yielding:    &#34;/&#34;.
+    &#34;/tools/install&#34;.
+    &#34;/learn&#34;.
+    &#34;https://play.rust-lang.org/&#34;.
+    &#34;/tools&#34;.
+    &#34;/governance&#34;.
+    &#34;/community&#34;.
+    &#34;https://blog.rust-lang.org/&#34;.
+    &#34;/learn/get-started&#34;.
+    etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"This looks very useful, big fan of all the ^[a-z]+q$ utilities out there. But as a user, I would probably want to use XPath[0] notation here. Maybe that is just me. A quick search revealed xidel[1] which seems to be similar, but supports XPath.[0]https://en.wikipedia.org/wiki/XPath
+[1]https://github.com/benibela/xidel"</p>
+							
+						
+							
+								<p class="story__comment_others">"Once upon a time I was using pup[0] for such thing as well as later I changed to cascadia[1] which seemed much more advanced.Comparing the two repos, it seems pup is dead, but cascadia may not be.These tools, including htmlq, seem to sell themselves as &#34;jq for html&#34;, which is far from the truth. Jq is closer to the awk where you can do just about everything with json. Cascadia, htmlq, and pup seem closer to grep for html. They can essentially only select data from a html source.[0] https://github.com/EricChiang/pup
+[1] https://github.com/suntong/cascadia"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://bonsaibrowser.com">
+						<picture>
+							<source srcset="default_28446147.webp" type="image/webp">
+							<source srcset="default_28446147.png" type="image/png">
+							<img src="default_28446147.png" alt="Preview of 'Show HN: Web browser to help programmers think clearly'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://bonsaibrowser.com">Show HN: Web browser to help programmers think clearly</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28446147">
+						
+							
+								<p class="story__comment_first line-clamp">"Hello, I’m Cameron and one of the two people working on the Bonsai web browser.We’re focused on making a web browser for programmers to improve their workflow. It helps you look up docs and search information. You can toggle it on with a hotkey and it can overlay on your IDE. Tabs are grouped by domain for easy organization. The history data structure is a tree which shows how pages are back-linked to each other and to spatial workspaces. Both open tabs and pages in your workspaces are just pointers to a node in your history tree!You can watch a 2 minute video walkthrough here https://www.loom.com/share/93c7c0012f514c37b58a42fa65badc88 or download it from our websiteHow did we end up here?Initially we wanted to make a citation manager because myself and a friend had an unconnected workflow moving research articles from Chrome -&gt; Zotero -&gt; Emacs org-mode. After talking to some other PhDs/postdocs the takeaway was that everyone has very different ways of doing research. This would mean that it would be impossible to make a citation manager that everyone would want to use.Later, a friend in industry mentioned that he had a hard time finding ‘cloud documents’ as part of his job. We then considered making a spotlight application to find and organize these documents. It turns out that this already been done and it seems that people actually just pull up their documents once at the beginning of the day anyway.We now think that the main problem is that web browsers are actually not currently suited for doing research. The current mixing of research type browsing with web-documents creates a mess and makes people think they want a ‘cloud file search’.What’s different?Instead of an add-on solution to Chrome which would create more noise, we are creating a fully functioning, organized way of managing information overload and keeping you on task as you go through your work day.What’s next?We are fixing up our Linux and Windows versions for public use."</p>
+							
+						
+							
+								<p class="story__comment_others">"Love it, this is the most innovative thing in the browser space for a long while. It&#39;s baffling to me how boring most &#39;new&#39; browsers are - most propositions are &#39;like X but with less friction on these 2 or 3 things&#39;.I hate that it&#39;s only for Mac so far, but glad to see others are on the way. I&#39;ve been thinking about picking up a cheap older mac for development work, though, and this is one more reason in favor."</p>
+							
+						
+							
+								<p class="story__comment_others">"This looks really great, something I could use and would pay for when polished but there&#39;s definitely a few issues for me at the moment:* Why go fullscreen and modal? I want to drag in links from docs, email, other browsers, have it side by side while reading PDFs etc. etc. this stops me from doing any of that* Please let me change the shortcut! I already have Option-Space bound.* Let me put the browser window anywhere I want when it&#39;s in the single page non-fullscreen mode, don&#39;t levitate it to where you think I want it* Unless I&#39;m missing something the process of opening a page then adding it to a workspace seems to be three clicks - open page, hit + (plus) button, select workspace, select workspace/inbox - need to make this one click, maybe just show the inboxes? This also seems clunky, I&#39;d much rather browse, drag that page to the workspace/inbox, continue browsing and adding further pages, then arrange all the pages in the workspace after i&#39;ve added all the links. Seems a faster workflow."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.theregister.com/2021/09/07/protonmail_hands_user_ip_address_police/">
+						<picture>
+							<source srcset="default_28443449.webp" type="image/webp">
+							<source srcset="default_28443449.png" type="image/png">
+							<img src="default_28443449.png" alt="Preview of 'ProtonMail deletes &#39;we don&#39;t log your IP&#39; from website after activist arrested'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.theregister.com/2021/09/07/protonmail_hands_user_ip_address_police/">ProtonMail deletes &#39;we don&#39;t log your IP&#39; from website after activist arrested</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28443449">
+						
+							
+								<p class="story__comment_first line-clamp">"Be careful when companies market themselves as Swiss or that due to them being located in Switzerland means there is some extra layer of security or privacy.Sure, it&#39;s a more stable country than many other countries in the world, but not much different from most EU countries for example. And privacy wise there is no difference.Be also aware of the fact that many companies market themselves as Swiss, but all it means is they have a head office in Switzerland due to tax reasons. In one example, it&#39;s a cloud storage company, they say on their marketing page and their about page that they are based in Switzerland and under Swiss law, but if you look at the legal pages the company you sign up with are actually based in Bulgaria. Their servers are based in Texas, USA and Luxemburg, Europe and their development team in Bulgaria."</p>
+							
+						
+							
+								<p class="story__comment_others">"The ProtonMail guys always said that unless they were 20 miles  from the littoral, in the sea side, they had to abide by national laws. So it was bound to happen.What makes me sad is how flimsy their entire premise (not necessarily &#34;promise&#34;) turned out to be: all it took was some minor rascal in France to hug the wrong tree (so to speak), and ProtonMail is in the open saying they can&#39;t even protect the IP address of their customers. From there, all it takes is for somebody to change a law in Switzerland and end-to-end encryption of the messages themselves will only be &#34;by default.&#34;I think there is a market for datacenters in open seas."</p>
+							
+						
+							
+								<p class="story__comment_others">"The expectation that Proton would be able to disobey the legal requests of their local authorities with impunity is unrealistic. Protonmail makes certain claims about privacy, particularly about encryption. They don&#39;t make any claims that they have the intention, or ability for that matter, to defy local authorities at their peril. Like Grugq said in one of his presentations (paraphrased): &#34;Don&#39;t expect your VPN company to do your jail time for you&#34;. I&#39;m neither for nor against Protonmail. I don&#39;t think they&#39;ve been dishonest. I think people have an unrealistic expectation of the service they offer. They offer additional privacy, not legal indemnity."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.npr.org/2021/09/06/1034556269/red-roulette-reveals-the-inside-of-chinas-wealth-making-machine">
+						<picture>
+							<source srcset="default_28439448.webp" type="image/webp">
+							<source srcset="default_28439448.png" type="image/png">
+							<img src="default_28439448.png" alt="Preview of 'Missing businesswoman urges ex-husband not to publish book critical of China'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.npr.org/2021/09/06/1034556269/red-roulette-reveals-the-inside-of-chinas-wealth-making-machine">Missing businesswoman urges ex-husband not to publish book critical of China</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28439448">
+						
+							
+								<p class="story__comment_first line-clamp">"In case anyone wants to buy a copy: https://www.amazon.com/gp/aw/d/1982156155"</p>
+							
+						
+							
+								<p class="story__comment_others">"Right. Has anyone here done a reasonable background check on the author, Desmond Shum, to verify this is not just a PR stunt? It is perfectly plausible that everything in the article is true... But if the kidnapping isn&#39;t real then I wouldn&#39;t trust the book either.After a quick search I&#39;ve only found some of the author&#39;s history in finance and which suggests he has the background to write this book. If the kidnapping is indeed real, then the book becomes an interesting read indeed."</p>
+							
+						
+							
+								<p class="story__comment_others">"what an evil government, instead of the officials “manning up” and admitting that they aren’t perfect, they sweep their dirty laundry under the bed in fear of being found out. not an example of the machoism they are now trying to push in chinese box offices. hearing about this corruption turns my stomach"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://mangadex.dev/mangadex-v5-infrastructure-overview/">
+						<picture>
+							<source srcset="default_28440742.webp" type="image/webp">
+							<source srcset="default_28440742.png" type="image/png">
+							<img src="default_28440742.png" alt="Preview of 'MangaDex infrastructure overview'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://mangadex.dev/mangadex-v5-infrastructure-overview/">MangaDex infrastructure overview</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28440742">
+						
+							
+								<p class="story__comment_first line-clamp">"I run an Alexa top-2000 website.  (Mangadex is presently at about 6000.)  I spend less than $250 a month.I have loads and loads of thoughts about what they could be doing differently to reduce their costs but I&#39;ll just say that the number one thing Mangadex could be doing right now from a cursory glance is to reduce the number of requests.  A fresh load of the home page generates over 100 requests.  (Mostly images, then javascript fragments.)  Mangadex apparently gets over 100 million requests per day.  My site - despite ostensibly having more traffic - gets fewer than half that many in a month.  (And yes, it&#39;s image-heavy.)A couple easy wins would be to reduce the number of images loaded on the front page.  (Does the &#34;Seasonal&#34; slider really need 30 images, or would 5 and a link to the &#34;seasonal&#34; page be enough?  Same thing with &#34;Recently Added&#34; and the numbers of images on pages in general.)  The biggest win would probably be reducing the number of javascript requests.  Somehow people seem to think there&#39;s some merit to loading javascript which subsequently loads additional javascript.  This adds a tremendous amount of latency to your page load and generates needless network traffic.  Each request has a tremendous amount of overhead - particularly for dynamically-generated javascript.  It&#39;s much better to load all of the javascript you need in a single request or a small handful of requests.  Unfortunately, this is probably a huge lift for a site already designed in this way, but the improved loading time would be a big UX win.Anyway - best of luck to MangaDex!  They&#39;ve clearly put a lot of thought into this."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve done things at scale (5-10K req/s) on a budget ($1000 USD) and I&#39;ve done things at much smaller scales that required a much larger budget._How_ you hit scale on a budget is one part of the equation. The other part is: what you&#39;re doing.Off the top of my head, the &#34;how&#34; will often involve the following (just to list a few):1 - Baremetal2 - Cache3 - Denormalize4 - Append-only5 - Shard6 - Performance focused clients/api7 - Async / background everythingThese strategies work _really_ well for catalog-type systems: amazon.com, wiki, shopify, spotify, stackoverflow. The list is virtually endless.But it doesn&#39;t take much more complexity for it to become more difficult/expensive.Twitter&#39;s a good example. Forget twitter-scale, just imagine you&#39;ve outgrown what 1 single DB server can do, how do you scale? You can&#39;t shard on the `author_id` because the hot path isn&#39;t &#34;get all my tweets&#34;, the hot path is &#34;get all the tweets of the people I follow&#34;. If you shard on `author_id`, you now need to visit N shards. To optimize the hot path, you need to duplicate tweets into each &#34;recipient&#34; shard so that you can do: &#34;select tweet from tweets where recipient_id = $1 order by created desc limit 50&#34;. But this duplication is never going to be cheap (to compute or store).(At twitter&#39;s scale, even though it&#39;s a simple graph, you have the case of people with millions of followers which probably need special handling. I assume this involves a server-side merge of &#34;tweets from normal people&#34; &amp; RAM[&#34;tweets from the popular people&#34;].)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Many manga fans have a love/hate relationship with mangadex. On one hand, it&#39;s provided hosting for countless hours of entertainment over the years. Their &#34;v3&#34; version of the site was basically perfect from a usability point of view, to the point that the entire community chose to unite itself under its flag.On the other hand, directly because of the above, their hasty self-inflicted take down earlier this year nearly killed the entire hobby. Many series essentially stopped updating for the ~5 months the site was down, and many more are likely never coming back again.The decision to suddenly take the site down for a full site rewrite feels completely inexplicable from the outside. (A writeup the above or the previous one[1], both of which read like they were written by a Google Product Manager, especially don&#39;t help as they conspicuously avoid any comment to the one question on everyone&#39;s mind: &#34;leaving aside the supposed security issues with the backend, why on earth also rewrite and redesign the entire front end from scratch at the same time?&#34;)[1] https://mangadex.dev/why-rebuild/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://mark.mcnally.je/blog/post/My%20%C2%A34%20a%20month%20server%20can%20handle%204.2%20million%20requests%20a%20day">
+						<picture>
+							<source srcset="default_28449162.webp" type="image/webp">
+							<source srcset="default_28449162.png" type="image/png">
+							<img src="default_28449162.png" alt="Preview of 'My £4 a month server can handle 4.2M requests a day'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://mark.mcnally.je/blog/post/My%20%C2%A34%20a%20month%20server%20can%20handle%204.2%20million%20requests%20a%20day">My £4 a month server can handle 4.2M requests a day</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28449162">
+						
+							
+								<p class="story__comment_first line-clamp">"When I launched my former bitcoin casino in 2011 (it&#39;s gone, but it was a casino where all games, even roulette tables were multiplayer, on a platform built from scratch starting in &#39;08), I handled all web requests through a server in Costa Rica that cost about $6/mo. Where I had a shell corporation for $250/year. Once the front end -- the bullet containing the entire casino code, about 250kb -- loaded, from Costa Rica, and once a user logged in, they were socketed to a server that handled the gaming action in the Isle of Man. Graphics and sounds were still sent from the Costa Rica server. I didn&#39;t have a gaming license in the IoM, though - that was around $400k to acquire legally. So I found a former IoM MP who was a lawyer, who wrote a letter to the IoM gov&#39;t stating that we didn&#39;t perform random calculations on their server, thus weren&#39;t a gambling site under IoM law. Technically that meant that no dice roll or card shuffle leading to a gambling win or loss took place on that server. So the IoM server handled the socketed user interactions, chat, hand rotation and tournament stuff. Also the bitcoin daemon and deposits/withdrawals. But to avoid casino licensing, I then  set up a VPS in Switzerland that did only one thing: Return random numbers or shuffled decks of cards, with its own RNG. It was a quick backend cUrl call that would return a fresh deck or a dice roll, for any given random interaction on the casino servers. The IoM server would call the Swiss server every time a hand was dealt or a wheel was spun; the user was still looking at a site served from a cheap web host in Costa Rica. And thus... yeah, I guess I handled millions of requests a day over a $6 webserver, if you want to count it that way."</p>
+							
+						
+							
+								<p class="story__comment_others">"People tend to severely underestimate how fast modern machines are and overestimate how much you need to spend on hardware.Back in my last startup, I was doing a crypto market intelligence website that subscribed to full trade &amp; order book feeds from the top 10 exchanges.  It handled about 3K incoming messages/second (~260M per day), including all of the message parsing, order book update, processing, streaming to websocket connections on any connected client, and archival to PostGres for historical processing.  Total hardware required was 1 m4.large + 1 r5.large AWS instances, for a bit under $200/month, and the boxes would regularly run at about 50% CPU."</p>
+							
+						
+							
+								<p class="story__comment_others">"What&#39;s the point of this post? OP is serving a file at 50req/sec. There is not even mention of a dB query. How is that able to relate to any kind of normal app?I guess that the post was written as an answer to the mangadex post [1]. Mangadex was handling 3k req/sec involving dB queries. It was not just a cached Html page.50req/sec for a Html file is super low which shows that a $4 month server cant do much actually. So yes this is enough for a blog, but a lot of websites are not blogs[1] https://news.ycombinator.com/item?id=28440742"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://digitalrightswatch.org.au/2021/09/02/australias-new-mass-surveillance-mandate/">
+						<picture>
+							<source srcset="default_28451066.webp" type="image/webp">
+							<source srcset="default_28451066.png" type="image/png">
+							<img src="default_28451066.png" alt="Preview of 'Australia’s new mass surveillance mandate'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://digitalrightswatch.org.au/2021/09/02/australias-new-mass-surveillance-mandate/">Australia’s new mass surveillance mandate</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28451066">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve lived in Australia for 10 years and really considering my familys future in this country. We are sleep-walking towards a very average future.An undiversified export economy, out of control house prices, a job-market primarily focused on two cities, a government intent on selling all public assets, very limited political interest in positive climate policies. The latter is simply addressed with &#34;technology will help us out when we need it to&#34;.It really feels sometimes that the only thing the average Australian cares about is the price of their property portfolio.Or maybe 3 months into the Sydney lockdown is finally getting to me."</p>
+							
+						
+							
+								<p class="story__comment_others">"CCP is literally cancer on all citizens living in currently free democracy. They show that it&#39;s possible to keep a huge population under control with current tools and technology. Our politicians show public disdain, but fuck are they being seduced. And Australia is just stepping into it step by step while asking it&#39;s citizens to trust the government because they seem to be at odds with CCP publicly.As someone who lives in New Zealand, this isn&#39;t the democracy we want our closest neighbour turn into.Please wake up and do something Aussies, take no bullshit, you can do it. Can laugh about it later, but this shit is serious."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve spent a bit of time in Australia. When I compared the caliber of people who worked in tech and venture to those in mining and law enforcement, it was night and day. There’s a TON of smart people at companies like Woodside, and lots of smart people at the Australian Federal Police (to the extent where the US and other countries rely on them for help in tricky technical situations). The tech and VC crowd seemed to get off on the size of a funding round, or how tight they were with the founders of Atlassian, or if they knew some guy from America with a “successful exit,” or other complete nonsense.With a dynamic like that, the law enforcement people are always going to point to the tech and venture people and say to politicians, “are you going to take orders from these clowns, or are you going to listen to us?” And now that you’ve got the climate activists antagonizing the mining companies, who are responsible for a very significant percentage of the economy, you’ve got two extremely savvy and powerful groups working together.If Australian tech people want their government to take them seriously, they’re going to have to act in a manner that is as professional as those at the AFP, and they’re going to have to hit people with an economic hammer that can match the force of mining. Yes, it’s not fair that things are this difficult, but that’s life."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/thelinuxEXP/status/1434952628337795072">
+						<picture>
+							<source srcset="default_28443244.webp" type="image/webp">
+							<source srcset="default_28443244.png" type="image/png">
+							<img src="default_28443244.png" alt="Preview of 'The Linux Experiments YouTube channel has been terminated'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/thelinuxEXP/status/1434952628337795072">The Linux Experiments YouTube channel has been terminated</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28443244">
+						
+							
+								<p class="story__comment_first line-clamp">"The Linux Experiment is probably my favourite linux-focussed YouTube channel. Nick has been doing absolutely fantastic work and his channel being permanently deleted would be an absolute travesty and a clear mistake. He is producing high quality, thoughtful, inoffensive content. Here&#39;s to hoping the channel is rightly reinstated ASAP, along with an apology and explanation from Google.Also, if you don&#39;t know the channel and want to check out his videos, you can still watch them on Odysee - https://odysee.com/@TheLinuxExperiment."</p>
+							
+						
+							
+								<p class="story__comment_others">"It appears to have been banned when the author offered an illegal sweepstakes.Contests and sweepstakes are carefully regulated in America, with slightly different regimes in all 50 states.  You should not run one unless you have gotten legal help with it!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Channel has been reinstated!https://twitter.com/thelinuxEXP/status/1435311971973406726I want to know what happened for Google to make such a serious mistake."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.theguardian.com/world/2021/sep/06/three-near-identical-boris-vishnevskys-on-st-petersburg-election-ballot">
+						<picture>
+							<source srcset="default_28444830.webp" type="image/webp">
+							<source srcset="default_28444830.png" type="image/png">
+							<img src="default_28444830.png" alt="Preview of 'Three near-identical Boris Vishnevskys on St Petersburg election ballot'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.theguardian.com/world/2021/sep/06/three-near-identical-boris-vishnevskys-on-st-petersburg-election-ballot">Three near-identical Boris Vishnevskys on St Petersburg election ballot</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28444830">
+						
+							
+								<p class="story__comment_first line-clamp">"Happened in Florida in 2020 as well...https://www.tampabay.com/opinion/2020/12/02/the-name-is-the-...https://www.washingtonpost.com/nation/2020/11/20/florida-ele...https://www.independent.co.uk/news/world/americas/us-politic..."</p>
+							
+						
+							
+								<p class="story__comment_others">"A friend of mine (and my successor as chairman of the Chicago Republican Party) filed a case in the U.S. Supreme Court this week over the same tactic right here in Chicago.https://www.chicagotribune.com/politics/ct-michael-madigan-c...If we win this thing, then filing sham candidates will become illegal in the U.S. It&#39;s an utterly corrupt practice."</p>
+							
+						
+							
+								<p class="story__comment_others">"This reminds me of the 2019 Canadian federal election. There was a new party in that election led by a man named Maxime Bernier called the People&#39;s Party. They&#39;re a far-right populist party and generally awful. Bernier himself was running in Beauce, Quebec, which he had represented through the Conservative party since 2006 before he had created the People&#39;s Party.But then the Rhinoceros Party, a satirical political party, announced a new candidate for Beauce named... Maxime Bernier. When asked about the confusion, the Rhinoceros Party&#39;s Maxime Bernier said, &#34;If you&#39;re not sure, then vote for both!&#34;.https://www.cbc.ca/news/canada/montreal/maxime-bernier-rhino...The Conservative candidate won with 22817 votes, the People&#39;s Party candidate came second with 16772, and the Rhinoceros Party candidate came last with 1072 votes and another 1147 were rejected. This left the People&#39;s Party with no seats in parliament."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.wsj.com/articles/college-university-fall-higher-education-men-women-enrollment-admissions-back-to-school-11630948233">
+						<picture>
+							<source srcset="default_28436836.webp" type="image/webp">
+							<source srcset="default_28436836.png" type="image/png">
+							<img src="default_28436836.png" alt="Preview of 'A generation of American men give up on college'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.wsj.com/articles/college-university-fall-higher-education-men-women-enrollment-admissions-back-to-school-11630948233">A generation of American men give up on college</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28436836">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.is/DFwi7"</p>
+							
+						
+							
+								<p class="story__comment_others">"“Young men get little help, in part, because schools are focused on encouraging historically underrepresented students. Jerlando Jackson, department chair, Education Leadership and Policy Analysis, at the University of Wisconsin’s School of Education, said few campuses have been willing to spend limited funds on male underachievement that would also benefit white men, risking criticism for assisting those who have historically held the biggest educational advantages.”So this is a direct result of the move away from color blind policies, to race based policies.&gt; Keith E. Smith, a mental-health counselor and men’s outreach coordinator at the University of Vermont, said that when he started working at the school in 2006 he found that men were much more likely to face consequences for the trouble they caused under the influence of drugs and alcohol.This is exactly what black students report as racism in school.Seems like evidence that race based policies are just racist.&gt; In 2008, Mr. Smith proposed a men’s center to help male students succeed. The proposal drew criticism from women who asked, “Why would you give more resources to the most privileged group on campus,” he said.
+Funding wasn’t appropriated, he said, and the center was never built.Obviously white men are not in fact privileged on university campuses.“Female students in the U.S. benefit from a support system established decades ago, spanning a period when women struggled to gain a foothold on college campuses. There are more than 500 women’s centers at schools nationwide. Most centers host clubs and organizations that work to help female students succeed.”Men are failing because it is the policy not to support them."</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of this is driven by narratives—A narrative that college isn’t worth it anymore. A narrative that (white) men are uniformly privileged and life is just easy for them. And a narrative that those men aren’t wanted by society any more.I’m not convinced that all those men need to go to college, but they clearly need something. They need to feel like they’re part of society. Nothing good can come of an entire generation that feels lost, without purpose, and unwanted."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">07 September 2021</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -67,7 +476,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Literally the only reason I stopped using my last two phones was that the security updates stopped streaming in. Even now they sit in a drawer, perfectly functional, abandoned by Google."</p>
+								<p class="story__comment_others">"It would be very nice if this happened.In my view, one other feasible good step would be to require companies to publish the source code of their phones, ie provide the option for people to download, compile and install the full sw stack. Like this even if manufacturers stop supporting their devices, people can step in and do it. At the very least it would make it easier to support devices than it currently is in third party ROMs"</p>
 							
 						
 						</a>
@@ -352,11 +761,11 @@ Support for public/private key pairs and passwords, with multiple recipients+ Th
 							
 						
 							
-								<p class="story__comment_others">"Just one of several good reasons why it&#39;s inaccurate to think that if you&#39;ve done nothing wrong then you have nothing to fear from the authorities."</p>
+								<p class="story__comment_others">"The Veteran never learned: Don&#39;t talk to the cops. &#34;Am I being detained? Am I free to go?&#34; Is all he needs to say.&#34;So when the officer asked him about carrying cash, Stephen said “yes.” When the officer asked to search his car, he said “yes.” And when the officer asked about the source of the cash, Stephen showed him over two years’ worth of bank receipts. Stephen did everything he was told, and answered every question he was asked.&#34;"</p>
 							
 						
 							
-								<p class="story__comment_others">"The Veteran never learned: Don&#39;t talk to the cops. &#34;Am I being detained? Am I free to go?&#34; Is all he needs to say.&#34;So when the officer asked him about carrying cash, Stephen said “yes.” When the officer asked to search his car, he said “yes.” And when the officer asked about the source of the cash, Stephen showed him over two years’ worth of bank receipts. Stephen did everything he was told, and answered every question he was asked.&#34;"</p>
+								<p class="story__comment_others">"I&#39;ve supported IJ for years and watched them fight these civil forfeiture cases onesey-twosey, but I really don&#39;t understand why they haven&#39;t gotten to SCOTUS and why something so blatantly against the constitution is allowed to stand (among many things, I know, but...)"</p>
 							
 						
 						</a>
@@ -432,7 +841,7 @@ Support for public/private key pairs and passwords, with multiple recipients+ Th
 							
 						
 							
-								<p class="story__comment_others">"Maybe after the shift from space-grade parts to commodity parts in (some) satellites, this will mean the same for parts of future mars missions. A Snapdragon 801 as used here is certainly much cheaper, easier to work with and powerful than anything space-grade."</p>
+								<p class="story__comment_others">"About the size: the blades are really huge &#34;in person&#34; (in VR :-)I added both the Perseverance Rover and Ingenuity to our VR puzzle game Peco Peco[0], and I was totally surprised both times by how bigger than I thought they were. (Players can assemble the puzzle for Ingenuity at full scale, and at both full scale and 1/3rd of scale for the rover)So if you have a VR headset, I highly suggest to find a way to discover Ingenuity at full scale in VR.[0] https://pecopecogame.com/"</p>
 							
 						
 						</a>
@@ -742,7 +1151,7 @@ My method is different. I do not rush into actual work. When I get an idea I sta
 							
 						
 							
-								<p class="story__comment_others">"So basically the only reason they were considering YouTube was to either deny it to their competition, or force their competition to pay more for it.It sounds like they expected it to die on a backroom shelf somewhere if they made the purchase. This seems anti-competitive behavior even during what might otherwise be viewed as their &#34;don&#39;t be evil&#34; phase. They didn&#39;t see it as valuable for their own needs, they just didn&#39;t want it to grow into competition itself or via another competitor and so considered buying it to let it die."</p>
+								<p class="story__comment_others">"I was at Google during this period, and did a lot of work with YT ads, 2009-2010. Their backend was still Python then; I have no idea about now.Memory: I was over there and someone was introducing me to a group of folks and said &#34;he&#39;s from Google.&#34; I spread my hands around and said &#34;we&#39;re ALL from Google.&#34;She said, &#34;No, this is YouTube.&#34;"</p>
 							
 						
 						</a>
@@ -1095,13 +1504,13 @@ They generally tell you 2022 will be tough maybe Q4 will ease up.Many of the maj
 							
 						
 							
-								<p class="story__comment_others">"&gt; the field is called computer security; not computer optimismI&#39;d like to go even further and propose the following terms:  * computer wishful thinking
-  * security by credulity
-  * zero-skepticism proof"</p>
+								<p class="story__comment_others">"&gt; Members of a hacking group linked to the Chinese government called APT 5 hijacked the NSA algorithm in 2012, according to two people involved with Juniper’s investigation and an internal document detailing its findings that Bloomberg reviewed. The hackers altered the algorithm so they could decipher encrypted data flowing through the virtual private network connections created by NetScreen devices. They returned in 2014 and added a separate backdoor that allowed them to directly access NetScreen products, according to the people and the document.Can we have more technical details regarding this? I guess some heavy math (number theory) is involved here but really intrigued how it was developed."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Members of a hacking group linked to the Chinese government called APT 5 hijacked the NSA algorithm in 2012, according to two people involved with Juniper’s investigation and an internal document detailing its findings that Bloomberg reviewed. The hackers altered the algorithm so they could decipher encrypted data flowing through the virtual private network connections created by NetScreen devices. They returned in 2014 and added a separate backdoor that allowed them to directly access NetScreen products, according to the people and the document.Can we have more technical details regarding this? I guess some heavy math (number theory) is involved here but really intrigued how it was developed."</p>
+								<p class="story__comment_others">"&gt; the field is called computer security; not computer optimismI&#39;d like to go even further and propose the following terms:  * computer wishful thinking
+  * security by credulity
+  * zero-skepticism proof"</p>
 							
 						
 						</a>
@@ -2309,19 +2718,15 @@ The only other hope is that the massive amount of money in ads and data collecti
 						<a href="https://news.ycombinator.com/item?id=28380661">
 						
 							
-								<p class="story__comment_first line-clamp">"Constructor | Machine Learning Engineer &amp; Data Scientist | Remote | Full Time | https://constructor.io/Constructor.io powers product search and discovery for the largest retailers in the world, like Sephora and Backcountry, serving billions of requests every year. The KPI optimization team plays a central role in implementing algorithms that optimize for business KPIs like revenue &amp; conversions. We focus on metrics over features, arming our ranking algorithms with powerful capabilities that bring value to customers in the way they care the most about.We are looking to fill 2 roles:* ML Engineer -- https://apply.workable.com/constructor-1/j/A85142CF46/    Push the limit of what’s possible in real-time personalization to users throughout their searching and browsing experience, making the impact of personalization transparent to business users. You will build and deploy robust ML systems, optimize and test for lifts in business metrics like revenue, and collaborate with technical and non-technical business partners on developing analytical dashboards that explain the significance of the personalization to stakeholders.
-
-* Data Scientist -- https://apply.workable.com/constructor-1/j/628514F231/    Lead the design, analysis, and interpretation of experiments with sequential A/B testing that shape decision-making around search, browse &amp; recommendation experiences in a data-driven manner, taking initiative and performing data exploration to understand user behavior, suggesting opportunities for improving our recommender &amp; search systems, and implementing data delivery pipelines.
-
-Please send your CV to workable links above, including a short intro about you in the cover letter section (no need to be too formal); ping me with any questions at sasha@constructor.io."</p>
+								<p class="story__comment_first line-clamp">"Remote (Must reside in North America) | Position Type: Full-Time ContractorAvante IO is seeking experienced Django Python/full-stack engineers interested in helping our team build out cutting-edge insurance underwriting technologies. We are building out exciting technologies (using Agile methodologies) at scale on AWS using some of the following technologies:Django/Python/DRF, React/Redux/Typescript , Postgres, Redis, Docker/ECS/Terraform, JIRA/Github/CircleCIYour responsibilities will include working with underwriters and business associates in planning &amp; building new features, fixing existing bugs, and working on performance problems. We are looking for engineers excited about working on hard problems and also feel comfortable with ownership of complicated technical problems.Please submit applications to johnny@avante.io with the subject line: Senior Full-Stack Engineer (Django, AWS, Postgres) and include your place of residency. Include a CV when reaching out, as well as any GitHub links/projects you’re particularly proud of.Your application will not be reviewed if you reside outside North America."</p>
 							
 						
 							
-								<p class="story__comment_others">"Signal | San Francisco or Remote (US Timezones) | Full-Time, Remote-OK | https://signal.orgSignal is making private communication simple. As an Open Source project supported by grants and donations, Signal can put users first. There are no ads, no affiliate marketers, no creepy tracking. Just open technology for a fast, simple, and secure messaging experience. We design open protocols, develop Open Source software, and give it away for free.Here are our open role:-Server Engineer: https://jobs.lever.co/signal/2a5fee8b-5875-46d4-a41d-773a28a...-Support Specialist [Contract]: https://jobs.lever.co/signal/24b4f951-9c2e-451c-bd9d-18c57e1...Tech Stack: Server: Java and RustPlease email us your resume to: Workwithus@signal.org"</p>
+								<p class="story__comment_others">"Thorn | Sr. Software Engineers | Full time | Remote | https://grnh.se/bb12532d2usThorn is a non-profit focused on building technology to defend children from abuse. We&#39;re especially looking for folks with strong data pipeline experience in Python.We&#39;ve been a remote-first organization since we were founded 8 years ago, so we&#39;ve come a long way with building our remote working culture. Social impact is the main reason I work for this company, but benefits and work life balance is also pretty stellar."</p>
 							
 						
 							
-								<p class="story__comment_others">"Charge Robotics | Robotics Software Engineer | Full-time | Onsite | SF Bay AreaHi HN! We’re a brand new startup building robots that build large-scale solar farms. It turns out that construction companies literally can&#39;t build solar fast enough, so what we&#39;re doing is a crucial part of switching the grid over to renewable generation. We&#39;re funded and are looking to bring two more talented software engineers onto our small team.You’ll be a key contributor, helping bring our first prototype to life: an autonomous, 25,000 pound outdoor mobile robot. You’ll have the opportunity to work on every part of our robotics stack including localization, planning, perception, control, simulation, and more. You&#39;ll have a lot of input on which problems you decide to tackle.Our founding team has experience growing companies and building robots like this. One of our founders was the second employee at a robotics startup that recently announced a $1.1B public offering.Come work with us if you love:* Fast-paced prototype development with software and hardware components* Making a positive climate impact through your work* Hacking on massive construction equipment!Apply here: https://chargerobotics.com/careers.html"</p>
+								<p class="story__comment_others">"Icon Systems, Inc. | https://iconcmo.com/careers/ | Full-stack web developer | full-time | Moorhead, Minnesota | on site onlyIcon Systems does management software for churches and non-profits, keeping track of people, donations, and fund accounting. We’re a (very) small team, so everyone does a bit of everything. We’ve been serving churches since the early 90s, and are now looking for another full stack web developer to join our team in northwestern Minnesota."</p>
 							
 						
 						</a>
@@ -3591,408 +3996,6 @@ https://en.wikipedia.org/wiki/Ada_Conformity_Assessment_Test...The last point wa
 						
 							
 								<p class="story__comment_others">"I went to a college that taught CS in ADA, and I never took CS because I tested out of 101, but I ended up fixing attempts at the problem sets for about half my dorm section (this was okay as long as and they documented it).Well anyway, I found it to be very easy to pick up just by reading, hard to make semantic errors, and easy to modify without breaking things. The pace of learning for the entire cohort, mostly non-CS students, was, I think, much faster than e.g. C++ and possibly more complete than e.g. Python. It’s pedantic and exact, but it uses real english language keywords and modifiers.I went to a different school later where I did the same thing but it was taught in C++. It seemed like many students would get by purely by repeating patterns that they didn’t understand. And I started to catch myself in that trap as well, realizing that I had a lot to learn.But I wasn’t going to be a programmer; I was going to be a theoretical physicist cogitating on the deep mysteries of the universe. Fast forward…. D’ohhhh."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">29 August 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.theguardian.com/commentisfree/2021/aug/28/onlyfans-scandal-platforms-banks-ban-sexual-content-sex-workers">
-						<picture>
-							<source srcset="default_28337426.webp" type="image/webp">
-							<source srcset="default_28337426.png" type="image/png">
-							<img src="default_28337426.png" alt="Preview of 'The real OnlyFans scandal is the unaccountable power of platforms and banks'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.theguardian.com/commentisfree/2021/aug/28/onlyfans-scandal-platforms-banks-ban-sexual-content-sex-workers">The real OnlyFans scandal is the unaccountable power of platforms and banks</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28337426">
-						
-							
-								<p class="story__comment_first line-clamp">"The reason the banks, and through the banks OnlyFans, attack sex is because they are accountable, and don&#39;t wish to take risks unless they are very profitable risks.The real danger of platforms and banks is how happy they are to censor for the government, or simply the loudest, richest mouth, in order to keep the profit flowing. If you want to fix it, you put in legal protections for people to do business, rather than this informal and/or ad hoc regulation through the shifting influence and agendas of arbitrary special interest groups.&gt; The financial and tech industries’ prudishness is unfortunately increasingly reflected in government policy, typically under the guise of protecting children and other vulnerable communities.This is the Guardian getting causation extremely wrong."</p>
-							
-						
-							
-								<p class="story__comment_others">"This article completely misses the causes of the rule changes. Banks and payment processes pushed new rules because they were being held accountable. The changes were all implemented in response to hugely influential NYT opinion piece on PornHub in December [1] that specifically called out payment processors, and preempted a BBC investigation into OnlyFans that was hinted to do the same [2].The conversation here should about how rulemaking via media outrage is a problem given the public has conflicting morals.[1] https://www.nytimes.com/2020/12/04/opinion/sunday/pornhub-ra...[2] https://www.bbc.co.uk/news/uk-58255865"</p>
-							
-						
-							
-								<p class="story__comment_others">"The Guardian has no problem with the unaccountable power of platforms and banks.The Guardian merely has a problem with this particular application of it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://gist.github.com/Rapptz/4a2f62751b9600a31a0d3c78100287f1">
-						<picture>
-							<source srcset="default_28334516.webp" type="image/webp">
-							<source srcset="default_28334516.png" type="image/png">
-							<img src="default_28334516.png" alt="Preview of 'The Future of discord.py'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://gist.github.com/Rapptz/4a2f62751b9600a31a0d3c78100287f1">The Future of discord.py</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28334516">
-						
-							
-								<p class="story__comment_first line-clamp">"In case any Discord employees are reading this: please don&#39;t remove the ability for bots to read message_content , or make me jump through verification hoops either. Reading raw messages is absolutely crucial for moderation bots and, well, just about every other fun and interesting bot.I don&#39;t write discord bots so you can type a slash command to do a thing. That&#39;s boring. Good bots can read messages. Discord will be very &#34;not dope&#34; and &#34;not cool&#34; if bots are forced to become a sterilized pick-list of interaction options."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m always very thankful that we even have people that work so hard towards FOSS libraries to begin with. It must feel pretty bad to receive those responses from employees telling him about the things he should do that are &#39;um&#39;, &#39;easy&#39; and &#39;dope&#39; when there&#39;s clearly been many longstanding feature and communication issues already (as if being the person working on a FOSS library for no compensation in your spare time that empowers a company whose employees&#39; are getting 7-8 figure exits within a few years wasn&#39;t already bad enough).My general pessimism with this situation is how proprietary everything has to be to begin with; the idea of a single company storing the full history of everyone&#39;s messages and interactions is already bad enough without them requiring the government ID of their users."</p>
-							
-						
-							
-								<p class="story__comment_others">"Meanwhile, I see fleets of user-bots happily chugging along under the radar hoovering up data.  Just like the post author said:&gt; the crux of malicious bots were, and still are, user-bots.Seems almost laughable that Discord is making hoops for legitimate bot developers to jump through while taking little action against user-bots.I suspect that Discord wants to get a chunk of the big money that game bot developers are making, and are pushing bot developers into a more rigid API that will eventually include in-app-purchases.  The article author also said:&gt;  No longer will bots thrive with a sandbox limited only by your imagination, but instead Discord is now the sole gatekeeper of approved use cases. The future of Discord bots relies solely on the interaction system; things have to be explicitly written and supported by Discord employees"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://twitter.com/kylejohnmorris/status/1431714982782066688">
-						<picture>
-							<source srcset="default_28341737.webp" type="image/webp">
-							<source srcset="default_28341737.png" type="image/png">
-							<img src="default_28341737.png" alt="Preview of 'FB messenger silently censoring links, claims they were sent'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://twitter.com/kylejohnmorris/status/1431714982782066688">FB messenger silently censoring links, claims they were sent</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28341737">
-						
-							
-								<p class="story__comment_first line-clamp">"Any user of any Facebook property needs to understand well in advance that the company engages in active psychological manipulation and experimentation on its users and then decide if this clashes with their personal autonomy.Remember them talking about how they engaged in experiments on their users by trying to influence their mood via intentionally showing their various groups different types of content algorithmically on their news feed? Or when they intentionally kept crashing their Android app to see what’s their user retention rate even on faulty software? Or just open up the app on two phones of the exact similar make and model and see the app menu?My personal anecdote and experience with this is that they also use random errors to disguise bans. I have a personal and a dev account which I made the first time I accidentally got banned for 24 hours because it also reset OAuth app keys, the next time I got banned I logged in to my dev acct. and tried to make a post, since they managed to associate the two accounts, I ended up banned on that one, too. But it didn’t say that, it kept throwing random errors as if it was only a backend issue. These disappeared once my main ban was gone.So all in all my point is, people should understand that the platform outright does these kinds of things and use or find alternatives based on that"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s one thing to censor, but it&#39;s another to intentionally deceive your users into believing that they sent something."</p>
-							
-						
-							
-								<p class="story__comment_others">"This isnt anymore even about freedom of speech but about a product constantly and intently manipulating and deceiving its users. It must be pretty shitty people working there, who relish in playing games with humans as if they&#39;re monkeys. Even their automated systems sound like total crap. I have a game on facebook for a decade, where users sometimes try to send some link to their friend through messenger. FB blocks it every few weeks and users have to beg them to unblock it every time. What a terrible company to invest in"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://neilbostian.github.io/#/doomphone">
-						<picture>
-							<source srcset="default_28327022.webp" type="image/webp">
-							<source srcset="default_28327022.png" type="image/png">
-							<img src="default_28327022.png" alt="Preview of 'I hacked an office telephone to play Doom'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://neilbostian.github.io/#/doomphone">I hacked an office telephone to play Doom</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28327022">
-						
-							
-								<p class="story__comment_first line-clamp">"Funny how two people can hack two separate home phones to run DOOM without realizing it until after the fact. For perspective, I posted a blog article about modifying a CaptionCall phone to run DOOM at the same time [1] as this was posted! What a unique coincidence!1: https://joshumax.github.io/general/2021/08/11/running-doom-o..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Around 10 years ago i worked in a company that had lots of software and physical VOIP phones. One of the models of phone had a pretty nice colour screen on it. I forget the brand .. it might have been polycom.At that time I was very much into nmap&#39;ing everything and noticed that these devices had all sorts of interesting ports open including telnet and ftp. FTP was read only for anonymous but it was trivial to download and crack the passwd file and discover that the admin password was something like 1234. My colleagues and I only got as far as showing images on the screen to surprise people but my imagination was running wild with the surveillance possibilities (let alone doom!).This was one of my first glimpses as how bad security on commercial embedded devices can be."</p>
-							
-						
-							
-								<p class="story__comment_others">"I like the tweet,“please forgive me, this game came out before I was born”.Wow, the only games I can think of that apply to me and maybe some of you are what, Pong and Space Invaders?Thanks for making us feel old !"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="http://paulgraham.com/weird.html">
-						<picture>
-							<source srcset="default_28336891.webp" type="image/webp">
-							<source srcset="default_28336891.png" type="image/png">
-							<img src="default_28336891.png" alt="Preview of 'Weird Languages'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="http://paulgraham.com/weird.html">Weird Languages</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28336891">
-						
-							
-								<p class="story__comment_first line-clamp">"This is a line that resonates with me, and the one which some negative comments might overlook (3 hours in, at least):  &#34;What can you say in this language that would 
-  be impossibly inconvenient to say in others? 
-  In the process of learning how to say things 
-  you couldn&#39;t previously say, you&#39;ll probably 
-  be learning how to think things you couldn&#39;t 
-  previously think.&#34;
-
-This is one of the value propositions of language. It&#39;s one of the ways we learn new things, and thus become more capable of doing valuable work as people.Criticisms of this essay in comments so far have seemed to fall into these buckets:  1. Lisp? Macros? Boo. (Not novel/too weird/etc)
-
-  2. Languages are solved, not important; I build systems.
-
-  3. I don&#39;t like the tone of this essay.
-
-(1) and (3) are side points, unrelated to thesis. (2) is the interesting one, and at the heart of what the essay talks about.I&#39;ve always been in the pg camp on this one. Sure, systems are the thing, we can&#39;t be purists, etc -- but saying that languages don&#39;t matter, for us, would be like rocket engineers saying that materials don&#39;t matter.If you&#39;re building a table, you can make it out of almost anything; a table is a solved problem. Wood, carbon fiber, steel.But at the limits of what&#39;s possible, like a rocket, the material&#39;s properties, limitations, and weaknesses in extreme circumstances matter.You can definitely imagine that important things are happening, in the maker&#39;s mind, when they start working with a new material, seeing what others are able to do with it, seeing how the making process is easier, or what steps are unimportant/unnecessary now vs. in their usual materials. And that informs their thinking, going forward, about what&#39;s possible in systems they might build."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Pick a language that most programmers consider weird but whose median user is smartI think this heuristic fails, with my poster-child counter-example being Nock and Hoon, the languages used to implement Urbit.  Those languages are unquestionably weird, and I think their median user is pretty smart -- you have to be pretty smart to use those languages because they are intentionally designed to be difficult to use.  But I don&#39;t see any merit whatsoever in Nock and Hoon, at least not with respect to giving you any leverage in programming.  C++ is another example.  It&#39;s not considered weird, but I think it would be if it were not so widely used.  Again, to use C++ you have to be smart because you have to know the locations of a zillion and one hidden land mines.  But the appeal of these languages is not the leverage they give you, it&#39;s the barrier to entry.  Once you invest the time to learn them you become a member of an exclusive club.  In the case of C++ at least, being a member of the club gives you leverage and opens up employment opportunities.  But that doesn&#39;t make C++ a good language."</p>
-							
-						
-							
-								<p class="story__comment_others">"Putting aside the other controversial things that Graham says in this post, I think we could find common ground and have some fun technical discussion by focusing on this angle:&gt; What can you say in this language that would be impossibly inconvenient to say in others?The first experience that comes to mind for me was XSLT.  Early on in my technical writing career, I needed to convert the Doxygen output of a C library to a more barebones HTML output (so that the reference docs would have the same branding as the rest of our site). I used XSLT to extract only the bits of HTML that I needed and I transformed them into nice, straightforward, semantic HTML. It took me a while to wrap my head around XSLT&#39;s flow but I was amazed to find that a task that would have taken probably 50-100 lines of looping and condition checking could be accomplished in literally 1-3 lines of XSLT.Would love to hear other&#39;s experiences along these lines (i.e. concrete examples)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://metameme.app/">
-						<picture>
-							<source srcset="default_28329444.webp" type="image/webp">
-							<source srcset="default_28329444.png" type="image/png">
-							<img src="default_28329444.png" alt="Preview of 'Show HN: I made a meme creator that makes around $4k a month'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://metameme.app/">Show HN: I made a meme creator that makes around $4k a month</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28329444">
-						
-							
-								<p class="story__comment_first line-clamp">"Good job! I&#39;ve created gif meme creator and so far I&#39;ve only received one 5 USD donation. :D https://gifmemes.io"</p>
-							
-						
-							
-								<p class="story__comment_others">"Good job, may I ask , what was your marketing strategy? Did you engage a lead generation company, SEO? How did you gain visibility in the virtual shops?
-Used social media for promotion?
-Pricing structure?If those questions are too profound, feel free to not address them, but either way, this is impressive for a solo Indy dev.And what is the tech stack?
-Do you listen to users feature requests and bug reports?I have a project in mind myself and all the above questions I wouldn&#39;t know how to handle."</p>
-							
-						
-							
-								<p class="story__comment_others">"For some time I wanted to make browser-based utils/time wasters in the same vein (think Photopea but simpler, or .io games) - to generate some passive income, even if it&#39;d be $100 a month or so. Has anybody succeeded in that and can share what was key to achieve income? I mean, most savvy people have ad blockers these days."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=28327660">
-						<picture>
-							<source srcset="default_28327660.webp" type="image/webp">
-							<source srcset="default_28327660.png" type="image/png">
-							<img src="default_28327660.png" alt="Preview of 'Launch HN: Hotswap (YC S21) – Easily migrate customers away from competitors'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=28327660">Launch HN: Hotswap (YC S21) – Easily migrate customers away from competitors</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28327660">
-						
-							
-								<p class="story__comment_first line-clamp">"How do you deal with data loss if there isn’t a perfect match between the data models? For example, if I’m looking to migrate from GSuite to Microsoft Office365 (or vice versa) and there’s not a 1:1 mapping. Or if the behavior of the same spreadsheet formula is slightly importantly different? These are complicated examples obviously and maybe you’re not tackling them yet, but I think I see (at least as an external observer with limited visibility) a lot of the internal teams really focusing on those corner cases where the data loss path and other migration challenges rather than the happy easy-to-automate piece.Similarly, how do you see this service scaling beyond a boutique consultancy or outside of a handful of cases where it’s easy? If you’re successful, do you think vendors won’t do everything to make your access more difficult or cut you off completely? If you see it more as a “we force the vendors we integrate to sign a mutual agreement” kind of strategy, how do you see yourselves not becoming a gate keeper and velocity bottleneck for feature development (ie company wants to roll out feature X and now they need to involve you first so that you can write migrations to …?)It’s an interesting idea so curious to hear your thoughts about the challenges."</p>
-							
-						
-							
-								<p class="story__comment_others">"Wix is an interesting choice.  I remember during the recent feud between Matt Mullenweg (Wordpress founder) and Avishai Abrahami (Wix CEO), Matt said this:&#34;They are so insecure that they are also the only website creator I’m aware of that doesn’t allow you to export your content, so they’re like a roach motel where you can check in but never check out.&#34;So I guess there&#39;s probably demand for a nice export tool there."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have a $100M SaaS in a different space but the underlying tech is identical. I had this idea ~10 yrs ago when we first started writing our own import logic to move users over from competing services.The engineering challenges to make this work flawlessly is going to be substantial to say the least. I GET from ~70 data sources right now...I couldn&#39;t imagine having to GET,POST, CHECKPOINT and DIFF with all the edge cases that appear.Best of luck but this is a very hard problem to solve. Would love to see someone see this through!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://thishashcollisionisnotporn.com">
-						<picture>
-							<source srcset="default_28305394.webp" type="image/webp">
-							<source srcset="default_28305394.png" type="image/png">
-							<img src="default_28305394.png" alt="Preview of 'Show HN: 59a34eabe31910abfb06f308 – NeuralHash Collision Demo'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://thishashcollisionisnotporn.com">Show HN: 59a34eabe31910abfb06f308 – NeuralHash Collision Demo</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28305394">
-						
-							
-								<p class="story__comment_first line-clamp">"This simple site is a far better demo and explanation of the extreme danger of Apple&#39;s proposal than any of the long articles written about it.Thank you for caring enough to put this together and publish it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Seems like this CSAM tech could be super useful in China for detecting winnie the pooh or other evidence of thought crime against the regime. Even if Apple doesn&#39;t end up rolling it out, I&#39;m sure Huawei is taking careful notes."</p>
-							
-						
-							
-								<p class="story__comment_others">"This page directly links to the EFF:
-https://act.eff.org/action/tell-apple-don-t-scan-our-phonesPlease spend a few bucks on supporting them.A bit of a background on why apple did this (this was flagged, but I don&#39;t know why):
-https://news.ycombinator.com/item?id=28259622"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://blog.mozilla.org/en/internet-culture/deep-dives/why-are-hyperlinks-blue/">
-						<picture>
-							<source srcset="default_28315934.webp" type="image/webp">
-							<source srcset="default_28315934.png" type="image/png">
-							<img src="default_28315934.png" alt="Preview of 'Why are hyperlinks blue?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://blog.mozilla.org/en/internet-culture/deep-dives/why-are-hyperlinks-blue/">Why are hyperlinks blue?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28315934">
-						
-							
-								<p class="story__comment_first line-clamp">"From https://www.w3.org/People/Berners-Lee/FAQ.htmlQ: I&#39;m a student of visual communications and asked myself why links are blue. I found some answers that might be, for example blue is a color of learning, but I&#39;m not sure what is right. Is there any reason, why links are colored blue ?A: There is no reason why one should use color, or blue, to signify links: it is just a default. I think the first WWW client (WorldWideWeb I wrote for the NeXT) used just underline to represent link, as it was a spare emphasis form which isn&#39;t used much in real documents. Blue came in as browsers went color - I don&#39;t remember which was the first to use blue. You can change the defaults in most browsers, and certainly in HTML documents, and of course with CSS style sheets. There are many examples of style sheets which use different colors.My guess is that blue is the darkest color and so threatens the legibility least. I used green whenever I could in the early WWW design, for nature and because it is supposed to be relaxing. Robert Cailliau made the WWW icon in many colors but chose green as he had always seen W in his head as green.One of the nicest link renditions was Dave Raggett&#39;s &#34;Arena&#34; browser which had a textured parchment background and embossed out the words of the link with a square apparently raised area.[See also https://www.crazyegg.com/blog/why-hyperlinks-are-blue/ which links to the answer above but also contains a few other references.]"</p>
-							
-						
-							
-								<p class="story__comment_others">"Given the author&#39;s &#34;conclusions&#34; about Windows&#39;s influence here, it&#39;s probably worth mentioning that Windows 3.x (including both 3.0 and 3.1) used green for hyperlinks in its help system by default (which was hypertext but not HTML):  https://i.imgur.com/ZjX5xIW.pngGreen hyperlinks stuck around in the Windows 95 help system, and were eventually replaced when Windows 98 switched to Microsoft&#39;s new HTML Help system which defaulted to blue hyperlinks (inherited from Internet Explorer)."</p>
-							
-						
-							
-								<p class="story__comment_others">"Mosaic was the first browser I used, and the first I wrote websites for (I still only test in one browser ;) ).Something the article doesn&#39;t touch on is the fact that there wasn&#39;t really such a thing as hex colors like &#34;#0000ff&#34; back then. You could use them, but no one did because they weren&#39;t guaranteed to work properly. There was a list of 256 &#34;web safe colors&#34; that you could use that were the 8 bit palette that most computers supported in VGA graphics (at 640x480 resolution), and then a further list of HTML colors that could be used if the user had a graphics card that could use 16 bit SVGA graphics. Using 24 bit hex code colors didn&#39;t come along until a little later, when computers were likely to display them properly.In other words, links weren&#39;t #0000ff. They were &#34;blue&#34;."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://zwischenzugs.com/2021/08/27/five-ansible-techniques-i-wish-id-known-earlier/">
-						<picture>
-							<source srcset="default_28327694.webp" type="image/webp">
-							<source srcset="default_28327694.png" type="image/png">
-							<img src="default_28327694.png" alt="Preview of 'Ansible Techniques I Wish I’d Known Earlier'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://zwischenzugs.com/2021/08/27/five-ansible-techniques-i-wish-id-known-earlier/">Ansible Techniques I Wish I’d Known Earlier</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28327694">
-						
-							
-								<p class="story__comment_first line-clamp">"Ansible is abysmal. I don&#39;t know why anyone still chooses it. It&#39;s a mess of yaml and what feels like a million yaml files that is always extremely hard to follow. Honestly writing some python, or bash is a lot easier to follow, read, and understand. The only thing it has going for it is the inventory system. I wish ansible would die already.The tips mentioned in the article are helpful, but still beyond the initial development of roles, maintaining roles is a pain no one can alleviate. It is the perl of automation. I wish people would stop using it. I&#39;ve yet to start a job where people haven&#39;t regretted going towards ansible."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s a damn shame it took until this article for me (and it appears some others) to learn about the console and the debugger; those seem like massive time savers! My own biggest helper has been to use &#34;ANSIBLE_STDOUT_CALLBACK=yaml&#34; wherever &#34;ansible-playbook&#34; is called (https://jpmens.net/2021/03/12/alter-ansible-s-output-on-debu...). It makes the verbose output much more readable and is especially handy for tasks that can spew thousands of lines at ones (e.g. &#34;apt update/upgrade&#34;)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m using ansible for some years already. The biggest game changer for me was ansible molecule [0].I integrated it to the repo, where I store my code and it just runs all the test cases for my code. It saved me a bunch of hours of investigation in test environments before I even released the code. Highly recommend to try it even for a small project.Apart of that play with ansible strategies if you have more than one server to apply the role. It really might save you some minutes of a runtime.[0]: https://molecule.readthedocs.io/en/latest/"</p>
 							
 						
 						</a>
