@@ -36,6 +36,291 @@
 	</div>
 
 	
+	<div class="day__date">29 September 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://mux.com/blog/you-either-die-an-mvp-or-live-long-enough-to-build-content-moderation">You either die an MVP or live long enough to build content moderation</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28684250">
+						
+							
+								<p class="story__comment_first line-clamp">"Around 1 year ago we got hit badly on our [blogging platform][0] by people/groups submitting fake customer support description of other big companies, either being Microsoft, Facebook, Comcast etc.Rolled out a machine learning model and trained it on the database. 99% of them vanished.Next day, the machine didn&#39;t work and success rate was around 5%.Found out, they have learned the trick and now using symbols from different languages to make it look like English.Trained again, success rate went up again.Next hour, success rate fallen.This time, they mixed their content with other valid content of our own blogging platform. They would use content from our own blog or other people posts and mix it to fool the machine learning.Trained it again and was success.Once a while such content appear and machine model fails to catch them.It only takes couple of minutes to mark the bad posts and have the model get trained and redeployed and then boom, bad content is gone.The text extraction, slicing through good content and bad content, finding out symbols vs sane alphabet and many other thing was at first challenging, but overall pretty excited to make it happen.Through this we didn&#39;t use any platform to do the job, the whole thing was built by ourselves, little bit of Tensorflow, Keras, Scikit-learn and some other spices.Worth noting, it was all text and no images or videos. Once we got hit with that we&#39;ll deal with it.[0]: https://www.gonevis.comedit: Here&#39;s the training code that made the initial work https://gist.github.com/Alir3z4/6b26353928633f7db59f40f71c8f... it&#39;s pretty basic stuff. Later changed to cover more edge cases and it got even simpler and easier. Contrary to the belief, the better it got, the simpler it became :shrug"</p>
+							
+						
+							
+								<p class="story__comment_others">"If you host blobs for free, somebody is going to use you as their host. Even if you just hosted audio, I&#39;m sure somebody will quickly come along with a steganography tool to hide their content on your site (and use your bandwidth).Similarly, if you make compute power available, people will use you to mine cryptocurrency. Even if all you host is text, somebody will come along to be abusive. When you put a computer on the Internet, it&#39;s open to the entire world, including the very worst people.If you&#39;re hosting a community, start from the beginning by knowing who your community is and how they will tell you who they are. If the answer is &#34;everybody&#34;, then know what everybody means -- it means some people won&#39;t want to be there, because some people will make life hard for them.It&#39;s no longer 1991, when you could assume that such people wouldn&#39;t find you. They will find you -- for money, or the lulz. You have to plan for that on day 1. You can&#39;t fix it after the fact."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ll never forget having to be a moderator for a somewhat popular forum back in the day and oh man did I learn how a few people can make your life hell.One thing not mentioned many times in these discussions are the poor moderators. Having to look at all that stuff, some of which can be very disturbing or shocking (think death, gore, etc as well as the racy things) really takes a toll on the mind. The more automation the less moderators have to deal with and then usually its the tamer middle ground content."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.cloudflare.com/introducing-r2-object-storage/">Cloudflare R2 storage: Rapid and reliable object storage, minus the egress fees</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28682237">
+						
+							
+								<p class="story__comment_first line-clamp">"This is interesting ...For the longest time we tried to convince people that they should have an off-amazon archive of their S3 data ... we even ran an ads to that effect in 2012[1].The (obvious) reason this isn&#39;t compelling is the cost of egress.  It&#39;s just (relatively) too expensive to offload your S3 assets to some third party on a regular basis.So if R2 is S3 with no egress, suddenly there is a value proposition again.Further, unlike in 2012, in 2021 we have really great tooling in the form of &#39;rclone&#39;[2][3] which allows you to move data from cloud to cloud without involving your own bandwidth.[1] The tagline was &#34;Your infrastructure is on AWS and your backups are on AWS.  You&#39;re doing it wrong.&#34;[2] https://rclone.org/[3] https://www.rsync.net/resources/howto/rclone.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"Really curious to see how this goes. If they live up to the following paragraph, that&#39;s pretty game-changing:&gt;&gt; This cheaper price doesn’t come with reduced scalability. Behind the scenes, R2 automatically and intelligently manages the tiering of data to drive both performance at peak load and low-cost for infrequently requested objects.  We’ve gotten rid of complex, manual tiering policies in favor of what developers have always wanted out of object storage: limitless scale at the lowest possible cost.The amount of effort it takes to understand and account for S3 Intelligent Tiering is somewhat mind-blowing so to get rid of all of that (and the corresponding fees) would be really nice and TheWayThingsShouldBe™ for the customer -- on top of that most users just don&#39;t even know S3 Intelligent Tiering exists so it&#39;ll be great if Cloudflare just handles that automatically.We at https://vantage.sh/ (disclosure, I&#39;m the Co-Founder and CEO) recently launched a cross-provider cost recommendation for CloudFront Egress to Cloudflare which was really popular and I can imagine doing something similar for S3 -&gt; R2 once it is live and we are able to vet it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I know the Cloudflare team hangs out here, so thanks, and great job! This was absolutely necessary for my line of work. Couple of quick questions/confirmations:* R2 will support the same object sizes as S3? We have 500GB+ objects and could go to a 1TB per object. 
+* R2 will support HTTP Range GETs, right?Egress bandwidth for objects on S3 is the biggest line item on the AWS bill for a company I work for, by an order of magnitude, and this will just wipe it off for the most part."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.motherjones.com/politics/2021/09/my-wife-was-dying-of-brain-cancer-my-boss-at-amazon-told-me-to-perform-or-quit/">My Wife Was Dying of Brain Cancer. My Boss at Amazon Told Me to Perform or Quit</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28686850">
+						
+							
+								<p class="story__comment_first line-clamp">"A tip: If anyone finds themselves in a tragic situation like this where they can’t work but also can’t afford to take leave, investigate your short and long-term disability benefits ASAP. Also read up on the documentation necessary to begin disability claims.Engage with a doctor early on who can document the severe depressive symptoms that are preventing work (which the author specifically cites in his anecdote). Do it as early as possible to generate a documentation trail. Don’t wait until you’re close to being terminated to begin documenting anything because that will make the claim much weaker compared to someone with months of doctor’s notes documenting the situation.I can’t speak to Amazon’s specific benefits, but most big tech companies I’ve worked for have provided some base level short and long term disability coverage as part of their core benefits, partially to avoid situations like this where employees are unable to work due to external circumstances but are unable to go on leave."</p>
+							
+						
+							
+								<p class="story__comment_others">"What sucks about stories like this is, while my heart breaks for what this guy went through, managers don&#39;t have the same luxury of defending their side of the story to Mother Jones.I worked as an EM at Amazon. I went into this ready to think he had a bad boss (because those definitely exist at Amazon), but after reading this I feel like there&#39;s another side to this that has more compassion than is being reflected here. He was at turns informally warned, encouraged to take leave, and offered severance. It sounds like he expected a pass on all this for his life circumstances until it was too late. Without more details from both sides as to what the performance issues were, this reads as using a tragedy to get more than he&#39;s owed.I can&#39;t even imagine what this guy went through. He had to watch his wife slowly die while raising two girls and providing for his family. Watching my father die from cancer after a long life was awful enough and affected me for years. His grief has to be phenomenal. I imagine part of his grieving process is lashing out at his boss for not being more understanding. That said, I think his story would be the same no matter where he worked. It&#39;s just more in vogue to bash Amazon.If he wants to lash out at anything, I suggest lashing out at a system that requires us to work while going through such awful life circumstances. That man shouldn&#39;t have had to work. He should have been safe to be unemployed while focusing on being there for his family. The idea that he felt compelled to work to avoid his family going bankrupt is lunacy to me."</p>
+							
+						
+							
+								<p class="story__comment_others">"Believe it or not, this isn&#39;t a rare attitude among managers at Amazon. A significant percentage of SDMs believe they must &#34;keep a high bar&#34; and remove any dissenting subordinates. Word has gotten out about it, mostly on the blind app, which forced Amazon to raise pay bands for engineers 50-100k. This is costing the company a lot of money.The difference going forwards for Amazon is that the stock is mostly stagnant, and so employees are no longer putting up with miserable harsh working conditions, the financial incentives are no longer there."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.theregister.com/2021/09/27/google_chrome_manifest_v2_extensions/">Google sets burial date for legacy Chrome Extensions, fears for ad-blockers grow</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28680033">
+						
+							
+								<p class="story__comment_first line-clamp">"As someone who is intimately familiar with the Chrome extensions internals and is not employed by a big tech company, I believe most of the changes seem like a step in the right direction.*I&#39;ve been working towards implementing greater support for Chrome extensions in Electron which has involved reading and interacting with Chromium code [0].- Using service workers instead of a hidden background webpage is more idiomatic for web developers.- Forced non-persistent extensions guides developers to a better implementation which relies on less resources.*The deprecation of webRequest&#39;s blocking behavior is what&#39;s most concerning. The implementation in Manifest V2 requires sending a message back and forth between processes with JS processing for each network request which seems to be in part why they redesigned it.However, that optimization costs so much for innovative ad blocking technologies as gorhill of uBlock Origin has mentioned. When ad blocking begins requiring new methods of detection or filtering, it&#39;ll now be up to Chromium maintainers to implement support for it in the new declarativeNetRequest API. This is a tradeoff of performance for reduced flexibility where it is absolutely needed.[0] https://github.com/samuelmaddock/electron-browser-shell"</p>
+							
+						
+							
+								<p class="story__comment_others">"I have a stupid idea. But first, a bunch of questions:- Can you legally advertise a product you&#39;re not affiliated with? Is this OK by the ToS of major ad networks?- Is it possible to target ads by user&#39;s browser?I&#39;m thinking, maybe we should crowdfund a public interest ad, targeted at people browsing from Chrome, with some attention-grabbing art or distracting colors, and a clear message: &#34;Want to stop seeing this ad? Stop using Chrome, install a different browser and an ad blocker. Click here to learn more.&#34;, which links to a site directing people to install Firefox and uBlock Origin (and linking to crowdfunding campaign to keep the ad going). Alternative for A/B testing: &#34;Don&#39;t click this ad, it costs us money.&#34;Come to think of it, maybe someone like EFF should do that - they&#39;re well-known and reputable enough that people wouldn&#39;t immediately assume it&#39;s some weird Firefox ad, avoiding the effect being the opposite from intended."</p>
+							
+						
+							
+								<p class="story__comment_others">"For me (I imagine a lot of others as well), it&#39;s simple. If Chrome removes adblock, I&#39;m going back to Firefox.HN ilk don&#39;t represent a good target market. Can&#39;t really make money off traditionally tracked ads off of us.FWIW, I love Chrome, still do. I&#39;ve been here since those entirely useless but super viral and catchy speed test ad/vids. It worked on me. I love the debugger as a web developer, more so than Firebug.Overall, will be sad to go. Pour one out for Chrome when the day comes."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/technology/intel-breaks-ground-20-bln-arizona-plants-us-chip-factory-race-heats-up-2021-09-24/">Intel breaks ground on $20B Arizona plants as U.S. chip factory race heats up</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28680990">
+						
+							
+								<p class="story__comment_first line-clamp">"Doesn&#39;t chip making a lot of water, most of it in Arizona is fed by Lake Mead?The same reservoir that is at 30% capacity, with acute water shortages and with 4 years of increased precipitation necessary for an adequate refill.We are adding a chip making facility which needs a lot of water here?This sounds like a recipe for disaster whenever there is a period of water stress which appears to be occurring in that region significantly more frequently.The more I think about it, the more US infra/urban planning makes absolutely 0 sense to me. Seems to more closely follow tax breaks and tax income than necessarily smart resource allocation."</p>
+							
+						
+							
+								<p class="story__comment_others">"I pass by there every day on my way to work. Based on all the construction equipment I saw around the campus I figured the new fabs were going to start being built soon.It also still amazes me how huge the campus is"</p>
+							
+						
+							
+								<p class="story__comment_others">"Forgive my ignorance, but wouldn&#39;t you want to build a semiconductor fabrication factory somewhere cold?Or is it because Arizona is dry?(honest questions, I don&#39;t know what impacts the location of a fab)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/robertdavidgraham/masscan">Masscan: TCP port scanner, scanning entire Internet in under 5 minutes</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28682986">
+						
+							
+								<p class="story__comment_first line-clamp">"A very nice and well-built tool. Excellent use of sequence numbers for stateless send/receive (SYN cookies): https://github.com/robertdavidgraham/masscan/blob/master/src... (very well-documented source too, a pleasure to read).I once (2016) used it to scan port 22 on the whole ipv4 (had to experiment with rate limits to not trigger alarms and get complaints forwarded by my VPS provider; the clever ip+port randomization technique helps a lot with that). Then took the ~22m (iirc) IPs which responded and ran ssh-keyscan on them to extract and analyze some ~15m ssh banners and public keys (a bunch of them broken, through debianized PRNG etc.) I think most of the scanning + extraction was done overnight, via ~13 VPS rented hourly (whole thing cost &lt; $10, and very few complaints). Fun times :) I should write it up some time, and do it again."</p>
+							
+						
+							
+								<p class="story__comment_others">"A quick plug for my friends over at GreyNoise... they have honeypots all over the internet and identify various scanners as well as their observed intentions.Here is everyone running masscan against the internet: https://www.greynoise.io/viz/query/?gnql=tags%3A%22Masscan%2..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Massacan is awesome. One of the usecases is to periodically scan your own servers to see if you have not accidentally opened some new ports in firewalls.https://github.com/bobek/masscan_as_a_service"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://element.io/blog/spaces-blast-out-of-beta/">Spaces launch in Element</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28680387">
+						
+							
+								<p class="story__comment_first line-clamp">"For what it’s worth, the thing I find really exciting about Spaces is that they provide a way to create a decentralised global hierarchical directory structure for realtime data. It’s like a free-for-all global USENET hierarchy that anyone can curate or contribute to, complete with decentralised ACLs. Or like DMOZ but for chatrooms. We haven’t published a “root” space as Matrix.org yet (as the “subspace” hierarchy feature is still in beta), but I cannot wait to kill off the public room directory for Matrix.org (which is a total tirefire atm) and replace it with decentralised hierarchies of rooms that the community can moderate and curate like any other content.Add in voice/video rooms, async comms (messageboards, forums, mailing lists, newsgroups), decentralised metaverse worlds like  thirdroom (https://youtu.be/e26UJRCGfGk?t=2263) and then you end up with a skeleton for a whole open universe of interoperable communication.Next up: decentralised search for discovery as well as decentralised hierarchies…"</p>
+							
+						
+							
+								<p class="story__comment_others">"That&#39;s awesome for teams to focus on just work conversations but unfortunately not enough.We&#39;ve completely switched our work communication to a self-hosted matrix+element with SSO, so we can be sure our matrix auth is secured the same way our other internal services are.However, some of us also have personal matrix accounts which are offline during work hours and corporate accounts are offline outside of work hours which forbids using matrix as an emergency contact method. It would be great to either ability to sign into multiple accounts or an ability to sign into a single space using account other than the default one."</p>
+							
+						
+							
+								<p class="story__comment_others">"This seems to built for people with a lot of rooms/people. I think it&#39;s a classic mistake to enable it for all users, and I see it in all kinds of products. Everyone starts out by building something simple, but eventually it&#39;s bloated with features that I don&#39;t need (I&#39;m sure someone does).Personally, I use matrix every day. However, it&#39;s only for a single room. With this new feature, I lost 70 &#34;pixels&#34; (or 140 actual pixels) of horizontal space."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.fastmail.com/1password/">Masked email from Fastmail and 1Password</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28682011">
+						
+							
+								<p class="story__comment_first line-clamp">"I love the idea of doing this. Just like I do the idea of using Apple&#39;s &#34;hide my email&#34; feature. But in reality you&#39;re completely locking yourself into that provider. What if I want to change provider or the provider decides to sunset this feature. My logins are now split up so much it&#39;ll be a full time job getting them set back to my primary email address. It&#39;s a trade-off I guess because you can&#39;t solve it any other way from what I know of!"</p>
+							
+						
+							
+								<p class="story__comment_others">"This would be a large personal disaster and a full time personal project if the service provider decides to shut down the service. One would have to crawl through all services they have signed up for to update the email addresses.Instead get a domain. Configure email as well as a catch all address. Example anything@yourdomain.com would reach name@yourdomain.com which you use as your primary email address.And say, if I am signing up for Netflix, I would give the email as netflix@yourdomain.com. The email automatically reaches my single primary inbox with the catch-all behavior. And if I find a lot of spam to netflix@yourdomain.com, I know which service is leaking my email address and I can quickly block all emails sent to netflix@yourdomain.com"</p>
+							
+						
+							
+								<p class="story__comment_others">"Long time Fastmail and 1Pass user here. While I agree that it would be best to not be locked in to particular providers, these are two of the providers who have a lot of my trust and to whom I’m paid up years in advance (at least in Fastmails case). Very excited to use this feature."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://imgz.org">IMGZ – Paid image sharing</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28676468">
+						
+							
+								<p class="story__comment_first line-clamp">"I thought the comments to this were well above average on the entertaining scale. Pretty embarrassing, though, that probably the majority of comments seemed to take it seriously, even reprimanding the creator for not being serious enough, not taking his Business seriously enough. It seems to create dissonance among many that such a thing even exists. People seem deeply confused it&#39;s not full speed ahead, like every other commercial site, trying to grab money from users. We on HN constantly complain that the internet was taken over by smooth, malevolent, lying mega-corporations, with 1GB ToS&#39;s and thousands of employees..and here&#39;s something completely different and people entitledly shit on it.It&#39;s a joke, people! From HN&#39;s own Stavros. Or, who knows what it is. Something Stavros did for fun and uses himself. A thing. Can&#39;t things just be allowed to be what they are?  It&#39;s like people can&#39;t tolerate the existence of unique things, and have to see them as just really bad versions of a known category of things. &#34;This round thing is bad because I can&#39;t force it into this square hole.&#34; And I guess when someone posts something to HN it gets judged as if submitted by the author and designed, badly, for the person now reading it. Ugly font! Bad colours! Unprofessional tone! Bad marketing! etc. ..Wasn&#39;t the internet 100% like that in the good old days?"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been hoping for an Imgur replacement for simple, hosted image sharing.I&#39;m happy to pay $1/mo, but when I tried to upload https://camo.githubusercontent.com/9ec8d13de2878c899fda0bd43... I got this, which doesn&#39;t look like what I uploaded: https://cln.sh/4coS9T / https://imgz.org/i5qphFzd.gif"</p>
+							
+						
+							
+								<p class="story__comment_others">"I hope their architecture handles the HN front page load well. :)https://imgz.org/i9hxfgRu.png"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/business/media-telecom/us-open-program-replace-huawei-equipment-us-networks-2021-09-27/">U.S. to open program to replace Huawei equipment in U.S. networks</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28675486">
+						
+							
+								<p class="story__comment_first line-clamp">"The swap of Meng Whenzhou for the two Canadian Michaels demonstrates why it doesn&#39;t matter if Huawei&#39;s equipment is trustworthy or not.Canada was obeying international treaties when it detained Meng.  The Chinese state took Canadian hostages and held them in questionable conditions until they were eventually able to force a swap.  It is now clear that the Chinese government expects certain Chinese executives and corporations to be above both international law and the law of foreign countries in which they operate.If your country permits Huawei to do business within it&#39;s borders, that puts your own citizens at risk of being taken hostage.  Let&#39;s not kid ourselves that national governments care more about people than economics, but letting foreign countries take your citizens hostage without repercussion can threaten your chances of being reelected.Thanks to this episode, public opinion in Canada is now overwhelmingly against letting Huawei operate in Canada.  Given this and pressure from its allies in the five eyes, it seems almost inconceivable that the Canadian government won&#39;t soon ban Huawei from participation in 5G networks.This episode has also raised questions about permitting the operations of other Chinese corporations that are too closely associated  with the Chinese government.  e.g. If a Chinese mining corp operating in a foreign country had it&#39;s operations shut down for environmental law infractions, would there be reprisals in the form of trade sanctions, etc. from China?This kind of lawless behaviour is going to have a chilling effect on all commerce with Chinese companies."</p>
+							
+						
+							
+								<p class="story__comment_others">"Again, there is sooo much talk around it in all directions.But has there actually been a backdoor exposed?With all the attention turned towards it and that it has been a topic in geopolitics since years - there should have been some ressources allocated towards some reverse engeneering, that clearly shows it is not trustworthy?If not, why not? I mean it surely is not easy - but I always only hear blame without proof.(And I don&#39;t need proof, that the ccp is not nice. I know that.)In either case, my takeaway is, that we need more open hardware, that can be easily verified to do what it claims."</p>
+							
+						
+							
+								<p class="story__comment_others">"The US has never proved that there is any kind of Chinese surveillance going on with Huawei equipment. Lying and anti-market strategies seem to be the tool of choice of the US government to block the advance of societies that are not deemed to be part of their empire."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">28 September 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -189,7 +474,13 @@
 						<a href="https://news.ycombinator.com/item?id=28670252">
 						
 							
-								<p class="story__comment_first line-clamp">"Some (most?) tools that output data in columns and fit each one to the largest value in that column need to scan the whole file as a first pass just to start displaying data.Not only is it the case with this tool, but from what I&#39;m reading in main.rs it looks like it&#39;s also loading the whole file in memory. I was going to say that scanning the file was a deal-breaker, but if true this is much more resource-intensive.This looks like a nice tool, but these design choices seem to limit its use to relatively small files. It could be updated to have a read-ahead buffer instead and adjust its output as new lines are discovered with values of different width, although doing this without a jarring resize could be challenging.Could someone with better knowledge of Rust than mine confirm this?I see the full dataset being loaded here[1] and the column widths being computed here.[2][1] https://github.com/alexhallam/tv/blob/main/src/main.rs#L183-...[2] https://github.com/alexhallam/tv/blob/main/src/main.rs#L218-..."</p>
+								<p class="story__comment_first line-clamp">"I spend a lot of time in the terminal and want to quickly glance at a csv files without making a new script, opening excel, or using a tui. I made tidy-viewer (tv) because current tools like cat and column were not pretty enough.tv modifies raw files in the following ways:1. NA detection and highlighting
+2. Printing only significant digits
+3. Header and footer meta dataI have been using this a lot at work. There is a lot more work to do, but it is in a usable state.Give it a try! If you like it then star on Github!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Some (most?) tools that output data in columns and fit each one to the largest value in that column need to scan the whole file as a first pass just to start displaying data.Not only is it the case with this tool, but from what I&#39;m reading in main.rs it looks like it&#39;s also loading the whole file in memory. I was going to say that scanning the file was a deal-breaker, but if true this is much more resource-intensive.This looks like a nice tool, but these design choices seem to limit its use to relatively small files. It could be updated to have a read-ahead buffer instead and adjust its output as new lines are discovered with values of different width, although doing this without a jarring resize could be challenging.Could someone with better knowledge of Rust than mine confirm this?I see the full dataset being loaded here[1] and the column widths being computed here.[2][1] https://github.com/alexhallam/tv/blob/main/src/main.rs#L183-...[2] https://github.com/alexhallam/tv/blob/main/src/main.rs#L218-..."</p>
 							
 						
 							
@@ -200,12 +491,6 @@
   1     -600.0000000    Store      -0,600 - Store    Level       dc611fed-1783-d759-053a-b19848c51491
   1     2850.0000000    Store      +2,850 - Store    Level       c59f2ae4-0e94-6ea0-bd82-8306971e628c
   1     3350.0000000    Roof       +3,350 - Roof     Level       7b487ac2-e102-dc23-6ad9-81c39124de1d"</p>
-							
-						
-							
-								<p class="story__comment_others">"I spend a lot of time in the terminal and want to quickly glance at a csv files without making a new script, opening excel, or using a tui. I made tidy-viewer (tv) because current tools like cat and column were not pretty enough.tv modifies raw files in the following ways:1. NA detection and highlighting
-2. Printing only significant digits
-3. Header and footer meta dataI have been using this a lot at work. There is a lot more work to do, but it is in a usable state.Give it a try! If you like it then star on Github!"</p>
 							
 						
 						</a>
@@ -233,7 +518,7 @@
 							
 						
 							
-								<p class="story__comment_others">"This is a great breakdown of the early state of VR productivity. There are still a few key items that are barriers for me personally:1. Eye and face tracking. The author mentions lip syncing and hand tracking. That goes a long way, but it doesn&#39;t recreate the video experience to me. There are a few vtubers out there that are doing some seriously impressive tracking, but it requires tons of special equipment at the moment. Once this gets resolved in a consumer model, I think things will really shine for virtual presence.2. Lighter weight headsets. For longer sessions, a custom headstrap helps a ton, but even still lighter headsets will go a long ways to helping here.3. Better lenses and better displays. The lower res means you&#39;re really forced to work at huge virtual screen sizes, as the author mentions. While  this is the least needed item in this list for basic productivity, the screen door effect definitely creates a barrier some of the time.I highly anticipate that we&#39;ll see a sizable portion of the population change over to VR for productivity within ten years. It has huge potential, especially with the remote work environment many are in these days. I would love to be able to feel the presence of people around me again, while still not having a commute or the risks associated with being physically in the same room."</p>
+								<p class="story__comment_others">"There is a part of me that is disturbed. I like working at my big wooden table overlooking the city, nice natural light filtering in, the ability to detach from the screen and pace around to take a break. VR for work seems like a trap, you&#39;ll be consumed, ensnared by something that demands all your attention. You won&#39;t know freedom. Maybe this is the current state of headsets, clunky, like a chain with cables, bad tracking and screens. Maybe if it was seamless and I could slip it on as needed, like a pair of sunglasses.The other part of me is that having a giant whiteboard and endless space seems cool. Imagine if the entire virtual space had powerful programming environments, some more powerful version of Mathematica, I could gesture and run a some powerful. Maybe that would be worth it, but it doesn&#39;t seem there yet."</p>
 							
 						
 						</a>
@@ -315,13 +600,13 @@ Have invested a lot of time in developing plex&#39;s plugin for youtube, twitch,
 							
 						
 							
-								<p class="story__comment_others">"For serving local music, the free and open source &#34;Logitech Media Server&#34;[0] is a great solution -- main weakness is the lack of a central organization promoting it. In addition to working smoothly with dedicated (&#34;squeeze&#34;) clients which can be Logitech-brand or DIY[1, 2], it has a massive plugin catalog that allows e.g.- airPlay integration: stream to your squeeze-clients via airPlay, stream to your airPlay clients from squeezebox.- chromeCast integration: stream to chromeCast devices from squeezeBox.- upNp integration: stream to upNp clients.The system was originally developed by &#34;SqueezeBox&#34; who also made (awesome) physical devices. SqueezeBox was acquired by Logitech many years ago. Logitech put out one or two devices before giving up, but they are actually playing really nice by continuing to support development on the server (see [0]).[0]: https://github.com/Logitech/slimserver
-[1]: https://github.com/ralph-irving/squeezelite
-[2]: https://www.picoreplayer.org/"</p>
+								<p class="story__comment_others">"In contrast to most people in this thread, I don&#39;t find Jellyfin to be an all-around great experience. Maybe because I run the JF client on a Google Chromecast, and the &#34;Jellyfin for Android TV&#34; app is very unstable. I get roughly one crash a day, mostly when restarting a movie-watching. The UI is okay, but there are a lot of small annoyances (why is there no &#34;restart from beginning&#34; button? Why can&#39;t I use the &#34;wheel/cursor thing&#34; on my remote to go forward/back?, why does it so often fail to automatically recognize/parse filenames, or download cover art? Why can&#39;t a folder contain both movies and tv series?).... All in all, it&#39;s mediocre at best, but I&#39;m still glad it exists: despite everything, I still use it over other alternatives, because it&#39;s open source and works well enough. I can live with having to restart the client every now and then."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve been a Plex-to-Jellyfin convert for a long while now, and I&#39;ve nothing bad to say. I switched because Plex kept pushing their streaming services, and the fuzzy feeling I get from running FOSS.Jellyfin used to run on my desktop which has a beefy CPU/GPU, but runs fine on my puny Synology NAS."</p>
+								<p class="story__comment_others">"For serving local music, the free and open source &#34;Logitech Media Server&#34;[0] is a great solution -- main weakness is the lack of a central organization promoting it. In addition to working smoothly with dedicated (&#34;squeeze&#34;) clients which can be Logitech-brand or DIY[1, 2], it has a massive plugin catalog that allows e.g.- airPlay integration: stream to your squeeze-clients via airPlay, stream to your airPlay clients from squeezebox.- chromeCast integration: stream to chromeCast devices from squeezeBox.- upNp integration: stream to upNp clients.The system was originally developed by &#34;SqueezeBox&#34; who also made (awesome) physical devices. SqueezeBox was acquired by Logitech many years ago. Logitech put out one or two devices before giving up, but they are actually playing really nice by continuing to support development on the server (see [0]).[0]: https://github.com/Logitech/slimserver
+[1]: https://github.com/ralph-irving/squeezelite
+[2]: https://www.picoreplayer.org/"</p>
 							
 						
 						</a>
@@ -1937,7 +2222,7 @@ Wired headphones never run out of battery and have superior audio quality- I can
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://n-o-d-e.net/watch_mods.html">More Casio Watch Mods (2017)</a></h3>
+					<h3><a href="https://n-o-d-e.net/watch_mods.html">More Casio Watch Mods</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
@@ -2697,313 +2982,6 @@ https://imgur.com/a/MOdJkT8"</p>
 						
 							
 								<p class="story__comment_others">"You can even see it from Spain if you have a a good tower and the blood of Noah in your veins.https://en.wikipedia.org/wiki/Tower_of_Hercules"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">19 September 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://a-b-street.github.io/docs/tech/map/geometry/index.html">Transforming OpenStreetMap into thick roads and intersections</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28568081">
-						
-							
-								<p class="story__comment_first line-clamp">"I am a professional traffic engineer and I build micro-simulation models for most of the projects I am involved with. I can say that compared to software that is used in industry (PTV Vissim, PTV Vistro, and Trafficware Synchro) it looks like A/B is a reasonable toy model that can get pretty close to the real thing. I think it is great that software exists at a level for individuals without huge budgets to be able to build and play around with traffic networks. Automating the intersection setup goes a long way toward this type of tool being accessible to the lay person. All that being said, I think the limitations of any model are important to understand when interpreting the outputs. I can take any model and make traffic flow or decrease the delay per vehicle, that doesn&#39;t mean my results are realistic.Keep up the work, this is an awesome tool and I hope it can get to the point where it can easily help inform people about traffic design and simulation."</p>
-							
-						
-							
-								<p class="story__comment_others">"A/B Street is an open-source traffic simulator that lets you edit roads and intersections, based on OpenStreetMap data. But to even do that, first we have to geometrically represent the transportation network in great detail. This is a second deep-dive into how things work."</p>
-							
-						
-							
-								<p class="story__comment_others">"You can play it right in your browser: http://play.abstreet.org/0.2.58/abstreet.html What a cool project!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://issues.edpnet.be/">Belgian ISP under 250 Gbps DDoS for days on end</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28578399">
-						
-							
-								<p class="story__comment_first line-clamp">"I got hit with a ~40Gbps DDoS last week. These attacks are on the rise. Some responses to folks above: Success working with upstreams is quite varied.  Some care, some don&#39;t, and it can be difficult to get to folks that can help- even if their networks are impacted as well.  Some carriers immediately turn this into a sales opp. - buy more bandwidth, buy more services.In our case it was based on DNS reflection from a large number of hosts.  I&#39;ve contacted the top sources (ISPs hosting the largest number of attackers) and provided IPs and timestamps. I&#39;ve received zero responses.Geo-based approaches yielded no helpful reduction in source traffic.Also, during this event we discovered an upstream of ours had misconfigured our realtime blackhole capability.  As a result, I&#39;m going to add recurring testing for this capability and burn a couple IPs to make sure upstreams are listening to our rtbh announcements.Very concerned about the recent microtik CVE, as that is going to make for some very large botnets.Personally this all is very disappointing because it creates an incentive to centralize / de-distribute applications to a few extremely large infrastructure providers who can survive an attack of these magnitudes."</p>
-							
-						
-							
-								<p class="story__comment_others">"Since this is HN, it’s 2021 and DDoS’es are still a thing:  why are they still a thing? Is there some fundamental “anonymity” to the Internet that makes it impossible to structurally prevent DDoS attacks? Apart from CloudFlare-like approaches, are there any R&amp;D in the pipeline that may kill this type of attack once and for all?To me it’s incredibly infuriating to see the damage that still happens with these extremely simple techniques. Will it ever end?Edit: to elaborate, I know that there are tons of insecure Internet devices and whatnot. I’m more interested in standards, and core protocol improvements that can fundamentally rid the world of these types of attacks."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m very much not a network engineer, but I&#39;d like to understand the magnitude of this issue because my intuition is wrong:250 Gbps seems like it would definitely be a lot for a server or website but it also seem like a drop in the bucket for an ISP providing broadband for many customers.Clearly I&#39;m wrong because it is an issue here. I&#39;d like to understand why I&#39;m wrong, and I hope that here, on HN, that&#39;s taken in the spirit of curiosity intended and not negativism.So, what am I missing? Maybe Belgian broadband is lower capacity than what I&#39;m used to in a US metropolitan area? Maybe this particular ISP served a population too small to have a... um... &#34;fat pipe&#34;? I&#39;d like to understand."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/">How to rapidly improve at any programming language (2016)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28577371">
-						
-							
-								<p class="story__comment_first line-clamp">"This seems great for language/library knowledge. As an experienced polyglot, the languages are not where I&#39;m hitting the wall these days though. It&#39;s the tooling. I can learn new language basics faster than I can figure out the ecosystem/tooling.For example, my current conundrum is how to deploy an Elixir Phoenix/MQTT app. Writing the app was a fun curve to climb. And I could use techniques like described here to learn from others in the actual programming. But how to build an executable I can wrap in a systemd process running on a different machine? Those are actions people do, not expressed so much in code I can look at. The few blogs I can find on the subject are mired in deep CI toolchains.I want the blog that discusses the secret sauce to learn to acquire the knowledge to work the raft of ever evolving tools we have to work with now days. The &#34;materials&#34; (the languages) are the easy part now days. It&#39;s the massively automated complicated machinery we&#39;ve built around the language of ideas that are my personal pain point of entry."</p>
-							
-						
-							
-								<p class="story__comment_others">"Hey, author here. Surprised to see this on the front page of HN since I wrote it 5 years ago.I&#39;ve always been fascinated with talent acquisition and skill development and would probably different recommendations today after having more experience and reading Ultralearning by Scott Young."</p>
-							
-						
-							
-								<p class="story__comment_others">"Two things I did and always do: Code things that solve real problems you want to solve. The harder the problem, the better you&#39;ll get in the language and as a programmer in general.Second, look at existing open source, well written code that, again, solves a problem you&#39;re interested in. I always emphasize this: Things you&#39;re passionate about. That way you can master any language/framework. By master here, I mean you can code anything you want in the technology efficiently. Your final app will be: Easy to modify/enhance, easy to understand in terms of code. Memory and CPU efficient in terms of runtime."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/juanfont/headscale">Headscale: Open-source implementation of the Tailscale control server</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28572013">
-						
-							
-								<p class="story__comment_first line-clamp">"Another similar project to Tailscale, for those in the market:https://github.com/slackhq/nebulaCrazy simple, fully open source, trivial to self-host. Maybe not as featureful as Tailscale, but imo that can be a feature unto itself."</p>
-							
-						
-							
-								<p class="story__comment_others">"The ZeroTier ecosystem has a number of open source self-hosted controller projects for those who want unlimited members/networks/admins.- https://github.com/key-networks/ztncui (the most popular one, GUI)- https://github.com/dec0dOS/zero-ui (GUI)- https://github.com/thedunston/bash_cli_zt (CLI)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Not sure what I think about this.I don&#39;t use Tailscale because I don&#39;t trust their key distribution, and this open source project would solve that, but it might undermine Tailscale&#39;s sustainability.This would be a shame because Tailscale is working well with the open source community: open source clients, working well with distros, working well with Linux DNS stack, supporting a more P2P secure Internet, and documenting their well through it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://cloudirregular.substack.com/p/every-engineer-should-do-a-stint">Every engineer should do a stint in consulting</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28546756">
-						
-							
-								<p class="story__comment_first line-clamp">"Here in Mexico we have an opposite view of this: The majority of developers have spent their professional life doing &#34;consulting&#34; jobs in outsourcing firms. Few devs have experience developing a product and taking care of it 2 or 3 years later.The difference shows in the type of code they do, the &#34;ownership&#34; and engagement they have: Those with a consulting mind will do something and then have the notion that once its &#34;done&#34; they don&#39;t have to care about it. Those that have been  bitten by their own code from the past have a better notion on how to write maintainable code."</p>
-							
-						
-							
-								<p class="story__comment_others">"I completely disagree.Consulting is not for everyone and like everything you get out what you put in.Why I went into consulting
-- I was working hard as ever, it’s my nature and I love what I do.
-- My pay was average
-- My projects looked amazing but in reality sucked and were driven by people in ivory towersMy concerns with consulting
-- we had a newborn and worried about health insurance. In the US this is highly coupled with your jobThe outcome
-- I am still busy as ever and love it.
-- I am a seasoned 14 year dev with a lot to offer.
-- health insurance because of Obama care is amazing. We pay about $150 more per month but it’s actually better health insurance.
-- here is the kicker, last month I made 50k profit. Consulting is extremely lucrative and makes me feel like I was wasting my time as an employee before.Will I go back to working for someone? Oh yeah in a heartbeat. But I must be valued according and can enrich the company as I do now with consulting for my clients.What’s sucks about consulting
-- billing / payroll for other devs that help me as 1099 when needed.Take away - consult for the right reasons. You will learn a lot but you can learn a lot as an employee as well. Let it happen naturally. Don’t force yourself to consult. You may be a completely happy employee and don’t let anyone tell you different and anyone worth being a human won’t discriminate against you for it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I spent more than half my career in digital consulting for mid-size (500-5000 people) that did full service product development (strategy, design, tech, marketing). Eventually working my way up to director level that meant doing sales and writing contracts.We did some crazy stuff. Delivered some gigantic ambitious projects with pure chutzpah. Dove into tech we didn&#39;t know anything about. Go sell a project to an airline, read everything about the airline business, then walk in like experts. It felt like fraud at times but we pulled it off so well you just start to feel invincible. It was a meat grinder but also thrilling. The kind of stuff I feel privileged to have been part of but never want to do again."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/seed-rs/seed">Seed – A Rust front-end framework for creating fast and reliable web apps</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28567714">
-						
-							
-								<p class="story__comment_first line-clamp">"Seed creator here. For some context, I now code all my websites in HTML, CSS, and targeted JS (ie no frameworks or dependencies). Writing this was a great way to learn the ins and outs of DOM manipulation!Overall, I&#39;m happy with the way the Seed API turned out, but could never get the performance or package size to a good place.That said, I love coding in Rust, and use it all the time for embedded!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Kudos to the author for making this framework.I am using this for my personal project: https://www.biblemaze.com which is a Bible trivia game.Here are some things I like about Seed:1. The Elm architecture seems to flow nicely in Rust.2. The way of defining the elements on the page is more Rust like rather than html like. I initially tried Yew which is another similar framework, but since I am a more backend developer, I found writing in a more Rust style more comfortable than writing in a more html-like dsl. Other with different experiences may be more comfortable with more html-like syntax.3. Very easy to perform REST API calls. I am using Actix for the backend, and I have a shared library that declares the types which both the backend and frontend use. This is one big advantage for using Rust for both backend and frontend, in that you never have to worry about your types getting out of sync.4. In general as to why Rust for the front end, apart for being able to share types, for more complex algorithms, for me, having a compiled language with an emphasis on safety and that tries to ensure correctness as much as compile time (and especially pattern matching) makes writing complex code more enjoyable for me.5. Excellent documentation on the Seed website. There are lots of examples and walkthroughs of basics as well as examples of how to do stuff like integrate with Javascript libraries.Anyway, thanks again to the authors for making and supporting such an awesome library."</p>
-							
-						
-							
-								<p class="story__comment_others">"My most sincere thanks to the author(s) for “Why Not” section.   This level of self awareness and transparency makes me so happy; it takes so much guess work and unnecessary back and forth out of the discourse.  Again - kudos!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/joehillen/sysz">Sysz – An fzf terminal UI for systemctl</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28576836">
-						
-							
-								<p class="story__comment_first line-clamp">"The crazy thing about this is how simple the code is.    _sysz_list_units |
-      fzf \
-        --exact \
-        --multi \
-        --ansi \
-        --reverse \
-        --no-sort \
-        --history=&#34;$SYSZ_HISTORY&#34; \
-        --prompt=&#34;Units: &#34; \
-        --bind &#34;ctrl-v:preview(&#39;${BASH_SOURCE[0]}&#39; _fzf_cat {})&#34; \
-        --preview=&#34;&#39;${BASH_SOURCE[0]}&#39; _fzf_preview {}&#34; \
-        --preview-window=70% |
-  readarray -t PICKS
-
-This is the whole UI. Just give it a list of things to search through, a prompt, and a command for previewing the thing and fzf handles literally all the rest of the UI for you."</p>
-							
-						
-							
-								<p class="story__comment_others">"Does anyone know of a way or how to go about making a way to get &lt;tab&gt; and &lt;tab&gt;&lt;tab&gt; to bash autocomplete &#34;systemctl status &#34; with service names? It seems like remembering where the service name has dashes, matches the package name, has a &#34;d&#34; at the end, and so on is half the battle for me when working with systemctl.This achieves something similar but it also does a whole lot more than just help complete the name.Edit: Helps to have bash-completion working properly for the user :)."</p>
-							
-						
-							
-								<p class="story__comment_others">"With fzf-tab [1], you can use fzf wherever your zsh completion is. Here is a screencast showing it[2].[1] https://github.com/Aloxaf/fzf-tab[2] https://asciinema.org/a/KhDMhtZ3J8ppO7B8L6jFSE1co"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.osohq.com/post/why-authorization-is-hard">Why Authorization Is Hard</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28543457">
-						
-							
-								<p class="story__comment_first line-clamp">"Disclaimer: I&#39;m a founder of Authzed (YC W21), a productized form of ZanzibarI&#39;d like to reiterate that Policy Engines and Zanzibar-like systems are orthogonal and can be used together very successfully. However, the article claims that ABAC cannot be done with ReBAC systems which is false[0] and it claims that Zanzibar systems do not support the concept of &#34;public&#34;, when the system at Google does[1]. The availability of Zanzibar-like systems outside of Google is still relatively new, so the user experience can be greatly improved. For example, the Authzed Schema Language[2] is a vast improvement over Zanzibar&#39;s raw userset rewrites.That being said, I think the Oso UX is quite nice in comparison to many products in the space, but architects should always spend the time to figure out what&#39;s best for their requirements. If you&#39;re just starting to explore AuthZ, this article is a pretty good primer for the problems in the space and why you&#39;re unlikely to design something great on the first go if you build it yourself. It&#39;s really hard to write about this subject in a digestible fashion, so props to the team!I especially liked the quote &#34;[...] authorization is a topic as cool as moving to Kubernetes!&#34;. Considering almost all of our team is ex-CoreOS and has deep ties to Kubernetes, we truly believe authorization is cool enough to stop working on Kubernetes ;)[0]: https://link.springer.com/chapter/10.1007/978-3-662-43936-4_...[1]: https://www.youtube.com/watch?v=mstZT431AeQ[2]: https://play.authzed.com"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve never used it in prod, but have heard great things from former Intercom coworkers about how easy it was to rewrite the whole auth layer in Oso. Never heard someone describe being &#34;blown away&#34; building an auth layer but here we are.Congrats to the Oso team for building a great product :)"</p>
-							
-						
-							
-								<p class="story__comment_others">"(OPA [0] creator and Styra [1] founder here.). Love how this article calls out 3 key challenges for authz.  I realized by the end that whenever I talk through this OPA diagram [2] for folks, it&#39;s those same three key ideas that we cover.One bit of context I&#39;ll add here is that there&#39;s a broad spectrum of authorization use cases: kubernetes admission control, database access control, microservice/application authorization, etc.  Despite them all being authorization, they each have their own requirements around enforcement points, data dependencies, modeling/expressiveness, performance, etc.  So it&#39;s not surprising that with such a broad space of requirements we end up with such an interesting and rich landscape of technology choices.The other bit of context to add is that this article seems to focus primarily on the custom application use case from the perspective of the software engineer (e.g. who can change the code, pull in libraries, and/or rearchitect the app).  Other teams in orgs (security, compliance teams, and operators) have their own challenges around authorization, in part because they can&#39;t change the code but are responsible for its health nevertheless.And I totally agree that there are plenty of folks who believe your quote: &#34;authorization is a topic as cool as moving to Kubernetes&#34;[0]: https://www.openpolicyagent.org/[1]: https://www.styra.com/[2]: https://www.openpolicyagent.org/docs/latest/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.autonews.com/manufacturing/gm-tells-some-bolt-owners-park-50-feet-away-other-cars">GM tells some Bolt owners to park 50 feet away from other cars</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28545619">
-						
-							
-								<p class="story__comment_first line-clamp">"Maybe lithium-ion batteries in mass-market vehicles aren&#39;t such a good idea. We may need a battery technology that can survive poor maintenance less than perfect battery construction, and low-cost vehicle designs. Tesla had to put a titanium plate under their battery. That&#39;s not a mass-market solution.BYD is converting over to lithium iron phosphate, which is much better behaved when damaged. Toyota is working on solid state batteries, which hopefully don&#39;t catch fire.The NYFD reports over 55 electric bike and scooter fires so far this year.[1] Two deaths, 60 injuries, including 18 firefighters.  Fires destroying electric bike shops are a thing, with one fire expanding to all the batteries around. All we need now is for a cascade auto battery fire in a parking lot. Or, worst case, a garage under a building.Boosted skateboards used to use lithium iron phosphate, but were just too expensive.[1] https://www.nydailynews.com/new-york/nyc-crime/ny-e-bike-sco..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The automaker told Bolt owners to limit the charge to 90 percent, plug in more frequently and avoid depleting the battery to below about 70 miles of remaining range.Tesla&#39;s approach here would be to issue an OTA update that told your car to treat 90% as 100% and 25% as 0. I can&#39;t decide if I like that better or worse."</p>
-							
-						
-							
-								<p class="story__comment_others">"That&#39;s insane. For (probably) a majority of owners it makes the car unusable if you adhere to that restriction.If I had one then I would have nowhere to park it. Certainly not at work. And at home with once car in the driveway and another in front of the house they couldn&#39;t be 50 feet apart. In tightly packed houses even one driveway to the next isn&#39;t 50 feet apart.If you went shopping and we&#39;re lucky enough to manage to find a space 50 feet away, there&#39;s no guarantee someone wouldn&#39;t park closer, though I can&#39;t even think of a place I go where finding such a spot in the first place is at all likely."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.openculture.com/2021/09/the-very-first-webcam-was-invented-to-keep-an-eye-on-a-coffee-pot-at-cambridge-university.html">The first webcam was invented to keep an eye on a coffee pot</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28541508">
-						
-							
-								<p class="story__comment_first line-clamp">"One of the earliest webcams is still around at MIT Media Lab! When I was there, I would use it to give away free food. It&#39;s installed in a corner of the lab facing down so you can place free objects under it. I would place free food under the webcam and press the broadcast button. It would send an image to various IRC channels and other subscribers. Within minutes, hungry lab folks would rush in to grab the food. Probably my favorite memory of being at the lab."</p>
-							
-						
-							
-								<p class="story__comment_others">"World&#39;s longest lab experiment still going strong, via webcamIn 1927, a physics professor named Thomas Parnell launched an experiment on viscous liquids. 85 years later, we&#39;re still waiting for his results. It all began with a funnel, a beaker, and some melted tar pitch. Parnell, a professor at the University of Queensland in Australia, was hoping to demonstrate that brittle tar pitch actually behaves as a liquid when kept at room temperature. To prove this, he melted some tar pitch, let it cool for three years, and placed it within the funnel, held over the beaker. The first drop rolled down the funnel eight years later. The second came nine years after that. By the time the third rolled around, Parnell had already passed away.https://www.engadget.com/2012-01-27-worlds-longest-lab-exper..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Breakrooms also have a dark side:https://en.wikipedia.org/wiki/Peryton_(astronomy)https://www.theguardian.com/science/2015/may/05/microwave-ov..."</p>
 							
 						
 						</a>
