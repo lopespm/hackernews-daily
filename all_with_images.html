@@ -36,6 +36,403 @@
 	</div>
 
 	
+	<div class="day__date">01 October 2021</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.postgresql.org/about/news/postgresql-14-released-2318/">
+						<picture>
+							<source srcset="default_28705699.webp" type="image/webp">
+							<source srcset="default_28705699.png" type="image/png">
+							<img src="default_28705699.png" alt="Preview of 'PostgreSQL 14'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.postgresql.org/about/news/postgresql-14-released-2318/">PostgreSQL 14</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28705699">
+						
+							
+								<p class="story__comment_first line-clamp">"These changes look fantastic.If I may hijack the thread with some more general complaints though, I wish the Postgres team would someday prioritize migration. Like make it easier to make all kinds of DB changes on a live DB, make it easier to upgrade between postgres versions with zero (or low) downtime, etc etc.Warnings when the migration you&#39;re about to do is likely to take ages because for some reason it&#39;s going to lock the entire table, instant column aliases to make renames easier, instant column aliases with runtime typecasts to make type migrations easier, etc etc etc. All this stuff is currently extremely painful for, afaict, no good reason (other than &#34;nobody coded it&#34;, which is of course a great reason in OSS land).I feel like there&#39;s a certain level of stockholm syndrome in the sense that to PG experts, these things aren&#39;t that painful anymore because they know all the pitfalls and gotchas and it&#39;s part of why they&#39;re such valued engineers."</p>
+							
+						
+							
+								<p class="story__comment_others">"PostgreSQL is one of the most powerful and reliable pieces of software I&#39;ve seen run at large scale, major kudos to all the maintainers for the improvements that keep being added.&gt; PostgreSQL 14 extends its performance gains to the vacuuming system, including optimizations for reducing overhead from B-Trees. This release also adds a vacuum &#34;emergency mode&#34; that is designed to prevent transaction ID wraparoundDealing with transaction ID wraparounds in Postgres was one of the most daunting but fun experiences for me as a young SRE. Each time a transaction modifies rows in a PG database, it increments the transaction ID counter. This counter is stored as a 32-bit integer and it&#39;s critical to the MVCC transaction semantics - a transaction with a higher ID should not be visible to a transaction with a lower ID. If the value hits 2 billion and wraps around, disaster strikes as past transactions now appear to be in the future. If PG detects it is reaching that point, it complains loudly and eventually stops further writes to the database to prevent data loss.Postgres avoids getting anywhere close to this situation in almost all deployments by performing routine &#34;auto-vacuums&#34; which mark old row versions as &#34;frozen&#34; so they are no longer using up transaction ID slots. However, there are a couple situations where vacuum will not be able to clean up enough row versions. In our case, this was due to long-running transactions that consumed IDs but never finished. Also it is possible but highly inadvisable to disable auto-vacuums. Here is a postmortem from Sentry who had to deal with this leading to downtime: https://blog.sentry.io/2015/07/23/transaction-id-wraparound-...It looks like the new vacuum &#34;emergency mode&#34; functionality starts vacuuming more aggressively when getting closer to the wraparound event, and as with every PG feature highly granular settings are exposed to tweak this behaviour (https://www.postgresql.org/about/featurematrix/detail/360/)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Once again, thanks to all the contributors that provided these awesome new features, translations and documentation.It&#39;s amazing what improvements we can get through public collaboration."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://haxplore.pabue.co">
+						<picture>
+							<source srcset="default_28704873.webp" type="image/webp">
+							<source srcset="default_28704873.png" type="image/png">
+							<img src="default_28704873.png" alt="Preview of 'Show HN: Hacker News client with a twist'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://haxplore.pabue.co">Show HN: Hacker News client with a twist</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28704873">
+						
+							
+								<p class="story__comment_first line-clamp">"Haxplore is a little web app I created because I didn&#39;t like to click around the HN interface to read submission and discussions. I also wanted to experiment with different ways of implementing keyboard control in web apps and HN seemed like the perfect test subject. So maybe it&#39;s useful for some of you too. The most important features are:- Intuitive keyboard control- Link detection in comments with hotkeys to open them directly- Better readbility and formatting of comments- Hotkeys for the most common actions- Ability to open stories or comments in an overlay for reading long texts"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is great! For stories with 100s of comments it&#39;s nice to start browsing from a collapsed view of top-level comments.- Why is the Comments count shown only for the highlighted story?- On Firefox Windows, pressing the Enter key on an item triggers a popup warning at the top of the page. Took me a few tries to notice what was going on.- Alt + H triggers the Firefox Help menu for me :| Can you change that shortcut key to &#34;?&#34; instead? GMail, Github etc use &#34;?&#34;.- The green background for the comment text is a bit too dark.- Is it just me or is the comment text not showing paragraph breaks?- The zoom in transition when the comment text modal shows up just slows things down. If I&#39;m going to load many comments in that view I&#39;d rather it load instantly. Also, what&#39;s the purpose of this modal? There&#39;s a &#34;Space -&gt; Read&#34; for the comment that I&#39;m already reading. I don&#39;t get it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can you please avoid blurring the prior column (or at least the comment you came from)? It&#39;s useful to see context that way.Otherwise I think it&#39;s really good. Reddit should have aspired to something this well thought out.(I&#39;d also like page up / page down.)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://earthly.dev/blog/awk-examples/">
+						<picture>
+							<source srcset="default_28707463.webp" type="image/webp">
+							<source srcset="default_28707463.png" type="image/png">
+							<img src="default_28707463.png" alt="Preview of 'Understanding Awk'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://earthly.dev/blog/awk-examples/">Understanding Awk</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28707463">
+						
+							
+								<p class="story__comment_first line-clamp">"One tip I have to make large-ish awk programs readable is to name the columns in the BEGIN section. Then, you&#39;d use $colname instead of $1, $2, etc. for instance:BEGIN{
+     item_type = 1;
+     item_name = 2;
+     price = 3;
+     sale = 4;
+     #etc
+}Now, in place of $1, you&#39;d say $item_type which significantly improves overall readability of the code."</p>
+							
+						
+							
+								<p class="story__comment_others">"Lots of great AWK tutorials in here that are more in depth, but I&#39;ll share another. I always go back to Brian Kernighan&#39;s personal help file:https://www.cs.princeton.edu/courses/archive/spring19/cos333...Brian Kernighan has a knack for explaining languages very precisely and elegantly."</p>
+							
+						
+							
+								<p class="story__comment_others">"Thanks for sharing this. I&#39;m the author.When I wrote my introduction to JQ someone mentioned JQ was tricky but super-useful like AWK. I nodded along with this, but actually, I had no idea how Awk worked.So I learned how it worked and wrote this up. It is a bit long, but if you don&#39;t know Awk that well, or at all, I think it should get the basics across to you by going step by step through examining the book reviews for The Hunger Games trilogy.Let me know what you think. And also let me know if you have any interesting Awk one-liners to share."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://stratechery.com/2021/cloudflares-disruption/">
+						<picture>
+							<source srcset="default_28707317.webp" type="image/webp">
+							<source srcset="default_28707317.png" type="image/png">
+							<img src="default_28707317.png" alt="Preview of 'Cloudflare&#39;s Disruption'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://stratechery.com/2021/cloudflares-disruption/">Cloudflare&#39;s Disruption</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28707317">
+						
+							
+								<p class="story__comment_first line-clamp">"In 2017 Cloudflare had an HTML parser bug that caused encrypted HTTP traffic to be leaked. Any website served by Cloudflare was vulnerable to having all of its traffic leaked into the HTML body response of the website that Cloudflare proxied. Given that Cloudflare is the proxy service for 80% of websites that use proxies, this affected a significant portion of the internet.Cloudflare served private HTTP traffic in response bodies, meaning that website results contained cookies, session data, encrypted traffic, all personally identifiable, and because it was served as response bodies, it was *indexed by search engines*, not to mention anyone else who was scraping websites during the time of the incident. It included credit card information, frames from videos, PII, the works, all linked to individual users.This was ongoing for *months.*Anyone savvy could use this information to hijack accounts, scrape personal information, view private browsing habits. Even when Cloudflare publicly announced it (and tried to blame others) when they thought they had cleaned up most of the data, you could still easily use search engines to find people&#39;s personal information by searching for the Cloudflare header strings that started the leaked session information.Many countries have legal policies around data breaches, including required disclosure policies and penalties. In the greatest blind eye turn of the history of the internet, Cloudflare managed to get away with a single blog post, and no other penalties. https://blog.cloudflare.com/incident-report-on-memory-leak-c...THAT is Cloudflare&#39;s disruption."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;More importantly, AWS itself is locked-in to its integrated approach: the entire service is architected both technically and economically to be an all-encompassing offering; to modularize itself in response to Cloudflare would be suicidal.&#34;Eh, somewhat. AWS is already modular in a lot of ways. You want S3? You got it, no matter where you are. (We&#39;re talking after them doing some sort of fee drop here.) You want to run exactly one EC2 instance? No problem. You want a message queue? You don&#39;t need anything else. You can integrate it with the notification service but it&#39;s optional.Sure, some of their services are integrated, but a lot of that integration is just &#34;this service pulls from S3 and writes to S3&#34;, not massive integration at every level.There is some stuff that is deeply tied in, yeah. But it&#39;s not like every single AWS service is deeply tied into half the other ones and the moment you open an EC2 instance you also are buying into a dozen other services. (It may feel like it if you put together a network and override the default block storage, but that&#39;s really just giving you knobs that are simply preset elsewhere, not really &#34;lockin&#34;.) A lot of it is already pretty modular."</p>
+							
+						
+							
+								<p class="story__comment_others">"Cloudflare is truly amazing.They almost compete with everyone now.DNS: They eat simpledns lunch
+Pages: They eat Netlify lunch
+Worker: They eat serverless/lambda as in AWS/GCP lunch
+R2: They eat AWS LunchAnd finallyEmail Forwarding: They eat ... my own lunch (I&#39;m founder of hanami.run an email forwarding service)That&#39;s being said, from a user perspective, if my domain is already on CloudFlare, I can just host everything on it.Right now, cloudflare workers is pretty great to add some dynamic stuff. And pages is great for static site."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://graphthinking.blogspot.com/2021/09/why-is-everything-so-hard-in-large.html">
+						<picture>
+							<source srcset="default_28692026.webp" type="image/webp">
+							<source srcset="default_28692026.png" type="image/png">
+							<img src="default_28692026.png" alt="Preview of 'Why is everything so hard in a large organization?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://graphthinking.blogspot.com/2021/09/why-is-everything-so-hard-in-large.html">Why is everything so hard in a large organization?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28692026">
+						
+							
+								<p class="story__comment_first line-clamp">"It seems like a lot of people here have been in an ineffective large organisation and an effective startup. I&#39;ve worked at an effective large organisation and an ineffective startup, so perhaps I can shed some light on what these kind of processes are for:* You don&#39;t get to be a large organisation without accumulating generations of previous products. Well, unless you&#39;re google and can regularly fire your customers without going bust. but part from them, you start to need processes just to track what&#39;s going on. (The  ineffective startup accumulated previous product attempts too, and is still paying  for a lot of pointless infra because no-one still there knows which ones can be switched off).* At a large scale, it starts to be pretty difficult to maneuver if each dept of 30-50 people has built or contracted all their own infra &amp; services. Some divergence is useful for agility, but a lot of it is just waste and actually slows you down when you want two depts to work together on something - or even prevents useful collaboration. An effective organisation will make the tradeoff consciously.* When you complete dozens of projects per year, it starts to be possible to invest in researching and rolling out best practices in areas where a startup just has to go with the simple/obvious answer.  When my startup employer moved, it was pretty onerous, and there was a bunch of stuff we never found again. The large org had so many offices that it had a full time dept just for moving offices. (They weren&#39;t dumb, each move consolidated offices -but they kept buying other companies). When they moved us, it was like magic - we went home on a friday and went to work on a monday in the new office, and everything was set up. Well, we had to set up the lab ourselves, but"</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s hard because it&#39;s meant to be hard.Once you have a large org that&#39;s making money, you don&#39;t really know exactly why it makes money. Sure, there&#39;s annual filings and there&#39;s still the elevator pitch of what the org does. But the actual how of how it works is difficult to describe in causal terms: if team X or Y was not there, the business would do better/worse? How does this team interact with that? It&#39;s really a bunch of informal relationships between different people, and both the people and the relationships change over time.So what you want to do when you know the whole sorta-works and you want to keep it that way is you pour glue all over it. You try to formalize processes, you give people titles and you make hierarchies. That way you attempt to stop the firm from inadvertently slipping into dysfunction.The side effect is of course that everyone who works there can see ways to improve things, but they can&#39;t see a way to get those improvements implemented."</p>
+							
+						
+							
+								<p class="story__comment_others">"Big mistake in the article to claim that a single engineer could build Amazon, Facebook, or Google. Amazon is the most egregious.&gt; . A software developer could write a simple e-commerce website in a few days; Amazon employs 1,335,000 people [source].Those 1.4 million people are not coding the e-commerce app but making e-commerce happen as package handlers, drivers, finance teams, etc. on top of that Amazon has many non e-commerce related projects: building hardware (Kindles, Alexa, etc) , AWS and support, and on and on."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/QuinnyPig/status/1443028078196711426">
+						<picture>
+							<source srcset="default_28702997.webp" type="image/webp">
+							<source srcset="default_28702997.png" type="image/png">
+							<img src="default_28702997.png" alt="Preview of 'A bit of math around Cloudflare&#39;s R2 pricing model'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/QuinnyPig/status/1443028078196711426">A bit of math around Cloudflare&#39;s R2 pricing model</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28702997">
+						
+							
+								<p class="story__comment_first line-clamp">"Cloudflare will charge per request over a certain threshold, like S3 does for API calls, so it won’t be just 13 cents depending on the rate of requests coming in.“R2 will zero-rate infrequent storage operations under a threshold — currently planned to be in the single digit requests per second range. Above this range, R2 will charge significantly less per-operation than the major providers. Our object storage will be extremely inexpensive for infrequent access and yet capable of and cheaper than major incumbent providers at scale.”Source: https://blog.cloudflare.com/introducing-r2-object-storage/"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Now let’s remember that the internet is 1-to-many. If 1 million people download that 1GB this month, my cost with 
+@cloudflare R2 this way rounds up to 13¢. With @awscloud S3 it’s $59,247.52.&#34;When I first saw this, my thought was it&#39;s highly misleading since you&#39;d normally be fronting S3 with a CDN, so you&#39;d only have to pay once to transfer a given resource every few days/weeks/months if the CDN is doing its job, and it can be served to millions of people at no or low cost (already been free on Cloudflare for a long time).Then I came to my senses and realised there&#39;s probably orgs who don&#39;t know/care about that and they&#39;re actually paying these fees for every request.Anyway, it&#39;s excellent to see this released. S3 is not just more expensive and tied to a single data centre. It&#39;s also bad DX, e.g. setting up permissions is way too complicated and the console is &#34;brutalist&#34; in both look and function. I hope this spurs some more competition in the area of storage."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s amazing how much conversation Cloudflare has created with this without even releasing the product yet.I can&#39;t remember the last time there was this much interest in a new product launch - which gives an indication to the market need for pricing changes on this front. However, AWS re:invent is right around the corner and I suspect this will cause an announcement or two to come from the AWS side."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.reuters.com/business/autos-transportation/chip-shortage-leads-carmaker-opel-shut-german-plant-until-2022-2021-09-30/">
+						<picture>
+							<source srcset="default_28708807.webp" type="image/webp">
+							<source srcset="default_28708807.png" type="image/png">
+							<img src="default_28708807.png" alt="Preview of 'Chip shortage leads carmaker Opel to shut German plant until 2022'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/business/autos-transportation/chip-shortage-leads-carmaker-opel-shut-german-plant-until-2022-2021-09-30/">Chip shortage leads carmaker Opel to shut German plant until 2022</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28708807">
+						
+							
+								<p class="story__comment_first line-clamp">"One important part of the chip shortage is the massive amount of price gouging going on.Every IC is being bought up by new 3rd party distributors to scalp to desperate electronics manufacturers.Take a look at this chip we are just now crossing as an example, click on &#39;Non-authorized stocking distributors&#39;:https://octopart.com/tps2052bdgnr-texas+instruments-699312?r...Win Source has a bunch, but you will pay 6x the cost. We have been quoted even 100x the list price for some ICs on our boards.Luckily as a small company we are nimble and can mostly cross to similar components, and have been for months now, but a whole board assembly run can be stopped with a single component being impossible to find out of hundreds on the BOM.Having scalpers in the mix raising the price for all components worries me that the chip shortage might not end for many years, as they can self-fund by raising their prices to stock up on new supply. Not to mention the higher number of random failures as counterfeits easily find their way into the supply chain without &#39;authorized&#39; distributors."</p>
+							
+						
+							
+								<p class="story__comment_others">"@kliment summarized the why pretty well:https://news.ycombinator.com/item?id=26931498Curious if this is true for all manufacturers."</p>
+							
+						
+							
+								<p class="story__comment_others">"What I&#39;ll never understand is why carmakers don&#39;t take advantage of this situation and address a market that&#39;s been literally BEGGING for decades for a new product:A simple, basic car, with the ONLY electronic control being for:- Valve timing
+ - Fuel injection
+ - Oxygen and throttle
+ - EmissionsThere&#39;s a market for budget and privacy oriented customers that all carmakers seem to have ignored for two decades now. Give us a simple car with no GPS navigation, ass warmers, tire pressure sensors, telemetry, backup cameras, USB chargers, proximity detectors, traction control, keyless entry, remote climate control, etc.But instead of addressing this market, these carmakers have decided to throw up their hands and shut down production or pile up unfinished inventory waiting on chips. It makes precisely zero sense.I understand the re-engineering is a cost. But when you&#39;re simply removing existing features, this should be a fairly negligible one.edit: I wasn&#39;t aware any of these luxury features were mandated by governments. Apologies, and disregard."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=28696641">
+						<picture>
+							<source srcset="default_28696641.webp" type="image/webp">
+							<source srcset="default_28696641.png" type="image/png">
+							<img src="default_28696641.png" alt="Preview of 'Tell HN: Amplitude (YC W12) just went public – AMA'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=28696641">Tell HN: Amplitude (YC W12) just went public – AMA</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28696641">
+						
+							
+								<p class="story__comment_first line-clamp">"Holy cow, we&#39;re still going 16 hours later! I&#39;m on a flight back to SF today but I&#39;ll keep answering questions as I have time. The questions here are so thoughtful (even more than some of the ones I get from public market investors) so I&#39;ll keep going!"</p>
+							
+						
+							
+								<p class="story__comment_others">"If I am not mistaken, Amplitude was the very first SV startup coming up with the idea of the 10-year post-termination exercise window, talked to lawyers who said it cannot be done, persisted and did it anyway late 2015, then open-sourced the approach for others to follow [1].Triplebyte made a splash by adopting a very similar policy months later in early 2016 (also discussed heavily on HN [2]) and all YC companies were recommended to adopt this approach off the back of Triplebyte starting from the W16 batch [3]. The rest, as they say, is history.Many companies on this extensive list of ones with 10-year post-terminiation exercie windows [4] might not have this policy if it was not for this know-how benefitting employees put out in the open - between Amplitude, Triplebyte and it spreading to YC, making this approach table stakes a few years later.Sir, I salute your for doing this not just for doing this for Amplitude employees (who no longer had a &#34;golden handcuff pressure&#34; after vesting their original grant - which is most companies actually see as a benefit, and a way to &#34;leak&#34; less equity thanks to leavers often not being able to exercise), but for a part in moving the tech industry forward.Legend![1] https://amplitude.com/blog/employee-equity-is-broken-heres-o...[2] https://news.ycombinator.com/item?id=11198991[3] https://triplebyte.com/blog/fixing-the-inequity-of-startup-e...[4] https://github.com/holman/extended-exercise-windows"</p>
+							
+						
+							
+								<p class="story__comment_others">"Congrats!HN is always saying that working for a FAANG is better money than working for a startup even if it IPOs, so my question to you is: How did your employees make out during the IPO? Is the prevailing HN wisdom correct? Did your average developer employee that stuck it through with you on your journey end up with more or less than what they would have made working at FAANG?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://every.to/napkin-math/nft-projects-are-just-mlms-for-tech-elites">
+						<picture>
+							<source srcset="default_28713249.webp" type="image/webp">
+							<source srcset="default_28713249.png" type="image/png">
+							<img src="default_28713249.png" alt="Preview of 'NFT Projects Are Just MLMs for Tech Elites'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://every.to/napkin-math/nft-projects-are-just-mlms-for-tech-elites">NFT Projects Are Just MLMs for Tech Elites</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28713249">
+						
+							
+								<p class="story__comment_first line-clamp">"All of this gushing hype for the future of artistry is transparently performative. Nobody in this tech cares about art or artists, any of the useful functions of NFTs have long been possible and many orders of magnitude less expensive using public key cryptography or digital signatures."</p>
+							
+						
+							
+								<p class="story__comment_others">"This would have been more interesting if the author had traced where all the money being plowed into NFTs is coming from.I suspect that most of it does not come from outside of the current ETH (or whatever) ecosystem. I&#39;d bet that most of the volume comes from people who are either treating it as play money, or trying to pump the NFT scam for their own benefit (real or imagined)."</p>
+							
+						
+							
+								<p class="story__comment_others">"sorry to be pedantic, but it&#39;s literally not multi-level-marketing? Specifically, it&#39;s missing the multi-level part. Your upline isn&#39;t getting $$$ when you sell a NFT. I suppose you can make the argument that if you then take the money and buy more stuff, then your upline gets paid, but that describes most distributor arrangements. Come to think of it, there isn&#39;t really even an upline. It&#39;s just a network of artists and traders with no set hierarchy."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://am.jpmorgan.com/us/en/asset-management/institutional/insights/market-insights/eye-on-the-market/dude-where-is-my-stuff/">
+						<picture>
+							<source srcset="default_28687992.webp" type="image/webp">
+							<source srcset="default_28687992.png" type="image/png">
+							<img src="default_28687992.png" alt="Preview of 'Dude, where’s my stuff'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://am.jpmorgan.com/us/en/asset-management/institutional/insights/market-insights/eye-on-the-market/dude-where-is-my-stuff/">Dude, where’s my stuff</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28687992">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; The containership industry is a good illustration of the supply chain mess: as shown in the first chart, more than 70 containerships are stacked up outside Los Angeles/Long Beach ports waiting to unload. Idle containerships are back to just 3% of the total fleet, shipping costs are surging, manufacturing delivery times are extended and rail shipments are declining sharply from their summer peak, illustrating the far reaching impact of the delays.I&#39;m surprised that the article doesn&#39;t take up what happens when that logjam eventually clears.At some point those ships will clear out of LA and there will be no more pile up. All the goods will have been distributed. Meanwhile, the world&#39;s container ship capacity will have increased by some large factor (30%, 50%) to address the shortage.Fast forward 1-2 years and we have a world that&#39;s a mirror image of today&#39;s: surplus everything. Too much oil. Too much container ship capacity. Too many semiconductors. Too many employees.It&#39;s not like COVID increased overall world demand relative to 2019. Rather, it created a log jam getting everything back to normal.The current action in Washington DC around the budget sets the stage for rollback of the massive government transfers and deficit spending of the last 18 months. Eventually, those evictions will happen. Eventually.Demand shocks can work both ways."</p>
+							
+						
+							
+								<p class="story__comment_others">"Advocating for an increase in foreclosures (increase the homeless population) and an increase in “acquired immunity” (read: let COVID run rampant and employ whoever survives) is incredibly ghoulish.It’s made even more shameful by its casual tone and tongue in cheek decades-old pop culture title. This article openly and unequivocally advocates for human misery and death in order to avoid upward pressure on wages."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; For all the clients that have asked me about the political and economic problems associated with the rise of autonomous vehicles and more unemployed truckers, I keep telling them they’ve got it backwards: the US has had a trucker shortage for the last few years, and it’s projected to get worse.In addition to the need to point out that &#34;shortage&#34; just means &#34;I don&#39;t want to pay market rate&#34;, a shortage of truck drivers does not negate the concern of automation causing mass unemployment of truckers.The concern is that the 450,000 truckers will lose their jobs. &#34;We want to have 500,000 truckers who would lose their jobs&#34; doesn&#39;t addresses that issue.To be clear, I&#39;m still very much in favor of automation, but people aren&#39;t &#34;getting it backwards&#34; here. These are two different problems."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">30 September 2021</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -837,7 +1234,7 @@ https://www.thedrive.com/the-war-zone/42480/mysterious-steal..."</p>
 							
 						
 							
-								<p class="story__comment_others">"My FB feed is lousy with these sorts of things. My family &amp; friends seem to enjoy answering questions like &#34;What was the first concert you attended?&#34; I don&#39;t think it&#39;s for advertising purposes because I have not noticed any improvement in the accuracy of targeted ads. I don&#39;t think it&#39;s for political purposes because that is much easier to figure out without these oblique questions.One group who would benefit from detailed life style profiles are life insurance companies. More detail is better for setting accurate premiums while remaining competitive with other life insurance companies.Edit: I almost forgot to mention a really popular one I&#39;ve seen a lot of lately: &#34;Have you ever had a DUI ? I&#39;ll wait.&#34; It&#39;s unbelievable to me that people would answer this question, but it definitely something insurance companies would like to know because their records don&#39;t go that far back into the paper age. A lot of people answer something like &#34;No, but I should have.&#34;"</p>
+								<p class="story__comment_others">"1.4 million comments on a single post? Holy crap! I was previously wondering on Reddit, what kind of vapid self-importance compels people to comment in threads that already have over 100-200 comments—when new ones go straight to the bottom and no one sees them afterwards. But this is on scale of some mental illness, unless I seriously misunderstand something about Facebook comments."</p>
 							
 						
 						</a>
@@ -2037,11 +2434,11 @@ Good asynchronous communication requires a high degree of introspection, clarity
 							
 						
 							
-								<p class="story__comment_others">"&gt; All newer Dell laptops now use the Microsoft Modern Standby.So let me guess: &#34;modern&#34; here is indicates a shitty new thing that doesn&#39;t work as well as the old thing....after further reading, yep:https://docs.microsoft.com/en-us/windows-hardware/design/dev...&gt; On occasion, the system stays in the active mode (with the screen off) for a longer interval of time. These longer active intervals occur for a variety of reasons, for example, processing incoming email or downloading critical Windows updates. Windows components that are allowed to leave the SoC in the active power state are called activators because they are registered with the power manager as capable of blocking the transition back to the idle power mode. The durations of these activities vary widely but are controlled to extend battery life. The durations of the activities can be viewed with the built-in SleepStudy software tool or through Event Tracing for Windows (ETW)-based instrumentation."</p>
+								<p class="story__comment_others">"I have an XPS 9500 and have found this infuriating.I think there&#39;s two separate things going on:As others have noted, S3 sleep isn&#39;t supported, only S1 &#34;sleep to idle&#34; sleep. But I don&#39;t think this is the direct cause of the overheating. In S1 sleep, the laptop can average something like 900mW of power usage, which is enough to annoyingly knock a few percent off your battery overnight, but not enough to make the laptop warm, even in a bag.The seems to be a second problem, specific to Windows, that when in S1 sleep sometimes the power consumption is high (of order 10W), and this causes the laptop to get very hot if not well ventilated. I&#39;ve never been able to figure out if this Windows actually doing something useful in &#34;modern standby&#34; like Windows Update, or whether it&#39;s a bug. Edit: And I should add, it&#39;s crazy that there&#39;s not a way to disable this if it is doing something &#34;useful&#34;.Either way, under Linux the latter doesn&#39;t happen, and the laptop sleeps very cool ... just with the annoying &#34;lose 5% of your battery overnight&#34; problem from sleeping in S1."</p>
 							
 						
 							
-								<p class="story__comment_others">"I have an XPS 9500 and have found this infuriating.I think there&#39;s two separate things going on:As others have noted, S3 sleep isn&#39;t supported, only S1 &#34;sleep to idle&#34; sleep. But I don&#39;t think this is the direct cause of the overheating. In S1 sleep, the laptop can average something like 900mW of power usage, which is enough to annoyingly knock a few percent off your battery overnight, but not enough to make the laptop warm, even in a bag.The seems to be a second problem, specific to Windows, that when in S1 sleep sometimes the power consumption is high (of order 10W), and this causes the laptop to get very hot if not well ventilated. I&#39;ve never been able to figure out if this Windows actually doing something useful in &#34;modern standby&#34; like Windows Update, or whether it&#39;s a bug. Edit: And I should add, it&#39;s crazy that there&#39;s not a way to disable this if it is doing something &#34;useful&#34;.Either way, under Linux the latter doesn&#39;t happen, and the laptop sleeps very cool ... just with the annoying &#34;lose 5% of your battery overnight&#34; problem from sleeping in S1."</p>
+								<p class="story__comment_others">"&gt; All newer Dell laptops now use the Microsoft Modern Standby.So let me guess: &#34;modern&#34; here is indicates a shitty new thing that doesn&#39;t work as well as the old thing....after further reading, yep:https://docs.microsoft.com/en-us/windows-hardware/design/dev...&gt; On occasion, the system stays in the active mode (with the screen off) for a longer interval of time. These longer active intervals occur for a variety of reasons, for example, processing incoming email or downloading critical Windows updates. Windows components that are allowed to leave the SoC in the active power state are called activators because they are registered with the power manager as capable of blocking the transition back to the idle power mode. The durations of these activities vary widely but are controlled to extend battery life. The durations of the activities can be viewed with the built-in SleepStudy software tool or through Event Tracing for Windows (ETW)-based instrumentation."</p>
 							
 						
 						</a>
@@ -3596,393 +3993,6 @@ it&#39;s one of the best social networks on the internet because it&#39;s just a
 						
 							
 								<p class="story__comment_others">"From the high score but low placement on the HN page, I’m guessing this is being heavily flagged."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">21 September 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://hacker-recommended-books.vercel.app/category/0/all-time/page/0/0">
-						<picture>
-							<source srcset="default_28595967.webp" type="image/webp">
-							<source srcset="default_28595967.png" type="image/png">
-							<img src="default_28595967.png" alt="Preview of 'Show HN: 40k HN comments mentioning books, extracted using deep learning'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://hacker-recommended-books.vercel.app/category/0/all-time/page/0/0">Show HN: 40k HN comments mentioning books, extracted using deep learning</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28595967">
-						
-							
-								<p class="story__comment_first line-clamp">"Hi HN!I built this small app in my spare time to aggregate books recommended on Hacker News. I personally find books recommended on HN to be super helpful, so I think this is the way that I can contribute back.This book aggregation idea is not new. A bunch of sites have done similar things [1, 2, 3].Yet one common limitation of those sites is that they have limited recall (i.e. not able to get a comprehensive set of book mentions), and thus don&#39;t paint an accurate picture of what the top books are. They&#39;re all based on insufficient rules, e.g., looking for Amazon Links. As you can see from my app, people often do not include Amazon links when recommending a book.I wondered, why can&#39;t we just match book names? Well, not so easy. Some books have pretty short names, e.g. Meditations [4], or Steve Jobs [5]. Some book name might as well be the name of a movie, e.g. Ready Player One [6]. Simply matching the names of the books would produce a whole lot of irrelevant results.This is where Deep Learning comes into play. Recent advances in large NLP models (transformers and BERT in particular) have made machine language understanding unprecedentedly accurate. It enables me to fine-tune a BERT model on a couple thousand labeled HN comments and predict accurately whether each word in a comment is part of a book or not - a task commonly termed as Named Entity Recognition (NER).As a result, my app is able to present a whole lot more results while maintaining desirable accuracy. For example, NER works pretty well on the tough examples I mentioned ([4, 5, 6]). Compared to prior sites, my app captures 9-50X more mentions and thus presents a much more complete picture of what books are recommended on HN.Furthermore, I&#39;ve made sure that the comments are presented well in the UI because the recommendations are just as useful as the books. I highlighted the mentioned book name, and used a custom NLP-based ranking function to sort the comments. These are non-trivial improvements over prior sites, which I hope you can find useful.Nevertheless, this app is not without limitations: 1) matching book names would fail when two books have the same or similar names; 2) although not often, this approach would wrongly classify some short stop-word names [7] and 3) sometimes NER fails to see that the commenter actually hates the book. These problems can be alleviated with more Deep Learning. For 1), one can use BERT to learn the authors mentioned which can be used as a filtering criteria. 2) and 3) should be fixable with more training data (currently there are only ~4,000 hand-labeled HN comments).Lastly, I&#39;d like to especially thank my gf who helped me label ~1,000 comments, which boosted the model accuracy by 5 percent! I also want to thank the people who create and maintain the HackerNews big query dataset [8]. And of course, thank everyone on HN who recommends books to others.Hope you enjoy this app!  Feedback and suggestions are welcome :)[1] https://news.ycombinator.com/item?id=15169611[2] https://news.ycombinator.com/item?id=10924741[3] https://news.ycombinator.com/item?id=12365693[4] https://hacker-recommended-books.vercel.app/category/0/all-t...[5] https://hacker-recommended-books.vercel.app/category/1/all-t...[6] https://hacker-recommended-books.vercel.app/category/0/all-t...[7] https://hacker-recommended-books.vercel.app/category/12/past...[8] https://news.ycombinator.com/item?id=19304326P.s. The amazon links are NOT sponsored. This app is free of monetization."</p>
-							
-						
-							
-								<p class="story__comment_others">"Nice. The Hacker News archive contains a wealth of great information. I&#39;ve previously performed similar extractions like OP but with grep and SQL. I&#39;ve also looked for people who have accurately predicted the stock market (I did identify one pro investor. He&#39;s now into NFTs). I&#39;ve found so much cool stuff, spending whole nights looking for interesting users and reading their entire post histories and being blown away by many insightful posts. I&#39;ve been considering making a blog consisting entirely of insightful HN posts that I come across."</p>
-							
-						
-							
-								<p class="story__comment_others">"You mention the Amazon links are not affiliate links. As a default, that&#39;s a nice move, but I believe you are within your rights to add a toggle to enable affiliate links. The money probably isn&#39;t the point but it&#39;s nice to make enough to buy even a single beer or coffee from a side project, and honestly I believe just about everyone would toggle the option if they found the tool useful."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="http://tttthis.com/blog/if-i-could-bring-one-thing-back-to-the-internet-it-would-be-blogs">
-						<picture>
-							<source srcset="default_28591880.webp" type="image/webp">
-							<source srcset="default_28591880.png" type="image/png">
-							<img src="default_28591880.png" alt="Preview of 'If I could bring one thing back to the internet it would be blogs (2020)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="http://tttthis.com/blog/if-i-could-bring-one-thing-back-to-the-internet-it-would-be-blogs">If I could bring one thing back to the internet it would be blogs (2020)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28591880">
-						
-							
-								<p class="story__comment_first line-clamp">"As a minor counterpoint: I&#39;ve come to dread blogs and newsletters because so many of them are written by grind culture freaks who only write faux-insightful SEO&#39;d content as a way to build an audience to sell snake oil to. These days the only blogs I trust are the ones I see on the top of HN or lobsters, which is unfortunate because I have interests beyond tech and I find it very, very difficult to find good blogs I can read about those interests.I think that shows there is a problem with blogging that goes beyond just the medium. Consider that blogging is a decentralised ecosystem, so you have no central place for discovery outside of Google specifically and search generally. Being on the top of Google is an attractive proposition because it means many eyeballs and lots of ad revenue. Therefore it is natural that many new blogs exist to game the search engine, hence the term &#34;blogspam&#34;.Some of the same incentives exist with large social media sites as well, but on Twitter and the like if you mute/block enough big people and follow only those you care about, your feed will eventually become clean enough to look at every day. So I think it is much more important to solve the discovery problem with blogs if you want them to get more traction."</p>
-							
-						
-							
-								<p class="story__comment_others">"Yeah blogs are still here, BUT: (like email (sob) and telephone-calling (hooray)) a lot of people that once did blog don&#39;t anymore.Not in the &#34;I had kids so my blog went dark for a few years&#34; sense, but in the sense of &#34;ooh twitter was invented and now I just emit a halfassed one-sentence brainfart or 5-second tiktok cellphone video and get way more dopamine hits&#34;.I&#39;ve been reading blogs and perusing my self-curated NetNewsWire RSS feeds for 20+ years, and blogs never went away, RSS never died, Google Reader getting googled didn&#39;t really matter, etc.And there are probably technically more blogs now than ever before.But still, the blog kinda died, in the sense that it would be a lot more surprising to learn your friend&#39;s 80-year-old grandma has a blog today than it would have been in 2011.It went from an increasingly-mainstream thing to a decreasingly-mainstream thing."</p>
-							
-						
-							
-								<p class="story__comment_others">"Well, blogs are still very much there. I began blogging in 2006 and I still continue to write blog posts, mostly to take notes, share my thoughts, etc. I still follow my favourite bloggers via RSS feeds. I don&#39;t think the culture of blogging ever went away. The blogosphere along with its tag clouds are still very much there.I think what has changed in the last two decades or so is that a lot of new users have come on the Internet and this new generation of users spend most of their time in walled gardens thereby making the bloggers look like a small minority."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.longtermtrends.net/home-price-median-annual-income-ratio/">
-						<picture>
-							<source srcset="default_28594201.webp" type="image/webp">
-							<source srcset="default_28594201.png" type="image/png">
-							<img src="default_28594201.png" alt="Preview of 'Home Price to Income Ratio'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.longtermtrends.net/home-price-median-annual-income-ratio/">Home Price to Income Ratio</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28594201">
-						
-							
-								<p class="story__comment_first line-clamp">"A more relevant metric to consider - monthly mortgage payment to monthly income ratio.Average interest rates in 2007 were 6.34% vs ~2.80% today. [1]* 6.34% / $2,000 monthly payment / 20% down (~$65k) &gt;&gt; $328,319 price of home* 2.80% / $2,000 monthly payment / 20% down (~$98k) &gt;&gt; $489,794 price of homeHomebuyers will make purchasing decision based on their monthly mortgage payments, instead of the home price.When interest rates fall, the home&#39;s price goes up but the monthly payment can stay the same. Therefore, increases in home (and other asset, since lower bowering costs can drive institutional investment in assets higher and non-linearly) prices can be driven higher without any change in supply / demand dynamics.Some hypotheticals to consider:* as rates approach and touch 0, what will drive up home prices then?* what happens when rates go up?[1] http://www.freddiemac.com/pmms/pmms30.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"While it doesn&#39;t directly affect the average person&#39;s purchasing power, the same dramatic increase is happening in other asset values as well. [0] One interesting thing to note is that 2019 EV / EBITDA values were already &#34;high,&#34; before the coronavirus was spreading.I suspect these two phenomena have different causes overall, but low interest rates are a common factor that cause all asset prices to increase.On the housing side, I suspect consumers purchase the house that their cashflow can comfortably support, not necessarily the one where they believe it is correctly valued, because the assumption that house values only increase means purchasing a well constructed house is almost never a &#34;bad deal.&#34;I&#39;m not sure what the &#34;solution,&#34; is, but knowing that voters hate when their home values fall does not give me confidence that prices will decrease in the long term.[0] https://www.statista.com/statistics/953641/sandp-500-ev-to-e..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Some very clever and influential people better start finding and implementing real solutions to housing prices right now. If they don&#39;t, expect overwhelming support from Millennials for massive expansions to public housing and rent control, if not even more draconian measures."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/ClickHouse/ClickHouse/blob/master/website/blog/en/2021/clickhouse-inc.md">
-						<picture>
-							<source srcset="default_28595419.webp" type="image/webp">
-							<source srcset="default_28595419.png" type="image/png">
-							<img src="default_28595419.png" alt="Preview of 'ClickHouse, Inc.'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/ClickHouse/ClickHouse/blob/master/website/blog/en/2021/clickhouse-inc.md">ClickHouse, Inc.</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28595419">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;d like to thank the creators of ClickHouse as i hope they are reading here. We&#39;ve been using it since 2019 in a single server setup with billions of rows. No problems at all. And query speeds that seem unreal compared to MySQL and pg.As we did not want to go into the HA/backup/restore details at that time we created a solution that can be quickly recreated from data in other databases.Interesting presentation from Alexey about Features and Roadmap from May 2021:https://www.youtube.com/watch?v=t7mA1aOx3tM"</p>
-							
-						
-							
-								<p class="story__comment_others">"Haven&#39;t used any of these yet, but how does ClickHouse compare to Postgres extensions like TimescaleDB and Citus (which recently launched a columnar feature)? I remember reading in the ClickHouse docs some time ago that it does not have DELETE functionality. Does this pose any problems with GDPR and data deletion requests?"</p>
-							
-						
-							
-								<p class="story__comment_others">"These some really great technology coming out of Russia in the information retrieval/database world: ClickHouse, a bunch of Postgres stuff that Yandex is working on, 2gis.ru (a super detailed vector map on a completely different stack to Google/MapBox), etc."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://twitter.com/aarondfrancis/status/1438888219471491074">
-						<picture>
-							<source srcset="default_28587458.webp" type="image/webp">
-							<source srcset="default_28587458.png" type="image/png">
-							<img src="default_28587458.png" alt="Preview of 'Show HN: I built four eight-foot-long handwriting robots'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://twitter.com/aarondfrancis/status/1438888219471491074">Show HN: I built four eight-foot-long handwriting robots</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28587458">
-						
-							
-								<p class="story__comment_first line-clamp">"I live in Austin TX and got one of the mailers last year.  I was wondering how you pulled it off.The handwriting on the outside does make it look personal but, once you open it, it is obviously computer generated due to the consistency of the writing.  If anything, I&#39;d say the writing in inside undermined the message because nobody is going to handwrite a letter to solicit that business.  You should test only doing the signature only and see if impacts your response rate.We also got a couple of &#39;we want to buy your home&#39; mailings.  It does feel like it impacts our open rate but I can&#39;t tell if it is just due to novelty.I think the main reason it &#39;works&#39; as a business proposition is that the City is doing blanket increases and relying on protests to catch their mistakes.  They do this (in part) because they are forbidden from using actual MLS data.  It costs me 3-4 hours to do a protest so outsourcing it makes sense if your time is valuable.  But when it came down to it, I wasn&#39;t willing to let them represent me -- something about it felt off -- and I wound up just accepting the increase.The system doesn&#39;t feel broken -- just wasteful.  How else are you going to do a property tax?  I do wonder if this goes the way of medical billing (overcharge at first because you know you are going to lose some to protests) or it creates a watchdog effect that make the City limit the increases to an amount that is not likely to draw protests."</p>
-							
-						
-							
-								<p class="story__comment_others">"Really impressive and fun to build I&#39;m sure. I bought an Axidraw last year to play around with making fake signatures of fake people and as well we were getting a ton of Etsy orders and we always write a hand written note, but we couldn&#39;t keep up at Christmas time and my wife&#39;s wrist was breaking, so it saved our bacon when we had to write like 600 notes in 6 weeks.The fact that you have to keep replacing the sheet and realigning is definitely a drag, but we made a system that worked well enough for us. Making the SVG letters is a pain and we are working on designing our own font from my wife&#39;s handwriting, but you can at least SVGize a picture of your writing and then touch it up in an editor.Gives a good excuse to buy lots of different fun pens and paper, but yeah it&#39;s annoying when a pen stops writing half a letter and I&#39;m not sure if it&#39;s just an ink thing or a pressure thing.We&#39;ve gotten positive reviews that mention our handwritten notes at least and lots of comments on great service and such, so we think it makes a difference."</p>
-							
-						
-							
-								<p class="story__comment_others">"The Autopen AF is a commercial product for this.[1]
-There&#39;s also MAXWriter and RealPen. All have paper feeders, so they can turn out page after page, unattended.In China, some kids use automatic writing machines to do their homework.[1] https://youtu.be/3FHGO2i0bL4"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.ekioh.com/devblog/google-docs-in-a-clean-room-browser/">
-						<picture>
-							<source srcset="default_28593070.webp" type="image/webp">
-							<source srcset="default_28593070.png" type="image/png">
-							<img src="default_28593070.png" alt="Preview of 'Google Docs in a clean-room browser'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.ekioh.com/devblog/google-docs-in-a-clean-room-browser/">Google Docs in a clean-room browser</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28593070">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; seems to compare the Firefox version number with 65 ... I’ve no idea what the purpose of this isI previously worked on JS infra at Google.  Google uses a lot of shared JS libraries that date back over a decade, and those libraries have accumulated lots of workarounds for browsers that nobody cares about anymore.  (One especially crazy seeming one from today&#39;s perspective is that there&#39;s a separate implementation of event propagation, I believe because because it dates back to browsers that only implemented one half of event bubbling/capture!)It&#39;s very difficult to remove an old workaround because1. it&#39;s hard to be completely sure nobody actually depends on the workaround (especially given the wide variety of apps and environments Google supports -- Firefox aside, Google JS runs on a lot of abandonware TVs), and2. it&#39;s hard to prioritize doing such work, because it&#39;s low value (a few less bytes of JS) and nonzero risk (see point 1) without meaningfully moving any metrics you care about.In all, how to eliminate accumulated cruft like is a fascinating problem to me in that I can&#39;t see how it ever gets done.  And it&#39;s not a Google thing.  Even the newer cooler startup I now work at has similar &#34;work around old Safari bug, not sure if it&#39;s safe to remove&#34; codepaths that I can imagine will stick around forever, for similar reasons."</p>
-							
-						
-							
-								<p class="story__comment_others">"Technically, color me impressed.Business-wise, I&#39;m skeptical:- Alternative browser engines have always fallen behind, eventually.- Open-source is a huge win for most embedded applications.- Having a big company backing something is a huge win too, since something like Webkit ain&#39;t going away.I think one possible outcome here might be an acquisition. Microsoft was forced to eat crow with Edge adopting Google&#39;s engine. This would be an opportunity for Apple, Microsoft, or Amazon to leapfrog Google. A GPU or multicore-accelerated browser could make the iPhone/Macbook/etc. much more responsive than Chrome.Another might be some open-source strategy, but I don&#39;t quite know what it might be."</p>
-							
-						
-							
-								<p class="story__comment_others">"*Closed source browser.Flow is yet another project pulling on open source resources, and the browser market created from open browsers, and trying to privatize it. Imagine if google could just make whatever internal changes to chromium and nobody knew about it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.latimes.com/california/story/2021-09-19/fbi-seizure-cash-beverly-hills-vault-spawns-epic-court-battle">
-						<picture>
-							<source srcset="default_28595343.webp" type="image/webp">
-							<source srcset="default_28595343.png" type="image/png">
-							<img src="default_28595343.png" alt="Preview of 'FBI says seized fortune was criminals’ loot—owners say: Where’s the proof?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.latimes.com/california/story/2021-09-19/fbi-seizure-cash-beverly-hills-vault-spawns-epic-court-battle">FBI says seized fortune was criminals’ loot—owners say: Where’s the proof?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28595343">
-						
-							
-								<p class="story__comment_first line-clamp">"https://web.archive.org/web/20210919234653/https://www.latim...https://archive.is/bLH4W"</p>
-							
-						
-							
-								<p class="story__comment_others">"This was so much worse than I imagined. It was a physical dragnet at a private safe deposit box business and the FBI is trying to claim all the customer&#39;s belongings under civil asset forfeiture because a dog smelled marijuana. Meanwhile two legitimate businesses who cannot legally transact with banks were customers and the boxes were not airtightThis is brazen overreach and needs to be reigned in"</p>
-							
-						
-							
-								<p class="story__comment_others">"Not directly relevant to the article, but it&#39;s probably a public service to have this here:
-If you&#39;re in the U.S., do not consent to a search! Ever!If the police ask permission to search you, your car, or your house, say &#34;I do not consent to a search&#34;. Followed by, &#34;Am I being detained?&#34; If the answer is &#34;No, you are not being detained.&#34; then leave immediately (unless at your house, in which case go inside and lock the door).Police are good at making you feel as if you have to consent. They might say, &#34;We&#39;re going to search your car now.&#34; Makes it seem like you don&#39;t have a choice and it&#39;s happening one way or another, yeah? Well it&#39;s not the case. That was your cue to say, &#34;I do not consent to a search&#34;. Saying &#34;I do not consent to a search&#34; might prevent a search or make evidence obtained during that [illegal] search inadmissible. Or it might be found that the police had probable cause or other reason to make the search legal, in which case you lost nothing.Record + immediately upload such an interaction if you can.As an aside, I appreciate like 90% of the work the police do."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://ghuntley.com/internet/">
-						<picture>
-							<source srcset="default_28593698.webp" type="image/webp">
-							<source srcset="default_28593698.png" type="image/png">
-							<img src="default_28593698.png" alt="Preview of 'There are six internet links on my office on wheels—seven when Starlink arrives'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://ghuntley.com/internet/">There are six internet links on my office on wheels—seven when Starlink arrives</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28593698">
-						
-							
-								<p class="story__comment_first line-clamp">"Just to share my own setup, I&#39;ve been living in a van for the past year. I develop mostly via SSH and RDP so I found that any connection was important and total bandwidth wasn&#39;t the highest priority. Also in the US, way better coverage of 4g. Because of that invested fully in 4g and not at all in 5g.* 11 in 1 Panorama External Antenna (LG-IN2447) around $500. 4 internal cradlepoint antennas, see photo below. In retrospect would not have invested so heavily in wifi antennas and bought more 4g. I also added a little antenna lifter to make sure it has line of site of all cell towers, I wanted it to be the highest point on my sprinter van roof.* Cradlepoint IBR1700 1200M-B around $900 on ebay. Runs on 12 volt, a ton of antenna ports has 1 internal modem that supports big US carriers, came with an additional modem that does the same for carrier aggregation. A bunch of different ways to configure the router to aggregate links, mostly I switch back and forth manually, I found that if there was an issue it would be obvious and I could just switch the link. Cradlepoint software wouldn&#39;t handle issues and signal strength that well. Honestly one carrier has been plenty good for me though and between ATT and Verizon, I only have issues in the national parks where there are cell dead zones.* Verizon and ATT 4g cell plans. I added 1 line on my family plan for Verizon and the same with a friends family plan with ATT for $20 a month each. Took some phone calls into support to get it to work but after some escalations in the support chain I have unlimited 4g data. Total bill is around $50 a month.* Still room to add more sim cards and more antennas. It honestly works great though, get 20-150 mbps basically everywhere.Photo of my antenna and cradlepoint router/modem:
-https://imgur.com/a/MOdJkT8"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a pretty impressive setup. Recently I lived in an RV for a year and my setup was much more janky than this...Basically consisted of a gl.inet router that I plugged in a old Moto X4. This allowed me to get wifi from whichever campsite we stayed at (always garbage) and then I would pay for 100GB from Cricket and T-Mobile. I would swap sims when I would run out of data about half way through the month.Then I discovered I could get unlimited data on Cricket with a regular phone plan if I changed the TTL on the router. Ended up being the most stable option for the last few months."</p>
-							
-						
-							
-								<p class="story__comment_others">"I lived and worked remotely from a van in Australia for a year... in 2008. It was pretty different back then. We kitted the van out with a solar panel  and batteries. There was some 3G service available near roads, and something like CDMA a little more widely. But at times we&#39;d end up driving miles of dirt track to try to find high ground to pick up a signal. My gf would hold the 3G receiver up and look for signal. During one of these treks, trying to turn around on a narrow dirt track way outside of Tenant Creek, the side of the road collapsed like a sand dome under one wheel of the van and we began listing to the side. I had to hold it up with my shoulder so the whole van wouldn&#39;t fall over on its side. My gf got out, causing it to tip even more, and started throwing herself against the back of it, while I tried to rock it out of the ditch. It was at this point that I noticed that what I had thought was a tree branch (odd, since there were no trees around), was actually a 4-5 foot long black snake that was moving rather quickly toward us up the road. I guess that gave us the adrenaline burst we needed, because we miraculously heaved the van free and jumped inside just in time. I started it and unceremoniously drove right over the snake.Another funny story... One night camping off a road, not in a campsite, we heard a ruckus outside the van where we had our table and cooking  stuff set up under a tarp. It was pitch black out. We kept a katana under the platform bed for protection. So I opened the rear door and jumped out in my boxers and sandals, holding this sword, and found myself looking at a large kangaroo that was rifling through our cookware. I got back in the van and said, forget it, I&#39;m not fighting that thing... we&#39;ll just have to clean it up in the morning."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="http://plumshell.com/2017/11/30/as-a-solo-app-developer-i-decided-to-offer-phone-support-and-this-is-what-happened/">
-						<picture>
-							<source srcset="default_28594313.webp" type="image/webp">
-							<source srcset="default_28594313.png" type="image/png">
-							<img src="default_28594313.png" alt="Preview of 'As a solo developer, I decided to offer phone support (2017)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="http://plumshell.com/2017/11/30/as-a-solo-app-developer-i-decided-to-offer-phone-support-and-this-is-what-happened/">As a solo developer, I decided to offer phone support (2017)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28594313">
-						
-							
-								<p class="story__comment_first line-clamp">"I offer phone support for a niche accounting app (https://quailhq.com), and everything in this article rings 112% true to me -- but especially this:&gt; ...all sorts of people call you, and I’ve really learned a lot by talking with users directly on the phone.Sometimes users call me because they want to report a bug, or they&#39;ve forgotten their email address. Sometimes they want business advice (!), or they have a niche feature they want to request.&gt; This may be a virtue of the Japanese, but, basically, everyone who calls is civil and polite.Hahahaha. Haha. Hah. Ahem. The biggest surprise to me when I started offering support (first email, and then later by phone) is how _aggressive_ people can be. My app has two classes of users -- one free, one paid -- and the paying users are almost invariably polite and efficient while the free users can be really quite...hard to help. &#34;YOUR SHITS BROKE FIX ASAP&#34; is my favorite password reset request, etc.All of my users are American (or Australian), which might have something to do with it. Happily, once you break through that aggressive exterior and people realize you&#39;re just a person trying to help them out they almost invariably do a 180 and become helpful and polite, and we get whatever it was straightened out together.It&#39;s almost like there&#39;s something cultural happening in America that&#39;s making everyone assume the worst when interacting with people they don&#39;t know..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I would abstract this topic to: talking to your users is important, and phone is a high-bandwidth medium.In particular, it seems like this developer recognized that phone connects them to their less technically savvy users, who - by being most different from the dev himself - can give him the most valuable outside perspective. Depending on your market, if you&#39;re trying to sell into non-techies this could provide hugely valuable insights.In general, the closer you are to the development side of things, the more you have a very specific (and I guess &#34;correct&#34;) model of how your system works. By default, all of your documentation/support forms/etc implicitly reflect this model. But if your users model the thing in their brain differently, then your help/form aren&#39;t the most helpful in educating them or eliciting their true feedback/problem.One final thing - I have seen &#39;magic&#39; where developers who chafed at tickets coming in from support staff (withdrawn, user error) would all of a sudden get excited about rebuilding something when the user themselves or even the support person, just explained in a higher-bandwidth way why the problem is real. It&#39;s easy to read a ticket and go &#34;oh that&#39;s dumb, they should just do X&#34; but on the phone/in person you go more into like &#34;oh, this is a really reasonable/nice/smart person who&#39;s trying to use my system to do something important, and it&#39;s not letting them.&#34;Gets a totally different type of results."</p>
-							
-						
-							
-								<p class="story__comment_others">"When I ran my own business I had a product in the thousands of dollars price range. Phone support for this product would almost always be an interesting conversation where I learned a lot about customer needs.I also had a $25 PDF tool with a trial version. For that product a lot of the callers had no clue what the product actually did or tried to get a $5 discount or some other nonsense. I quickly stopped taking calls for that product because it was so unpleasant.My lesson was to offer phone support only for high price, low volume items. Phone support for cheap things attracts a lot of unpleasant people."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://staysaasy.com/engineering/2020/06/09/Don%27t-Joke.html">
-						<picture>
-							<source srcset="default_28592683.webp" type="image/webp">
-							<source srcset="default_28592683.png" type="image/png">
-							<img src="default_28592683.png" alt="Preview of 'Advice to New Managers: Don&#39;t Joke About Firing People (2020)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://staysaasy.com/engineering/2020/06/09/Don%27t-Joke.html">Advice to New Managers: Don&#39;t Joke About Firing People (2020)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28592683">
-						
-							
-								<p class="story__comment_first line-clamp">"That&#39;s excellent advice that many have learned the hard way...Honestly even as a non-manager it&#39;s a very bad idea. When I was a junior one of my colleagues was called to the manager&#39;s office. I assumed it would be for some mundane project scheduling or whatever, so I jokingly said &#34;you&#39;re getting fired&#34; as he was going there. And he was.This is one of these memories that come back to haunt you late at night when you&#39;re trying to sleep..."</p>
-							
-						
-							
-								<p class="story__comment_others">"As a more general advice - person in position of power should not joke about causing harm. Whether is is manager joking about firing employee, stronger person joking about beating up weaker one or parent joking about throwing child out of house when they misbehave. This kind of humor works only when it is coming from weaker position and even then only in certain situations."</p>
-							
-						
-							
-								<p class="story__comment_others">"No one told me this prior to becoming a manager, and I did make this mistake once and immediately regretted it.It seems like obvious advice, but the circumstances where this sort of thing could happen are described very well in the article.I revert to humour in awkward situations, like a lot of people, but I quickly realised that there are some things that you can’t joke about when in this position.Thankfully I don’t think the team member took any offence by it (although how would I know) - we had a good rapport and relationship, but I immediately realised my “joke” could be taken so many different (wrong) ways that I made a conscious decision to be much more careful after that.Like many things in life, it seems blindingly obvious in retrospect but not necessarily when you’re caught up in the moment."</p>
 							
 						
 						</a>
