@@ -36,6 +36,357 @@
 	</div>
 
 	
+	<div class="day__date">05 October 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://facebook.com">Facebook-owned sites were down</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28748203">
+						
+							
+								<p class="story__comment_first line-clamp">"There&#39;s still no connectivity to Facebook&#39;s DNS servers:    &gt; traceroute a.ns.facebook.com
+      traceroute to a.ns.facebook.com (129.134.30.12), 30 hops max, 60 byte packets
+      1  dsldevice.attlocal.net (192.168.1.254)  0.484 ms  0.474 ms  0.422 ms
+      2  107-131-124-1.lightspeed.sntcca.sbcglobal.net (107.131.124.1)  1.592 ms  1.657 ms  1.607 ms 
+      3  71.148.149.196 (71.148.149.196)  1.676 ms  1.697 ms  1.705 ms
+      4  12.242.105.110 (12.242.105.110)  11.446 ms  11.482 ms  11.328 ms
+      5  12.122.163.34 (12.122.163.34)  7.641 ms  7.668 ms  11.438 ms
+      6  cr83.sj2ca.ip.att.net (12.122.158.9)  4.025 ms  3.368 ms  3.394 ms
+      7  * * *
+      ...
+
+So they&#39;re hours into this outage and still haven&#39;t re-established connectivity to their own DNS servers."</p>
+							
+						
+							
+								<p class="story__comment_others">"Reddit r/Sysadmin user that claims to be on the &#34;Recovery Team&#34; for this ongoing issue:&gt;As many of you know, DNS for FB services has been affected and this is likely a symptom of the actual issue, and that&#39;s that BGP peering with Facebook peering routers has gone down, very likely due to a configuration change that went into effect shortly before the outages happened (started roughly 1540 UTC).
+There are people now trying to gain access to the peering routers to implement fixes, but the people with physical access is separate from the people with knowledge of how to actually authenticate to the systems and people who know what to actually do, so there is now a logistical challenge with getting all that knowledge unified.
+Part of this is also due to lower staffing in data centers due to pandemic measures.User is providing live updates of the incident here:https://www.reddit.com/r/sysadmin/comments/q181fv/looks_like..."</p>
+							
+						
+							
+								<p class="story__comment_others">"For Facebook and WhatsApp it looks like a DNS issue, name resolution fails with SERVFAIL:    $ dig facebook.com
+
+    ; &lt;&lt;&gt;&gt; DiG 9.16.21 &lt;&lt;&gt;&gt; facebook.com
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: SERVFAIL, id: 23982
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+
+    ;; OPT PSEUDOSECTION:
+    ; EDNS: version: 0, flags:; udp: 512
+    ;; QUESTION SECTION:
+    ;facebook.com.   IN A
+
+    ;; Query time: 16 msec
+    ;; SERVER: 8.8.8.8#53(8.8.8.8)
+    ;; WHEN: Mon Oct 04 17:53:00 CEST 2021
+    ;; MSG SIZE  rcvd: 41"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.cloudflare.com/october-2021-facebook-outage/">Understanding how Facebook disappeared from the internet</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28752131">
+						
+							
+								<p class="story__comment_first line-clamp">"This is a great write-up, but one thing I don&#39;t understand is why the effect of withdrawing the BGP prefixes was instantaneous (if I understand that correctly), but it&#39;s taking hours (so far) to re-announce the prefixes.  Why would it take so long to flip the switch back the other way?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Those short TTLs that FB likely has on its DNS records probably bit it in the ass today. If it had longer TTLs, caching would have helped it. Curious though that recursive resolvers won&#39;t serve an expired cached record when they can&#39;t reach the authoritative server. (I know that unbound can be configured to do so, but not sure about others.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Is anyone else kinda put off by how Cloudflare keeps interjecting themselves into this situation? First with the Twitter posts and now this blogpost. They&#39;re a passive observer, not involved in this event, and yet they keep putting themselves in the middle of it.Cloudflare staff are not Facebook staff, they do not know how things actually went down to trigger the events that transpired. They are essentially doing glorified bikeshedding, and providing an explainer of how BGP works that can be gleaned by reading virtually any introductory text on it, and using it as a marketing opportunity."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.royalsloth.eu/posts/it-takes-a-phd-to-develop-that/">It takes a PhD to develop that</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28743687">
+						
+							
+								<p class="story__comment_first line-clamp">"A few hours later another programmer came up with the prototype of a much faster terminal renderer, proving that for an experienced programmer a terminal renderer is a fun weekend project and far away from being a multiyear long research undertaking.I have no idea if this is the case here, and I suspect it might not be, but pretty much every time I&#39;ve seen a developer complain that something is slow and then &#39;prove&#39; that it can be faster by making a proof-of-concept the only reason theirs is faster is because it doesn&#39;t implement the important-but-slow bits and it ignores most of the edge cases. You shouldn&#39;t automatically assume something is actually bad just because someone shows a better proof-of-concept &#39;alternative&#39;. They may have just ignored half the stuff it needs to do."</p>
+							
+						
+							
+								<p class="story__comment_others">"In case this isn&#39;t clear, RefTerm is:1. Faster in every case tested2. More fully-featured, including i18n3. Easier to read and maintain (see for yourself)4. Shorter5. Using existing libs, aka interops well...So none of these typical hand-wavy dismissals apply:1. &#34;Is it really faster for edge cases&#34;2. &#34;He probably didn&#39;t implement certain features like Arabic and Chinese&#34;3. &#34;Businesses just wants enough&#34;4. &#34;Businesses just wants enough&#34;5. &#34;It probably makes some closed-world assumption&#34;The performance of RefTerm didn&#39;t come from some big tradeoff; it came from using the right perspective and keeping things simple.Sure, past a certain complexity threshold, you&#39;d have to work for extra perf, but from my observations, folks who immediately jump to the wrong implicit conclusion that &#34;good perf must have required compromises&#34; got conditioned to think this way because the software they work on are already (often unnecessarily) complex."</p>
+							
+						
+							
+								<p class="story__comment_others">"Yup, this. Something I&#39;ve been ranting about[0] for a while: there is no technical progression ladder. The Senior-&gt;Principal-&gt; ... path seems to be a faux-management track, with all the managerial responsibilities and little of the authority. Software is shitty in big part because it&#39;s mostly written by juniors, as almost anyone who has any clue moves over (or gets pushed over) to managerial or faux-managerial roles.I&#39;ve been thinking about a more charitable interpretation of this recently. Another thing I rant about[1] is that tools we use for programming are not expressive enough. It takes too much work to say simple things, the coding feedback loop is ridiculously long. So how this connects? In a way, junior programmers can be seen as a Mechanical Turk version of a Sufficiently Smart Compiler - it lets the more experienced people skip some of the tedium with the tooling and deal with higher-level concepts, which get translated to actual code by an army of juniors and interns. Except, this doesn&#39;t work that well - the coding feedback loop is even slower.--[0] - https://news.ycombinator.com/item?id=27417462[1] - https://news.ycombinator.com/item?id=28568053"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/TechEmails/status/1444367219509637123">Apple execs describe a “unique arrangement” with Netflix (2018)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28748965">
+						
+							
+								<p class="story__comment_first line-clamp">"I am pretty sure I read something similar before. Probably from Benedict Evans or somewhere else.I think the most important issue from these email isn&#39;t the lack of Alternative App Store, IAP, or 70/30 split. It is that Apple Execs has Zero understanding of how other business works especially with respect to Internet or Software Services. They continue to think Netflix as a physical product ( As they often like to compare Physical Software distribution before App Store ) that is being continuously sold with recurring revenue like staples or other commodities.Not to mention Netflix knew Apple were doing AppleTV+. Directly competing with them. I love how Apple complains about testing IAP as not OK as in we deserve our 15%.So Reed made the decision to stop IAP. And reading all the emails from Apple execs, Eddy Cue often seems to be the culprit.Steve From D5&gt;You know, because Woz and I started the company based on doing the whole banana, we weren’t so good at partnering with people. And, you know, acatually, the funny thing is, Microsoft’s one of the few companies we were able to partner with that actually worked for both companies. And we weren’t so good at that, where Bill and Microsoft were really good at it because they didn’t make the whole thing in the early days and they learned how to partner with people really well.And I think if Apple could have had a little more of that in its DNA, it would have served it extremely well. And I don’t think Apple learned that until, you know, a few decades later."</p>
+							
+						
+							
+								<p class="story__comment_others">"Tech companies that reach monopoly scale (like Apple, Facebook, Amazon) should have to disclose all their agreements and honor a &#34;Most Favored Nation&#34; clause giving all companies the same pricing and access as the best negotiated agreement with any one company.  This is the most reasonable way I can think of without breaking them up to prevent them picking winners and losers as new opportunities emerge.  If you have a better plan I&#39;d be glad to hear it."</p>
+							
+						
+							
+								<p class="story__comment_others">"The problem here are not the special deals, saurik commented he cut special deals in the Cydia store occasionally the last time this topic came up. The problem is that there is no alternative to Apple when it comes to publishing software and content on the iPhone and that makes these kind of deals unfair."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://krebsonsecurity.com/2021/10/what-happened-to-facebook-instagram-whatsapp/">What Happened to Facebook, Instagram, and WhatsApp?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28750930">
+						
+							
+								<p class="story__comment_first line-clamp">"Interesting side effects:&gt;Now, here&#39;s the fun part. @Cloudflare runs a free DNS resolver, 1.1.1.1, and lots of people use it. So Facebook etc. are down... guess what happens? People keep retrying. Software keeps retrying. We get hit by a massive flood of DNS traffic asking for http://facebook.comhttps://twitter.com/jgrahamc/status/1445066136547217413&gt;Our small non profit also sees a huge spike in DNS traffic. It’s really insane.https://twitter.com/awlnx/status/1445072441886265355&gt;This is frontend DNS stats from one of the smaller ISPs I operate. DNS traffic has almost doubled.https://twitter.com/TheodoreBaschak/status/14450732299707637..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I know this is tinhat territory, but it&#39;s weird this happens right after the FB whistleblower interview on 60 minutes.The outage has pretty much buried that story, and  perhaps more importantly, stopped its spread on FB networks.That said, I can&#39;t see how FB managers and engineers would actually agree to carry out something like this intentionally."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;As a result, when one types Facebook.com into a web browser, the browser has no idea where to find Facebook.com, and so returns an error page.&#34;Not quite.Many DoH servers are working fine.  DNS isn&#39;t a problem for the browser, but it seems to be a problem for Facebook&#39;s internal setup.  It&#39;s like their proxy configuration is 100% reliant on DNS lookups in order to find backends.The FB content servers are reachable.  It is only the Facebook DNS servers that are unreachable.Don&#39;t take my word for it, try for yourself   www.facebook.com 1 IN A 179.60.192.3 (content)
+   static.facebook.com 1 IN A 157.240.21.16 (content)
+   a.ns.facebook.com 1 IN A 129.134.30.12 (DNS)
+
+   ping -c1 157.240.21.16 |grep -A1 statistics
+   --- 157.240.21.16 ping statistics ---
+   1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+   ping -c1 179.60.192.3|grep -A1 statistics 
+   --- 179.60.192.3 ping statistics ---
+   1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+   ping -c1 -W2 129.134.30.12 |grep -A1 statistics
+   --- 129.134.30.12 ping statistics ---
+   1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+The browser, i.e., client, here, curl, has an idea where to find Facebook.com   curl -HUser-Agent --resolve www.facebook.com:443:179.60.192.3 https://www.facebook.com|sed windex.htm
+
+Wait...   links -dump index.htm 
+
+   [IMG]
+
+                          Sorry, something went wrong.
+
+   We&#39;re working on it and we&#39;ll get it fixed as soon as we can.
+
+   Go Back
+
+   Facebook (c) 2020 . Help Center
+
+
+   grep HTTP index.htm
+
+   HTTP/1.1 503 No server is available for the request"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.ctrl.blog/entry/anti-competitive-browser-edges.html">Brave and Firefox to intercept links that force-open in Microsoft Edge</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28748000">
+						
+							
+								<p class="story__comment_first line-clamp">"Microsoft doing exactly the same thing they were, twenty plus years ago, with the IE vs Netscape browser wars. At least they&#39;re consistent about being hostile. And now, of course, their main competition is Chrome and Google.https://www.google.com/search?client=firefox-b-1-d&amp;q=netscap...I would encourage anyone who doesn&#39;t use Windows 10 on a regular basis to take a look at what the &#39;defaults&#39; are that Microsoft steers people towards on a brand new Win10 Home installation. Including the creation of a Microsoft account, bing, edge, all the telemetry turned on, etc.  Just...  Yuck."</p>
+							
+						
+							
+								<p class="story__comment_others">"I booted up Windows this weekend, and immediately was forced to login to my MS account, and it attempted to change my default browser. The solution was to reboot, pick Ubuntu from the Grub menu and to then delete the Windows partition and give the space to Ubuntu. I&#39;m tired of fighting with computers I own that don&#39;t work for me."</p>
+							
+						
+							
+								<p class="story__comment_others">"Leave it to Microsoft to be openly user-hostile in every way possible, knowing perfectly well that it won&#39;t hurt their market share one bit. I have no idea why people think this is a different Microsoft now than it was under Ballmer."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.privacyaffairs.com/facebook-data-sold-on-hacker-forum/">Personal Information of More Than 1.5B Facebook Users Sold on Hacker Forum</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28748906">
+						
+							
+								<p class="story__comment_first line-clamp">"I feel like we need to start differentiating between &#34;public&#34; personal information and more sensitive personal information (like social security numbers or other government ID numbers). The breach lists this info:Name
+Email
+Location
+Gender
+Phone number
+User IDSo basically, everything I used to be able to get in a phone book. Honestly, at this point all of that information should just be considered public, because it obviously is.If anything I think people are grappling with the fact that the Internet just makes data scraping and processing possible on a scale previously unimaginable, and that&#39;s really what people have an issue with, but I don&#39;t think there&#39;s a great answer to that. I mean, it&#39;s one thing to say the front of my house is public info because anyone can come by and take a picture, but it sure feels different when a high resolution photo (or heck, video feed) can be posted online that is instantly available to billions of people."</p>
+							
+						
+							
+								<p class="story__comment_others">"I know everyone on HN loves to hate on Facebook, but the fact that HN&#39;s servers are getting crushed when FB is down perhaps shows a revealed preference."</p>
+							
+						
+							
+								<p class="story__comment_others">"Facebook is having a very bad day today, You have this hack announced today, all their sites are apparently down due to a bgp issue they are dealing with, and then the bombshell allegations of them intentionally creating toxicity on their platform to enrich themselves at the expense of society. Zuck&#39;s world is slowly collapsing in on him, expect heavy regulation and the beginning of the end of facebook as we know it."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/sheeraf/status/1445099150316503057">Facebook employees badges aren&#39;t working, unable to enter buildings</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28750894">
+						
+							
+								<p class="story__comment_first line-clamp">"Heard a story once about the badge readers at a European Google office being suspiciously slow.As in, &#34;the duration of a ping to the US and back&#34; slow.Yep, every badge in and out in the whole office had to go cross-continental (before the door unlocked)."</p>
+							
+						
+							
+								<p class="story__comment_others">"To reconfigure misconfigured routers one needs physical access -&gt; routers are in a high-security area of a secure DC -&gt; physical access systems do not let anyone in due to network outage."</p>
+							
+						
+							
+								<p class="story__comment_others">"[conference room, some years ago, maybe]:technician: &#34;But if we authenticate using the facebook DNS, how will we do our jobs if it goes down?&#34;boss: &#34;The only way our DNS servers are going down is if facebook closes, in which case you&#39;re out of a job anyway.&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.tomsguide.com/news/android-ios-data-collection">Android and iOS data collection</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28741262">
+						
+							
+								<p class="story__comment_first line-clamp">"This is the actual abstract from the actual study. Most comments here seem to be referring to a strawman version of the study.Abstract:&gt; We investigate what data iOS on an iPhone shares with Apple and what data Google Android on a Pixel phone shares with Google. We find that even when minimally configured and the handset is idle both iOS and Google Android share data with Apple/Google on average every 4.5 mins. The phone IMEI, hardware serial number, SIM serial number and IMSI, handset phone number etc are shared with Apple and Google. Both iOS and Google Android transmit telemetry, despite the user explicitly opting out of this. When a SIM is inserted both iOS and Google Android send details to Apple/Google. iOS sends the MAC addresses of nearby devices, e.g. other handsets and the home gateway, to Apple together with their GPS location. Users have no opt out from this and currently there are few, if any, realistic options for preventing this data sharing.That is the extent of the data sharing unless the user allows more."</p>
+							
+						
+							
+								<p class="story__comment_others">"Actual research paper - 25th March, 2021: https://www.scss.tcd.ie/doug.leith/apple_google.pdf"</p>
+							
+						
+							
+								<p class="story__comment_others">"One network mitigation for Apple devices (e.g iPads) without a cellular baseband is to have a router block all connections to 17.0.0.0/8, except a once a week check for OS and app updates. This assumes no use of iCloud, which would siphon much more data than described in this article.  It&#39;s also necessary to disable Siri on-device search (e.g. &#34;Learn from this app&#34;) and Spotlight indexing of in-app content (per-app setting for &#34;Show app in Search&#34;), including E2E encrypted messengers like Signal and Wire.For phones, the only mitigation is a lifestyle change to switch from always-reachable to scheduled availability windows or the always-async workflows of pre-mobile computing.  A faraday bag can deny realtime telemetry, even if it&#39;s cached for relay when connectivity returns."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/blazejkrajnak/status/1445063232486531099">Every device with FB app is now DDoSing recursive DNS resolvers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=28750965">
+						
+							
+								<p class="story__comment_first line-clamp">"Oh great, and at some point when key ISP DNS servers crack under the load, more and more websites will appear to &#34;go down&#34; from a users perspective - suddenly gmail.com and outlook.com not working. More and more people reload websites, restart devices etc. and increase the load even further. People fall back to using SMS/telephone, but since it is not used to that heavy load of 2021, soon phone calls fail. With FB, WA, Email and Phone &#34;down&#34;, engineers can&#39;t be reached to fix this. And if they can, they fail to call the Uber to get them somewhere. And even if they could, the streets are congested with people that cannot communicate remotely so try to get somewhere to convey messages in-person.Hope they will just go back to fix FB and this is just in my head :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Never having explicitly queried fb.com before I never noticed how they (face:b00c) got clever with their IPv6 address:2a03:2880:f1ff:83:face:b00c:0:25de"</p>
+							
+						
+							
+								<p class="story__comment_others">"Is there no response code for a DNS to say &#34;I don&#39;t have what you want right now, come back later but wait at least xxx seconds&#34;?I guess alternatively you could return garbage (127.0.0.1) with a 5 min ttl or so to get clients to backoff but also problematic."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">04 October 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -57,7 +408,7 @@
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve wondered a lot about this with the Snowden and Wikileaks stuff, and I wonder about it with this topic too: the most salient part of this story, and about Panama Papers etc. before it, is how small a dent it seems to make in the discourse, and in the world as a result. At best, these stories get a good chunk of the airwaves for a couple of weeks, and then it&#39;s on to the next thing.In history books, you get a sense sometimes that there were eras in which stuff like this sent people into the streets in rages. In which governments were voted out or overthrown, in which meaningful legislative responses were made. Or, you know, riots.But I look around after reading those books and wonder what makes us so different. It&#39;s weird to live in this era. I read a Guardian article like this and look at the staggering sums, this entire &#34;shadow financial system&#34; devoted solely to one notion: I&#39;m going to take as much as I can, in whatever way that I can, regardless of legality, and I&#39;m going to give nothing back because I sincerely don&#39;t believe I owe anything back -- oh, and I&#39;m going to keep it all a secret.And I look around and not only don&#39;t see any riots; I sometimes get the feeling that people are actually envious, sometimes even respectful of the ingenuity it takes to manufacture these schemes. It&#39;s tough.The only silver lining I can think of is what all the secrecy says: we&#39;re not just doing this in the open because we&#39;re still afraid we&#39;ll end up like the Romanovs if too many of you get angry. I think that while they&#39;re still afraid, there&#39;s still some hope.EDIT: Reading some replies. It&#39;s weird to have to say this to such a smart crowd, but I&#39;m not advocating riots as such; I&#39;m advocating a substantive response. Of course riots are &#34;bad&#34; in some sense, but my observation is really about the odd contrast between the huge size of the &#34;stimulus&#34; (theft of wealth, much of it yours, on a staggering scale) and the tiny size of the &#34;response&#34; (newspaper articles and web forum discussions), especially when contrasted with other historical periods. So while I wouldn&#39;t &#34;want a riot&#34;, seeing one would make me go &#34;well, that makes sense&#34;."</p>
+								<p class="story__comment_others">"The thing with all of these is that the rich people are probably just as surprised as you are to show up in these leaks in most cases.When you get barely rich, like single digit millions, the banks will start to offer you &#34;family office&#34; services.  They basically just take care of everything for you.  You send them all your money and all your debts (even your phone bills and stuff), and they promise to make sure there is more at the end of the year than the start.  They invest for you, they do accounting and file taxes for you.  You give them limited power of attorney so you don&#39;t even see the tax forms.If you ask how it all works, they tell you it&#39;s really complicated and you should just focus on doing whatever it is that made you rich and let them worry about managing the money for you.  Sometimes they do ethical stuff, sometimes not, depending on which bank and which consultant you hire.I&#39;m not excusing the people who are here, just explaining how some people who you thought were good people end up in these leaks."</p>
 							
 						
 						</a>
@@ -77,7 +428,7 @@
 						<a href="https://news.ycombinator.com/item?id=28740452">
 						
 							
-								<p class="story__comment_first line-clamp">"Hey man, this is so cool.I hope it’s okay to plug here: I am working towards releasing a similar product for sale:https://www.invisible-computers.com/Unfortunately the display isn’t as big as the one you chose and it isn’t battery powered. But I am starting to ship the first units, so there is that :)"</p>
+								<p class="story__comment_first line-clamp">"The main problem with e-ink is finding a display that doesn&#39;t cost 5x what an LCD of the same size would cost. This display was $179 before it became unavailable. That&#39;s on the low end for such displays bigger than phone-sized.If the e-ink people ever overcome their cost problem, we&#39;ll see many more products."</p>
 							
 						
 							
@@ -85,7 +436,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Heh that&#39;s cool. It renders the calendar as HTML and then uses selenium to open up headless chrome and screenshot it and then send the bitmap to the eink display. Clever."</p>
+								<p class="story__comment_others">"Hey man, this is so cool.I hope it’s okay to plug here: I am working towards releasing a similar product for sale:https://www.invisible-computers.com/Unfortunately the display isn’t as big as the one you chose and it isn’t battery powered. But I am starting to ship the first units, so there is that :)"</p>
 							
 						
 						</a>
@@ -199,7 +550,7 @@ George Pólya=98"</p>
 							
 						
 							
-								<p class="story__comment_others">"These interviews with Edward Teller [1] offer first hand insight into some of this fascinating history, I quite enjoyed watching them.[1] https://www.youtube.com/watch?v=oRdAp4A5KEA&amp;list=PLVV0r6CmEs..."</p>
+								<p class="story__comment_others">"Hungarian perspective here:I believe there are a couple of factors at play here.First of all, most (perhaps all) of those people are Hungarian Jews, and Jewish people (imho) are both very intelligent and their culture values education a lot. Hungary had a very large Jewish population at the time, so no wonder we produced so many great scientists!Second is the Hungarian language. Ede Teller specifically said his scientific achievements are thanks to the Hungarian language, and without it he could only be a high school teacher. I can find a few sources if you want, and the ones I know about might not be accurate, but for example Cardinal Giuseppe Mezzofanti, who spoke 58 languages   himself, said of our language: “Do you know which language, because of its constructive ability and the harmony of its rhythm, comes before all the others? The Hungarian! It seems as if the Hungarians themselves do not know the treasure of their language…”.Third Hungary at that point was a rather developed country, unlike now. Budapest metro opened after the London one, as the worlds&#39; second.Edit: Fourth, not related to the previous 3 as not unique to Hungary, but there were probably &#34;network effects&#34; at play. Science does not happen in a vacuum, as Paul Erdos said for him maths is a social activity (as witnessed by his vagabond tendency to move in with his peers and work on problems while living at their house). So probably having all these great minds in related fields was a kind of a feedback loop."</p>
 							
 						
 						</a>
@@ -255,7 +606,7 @@ George Pólya=98"</p>
 							
 						
 							
-								<p class="story__comment_others">"One of the problems with looking at the economy through the lens of inflation is defining &#34;inflation&#34; itself.Consider the Wikipedia definition:&gt; In economics, inflation (or infrequently, price inflation) is a general rise in the price level of an economy over a period of time.https://en.wikipedia.org/wiki/InflationWhat is &#34;the price level of an economy?&#34; How do you measure it? What factors are included and excluded? Why? Who decides?Do we include real estate? Financial assets like stocks and bonds? Or do we stick to things like milk and eggs. Housing? Is that an asset or a consumable?And this happens before we can really talk about what causes inflation to increase or decrease. The problem with most of the discussions of inflation I&#39;ve read and seen is that each side has its own, often implicit, definition of inflation."</p>
+								<p class="story__comment_others">"I applaud the New York Times for prominently linking to the full paper from the article.  In case anyone missed the link: https://www.federalreserve.gov/econres/feds/files/2021062pap..."</p>
 							
 						
 						</a>
@@ -311,7 +662,7 @@ George Pólya=98"</p>
 							
 						
 							
-								<p class="story__comment_others">"A bunch of other docs I&#39;ve looked up number of times and found handy:- Slice tricks: https://github.com/golang/go/wiki/SliceTricks- Rest of the Golang Github Wiki: https://github.com/golang/go/wiki#additional-go-programming-...- Spec - very approachable: https://golang.org/ref/spec- Standard library source code - clean code with lots of idioms to learn from: https://cs.opensource.google/go/go/+/refs/tags/go1.17.1:src/"</p>
+								<p class="story__comment_others">"This doc goes over pages of conventions, patterns, design advice, tips, explanations, etc. without once using the idiom &#34;best practice&#34;. It is balanced and sometimes mention that advice can be taken too far.I salute you for that!"</p>
 							
 						
 						</a>
@@ -391,34 +742,16 @@ George Pólya=98"</p>
 						<a href="https://news.ycombinator.com/item?id=28719320">
 						
 							
-								<p class="story__comment_first line-clamp">"Sharecare | Multiple positions(Sr. Front-End Engineer, Software Engineer) | Remote(US &amp; Canada only) | Full Time or Contract | https://www.sharecare.com/aiAbout https://www.sharecare.com/ai specializes in the ML layer on top of the healthcare data.We offer:  * Competitive salary and stocks.
-  * 401k with company match.
-  * Excellent health insurance.
-  * Startup culture.
-  * Work with top-notch engineers from MIT, Yahoo.
-
-Front-End Engineer:
-What we expect from you:  * 3+ years of Front-End engineering experience.
-  * Experience with Javascript, NodeJS, React.
-  * Architect, build and maintain excellent React applications with clean code.
-  * Exposure to functional programming is a bonus point.
-
-Our Front-End Stack: Nextjs, Nodejs, React, Material-UI.Software Engineer:  * 2+ years of Software Engineering experience.
-  * Knowledge of functional programming, Clojure would be a plus.
-  * Strong CS fundamentals.
-
-  Our Backend Stack: Clojure, PostgreSQL, Kubernetes, Redis, Kafka, Spark, Graphql.
-
-Please email your resume to Prashanth.Iyer@sharecare.com"</p>
+								<p class="story__comment_first line-clamp">"Saildrone | Multiple Roles | Onsite/Remote | SF Bay Area (Alameda) | Full-Time | https://www.saildrone.com/Shamless plug - did you see us huck a drone into the middle of a friggin&#39; HURRICANE? https://news.ycombinator.com/item?id=28715110Saildrone is the world&#39;s leading collector of ocean related in situ data via uncrewed vehicle, above and below the sea surface. Government, scientific, and commercial organizations around the globe rely on Saildrone to deliver the critical information they need—when they need it.We&#39;re hiring for a breadth of different positions across our organization. In software, we&#39;re hiring for DevOps, Backend, Full-Stack, Data Pipeline, ML, and Vehicle engineers. Stacks vary from team to team, but we&#39;re looking primarily for folks with backgrounds in C++, Python, and/or JavaScript (Node, TypeScript, React). We&#39;re remote-friendly for certain positions, though require folks to be onsite for others.In addition to software engineers, we&#39;re also hiring in a host of other positions, including a Product Manager, Mechanical Engineer, and Field Engineer, among others.You can see a list of open positions on our career page: https://www.saildrone.com/careersPlease apply through our career page; be sure to select &#34;Other&#34; and specify this HN post when asked how you heard about us!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Orum | Full-stack developer | Remote (US only) | Full-time | Visa Transfer | https://orum.com/Orum connects sales teams to their target prospects efficiently, helping them sell to their ideal customers. Using Orum&#39;s parallel dialer, sales reps can dial multiple numbers at once, and Orum&#39;s speech recognition will automatically recognize and connect representatives with humans that pick up. This leads to consistent conversations, faster training, and more meetings booked.This role is ideal if you like to work across the stack to deliver significant impact with a small team. You&#39;ll be in charge of building and owning features end-to-end, take it through conception, implementation, shipping, and iteration. Examples include routing calls through our event-based SIP softswitch, displaying real-time call information in our UI over WebSockets, or processing streaming audio for speech recognition. You will also be reviewing the design specs and PRs of other members on the team. You will be optimizing our telephony platform&#39;s performance and working on projects that improve our SaaS infrastructure.Our current technology stack includes NodeJS with Typescript, Ruby, Postgres, Google Cloud Platform, and FreeSWITCH.What we would love to see:* Experience building back end applications with NodeJS/Linux stack* Experience working with an RDBMS using SQL* Familiarity with front end HTML and CSSTo apply, please reach out to C7D3BC3334@jobs.workablemail.com with your resume."</p>
+								<p class="story__comment_others">" CodeWeavers | St Paul, MN, USA | Full Time | REMOTE | Wine and General Open Source Developers | C-language systems programminghttps://www.codeweavers.com/about/jobsCodeWeavers is hiring skilled C programmers to work on the open source Wine project and other related open source desktop projects. CodeWeavers partnered with Valve Software to integrate Wine into the Steam for Linux client as a part of the Steam Play (Proton) initiative. This allows Linux gamers to play Windows games on Linux more easily. We need new, full-time developers to improve Wine&#39;s ability to run Windows games and other Windows software for Proton and other similar projects.We are hiring remote programmers, US or international, as well as workers local to Saint Paul, Minnesota. We will consider relocation, if desired, on a case-by-case basis. Please see link above for information, benefits, requirements, and how to apply.Please direct any questions to the email address on our Jobs page."</p>
 							
 						
 							
-								<p class="story__comment_others">"My startup (Skale, https://www.theskale.com) is growing rapidly and looking for software engineers!
-If you’re interested in joining a rapidly growing remote-first social impact startup that cares deeply about team culture, we’d love to chat with you.Our tech stack uses the most popular languages, tools, and frameworks for which tech talent is most sought after in the industry (Python, React, TypeScript, PostgreSQL, Java, Swift, etc.), ensuring that any technical experience gained with us is valuable anywhere.The ideal candidate has proven experience, resonance with Skale&#39;s vision, and desire for personal growth for both themselves and others. We are interested in strong candidates who love learning and are as excited to grow their careers as we are to enable that growth.Technical opportunities at Skale include:• Developing for Skale&#39;s mobile and/or web apps (iOS / Android / React Native / React)• Developing for Skale&#39;s server backend (Django / PostgreSQL / Redis / Celery)• Migrating to exciting technologies as we grow (AI / machine learning, Kubernetes, custom real-time and video chat infrastructure, etc.)• Performing user data analytics (data science / data engineering / machine learning)• Participating in technical roadmap planning (new products, backend architecture, etc.)• Access to leadership and/or senior technical roles as Skale rapidly growsPlease submit your resume to: careers@theskale.com"</p>
+								<p class="story__comment_others">"Allumia | Product Manager - Quality Assurance | Clean Tech | www.allumia.com | Onsite (Seattle) or Remote | FTAllumia is seeking a product-minded, process-oriented candidate to join our software team and take lead on QA and beyond.Allumia provides a web platform through which utility companies design, build, and meter energy efficiency upgrades for small-to-medium-sized businesses. After six years of bootstrapped growth and proven success, several of the nation’s major utilities have signed on with us. We&#39;re a mission-focused company, and we’ve built a successful business model around saving costs for customers by helping them reduce their energy consumption.You will report to our product lead and will work closely with developers and product managers to understand users’ requirements and thoroughly test new features. You will contribute by leading testing efforts - but you won’t be siloed there.  We will be looking to you for process improvements, product ideas, and anything else you can think of to make sure our offering exceeds users’ expectations.More details:
+https://www.allumia.com/careers/product-manager-quality-assu..."</p>
 							
 						
 						</a>
@@ -2671,290 +3004,6 @@ Good asynchronous communication requires a high degree of introspection, clarity
 						
 							
 								<p class="story__comment_others">"The article should have given more context and mentioned that it wasn’t unusual for lands across the Atlantic to appear on pre-Colombian maps.  Here are two examples:https://wikipedia.org/wiki/Antilliahttps://wikipedia.org/wiki/Brasil_(mythical_island)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">25 September 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.dell.com/community/XPS/FAQ-Modern-Standby/td-p/7514448">Do not leave XPS laptop in any sleep/hibernate/standby mode when placed in a bag</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28639952">
-						
-							
-								<p class="story__comment_first line-clamp">"I stopped using my Microsoft Surface Pro because it had the same issues. It&#39;s a clusterfuck of bad design decisions at Microsoft, the most offensive one being that they prioritize the execution of their scheduled spyware upload (telemetry) over honoring the agreement with the user that a sleeping PC will remain asleep unless the user takes action. It&#39;ll even install updates at night and then make reboot sounds to wake you up. And the next day, your unsaved open documents are all gone. Plus as described here, many Windows 10 laptops will either burn themselves, or the battery will be empty whenever you need em."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have an XPS 9500 and have found this infuriating.I think there&#39;s two separate things going on:As others have noted, S3 sleep isn&#39;t supported, only S1 &#34;sleep to idle&#34; sleep. But I don&#39;t think this is the direct cause of the overheating. In S1 sleep, the laptop can average something like 900mW of power usage, which is enough to annoyingly knock a few percent off your battery overnight, but not enough to make the laptop warm, even in a bag.The seems to be a second problem, specific to Windows, that when in S1 sleep sometimes the power consumption is high (of order 10W), and this causes the laptop to get very hot if not well ventilated. I&#39;ve never been able to figure out if this Windows actually doing something useful in &#34;modern standby&#34; like Windows Update, or whether it&#39;s a bug. Edit: And I should add, it&#39;s crazy that there&#39;s not a way to disable this if it is doing something &#34;useful&#34;.Either way, under Linux the latter doesn&#39;t happen, and the laptop sleeps very cool ... just with the annoying &#34;lose 5% of your battery overnight&#34; problem from sleeping in S1."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; All newer Dell laptops now use the Microsoft Modern Standby.So let me guess: &#34;modern&#34; here is indicates a shitty new thing that doesn&#39;t work as well as the old thing....after further reading, yep:https://docs.microsoft.com/en-us/windows-hardware/design/dev...&gt; On occasion, the system stays in the active mode (with the screen off) for a longer interval of time. These longer active intervals occur for a variety of reasons, for example, processing incoming email or downloading critical Windows updates. Windows components that are allowed to leave the SoC in the active power state are called activators because they are registered with the power manager as capable of blocking the transition back to the idle power mode. The durations of these activities vary widely but are controlled to extend battery life. The durations of the activities can be viewed with the built-in SleepStudy software tool or through Event Tracing for Windows (ETW)-based instrumentation."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://globe.gl/example/submarine-cables/">Submarine cable map rendered onto a globe</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28641463">
-						
-							
-								<p class="story__comment_first line-clamp">"This is slightly tangential, but it&#39;s Atlantic-cable-related, and I just learned about it. Let me set the stage. By the 1920s, analog fax technology was established and there were a variety of experimental and early commercial systems in use. One of the first uses of modems was to transmit faxes over the long-distance telephone network, turning a voltage into a pitch, and vice versa. The electronic marvel of the 1930s in the newsroom, aside from the teletypes, was that you could take a photo in San Francisco and have it published just hours later in New York.But how do you get a picture across the Atlantic Ocean? Those analog fax systems suffer from noise and in the experimental systems of the 1910s and 1920s long-distance was impractical. Shortwave to get over the Ocean was right out. There were no transoceanic telephone links. But there were submarine telegraph cables. Morse code or Baudot telex. Not very fast with no amplifiers along the lines yet. But you could send a telex across the Atlantic ocean.Enter the Bartlane transmission system. First, five photographs were developed from the original negative, at different exposure levels, using a conductive developer. So each point of the image is more or less conductive depending on its exposure. Each of these photos is scanned, as if it had pixels, and a 1-bit intensity value collected for for all five photographs, creating a five-level greyscale bitmap image on tape basically. (Five bits worked with existing Baudot code equipment.)This enormous tape was then sent over the wire. On the receiving end a printer, with intensity controlled by the level indicated, would then selectively expose a spot on a photographic plate to light, as it stepped through the tape. Six hours to send a small image. But digital was the only way to send a photograph from London to New York overnight from its early trials in the 1920s until the 1950s.http://www.hffax.de/history/html/bartlane.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"Cool.  We take it for granted, but the intercontinental data (and voice) connectivity cables are an impressive achievement for humanity -- technical, and for global community.  And globe.gl has me &#34;seeing&#34; for the first time a particular cable for which I have a much smaller personal story.One of those submarine cables being severed accounts for one of only two software/hardware downtimes for a B2B startup&#39;s launch MVP, which had been deployed in critical production overseas.Our station appliances at the facility needed to talk with servers (at the network-closest AWS AZ) multiple times a minute, for cryptographic security reasons.  The appliances had a boot-time check for network connectivity (which saw extreme latency and packet loss as network unavailable).  For reasons, the facility powered off all equipment at night.One day, the facility said the appliances wouldn&#39;t &#34;turn on&#34;, I quickly found they were having network problems, but facility insisted their LAN and Internet connectivity was fine.  I was able to carefully SSH in (with terminal responsiveness like a bad dialup to an overloaded timesharing system), and relaxed the timeout on the check that was in a retry loop, and the stations came to life (albeit network requests during operations much slower than normal).  The facility manager advised later that day that it turns out a submarine cable had been severed."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s kind of hard to distinguish between land and water when they are both black. Improving the contrast or adding a border would help."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://bigtechnology.substack.com/p/completely-running-blind-apples-power">Apple&#39;s Power Move to Kneecap Facebook Advertising Is Working</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28637062">
-						
-							
-								<p class="story__comment_first line-clamp">"Good. The website imore reported earlier this year that 96% of people in the US had opted out of tracking.It’s almost as if no one wants this “feature” Facebook has been “providing” and given information about it and a choice have roundly rejected it.I can’t wait to see what some of Apple’s other initiatives like the anti-tracking features in Mail on iOS 15 and the upcoming iCloud Private Relay do to the industry.Hell, US intelligence agencies block ads at the network level because the ad industry is so infested with tracking/malware/spyware/exploits/etc. That’s a hell of an indictment.Of course any time someone looks into it they find that that click-rate fraud is at outrageous levels. So maybe no one needs Apple. The fraud bots will keep the ecosystem running. /shttps://www.imore.com/96-iphone-users-have-opted-out-app-tra...https://www.vice.com/en/article/93ypke/the-nsa-and-cia-use-a..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have a slightly more cynical take on this than it seems most of Hacker News does.Facebook had found a way to monetize it&#39;s iOS app without Apple getting a 30% cut.Apple decided to cut that off to prevent Facebook from making money without Apple taking their cut. The fact that Apple can sell this to users as &#34;privacy&#34; is all the better for Apple.At the end of the day Apple is still a corporation. They are beholden to shareholders, not privacy advocates. Apple will maximize profits and has found a way to cut off revenue to competitor and breed goodwill at the same time.Judging by this comments thread, it is working very well."</p>
-							
-						
-							
-								<p class="story__comment_others">"This post is just an ad. It&#39;s a brand new Substack with literally only one article that&#39;s more than 50% ad text. All of the comments here are addressing overall HN sentiment or the title, not the article and the giant ad text which I would think would stick out to more people if they had actually read it??"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.npr.org/2021/09/22/1039565467/many-believe-its-time-to-do-away-with-lawmakers-making-stock-trades">Many believe it&#39;s time to do away with lawmakers making stock trades</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28642120">
-						
-							
-								<p class="story__comment_first line-clamp">"Before the STOCK Act passed, Congress outperformed the market by 20%, with some senior Republican leaders doing as well as 35% [0,1].Before the pandemic began in the US, 4 US Senators were picking up medical stocks after closed-door briefings. Investigations were opened by the DOJ, but they were all dropped.[0] https://www.theatlantic.com/ideas/archive/2020/03/congress-i...[1] https://onlinelibrary.wiley.com/doi/10.1111/fire.12180"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s the most blatant example of insider trading. Company insiders might have inside access to a single company. Lawmakers have access to inside information that can affect the entire industry or market.It&#39;s a perfect example of how we do have class stratification in society and that rule of law and equality are laughably distant ideas in a sea of hypocrisy."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m completely fine with politicians being paid significantly more if them, their partners and their relatives faced serious prison time is they did the sort of insider trading that is considered completely normal and weirdly they&#39;re allowed to do but it&#39;s illegal if the lowly plebs do it.End of the day these people are paid very little on paper for the amount of pressure and responsibility yet if you follow their finances they&#39;re all building fortunes. Same should apply to funneling money into charities/businesses/&#34;programs&#34; where their relatives are on the boards.They&#39;re in such a privileged position I don&#39;t consider any of this unreasonable."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/will/slacktyping">Slacktyping: I&#39;m typing when you&#39;re typing (2018)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28634831">
-						
-							
-								<p class="story__comment_first line-clamp">"Having worked with Will for quite a few years, he has a great ability to create some impressive projects like this. Even his commit graph on his GitHub (https://github.com/will) has been consistent for I think 10 years now?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Since we&#39;re talking about stupid Slack bots, I feel compelled to mention my stupid bot: REPLbot [1] is a Slack/Discord bot for running interactive REPLs and shells from a chat.It is fun and marginally useful. It supports sharing your own terminal in Slack too.[1] https://github.com/binwiederhier/replbot"</p>
-							
-						
-							
-								<p class="story__comment_others">"While I do appreciate the humor here, it&#39;s a personal gripe that conversations on Slack tend to optimize towards speed of responses - and when taken to an extreme, they take the form of:&gt; This message&gt; is&gt; sent over a few lines(awkward pause)&gt; so that&gt; I can get in a point&gt; before you start typing somethingAsynchronous means of communication (Github PRs, Jira tickets, dare I say e-mails) mean that I submit a fully-formed thought as a digest, but Slack sometimes becomes a stream of consciousness - one that I have trouble breaking someone out of."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://jvns.ca/blog/2021/09/24/new-tool--an-nginx-playground/">Nginx Playground</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28642983">
-						
-							
-								<p class="story__comment_first line-clamp">"We need some kind of Internet Treasure award and I nominate her. Bookmarking for the next time I am setting up a greenfield nginx install."</p>
-							
-						
-							
-								<p class="story__comment_others">"Neat, the backend is indeed very simple. If you prefer to run things locally, just invoking `nginx -c /path/to/nginx.conf -e err.log -g &#34;daemon off;&#34;` [1] and your curl command seems to be everything required, save for httpbin.[1]: https://gist.github.com/jvns/edf78e7775fea8888685a9a2956bc47..."</p>
-							
-						
-							
-								<p class="story__comment_others">"After many years devotion to nginx I ditched it for caddy.I’d finally had enough of the complex configuration and pain implementing ssl.No more.  Just use caddy."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://stackoverflow.com/search?q=user%3A1144035+%5Bsql%5D+is%3Aanswer">A single person answered 76k questions about SQL on StackOverflow</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28642326">
-						
-							
-								<p class="story__comment_first line-clamp">"This user Gordon Linoff hit one million reputation points on Stack Overflow in August 2020 (now one year later he&#39;s at 1.17M): https://meta.stackoverflow.com/questions/400506/congratulati...&gt; This comes after an astonishing amount of 71,839 answers (and 0 questions!). He only joined in 2012, so that&#39;s an average of ~22.8 answers per day, every day, for the last 3144 days.To put perspective on the numbers, the second answerer on the site is Jon Skeet (our first millionaire) with 35K answers and then several others with 20k+"</p>
-							
-						
-							
-								<p class="story__comment_others">"Gordon is amazing, and it&#39;s almost impossible to beat him to an answer for certain types of questions :) I had the chance to meet him a few years back to talk through some new SQL features coming to BigQuery (I&#39;m at Snowflake now). He had a lot of great insights into what could make the product better, and what he thought was missing relative to other OLAP databases."</p>
-							
-						
-							
-								<p class="story__comment_others">"Heh, I had to go back through some of my old questions and sure enough Gordon has helped me before. I had to laugh because my comment below his answer was that he figured out my problem so fast that StackOverflow wouldn&#39;t even let me accept his answer as it was too soon after posting the question."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://theintercept.com/2021/09/23/coronavirus-research-grant-darpa/">Leaked grant proposal details high-risk coronavirus research</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28644428">
-						
-							
-								<p class="story__comment_first line-clamp">"Daczak serves on the WHO team to investigate the virus origins, but this did not get mentioned in any reports.  Instead he warns other not to discuss it. He does not include notes that research was done on modifying bat viruses to make them infectious to human cells.  These behaviors look like a guilty person, do they not?The wuhan and eco-health researchers had already started work on the furin cleavage sites and why would they stop when DARPA blocked it? Funding can’t only come from the US. Did CCP also block this research?&gt; there is published evidence that the Wuhan Institute of Virology was already engaged in some of the genetic engineering work described in the proposal and that viruses designed in North Carolina could easily be used in China."</p>
-							
-						
-							
-								<p class="story__comment_others">"1.  There is no viral backbone anyone knows of which would have been used in this research2.  There is no spike protein anyone knows of which would have been used in this research3.  The PRRAR furin cleavage site is not one humans would have tried it is unlike any other known furin cleavage sites in coronaviruses4.  There are now many known related sarbecoviruses which have been found with furin cleavage sites5.  Furin cleavage sites have independently evolved in multiple different branches of coronaviruses, probably a dozen times that we know of now.6.  The furin cleavage site is short and can easily happen through recombination with another virus due to coinfection.7.  This is very likely what happened due to infection with the SARS-CoV-2 ancestor and an HKU9-like virus.It is not particularly suspicious that the thing which we were worried about happening and causing a zoonotic spillover event is the thing which actually happened."</p>
-							
-						
-							
-								<p class="story__comment_others">"Guys, two points here. One, this proposal was rejected. This did not happen! Two, their proposal was for genetic manipulation of an existing virus, which research on the existing corona virus shows was not the case.This has nothing to do with the corona virus strains we are currently dealing with, and more importantly, there has never been any credible research proving that Covid was made in a lab. The only paper that got any traction suggested it was non-manipulation based gain of function research, but that was disproved only a few weeks after the paper&#39;s release as well. I know we all want to know where it came from, but the odds against us ever having actual evidence of it being from a lab are virtually zero. And no, rejected research proposals do not constitute proof of anything."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.timeanddate.com/news/time/samoa-removes-dst.html">Samoa Scraps Daylight Saving Time</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28626595">
-						
-							
-								<p class="story__comment_first line-clamp">"Fellow anti-DSTers, this is a big win. Samoa might not have a large population but it is the future. In fact, it is already tomorrow there.https://time.is/Samoa"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; DST was implemented in 2010 by the previous Government of Samoa to give more time after work to tend to their plantations, promote public health, and save fuel. Instead, it “[...] defeated its own goals by being used by people to socialise more,” according to the Samoa Observer.Maybe I am lacking context here, but that seems a bit mean on the part of the Samoan government. Is extra socializing such a bad thing?"</p>
-							
-						
-							
-								<p class="story__comment_others">"My observations from reading this comment thread, are that Time is a construct created by jewellers to sell more watches. :)Also, we should switch to UTC globally. My 22:00 is your 22:00 and their 22:00. For me it&#39;s my bedtime, for you it&#39;s lunchtime, and for them it&#39;s breakfast. People should adjust their daily activities around the daylight hours they have, and let time be less of a controlling force in their lives.We live in a globalised world, especially in business. So with the whole world on UTC, everyone knows when the meeting starts, when the delivery arrives, and when the end of the year starts and finishes.And if that fails, we should just attach rockets at the poles and push/pull the planet back upright to get rid of the problem altogether."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.usatoday.com/story/money/2021/09/21/north-carolina-workers-discuss-wages-despite-workplace-rule/5796705001/">Workers are often told not to talk about pay. That&#39;s not legal</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28617277">
-						
-							
-								<p class="story__comment_first line-clamp">"At my last job, all salaries were public record, and some dude even put together a website (https://umsalary.info) to make searching easier.Want to know what some internal career change might look like? Just take a look. Want to see what career path got someone else to where they are? Take a look. Want to know if you are being underpaid/discriminated against? Click on the job title next to your name and see where you stand compared to all employees with the same role.At a place where Diversity Equity and Inclusion is a stated goal I think this works well. I also know that people don&#39;t always get paid the same amount, and (as I often explain to my six-year-old) fair doesn&#39;t mean the everything has to be equal, but it is very useful to know where you stand.At my new job, the information on Levels seemed accurate based on my offer, and I was very happy with it."</p>
-							
-						
-							
-								<p class="story__comment_others">"A simple rule for negotiations is that whoever has more information has an advantage. That means if workers don’t know the exact pay scales they are almost by definition at a disadvantage while the company has the full info.To the people who think they negotiated really well and want this to be kept from their coworkers I say that a lot of you have been lied to and you are making what everybody else makes or even less. I still remember a guy proudly telling me about his great contract and his face when I told him that I made almost twice as him."</p>
-							
-						
-							
-								<p class="story__comment_others">"I really like how this was handled at Boeing.Every year, the local SPEEA rep would post an anonymous graph showing compensation compared to experience.  The org was large enough that you couldn’t pinpoint everyone, but you could easily see where you stood WRT your peers."</p>
 							
 						
 						</a>
