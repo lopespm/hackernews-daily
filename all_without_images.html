@@ -36,6 +36,297 @@
 	</div>
 
 	
+	<div class="day__date">02 November 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://home.treasury.gov/system/files/136/StableCoinReport_Nov1_508.pdf">Report on Stablecoins [pdf]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29071895">
+						
+							
+								<p class="story__comment_first line-clamp">"This is good. The backing of stablecoins is a very real issue. As the Treasury points out, there&#39;s a very real possibility of a run. Two stablecoins have crashed so far, SafeDollar SDO, and $TITAN.  They went all the way to zero.Can Tether survive a net outflow? Probably not. They don&#39;t have the collateral.Dai is really a derivative of Etherium. Dai is backed by Etherium at 150%. So
+value in Dai is at risk if the price of Etherium drops more than 1/3.  Etherium dropped by half back in May 2021, but recovered. DAI could have crashed at that time if it faced a net outflow. It didn&#39;t, though.The real question is what happens in the next recession."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; To address risks to stablecoin users and guard against stablecoin runs, legislation should require stablecoin issuers to be insured depository institutions, which are subject to appropriate supervision and regulation, at the depository institution and the holding company level.&gt; To address concerns about payment system risk, in addition to the requirements for stablecoin issuers, legislation should require custodial wallet providers4 to be subject to appropriate federal oversight. Congress should also provide the federal supervisor of a stablecoin issuer with the authority to require any entity that performs activities that are critical to the functioning of the stablecoin arrangement to meet appropriate risk-management standards.&gt; To address additional concerns about systemic risk and concentration of economic power, legislation should require stablecoin issuers to comply with activities restrictions that limit affiliation with commercial entities. Supervisors should have authority to implement standards to promote interoperability among stablecoins. In addition, Congress may wish to consider other standards for custodial wallet providers, such as limits on affiliation with commercial entities or on use of users’ transaction data.AKA StableCoin operators should be banks. (Stable Coins will be bank notes)?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Interesting to read this with an eye on the authors&#39; mindset.  Their understanding of stablecoins seems largely centered on Tether (and to a lesser extent, BUSD/USDC).  A lot of their understanding is incorrect when applied to algorithmic stablecoins like Dai, eg. there is no central issuing authority; Dai is minted in exchange for Ethereum (and other cryptocurrencies), not fiat currencies; the effect of a run on Dai is unlikely to spill over into the mainstream financial system; a &#34;custodial wallet&#34; in DeFi is not a company but just an Ethereum address, i.e. a hash of a public/private keypair.Overall I get the sense that the government is still people/organization centric and cannot wrap its head around a future where reality is determined by computer code and people are bit players in the script."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://krebsonsecurity.com/2021/11/trojan-source-bug-threatens-the-security-of-all-code/">‘Trojan Source’ Bug Threatens the Security of All Code</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29062982">
+						
+							
+								<p class="story__comment_first line-clamp">"This was a pretty interesting thing to mitigate - we added some support around it to GitLab after it was reported to us, which shipped in the latest security release: https://gitlab.com/gitlab-org/gitlab/-/commit/3fb44197195b57... (you can actually see it in effect on that commit&#39;s examples, which is quite meta). These characters have valid use-cases in right-to-left languages like Arabic, Japanese etc, so it had to be configurable for project-owners if they have legitimate use-cases for it. Our focus was on making sure that repository maintainers could see these characters in code reviews.The homoglyph attack is interesting but it really should be noticed as part of a code review process, as it requires adding the imitation function calls at some point too. It&#39;d also likely be pretty frustrating to end users if we were to highlight every single unicode character that looks like the latin alphabet.It&#39;s certainly a good lesson in not copy/pasting random snippets from the internet and pasting them into a root shell, however :D (we do always highlight the bidi characters on GitLab snippets, though)Aside: this was a royal pain in the arse to figure out if I had live examples in the specs, because vim also just rendered them &#34;correctly&#34;. I ended up checking the files in Windows Notepad on another machine to sanity check them.Thanks to the authors for responsible disclosure."</p>
+							
+						
+							
+								<p class="story__comment_others">"As I previously noted on a related post:Interesting paper. Note, however, that the general problem is already known and there are a number of pre-existing works that discuss it. This is typically called &#34;underhanded code&#34; or sometimes &#34;maliciously misleading code&#34;. I&#39;m surprised that they didn&#39;t use the normal term for the problem nor cite the previous work on it - maybe they didn&#39;t realize this was a widely-known problem? Previous works on underhanded code didn&#39;t discuss Bidi to my knowledge (though other attacks on text like this have exploited Bidi).
+Here are a number of other materials about underhanded code:The Obfuscated V Contest (http://graphics.stanford.edu/~danielh/vote/vote.html) was created by Daniel Horn in 2004 and is the earliest “underhanded” programming contest that I found. It was a contest to create source code that looked like it did one thing, but actually did another.Underhanded C Contest (http://www.underhanded-c.org/) has run in many years. Per its FAQ, &#34;The Underhanded C Contest is an annual contest to write innocent-looking C code implementing malicious behavior.&#34;My PhD dissertation &#34;Fully Countering Trusting Trust through Diverse Double-Compiling&#34; discusses how to counter the &#34;trusting trust&#34; problem &amp; includes a section about maliciously misleading source code. See: https://dwheeler.com/trusting-trust/The JavaScript Misdirection Contest announced the winner on September 27, 2015 http://misdirect.ion.land/My paper &#34;Initial Analysis of Underhanded Source Code&#34;, (by David A. Wheeler, April, 2020, IDA document: D-13166), discusses underhanded code and the effectiveness of several potential countermeasures. It also includes a number of citations to other works on underhanded code.
+https://www.ida.org/research-and-publications/publications/a..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Security advisory for the Rust programming language (with a nice explanation):
+https://blog.rust-lang.org/2021/11/01/cve-2021-42574.htmlRust 1.56.1 will be released later today.&gt; To assess the security of the ecosystem we analyzed all crate versions ever published on crates.io (as of 2021-10-17), and only 5 crates have the affected codepoints in their source code, with none of the occurrences being malicious.Preview of the new helpful error: https://i.imgur.com/pGpZOnr.png"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.npr.org/sections/money/2021/10/26/1048892388/meet-skimpflation-a-reason-inflation-is-worse-than-the-government-says-it-is?ft=nprml&amp;amp;f=1048892388">Skimpflation: A reason inflation is worse than the government says it is</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29062736">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m not an economist. I am a consumer, though.  And I&#39;m older, so I have &#39;habits&#39; that don&#39;t tend to change.My rent has gone up 30%.  What used to cost me 100 something in groceries now regularly goes into the 200s.I&#39;m nothing if not an observationalist, but this CPI is horse dung.For someone like my family, I wouldn&#39;t believe any number less than 20%.The sad thing is, I&#39;ve never talked to a single friend or family member that said otherwise.So what is the government reporting?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Many older people saved large amounts of money in their bank accounts, and were expecting to live off the interest in their savings account once they retired. The interest they were due was effectively stolen when the central banks started giving away free money, it was a massive transfer of wealth.Many of that same generation counted on Social Security, and CPI adjustments to help save them from poverty.  The CPI numbers were pushed down to keep the costs of benefits those retirees were entitled to receive artificially low.  Another transfer of wealth / theft.Now the rest of the population has seen their crappy but steady wages evaporate on a whim, and will no longer settle for less than an actual living wage.  A rebalancing is going to have to take place, and somehow the wealth needs to be transferred back to the working class, or things will get very violent, very quickly. Once that kicks off, our near peers will funnel weapons into the US, and a civil war will make us the latest 3rd world country."</p>
+							
+						
+							
+								<p class="story__comment_others">"My read on this is that it seems like the equivalent of a subtweet about pay inequality.If that is indeed the case then they should be arguing for something I wrote the SEC about a couple of years ago which is to have public companies report their salary costs broken down by executive pay and non-executive management pay and non-executive non-management pay. And to report the population of individuals in each cohort.That &#39;pie&#39; of payroll costs can be split up anyway a company chooses, but the weighting of it will allow investors to understand the future prospects of a company that under pays its rank and file relative to its executives and management."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://peertube.european-pirates.eu/videos/watch/d64e6e10-0ad0-4b37-8813-3f5bc329f03b">EU Chatcontrol 2.0 [video]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29066894">
+						
+							
+								<p class="story__comment_first line-clamp">"I really wish somebody (or a lot of people) would write a hit movie/book where an innocent person on the run from a stasi-like state in 2035 has to face an interrogator who could read their whatsapp messages and google searches dating back to 2021.Without art or literature that draws out the terror I don&#39;t think most people can really envisage the danger we&#39;re all being put in. Without popular consciousness of the problem, it&#39;s all the more likely to happen."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;d rather have the ability to filter what I don&#39;t like in my feeds, but having the government do this is totalitarian. Who knows what they will search for, I lived under communism for 15 years, thank you, don&#39;t want back to the reign of terror."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t see how this won&#39;t pass. It&#39;s the EU. In the minds of many people the EU can do no wrong. And if they do something wrong it&#39;s okay and a small thing. And if it&#39;s not a small thing then you&#39;re just a conspiracy theorist that hates democracy.In the past the EU passed a directive that required all ISPs to save what websites you visited. This was overturned years later, but it seems now they&#39;re trying again through a different angle.Edit: https://en.wikipedia.org/wiki/Data_Retention_Directive"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://arstechnica.com/tech-policy/2021/11/facebook-wanted-to-hook-6-year-olds-with-new-apps-documents-show/">As teens left Facebook, it planned to target 6-year-olds, documents show</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29070119">
+						
+							
+								<p class="story__comment_first line-clamp">"My kids go to a school where they use an iPad from age 7 up.Messenger for Kids is a well thought out app that lets parents have a lot of control over who their kids talk to. It also allows you to monitor their conversations way that respects the kids&#39; privacy.Contrast this with iMessage, where literally anyone can randomly message a child using their Apple ID, and there are zero controls available to parents for monitoring or approving contacts.Look beyond messaging, and the Apple store targets kids with crappy apps filled to the brim  with creepy ads. YouTube recommends creepy, addictive, unmoderated, content.Facebook, and maybe Microsoft, are literally the only companies making products that are actually designed for kids."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m no fan of Facebook&#39;s assault on privacy and exploitation of user data; I&#39;d rather pay for a service than be the product.That said, Messenger Kids is a crazy good product that took off like fire among my children&#39;s classmates. Parents get to authorize all contacts and review all communication; kids get fun photo and video chat tools, with all sorts of kid-friendly filters and such, along with loads of minigames. The UI is so dead-simple that illiterate youngsters have no problem using it.So, yah, I&#39;m not at all surprised to learn that they target 6 year olds. _They have a product clearly intended for them_."</p>
+							
+						
+							
+								<p class="story__comment_others">"𝚃̶𝚊̶𝚛̶𝚐̶𝚎̶𝚝̶𝚒̶𝚗̶𝚐̶ ̶!̶=̶ ̶𝚕̶𝚞̶𝚛̶𝚒̶𝚗̶𝚐̶,̶ ̶𝚋̶𝚞̶𝚝̶ ̶𝚒̶𝚝̶ ̶𝚖̶𝚊̶𝚔̶𝚎̶𝚜̶ ̶𝚏̶𝚘̶𝚛̶ ̶𝚐̶𝚘̶𝚘̶𝚍̶ ̶𝚌̶𝚕̶𝚒̶𝚌̶𝚔̶𝚋̶𝚊̶𝚒̶𝚝̶.̶When it comes to putting things in their body, it&#39;s ok (eating cereal from Kellog).
+When it comes to socialization media, it&#39;s ok. (dressing up as Disney characters)
+When it&#39;s FB, hold the bar door.FB is garbage for known reasons. 
+This story feels like some witch hunt material stretched thin - &#34;Zuck is bad and we have to keep the eyeballs on the demonization of FB!&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.npr.org/2021/10/30/1050817670/university-florida-professors-free-speech-voting-rights">University of Florida bars professors from testifying in a voting rights case</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29065265">
+						
+							
+								<p class="story__comment_first line-clamp">"Probably what&#39;s going on is that someone on the board of trusties gets money from the political establishment in Florida and is worried that they&#39;ll lose it if the voting barriers are fixed and different leadership is elected.This has similarities with the shenanigans pulled by Sinema and Manchin around the Build Back Better plan. Political horse trading to advance the agendas of special interests, at great expense to millions of people.I wonder if the tech community could get involved to increase transparency around this stuff. Imagine if we had an open graph of the money flow so we could write a SQL query like (pseudo code) &#34;select * from donors where payee in (select id from trustees)&#34;. Let people crowdsource the data and then maintain a page of declarative queries so that anyone can instantly see the web of money around public officials. It could be part of a build system that automatically creates a NASCAR jacket for each official so we could see who their donors are in AR.Maybe such a thing already exists. It&#39;s traditionally been accomplished by investigative journalists and lawyers, but why couldn&#39;t it be public? It seems like it would be an effective way to end the bribe system."</p>
+							
+						
+							
+								<p class="story__comment_others">"For the lawyers:Can&#39;t a lawyer wishing to have these professors testify as expert witnesses merely motion for them to be subpoenaed?As far as I know, then by law the expert witnesses must testify else risk contempt of court, thereby negating whatever &#34;bar&#34; that the university seems fit to impose."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have a colleague who does environmental litigation. (Think Erin Brockovich.) They have a big civil case against a large energy company in a southern, “energy-friendly” state. They had an expert witness all lined up - a professor at the (public!) state university. Well this expert happened to be up for tenure and was (allegedly) told in no uncertain terms that, should they testify as an expert witness in this case, tenure was off the table.It’s absolutely outrageous that we allow those in positions of power to manipulate the justice system in such a way."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.roblox.com/2021/10/update-recent-service-outage/">An Update on Our Outage</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29062557">
+						
+							
+								<p class="story__comment_first line-clamp">"My heart goes out to the people who likely had to work crazy hours to fix this, but it really is wild that it was down for so long.  What was the last service of this size that was down for 4 days?  That is a failure in architecture that goes way beyond whatever the specific cause was here.  That post-mortem is going to be a doozy."</p>
+							
+						
+							
+								<p class="story__comment_others">"My guess is Consul shit itself. It works until it doesn&#39;t.For now I prefer Zookeeper because at-least I have experienced most of it&#39;s failure modes. i.e they are probably all prone to blowing up but I have lost my eyebrows enough times in ZK explosions that atleast I know what I&#39;m up against.Consul isn&#39;t widely used enough for me to have the same confidence for now, same goes for Vault and Nomad tbh. I really like the design of Vault and it&#39;s dynamic secrets system but I am probably just going to implement something similar on k8s secrets so that I don&#39;t have to carry around something that might spontaneously combust on me."</p>
+							
+						
+							
+								<p class="story__comment_others">"Someone on here posted the other day that someone they knew at Roblox said it was their secret store that became overloaded. Presumably a Hashicorp Vault type service (or something similar.) This update appears to support that claim.That&#39;s definitely a problem you only get at scale."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=29072408">Tell HN: Tesla rear-ended me on autopilot, no one will investigate</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29072408">
+						
+							
+								<p class="story__comment_first line-clamp">"I have a Model 3. The autopilot was acting weird while driving on the freeway, sometime disengaging, but mostly not tracking the lane smoothly. For an unrelated reason, I opted to view my camera footage, and was shocked to find that my camera was completely blurry. I’m driving down the freeway at 75mph, being guided by a camera that couldn’t pass a standard driver’s vision test.Tesla came out to replace the camera, and it appeared that a film had been deposited on the windshield, obscuring the camera.Living in Phoenix, my car is parked outside, facing south west. During Covid, I’d go many days at a time without driving, and in the summer, the interior temperatures can easily rise over 150f. Within the camera enclosure, there’s a reflection absorbing material, which likely creates a perfect miniature greenhouse.I believe the glue in the camera housing melted/evaporated at these elevated temperatures and deposited on the windshield.Concerned that others would experience this problem, I opened a case with the NHTSA. Crickets.There could be many people driving around on autopilot, with obstructed vision, due to this same failure mode. It’s something Tesla could easily check, and something NHTSA should be investigating.For something as safety critical as a forward facing camera, you’d expect both Tesla and NHTSA would be investigating. I have no indication that anything has happened as a result of my filing. Possibly because nobody else has reported the issue - maybe because nobody else is actively viewing their camera footage? There’s no other way for a Tesla owner to be aware of the issue. Frustrating."</p>
+							
+						
+							
+								<p class="story__comment_others">"I drive a Tesla. If my car rear ends another car, that&#39;s my fault. Doesn&#39;t matter if I had Autopilot on or not.Imagine if you were rear ended by a Toyota and the driver said &#34;it was on cruise control, shrug.&#34; Would you talk to NTSB or NHTSA about that? Probably not.The only scenario I can imagine that&#39;d warrant investigation is if the driver were completely unable to override Autopilot. Similar investigations have been started by NTSB when Toyota had issues with their cruise control systems several years ago."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The driver said she was using Autopilot, that an OTA update had had a problem earlier in the day, and that she had actually had the same kind of collision on Autopilot previously!So she continued to use it? That&#39;s insane.It&#39;s worrying that there are tons of videos on YouTube reviewing Tesla&#39;s Autopilot and FSD where the cars do something incredibly scary and dangerous, and the drivers just laugh it off, go &#34;well, it&#39;s a beta!&#34; and continue using it instead of turning off the feature that almost got them into a car accident. I don&#39;t want to share the road with drivers who think dangerous driving is a funny game."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://meta.company/">Facebook Stole Our Name and Livelihood</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29074406">
+						
+							
+								<p class="story__comment_first line-clamp">"I was hoping to click through to see what they’re talking about, but apparently this letter is the entire company.It reads to me like they were parking on the name and FB got there first (with regards to actually using the name). And we should care why? “Stole our name and livelihood” is ridiculous here."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have lost count of the number of times I have seen this exact post on HN because some company I never heard of used a common word for their company/product and Facebook, Apple, Google, etc. came out with a product with the same name.  I&#39;m not going to excuse any of the behavior by these big companies, but at a certain point you have to take responsibility for introducing this risk by naming your company a short, commonly used word that is found in the dictionary.  It was only a matter of time until this issue would pop up."</p>
+							
+						
+							
+								<p class="story__comment_others">"What does meta.company do? I can&#39;t find anything about them. How did Facebook steal the livelihood of a company that doesn&#39;t have any products or sell anything?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=29067493">Ask HN: Who is hiring? (November 2021)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29067493">
+						
+							
+								<p class="story__comment_first line-clamp">"Terminal49 (https://www.terminal49.com/) | Full-time/Contract | Berkeley, CA &amp; RemoteTerminal49 us all-in-one ocean shipment and container tracking platform. Shippers, Importers, service providers and other logistics technologies co&#39;s use our data dashboard and APIs to track and manage ocean containers around the world. We take a bill of lading/container number and build a pretty picture of i&#39;s journey.&gt;&gt; How does it work: We pull data from every ocean carrier (Remember Ever Given?) and US/Canada port/terminal, then standardize it and push container milestones and other events to our customers (webhooks etc). We track containers for our customers so they don&#39;t have to. 9/10 people still manually track container by visiting carrier websites and logging into terminal websites (paste container numbers, click track and then copy status back into a spreadsheet -- not joking).&gt;&gt; Our Progress: Went from 0 to $2M ARR over last 14 months and growing at 20+% MOM. Container tracking is just the beginning. We are going to go deep into drayage/ocean visibility and build everything from predictive APIS and APIs to programmatically take actions (pay fees, appointment booking, book drayage etc) on a container.&gt;&gt; Why join us? We are a team of 6, fully distributed and profitable. We are about to raise our Series A, so it&#39;s the perfect time to join an have impact on our roadmap and company culture.Roles ------* Software Engineer (Data Pipelines)* Integration Software Engineer (APIs and bot automation)* Full Stack software engineer (Client Application - 70% front end / 30% APIS)* PM/Designer/Account Exec/other open rolesIf interested, email me akshay@terminal49.com or DM me on twitter @dodejaKeywords: software infra for logistics, container tracking, predictive ETAs"</p>
+							
+						
+							
+								<p class="story__comment_others">"Why there are geographical restrictions for remote positions, like US, Canada, Europe and such?Talent is everywhere, and people willing to work in time zones where companies, teams operate. Does it really matter where the employee located?"</p>
+							
+						
+							
+								<p class="story__comment_others">"SOOT (http://soot.com/) | Full Time SWE | New York, New York | REMOTEAbout Soot: Existing UIs were designed in the 70s and have barely changed, even though the average user has orders of magnitude more data. At SOOT we&#39;re redesigning user interfaces from first principles. Our work is at the intersection of user interaction, computer graphics, design, and AI/ML. The team includes the previous lead designer at Zoox, the organizer of Drop Everything, the 3rd most frequent contributor to THREE.js, and me (ex-Google Research, http://amolkapoor.com/). We&#39;re backed by Village and Compound.About the Role: we have initial users who love what were doing and are trying to take our product from our hands to show others. We aim to double our engineering team to support the features they are asking for on the platforms they use. We are looking for talented generalists who love working on a bunch of different parts of a product, who are excited to learn new technologies, and who can adapt to rapidly shifting needs. You&#39;ll have significant responsibility, you&#39;ll be able to execute your own vision of the product, and you&#39;ll get to work directly with artists and designers as we explore what user interfaces can be.If interested, reach out to amol@soot.com."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">01 November 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -137,11 +428,11 @@
 							
 						
 							
-								<p class="story__comment_others">"What I really enjoy about this thread is all of the completely different perspectives. Lots of people doing anti-abuse research bemoaning that this stuff exists, and lots of people working against what are from their perspective ham-handed anti-abuse tech blocking legitimate useful automation trading tips on how to do it better. I guess the other sides of those we don&#39;t see much. People doing actual black-hat work probably don&#39;t post about it on public forums, and most of the over-broad anti-abuse is probably a side effect of taking some anti-abuse tech and blindly applying it to the whole site just because that&#39;s simpler, often no tech people may be really involved at all."</p>
+								<p class="story__comment_others">"I am always amazed when otherwise intelligent people assert without data that the marginal cost of serving web traffic to scrapers/bots is zero. It is kind of like people who say &#34;Why don&#39;t they put more fuel in the rocket so it can get all the way into orbit with just one stage?&#34;It sounds great but it is a completely ignorant thing to say."</p>
 							
 						
 							
-								<p class="story__comment_others">"I am always amazed when otherwise intelligent people assert without data that the marginal cost of serving web traffic to scrapers/bots is zero. It is kind of like people who say &#34;Why don&#39;t they put more fuel in the rocket so it can get all the way into orbit with just one stage?&#34;It sounds great but it is a completely ignorant thing to say."</p>
+								<p class="story__comment_others">"What I really enjoy about this thread is all of the completely different perspectives. Lots of people doing anti-abuse research bemoaning that this stuff exists, and lots of people working against what are from their perspective ham-handed anti-abuse tech blocking legitimate useful automation trading tips on how to do it better. I guess the other sides of those we don&#39;t see much. People doing actual black-hat work probably don&#39;t post about it on public forums, and most of the over-broad anti-abuse is probably a side effect of taking some anti-abuse tech and blindly applying it to the whole site just because that&#39;s simpler, often no tech people may be really involved at all."</p>
 							
 						
 						</a>
@@ -319,11 +610,11 @@
 							
 						
 							
-								<p class="story__comment_others">"As much as I hate the copyright model used by the scientific journals, they do have a valid raison-d-etre. It&#39;s about prioritization due to limited capacity. If you artificially limit the number of published articles to X per month, you are forced to pick X best ones (according to whichever metric you choose). If you just publish anything that gets a decent peer review score, you&#39;ll get voting rings, generated articles, and all sorts of junk.Has anybody noticed how the quality of journalism plummeted with the transition from physical copies (that had an implied limit on the number of articles) to the online &#34;portals&#34; (that are incentivized to churn out as much clickbait as possible)?That said, the financial streams should go the other way. Pay a non-refundable fee to get considered for publishing, but otherwise if it&#39;s a tax-funded research, it must be public domain."</p>
+								<p class="story__comment_others">"I reviewed a submission (review paper) to a top journal recently. It took a lot of time, and I responded with seven pages of recommendations, comments, and corrections. My recommendation was to transfer it to a more specialist journal from the same publisher. Afterwards I was wondering &#34;why the hell am I doing this for free when my friends are getting rich?&#34;"</p>
 							
 						
 							
-								<p class="story__comment_others">"I reviewed a submission (review paper) to a top journal recently. It took a lot of time, and I responded with seven pages of recommendations, comments, and corrections. My recommendation was to transfer it to a more specialist journal from the same publisher. Afterwards I was wondering &#34;why the hell am I doing this for free when my friends are getting rich?&#34;"</p>
+								<p class="story__comment_others">"&#34;software devs could easily correct the privacy problem by not working at Facebook or Google, only they choose not to because they don&#39;t care.&#34;This pov is ridiculous. The same goes for the academic equivalent."</p>
 							
 						
 						</a>
@@ -2682,310 +2973,6 @@ https://www.loc.gov/standards/datetime/iso-tc154-wg5_n0039_i..."</p>
 						
 							
 								<p class="story__comment_others">"Here are the RISV-V cores: https://github.com/T-head-Semi"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">23 October 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://arstechnica.com/gaming/2021/10/john-carmack-pushes-out-unlocked-os-for-defunct-oculus-go-headset/">John Carmack pushes out unlocked OS for defunct Oculus Go headset</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28958451">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; allowing for a randomly discovered shrink wrapped headset twenty years from now to be able to update to the final software version, long after over-the-air update servers have been shut down.This resonates so much with me. Each time I setup a new device that requires an Internet connection, I think about how we can enjoy booting 30 years old retro computers and how the next generation will not be able to do the same because of locked down hardware."</p>
-							
-						
-							
-								<p class="story__comment_others">"Massive props to John Carmack! We also need laws to protect consumers when they don’t have an enlightened champion on their side.Part of the reason I buy Apple devices is because Apple is unlikely to get acquired or go out of business for the foreseeable future. I wish there were viable alternatives. Android devices are not an option for me, as they are more likely to be abandoned and/or contain Google/manufacturer/carrier malware, and I need to use banking and work apps.In that same vein, I have a preorder for a Framework Laptop because, at least for actual computers, I have the option of not splurging on a non-upgradeable, non-customizable Apple device.We really shouldn’t have to wait for Librarian of Congress-granted exemptions, which can be rescinded at any time and are meaningless with locked-down devices anyway."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is tangential, but I really wish that their would be legislation, valid retroactively, to enable old unsupported devices to still be utilized. I think this goes somewhat beyond right to repair?Take for example digital backs for medium format cameras - these things are built in low numbers, with high end FPGAs and camera sensors, with JTAG interfaces ready to go and everything - but then forgotten about a few years later. Why not enforce the creation of some document on how one would build their own OS for it? Or how the bus from the sensor ADCs works? This all existed at one point internally, but now is lost, and most of this backs will slowly die and go to waste, even though they could easily be repurposed or repaired."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://emacsair.me/2017/09/01/the-magical-git-interface/">Magit, the magical Git interface (2017)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28954058">
-						
-							
-								<p class="story__comment_first line-clamp">"Magit is such an unbelievably good piece of software. If you haven&#39;t used it, please at least take a look. It seems like &#34;just a GUI for git&#34;, but that&#39;s missing the point — many operations suddenly become frictionless, so your entire workflow changes.I regularly do things like &#34;stash some of my changes, switch branch, cherry pick a commit, switch branch, do an interactive rebase reordering commits and dropping one, pop one of my stashes&#34;, and they become routine, so working with code becomes a fluent experience, rather than fighting with your tools.I would say that Magit and structural editing using Paredit are the two most important technologies that make programming great."</p>
-							
-						
-							
-								<p class="story__comment_others">"Magit is an exceptionally well made interface to Git. Yes, it’s built on top of Emacs, and that might stop many from even looking into it. - I am glad I made a deep dive into Emacs last year, and although I stopped using it as an IDE (VS Code is just too good), I still come back to it because of Magit (and macros, general text editing and org-mode). Yes, I have an interface for Git in VS Code as well, but it‘s very rudimentary compared to Magit, and it’s limited to the narrow left bar. And to give an example: Making „micro commits“ by staging various lines of changes is super easy in Magit, but I still haven‘t found out how to select several disconnected lines for staging in VS Code."</p>
-							
-						
-							
-								<p class="story__comment_others">"Magit is insanely ergonomic. Like how easy is it to selectively stage portions of files in the git CLI? In magit it is usually just a few keystrokes.I wish magit-forge [0] had more features though - like I cannot create new labels from it.Please consider donating [1] to the developer if it has made your life any easier.[0] https://github.com/magit/forge[1] https://magit.vc/donate/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.eff.org/deeplinks/2021/10/police-cant-demand-you-reveal-your-phone-passcode-and-then-tell-jury-you-refused">Police can’t demand you reveal your phone passcode then tell a jury you refused</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28955830">
-						
-							
-								<p class="story__comment_first line-clamp">"This happened to me. The police wanted my password and refused my right to silence, wouldn&#39;t let me call a lawyer. I wouldn&#39;t talk. Then they threatened my wife and I gave up my password to stop them from hurting her.The password was suppressed by the court, but they let the police use it anyway because one of the officers (with no formal computer qualifications) testified he could have broken 2048-bit AES encryption without the password. And worse case he said he would unsolder the chips off the circuit board and put them onto another board and that would fix it. The judge allowed the testimony and believed it.Make sure you always use a password on your devices though. Biometrics are not protected by the 5th Amendment in the USA as the police can legally force your finger onto a touchpad or hold your face in front of a camera."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; this case turns on one of the most fundamental protections in our constitutional system: an accused person’s ability to exercise his Fifth Amendment rights without having his silence used against him.A very interesting tidbit I learned here on HN a couple years back — the Supreme Court ruled in 1992 that you have to declare out loud an intent to invoke your Fifth Amendment rights, if you haven’t been formally arrested yet. Literal “silence” may be acceptable after being Mirandized, but not necessarily before.https://harronlaw.com/blog/miranda-rights-texas/https://www.oyez.org/cases/2012/12-246“Question: Does the Fifth Amendment&#39;s Self-Incrimination Clause protects a defendant&#39;s refusal to answer questions asked by law enforcement before he has been arrested or read his Miranda rights?”No, by 5-4 vote."</p>
-							
-						
-							
-								<p class="story__comment_others">"Sortof off topic question.  I&#39;ve never owned a smart phone but might get one soon assuming I can find a decent one that will run grapheneOS.Is there an app that can be given permission to intercept the unlock code and upon receiving the panic/under duress code, discretely put the phone into a &#34;parental controls&#34; configuration that sandboxes all your data and only presents the storage you want the law enforcement children to see?  Some cops use a USB device that pulls all the data from the phone.  Is there a way to sandbox that data so they only get the data from approved apps and the forensics USB device does not know any better?  i.e. not denied data, but rather can only see what you want it to see.  Or should this be a feature request to the alternate phone operating systems developers?Maybe this duress code should also activate a timer.  If the all-clear code is not entered in a user-defined period of time, the phone wipes all user data in the background resetting it to a brand new phone.  Or maybe wipe the data for specified applications to not appear to destroy evidence?  Maybe also send network notifications(s) to specific in case of mission compromise destinations?[Edit] Feature request update.  This duress system should also log all the data that was added or planted after the duress code was entered, to log people planting evidence.  Upload encrypted manifest,timestamps and checksums to remote site in  the event law enforcement tamper with evidence."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=28957573">Ask HN: Best way to host a website for 500 years?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28957573">
-						
-							
-								<p class="story__comment_first line-clamp">"The world wide web is only 28 years old.We&#39;ve had computers for 76 years at this point.We&#39;re discussing this topic in modern English, but if you look back 500 years William Shakespeare wouldn&#39;t be born for another couple of generations: vocabulary and grammar have changed a lot since then, and if you look back a further 500 years (to 1021AD) the &#34;English&#34; spoken in those days was a lot closer to Frisian than anything we&#39;d understand.To get the big picture of what 500 years means ... the oldest surviving writing is roughly 5500 years old. We&#39;ve had agriculture for roughly 11,000 years. And you&#39;re asking for a personal legacy to be legible and usable after surviving a span of time 10% as vast as the existence of writing itself?Think archival grade materials and ink, then add translations into Mandarin, Arabic, and Spanish -- there&#39;s a much better chance of it being readable if you have more than one language. Then maybe add a dictionary, just in case words have fallen out of use. Make multiple copies and distribute them around the world, including tectonically stable desiccated regions that are currently lightly- or un-inhabited and likely to remain so: the criteria for deep disposal nuclear waste repositories are applicable (minus the &#34;deep&#34;) bit, so Yucca Flats would do, or the Atacama Desert or the McMurdo dry valleys in Antarctica."</p>
-							
-						
-							
-								<p class="story__comment_others">"Other comments have given ways to physically archive the webpage. Continually hosting it is a much trickier endeavor. Beyond just keeping the servers up, technologies will shift such that eventually html webpages, servers that talk using tcp/ip, datacenters that connect via fiber cables, etc will all be deprecated.That said, if we have a very liberal definition of the word &#34;website&#34; to include any successor technologies where a device can be used to request a document, given an identifier, that looks recognizably like your webpage, this is doable. What you really need is an institution that you can trust to keep existing and to keep the necessary upkeep of your website as part of its mission.The main institutions I can think of that have lasted for 500 years unbroken are churches and elite universities.  If you were able to convince the Pope to decree that the church should keep hosting your webpage in perpetuity, that would likely work, but persuading him of that sounds very challenging.  That said, universities are used to accepting gifts with sometimes eccentric strings attached.  The gift will probably need to be large; but I imagine a $1B donation to Harvard under a condition that they continue to host and update the page as needed would likely work. Getting that sort of money is quite hard, but tbh probably easier than coming with a way of guaranteeing that your direct descendents keep the webpage up."</p>
-							
-						
-							
-								<p class="story__comment_others">"  I met a traveller from an antique land,
-  Who said—“Two vast and trunkless legs of stone
-  Stand in the desert. . . . Near them, on the sand,
-  Half sunk a shattered visage lies, whose frown,
-  And wrinkled lip, and sneer of cold command,
-  Tell that its sculptor well those passions read
-  Which yet survive, stamped on these lifeless things,
-  The hand that mocked them, and the heart that fed;
-  And on the pedestal, these words appear:
-  My name is Ozymandias, King of Kings;
-  Look on my Works, ye Mighty, and despair!
-  Nothing beside remains. Round the decay
-  Of that colossal Wreck, boundless and bare
-  The lone and level sands stretch far away.”
-
-— Percy Shelley&#39;s &#34;Ozymandias&#34;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/nickdale/status/1450617359375343617">The &#39;impossible&#39; crane shot from Soy Cuba (1964) [video]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28953167">
-						
-							
-								<p class="story__comment_first line-clamp">"&#34;“We used a special cable device which I built in Moscow before going to Cuba. We planned to fly the camera between two big buildings in a major street. Because of security and insurance problems we used it in a little street. We used two cables and a small cart with eight wheels and a fork underneath where the camera was placed at the [end] of a handheld move. The secret of how we attached the camera to the cart was a magnet, part of which was in the cart and part of which was built on the camera. From the window the camera moved out about 100 feet.&#34;[1]The camera was an Éclair CM3 Camiflex, which is a beautiful little camera first built in 1945. There are still some for sale.[2][1] https://ascmag.com/articles/flashback-soy-cuba[2] http://www.visualproducts.com/storeProductDetail02.asp?produ..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Soy Cuba contains lush and gorgeous B&amp;W cinematography. The film opens up with the camera flying over the waters of Cuba; the reflection of the water is glistening in a way unlike other films. I believe they used an X-ray film strip to achieve this shot.Mikhail Kalatozov has included another impressive shot at the end of his previous work, &#34;The Cranes Are Flying.&#34; (Palme d&#39;Or at Cannes 1958) The camera follows the protagonist, then gets seamlessly lifted up by a crane to depict the entire street parading.While Soviet-era films does not have much exposure in the English-speaking world, there are so many gems, critically and technically. The filmmakers were acutely aware of great filming techniques.Also check out:Walking the Streets of Moscow (1964)
-- B-roll scenery contains another lush reflection of the Moscow watersIvan the Terrible (1944/1958)
-- Eisenstein is an ardent practitioner of the montage, and prefers to static camera shots. However, his compositions are very imaginative, and there is no shot you want to miss. His film also briefly experiments with color, and he exploits colored lighting to emphasize the characters&#39; psyche.Anything by Andrei Tarkovsky
-- Tarkovsky is indisputably a master of Russian cinema after Eisenstein. He often shoots in nature, but no director shoots with such rich texture of the mud. His long shots emphasizes the bleakness inherent in the Russian psyche.The Ascent (1977)
-- Set in WWII, the film shows the resistance escaping the Nazis covered in snow and panting in the cold. Great snow photography.Hard to Be a God (2013)
-- A sci-fi story on the immigration of humans to a different planet, the colonizers inhabit the inhospitable environment. Like Tarkovsky, the slow dragging in the mud conveys the dreary lives.These are recommendations I came up off the top of my head relating to cinematography, but there are definitely many more to appreciate."</p>
-							
-						
-							
-								<p class="story__comment_others">"Personal anecdote: This was the first film I ever projected in 35mm. Our university theater obtained a print from the national film archive of Venezuela; it was a copy of the 1995 restoration. Incredibly striking, lush visuals, and partially responsible for my continued personal and professional interest in screening archival film. Six years later, I still remember the joy of projecting this exact sequence. I&#39;m glad the film survives."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.hauntedchocolatier.net/">ConcernedApe&#39;s Haunted Chocolatier</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28953780">
-						
-							
-								<p class="story__comment_first line-clamp">"This has the same kind of relaxing vibe as Stardew Valley. A very rare instant purchase for me once it is released.For me personally these games stand out in a huge way in the sea of generic AAA micro-transaction &#34;games&#34;. If anyone wants to drop some more SV-like game recommendations I&#39;d love to hear them.I am in continued awe ConcernedApe was able to accomplish all this largely on his own.And beyond this that he continues that approach with his new game even though he could surely afford to just bring on as many developers/designers as he needed. He could even churn out a new game on a yearly basis and &#34;milk&#34; it all to maximize profit. The fact he is doing none of this speaks volumes (at least to me).Eric if you somehow happen to stumble upon this comment know you&#39;ve brought one couple many many happy hours together. We wish you all the best, and much love!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I learned today that Eric (ConcernedApe) does the music for his games too... Music, art and graphics, storytelling, and game development all in one dude, what a talent."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have been amazed of what Eric has created single-handedly already, and am so pleased he&#39;s doing something new! Stardew Valley is a prime example of what I want in modern games and so often find lacking. No microtransactions, single-player-friendly, not graphic-intensive. Not every game needs to or should be Stardew Valley, of course, but there&#39;s not enough Stardew Valleys out there.Few of us are as talented as Eric is, but I wish more of us tried a little harder to create what we wish existed, and not fall into the trap of what&#39;s popular. To bastardize legend, &#34;If I were not [me], I wish I were [ConcernedApe].&#34;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://scribe.rip/p/what-every-software-engineer-should-know-about-search-27d1df99f80d">What software engineers should know about search (2017)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28902662">
-						
-							
-								<p class="story__comment_first line-clamp">"Biggest advice I can give is you probably don&#39;t need search if you&#39;re indexable by search bots.No really. Look over people&#39;s shoulders sometime.They&#39;ll just go to Google and type in their search followed by terms such as Wikipedia, imdb, Stackoverflow, YouTube, Bandcamp, Amazon, eBay, Yelp... all sites that spent a lot of time on their search and have done quite a decent job. Oh well.So unless you really need it for some critical reason where you know your users aren&#39;t going to do their regular patterns of going through one of the general engines, close the ticket as out of scope and go home early.Don&#39;t bother implementing hard to do and expensive to maintain features that nobody will use. It&#39;ll become more headache than fun real quick."</p>
-							
-						
-							
-								<p class="story__comment_others">"A problem close to my heart. Good search is certainly still too difficult to pull off for small teams, and this was one of my motivations for building and open sourcing Typesense[1].Most people think of search and immediately think of large data sets, but the problems that plague smaller datasets are equally interesting. It&#39;s less about performance and more about relevance. For e.g. searching across multiple fields for a compound query like &#34;taylor swift style&#34;, requires breaking the query into segments (taylor swift | style) before searching for the appropriate fields. There are also a class of problems that traditional search engines that rely on BM25 or TF-IDF for ranking cannot reliably solve (e.g. searching on small texts like titles) where you have to consider distance between matching words (which TF-IDF and BM25 miss). Lastly, there is also personalization which is almost always left as an exercise to the reader :)[1]: https://github.com/typesense/typesense"</p>
-							
-						
-							
-								<p class="story__comment_others">"The simplest advice to engineers would be to not think elastic search as some black box that will solve all of your search problems. In fact, if you&#39;ve never implemented search before it&#39;s the last tool you need. Postgres full text search is all you need. The most important thing in search is to surface relevant results and no one can quantify relevancy. It&#39;s as unquantifiable as it gets in technology. You need to understand what results are relevant for your users and find a metric that would work to rank accordingly."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.timescale.com/blog/function-pipelines-building-functional-programming-into-postgresql-using-custom-operators/">Function pipelines: Building functional programming into PostgreSQL</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28919205">
-						
-							
-								<p class="story__comment_first line-clamp">"So does this functional SQL just get &#34;transpiled&#34; into analytical SQL? If so, where does &#34;transpilation&#34; occur, in the client, intercepted before hitting the query engine, etc? Or has the query engine itself been modified to handle functional SQL?If the query engine itself has been modified, are there any performance gains or losses?This is a pretty interesting and compelling idea. I do wonder if the functional SQL approach might entice developers to write very bad/expensive/ineffective queries. Then again, nothing is stopping developers from doing the same with analytical SQL."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is immediately useful. The number of awkwardly nested subqueries that I write because I don&#39;t have this kind of functionality in BigQuery is a huge bummer.I am curious, how many Haskell programmers do you all have? And more seriously, do you have any plans to help provide this functionality to non-Postgres SQLs, or at least help those trying to take inspiration from it?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Database researcher here.This is really cool! I wonder what was the initial drive for this new feature?Is this meant to be a &#34;short-cut&#34; to express complicated SQL queries, or is this meant to adding new semantics beyond SQL? While I like the idea of custom data types with dataflow-like syntax, implementing a whole new query processing engine for the new data type seems like a lot of engineering work. Also you now have to handle many edge cases such as very very large time series -- I wonder if you have efficient lookup mechanisms on timevectors yet, and various timestamp and value types. If all these new syntax can actually be expressed using SQL, however complex, I think a &#34;lazier&#34; approach is to write a &#34;translator&#34; that rewrites the new syntax into good old SQLs or add a translator at planning stage. This way you can take advantage of Postgres&#39; optimizer and let it do the rest of heavy lifting.Kusto has a similar data type &#34;series&#34; that is also created from aggregating over some columns (https://docs.microsoft.com/en-us/azure/data-explorer/kusto/q...)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://sfconservancy.org/copyleft-compliance/vizio.html">Software Freedom Conservancy files GPL lawsuit against Vizio</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28920954">
-						
-							
-								<p class="story__comment_first line-clamp">"An especially novel aspect of this lawsuit, quoting the press release:&gt; This approach makes it the first legal case that focuses on the rights of individual consumers as third-party beneficiaries of the GPL.&gt; “That’s what makes this litigation unique and historic in terms of defending consumer rights,” says Karen M. Sandler, the organization’s executive director.In the past, GPL enforcement has been a cause of action brought by the copyright holder. This suit is on behalf of users, as beneficiaries of the GPL. If this suit is successful, it&#39;ll no longer be necessary to prove sufficient standing as a copyright holder of GPLed code in order to enforce the license; it&#39;ll suffice to show that you&#39;re a user who wishes to make use of the rights provided under the license."</p>
-							
-						
-							
-								<p class="story__comment_others">"This looks to be a major change in the legal strategy behind GPL. In the past the focus has been on copyright claims by copyright holders, but as recent cases has shown in Germany and France, those has faced some rather strange setbacks. Germany don&#39;t seem to want to recognize copyright holders that only contributed a part of a larger work, which is basically all copyright holders for larger FOSS projects. In France they seems to define GPL as being under contract law and not under copyright law.In this new case, the SFC is arguing a case in the context of third-party beneficiary which is under contract law and not copyright law. It seems like a bit of an long-shot, but if won it could mean a major change in interpreting GPL as a contract rather than a copyright license. I would guess that it also would change their strategy in other countries if won."</p>
-							
-						
-							
-								<p class="story__comment_others">"Full legal text of the complaint:https://sfconservancy.org/docs/conservancy-v-vizio-original-...Press kit:https://shoestring.agency/wp-content/uploads/2021/10/SFC_Pre..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bambooimport.com/en/how-is-bamboo-lumber-made">How is bamboo lumber made? (2016)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=28953953">
-						
-							
-								<p class="story__comment_first line-clamp">"Long time lurker here, first time poster. I got pulled into the rabbit hole of building guitars at home during the covid lockdowns. My first build used traditional &#34;tonewoods&#34; (mahogany, ebony, rosewood etc.) and while purchasing materials for my second build, I stumbled upon bamboo boards on a German wood retailed shop.Compared the properties to the wood I wanted to use for parts of it (mainly the core/neck and fretboard) and decided to go for it.So the second build [1] is 40ish % bamboo with purpleheart veneers in between layers of bamboo and purpleheart/olive for the body. Next build will be around 80% bamboo. Trying to source some strand woven bamboo boards to try them out as fretboards as well, but for a part time builder like me, getting such small quantities of bamboo boards is rather hard.But yeah, fascinating material even outside of construction use. The boards I used for the guitar builds were nice to work with, easy to sand and finish (using wipe on poly).[1] https://i.imgur.com/fUyxd7n.jpg"</p>
-							
-						
-							
-								<p class="story__comment_others">"This was interesting in light of an interview I was just listening to yesterday, a CBC podcast [1] talking about the benefits of mass timber (glued wood) for large highrise building construction.There were two guests on, both sounded like environmentalists, with the first one (Michael Green) saying that mass timber was&#34;currently the best tool we have to address climate impact and in the building materials for a large building&#34;while the second guest (John Talberth) was arguing:&#34;The idea that we can cut down our forests and turn them into two by fours and build our way to a stable climate is absurd, and it&#39;s just another one of these false narratives of big timber corporations are using to get us to buy more of their product and continue to subsidise their record profits&#34;,and Talberth advocated Bamboo, mentioning it multiple times as an alternative.  It kind of went back and forth a bit with Mr Green saying&#34;Bamboo, for instance, is not structurally a material that can actually satisfy the demand of three billion people that need a new home because it doesn&#39;t build large buildings&#34;and Mr Talberth saying&#34;Believe it or not, bamboo can actually be put together in the structurally with high structural integrity beams to make taller buildings&#34;It kind of left me wondering who was right... though Mr Green (an architect) sounded like someone with actual experience making buildings, where as the Mr Talberth (an economist) sounded like he might have been doing a bit of ill-informed wishful thinking about Bamboo.Seeing the process here gave me a bit more perspective on the discussion.   Given the labour involved and the fact that you are working with 20mm x 5mm cross-sections of bamboo, I can see how it would be extremely expensive to build a large building out of bamboo, and the $300 euro price tag on a sheet of plywood at the bottom of the page added more confirmation that it&#39;s not going to be a practical replacement for large-scale building.[1] https://www.cbc.ca/radio/thecurrent/the-current-for-oct-20-2..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Really neat article, love things like this on HN. I thought this was really interesting:&gt; A bamboo stem reaches its maximum height in just a few months and shall not grow taller or thicker over time. In the following 4 years the fibers will &#34;lignify&#34; and get their extraordinary mechanical properties in terms of hardness, strength, density.That seems pretty fascinating to me. Are there any other plants/trees that grow like that? I mean, from my naive knowledge, trees go wider with a new ring every year."</p>
 							
 						
 						</a>
