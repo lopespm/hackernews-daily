@@ -33,29 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">07 November 2021</div>
+	<div class="day__date">08 November 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://therealadam.com/2021/11/01/dont-be-spooky/">Don’t be spooky</a></h3>
+					<h3><a href="http://rachelbythebay.com/w/2021/11/06/sql/">A terrible schema from a clueless programmer</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29130590">
+						<a href="https://news.ycombinator.com/item?id=29139902">
 						
 							
-								<p class="story__comment_first line-clamp">"Early in my career I got a Monday morning meeting invite on a Friday afternoon just after I left the office. The meeting was called “The future of &lt;business unit I was in&gt;“Entire weekend was a write off. I was so anxious.  And yep. They shut down the unit (but I got to keep my job).As a result this is forefront in my mind as a manager. One thing that works great is whenever I ask questions about something, anything, I also say “this is on my mind because…” and I find that both calms people and gets me more useful information. Context matters so much."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; When you’re communicating with your team, lead with context and reassurance. Never message someone on your team, “let’s talk when you get a minute”. That’s void of information and scary as heck!This should be engraved on a plaque in every office building."</p>
+								<p class="story__comment_first line-clamp">"Related to database indexes, but not the post:  a busted database index brought down ticket sales of the 2008 Olympics Games.This was the first time regular people could go buy tickets for events &amp; they had been lining up overnight at Bank of China locations through the country.  We were down for over a day before we called it off.  Apparently this led to minor upheaval at several locations in Beijing &amp; riot police were called in.We were pretty puzzled as we had an index and had load tested extensively.  We had Oracle support working directly with us &amp; couldn&#39;t figure out why queries had started to become table scans.The culprit? A point upgrade to DBD::Oracle (something like X.Y.3 to X.Y.4) introduced subtle but in character sets.  So the index required using a particular Unicode character set, and we were specifying it, but when it was translated into the actually query, it wasn&#39;t exactly the right one, so the DB assumed it couldn&#39;t use the index.  Then, when all the banks opened &amp; a large portion of very populous country tried to buy tickets at the same time, things just melted.Not a fun day."</p>
 							
 						
 							
-								<p class="story__comment_others">"The way I see it, if &#34;let&#39;s talk when you get a minute&#34; comes across as spooky that means you already have a communication breakdown and mistrust has already blossomed. Here&#39;s a slightly different scenario: You have a disagreement with management; there are many subsequent conversations happening behind the scenes; but no one keeps you in the loop or updates you on what is being decided. In that situation, practically any message (apart from &#34;here is exactly what we are thinking..&#34;) comes across as spooky, and you will start reading into what _isnt_ said.
-In short, if you think someone might want to know something, and they have a reasonable claim on deserving to know, let them know. Keep people informed, and if you do that then &#34;let&#39;s talk when you get a minute&#34; won&#39;t feel like such a lurking shadow."</p>
+								<p class="story__comment_others">"Why exactly would it be so bad to just put a suitable index on the table containing strings? The time complexity of the resulting search would be the same, so I assume there will be some constant factor slowdowns. Is it that indices over string fields are stored inefficiently on disk? (If so, can that not be fixed in the db engine directly?) Or is this fine today but wasn&#39;t fine 15 years ago?"</p>
+							
+						
+							
+								<p class="story__comment_others">"The ending is the most important part.&gt; Now, what do you suppose happened to that clueless programmer who didn&#39;t know anything about foreign key relationships?&gt; Well, that&#39;s easy. She just wrote this post for you. That&#39;s right, I was that clueless newbie who came up with a completely ridiculous abuse of a SQL database that was slow, bloated, and obviously wrong at a glance to anyone who had a clue.&gt; My point is: EVERYONE goes through this, particularly if operating in a vacuum with no mentorship, guidance, or reference points. Considering that we as an industry tend to chase off anyone who makes it to the age of 35, is it any surprise that we have a giant flock of people roaming around trying anything that&#39;ll work?"</p>
 							
 						
 						</a>
@@ -68,22 +67,22 @@ In short, if you think someone might want to know something, and they have a rea
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://wptavern.com/amp-has-irreparably-damaged-publishers-trust-in-google-led-initiatives">AMP Has Irreparably Damaged Publishers’ Trust in Google-Led Initiatives</a></h3>
+					<h3><a href="https://www.macworld.com/article/549755/m1-macbook-app-memory-leaks-macos.html">Memory leaks are crippling my M1 MacBook Pro</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29127357">
+						<a href="https://news.ycombinator.com/item?id=29142157">
 						
 							
-								<p class="story__comment_first line-clamp">"Honestly at this point, if you trust google you’re a fool. It’s demonstrated itself to be unreliable, capricious, and absolutely willing to break the law if it thinks it can get away with it. Do business with them if you absolutely must, but under no circumstance should you actually trust them."</p>
-							
-						
-							
-								<p class="story__comment_others">"It was clear that Google had turned to the dark side when Eric Schmidt first spoke at the Search Engine Strategies conference in 2006. Until then, SEO was the enemy. Google and Yahoo had previously sponsored a conference in 2005 on squashing search engine spam.What&#39;s new is that Google has now managed to alienate ad-supported publishers, their paying customers, as well."</p>
+								<p class="story__comment_first line-clamp">"I&#39;ve been having some sort of severe performance issue in one form or another since Mojave/Catalina or so with a 2017 MBP and a 2020 M1 Mac Mini.The symptoms is always generally poor performance after the system has been running a while (4h to a week, varies), usually with WindowServer using CPU cycles non-stop and UI that felt choppy across all programs.This seemed to happen frequently after &#34;opening many files&#34;, like doing some recompiling with Xcode for a few hours, or indexing a large volume with Spotlight. Rebooting helps temporarily.Today I realized that data read/written since boot was about 1TB in a few hours on a brand new OS install, and I traced this back to the com.apple.Safari.History process. Somehow having bookmarks and previously using Safari 15.x caused a huge amount of I/O that wouldn&#39;t stop - the solution was to remove all bookmarks and reading list items. Performance was immediately back to normal, no reboot needed.So just logging in with your iCloud id, you could be &#34;importing&#34; whatever performance problem you&#39;re having on a new install.I recommend you reboot and take a look at your disk I/O stats - maybe this will help someone!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t like AMP, but I like this headline less. That is classic media trolling. They don&#39;t know what &#34;publishers&#34; actually feel about Google and there is no evidence than anything is &#34;irreparably broken&#34;. It is actually remarkable how quickly businesses forgive and forget."</p>
+								<p class="story__comment_others">"I just ordered the M1 Max with 64GB RAM because I&#39;m constantly getting the &#34;Your system has run out of application memory.&#34; popup while working on Lunar[1] in Xcode.Every time this happens, Xcode uses about 4GB of RAM (probably because of the monolithic UI storyboard of Lunar) but it should still leave enough memory for my other non-memory hungry apps.But then I open Activity Monitor and I see WindowServer using ~80GB of memory [2]The only remedy is either `killall WindowServer` or a full reboot.I&#39;ve been using an M1 MacBook Pro and Monterey since the first developer beta but this only became an issue in the last 2 months or so.[1] https://github.com/alin23/Lunar[2] https://cln.sh/CfEL6u"</p>
+							
+						
+							
+								<p class="story__comment_others">"I feel like I&#39;m a bizarro world, because I don&#39;t get this stuff: crashes, memory leaks, and so on.I use: VScode, Idea, iTerm2 (with x86 brew), Logic (and lots of plugins), FCPX, Live (x86, and lots of plugins), Slack, Reeder, MS Office, Spotify, Chrome and other stuff. MBP M1 16GB.What I do get, is some bluetooth issues (e.g. affecting the mouse cursor. If you start the bluetooth deadmon it fixes itself for a day or so."</p>
 							
 						
 						</a>
@@ -96,22 +95,24 @@ In short, if you think someone might want to know something, and they have a rea
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://scribe.rip/telecom-expert/what-is-at-t-doing-at-1111340002-c418876c212c">What is AT&amp;T doing at 1111340002?</a></h3>
+					<h3><a href="https://www.joshwcomeau.com/blog/how-to-learn-stuff-quickly/#%2F%2F%2F%2F%2F%2F/">How to Learn Stuff Quickly</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29135559">
+						<a href="https://news.ycombinator.com/item?id=29116026">
 						
 							
-								<p class="story__comment_first line-clamp">"Even in relatively technical circles, like HN, many people are not aware of this and I use every opportunity I have to reiterate:A SIM card is a full blown computer with its own CPU and memory.Your carrier can upload and run arbitrary code without your consent or knowledge.  They can do this at any time.This means that your &#34;phone&#34; is actually three different computers running in concert - the actual phone itself (iOS or Android or Symbian), the baseband processor running the baseband code, and the SIM card."</p>
+								<p class="story__comment_first line-clamp">"I have created a learning framework for myself to learn literally anything.
+First of all It’s not going to be easy to get started learning something new because there are many holes in your mental model about the material and the aim of the learning is to fill those holes.
+We’re living in an information era. You can drawn yourself in surfing the web/docs/articles if you are some kind of perfectionism to convince yourself that you’re learning. But that’s the trap. You should spend about 30-40% of your time learning the material and 60-70% of your time applying it and then under the process you’ll find: “Oh I don’t know how or what is X” then you go to learn about X specifically. This works best. In other words as you will be applying what you have learned so far you start “learning on demand”. In other words filling the individual holes. This loop will force you to learn the topic."</p>
 							
 						
 							
-								<p class="story__comment_others">"Ahh this is so useful that it&#39;s at the top of HN.We&#39;ve (probably) arrived at one of those &#34;hidden&#34; dominant operating systems out there in the world: JavaCard OS. It&#39;s not just (probably) in your cell phone SIM, it&#39;s also (probably) in your credit cards. Add all of those devices up, and you realize that, in a weird way, if aliens were to inspect the activity of humans, they&#39;d say, &#34;the humans seem to be using some sort of weird thing they call &#39;JavaCard OS&#39; to run their society.&#34;If anyone is a JavaCard OS master, shoot me an email - numair@numair.com. I&#39;m having some IC card issues that could use some external input...In terms of the linked article, I think this part makes it clear what&#39;s going on, if we are to take an innocent view on things:&gt; After the lab work, deposition of an AT&amp;T employee revealed that the only other trigger is a firmware update of the baseband processor. That is also consistent with the SIM requesting the IMEISV, since the “SV” part means “software version”, and it is updated every time the baseband processor loads new firmware. In this particular case, the phone had recently downloaded an update that included new baseband firmware. That was almost certainly the trigger for this message.If I was a network engineer, I&#39;d probably want a way to figure out whenever someone&#39;s putting new equipment on my network. This is a brilliantly sneaky way to do it. There&#39;s probably other uses for this, though, and you can imagine that your favorite intelligence agencies have thought about it long before it showed up in a Hacker News article..."</p>
+								<p class="story__comment_others">"Overall a pretty good summary of how to teach yourself new skills. I personally went far too much into unguided learning early in my software journey. I took on personal projects that were far too ambitious and floundered with problems that would have been 10x easier if I&#39;d focused on grasping fundamentals.What&#39;s missing in this post is that it entirely focused in isolated learning, away from tutors and other forms of interpersonal teaching. Any approach to learning stuff &#34;quickly&#34; should take seriously Bloom&#39;s 2 Sigma Problem. [1]Partly offloading your learning problem onto an expert tutor trained in master learning has a good chance of vastly exceeding any learning approach a novice can adopt on their own. The internet has thus far failed to support this learning model, I think because it would be incredibly expensive for students.1. https://en.wikipedia.org/wiki/Bloom%27s_2_sigma_problem"</p>
 							
 						
 							
-								<p class="story__comment_others">"Would eSIM[0] improve the state of affairs with respect to privacy?On the one hand, as SIM circuits are now being shipped with phones, I can imagine the manufacturers having the opportunity, for the first time ever, to control the operations of a SIM such that it’s no longer a black-box. On the other hand, due to legislative and practical reasons, eSIM modules would likely be no different than those black-box baseband processors with the further downside than we would also become unable to intercept the communication between a SIM (whose circuitry is now embedded) and a phone.I would love to read the answers of those who are more knowledgeable on the subject.[0] https://en.wikipedia.org/wiki/ESIM"</p>
+								<p class="story__comment_others">"I must say it&#39;s worth mentioning that as you build up a library of knowledge and experience in your mind, learning new things become more transitional than exploratory. Picture spoken languages for example. At first it&#39;s daunting and most languages have their quirks but overall after a few you find your marks easily.The effort becomes a memory concern where cheat sheets are how you transition or learn quickly into a new space.I&#39;m a polyglot in software development. I can work with most tech stack within 2-3 weeks and be efficient within 3-6 months, idiomatic within a year maximum. A big part of that is due to relatability between spaces. Every toilet has a flushing button and every kitchen has a sink and every language had a form of exposing positive or negative response.My advice is always throw yourself in and swim. Find whatever swimlane or swimming aid available and move forward.One caveat is learning spaces that are constantly shifting. For example, Swift. What a mess. Look up anything in that language and find 5 ways to do something, 3 expired, 1 manageable and 1 undocumented that works. It&#39;s sad but know that that&#39;s the outlier, not the average!"</p>
 							
 						
 						</a>
@@ -124,22 +125,22 @@ In short, if you think someone might want to know something, and they have a rea
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://www.tobias-elze.de/pdfsandwich/">Pdfsandwich</a></h3>
+					<h3><a href="https://knowablemagazine.org/article/mind/2021/are-spiders-intelligent">Spiders are much smarter than you think</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29124994">
+						<a href="https://news.ycombinator.com/item?id=29137765">
 						
 							
-								<p class="story__comment_first line-clamp">"Using Pdfsandwich in college was like having a superpower. We would often be given PDFs with only image data. While my peers were still scrolling through and copying quotes by hand, I was there in seconds with Ctrl-F to find and copy/paste.Once you have text in the PDF, you can use any sort of text analysis tools. You can use tools to convert it to plain text and grep through, or anything else you want.That being said, it&#39;s not perfect, but still pretty awesome. Sometimes the spacing was off or it would confuse symbols like 1, I, or l. But these are minor and usually only on poorly scanned PDFs."</p>
-							
-						
-							
-								<p class="story__comment_others">"Interesting. I&#39;ve used ocrmypdf for this a lot - https://ocrmypdf.readthedocs.io/en/latest/"</p>
+								<p class="story__comment_first line-clamp">"A couple years ago I had an experience with a spider that entirely changed my perspective on them and most insects, and now I make a conscious effort to help them as much as possible, instead of kill or even repel them.This particular spider kept running back and forth between my monitor and a window, and when it&#39;d get to my monitor, it would wave its front legs at me. If I moved to the left, it would run across to the left side of the monitor and waves it legs again. If I stood up and moved closer to it, it would run back to the window, turn around, and waves its legs at me. From watching YouTube too much, I was always under the impression that this was either a sign of aggression or a defensive stance.But after a few times of going back and forth like this, I realized there were approximately 50 baby spiders around a light by the window, which had been closed since the previous day. Normally this would be a nightmare for me (I&#39;ve always had a fear of spiders), but after a while, I had this crazy notion that the spider was trying to get me to open the window. So I did, and it immediately ran to the babies, wrapped a single strand of silk around the old webbing, and started dragging swaths of the babies&#39; webbing toward the window.I have no idea if the room was just dry and they needed some humidity, or if the food had been too scarce for too long. Whatever it was, that parent spider was in full blown panic mode, and managed to effectively communicate their problem to a human. I haven&#39;t killed any spiders or insects since (aside from a few particularly asshole-ish mosquitos), and actually keep small water dishes in my bathroom for two spiders who&#39;ve now lived with me for nearly a year. If any babies hatch inside and get close to me, I use my phone&#39;s flash to guide them back to a corner with a light on -- they are seemingly always drawn to the brightest light source.Spiders are incredible creatures, and I deeply regret not realizing that sooner."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve been a fan of k2pdfopt [1] for years. Single binary, command line + optional gui. Lets you slice and optimize pdfs in any imaginable way, e.g. for e-readers&#39; screens. I think it also does what pdfsandwich does, if I understand things correctly [2].That said, pdfsandwich&#39;s &#39;one thing well&#39; approach does have an appeal. I will definitely try it out, thanks for posting. Something in its &#34;logo&#34; reminded me of the OpenBSD fish. :)1: https://www.willus.com/k2pdfopt/2: https://www.willus.com/k2pdfopt/help/ocr.shtml"</p>
+								<p class="story__comment_others">"One of my school friends walked a different path from me and became a paramedic. He used to have to go to homes in &#34;socioeconomically challenged areas&#34; in order to revive people who had taken substances that they should not have taken - and also other things which were even less good. On one of these trips in a drug hell hole he saw a tank with a spider in it, and he realised that these people were likely mistreating it. So he asked if they wanted it and after a short conversation bought it off them for a nominal amount.So - he had a tarantula. I had never seen or met a thing like that and I was fascinated. It was very shy at first - it spent all day everyday hiding, possibly because of fear of drug addicts. But eventually it got a bit more confident. The thing was, it recognised and remembered individual humans. When it first met you or saw you it would hide. If you were calm and Kit (the paramedic) was calm with you it would come out and allow you to stroke it. This might take a few visits. But, once you had won it&#39;s confidence it would come right out and say hi as soon as you were in the room.I came to believe that it was self aware, and that it had a mental model that included social interactions and trust. It was just a belief, as it&#39;s really hard to see the anecdote and experience I have as data, but that&#39;s what interacting with it made me think. I thought it was as smart as a cat, or maybe even a dog."</p>
+							
+						
+							
+								<p class="story__comment_others">"Talking about Portias, I recommend reading &#34;Children of Time&#34; by Adrian Tchaikovsky, it&#39;s about the process of uplifting spiders and how humans re-establish contacts with them. Another great book about smart &#34;spiders&#34; is &#34;A Deepness in the Sky&#34; by Vernor Vinge, my favorite in the &#34;Zones of Thought&#34; series."</p>
 							
 						
 						</a>
@@ -152,23 +153,22 @@ In short, if you think someone might want to know something, and they have a rea
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.wsj.com/articles/nuclear-power-best-climate-change-solution-by-far-global-warming-emissions-cop26-11636056581">Nuclear power is the best climate-change solution</a></h3>
+					<h3><a href="https://thinkingthrough.substack.com/p/dont-do-interviews-do-discussions">Don’t do interviews, do discussions</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29125576">
+						<a href="https://news.ycombinator.com/item?id=29141983">
 						
 							
-								<p class="story__comment_first line-clamp">"Nuclear is one of a number of alternatives that needs to be seriously considered but due to the long timelines and high costs of nuclear it is also one of the best stalling tactics for the fossil fuel industry seeking to extend the life of their assets. Possible increased adoption of nuclear in the future is not a reason to avoid setting sunset dates for emitting technologies now and commence transition to whatever low emission technologies are the most available and affordable right now."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;d be fine with more nuclear power plants, but if wind/solar plus batteries are cheaper, that&#39;s what&#39;s going to get built.Also, renewables don&#39;t require a high degree of trust in the human operators to manage risks appropriately.  I think that&#39;s really the main sticking point with nuclear; reliable reactors can be made, but how do you manage the humans who maintain the plants in a way that&#39;s not susceptible to corruption or corner-cutting?If nuclear can be made to handle more of our energy needs for a reasonable cost, then that&#39;s a good thing, and if it can be made cheaper by updating regulations without sacrificing safety, then I think that would be awesome.  But I think we should plan for the future under the assumption that most of our energy will come from renewables.  That&#39;s the lowest-risk plan that doesn&#39;t require major regulatory changes or new technology.  (Apparently there are also some major lithium iron phosphate patents that are expired or expiring soon, which should open up cheap battery manufacturing to companies outside of China.)"</p>
+								<p class="story__comment_first line-clamp">"I wish I could a 2-3 hour interview where I (or the candidate) showcase one of my projects and explain the architectural details and decisions in addition to showing any cool/hairy/insane code that got the job done. We can discuss those things and see how to improve them, or laugh at the crazy solutions.Honestly how many times do I need to rehearse these dumbass algos (blah blah blah, so I&#39;ll optimize for space with blah blah blah) okay already. I would much rather show you real world code that I&#39;ve built, or passion projects I spend my free time on. I want to bring me to your company/projects, so get to know what I&#39;m about holistically as an engineer. I think you can best understand that by looking at actual work done and judging whether or not the person is capable of contributing to your needs.Whenever we face challenges, we learn from them. At scale, we learn everyday. So just hire people who are passionate about facing challenges and learning from them. Not someone who can spend 8 hours a day like a college student playing leet code instead of building something useful. It really isn&#39;t that hard to memorize a dozen essential data structures and algorithms. But then what? So cringe."</p>
 							
 						
 							
-								<p class="story__comment_others">"California is prematurely closing its perfectly good nuclear reactor: 
-https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant#Clos..."</p>
+								<p class="story__comment_others">"Been on the hiring side for more than a decade. In addition to other advice in this thread, I would like to add -I treat the interview as my chance to help the candidate pass the interview. This bent of thought may seem subtle, but makes all the difference in meeting the candidate in their terrain, and seeing the world from their point of view.  Consequently, the case studies given explicitly state that if the candidate finds something else that intrigues them, I am happy to take that as a case study instead - gives them something to flaunt and for me to learn about.Some candidates are shy to open up, or just not comfortable conversing with strangers, or misread the power asymmetry in the interview and get anxious - I spend a fair bit of time just conversing human to human.For the really uncommunicative candidates, I make a slight of what they built (fake slight) and this gets the conversation going like a star. The good candidates exhibit a great amount of &#34;Builder&#39;s Pride&#34; and defend what they built.  They really good ones admit to the possibility that there were other better ways to have built, or explain to me the constraints under which they made the choices they did."</p>
+							
+						
+							
+								<p class="story__comment_others">"Some of these are great tips and I agree wholeheartedly.However, in personal experience, I&#39;ve found that this works much better with more experienced developers rather than with junior engineers. Why? Because for some reason, a lot of junior engineers have been pavlov-ed into thinking every interview is for something at Google/Facebook scale (no matter where they are interviewing) and they start describing extremely convoluted designs using tech that they are also not completely familiar with just because they want to come across as knowledgeable.Something that I struggle with in these cases is reining in the dev back to the &#34;what&#34; rather than the &#34;how&#34;, because I&#39;ve seen even good engineers go into this &#34;let&#39;s add a system-bus for everything&#34; way of thinking. Constraining problems explicitly tends to devolve into the &#34;Interviewer-Interviewee information asymmetry&#34; which is the same with most DSA problems (At least with DSA, most constraints are known by both parties).On the other hand, almost every time I&#39;ve picked an actual problem we have with a system, be it a bug or a new product or something else, as an interview question with an experienced interviewee, I feel like I&#39;ve come out understanding the problem space AND solution space better just through the process of discussion and in multiple cases, actually ended up using a lot of ideas from these discussions, so interviewing feels much more &#34;natural&#34; and a &#34;dominant strategy&#34; in game theoretic sense."</p>
 							
 						
 						</a>
@@ -181,22 +181,22 @@ https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant#Clos..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://pompeiisites.org/en/comunicati/the-room-of-the-slaves-the-latest-discovery-at-civita-giuliana/">An intact slave&#39;s room found in Pompeii&#39;s ruins</a></h3>
+					<h3><a href="https://lastweekin.ai/p/gpt-3-is-no-longer-the-only-game">GPT-3 is no longer the only game in town</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29130085">
+						<a href="https://news.ycombinator.com/item?id=29139884">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;Sadly, in this room too, a part of the archaeological heritage has been lost due to tunnels dug by grave robbers who, throughout the villa, have caused a total amount of damage estimated at almost 2 million euros.&#34;I&#39;m curious what that means. How do you &#34;value&#34; something like Pompeii?  Are they just saying that they stole gold and silver worth that much, or that the damage to the ruins costs that much more to repair/recover?"</p>
-							
-						
-							
-								<p class="story__comment_others">"The room was lit by a small upper window, and shows no evidence of having had any wall decorations.So even slaves at Pompeii had a window to get light from, we see."</p>
+								<p class="story__comment_first line-clamp">"The future is not as dark as it seems because of the rat race of megacorps.You can use reduced versions of language models with extremely good results.I was involved in training the first-ever GPT2 for Bengali language, but with 117 million parameters.It took a month&#39;s effort (training + writing code + setup) and about $6k in TPU cost, but Google Cloud covered it.Anyway, it is surprisingly good. We fine-tuned the model for several downstream tasks and we were shocked when we saw the quality of generated text.I fine-tuned this model to write Bengali poems with a dataset of just about 2k poems and ran the training for 20 minutes in GPU instance of Colab Pro.I was really blown away by the quality.The main training was done in JAX, and it is much faster and seamless than PyTorch XLA, much better than TensorFlow in every way.So, my point is, although everyone is talking hundreds of billions of parameters and millions in training cost, you can still derive practical value from language models, and that too, at a low cost."</p>
 							
 						
 							
-								<p class="story__comment_others">"the beds look almost identical to a &#39;charpoy&#39; you would see anywhere in the modern day Punjab in south asia&#34;The webbed bases of the beds were made of ropes, the imprints of which are partially discernible in the cinerite,&#34;https://en.wikipedia.org/wiki/Charpai"</p>
+								<p class="story__comment_others">"The GPT-3 family is still to expensive to use, too big to fit in memory on a single machine. Prices need to come down before large scale adoption or someone needs to invent the chip to hold it (cheaply).The most exciting part about it is showing us there is a path forward by scaling and prompting, but you can still do much better with a smaller model and a bit of training data (which can come from the expensive GPT-3 as well).What I expected from the next generation: multi-modality, larger context, using retrieval to augment input data with fresh information, tuned to solve thousands of tasks with supervised data so it can generalize on new tasks better, and some efficient way to keep it up to date and fine-tune it. On the data part - more data, more languages - a lot of work."</p>
+							
+						
+							
+								<p class="story__comment_others">"Neat to see more models getting closer, thought it appears only one so far has exceeded GPT-3&#39;s 175B parameters.That said, what I&#39;m really curious is how those other models stack up against GPT-3 in terms of performance -- does anyone know of any comparisons?"</p>
 							
 						
 						</a>
@@ -209,22 +209,22 @@ https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant#Clos..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://discourse.haskell.org/t/an-epic-future-for-spj/3573">An Epic future for SPJ</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=29127098">Ask HN: How were video games from the 90s so efficient?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29131996">
+						<a href="https://news.ycombinator.com/item?id=29127098">
 						
 							
-								<p class="story__comment_first line-clamp">"Tim Sweeney did a presentation[0] at MIT&#39;s CSAIL on programming languages that I thought was really interesting (it mentions Haskell quite a bit), titled &#34;The Next Mainstream Programming Language: A Game Developer’s Perspective.&#34;[0]: https://web.archive.org/web/20120113030236/http://groups.csa..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Bizarre move. AFAIK he does whatever he wants at MSR. Maybe he&#39;s sick of that environment&#39;s politics; maybe he&#39;s sick of academic research/the ICFP crowd and wants to work on &#34;real world&#34; stuff. I can&#39;t imagine it&#39;s about money."</p>
+								<p class="story__comment_first line-clamp">"I built games in the 90s. Graphics was obviously the hardest part.We thought about things in terms of how many instructions per pixel per frame we could afford to spend. Before the 90s it was hard to even update all pixels on a 320x200x8bit (i.e. mode 13h) display at 30 fps. So you had to do stuff like only redraw the part of the screen that moved. The led to games like donkey kong where there was a static world and only a few elements updated.In the 90s we got to the point where you had a pentium processor at 66 Mhz (woo!) At that point your 66Mhz / 320 (height) / 200 (width) / 30 (fps) gave you 34 clocks per pixel. 34 clocks was way more than needed for 2D bitblt (e.g. memcpy&#39;ing each line of a sprite) so we could beyond 2D mario-like games to 3D ones.With 34 clocks, you could write a texture mapper (in assembly) that was around 10-15 clocks per pixel (if memory serves) and have a few cycles left over for everything else. You also had to keep overdraw low (meaning, each part of the screen was only drawn once or maybe two times). With those techniques, you could make a game where the graphics were 3D and redrawn from scratch every frame.The other big challenge was that floating point was slow back then (and certain processors did or didn&#39;t have floating-point coprocessors, etc.) so we used a lot of fixed point math and approximations. The hard part was dividing, which is required for perspective calculations in a 3D game, but was super slow and not amenable to fixed-point techniques. A single divide per pixel would blow your entire clock budget! &#34;Perspective correct&#34; texture mappers were not common in the 90s, and games like Descent that relied on them used lots of approximations to make it fast enough."</p>
 							
 						
 							
-								<p class="story__comment_others">"It is pure speculation but I don’t believe Epic’s Verse language will be a functional programming language.Verse is more intended for Blueprint people and there is no way people working on the Blueprint code will be able to move into functional programming.Also I don’t get the investment into Verse language itself, why not just fund LuaJit, do we really need another scripting language when LUA nailed some many things right?I guess Epic will craft a pretty fast scripting language and try to lock game developers to their own ecosystem."</p>
+								<p class="story__comment_others">"I’ve created a 4k UHD video editor for Haiku OS (https://github.com/smallstepforman/Medo), it’s a C++17 native app, with over 30 OpenGL GLSL effect plugins and addons, multi threaded Actor model, over 10 user languages, and the entire package file fits on a 1.44Mb floppy disk with space to spare. If I was really concerned about space, I could probably replace all .png resources with WebP and save another 200kb.How is it so small? No external dependancies (uses stock Haiku packages), uses the standard C++ system API, and written by a developer that learned their trade on restrained systems from the 80’s. Look at the old Amiga stuff from that era."</p>
+							
+						
+							
+								<p class="story__comment_others">"Lower resolutions on smaller monitors. 256 colors at a time, no truecolor yet.Lower-res samples, if any.Lower framerate expectations - try playing Descent 2 on an emulated computer with similar specs to the lowest specs suggested on the box. Even one in the middle of the spec range probably didn&#39;t get a constant 60fps.More hand-tuned assembly (RCT was famously 99% assembly, according to Wikipedia; this was starting to be unusual but people who&#39;d been in the industry a while probably did at last one game in 100% assembly, and would have been pretty comfortable with hand-optimizing stuff as needed).Simpler worlds, with simpler AI. Victory conditions designed to be reached before the number of entities in the game overwhelmed the CPU completely.Simpler models. Most 3d games you play now probably have more polygons in your character&#39;s weapon than Descent would have in the entire level and all the active entities; they certainly have more polys in the overall character.I mean, really, three million tiles? That&#39;s insane by that day&#39;s standards, that&#39;s a bit more than 1700x1700 tiles, a quick search tells me the maximum map size in Roller Coaster Tycoon 3 was 256x256, and it&#39;s a fairly safe assumption that RCT1 was, at best, the same size, if not probably smaller. I can&#39;t find anything similar for Sim City 2000 but I would be surprised if it was much bigger."</p>
 							
 						
 						</a>
@@ -237,22 +237,22 @@ https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant#Clos..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://blog.kronis.dev/articles/never-update-anything">Never update anything</a></h3>
+					<h3><a href="https://techcrunch.com/2021/11/05/iab-europe-tcf-gdpr-breach-belgium/">IAB Europe cookie consent pop-ups to be found in breach of GDPR</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29106159">
+						<a href="https://news.ycombinator.com/item?id=29121848">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;When your company won&#39;t be the first to market, because about 20% of your total development capacity needs to spent on keeping up&#34;In the world of JS and Typescript this ratio looks more like 80%. I swear that node hipsters at my last job spent four out of five of their working days wrangling with dependencies or their transpilers, linters, packagers, bundlers and whatever the hell else needs to happen to actually make a node program run. Meanwhile the geezers that worked on Java services reliably pushed new versions of their code sprint after sprint, no heroics, no drama required. What the fuck happened to those &#34;modern stacks&#34; that babysitting them takes the vast majority of developers time? It&#39;s a nightmare."</p>
-							
-						
-							
-								<p class="story__comment_others">"I appreciate the contrarian point of view, and I don&#39;t want to pick on the author, but this sounds like words of wisdom from someone who doesn&#39;t have much real world experience.I worked in such a project who never upgraded once. And then Specter/Meltdown hit, and we had the mandate to patch all our systems (and the threat was very real). Welcome to a hellish mess of outdated deps that took weeks to sort out.But is not only me. I watched a talk from a Principal Engineer from Amazon builder tools, and one of their biggest mistakes was not to upgrade often enough, which made each upgrade more painful.So what do we do now working in multiple, large, multi-year projects?First, we set tools that tell us when deps are outdated, and alarm when vulnerabilities are found.Second, upgrading deps is part of the regular dev process. When you make a change, take the chance to upgrade the deps. Vulnerabilities are addressed proactively. The vast majority of times upgrades require no code changes.Third, we regularly upgrade deps of inactive packages.Lastly, if a dependency upgrade requires significant work, we create a ticket for it and address it as a new feature. In practice this happens very rarely, so it doesn&#39;t disrupt the development process much.As other&#39;s said, the key is to upgrade often, and then it wont be as painful."</p>
+								<p class="story__comment_first line-clamp">"In 2018 I built a privacy-friendly open-source consent manager (https://github.com/kiprotect/klaro) which is used on many websites across Europe. From the beginning I never liked the IAB, didn&#39;t implement it and told people that I regard it as unlawful since e.g. a user cannot possibly make an informed decision that involves thousands of third-parties. Still many of our users kept asking me about it since it was &#34;the way&#34; to become compliant.So I finally asked the IAB how one could potentially implement their framework as an open-source framework. Their answer was basically that it&#39;s not possible. You have to register as a CMP provider and ensure that your users are using your software in their compliant (ha ha) way, which is of course impossible to enforce with an open-source software that everyone can self-host. In general, in my opinion the IAB is mostly a framework to shift liability from the advertisers who steal the users&#39; data to the publishers and CMP providers. Therefore I&#39;m quite happy we never got around to implement this &#34;feature&#34; in our CMP, and I hope the IAB will quickly die and takes all those alibi CMP providers down with them."</p>
 							
 						
 							
-								<p class="story__comment_others">"Corollary: Do hard things more often, per Martin Fowler - https://martinfowler.com/bliki/FrequencyReducesDifficulty.ht...Upgrade everything all the time and it will never be hard. You&#39;ll have full context for breaking changes, and the diff from A to B is always smaller than from A to Q, and less likely to break in strange and confusing ways."</p>
+								<p class="story__comment_others">"I really hope they actually issue a hefty fine here, instead of just a &#34;now stop doing that&#34;.Not issuing a fine would send a signal that simply ignoring the law until you&#39;re told to follow it pays off, since the companies involved certainly made much more profit in that time than they would have made had they followed the law.Also, the fines should be issued to everyone involved in this mess - middlemen and library providers like IAB, the ad companies actually collecting the data, and most importantly the publishers that sent their visitor&#39;s data to them."</p>
+							
+						
+							
+								<p class="story__comment_others">"The most ridiculous are those “legitimate interest” checkboxes, which you have to uncheck manually one by onehttps://imgur.com/a/LIPUfCQ"</p>
 							
 						
 						</a>
@@ -265,22 +265,23 @@ https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant#Clos..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://micro-editor.github.io/">Micro – a modern and intuitive terminal-based text editor</a></h3>
+					<h3><a href="https://spacestation14.io/">Space Station 14 – Open-source remake of Space Station 13</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29128702">
+						<a href="https://news.ycombinator.com/item?id=29108648">
 						
 							
-								<p class="story__comment_first line-clamp">"As a Windows native, for years I felt limited when shelling into Linux systems, because all editors felt weird to me. Obviously the solution would be &#34;just learn vim already&#34; but I&#39;m lazy. I settled on nano because it at least shows what shortcuts are available, saving me from having to Google &#34;how to find text in vim&#34; every time. But its shortcuts are weird (to me) and even the descriptions are. UnCut? WhereIs? Huh?Micro really got the UX right for people like me and it made me more happy than I expected. It&#39;s now the EDITOR on just about every non-GUI system I have access to and I love it.Thanks, Micro authors!"</p>
-							
-						
-							
-								<p class="story__comment_others">"This looks great as a software project. And a good alternative to Nano.But from the website: &#34;curl https://getmic.ro | bash&#34;NO!We need to stop getting people comfortable with the idea of just curling random stuff into their shell.Even worse is software that suggests you sudo curl it into bash. What could possibly go wrong?Download and build it yourself. Or download and install a packaged .deb or .rpm or whatever is the equivalent for your platform.Do not just blindly curl into your shell things coming from people you don&#39;t know and trust to the level that they are personal friends and you would loan them your house keys or your car."</p>
+								<p class="story__comment_first line-clamp">"No SS13 discussion is complete without linking to SsethTzeentach&#39;s infamous absurd-sounding review[1] or MandaloreGaming&#39;s slightly less infamous but more informational review[2].[1] https://youtu.be/URJ_qSXruW0
+[2] https://youtu.be/nLAHBexJxrE"</p>
 							
 						
 							
-								<p class="story__comment_others">"For a couple of decades, my go-to terminal-based editor has been JOE (Joe&#39;s Own Editor). [1]JOE has everything I need — it&#39;s fast, it has syntax highlighting, multiple buffers, etc. Also, it uses the WordStar key bindings, which are the same bindings used by Turbo Pascal and the other Borland IDEs that I grew up with.But Micro looks great, too.[1] https://joe-editor.sourceforge.io/"</p>
+								<p class="story__comment_others">"For those who don&#39;t know, SS13 is an open-source multiplayer round-based roleplaying game that has been built on the closed-source BYOND engine since 2005. Imagine Among Us, DarkRP (on Garry&#39;s Mod) or NoPixel (on GTA V) but with much more content for both antagonists and normal workers. Or Dwarf Fortress/RimWorld but everybody controls a different person (with usual crew count being 50-150 people).It has a great number of forks, with more than a dozen focused on the space station gameplay loop and various others that adapt the game to themes such as marines vs xenomorphs missions, an open-world modern day city setting, ancient civilization world, etc.Other than that if you want to find out more I&#39;d suggest watching the two most popular game reviews about it I added in another comment https://news.ycombinator.com/item?id=29109264"</p>
+							
+						
+							
+								<p class="story__comment_others">"I love that I can be pretty &#39;wired in&#39; to HN, tech twitter, etc. and still find cool stuff like this that&#39;s been around for years and I&#39;ve never heard of before.It looks like a pretty cool game, I&#39;m surprised I&#39;ve never heard of SS13 given all of I&#39;ve seen about Dwarf Fortress."</p>
 							
 						
 						</a>
@@ -293,31 +294,22 @@ https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant#Clos..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29131931">Ask HN: Whatever happened to Wolfram Alpha?</a></h3>
+					<h3><a href="https://nora.codes/post/stop-making-students-use-eclipse/">Stop Making Students Use Eclipse (2020)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29131931">
+						<a href="https://news.ycombinator.com/item?id=29136820">
 						
 							
-								<p class="story__comment_first line-clamp">"I use it regularly.  Sometimes it’s broken, and maybe nobody notices but me? :)Their natural language queries for things that I know they know about are amazing.  Here are some that I have used recently.  You really need to see these results to appreciate them.I wanted to know how tall my daughter might be.   8 year old female 55 lbs
-
-http://www.wolframalpha.com/input/?i=8%20year%20old%20female...I wanted to know the nutrition content of an egg sandwich.   1 egg, two slices whole wheat bread, one slice of cheddar, two pieces of bacon
-
-http://www.wolframalpha.com/input/?i=1%20egg%2C%20two%20slic...I was curious about the relative usage of two names over time.   Michael, Henry
-
-http://www.wolframalpha.com/input/?i=Michael%2C%20Henry"</p>
+								<p class="story__comment_first line-clamp">"I don’t agree with this perspective: why do entry-level students have to understand the internals behind compiling their code, and weird edge-cases like misspelling import? In my experience this is actually the stuff that hinders learning and confuses students.The author claims that students won’t be able to do real-world programming without learning this esoteric stuff, but actually this is the exact stuff they don’t need to know: full teams can and have built huge java projects just by using the intellij project wizard and maybe a tiny bit of Gradle from stack overflow. Actually students can solve most of the author’s problems by spending 5 seconds on Stack Overflow.I’m not saying that these more esoteric details are completely useless. Learning e.g. the difference between char and UTF8 “character” is actually pretty important so that emoji inputs don’t crash your website. But this is stuff that should come in later classes, particularly for students who are interested in those details. Not everyone needs to know it.In fact my experience is that some colleges have the exact opposite problem: they teach students old tools and techniques which are tedious and not actually used much later on. Like writing code by hand and deducting points for syntax errors, or using some outdated framework e.g. jQuery. When I saw the title my first thought was literally “yeah stop making students use eclipse, they should be using IntelliJ!”"</p>
 							
 						
 							
-								<p class="story__comment_others">"1. It&#39;s slow, even for simple microsecond computations like log(2). Takes about 5-20 seconds to load a page on my 1Gb fiber connection. Opening Python/SymPy Gamma is much faster for most things. https://gamma.sympy.org/input/?i=log%282%292. Every time I use it, a box saying    NEW: Use textbook math notation to enter your math. TRY IT
-
-pops up over the result, and clicking the X doesn&#39;t hide it the next time I search. This adds ~3 seconds to the result time.3. I&#39;m a long-term Mathematica user, but typing literal Mathematica syntax usually never works, except for simple expressions.4. Results are PNGs, and copy-pasting a numerical result takes a few unnecessary clicks. &#34;Plain Text&#34; &gt; Copy."</p>
+								<p class="story__comment_others">"&gt; Using Java or Python in a professional IDE like IntelliJ IDEA, NetBeans, PyCharm, or Eclipse is not a good first introduction to programming for computer science students, whether they’re in the field to become web developers, systems software engineers, or academic computer science researchers.I was forced to program Java without an IDE and my experience is that I learned less in all those lessons over a year than in a few select days at work during my first year.Furthermore, according to a friend who is a specialist teacher this is a common problem:Most kids are inclined to see how things works as a whole while most teachers want to teach analytically by tearing everything apart.I&#39;m grown-up now and don&#39;t mind diving deep into stuff (in fact I enjoy it) but in my understanding we really should try to go with the flow when teaching:Teach kids the wonders of programming (and everything else) and then go into the details as needed.Because, if my friend is right and I understood him right (he doesn&#39;t teach programming) most kids doesn&#39;t want to learn programming because they want to know how to please javac but because they want to create cool stuff."</p>
 							
 						
 							
-								<p class="story__comment_others">"Siri and Alexa pass a lot of questions to Wolfram Alpha.When Apple first started using it, they were responsible for 25% of all WA traffic. With Alexa, I assume that the majority of WA&#39;s queries are coming from smart assistants at this point.
-(https://9to5mac.com/2012/02/07/four-months-in-siri-represent..., https://www.theverge.com/2018/12/20/18150654/alexa-wolfram-a...)"</p>
+								<p class="story__comment_others">"Eclipse is poor tooling for teaching. Far too many buttons and noise that gets in the way. But the opposite, programming with no debugger and no linter is just as bad. It punishes you for getting the smallest syntax mistakes by waiting for the compiler and reading out erroneous messages.A debugger makes it far better to understand the execution of code line by line, and should be standard in education, but it&#39;s not.I feel that visual studio code, with some modifications, would be perfect to begin with. Then when building things at a higher level, introduce why to use eclipse, like how it handles packages, etc."</p>
 							
 						
 						</a>
