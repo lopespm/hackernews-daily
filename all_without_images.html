@@ -36,6 +36,330 @@
 	</div>
 
 	
+	<div class="day__date">14 November 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.agwa.name/blog/post/ssh_signatures">Sign arbitrary data with your SSH keys</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29208518">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt;Here&#39;s why I like SSH signatures:&gt;* It&#39;s not PGP.The most important reason people use the OpenPGP message format is because it is a well accepted standard. Sure the cryptography is not new and fun but it is secure. If you sign something with OpenPGP then you can be sure that those signatures are verifiable on any platform by anyone. The OpenPGP standard has provisions to ensure that the signatures are from a particular entity. This proposal suggests that Github could be treated as a trusted third party. If that is the case then you don&#39;t need signatures at all.Obligatory &#34;The PGP Problem&#34; rebuttal:* https://articles.59.ca/doku.php?id=pgpfan:tpp"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; GitHub acts as a trusted third party here, and you have to trust them not to lie about people&#39;s public keys, so it may not be appropriate for all use cases. But relying on a trusted third party with a professional security team like GitHub seems like a way better default than PGP&#39;s Web of Trust, which was nigh impossible to use.Hopefully that&#39;s a false dichotomy and the entire Free Software community doesn&#39;t end up reliant on Microsoft to host all our keys for us.  The article goes on to mention key transparency, though, which does seem like the right solution.I note that rekor (the transparency log implementation used by sigstore) already supports signing with SSH keys[0], so this TechRepublic article about it[1] from March (which lists only &#34;GPG, x509 and Minisign&#34;) is already out of date.[0] https://github.com/sigstore/rekor/blob/main/types.md#ssh[1] https://www.techrepublic.com/article/a-new-linux-foundation-..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Regarding PGP&#39;s &#39;Web of Trust&#39;, I thought the purpose of this was to validate the link between the key and the owner of that key.  This is not what you get from retrieving a public key from github... that only gives you the link between that key and a github account.  But what does that give you?From what I understand, it gives you nothing for anything that is signed and that does not have a direct link to a github account.  Obviously, if someone releases software on that github account and I find a signed release of that software, I can validate that it really was signed by the official source of that software on github. For anything that does not have that direct link, it really does not give you anything.I&#39;ve never used PGP, but I thought the web of trust was used to validate metadata on the key and that this can be used to validate that a key really belongs to the person that you think it belongs to.  I saw it more like how you have SSL certificates with different degrees of validation and where you must deliver more proof of your identity if you want to receive a certification with a higher degree of validation.I&#39;m all for using SSH keys for signing, but I still would like to have something like PGP&#39;s web of trust for those keys."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://restic.net/">Restic – Backups Done Right</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29209455">
+						
+							
+								<p class="story__comment_first line-clamp">"Oh yeah, restic is awesome  _backup_prepare () {
+    export $(sudo cat &lt;protected_credentials_file&gt; | xargs)
+  }
+
+  _backup_remove_old_snapshots () {
+    restic forget -r &lt;repo_name&gt; --keep-weekly 10
+  }
+
+  _backup_verify () {
+    restic check -r &lt;repo_name&gt;
+  }
+
+  backup () {
+    echo &#34;---------------Scheduled backup time---------------&#34;
+    echo &#34;&#34;
+    _backup_prepare
+    restic -r &lt;repo_name&gt; --verbose --exclude=&#34;$HOME/snap&#34; --exclude=&#34;$HOME/Android&#34; --exclude=&#34;$HOME/.android&#34; --exclude=&#34;$HOME/ApkProjects&#34; backup ~/
+    echo &#34;&#34;
+    echo &#34;---------------Backup done, removing old snapshots---------------&#34;
+    echo &#34;&#34;
+    _backup_remove_old_snapshots
+    echo &#34;&#34;
+    echo &#34;---------------Old snapshots removed, verifying the data is restorable---------------&#34;
+    echo &#34;&#34;
+    _backup_verify
+    echo &#34;&#34;
+    echo &#34;---------------Backup done and verified!---------------&#34;
+  }
+
+Then in cron I just have this entry:  20 \* \* \* DISPLAY=:0 kitty -- /bin/zsh --login -c &#39;source ~/.zshrc; backup; read&#39;
+
+So every time my PC is on @ 20:00, a shell window will pop-up, asking me for password and runs the backup :). Since they are incremental, it takes maybe 10-15 minutes top."</p>
+							
+						
+							
+								<p class="story__comment_others">"Restic is a great backup program. I use it (via rclone) to back up my laptop and it truly saved my bacon when I attached my main hard disk to a VM I was playing with and accidentally formatted it!Restic can use rclone to access cloud providers it can&#39;t access and that&#39;s something we worked together on.I use rclone directly for backing up media and files which don&#39;t change much, but restic nails that incremental backup at the cost of no longer mapping one file to one object on the storage which is where rclone shines.(rclone author)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Past related threads:Saving a restic backup the hard way - https://news.ycombinator.com/item?id=28438430 - Sept 2021 (2 comments)Restic Cryptography (2017) - https://news.ycombinator.com/item?id=27471549 - June 2021 (5 comments)Backups with restic and systemd and prometheus export - https://news.ycombinator.com/item?id=27411713 - June 2021 (1 comment)Restic – Backups Done Right - https://news.ycombinator.com/item?id=21410833 - Oct 2019 (177 comments)Append-only backups with restic and rclone - https://news.ycombinator.com/item?id=19347188 - March 2019 (42 comments)Restic Cryptography - https://news.ycombinator.com/item?id=15131310 - Aug 2017 (36 comments)A performance comparison of Duplicacy, restic, Attic, and duplicity - https://news.ycombinator.com/item?id=14796936 - July 2017 (49 comments)Restic – Backups done right - https://news.ycombinator.com/item?id=10135430 - Aug 2015 (1 comment)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://old.reddit.com/r/sysadmin/comments/qsun7o/email_from_fbi_looks_odd/">Email from FBI Looks Odd</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29208276">
+						
+							
+								<p class="story__comment_first line-clamp">"  We have been made aware of &#34;scary&#34; emails sent in the last few hours that purport to come from the FBI/DHS. While the emails are indeed being sent from infrastructure that is owned by the FBI/DHS (the LEEP portal), our research shows that these emails *are* fake.
+
+https://twitter.com/spamhaus/status/1459450061696417792"</p>
+							
+						
+							
+								<p class="story__comment_others">"The email domain where the messages originate is from some sort of federated identity management system that was created in 2010 (here is a proposal deck [0] with technical details). Found this program simply by searching Google for the sending domain.Based on the guide for using this system [1] (see step 15) looks like this specific email address is the one that sends automated confirmation emails upon registration. Perhaps someone was able to inject a message instead of the regular canned text through some sort of reflection attack? This explains why replies to the message result in a canned response. The system also now appears to be temporarily down. So it’s getting some sort of attention (internally taken down (most likely) or maybe denial of service from the abuse).The Reddit thread suggests the recipients’ emails are likely ARIN IP range contacts. Those are very available from tools like this [2] so nothing interesting with that, but the real question is WHY someone would do this at all? This was clearly given some thought (on who to send this to who would actually take the time to verify the headers) but given the sloppiness of everything else, is this just a script kiddie flex? Whoever it is pissed off the FBI and gained absolutely nothing.[0] https://bja.ojp.gov/sites/g/files/xyckuh186/files/media/docu...[1] https://www.justice.gov/tribal/page/file/1260671/download[2] http://itools.com/tool/arin-whois-domain-search"</p>
+							
+						
+							
+								<p class="story__comment_others">"Lots of people commenting that the text of the email seems amateurish. Perhaps it’s exactly as it should be, but you don’t understand its purpose. Maybe they wanted this to be discussed on netsec forums everywhere, so that Google searches for “Vinny Troia” always lead back to discussion about this email, framing him as a cyber criminal and outranking legitimate posts about or by him - an online identity assassination. They needed the email to set off some alarm bells so that it would pique enough interest to be widely discussed. They appear to have widely targeted the email addresses of system admins. I’m fairly certain this was their intention.Also, does it strike anyone else as odd that the account that posted this to HN was created hours ago, for the sole purpose of starting this thread?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bbc.co.uk/news/business-59263300">Portugal bans bosses texting staff after-hours</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29201307">
+						
+							
+								<p class="story__comment_first line-clamp">"(Portuguese here)
+Portuguese Parliament and Government publish law every day and afterhours[1], as a citizen I have to keep up with this. MPs believe they are doing a great job by producing more Law, instead of checking if what is in place is accountable. A common behaviour is when a &#34;crime&#34; case is well covered by the media, the first thing is said &#34;we need to change the Law&#34;, trying to dodge blame.I have been working remote for 17 years, and the teams I worked in, work asynchronously. It is fine to text, slack, discord and email after hours, people don&#39;t expect to get answers immediately, they will reply according to their schedule or contract.One case is that employers have to compensate employees for electricity and utilities for working remote, in my case that is a cost of €10.58, I save much more for not commuting, financially and psychologically.[1] https://dre.pt/dre/home"</p>
+							
+						
+							
+								<p class="story__comment_others">"Can we open up a broader discussion about Portugal&#39;s culture of work? On one hand this sends a message that Portugal cares about work/life balance for everyday citizens. On the other my general impression of Portugal&#39;s economy is that it&#39;s one of the weaker members of the EU. High debt, not a huge driver of innovation, wealth, etc. These are all just loosely held beliefs kicking around in my head. I&#39;m not attached to any of them or sure that they are even accurate."</p>
+							
+						
+							
+								<p class="story__comment_others">"I DM my staff on slack “after hours” [1] all the time, and set the expectation that they should respond when appropriate at their discretion. That could (and often does) mean the next business day or even later. Or it could mean ASAP; they’re adults, and have the judgement to make the correct call.[1] Obviously, this policy is not targeted at staff in different time zones, which makes their remedy meaningless."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.righto.com/2021/11/reverse-engineering-yamaha-dx7.html">Reverse-engineering the Yamaha DX7 synthesizer&#39;s sound chip from die photos</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29211401">
+						
+							
+								<p class="story__comment_first line-clamp">"Reading this really drove home to me just how amusing some of the twists and turns of music tech development are. In contemporary modular synth formats, you now have modules that use similar FM tone chips, but are controlled by potentiometers and analog control voltage inputs (for instance, https://busycircuits.com/alm011/). I could see how someone could conclude that this destroys the reproducibility advantages of digital FM synthesis, while preserving the cheesiness of FM sounds. From another perspective, you can freely explore the enormous landscape of sound produced by FM synthesis, without diving into the deep end of DX7 programming. Instead of generating sysex dumps on the fly to dynamically change the sounds produced by the synth, you just feed whatever control voltage you can come up with into the inputs of a module and bask in the insanity that comes out (for instance—https://www.youtube.com/watch?v=2-YEbg040ww definitely not everyone’s cup of tea).Edit: but if you want to explore the landscape of FM tones generated by these chips without spending all of your money on a modular setup, generating sysex messages will of course take you where you want to go: https://fo.am/activities/midimutant/"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is maybe a little outside the scope of your article, but I&#39;ve read about the DX7&#39;s log2 based sine wavetables in the past, and it makes sense from a math standpoint (log2(x) + log2(y) = log2(x*y)). However, I find it confusing when I go to try to replicate it. My understanding is that these are NOT floating point numbers. In which case the output would be in the 8bit range of (0-257) or -127 to +127 if we&#39;re using signed values.So assuming I want to represent a signal value of 127 (i.e. sin(t) = 127) using base 2 logs, I punch this into my calculator and i get log2(127) = 6.9886.
+But that&#39;s not what&#39;s going to be stored in the signal LUT since it&#39;s a floating point number.I think I&#39;m probably missing something obvious, but any clarification would be amazing."</p>
+							
+						
+							
+								<p class="story__comment_others">"Additional reading and discussion on the DX7 from 3 weeks ago: https://news.ycombinator.com/item?id=28940860"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.evanmiller.org/how-not-to-sort-by-average-rating.html">How not to sort by average rating (2009)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29200103">
+						
+							
+								<p class="story__comment_first line-clamp">"While I agree with the author in principle, I think there is an implicit criteria they ignore, which is the intuitive correctness from the perspective of the user.Imagine a user chooses &#34;Sort by rating&#34;, and they subsequently observe an item with an average 4.5 ranking above a score of 5.0 because it has a higher Wilson score. Some portion of users will think &#34;Ah, yes, this makes sense because the 4.5 rating is based on many more reviews, therefore its Wilson score is higher.&#34; and the vast, vast majority of users will think &#34;What the heck? This site is rigging the system! How come this one is ranked higher than that one?&#34; and erode confidence in the rankings.In fact, these kinds of black-box rankings* frequently land sites like Yelp into trouble, because it is natural to assume that the company has a finger on the scale so to speak when it is in their financial interests to do so. In particular, entries with a higher Wilson score are likely to be more expensive because their ostensibly-superior quality commands (or depends upon) their higher cost, exacerbating this effect due to perceived-higher margins.So the next logical step is to present the Wilson score directly, but this merely shifts the confusion elsewhere -- the user may find an item they&#39;re interested in buying, find it has one 5-star review, and yet its Wilson score is &lt;&lt; 5, producing at least the same perception and possibly a worse one.Instead, providing the statistically-sound score but de-emphasizing or hiding it, such as by making it accessible in the DOM but not visible, allows for the creation of alternative sorting mechanisms via e.g. browser extensions for the statistically-minded, without sacrificing the intuition of the top-line score.* I assume that most companies would choose not to explain the statistical foundations of their ranking algorithm."</p>
+							
+						
+							
+								<p class="story__comment_others">"This article inspired me so much that I based my shitty undergrad senior thesis on it. My idea was to predict the trend of the ratings by using I think a trailing weighted average, weighted to the most recent window. It managed to generate more &#34;predictive&#34; ratings of the following 6 months based on the Amazon dataset I used, but I doubt it would have held up to much scrutiny. I learned a ton though!Edit: Link to paper, which looks like it actually attempts to use a linear prediction algorithm. https://github.com/rkuykendall/rkuykendall.com/blob/e65147f6..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been using this at work for the last year or so to great success.For example, we have an internal phishing simulation/assessment program, and want to track metrics like improvement and general uncertainty. Since implementing this about a year ago, we&#39;ve been able to make great improvements such as:* for a given person, identify the wilson lower bound that they would not get phished if they were targeted* for the employee population as a whole, determine the 95% uncertainty on whether a sample employee would get phished if targetedIt lets us make much more intelligent inferences about things, much more accurate risk assessments, and also lets us improve the program pretty significantly (e.g. your probability of being targeted being weighted by a combination of your wilson lower bound and your wilson uncertainty).There are SO MANY opportunities to improve things by using this method. Obviously it isn&#39;t applicable everywhere, but I&#39;d suggest you look at any metrics you have that use an average and just take a moment to ask yourself if a Wilson bound would be more appropriate, or might enable you to make marked improvements."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://archive.org/details/ZeldovichYaglomHigherMathematics">Higher Math for Beginners (1987)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29207021">
+						
+							
+								<p class="story__comment_first line-clamp">"My experience with learning math is that the first months are all about backtracking. You have to fill all your holes.It&#39;s basically one big graph of concepts.The tricky part is, most beginners simply don&#39;t know how to navigate that graph.They see complex numbers with their exponentials and cos/sin forms and shut down.They can learn all these concepts no problem, but finding what they need to learn defeats them."</p>
+							
+						
+							
+								<p class="story__comment_others">"Reading the foreward&gt; These  de­finitions, which are not at all simple for the  
+&gt; beginner,  came  to  be  used  in  the wrong  context.  
+&gt; Textbooks  presented them  before  any explanation  was 
+&gt; given of  the  theory and its applications, there­
+&gt; by  complicating  an  understanding  of things  that  
+&gt; were  intuitively  clear.hear hear!This problem is like most of the Wikipedia pages that I come across on &#39;complex&#39; topics of not just maths but anything remotely intersting technically. I just give up in the end. Life is too short to be bothered with some editor&#39;s &#39;dick measuring&#39; competition about how clever they."</p>
+							
+						
+							
+								<p class="story__comment_others">"This very book (but in russian) is the source of all my math skills. Academic Zeldovich was a brilliant physicist and I am glad to know what his works translated to English"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://sagrista.info/../../../blog/2021/searx-or-duckduckgo/">Searx – Privacy-respecting metasearch engine</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29198575">
+						
+							
+								<p class="story__comment_first line-clamp">"Every time I stumble across a new search engine, I add it to my search engine comparison tool:https://www.gnod.com/search/Will add SearX now. It seems to provide reasonably good results.Update: It&#39;s on (under &#39;More Engines&#39;)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I will add add a disclaimer to this comment that it is tinfoil-hat and just speculation(bordering on conspiracy) but many of these &#34;we are a privacy-first company&#34; might actually just be honeypots and fronts for 3-letter agencies.The comment is not wholly conspiratorial, considering the CIA owned Swiss crypto company: Crypto AG [1]It&#39;s within the realm of possibility that most of these privacy services could be owned by 3-letter agencies or small enough to be coerced into cooperation.[1] https://www.scmp.com/news/world/europe/article/3050193/crypt..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The problem with self-hosted search engine is that they make you _very_ unique: you’re the only client of the ”backend“ engine with that (static and non-NATed) IP. Furthermore, you’re now one of the small group of people with ”hosting“ IPs. Using self-hosted SearX may make you easier to track, not harder.Using SearX hosted by someone else is marginally better, but now you have to trust the owner of the server, which is probably not what you want for privacy-centered search engine."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.economist.com/europe/2021/11/11/how-trains-could-replace-planes-in-europe">How trains could replace planes in Europe</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29190495">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.md/va1aE"</p>
+							
+						
+							
+								<p class="story__comment_others">"The article should have mentioned some of the mega-projects that are already underway, which will improve rail links between European countries.The Stuttgart 21 project will reconfigure the Stuttgart central station to create a direct line between Paris and Vienna.Fehmarn Belt Fixed Link will build a new undersea rail tunnel between Denmark and Germany, allowing Sweden to operate night trains to Brussels.In Switzerland, several new tunnels under the alps beginning operation this year will cut travel time to Italy.https://en.m.wikipedia.org/wiki/Stuttgart_21https://en.m.wikipedia.org/wiki/Fehmarn_Belt_Fixed_Linkhttps://en.m.wikipedia.org/wiki/Gotthard_Base_Tunnelhttps://en.m.wikipedia.org/wiki/Ceneri_Base_Tunnel"</p>
+							
+						
+							
+								<p class="story__comment_others">"I still find it weird that planes are cheaper than trains even for quite small distances. London -&gt; Berlin? Paris -&gt; Madrid? Hell even Rome -&gt; Milan is cheaper to fly.I would love to start contributing less to emissions and take trains even though they take more time but they gotta start taxing planes and making trains cheaper to make people start doing it."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.phoronix.com/scan.php?page=article&amp;item=framework-laptop&amp;num=1">The Framework Laptop Is Great for a Linux-Friendly, Upgradeable/Modular Laptop</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29187276">
+						
+							
+								<p class="story__comment_first line-clamp">"Note that if you’re building a framework with the intent of using Linux avoid the “vpro” variant of the Intel wireless adapter:https://community.frame.work/t/using-the-ax210-with-linux-on...Last I checked with every recommended config tweak you still lose ~3% battery per hour of suspend, which really adds up and is extremely annoying.We’ve been asking framework to include a notice referencing this issue when configuring but as of the last time I checked they haven’t."</p>
+							
+						
+							
+								<p class="story__comment_others">"From https://frame.work/blog/linux-on-the-framework-laptop :“ There has been immense interest in this configuration, with it outselling pre-configured systems with Windows 10 by a wide margin.”There is a market. And it is currently under-served."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m typing this on my Framework now and I have to say it really is a special device. The prevailing culture of treating technology as disposable is something I personally don&#39;t vibe with - I always keep all of my tech and have collected machines over the years that most people would probably consider obsolete and uninteresting (there&#39;s an Amiga 1000 and iMac G3 currently in my field of view). Having a fully open machine that I can customize, upgrade and repair for the foreseeable future is just so cool and makes me feel like this is my personal computer in the truest sense of the word!A few takeaways from using it for around a month now:1. This is the most &#34;premium&#34; feeling non-Apple laptop I&#39;ve ever owned. Most of the laptops I&#39;ve ever daily driven are Macs or Thinkpads so take that for what it&#39;s worth, but I think most people will be happy with the fit and finish of this device.2. The swappable port system is actually a lot more useful than I expected. I initially thought it would be something I set up once and didn&#39;t bother with again for a while but there are a lot of random moments where it comes in handy. I&#39;m kind of a messy, hyper person that periodically reorganizes my desk and I like to move between different workspaces when I need a different setting to feel creative. Being able to move my HDMI or USB-C ports around for better cable management is so nice and yeah I could use an external hub but I&#39;ve always found those to be annoying on-the-go and just &#34;feels bad man&#34;. Also I don&#39;t use Micro SD cards as much as other people but there are times when I do and being able to swap that in is really kewl.3. Linux support is amazing but there are still a few hiccups. I use Arch Linux and everything works perfectly except for one minor inconvenience with Bluetooth: on a soft restart, the Bluetooth is disabled and I have to do a hard restart to restore it (can be mitigated by a kernel downgrade and should be fixed in a future update). It&#39;s not a deal breaker for me as I usually just close my laptop and put it to sleep, but just know that it&#39;s like running Linux on most other computers - you&#39;re going to have a much better time if you&#39;re fluent in tinkering and configuring your OS.4. The 3:2 display is awesome for programming and content creation, and I don&#39;t know why more devices don&#39;t adopt it. My only criticism is that it&#39;s not a touch screen but with how modular this laptop is it&#39;s only a matter of time before that becomes an option."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">13 November 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -57,7 +381,7 @@
 							
 						
 							
-								<p class="story__comment_others">"FYI: spot welding is a lot easier and precise using this welder: https://www.keenlab.de/index.php/portfolio-item/kweld/With the capacitor module, you can easily power it with a lab bench power supply."</p>
+								<p class="story__comment_others">"&gt; the Bosch BMS is part of a DRM setup that pretty much prohibits using 3rd party batteriesAnother good reason to fight DRM: https://www.defectivebydesign.org/."</p>
 							
 						
 						</a>
@@ -145,9 +469,7 @@ Many commands using `-r` do not need the option for the command used (for ex: `s
 							
 						
 							
-								<p class="story__comment_others">"The only motivation for me to own Apple hardware in 2021 is the ability to use FOSS software in the natural habitat of Linux.I don&#39;t trust Apple&#39;s software and &#34;ideas&#34; of computing at all. Just another big company with data gathering ambitions.
-After Catalina MacOs is a total joke.
-https://www.nytimes.com/2021/05/17/technology/apple-china-ce...So let&#39;s hope that running Linux on M cips will be possible, soon."</p>
+								<p class="story__comment_others">"I just had a crazy idea: Apple selling systems with a nice Linux distribution that included full support for iCloud. Apple would lose money of App Store sales, but opening up to a slightly larger market might work. I would also be interested if they got into selling M1 racked systems for data centers. Why leave money on the table."</p>
 							
 						
 						</a>
@@ -275,11 +597,11 @@ In a lot of ways, this tech felt like when you try a new framework in your langu
 						<a href="https://news.ycombinator.com/item?id=29184198">
 						
 							
-								<p class="story__comment_first line-clamp">"He leaves behind a complicated legacy. It&#39;s important to note that credible allegations of domestic abuse lead him to sell SA in the past year, and this can&#39;t be set aside.At the same time, SA&#39;s influence on the modern internet can&#39;t be understated. The &#39;image macro&#39; of early SA (maybe created by Lowtax himself, from what Fragmaster says in his video in the link) is the direct ancestor of today&#39;s common meme image--impact font text over a silly image, easily accessible to anyone who wants to post it.Many of today&#39;s well-known internet comedians and writers grew up with the site. And it&#39;s hard to estimate how big the impact (positive or negative) of things like ADTRW leading to 4chan have been, not to mention things like the rise of Let&#39;s Play videos, or the creation and eventual shutdown of BitTorrent Barnyard (and its ensuing spinoffs).The site itself still remains one of the last vestiges of the old internet--one of the few sites that both survived and managed not sell out and go headlong into monetization--and as a result, is one of the last sites on the modern internet that (maybe ironically) is not entirely awful."</p>
+								<p class="story__comment_first line-clamp">"This isn&#39;t a joke; I had actually scheduled a lunch with Lowtax for this Saturday.  Despite a (let&#39;s call it) checkered past, I was extremely excited to meet him, since he&#39;s been a huge influence to my sense of humor and Something Awful was really important to me as a teenager.-------I had found him on LinkedIn a few weeks ago, and simply sent a message explaining that I&#39;m a fan, would love a chance to buy him lunch and chat about Something Awful and Gaming Garbage.  To my surprise, he responded back with &#34;sure, I&#39;d be up for it&#34;.I responded back with &#34;How does early December sound to you? something on the order of December 11?&#34;His response was &#34;shit I dont even know if I&#39;ll still be alive then&#34;.  This response was a little weird, but this isn&#39;t exactly &#34;off brand&#34; humor for Lowtax, so I ignored it.I then say something to the effect of &#34;how about something along the lines of November 13?&#34;, which he said was better. He then said &#34;and you have my permission to stab me&#34;.  Again, not off brand for Lowtax.I bought a plane ticket to Kansas City, was ready to fly out this friday.  But I had this deep feeling in my stomach that what he was saying wasn&#39;t just a joke.  It&#39;s pretty well documented that he&#39;s been depressed, and I dunno, upon re-reading his messages a hundred times I got a dark feeling that these might be kind of bad omens. What exactly do I do with this?  I discussed it with my wife and a friend, who weren&#39;t sure what the best solution was, and I ultimately decided not to say anything.  I figured I&#39;m just some dork who stalked him on LinkedIn, and I was afraid that if I said anything he would think I&#39;m weird and cancel our lunch date.And now this shit happened. He finally did it, and now the thought keeps playing in my brain of &#34;what if I had said something a few weeks ago?&#34; I know I don&#39;t owe him anything, but I can&#39;t help but have this repeated feeling of &#34;I valued an opportunity to meet my man-crush more than I valued someone showing suicidal tendencies,&#34; and it makes me feel downright rotten. That&#39;s not the kind of person I want to be, and it makes me feel legitimately sick that that&#39;s how my brain decided to work.At some logical level I know none of this is my fault really; realistically even if I had said something, I doubt much would have changed, and I doubt I had enough there to get him committed or anything, but there&#39;s a difference between logically knowing something and feeling something.As it stands, I think there&#39;s a reasonably good chance that I will feel partly responsible for this for the rest of my life.  This sucks.--------RIP Rich.  I know you had a rough last couple years, you were the definition of a &#34;complicated person&#34;, and despite everything you will be missed."</p>
 							
 						
 							
-								<p class="story__comment_others">"This isn&#39;t a joke; I had actually scheduled a lunch with Lowtax for this Saturday.  Despite a (let&#39;s call it) checkered past, I was extremely excited to meet him, since he&#39;s been a huge influence to my sense of humor and Something Awful was really important to me as a teenager.-------I had found him on LinkedIn a few weeks ago, and simply sent a message explaining that I&#39;m a fan, would love a chance to buy him lunch and chat about Something Awful and Gaming Garbage.  To my surprise, he responded back with &#34;sure, I&#39;d be up for it&#34;.I responded back with &#34;How does early December sound to you? something on the order of December 11?&#34;His response was &#34;shit I dont even know if I&#39;ll still be alive then&#34;.  This response was a little weird, but this isn&#39;t exactly &#34;off brand&#34; humor for Lowtax, so I ignored it.I then say something to the effect of &#34;how about something along the lines of November 13?&#34;, which he said was better. He then said &#34;and you have my permission to stab me&#34;.  Again, not off brand for Lowtax.I bought a plane ticket to Kansas City, was ready to fly out this friday.  But I had this deep feeling in my stomach that what he was saying wasn&#39;t just a joke.  It&#39;s pretty well documented that he&#39;s been depressed, and I dunno, upon re-reading his messages a hundred times I got a dark feeling that these might be kind of bad omens. What exactly do I do with this?  I discussed it with my wife and a friend, who weren&#39;t sure what the best solution was, and I ultimately decided not to say anything.  I figured I&#39;m just some dork who stalked him on LinkedIn, and I was afraid that if I said anything he would think I&#39;m weird and cancel our lunch date.And now this shit happened. He finally did it, and now the thought keeps playing in my brain of &#34;what if I had said something a few weeks ago?&#34; I know I don&#39;t owe him anything, but I can&#39;t help but have this repeated feeling of &#34;I valued an opportunity to meet my man-crush more than I valued someone showing suicidal tendencies,&#34; and it makes me feel downright rotten. That&#39;s not the kind of person I want to be, and it makes me feel legitimately sick that that&#39;s how my brain decided to work.At some logical level I know none of this is my fault really; realistically even if I had said something, I doubt much would have changed, and I doubt I had enough there to get him committed or anything, but there&#39;s a difference between logically knowing something and feeling something.As it stands, I think there&#39;s a reasonably good chance that I will feel partly responsible for this for the rest of my life.  This sucks.--------RIP Rich.  I know you had a rough last couple years, you were the definition of a &#34;complicated person&#34;, and despite everything you will be missed."</p>
+								<p class="story__comment_others">"He leaves behind a complicated legacy. It&#39;s important to note that credible allegations of domestic abuse lead him to sell SA in the past year, and this can&#39;t be set aside.At the same time, SA&#39;s influence on the modern internet can&#39;t be understated. The &#39;image macro&#39; of early SA (maybe created by Lowtax himself, from what Fragmaster says in his video in the link) is the direct ancestor of today&#39;s common meme image--impact font text over a silly image, easily accessible to anyone who wants to post it.Many of today&#39;s well-known internet comedians and writers grew up with the site. And it&#39;s hard to estimate how big the impact (positive or negative) of things like ADTRW leading to 4chan have been, not to mention things like the rise of Let&#39;s Play videos, or the creation and eventual shutdown of BitTorrent Barnyard (and its ensuing spinoffs).The site itself still remains one of the last vestiges of the old internet--one of the few sites that both survived and managed not sell out and go headlong into monetization--and as a result, is one of the last sites on the modern internet that (maybe ironically) is not entirely awful."</p>
 							
 						
 							
@@ -316,7 +638,7 @@ characters as the variable responsible for the differences, rather than physical
 							
 						
 							
-								<p class="story__comment_others">"Column width has always affected my writting. The line breaks can hide some flow issues where punctuation might be necessary. For this reason I write on three emacs windows with different widths: one as narrow as suggested by OP, one more or less at target printer width, and one in between."</p>
+								<p class="story__comment_others">"A vast majority on book typography agrees on 66 characters per line in one-column layouts and 45 characters per line in multi-column layouts as being the optimal numbers for reading. The text-block should also be placed assymetrically on the page, with the margins in size order being inner&lt;top&lt;outer&lt;bottom. The line height should be set at 120% of the highest character hight for normal book typefaces, but should be increased for typewriter typefaces and can be decreased slightly with shorter lines. A small set of typefaces are economic without losing readability, and if you use them you can increase these numbers slightly. But any more than 80 characters and anything less than 40 characters is suboptimal for texts that are longer than a paragraph or so.If you adhere to these very simple principles, you will have avoided like 95% of the typographic choices that can make texts hard or slow to read."</p>
 							
 						
 						</a>
@@ -930,11 +1252,11 @@ Leveraging the apple store as a service point is a huge deal, as it may compensa
 							
 						
 							
-								<p class="story__comment_others">"What an incredible read. The protagonist has a non profit organisation that provides food and vocational training to Cambodian women in similar situation: http://mekongblue.com/ - there is a donation button and it only takes 3 minutes to donate via PayPal"</p>
+								<p class="story__comment_others">"&gt; I’ve often wondered why, in a poor country where women work as hard as men to feed their children, feminine softness is so highly prized. As for me, I no longer consider it a valuable attribute.Isn&#39;t this its own answer?  It&#39;s prized precisely because it is unattainable for most."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; I’ve often wondered why, in a poor country where women work as hard as men to feed their children, feminine softness is so highly prized. As for me, I no longer consider it a valuable attribute.Isn&#39;t this its own answer?  It&#39;s prized precisely because it is unattainable for most."</p>
+								<p class="story__comment_others">"What an incredible read. The protagonist has a non profit organisation that provides food and vocational training to Cambodian women in similar situation: http://mekongblue.com/ - there is a donation button and it only takes 3 minutes to donate via PayPal"</p>
 							
 						
 						</a>
@@ -1316,11 +1638,11 @@ This made me a lot more excited about the contents!"</p>
 							
 						
 							
-								<p class="story__comment_others">"You can also remember him for his work on Markdown, which he developed together with John Gruber (Daring Fireball):http://www.aaronsw.com/weblog/001189https://daringfireball.net/projects/markdown"</p>
+								<p class="story__comment_others">"For anyone who hasn&#39;t seen it yet.The Internet&#39;s Own Boyhttps://archive.org/details/TheInternetsOwnBoyTheStoryOfAaro..."</p>
 							
 						
 							
-								<p class="story__comment_others">"For anyone who hasn&#39;t seen it yet.The Internet&#39;s Own Boyhttps://archive.org/details/TheInternetsOwnBoyTheStoryOfAaro..."</p>
+								<p class="story__comment_others">"You can also remember him for his work on Markdown, which he developed together with John Gruber (Daring Fireball):http://www.aaronsw.com/weblog/001189https://daringfireball.net/projects/markdown"</p>
 							
 						
 						</a>
@@ -2724,309 +3046,6 @@ I still remember the excitement from Vagrant back in the day (which I think star
 						
 							
 								<p class="story__comment_others">"Heck yeah.I don&#39;t know what this fork changes, but I love how many game engines will take lua and expand it to fit their exact needs like this.Very few scripting languages make it as easy to do as lua.This is an interesting related project:https://moonscript.org/It compiles down to lua, and really beefs everything up. Interface is super nice too. You just put `require &#34;moonscript&#34;` at the top of the file and you&#39;re done, now just write your code in moon script."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">04 November 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.blog/2021-11-03-thank-you-github/">Thank you, GitHub</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29095747">
-						
-							
-								<p class="story__comment_first line-clamp">"Nat was a great CEO. The best that could have happened to Github after the acquisition IMO.The one time that I won&#39;t forget about Github under Nat, was when they stood up for Iranian developers [1]. They went the extra distance to get a permission/license from the US government specially to offer full Github to developers from Iran. Many other companies didn&#39;t do something similar.[1]: https://github.blog/2021-01-05-advancing-developer-freedom-g..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Most people probably say this just to be like “I know Nat, look at me.” I don’t know how to phrase this to avoid that:Nat is an incredible person. I’ve been lucky to get to know him over the past couple months. Not only is he super chill, but he’s also not afraid to ask basic questions. Many of you might roll your eyes at that, but it’s a real problem: when you’re organizing something, you feel pressured to know everything, or else you’ll lose people’s confidence. So all the people who try to act confident also rarely ask basic questions.Hackers are the opposite. We’re always focused on breaking down problems into the most basic components, and then building up complexity once we understand the system.When Nat reached out to me, I didn’t know what to expect. But I certainly didn’t expect him to be a fellow hacker that happened to be famous. I think it’s incredible that someone can go so long without losing that spirit — imagine suddenly having a boatload of money. Most of us would probably take things easier.Another surprise is how incredibly chill he is. When things go seriously wrong, he’s totally cool about it, in a way that’s hard to put into words. I learned the phrase “No stress, friend” from him, and I’ve used it a few times to soothe other people. As cliche as it sounds, sometimes it’s the one thing in the world you need to hear.I wish I could tell a certain story to underscore the point, but Nat’s stories are his to tell. I hope he writes a book someday — nothing fancy, just a raw thought stream of all his experiences.And I wish I could share his future ambition. It’s so exciting that I can hardly contain myself. It might not work out, but that’s true of everything.I don’t know if anyone will see this. But I just wanted to write a little note to say how rare Nat is. He actually cares — deeply — and also cares about you. Most leaders don’t.If someone reading this has the opportunity to work with him on his new project, I encourage you to leave your cushy job on that basis alone. It’ll be fun in a way you won’t experience elsewhere."</p>
-							
-						
-							
-								<p class="story__comment_others">"In case people missed it. There was two promotions today. A new CEO at GitHub and the person GitHub reports to a MSFT also got promoted.Here’s the internal msft emailhttps://news.ycombinator.com/item?id=29098640This person at MSFT who got promoted is the one that caused the problems in the dotnet community where features that had a go-live RTM license (as in merged and ready for long term support) were removed from the programming language so that more Microsoft Visual Studio licenses could be sold.Other items under this persons remit:- Visual Studio- .NET- Python- TypeScript- OpenJDK- GitHub (+NPM)- (hint hint) Azure SDKs (hint hint)- (hint hint) Azure PaaS / Azure Serverless (hint hint)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://clivethompson.medium.com/the-metaverse-is-already-here-its-minecraft-99c89ed8ba2">The metaverse is already here – it&#39;s Minecraft</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29083271">
-						
-							
-								<p class="story__comment_first line-clamp">"(Aware of the fact that I&#39;m taking time out of my day to read HN)I really wonder how many adults &gt; 25yrs and &lt; 60yrs have the time to immerse themselves in any type of digital world / metaverse experience. If I was a teenager or in college, then yeah I can see it... but there are so many things to do in the 16hrs we have each day, and I already kick myself for not finishing that book, or getting an extra workout in, and just sitting in the backyard and resting my eyes. And I don&#39;t even have children..."</p>
-							
-						
-							
-								<p class="story__comment_others">"No, it is not. Neither is Roblox or Fortnite, or VRchat. A single game or world is NOT the metaverse, what is so hard to understand about that for journalists and companies?The metaverse is the immersive internet, as a successor to our current one that is more 2D oriented around photos/videos/text today. It&#39;s a paradigm shift in how we interact, but most importantly there will be many of these virtual worlds/spaces interconnected together to form an actual network that nobody outright owns. To get to this future, we need protocols/standards to allow virtual worlds to talk to one another and agree that users can hop back in forth between them seamlessly, across all platforms.More specifically, the way we use the web today to navigate from webpage to another is how we we traverse the metaverse. The core problem that needs to get solved right now is interoperability, to enable the &#34;web of 3D&#34;.Look to WebGPU, WebAssembly, and WebXR as cornerstone technologies here. Our startup is building the &#34;3D/VR web&#34; in this way, and our current focus is getting proper HTML5 exporting from the native game engines, currently Unreal Engine. We&#39;re also building out a suite of tooling to empower developers and creators along with our hosting/discovery platform that includes advanced texture compression + asynchronous asset fetching to enable 3D/VR websites that load as quickly as a regular 2D page. If you&#39;re a developer and are interested in our work, you can join our Discord here:https://discord.gg/zUSZ3T8"</p>
-							
-						
-							
-								<p class="story__comment_others">"“What is so hard for people to understand” says HN commenter: “the metaverse clearly means [my definition of the metaverse] why can’t people see this?!!”Well, Zuckerberg didn’t give a clear definition, the term itself is made up, and it doesn’t currently exist (otherwise, what would we be building?).So no you don’t know what it means or how it will turn out, and neither does Zuckerberg. He might have a vision of what he’d like it to be and how he’s going to make money out of it, but he’s very probably very wrong.It’s obvious a deeply immersive experience will eventually arrive but it seems far from obvious how it will be used, much like predicting the rise of Tik Tok in 1990 based on email and usenet.The best way to predict the future is to make it. Hackers built much of the early internet, so let’s go build the early metaverse and at least make something insanely experimental and magical and beautiful before the next Zuckerberg comes alone and devalues it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.sec.gov/Archives/edgar/data/0001462056/000119312521316078/d62601ds1a.htm">Backblaze IPO</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29087416">
-						
-							
-								<p class="story__comment_first line-clamp">"Apropos of nothing, I&#39;ll share one of the reasons why I&#39;ve been a loyal customer since 2010. In 2013 I booted up a dormant 2006 Macbook to prep for lending to a friend. Shortly thereafter I received the following email:===Hi Robbie (first name guessed from email address)-This is NOT an automated email, I&#39;m typing this live.
-You have the very very last computer on earth running
-an ancient version of Backblaze (version 1.5.2.390) that
-NO LONGER WORKS (too old, needs updating).You are paying for a service you are not using.
-You have two choices:1) Upgrade your Mac OS X 10.5 computer called &#34;rlmmbp&#34;
-    to the latest Backblaze.  Just visit our homepage
-    and download it and install right over the top of
-    what you have already, here is a URL:
-    https://secure.backblaze.com/update.htm
-    (Will take less than 5 seconds, totally free,
-    you are already paying!)2) Do nothing -&gt; in 7 more days I will delete that
-     machine&#39;s backup and all of the files in the backup,
-     and you will be paying for an unused license.
-     (I can provide instructions on how to cancel your
-     billing if you need them.)If you have any questions, feel free to contact me
-at the email address below:- Brian Wilson
-  CTO, Backblaze
-  brianw@backblaze.com"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is an interesting moment to reflect on the wacky nature of IPO vs ICO valuations.  Backblaze and Filecoin are, roughly speaking, in the same business (providing bulk file storage).  Backblaze is looking to raise ~$100 million at a valuation of about $0.7 billion.  Filecoin raised $250 million in their ICO, and the coin has a current &#34;market cap&#34; of about $7 billion.  Backblaze owns about 1.8 EiB of storage, Filecoin has about 13 EiB &#34;pledged&#34;, so if you consider those measurements comparable the $ of valuation per EiB is similar.  Businesses generally get valued more on what they bring in than what they own however, and Backblaze takes in ~$65 million/year revenue (~$175K/day).   I&#39;m not entirely clear what would be analogous to revenue for Filecoin, but they &#34;mine&#34; ~330K coins per day, which at current prices is about $21 million (or $7.8 billion per year?).  Now here&#39;s where it gets crazy... based on the current average reward if Backblaze dedicated all of their storage to Filecoin mining they could (theoretically) generate about $2.5 million a day (or $900 million/year, about 13x what they bring in now).Backblaze did look into farming Chia at some point[1], don&#39;t know if they&#39;ve done similar experiments with Filecoin, but it definitely seems like there is a profound disconnect between these two worlds (which could be the result of some other factor, like the USD value of Bitcoin).[1] https://www.backblaze.com/blog/chia-analysis-to-farm-or-not-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; We have a history of cumulative losses, and we do not expect to be profitable for the foreseeable future.Fundamentals seem solid, gotta get me some of those shares!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://christianheilmann.com/2021/11/01/developer-tools-secrets-that-shouldnt-be-secrets/">Web developer tool secrets that shouldn’t be secrets</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29071700">
-						
-							
-								<p class="story__comment_first line-clamp">"This is more of a &#34;hacker&#34; tip than something for web developers but &#34;Show Page Source&#34; will show you the full raw HTML for any page. Be careful where you use it though as it is illegal in some states."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Overrides allow you to store local copies of remote scripts and override them when the page loads. This is great if you have, for example, a slow build process for your whole application and you want to try something out. It is also a great tool to replace annoying scripts from third party web sites without having to use a browser extension.&#34;Overrides are useful not just for &#34;developers&#34;.  Why is this option hidden away in &#34;Developer Tools&#34;.The biggest &#34;secret&#34; not mentioned here is keyboard navigation.  It is incredibly cumbersome to operate &#34;Developer Tools&#34; on a small form factor computer without a mouse.Here is one solution: In Chrome&#39;s, F12 to open Developer Tools, then Ctrl-P then type &#34;&gt;&#34;.Then can scroll all available commands using Up/Down or start typing and use autocomplete to search for commands.  Whether this is faster and more effective than pointing+clicking/tapping on tiny screen areas, ticking/unticking tiny check boxes and scrolling around in tiny menus is a question for the reader.  Talk amongst yourselves.For example, to navigate to Overrides, the key sequence is F12,Ctrl-P,&#34;&gt;&#34;,&#34;des&#34;,Enter"</p>
-							
-						
-							
-								<p class="story__comment_others">"Here&#39;s a really obscure one which I&#39;ve never heard anyone mention, except the first time I heard about it:In the JS console:  $0
-is a reference to the currently-highlighted element in the DOM Inspector (at least this is the case in Firefox, Chrome and Edge, haven&#39;t tried others).Very handy for quickly evaluating or operating on an element you&#39;re looking at :)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.ft.com/content/e381b556-c859-4a3b-8f7c-5fe80d3272d2">US puts NSO Group on trade blacklist</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29095265">
-						
-							
-								<p class="story__comment_first line-clamp">"As I doubt the US needed the recent stories to know what the NSO Group was up to, this will cause similar groups to treat any potential leak source with even more hostility. The US is making it clear that targeting dissidents, journalists or activists is fine but getting caught is a problem."</p>
-							
-						
-							
-								<p class="story__comment_others">"If this were not just an utterly meaningless exercise, every single person that has ever worked at or with the NSO group should be blacklisted and untouchable to send an actual signal and make the consequences of participating in such activities actually meaningful and consequential."</p>
-							
-						
-							
-								<p class="story__comment_others">"Considering how powerful politically Israel is in the US and how seemingly the NSO Group was government-sanctioned, this seems crazy to me.I would not be silly enough to think this means less unconditional support for Israel in general, though. NSO Group just specifically got too toxic."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29099746">Ask HN: Who&#39;s not sucky to work for?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29099746">
-						
-							
-								<p class="story__comment_first line-clamp">"I loved every minute of my time working at Netflix.  Great, talented coworkers who I could constantly learn from, management chain from bottom to top of former engineers, so they understood when you would say, &#34;I worked on this for a week but have no results because it didn&#39;t work&#34;.  Plenty of resources to do what you needed to do, and lots of autonomy to do what you thought was right.  Very little process and upper management actively moved to eliminate what little process there was.  Unlimited vacation time that was real -- management took long vacations to set an example and would actively encourage everyone to do the same.  And of course a great paycheck which included 10%+ raises because they made sure that new people didn&#39;t make more than veterans.I&#39;ll be the first to admit it&#39;s not for everyone.  As they say, they are a sports team, not a family.  Perform well and be rewarded handsomely, perform poorly and get cut with a big check.  I personally thrived in that kind of environment, where you always have to keep proving your value.  But not everyone wants to work that way."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve never worked for a big famous tech firm, but I will absolutely tell you how I&#39;ve managed to avoid hating work for 30 years:Find a relatively small firm, still owner-run and controlled. Avoid public firms. A corporation cannot show loyalty, but a HUMAN can. A manager has no real control -- their manager can reverse them. When you work for the owner, you can trust things a bit more IF you&#39;re working for a trustworthy person.This means small. But it doesn&#39;t mean cheap. ;)That said, I&#39;ve probably left money on the table working this way, and I&#39;ll never get IPO stock or similar, but stability and ethical behavior in a workplace go a LONG way."</p>
-							
-						
-							
-								<p class="story__comment_others">"I work for a small financial SaaS in Boston. 30-50 people. Nobody offshore. I&#39;ve worked here for 18 years and 11 months and a couple of days. Yes, we&#39;re hiring.The best thing about the company are the people who are already here. The basic hiring criteria are &#34;clever, competent and kind&#34;. That doesn&#39;t mean we never have disagreements, but they tend to be technical disagreements about the best approach to reach the same goal. Before the pandemic, and hopefully after it, the kitchen was the center of the company: casual questions turned into great discussions, explanations... there&#39;s a big whiteboard wall in the kitchen, and it got used a lot.That goal, incidentally, is to drive down the cost of good portfolio analysis until it&#39;s within everyone&#39;s reach. We&#39;re succeeding: there are clients who have programs where people start their investments with $50/week.Our folks are reasonably diverse in terms of background and talents. There&#39;s a robust co-op program. The benefits are pretty good -- fully paid health care premiums -- but it&#39;s definitely the people that make it great."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://atari8.dev/final_assault/">New 3D FPS released for 1979 Atari 800</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29094853">
-						
-							
-								<p class="story__comment_first line-clamp">"Slovak group GMG released a full featured FPS for 40+ year old computer (64kb of ram, 1.79Mhz 6502)Features:- raycaster engine running at 25 - 30 FPS- animated textures- lighting system- destroyable walls- automap- 3 enemy types- final bossgame is fully playable in Altirra emulatorvideo: https://www.youtube.com/watch?v=lRd3MucaRoUhomepage: https://atari8.dev/final_assaultdiscussion: https://atariage.com/forums/topic/326709-final-assault-new-g..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Having written realtime ray tracers in the classic demoscene style on e.g. 300 MHz Pentium 2 Celeron (the original one with no cache, that overclocked to 450-550 MHz), I sometimes wonder about how cool it would be to open source a modern rendering engine around the time of the first Pentium 3 with SSE, in 1999.You could completely revolutionise computer graphics on that era of hardware, with the view to increasing vectorisation, and probably strongly steer it towards ray tracing instead of rasterisation (even skipping over the local minimum of k-D tree methods, the introduction of Surface Area Heuristic and eventually settling on modern BVH building and traversal)."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here&#39;s a video: https://www.youtube.com/watch?v=92K9wnk_4CwPretty interesting but it&#39;s a little hard to make out what&#39;s going on sometimes."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/maxvfischer/DIY-CNC-machine">Show HN: I built a CNC-machine from scratch, using 40x 3D-printed parts</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29096954">
-						
-							
-								<p class="story__comment_first line-clamp">"I just finished my latest project, building a CNC-machine from scratch using an Arduino Uno, GRBL and 40x 3d-printed parts. It’s able to mill wood and aluminium, up to ~20mm thick.As with all my other projects, I think they should be executed in the open where other people can learn from my mistakes and get inspired to build their own things! Therefore I’ve spend a lot of time writing a free complete tutorial of the build, documenting every step with text and detailed images, creating a complete bill of materials (including STL-files for the 3d-printed parts) etc. I don’t want any dependencies on DIY-websites, so I’ve hosted it on GitHub, where anyone can clone it locally.I built this machine to gain more knowledge about mechanical engineering, electrical wiring, stepper motors, GRBL, CAD, CAM etc. Also, I guess I can build new fun things with the machine? Overly-engineered birdhouses maybe?Setup:* It’s running on an Arduino Uno, CNC-shield and GRBL.* 40 parts are 3d-printed (all the red parts in the video)* It’s based on Ivan Miranda’s blueprints, but I’ve adjusted some parts and structured the bill of materials.* It uses 2x 19:1 geared NEMA17 stepper motors for the Y-axis and 1x for the X-axis. The Z-axis is using a standard NEMA17 motor.* HTD5M belts and pulleys are used for X-axis and Y-axis. GT2 belt and pulleys are used for the Z-axis.If you have any questions, feel free to contact me. You’ll find my email in the top of the guide :)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;d love to have an open source CNC machine to design joinery with http://ma-la.com/tsugite.html
-Ideally a whole house and most of the furniture...If anyone has any ideas on how to accelerate build times of open hardware, that&#39;s something I&#39;m trying to solve. Creating high quality instructionals is a huge amount of work and I think instructionals should be automatically generated by computer vision and have interactable elements, ideally AR, but even just highlighting wiring diagrams on hovering would be hugely helpful. Even if things are well documented, replication is still insanely pyrrhic without economy of scale or universal fabrication. It&#39;s time consuming because it&#39;s hard to replicate knowledge/tool environments quickly."</p>
-							
-						
-							
-								<p class="story__comment_others">"Hey, this is a great project. I am working on a project that involves both hardware and software much like your CNC project.I especially like how the README.md is exquisitely well-written, complete with images. May I ask - did you manually link the pictures and links while writing the README or did you use a program that let you generate the source md file from a WYSIWYG editor?PS. I am a newbie here. So, I really hope this question isn&#39;t against the code of conduct here."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://solar.lowtechmagazine.com/2018/09/how-to-build-a-lowtech-website.html">How to build a low-tech website? (2018)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29067118">
-						
-							
-								<p class="story__comment_first line-clamp">"This bit really caught my attention:&gt; In contrast, this website runs on an off-the-grid solar power system with its own energy storage, and will go off-line during longer periods of cloudy weather. Less than 100% reliability is essential for the sustainability of an off-the-grid solar system, because above a certain threshold the fossil fuel energy used for producing and replacing the batteries is higher than the fossil fuel energy saved by the solar panels.This, in particular, is an amazing take:&gt; Less than 100% reliability is essential for the sustainability of an off-the-grid solar systemSaying that sacrificing uptime is a good thing for achieving a particular goal is a take that&#39;s so wildly out of line with what most of the industry believes is refreshing, because it really makes you think. What would the world look like, if instead of being obsessed with SRE we simply assumed or accepted that there will be downtime, and treated it like something perfectly normal. Maybe a nice message at ingress/load balancer level, telling everyone that the site will be back in a bit.I have no illusions that any company would want something like that, or that it&#39;s even feasible for many industries, e.g. healthcare, though the Latvian &#34;e-health&#34; system is an accidental experiment of this at the cost of around 15 million euros of taxpayer money: https://www-lsm-lv.translate.goog/raksts/zinas/latvija/par-e... .However, if companies have working hours, why couldn&#39;t websites? What a funny thought.Edit: on an unrelated note, it&#39;s wild how different setups can be.For example:&gt; The web server uses between 1 and 2.5 watts of power...While at the same time, i have two servers with 200GEs (essentially consumer hardware) running in my homelab, with a TDP of 35W each, though with the UPS and its inefficiencies, as well as the 4G router, the total energy consumption that i have to deal with is around 100W. Granted, i also use them for backups and as CI nodes, but there&#39;s still a difference of 20 - 50 times more power usage between one of my servers and one of theirs. I guess one can definitely talk about the differences between x86 and ARM there as well."</p>
-							
-						
-							
-								<p class="story__comment_others">"As they describe being open to ideas and feedback: maybe using static compression could help. The concept is to pre-compress files (have foo.html.gz available next to foo.html) so that the web server does not have to compress on-the-fly. nginx supports it[0] and gzip_static does not appear in their nginx config[1].It might not make a difference if nginx has a in-RAM cache of the compressed files. Otherwise, it has the potential to be pretty significant assuming most requests are made using &#34;Accept-Encoding: gzip&#34; and assuming the web server does not prefer other compression algorithms (eg. Brotli).[0]: https://nginx.org/en/docs/http/ngx_http_gzip_static_module.h...[1]: https://homebrewserver.club/low-tech-website-howto.html#full..."</p>
-							
-						
-							
-								<p class="story__comment_others">"The amount of energy wasted due to poor caching strategies alone could power small countries. Made far worse by the current trend to maximize code readability and organization by using as many dependencies as humanly possible for even the simplest of tasks."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bloomberg.com/news/newsletters/2021-11-01/u-s-telecoms-are-going-to-start-physically-removing-huawei-gear">U.S. telecoms are going to start physically removing Huawei gear</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29066579">
-						
-							
-								<p class="story__comment_first line-clamp">"The way the last administration rolled this out was certainly with a political narrative, but my guess is it originated with people that weren&#39;t thinking at all about politics.The simple story is that core infrastructure is of strategic national importance, and an elevated risk that infrastructure is compromised can never be worth whatever the benefits are of using a particular supplier&#39;s equipment.  There is no practical way to 100% ensure that every piece of software, and every chip, in every piece of equipment is clean.  Chips are especially scary (the push to have domestic chip fab by the US and other countries is about more than just supply chain).This is true when it comes from what are considered trustworthy suppliers as well, but you&#39;re dealing with probabilities.  I think that regardless of whether this move fits into a political narrative about China, or &#34;economic warfare&#34;, the practical basis is that for some types of equipment, the risk is just too large and the ability to mitigate too limited, in general.Unfortunately this was figured out with Huawei/ZTE after the fact, but tbh I don&#39;t think the specific company matters at all, it just happened to be they were in this business at the time &amp; based in the wrong country."</p>
-							
-						
-							
-								<p class="story__comment_others">"ANSSI, the French agency for information systems security, has severely tightened authorizations for vital infrastructure. Though Huawei is still kosher in many network functions, French telcos have had to remove a few thousand nodes they had already deployed, especially in network cores. All authorizations are temporary - between three and eight years.This is not just about security in a narrow definition, but in a large part about ensuring that mastery of strategic functions remains with European firms.Like armaments, telecommunication infrastructures are not a normal market."</p>
-							
-						
-							
-								<p class="story__comment_others">"If I could put on my conspiracy hat... Perhaps this is related to Canada&#39;s detention of he Huawei executive. Someone put their foot down and said Chinese hardware is spying on us, and perhaps they forced China to give up how.At it&#39;s core, the world absolutely cannot trust China. Because Huawei is a de facto company owned by the Chinese government, it stands to reason that the distrust must be extended to Huawei. The product may be good, but China has very little credibility anymore, and should absolutely not be trusted."</p>
 							
 						
 						</a>
