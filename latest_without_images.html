@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">14 November 2021</div>
+	<div class="day__date">15 November 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.agwa.name/blog/post/ssh_signatures">Sign arbitrary data with your SSH keys</a></h3>
+					<h3><a href="https://hackaday.com/2021/11/14/those-bullet-effects-in-terminator-2-werent-cgi/">The bullet effects in Terminator 2 weren’t CGI</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29208518">
+						<a href="https://news.ycombinator.com/item?id=29218144">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt;Here&#39;s why I like SSH signatures:&gt;* It&#39;s not PGP.The most important reason people use the OpenPGP message format is because it is a well accepted standard. Sure the cryptography is not new and fun but it is secure. If you sign something with OpenPGP then you can be sure that those signatures are verifiable on any platform by anyone. The OpenPGP standard has provisions to ensure that the signatures are from a particular entity. This proposal suggests that Github could be treated as a trusted third party. If that is the case then you don&#39;t need signatures at all.Obligatory &#34;The PGP Problem&#34; rebuttal:* https://articles.59.ca/doku.php?id=pgpfan:tpp"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; GitHub acts as a trusted third party here, and you have to trust them not to lie about people&#39;s public keys, so it may not be appropriate for all use cases. But relying on a trusted third party with a professional security team like GitHub seems like a way better default than PGP&#39;s Web of Trust, which was nigh impossible to use.Hopefully that&#39;s a false dichotomy and the entire Free Software community doesn&#39;t end up reliant on Microsoft to host all our keys for us.  The article goes on to mention key transparency, though, which does seem like the right solution.I note that rekor (the transparency log implementation used by sigstore) already supports signing with SSH keys[0], so this TechRepublic article about it[1] from March (which lists only &#34;GPG, x509 and Minisign&#34;) is already out of date.[0] https://github.com/sigstore/rekor/blob/main/types.md#ssh[1] https://www.techrepublic.com/article/a-new-linux-foundation-..."</p>
+								<p class="story__comment_first line-clamp">"In the movie The War Lover, Steve McQueen (well, the actual pilot) pilots a B17 bomber &#34;cutting the grass&#34;, i.e. flying low with the gear up. The stunt was to be done with models because it was too dangerous.My dad was in the AF at the time, and was assigned to the movie as a consultant on AF trivia. He convinced them that the stunt could be done safely, and explained how to do it.And so it was done. My dad got in trouble, because if the B17 had crashed doing the stunt, the AF would have looked bad. But it didn&#39;t crash, and the stunt was a big deal to the movie crowds, so he was forgiven.https://www.youtube.com/watch?v=TGGynxYbA48It&#39;s still freakin&#39; impressive today.His other contribution to the movie was the mission briefing wall maps."</p>
 							
 						
 							
-								<p class="story__comment_others">"Regarding PGP&#39;s &#39;Web of Trust&#39;, I thought the purpose of this was to validate the link between the key and the owner of that key.  This is not what you get from retrieving a public key from github... that only gives you the link between that key and a github account.  But what does that give you?From what I understand, it gives you nothing for anything that is signed and that does not have a direct link to a github account.  Obviously, if someone releases software on that github account and I find a signed release of that software, I can validate that it really was signed by the official source of that software on github. For anything that does not have that direct link, it really does not give you anything.I&#39;ve never used PGP, but I thought the web of trust was used to validate metadata on the key and that this can be used to validate that a key really belongs to the person that you think it belongs to.  I saw it more like how you have SSL certificates with different degrees of validation and where you must deliver more proof of your identity if you want to receive a certification with a higher degree of validation.I&#39;m all for using SSH keys for signing, but I still would like to have something like PGP&#39;s web of trust for those keys."</p>
+								<p class="story__comment_others">"The most fascinating non-CGI effect from Terminator 2 is a cut scene which can be seen in the director&#39;s cut, where they use Linda Hamilton twin sister in a surprising way: to fake a &#34;mirror&#34; scene where Sarah is operating on the Terminator&#39;s head.They are in front of a mirror. They wanted to actually use Arnie in the reflection to show his face; they wanted a dummy for the head closest to the camera, to show the surgery inside the head. So they used a window in the wall instead of a mirror! Linda Hamilton and her twin sister are mimicking each other&#39;s movements to make it seem it&#39;s a mirror image.(The other use of Linda&#39;s twin sister, the scene where the T-1000 fakes being Sarah, is better known)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Wait until you hear about how Cameron filmed the scene with a helicopter going under a highway overpass.https://filmschoolrejects.com/terminator-2-helicopter-stunt/"</p>
 							
 						
 						</a>
@@ -67,53 +67,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://restic.net/">Restic – Backups Done Right</a></h3>
+					<h3><a href="https://krebsonsecurity.com/2021/11/hoax-email-blast-abused-poor-coding-in-fbi-website/">Hoax email blast abused poor coding in FBI website</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29209455">
+						<a href="https://news.ycombinator.com/item?id=29213850">
 						
 							
-								<p class="story__comment_first line-clamp">"Oh yeah, restic is awesome  _backup_prepare () {
-    export $(sudo cat &lt;protected_credentials_file&gt; | xargs)
-  }
-
-  _backup_remove_old_snapshots () {
-    restic forget -r &lt;repo_name&gt; --keep-weekly 10
-  }
-
-  _backup_verify () {
-    restic check -r &lt;repo_name&gt;
-  }
-
-  backup () {
-    echo &#34;---------------Scheduled backup time---------------&#34;
-    echo &#34;&#34;
-    _backup_prepare
-    restic -r &lt;repo_name&gt; --verbose --exclude=&#34;$HOME/snap&#34; --exclude=&#34;$HOME/Android&#34; --exclude=&#34;$HOME/.android&#34; --exclude=&#34;$HOME/ApkProjects&#34; backup ~/
-    echo &#34;&#34;
-    echo &#34;---------------Backup done, removing old snapshots---------------&#34;
-    echo &#34;&#34;
-    _backup_remove_old_snapshots
-    echo &#34;&#34;
-    echo &#34;---------------Old snapshots removed, verifying the data is restorable---------------&#34;
-    echo &#34;&#34;
-    _backup_verify
-    echo &#34;&#34;
-    echo &#34;---------------Backup done and verified!---------------&#34;
-  }
-
-Then in cron I just have this entry:  20 \* \* \* DISPLAY=:0 kitty -- /bin/zsh --login -c &#39;source ~/.zshrc; backup; read&#39;
-
-So every time my PC is on @ 20:00, a shell window will pop-up, asking me for password and runs the backup :). Since they are incremental, it takes maybe 10-15 minutes top."</p>
+								<p class="story__comment_first line-clamp">"Previous ongoing thread:Email from FBI Looks Odd - https://news.ycombinator.com/item?id=29208276 - Nov 2021 (150 comments)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Restic is a great backup program. I use it (via rclone) to back up my laptop and it truly saved my bacon when I attached my main hard disk to a VM I was playing with and accidentally formatted it!Restic can use rclone to access cloud providers it can&#39;t access and that&#39;s something we worked together on.I use rclone directly for backing up media and files which don&#39;t change much, but restic nails that incremental backup at the cost of no longer mapping one file to one object on the storage which is where rclone shines.(rclone author)"</p>
+								<p class="story__comment_others">"I suppose it could have been worse. I appreciate that they made the emails very clearly fake. The fact it passed DKIM checks was definitely alarming, though. A lot of people thought there was a flaw in DKIM somehow, but unsurprisingly it&#39;s a flaw with the FBI&#39;s site.All in good fun, I suppose."</p>
 							
 						
 							
-								<p class="story__comment_others">"Past related threads:Saving a restic backup the hard way - https://news.ycombinator.com/item?id=28438430 - Sept 2021 (2 comments)Restic Cryptography (2017) - https://news.ycombinator.com/item?id=27471549 - June 2021 (5 comments)Backups with restic and systemd and prometheus export - https://news.ycombinator.com/item?id=27411713 - June 2021 (1 comment)Restic – Backups Done Right - https://news.ycombinator.com/item?id=21410833 - Oct 2019 (177 comments)Append-only backups with restic and rclone - https://news.ycombinator.com/item?id=19347188 - March 2019 (42 comments)Restic Cryptography - https://news.ycombinator.com/item?id=15131310 - Aug 2017 (36 comments)A performance comparison of Duplicacy, restic, Attic, and duplicity - https://news.ycombinator.com/item?id=14796936 - July 2017 (49 comments)Restic – Backups done right - https://news.ycombinator.com/item?id=10135430 - Aug 2015 (1 comment)"</p>
+								<p class="story__comment_others">"&#34;when you requested the confirmation code [it] was generated client-side, then sent to you via a POST Request&#34;That is shocking. What must the internal culture be like for such an idea to even be a possibility?"</p>
 							
 						
 						</a>
@@ -126,24 +95,22 @@ So every time my PC is on @ 20:00, a shell window will pop-up, asking me for pas
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://old.reddit.com/r/sysadmin/comments/qsun7o/email_from_fbi_looks_odd/">Email from FBI Looks Odd</a></h3>
+					<h3><a href="https://www.reuters.com/world/us/us-states-file-updated-antitrust-complaint-against-alphabets-google-2021-11-13/">U.S. states file updated antitrust complaint against Google</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29208276">
+						<a href="https://news.ycombinator.com/item?id=29214351">
 						
 							
-								<p class="story__comment_first line-clamp">"  We have been made aware of &#34;scary&#34; emails sent in the last few hours that purport to come from the FBI/DHS. While the emails are indeed being sent from infrastructure that is owned by the FBI/DHS (the LEEP portal), our research shows that these emails *are* fake.
-
-https://twitter.com/spamhaus/status/1459450061696417792"</p>
-							
-						
-							
-								<p class="story__comment_others">"The email domain where the messages originate is from some sort of federated identity management system that was created in 2010 (here is a proposal deck [0] with technical details). Found this program simply by searching Google for the sending domain.Based on the guide for using this system [1] (see step 15) looks like this specific email address is the one that sends automated confirmation emails upon registration. Perhaps someone was able to inject a message instead of the regular canned text through some sort of reflection attack? This explains why replies to the message result in a canned response. The system also now appears to be temporarily down. So it’s getting some sort of attention (internally taken down (most likely) or maybe denial of service from the abuse).The Reddit thread suggests the recipients’ emails are likely ARIN IP range contacts. Those are very available from tools like this [2] so nothing interesting with that, but the real question is WHY someone would do this at all? This was clearly given some thought (on who to send this to who would actually take the time to verify the headers) but given the sloppiness of everything else, is this just a script kiddie flex? Whoever it is pissed off the FBI and gained absolutely nothing.[0] https://bja.ojp.gov/sites/g/files/xyckuh186/files/media/docu...[1] https://www.justice.gov/tribal/page/file/1260671/download[2] http://itools.com/tool/arin-whois-domain-search"</p>
+								<p class="story__comment_first line-clamp">"As more data comes out about Google, Apple, Amazon, one simple underlying thing becomes clear: a single company cannot be trusted to operate a marketplace while also being a participant.Apple&#39;s App Store insider knowledge lets them discover popular apps, then boot them off the platform when they decide to compete. Amazon sees what products are successful and profitable, then makes knock-offs which they promote over the originals. And now, reading into this, Google is manipulating their ad markets using inside knowledge.It&#39;s all very profitable.If we cannot trust large companies to not abuse this kind of power, then they should be prevented by law from playing both sides. This may result in the breakup of some very large companies, akin to the 1934 Air Mail Act that broke up Boeing."</p>
 							
 						
 							
-								<p class="story__comment_others">"Lots of people commenting that the text of the email seems amateurish. Perhaps it’s exactly as it should be, but you don’t understand its purpose. Maybe they wanted this to be discussed on netsec forums everywhere, so that Google searches for “Vinny Troia” always lead back to discussion about this email, framing him as a cyber criminal and outranking legitimate posts about or by him - an online identity assassination. They needed the email to set off some alarm bells so that it would pique enough interest to be widely discussed. They appear to have widely targeted the email addresses of system admins. I’m fairly certain this was their intention.Also, does it strike anyone else as odd that the account that posted this to HN was created hours ago, for the sole purpose of starting this thread?"</p>
+								<p class="story__comment_others">"&gt; The lawsuit also highlights Google&#39;s use of a secret program dubbed &#34;Project Bernanke&#34; in 2013 that used bidding data to give its own ad-buying an advantage. For example, in a 2015 iteration of the program, Google allegedly dropped the second-highest bids from publishers&#39; auctions, accumulated money into a pool and then spent that money to inflate only the bids belonging advertisers who used the company&#39;s Google Ads. They otherwise would have likely lost the auctions, the states alleged.Can someone rephrase this and possibly explain like I&#39;m five? I&#39;m not following the mechanics..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Still waiting for investigators to look into Chrome.In 2009 we were finally getting rid of IE and the web browser market was a healthy ecosystem with lots and lots of innovation happening.Today we are soon back on a browser monoculture with the owner of the most popular product being a company that has enormous interest in killing certain parts of the ecosystem and also has a long history of killing of their own products.How did it happen? In my opinion: massive abuse of power in two other markets (search and ads) to push their way into browsers as well. (Well, I&#39;m feeling I might have been too generous above: I could add 2 more - video and office tools - by pointing how they selectively make Google Docs and YouTube perform worse in Firefox, being so brazen about it that just changing the headers so that Firefox identifies itself as Chrome makes the problems go away.)"</p>
 							
 						
 						</a>
@@ -156,23 +123,22 @@ https://twitter.com/spamhaus/status/1459450061696417792"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.bbc.co.uk/news/business-59263300">Portugal bans bosses texting staff after-hours</a></h3>
+					<h3><a href="https://blog.unity.com/technology/debugging-memory-corruption-who-the-hell-writes-2-into-my-stack-2">Debugging memory corruption: who the hell writes “2” into my stack? (2016)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29201307">
+						<a href="https://news.ycombinator.com/item?id=29215725">
 						
 							
-								<p class="story__comment_first line-clamp">"(Portuguese here)
-Portuguese Parliament and Government publish law every day and afterhours[1], as a citizen I have to keep up with this. MPs believe they are doing a great job by producing more Law, instead of checking if what is in place is accountable. A common behaviour is when a &#34;crime&#34; case is well covered by the media, the first thing is said &#34;we need to change the Law&#34;, trying to dodge blame.I have been working remote for 17 years, and the teams I worked in, work asynchronously. It is fine to text, slack, discord and email after hours, people don&#39;t expect to get answers immediately, they will reply according to their schedule or contract.One case is that employers have to compensate employees for electricity and utilities for working remote, in my case that is a cost of €10.58, I save much more for not commuting, financially and psychologically.[1] https://dre.pt/dre/home"</p>
-							
-						
-							
-								<p class="story__comment_others">"Can we open up a broader discussion about Portugal&#39;s culture of work? On one hand this sends a message that Portugal cares about work/life balance for everyday citizens. On the other my general impression of Portugal&#39;s economy is that it&#39;s one of the weaker members of the EU. High debt, not a huge driver of innovation, wealth, etc. These are all just loosely held beliefs kicking around in my head. I&#39;m not attached to any of them or sure that they are even accurate."</p>
+								<p class="story__comment_first line-clamp">"When another thread pushes a socket to be processed by the socket polling thread, the socket polling thread calls select() on that function. Since select() is a blocking call, when another socket is pushed to the socket polling thread queue it has to somehow interrupt select() so the new socket gets processed ASAP. How does one interrupt select() function? Apparently, we used QueueUserAPC() to execute asynchronous procedure while select() was blocked… and threw an exception out of it!Not taking anything away from the great debugging, but that is just incredibly bad design and reeks of bugs from a mile away. System calls block for a reason. If you can&#39;t handle the blocking, how about a non-blocking architecture? But in this case, the engineer thought &#34;hey, I don&#39;t want to block on my precious main thread, so let&#39;s just give this blocking thing to another thread, that&#39;ll surely solve it!&#34;. Except it doesn&#39;t when you use that same thread as a worker to execute all other thread&#39;s blocking crap ... but then write the queue push() function to be blocking as well!Keep it simple folks. Bad design always breeds more bad design."</p>
 							
 						
 							
-								<p class="story__comment_others">"I DM my staff on slack “after hours” [1] all the time, and set the expectation that they should respond when appropriate at their discretion. That could (and often does) mean the next business day or even later. Or it could mean ASAP; they’re adults, and have the judgement to make the correct call.[1] Obviously, this policy is not targeted at staff in different time zones, which makes their remedy meaningless."</p>
+								<p class="story__comment_others">"I read this and couldn&#39;t shake the feeling that it&#39;s a fantasy tale because it mentions the mystical Unity support engineer who actually fixes bugs - the one I haven&#39;t been able to get a hold on for the past 5 years, despite having critical bugs escalated by support... But then I noticed this is from 2016, so before they started kicking out experienced people to polish their profit margin for the IPO.Still an amazing debugging story, though :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"From the article: &#34;Surprisingly, setting up kernel debugging is extremely easy on Windows.&#34;Microsoft (at least used to) take developers very seriously. The OS actually plays along when you&#39;re trying to debug things, and Windows error reporting actually sends you data that you can work with.Say what you want about their business practices, but I&#39;d deal with Microsoft&#39;s developer support over Apple&#39;s anytime. And mandatory Youtube: https://www.youtube.com/watch?v=Vhh_GeBPOhs"</p>
 							
 						
 						</a>
@@ -185,23 +151,22 @@ Portuguese Parliament and Government publish law every day and afterhours[1], as
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.righto.com/2021/11/reverse-engineering-yamaha-dx7.html">Reverse-engineering the Yamaha DX7 synthesizer&#39;s sound chip from die photos</a></h3>
+					<h3><a href="https://pluralistic.net/2021/11/14/still-the-product/#vizio">Vizio makes more money spying on people who buy TVs than TVs themselves</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29211401">
+						<a href="https://news.ycombinator.com/item?id=29218381">
 						
 							
-								<p class="story__comment_first line-clamp">"Reading this really drove home to me just how amusing some of the twists and turns of music tech development are. In contemporary modular synth formats, you now have modules that use similar FM tone chips, but are controlled by potentiometers and analog control voltage inputs (for instance, https://busycircuits.com/alm011/). I could see how someone could conclude that this destroys the reproducibility advantages of digital FM synthesis, while preserving the cheesiness of FM sounds. From another perspective, you can freely explore the enormous landscape of sound produced by FM synthesis, without diving into the deep end of DX7 programming. Instead of generating sysex dumps on the fly to dynamically change the sounds produced by the synth, you just feed whatever control voltage you can come up with into the inputs of a module and bask in the insanity that comes out (for instance—https://www.youtube.com/watch?v=2-YEbg040ww definitely not everyone’s cup of tea).Edit: but if you want to explore the landscape of FM tones generated by these chips without spending all of your money on a modular setup, generating sysex messages will of course take you where you want to go: https://fo.am/activities/midimutant/"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is maybe a little outside the scope of your article, but I&#39;ve read about the DX7&#39;s log2 based sine wavetables in the past, and it makes sense from a math standpoint (log2(x) + log2(y) = log2(x*y)). However, I find it confusing when I go to try to replicate it. My understanding is that these are NOT floating point numbers. In which case the output would be in the 8bit range of (0-257) or -127 to +127 if we&#39;re using signed values.So assuming I want to represent a signal value of 127 (i.e. sin(t) = 127) using base 2 logs, I punch this into my calculator and i get log2(127) = 6.9886.
-But that&#39;s not what&#39;s going to be stored in the signal LUT since it&#39;s a floating point number.I think I&#39;m probably missing something obvious, but any clarification would be amazing."</p>
+								<p class="story__comment_first line-clamp">"RTings, a site that reviews (amongst other things) televisions, maintains a list of fully ad-free models:https://www.rtings.com/tv/tests/ads-in-smart-tv(They are the ones with &#34;10&#34; in the ad-free column)The dominant brand for ad-free models is in fact... Vizio."</p>
 							
 						
 							
-								<p class="story__comment_others">"Additional reading and discussion on the DX7 from 3 weeks ago: https://news.ycombinator.com/item?id=28940860"</p>
+								<p class="story__comment_others">"I&#39;ve had my Vizio TV (P55-F1, 2019 model; a mid range model) for about 2.5 years now. Image/sound quality is great. But the annoyances and overall mediocrity of the OS and its updates [0] made me just disconnect the TV from the internet and fully switch over to using an Apple TV for all consumption rather than using the native Vizio OS.[0]: The OS is terrible and the remote randomly stops working sometimes. Sometimes the TV would take tens of seconds to turn on, but then other times it was near instant.Every single update since I&#39;ve gotten the TV seems to make the TV even slower/more laggy. There was even an update about two years back where the Youtube app&#39;s volume was inexplicably an order of magnitude lower than every other input&#39;s volume (e.g. a volume of 100/100 on the Youtube app ended up being equivalent to a volume of 10/100 for all other apps/inputs). It took Vizio 1-3 months to fix it.Unblockable ads on the home screen and genuinely multi-hundred millisecond response times on the app launcher infuriated me."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is likely incorrect.The $57.3 million is for the &#34;Platform+&#34; division. It includes profit from homescreen ads, selling of buttons on remotes, and cuts of streaming revenue. It&#39;s likely that only a small fraction of the division&#39;s $83 million in revenue comes from tracking and then selling viewing habits."</p>
 							
 						
 						</a>
@@ -214,22 +179,24 @@ But that&#39;s not what&#39;s going to be stored in the signal LUT since it&#39;
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.evanmiller.org/how-not-to-sort-by-average-rating.html">How not to sort by average rating (2009)</a></h3>
+					<h3><a href="https://www.ibiblio.org/harris/500milemail.html">The case of the 500-mile email (2002)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29200103">
+						<a href="https://news.ycombinator.com/item?id=29213064">
 						
 							
-								<p class="story__comment_first line-clamp">"While I agree with the author in principle, I think there is an implicit criteria they ignore, which is the intuitive correctness from the perspective of the user.Imagine a user chooses &#34;Sort by rating&#34;, and they subsequently observe an item with an average 4.5 ranking above a score of 5.0 because it has a higher Wilson score. Some portion of users will think &#34;Ah, yes, this makes sense because the 4.5 rating is based on many more reviews, therefore its Wilson score is higher.&#34; and the vast, vast majority of users will think &#34;What the heck? This site is rigging the system! How come this one is ranked higher than that one?&#34; and erode confidence in the rankings.In fact, these kinds of black-box rankings* frequently land sites like Yelp into trouble, because it is natural to assume that the company has a finger on the scale so to speak when it is in their financial interests to do so. In particular, entries with a higher Wilson score are likely to be more expensive because their ostensibly-superior quality commands (or depends upon) their higher cost, exacerbating this effect due to perceived-higher margins.So the next logical step is to present the Wilson score directly, but this merely shifts the confusion elsewhere -- the user may find an item they&#39;re interested in buying, find it has one 5-star review, and yet its Wilson score is &lt;&lt; 5, producing at least the same perception and possibly a worse one.Instead, providing the statistically-sound score but de-emphasizing or hiding it, such as by making it accessible in the DOM but not visible, allows for the creation of alternative sorting mechanisms via e.g. browser extensions for the statistically-minded, without sacrificing the intuition of the top-line score.* I assume that most companies would choose not to explain the statistical foundations of their ranking algorithm."</p>
-							
-						
-							
-								<p class="story__comment_others">"This article inspired me so much that I based my shitty undergrad senior thesis on it. My idea was to predict the trend of the ratings by using I think a trailing weighted average, weighted to the most recent window. It managed to generate more &#34;predictive&#34; ratings of the following 6 months based on the Amazon dataset I used, but I doubt it would have held up to much scrutiny. I learned a ton though!Edit: Link to paper, which looks like it actually attempts to use a linear prediction algorithm. https://github.com/rkuykendall/rkuykendall.com/blob/e65147f6..."</p>
+								<p class="story__comment_first line-clamp">"On a similar theme, I remember reading a story about a server that would crash mysteriously every couple of weeks. They eventually worked out that this happened whenever there was a new moon or a full moon, and the resulting high tide caused a battleship moored in a nearby harbour to rise just high enough that its powerful radar would interfere with the server."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve been using this at work for the last year or so to great success.For example, we have an internal phishing simulation/assessment program, and want to track metrics like improvement and general uncertainty. Since implementing this about a year ago, we&#39;ve been able to make great improvements such as:* for a given person, identify the wilson lower bound that they would not get phished if they were targeted* for the employee population as a whole, determine the 95% uncertainty on whether a sample employee would get phished if targetedIt lets us make much more intelligent inferences about things, much more accurate risk assessments, and also lets us improve the program pretty significantly (e.g. your probability of being targeted being weighted by a combination of your wilson lower bound and your wilson uncertainty).There are SO MANY opportunities to improve things by using this method. Obviously it isn&#39;t applicable everywhere, but I&#39;d suggest you look at any metrics you have that use an average and just take a moment to ask yourself if a Wilson bound would be more appropriate, or might enable you to make marked improvements."</p>
+								<p class="story__comment_others">"&gt; &#34;When did this start?  A
+few days ago, you said, but did anything change in your systems at that time?&#34;&gt; &#34;Well, the consultant came in and patched our server and rebooted it.&gt; Having established that--unbelievably--the problem as reported was true,
+and repeatableAs far as problems go, this is an easy one to solve. Accurate description of the problem. Accurate reporting of what changed. Problem is consistently repeatable.Compared to a problem that doesn’t reliably reproduce and for which the person reporting it claims nothing changed, this one is child’s play.But it’s still amusing to read every time.I had something similar occur in the early 2000s on a patch release of Solaris 2.6 (I think) where the sleep call was broken and would always return almost instantly. This caused all sorts of weird behaviors on the running system.I also recall the first time I ran into an issue with MTU on a dedicated frame relay link we had to admin our web farm in the late nineties. One day a developer reported they could login to our bastion but when they ran “ls -l” in a big enough directory their ssh connection would hang. It turned out the connection would hang whenever a packet was generated near the MTU and we eventually tracked it down to an issue with the frame relay connection. We played with MTUs until we found out what worked. It then took a while to convince our provider what was going on but they eventually replaced a line card on the far end of the connection which allowed us to re-raise the MTU to 1500.Another fun problem I had was an email to SMS gateway I wrote for myself that worked by posting to a Verizon web form. I developed it on a Mac (probably 2002 or so) where it worked fine but when I deployed it to my Linux box on my same home network, the script couldn’t connect to Verizon’s site. It turned out the Linux box was a setting a flag on the TCP connection (ECN I think) that was tripping up Verizon’s web firewall. The work-around was disabling ECN on the Linux box."</p>
+							
+						
+							
+								<p class="story__comment_others">"This reminds me a problem I&#39;m currently having.  My iPhone freezes completely sometimes when I ride BART, requiring a hard reboot.  I notice it happens when passing the Daly City station.  It seems there&#39;s a strong signal tower nearby that the strong signal causes the problem.  It&#39;s probably the strength level read by the hardware causing an out of bound error somewhere and corrupting the phone&#39;s memory."</p>
 							
 						
 						</a>
@@ -242,27 +209,23 @@ But that&#39;s not what&#39;s going to be stored in the signal LUT since it&#39;
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://archive.org/details/ZeldovichYaglomHigherMathematics">Higher Math for Beginners (1987)</a></h3>
+					<h3><a href="https://github.com/hectorm/docker-qemu-win2000">Show HN: Windows 2000 on Docker</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29207021">
+						<a href="https://news.ycombinator.com/item?id=29217622">
 						
 							
-								<p class="story__comment_first line-clamp">"My experience with learning math is that the first months are all about backtracking. You have to fill all your holes.It&#39;s basically one big graph of concepts.The tricky part is, most beginners simply don&#39;t know how to navigate that graph.They see complex numbers with their exponentials and cos/sin forms and shut down.They can learn all these concepts no problem, but finding what they need to learn defeats them."</p>
-							
-						
-							
-								<p class="story__comment_others">"Reading the foreward&gt; These  de­finitions, which are not at all simple for the  
-&gt; beginner,  came  to  be  used  in  the wrong  context.  
-&gt; Textbooks  presented them  before  any explanation  was 
-&gt; given of  the  theory and its applications, there­
-&gt; by  complicating  an  understanding  of things  that  
-&gt; were  intuitively  clear.hear hear!This problem is like most of the Wikipedia pages that I come across on &#39;complex&#39; topics of not just maths but anything remotely intersting technically. I just give up in the end. Life is too short to be bothered with some editor&#39;s &#39;dick measuring&#39; competition about how clever they."</p>
+								<p class="story__comment_first line-clamp">"This brings back great memories. Windows 2000 sparked my interest in computing.I was in elementary school and was obsessed with the &#39;Log on to&#39; 
+dropdown box on Windows login screens, and how you could use the same credentials on any PC.Somehow I managed to salvage an old computer and source myself a copy of the ISO and managed to setup an ADDS domain controller and join my mother&#39;s laptop to the domain.I went and asked the IT guy for advice on doing a multi forest configuration and I think it blew his mind. Why did I want multi forest? Guess I was preoccupied with whether or not I could, and didn&#39;t stop to think if I should. : )"</p>
 							
 						
 							
-								<p class="story__comment_others">"This very book (but in russian) is the source of all my math skills. Academic Zeldovich was a brilliant physicist and I am glad to know what his works translated to English"</p>
+								<p class="story__comment_others">"I just ran this on a Fedora machine and connected to Windows using rdesktop. It works and it&#39;s amazing. I like it. The Internet will surely be confused today with a surge of traffic from Internet Explorer 5. Incidentally, google.com still loads and allows searching; bing.com does not load."</p>
+							
+						
+							
+								<p class="story__comment_others">"I actually cut my sysadmin teeth on Windows 2000, and found myself wondering how on earth they could `docker exec` a shell. These were, comparatively, the dark ages of Windows administration, and almost all tasks were done through a GUI.The implementation is nothing short of genius: they use a Windows version of `netcat` (the common UNIX tool, but compiled for Windows from the Windows 2000 Resource Kit), then use `srvany` (also from the Windows 2000 Resource Kit) to start `netcat` as a system service, but with `cmd.exe` piped to its standard in and out.Kudos on this solution!"</p>
 							
 						
 						</a>
@@ -275,22 +238,23 @@ But that&#39;s not what&#39;s going to be stored in the signal LUT since it&#39;
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://sagrista.info/../../../blog/2021/searx-or-duckduckgo/">Searx – Privacy-respecting metasearch engine</a></h3>
+					<h3><a href="https://projecteuler.net">Project Euler</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29198575">
+						<a href="https://news.ycombinator.com/item?id=29211532">
 						
 							
-								<p class="story__comment_first line-clamp">"Every time I stumble across a new search engine, I add it to my search engine comparison tool:https://www.gnod.com/search/Will add SearX now. It seems to provide reasonably good results.Update: It&#39;s on (under &#39;More Engines&#39;)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I will add add a disclaimer to this comment that it is tinfoil-hat and just speculation(bordering on conspiracy) but many of these &#34;we are a privacy-first company&#34; might actually just be honeypots and fronts for 3-letter agencies.The comment is not wholly conspiratorial, considering the CIA owned Swiss crypto company: Crypto AG [1]It&#39;s within the realm of possibility that most of these privacy services could be owned by 3-letter agencies or small enough to be coerced into cooperation.[1] https://www.scmp.com/news/world/europe/article/3050193/crypt..."</p>
+								<p class="story__comment_first line-clamp">"For people that love Project Euler, check out project rosalind!
+http://rosalind.info/about/Conceptually similar, but the problems are focused around bioinformatics. Most lot of the problems contain some background context that teaches you a little biology/statistics as well."</p>
 							
 						
 							
-								<p class="story__comment_others">"The problem with self-hosted search engine is that they make you _very_ unique: you’re the only client of the ”backend“ engine with that (static and non-NATed) IP. Furthermore, you’re now one of the small group of people with ”hosting“ IPs. Using self-hosted SearX may make you easier to track, not harder.Using SearX hosted by someone else is marginally better, but now you have to trust the owner of the server, which is probably not what you want for privacy-centered search engine."</p>
+								<p class="story__comment_others">"I have big love for PE. I&#39;ve learnt so much in the process of trying to solve some of these problems. In particular, number theory and data structures are two fields that I have come to love almost entirely because of this website. I did a random selection of the first 200 problems on my own about a decade ago but ran out of steam as the problems got harder.Recently, however, I introduced it at work as a way of encouraging the team I manage to work collaboratively. We have a fortnightly catch up where we talk through solutions, pick new problems (we have a script that randomly picks an easy, medium and hard problem, which has become an exciting ritual), and then we have an initial discussion about each of the new problems.It&#39;s a good way to foster group work. It&#39;s also a great way to introduce people to using version control and pull-requests in a non-scary way!"</p>
+							
+						
+							
+								<p class="story__comment_others">"So I&#39;m a mostly self trained low level programmer and found Project Euler is great but there is a level of math knowledge that left me more puzzled on the formulas than actual coding. Is this something I should focus on as someone learning to code, or the other coding puzzle sites with &#34;linked list&#34; type of challenges are just as good."</p>
 							
 						
 						</a>
@@ -303,22 +267,22 @@ But that&#39;s not what&#39;s going to be stored in the signal LUT since it&#39;
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.economist.com/europe/2021/11/11/how-trains-could-replace-planes-in-europe">How trains could replace planes in Europe</a></h3>
+					<h3><a href="https://www.forbes.com/sites/johnkoetsier/2021/11/12/apple-quietly-buying-ads-via-google-for-high-value-subscription-apps-to-capture-app-publisher-revenue/">Apple buying Google ads for high-value subscription apps</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29190495">
+						<a href="https://news.ycombinator.com/item?id=29217277">
 						
 							
-								<p class="story__comment_first line-clamp">"https://archive.md/va1aE"</p>
-							
-						
-							
-								<p class="story__comment_others">"The article should have mentioned some of the mega-projects that are already underway, which will improve rail links between European countries.The Stuttgart 21 project will reconfigure the Stuttgart central station to create a direct line between Paris and Vienna.Fehmarn Belt Fixed Link will build a new undersea rail tunnel between Denmark and Germany, allowing Sweden to operate night trains to Brussels.In Switzerland, several new tunnels under the alps beginning operation this year will cut travel time to Italy.https://en.m.wikipedia.org/wiki/Stuttgart_21https://en.m.wikipedia.org/wiki/Fehmarn_Belt_Fixed_Linkhttps://en.m.wikipedia.org/wiki/Gotthard_Base_Tunnelhttps://en.m.wikipedia.org/wiki/Ceneri_Base_Tunnel"</p>
+								<p class="story__comment_first line-clamp">"&gt; When people buy access to a service via a subscription in an iOS app, they are essentially Apple’s customers. For privacy reasons Apple does not provide much information about them to the apps or businesses that run the apps. That means it’s hard to do customer service, address issues, or solve any problems.&gt; “The user experience is much worse,” a marketing executive from one company told me. “When you buy with the developer, they have a relationship with you ... when you buy from Apple: sorry, you’re Apple’s customer, not ours, and if you have a problem with a subscription … we can’t really help them.”Now interview a real user of subscriptions instead of a brand marketing executive and ask them if the user experience is worse.PS. Even when not confronted with such a piece, remember that Forbes is no longer the business journalism folks may have grown up with.  For the past decade, it’s a blogging platform for independent contributors:&gt; Each contributor flies solo with his own blog. He is responsible for conceiving and creating the content, ensuring its accuracy and building an engaged, loyal readership. Forbes provides the technology and compensates some of the contributors, but otherwise, like all entrepreneurs, contributors are left to sink or swim on their own.https://www.poynter.org/reporting-editing/2012/what-the-forb..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I still find it weird that planes are cheaper than trains even for quite small distances. London -&gt; Berlin? Paris -&gt; Madrid? Hell even Rome -&gt; Milan is cheaper to fly.I would love to start contributing less to emissions and take trains even though they take more time but they gotta start taxing planes and making trains cheaper to make people start doing it."</p>
+								<p class="story__comment_others">"That Apple would do this is interesting, but more interesting to me is Google&#39;s position, and obligation, here. There was a throw-away line in the article about Google &#34;not doing anything about it&#34;. What could or should Google do about it? Has Google mediated between competitive ad-buyers in the past? I am not sympathetic to goog in general but it seems like that line puts them in a no-win situation: either they err for not doing anything, or they err for doing something (but not the right thing). Indeed, in this case it would seem the corrective action would better come from Apple than from Google. (Also note this whole play feels like Apple trying to get creative with ways to productively bleed off ridiculously huge capital reserves in a low risk way. It would be ironic for Apple if this blows up into a big thing, but somehow I really doubt it will. )"</p>
+							
+						
+							
+								<p class="story__comment_others">"Lovely corporate ethics. I posted this in our company slack room as an example of how not to act for bizdevGoogle benefits too much from this sort of arrangement to have any incentive to stop it, even though these are unauthorized advertisements that are specifically against Google&#39;s AdWords TOS (side note, I wonder if there is a legal avenue to follow when a vendor doesn&#39;t follow their own TOS? An interesting thought...).This is also a recurring issue with all of Google&#39;s advertising revenue -- malicious behavior such as fraudulent clicks, unauthorized ads, etc., are a decent portion of the revenue stream, and Google is financially incentivized to keep these sorts of abuse going until the ruse is up and the accuracy of their system is called into question publicly in a way that scares away advertisers, but with NDAs and corporate secrecy, it is far too easy to keep things unbalanced, and keep abuse like this in the dark.Business models like this demonstrate just how dire the need for regulation is in some areas of the tech world, particularly among FANG."</p>
 							
 						
 						</a>
@@ -331,22 +295,22 @@ But that&#39;s not what&#39;s going to be stored in the signal LUT since it&#39;
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.phoronix.com/scan.php?page=article&amp;item=framework-laptop&amp;num=1">The Framework Laptop Is Great for a Linux-Friendly, Upgradeable/Modular Laptop</a></h3>
+					<h3><a href="https://bam.kalzumeus.com/archive/debit-cards-are-hidden-financial-infrastructure/">Debit cards are hidden financial infrastructure</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29187276">
+						<a href="https://news.ycombinator.com/item?id=29206462">
 						
 							
-								<p class="story__comment_first line-clamp">"Note that if you’re building a framework with the intent of using Linux avoid the “vpro” variant of the Intel wireless adapter:https://community.frame.work/t/using-the-ax210-with-linux-on...Last I checked with every recommended config tweak you still lose ~3% battery per hour of suspend, which really adds up and is extremely annoying.We’ve been asking framework to include a notice referencing this issue when configuring but as of the last time I checked they haven’t."</p>
-							
-						
-							
-								<p class="story__comment_others">"From https://frame.work/blog/linux-on-the-framework-laptop :“ There has been immense interest in this configuration, with it outselling pre-configured systems with Windows 10 by a wide margin.”There is a market. And it is currently under-served."</p>
+								<p class="story__comment_first line-clamp">"The beginning of this article is a fairy tale that ignores what used to be one of the biggest drivers of revenue for banks: overdraft fees. Maybe the HN crowd has never been in a situation where they were auto-billed into a negative balance, which then caused an overdraft fee that then further drove their balance into negative territory, but this was a weekly/monthly fiasco for millions of Americans.I was once in a meeting with one of the senior executives at JPMorgan, where the guy smugly told me he felt they were “doing a service for the community” by charging people overdraft fees. After leaving the meeting, my very senior colleague said, “I had to hold myself back from throwing that guy out of his window.”These sorts of articles — half PR, half history lesson — tend to leave out these sorts of politically inconvenient but important bits of history. It’s so much work to unpack the bias..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m typing this on my Framework now and I have to say it really is a special device. The prevailing culture of treating technology as disposable is something I personally don&#39;t vibe with - I always keep all of my tech and have collected machines over the years that most people would probably consider obsolete and uninteresting (there&#39;s an Amiga 1000 and iMac G3 currently in my field of view). Having a fully open machine that I can customize, upgrade and repair for the foreseeable future is just so cool and makes me feel like this is my personal computer in the truest sense of the word!A few takeaways from using it for around a month now:1. This is the most &#34;premium&#34; feeling non-Apple laptop I&#39;ve ever owned. Most of the laptops I&#39;ve ever daily driven are Macs or Thinkpads so take that for what it&#39;s worth, but I think most people will be happy with the fit and finish of this device.2. The swappable port system is actually a lot more useful than I expected. I initially thought it would be something I set up once and didn&#39;t bother with again for a while but there are a lot of random moments where it comes in handy. I&#39;m kind of a messy, hyper person that periodically reorganizes my desk and I like to move between different workspaces when I need a different setting to feel creative. Being able to move my HDMI or USB-C ports around for better cable management is so nice and yeah I could use an external hub but I&#39;ve always found those to be annoying on-the-go and just &#34;feels bad man&#34;. Also I don&#39;t use Micro SD cards as much as other people but there are times when I do and being able to swap that in is really kewl.3. Linux support is amazing but there are still a few hiccups. I use Arch Linux and everything works perfectly except for one minor inconvenience with Bluetooth: on a soft restart, the Bluetooth is disabled and I have to do a hard restart to restore it (can be mitigated by a kernel downgrade and should be fixed in a future update). It&#39;s not a deal breaker for me as I usually just close my laptop and put it to sleep, but just know that it&#39;s like running Linux on most other computers - you&#39;re going to have a much better time if you&#39;re fluent in tinkering and configuring your OS.4. The 3:2 display is awesome for programming and content creation, and I don&#39;t know why more devices don&#39;t adopt it. My only criticism is that it&#39;s not a touch screen but with how modular this laptop is it&#39;s only a matter of time before that becomes an option."</p>
+								<p class="story__comment_others">"&gt; Typically, the apps offer their users a choice: payouts at the speed of banking, for free, or payouts at the speed of the Internet, for a small convenience fee. Cash App charges 1.5% with a minimum of a quarter.This is just another way the financial system (including fintech startups) preys on the poor. If you are well off, you wouldn&#39;t want to pay any convenience fee for the privilege of receiving money from a business a few days earlier. In fact, you can think of it as interest: from first principles if someone delays a payment to you, theoretically they should pay more because of interest; now if you opt for waiting 3 days and saving the 1.5% convenience fee, you would effectively earn an interest of 1/(1-0.015)-1 = 1.5% in 3 days. That&#39;s not even an annualized figure. If annualized it would be 1.5%/3*365=122% implied annual interest rate. No one in their right mind who does not have cash flow issues would opt for receiving debit card payments with such a fee.&gt; Many report that it transforms the nature of their interaction with the underlying application; delivery driving for casual drivers becomes something that you can burst up to fill an immediate cash need or mentally allocate against a particular desired expenditure (e.g. “Drive for 3 hours to afford a night out starting immediately after you log off.”)If your cash flow is not an issue and have credit, this is how you would handle it: let&#39;s drive for 3 hours, receive the full payment amount in a few days instead of immediately, and put all the charges from the night out on a credit card, whose bill will become due in a month or two, with no interest. But the poor doesn&#39;t have a bank account or a credit card, so they suffer. They pay more in fees. That&#39;s the injustice of the system."</p>
+							
+						
+							
+								<p class="story__comment_others">"I took a look through glassdoor reviews of stripe as a result of his pitch at the end - lots of complaints about work-life balance / being overworked. Any stripe engineers want to weigh in on that? Are there areas of the company that are better than others?"</p>
 							
 						
 						</a>
