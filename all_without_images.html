@@ -36,6 +36,295 @@
 	</div>
 
 	
+	<div class="day__date">25 November 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://phoboslab.org/log/2021/11/qoi-fast-lossless-image-compression">QOI: Lossless Image Compression in O(n) Time</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29328750">
+						
+							
+								<p class="story__comment_first line-clamp">"Very nice.Regarding the comments about complexity of existing formats - I agree, with the exception of PNG. In terms of complexity, QOI is very similar to PNG filtering phases, i.e. when you strip primary compression phase (Huffman coding) from PNG.Also, I admire how the author combined a lot of common and cool tricks into QOI:- Block tags form a sort of a prefix code, making it easy to differentiate block types with differing sizes- Look-back array is used (common trick from LZW family)- Delta-coding is used when storing pixel diffs- In the end, if nothing else works, full pixel value is writtenAlso, the fact that everything is byte aligned is very appreciated.This is a breath of fresh air and really impressive how good performance (both processing and size reduction) this gets with so little (very readable!) C."</p>
+							
+						
+							
+								<p class="story__comment_others">"I know you don&#39;t like &#34;design by committee&#34; and overly complex formats. Also, the compression algorithm itself is somewhat independent of the &#34;container format&#34; that it&#39;s used with.However, if I may make a suggestion: If you do end up rolling your own container format for any reason, always include a way to store the colour space of the image!Treating RGB images as arrays of bytes without further tags is like treating char* as &#34;text&#34; without specifying the code page. It could be UTF8. Or Latin-1. Or something else. You don&#39;t know. Other people don&#39;t know. There&#39;s often no way to tell.Similarly with colour spaces: sRGB, Display P3, and Adobe RGB are just close enough to be easily confused, but end up looking subtly wrong if mixed up."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; To keep things O(n) when encoding, there&#39;s only one lookup into this array. The lookup position is determined by a “hash” of the rgba value (really just r^g^b^a).Is a bit imprecise.
+The algorithm would still be O(n) even with a linear search through the &#34;seen pixel array&#34;, as it is bounded by 64 length and therefore a constant factor that gets eaten by the Big-O notation.Because of this hash the algorythm seems to do something else than first described though.
+Instead of &#34;a running array of the 64 pixels it previously encountered&#34;, it&#39;s actually the previous 64 pixel _values_ previously encountered, which allows for much bigger jumpback.By deterministically computing this array during execution it itself seems to act as a kind of compressed jumpback table, allowing for approximated arbitrary jumpback with just 6 bit.Quite impressive!Edit:
+I think there might be an interesting tweak that could increase the effectiveness of the hashing technique used.If one were to walk and store the pixels in a Z-Curve order, the runtime would stay the same but the locality of the color value pool, might be increased."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.datacenterdynamics.com/en/news/samsung-plans-17-billion-chip-plant-in-taylor-texas/">Samsung plans $17B chip plant in Taylor, Texas</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29330599">
+						
+							
+								<p class="story__comment_first line-clamp">"After the TX grid failure last winter, it&#39;s probably not a coincidence that Samsung&#39;s new facility will be near ERCOT&#39;s operation center in Taylor, which manages the TX grid, and will likely be the last load to shed when the grid&#39;s stressed. Used to work in the Austin fab, and the amount of money lost per minute in a power failure is mind boggling.  The tax breaks Taylor offered ($314m) are not that different from what Samsung was reported to have lost due to the grid failure ($270m)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I worked at Samsung Austin Semiconductor for ten years as a software engineer. AMA.I very much love the people I worked with at SAS. It was one of the best experiences of my life and I&#39;m very happy to see them expand like this.Wayne at Louie Mueller&#39;s BBQ had better add a few more pits, they&#39;re about to get a lot busier!"</p>
+							
+						
+							
+								<p class="story__comment_others">"‘Impossible&#39;:TSMC founder Morris Chang on US dreams for onshoring chip supply chainhttps://www.taiwannews.com.tw/en/news/4327937Morris Chang spent 25 years (1958–1983) at Texas Instruments.He knows US very well."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://maheshba.bitbucket.io/blog/2021/10/19/42Things.html">Things I learned from building a production database</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29322515">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; [10] Make your project robust to re-orgs. A company management hierarchy is inherently fragile (a tree is a 1-connected graph, after all); socialize the project continuously with managers who might take over in the future. Do whatever it takes to make sure that manager churn does not result in unfair career outcomes for ICs.&gt; [17] For storage systems, bias heavily in the beginning towards consistency and durability rather than availability; these are harder to measure and harder to fix if broken. Because availability is easier to measure, there will be external pressure to prioritize it first; push back.It&#39;s kind of crazy how well the author is able to move from the very top to the very bottom of the technical project management stack."</p>
+							
+						
+							
+								<p class="story__comment_others">"I really think this is a great list however I think one of the major factors why this project succeeded isn&#39;t listed but is mentioned in the intro.&gt; We hit production with a 3-person team in less than a year; and subsequently scaled the team to 30+ engineers spanning multiple sub-teamsStarting with a small skilled team to build the core and actively plan for a larger team at some point is absolutely critical for project success in my experience, especially with complex projects like this. That small team can have a much tighter communication loop and all keep a single unified picture of what the end goal is. When the team grows this single unified picture is no longer feasible so it has to be broken down into sections, which is a good thing, but if the core isn&#39;t setup so that the sections are sufficiently decoupled things fall apart quickly."</p>
+							
+						
+							
+								<p class="story__comment_others">"Lot of good, actionable learnings there. I liked this one in particular.&gt; [26] In a transparent codebase with quick review cycles, APIs will leak implementation details unless you gate-keep.It&#39;s tempting to make quick fixes to APIs but please take it slow. Think through existing customers as well as how could new ones will use it.Also, something I learned while building/maintaining public APIs was to always clearly document (along with examples) the context in which an API should (ideally) be used and how it combines with other APIs to enable common use cases."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://support.apple.com/en-us/HT212960">Apple will notify users about state-sponsored cybersecurity threats</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29333694">
+						
+							
+								<p class="story__comment_first line-clamp">"I know of one case of a Polish prosecutor who does not obey (do not want to bend the law) Zbigniew Ziobro, who is both the minister of justice and the prosecutor general. She received a notification from Apple just today.Source:
+https://mobile.twitter.com/e_wrzosek/status/1463551631648251..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I see a lot of pessimism in the comments. But I think this is a great step in the right direction.Other companies should take note. More of this, please!"</p>
+							
+						
+							
+								<p class="story__comment_others">"So something like PRISM that targets everybody won&#39;t trigger a warning?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.stephendiehl.com/blog/nothing-burger.html">The Handwavy Technobabble Nothingburger of Crypto</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29330879">
+						
+							
+								<p class="story__comment_first line-clamp">"If anything, I think stablecoins are way more dangerous than the author indicates.People talk about things like Bitcoin as a threat to sovereign currencies, and they are, as competitors, of sorts. But stablecoins are another matter entirely. One huge aspect of the value of sovereign currencies is that they are instruments of law -- courts will settle in them as a lowest common denominator, and it is safe to use them in all sorts of settings as a result.When dollar-denominated assets appear, they always run the risk of being considered a dollar-equivalent. For example, bank deposits are dollar-denominated, and are considered dollar-equivalent (even dollar-superior, in the sense that there are transactions that you can&#39;t legally do with specie, only with bank deposits, like buy stocks). That means that if banks (which are businesses) are not good at doing business, the government is essentially forced to treat them as dollar-equivalents by making them whole. See Savings &amp; Loan Crisis, the GFC, LTCG, etc., etc.Stablecoins piggyback on the legal aspects of dollars, and as long as you treat them as dollar-denominated assets, you&#39;re fine. The second you treat them as dollar-equivalents, you run the risk of a change in the value of that asset being something that the government is forced into supporting."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wonder how much of the Crypto hype is because the US banking system still lives in the 1980s or thereabouts.If everybody in the US had access to bank accounts with easy electronic transfers within 5 seconds for no charge, no chargebacks and so on, as people are used to in the EU, would people still be excited about Bitcoin?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Most people on HN are rational people who look at the world in a rational way. Bitcoin and friends are not operating in a rational market, therefore we don&#39;t understand them, and most of us would probably be pretty lousy investors since we would try to make decisions rationally instead of memeing and YOLOing.But, and this is a key point, that doesn&#39;t make us right and them wrong. It&#39;s just a different kind of market, one that I am not very good at, but it is for sure possible to make money in it. You just need to be a different kind of person. We can say our way is &#34;better&#34;, but who are we to decide that?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://allthatsinteresting.com/max-headroom-hack">The Max Headroom Incident</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29319651">
+						
+							
+								<p class="story__comment_first line-clamp">"Similar incident: in 1985, political opposition in People&#39;s Republic of Poland &#34;hijacked&#34; TV by broadcasting in sync with the actual TV signal. This allowed them to superimpose things on top of the image (within some range around their transmitter), which they used to broadcast political messages.Differences: not complete replacement, but superposition; &#34;attacked&#34; signal was the final signal to consumers; the hackers were caught (by standard police methods).Some details: https://hackaday.com/2016/07/05/retrotechtacular-how-solidar..."</p>
+							
+						
+							
+								<p class="story__comment_others">"This always reminds me of the 2007 incident on Czech TV, where someone hijacked a weather panorama broadcast: https://www.youtube.com/watch?v=ea4eft_3p-IIIRC the panorama cam was connected to the Internet and had been hacked, so no microwave magic there. Good execution nonetheless..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The assumption that the content of the video had something do do with why it was broadcast may not be reasonable. Someone wanting to play the technical prank might well find some of the most random shit available to broadcast, hoping (perhaps mistakenly) that the point would be clear anyway.I think its also possible that the the technically equipped people who did this were perhaps not thinking as clearly as usual that evening. Intoxicants may have been involved. There were some gifted organic chemists working out in the suburbs then."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.nasa.gov/feature/greening-of-the-earth-mitigates-surface-warming/">Greening of the Earth mitigates surface warming</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29335646">
+						
+							
+								<p class="story__comment_first line-clamp">"Before life got in the way, I wanted a Bachelor of Science in Environmental Resource Management as a foundation for a Master&#39;s in Urban Planning. I currently run r/UrbanForestry for the same reason:I don&#39;t think it makes sense to see human settlements as separate from nature. I think of nature as the fabric within which such configurations occur.It isn&#39;t inevitable that human development must be a concrete jungle. You can include plants, permeable surfaces, etc in your plans so people can live more lightly and less intrusively on the land.I also think America has a lot of room for adding back walkable mixed-use neighborhoods where at least some people can live, work and shop in the same neighborhood. Or at least live and shop if they are retirees, teens, or similar groups who aren&#39;t seeking a job or who already work at home or from home in some capacity.Studies suggest this leads to greater wealth in such neighborhoods (such as more sales) and we know vehicle traffic is a significant burden wrt human-caused climate change. Making it possible to skip the long commute makes for a better quality of life and less pollution adding to this issue.We currently frame this issue as a painful choice between short-term gratification and current high quality of life with a long-term cost of global disaster versus short-term sacrifice for slim hope of assuaging our guilt with no guarantee of real improvement in the future. I don&#39;t think that&#39;s necessary.I&#39;ve lived without a car in the US for more than a decade. I think you can live that way and live well. I think we can design and build a world that provides a high quality of life for people and doesn&#39;t destroy the environment in the process."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is not the answer the Australian government is looking for.The solution needed by politicians is highly technological, expensive, allows us to keep selling coal, and isn&#39;t understood by people so can be easily spun into ridiculous tales by politicians.&#34;Just plant trees&#34; would be ridiculously expensive and is totally impractical, the politicians would say."</p>
+							
+						
+							
+								<p class="story__comment_others">"77% of agricultural land is devoted to livestock.  We could return a lot of that land to wilderness if we adopted a whole food plant based diet.https://www.onegreenplanet.org/news/chart-shows-worlds-land-..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://tikolu.net/emojimix/">Emojimix</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29305546">
+						
+							
+								<p class="story__comment_first line-clamp">"Really cool concept. Apparently these are all handmade emojis made for Google&#39;s Android Keyboard [1]. And by the looks of it they are all available at fairly obvious URLs [2], which this tool exposes in a fun interface.1: https://9to5google.com/2021/09/24/gboard-emoji-kitchen-list/2: e.g. https://www.gstatic.com/android/keyboard/emojikitchen/202108..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The prompts are super annoying and don&#39;t make me want to check out the rest of the site. Takes me out of the experience a bit, especially because it&#39;s like a worse popup since they can&#39;t be blocked.That said, this is cute. I wonder if this uses the same approach that certain Android keyboards use to combine emojis"</p>
+							
+						
+							
+								<p class="story__comment_others">"The attention to detail is some cases is impressive. E.g. in the regular owl emoji the owl has its wings folded; but when mixed with a celebrating emoji, it spreads its wings. Not to mention mixing bat and cake.That being said, the UI can be annoying. It&#39;s hard to scroll the lists and the popups are distracting."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://sfstandard.com/controversy-rages-as-california-follows-sfs-lead-with-new-approach-to-teaching-math/">California moves to recommend delaying algebra to 9th grade statewide</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29324551">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m perpetually perplexed at why some people seem to think that lowering the standards is going to help anyone. Do they not realise the source of all scientific and technical advancement is really the result of a minority of high achievers, and that by trying to &#34;flatten&#34; this inequality and effectively make everyone equally stupid, they are also going to be affected negatively?applies social justice principles to math lessonsThe inmates aren&#39;t running the asylum anymore; they&#39;re running the government. All I hope is that this cancerous ideology (I&#39;ll resist the prop65 joke...)  doesn&#39;t grow any further than it already has. The decline is certainly sad to see and already rather visible."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’m Danish and not at all interested in the politics of it, but there can be a case for teaching algebra late. We do it in Denmark, because it’s the subject children have the hardest time learning, and having too many of them fail too early kills their interest in math. We still teach algebra in grade 7-9, but we’ve gone through the social experiments of teaching it at different ages, and have lost entire generations because it was taught too soon.I don’t think social justice or equality should play a part of the argument, but it’s always hard to tell where the legislation ends and the propaganda begins these days, and I’m honestly no interested enough to read the 800 page document this article is about.I will say, however, that I think we’re going to have problems teaching math until we reform the school system to be suited for the modern world instead of the early 1900’s “assembly line” society. It makes no sense to place children in classes based on their age, and certainly not for all subjects.The result is always going to be that both slow and brilliant students get fucked over, in a myriad of ways, especially if they are a mix of good and bad at different subjects.Why exactly is it that you aren’t taught courses like math, or history or language according to your ability instead of your age?"</p>
+							
+						
+							
+								<p class="story__comment_others">"These superficial debates are in my eyes futile since they presuppose: &#34;We ought to have a strict curriculum for a certain narrow age group.&#34;After what we have learned the last 30-50 years from cognitive sciences one has to wonder what schools are actually for, nowadays. There are most certainly not optimized for &#34;learning&#34; by any means. 
+Imho to put it blatantly schools are reduced to be a effective stronghold for indoctrination. They justify their power by using &#34;science, technology, art, literature, history, social community, cultural exchange ...&#34;. Of course sheer by its power and scope we certainly &#34;learn&#34; something there. And you also happen to find great teachers in that system but its certainly not its main purpose.Going back historically, schools still remain inherently (and shockingly so) medieval institutions. Interestingly &#34;school&#34; originally stems from the greek word of σχολή (/skʰo.lɛ̌ː/) which simply means &#34;free time, leisure&#34; which got hijacked by the church with &#34;monastic schools&#34; and today &#34;school&#34; means quite the opposite.Throughout its (western) history with changing society they were succesful adaptions made (Prussian system, Humboldt&#39;s Ideal, Montessori pedagogy) skyrocketing literacy, expolding number of scientists etc.But today the educational system is massively outpaced by the societal changes and by failing simply regresses to its medieval core of indoctrination (&#34;preparation for the labor market&#34;).No scientific literacy (aka critical thinking, controversial debates), no &#34;learning&#34; grounded on cognitive sciences, no hearing and tending to the needs of our young which they can perfectly articulate."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://rarehistoricalphotos.com/nasa-space-colony-concepts/">Space colonies of the future as imagined by NASA in the 1970s</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29317734">
+						
+							
+								<p class="story__comment_first line-clamp">"One thing many of these designs don&#39;t bring up is long-term growth. Is the plan to build it once and that&#39;s it? Boring, and too prone to failure if the project runs into trouble at any point in time.What I&#39;d prefer to see is a space construction that is continuous. Imagine a ring station, but one that is cellular in nature- lots of smaller modules that together form the huge station. This allows one to construct and add further modules over time, growing as needed.The beauty of this design principle is that we could start today. Design the first iteration of these modules, with the intent to fit them into SpaceX&#39;s Starship (or whatever heavy rockets come next). Launch 10 or 20 of them, connect them, and spin them up to 1/5th gravity, something not too hard to do. Add modules in the centre of the ring that are zero-G, where zero-G things can be done- but allowing those who live on station to live in mild gravity at least.All the while, you can dream big. You can plan for how this station goes from 10 or 20 small modules to thousands."</p>
+							
+						
+							
+								<p class="story__comment_others">"I remember seeing some of these actual pictures in the late 70s, early 80s, they were very striking and mindblowing to me as a child, the idea of huge pieces of structure with lush green parks and farmland in space. They are really memorable and probably shaped a lot of peoples imaginations about what might be possible one day."</p>
+							
+						
+							
+								<p class="story__comment_others">"I was thinking about these drawings yesterday when I saw the mockup of a ring made from 32 Starship fuselages.  Welded end to end, 32 pieces would net a 1/4 mile diameter ring with a volume ~85x the ISS.Elon estimates that the refueling procedure necessary for interplanetary starship missions would require 8 fuel tanker starship launches, but this could be cut in half if the tankers were stripped of the elements needed for reentry and landing.I could see the economics working out to where it would make more sense to launch stripped down single use fuel tanker starships, and then sell the empty orbiting shells to someone interested in building in space.https://caseyhandmer.wordpress.com/2021/11/17/science-upside...."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">24 November 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -209,7 +498,7 @@ If you need the user data in a JSON API, nothing prevents you from exposing `get
 							
 						
 							
-								<p class="story__comment_others">"I agree that the way modern JS (need to?) download half the Internet for a semi-useful app is annoying, wasteful and dangerous.However, I still remember the hell that was updating the state and keeping the rendering in sync with it when using jQuery. Native JS of course doesn&#39;t improve on that, and (judging by the description - no experience with it) Alpine.js doesn&#39;t either. For me, the paradigm of rendering from the internal state is what makes React (and Vue,...) useful. Too bad that npm ecosystem sucks and that everyone is inventing new shiny useless new things all the time... But React makes non-trivial single-page apps possible.Of course, if you need server-side rendering (for example because of SEO) then the equation changes, and maybe using Alpine.js makes sense."</p>
+								<p class="story__comment_others">"I&#39;ve been moving from Django to Elixir/Phoenix/LiveView and loving it so far. I hated the Angular/React era of the web and mostly moved to doing backend development, but the Live App era has reinvigorated my interest in web development as a whole. I&#39;ll miss Python a lot and hope they can come up with something that solves the concurrency issues, but Elixir is really pretty good in its own right."</p>
 							
 						
 						</a>
@@ -438,7 +727,7 @@ themselves&gt; we have been unable to enforce the Rust Code of Conduct to the st
 							
 						
 							
-								<p class="story__comment_others">"What does this mean in practice? By this definition, surely normal farm animals are sentient, but they are eaten, experimented on and frightfully frequently abused, so... what’s the change?"</p>
+								<p class="story__comment_others">"Octopi I understand, but lobsters? They have less than half the nervous system of an ant [1]. Are individual ants sentient and worthy of legislating over?[1] https://en.m.wikipedia.org/wiki/List_of_animals_by_number_of..."</p>
 							
 						
 						</a>
@@ -1181,11 +1470,11 @@ The team size at any of the PC OEMs doing a 386DX design when it was the state o
 							
 						
 							
-								<p class="story__comment_others">"The best thing about Advent of Code is how you can adjust it to anyone&#39;s skills and interests - you can do it for time, you can take ages, you can use any language you want or multiple languages, you can get help from other people online, you can go down various CS rabbit holes, you can make more elaborate solutions and/or extensions (some people were doing really cool visualisation of the game of life variations last year) etc.It&#39;s very easy to recommend to it anyone who does any amount of programming at any level, from complete beginners to very experienced.Other people in this thread are talking about learning new languages and I found that a bit distracting. I think I&#39;d rather focus on the puzzles themselves and there&#39;s also something very satisfying about writing a clean and concise solution in a few lines which you can&#39;t always do when you&#39;re picking up a new language. I like using Python for it because I can just translate what I&#39;m thinking to a solution without worrying about the language itself. Also, even if I didn&#39;t mind doing it in a new language, I don&#39;t think that AoC gives you large enough problems that can really explore a new language and all of its features. And you can always mix the languages if there&#39;s a language that&#39;s really suitable for a given problem. You don&#39;t have to stick to the same language for all problems.I really enjoyed last year&#39;s, I&#39;m looking forward to this one."</p>
+								<p class="story__comment_others">"From the FAQ:&gt;I have a puzzle idea! Can I send it to you?&gt;Please don&#39;t. Because of legal issues like copyright and attribution, I don&#39;t accept puzzle ideas, and I won&#39;t even read your email if it looks like one just in case I use parts of it by accident.It&#39;s sad that we live in a world where code snippets sent by others can result in legal issues down the line."</p>
 							
 						
 							
-								<p class="story__comment_others">"From the FAQ:&gt;I have a puzzle idea! Can I send it to you?&gt;Please don&#39;t. Because of legal issues like copyright and attribution, I don&#39;t accept puzzle ideas, and I won&#39;t even read your email if it looks like one just in case I use parts of it by accident.It&#39;s sad that we live in a world where code snippets sent by others can result in legal issues down the line."</p>
+								<p class="story__comment_others">"The best thing about Advent of Code is how you can adjust it to anyone&#39;s skills and interests - you can do it for time, you can take ages, you can use any language you want or multiple languages, you can get help from other people online, you can go down various CS rabbit holes, you can make more elaborate solutions and/or extensions (some people were doing really cool visualisation of the game of life variations last year) etc.It&#39;s very easy to recommend to it anyone who does any amount of programming at any level, from complete beginners to very experienced.Other people in this thread are talking about learning new languages and I found that a bit distracting. I think I&#39;d rather focus on the puzzles themselves and there&#39;s also something very satisfying about writing a clean and concise solution in a few lines which you can&#39;t always do when you&#39;re picking up a new language. I like using Python for it because I can just translate what I&#39;m thinking to a solution without worrying about the language itself. Also, even if I didn&#39;t mind doing it in a new language, I don&#39;t think that AoC gives you large enough problems that can really explore a new language and all of its features. And you can always mix the languages if there&#39;s a language that&#39;s really suitable for a given problem. You don&#39;t have to stick to the same language for all problems.I really enjoyed last year&#39;s, I&#39;m looking forward to this one."</p>
 							
 						
 						</a>
@@ -2116,11 +2405,11 @@ To my eye, crf15 is very very good quality, but I included lossless encoding so 
 							
 						
 							
-								<p class="story__comment_others">"The actual observed problem in the article is that the team&#39;s SDLC pipeline can&#39;t handle the current flow it&#39;s being subjected to. Work is getting &#34;blocked&#34; in code review.Devising a coping mechanism for developers so that they can increase the inbound flow to an already overloaded system is not actually a solution.The real solution to this rather common problem is to introduce a culture where &#34;done&#34; means &#34;shipped&#34; and not &#34;I created a bunch of PRs for my team mates to read and while they all do that Im gonna create some more&#34; and to use tech where you can to increase the flow the SDLC pipeline can handle.This involves things like moving as much &#34;code review&#34; into the compiler/linter as you can, do a little more design/consensus building upfront, streamline all acceptance testing and deployment steps to their bare essentials etc...https://trunkbaseddevelopment.com/"</p>
+								<p class="story__comment_others">"&gt; This idea isn&#39;t new, and if you&#39;ve worked at a company like Facebook, Google, Uber, Dropbox, or Lyft (among others), you&#39;ve either had first-class support for stacked changes built into your code review platform (i.e. Phabricator at Facebook...Phabricator got a lot of stuff about code review right (I may be biased from working at FAANG). I&#39;m happy to see someone trying to improve the code review situation on GitHub. When I did use GitHub at the startups I worked at, we were never fully satisfied with the code review experience.I hope they surface &#34;Phabricator versions&#34; as first-class objects. I never liked it how GitHub just clobbers the history left behind from force-pushes from to branch."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; This idea isn&#39;t new, and if you&#39;ve worked at a company like Facebook, Google, Uber, Dropbox, or Lyft (among others), you&#39;ve either had first-class support for stacked changes built into your code review platform (i.e. Phabricator at Facebook...Phabricator got a lot of stuff about code review right (I may be biased from working at FAANG). I&#39;m happy to see someone trying to improve the code review situation on GitHub. When I did use GitHub at the startups I worked at, we were never fully satisfied with the code review experience.I hope they surface &#34;Phabricator versions&#34; as first-class objects. I never liked it how GitHub just clobbers the history left behind from force-pushes from to branch."</p>
+								<p class="story__comment_others">"The actual observed problem in the article is that the team&#39;s SDLC pipeline can&#39;t handle the current flow it&#39;s being subjected to. Work is getting &#34;blocked&#34; in code review.Devising a coping mechanism for developers so that they can increase the inbound flow to an already overloaded system is not actually a solution.The real solution to this rather common problem is to introduce a culture where &#34;done&#34; means &#34;shipped&#34; and not &#34;I created a bunch of PRs for my team mates to read and while they all do that Im gonna create some more&#34; and to use tech where you can to increase the flow the SDLC pipeline can handle.This involves things like moving as much &#34;code review&#34; into the compiler/linter as you can, do a little more design/consensus building upfront, streamline all acceptance testing and deployment steps to their bare essentials etc...https://trunkbaseddevelopment.com/"</p>
 							
 						
 						</a>
@@ -2699,294 +2988,6 @@ https://news.ycombinator.com/item?id=9584172"</p>
 						
 							
 								<p class="story__comment_others">"First we had holes drilled in Russian modulethen we had a fire in same Russian modulethen Russian supply ship rammed ISSand now this. Someone in Russia is really trying hard."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">15 November 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hackaday.com/2021/11/14/those-bullet-effects-in-terminator-2-werent-cgi/">The bullet effects in Terminator 2 weren’t CGI</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29218144">
-						
-							
-								<p class="story__comment_first line-clamp">"In the movie The War Lover, Steve McQueen (well, the actual pilot) pilots a B17 bomber &#34;cutting the grass&#34;, i.e. flying low with the gear up. The stunt was to be done with models because it was too dangerous.My dad was in the AF at the time, and was assigned to the movie as a consultant on AF trivia. He convinced them that the stunt could be done safely, and explained how to do it.And so it was done. My dad got in trouble, because if the B17 had crashed doing the stunt, the AF would have looked bad. But it didn&#39;t crash, and the stunt was a big deal to the movie crowds, so he was forgiven.https://www.youtube.com/watch?v=TGGynxYbA48It&#39;s still freakin&#39; impressive today.His other contribution to the movie was the mission briefing wall maps."</p>
-							
-						
-							
-								<p class="story__comment_others">"The most fascinating non-CGI effect from Terminator 2 is a cut scene which can be seen in the director&#39;s cut, where they use Linda Hamilton twin sister in a surprising way: to fake a &#34;mirror&#34; scene where Sarah is operating on the Terminator&#39;s head.They are in front of a mirror. They wanted to actually use Arnie in the reflection to show his face; they wanted a dummy for the head closest to the camera, to show the surgery inside the head. So they used a window in the wall instead of a mirror! Linda Hamilton and her twin sister are mimicking each other&#39;s movements to make it seem it&#39;s a mirror image.(The other use of Linda&#39;s twin sister, the scene where the T-1000 fakes being Sarah, is better known)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Wait until you hear about how Cameron filmed the scene with a helicopter going under a highway overpass.https://filmschoolrejects.com/terminator-2-helicopter-stunt/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://krebsonsecurity.com/2021/11/hoax-email-blast-abused-poor-coding-in-fbi-website/">Hoax email blast abused poor coding in FBI website</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29213850">
-						
-							
-								<p class="story__comment_first line-clamp">"Previous ongoing thread:Email from FBI Looks Odd - https://news.ycombinator.com/item?id=29208276 - Nov 2021 (150 comments)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I suppose it could have been worse. I appreciate that they made the emails very clearly fake. The fact it passed DKIM checks was definitely alarming, though. A lot of people thought there was a flaw in DKIM somehow, but unsurprisingly it&#39;s a flaw with the FBI&#39;s site.All in good fun, I suppose."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;when you requested the confirmation code [it] was generated client-side, then sent to you via a POST Request&#34;That is shocking. What must the internal culture be like for such an idea to even be a possibility?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/world/us/us-states-file-updated-antitrust-complaint-against-alphabets-google-2021-11-13/">U.S. states file updated antitrust complaint against Google</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29214351">
-						
-							
-								<p class="story__comment_first line-clamp">"As more data comes out about Google, Apple, Amazon, one simple underlying thing becomes clear: a single company cannot be trusted to operate a marketplace while also being a participant.Apple&#39;s App Store insider knowledge lets them discover popular apps, then boot them off the platform when they decide to compete. Amazon sees what products are successful and profitable, then makes knock-offs which they promote over the originals. And now, reading into this, Google is manipulating their ad markets using inside knowledge.It&#39;s all very profitable.If we cannot trust large companies to not abuse this kind of power, then they should be prevented by law from playing both sides. This may result in the breakup of some very large companies, akin to the 1934 Air Mail Act that broke up Boeing."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The lawsuit also highlights Google&#39;s use of a secret program dubbed &#34;Project Bernanke&#34; in 2013 that used bidding data to give its own ad-buying an advantage. For example, in a 2015 iteration of the program, Google allegedly dropped the second-highest bids from publishers&#39; auctions, accumulated money into a pool and then spent that money to inflate only the bids belonging advertisers who used the company&#39;s Google Ads. They otherwise would have likely lost the auctions, the states alleged.Can someone rephrase this and possibly explain like I&#39;m five? I&#39;m not following the mechanics..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Google does not want documents produced to the DOJ to be shared with the state AGs.https://ia601404.us.archive.org/8/items/gov.uscourts.nysd.56...Judge Castel reminded them that they must produce those documents to the state AGs.https://ia601404.us.archive.org/8/items/gov.uscourts.nysd.56...Perhaps this team can benefit from the discovery conducted by the DOJ."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.unity.com/technology/debugging-memory-corruption-who-the-hell-writes-2-into-my-stack-2">Debugging memory corruption: who the hell writes “2” into my stack? (2016)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29215725">
-						
-							
-								<p class="story__comment_first line-clamp">"I read this and couldn&#39;t shake the feeling that it&#39;s a fantasy tale because it mentions the mystical Unity support engineer who actually fixes bugs - the one I haven&#39;t been able to get a hold on for the past 5 years, despite having critical bugs escalated by support... But then I noticed this is from 2016, so before they started kicking out experienced people to polish their profit margin for the IPO.Still an amazing debugging story, though :)"</p>
-							
-						
-							
-								<p class="story__comment_others">"When another thread pushes a socket to be processed by the socket polling thread, the socket polling thread calls select() on that function. Since select() is a blocking call, when another socket is pushed to the socket polling thread queue it has to somehow interrupt select() so the new socket gets processed ASAP. How does one interrupt select() function? Apparently, we used QueueUserAPC() to execute asynchronous procedure while select() was blocked… and threw an exception out of it!Not taking anything away from the great debugging, but that is just incredibly bad design and reeks of bugs from a mile away. System calls block for a reason. If you can&#39;t handle the blocking, how about a non-blocking architecture? But in this case, the engineer thought &#34;hey, I don&#39;t want to block on my precious main thread, so let&#39;s just give this blocking thing to another thread, that&#39;ll surely solve it!&#34;. Except it doesn&#39;t when you use that same thread as a worker to execute all other thread&#39;s blocking crap ... but then write the queue push() function to be blocking as well!Keep it simple folks. Bad design always breeds more bad design."</p>
-							
-						
-							
-								<p class="story__comment_others">"From the article: &#34;Surprisingly, setting up kernel debugging is extremely easy on Windows.&#34;Microsoft (at least used to) take developers very seriously. The OS actually plays along when you&#39;re trying to debug things, and Windows error reporting actually sends you data that you can work with.Say what you want about their business practices, but I&#39;d deal with Microsoft&#39;s developer support over Apple&#39;s anytime. And mandatory Youtube: https://www.youtube.com/watch?v=Vhh_GeBPOhs"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://pluralistic.net/2021/11/14/still-the-product/#vizio">Vizio makes more money spying on people who buy TVs than TVs themselves</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29218381">
-						
-							
-								<p class="story__comment_first line-clamp">"RTings, a site that reviews (amongst other things) televisions, maintains a list of fully ad-free models:https://www.rtings.com/tv/tests/ads-in-smart-tv(They are the ones with &#34;10&#34; in the ad-free column)The dominant brand for ad-free models is in fact... Vizio."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve had my Vizio TV (P55-F1, 2019 model; a mid range model) for about 2.5 years now. Image/sound quality is great. But the annoyances and overall mediocrity of the OS and its updates [0] made me just disconnect the TV from the internet and fully switch over to using an Apple TV for all consumption rather than using the native Vizio OS.[0]: The OS is terrible and the remote randomly stops working sometimes. Sometimes the TV would take tens of seconds to turn on, but then other times it was near instant.Every single update since I&#39;ve gotten the TV seems to make the TV even slower/more laggy. There was even an update about two years back where the Youtube app&#39;s volume was inexplicably an order of magnitude lower than every other input&#39;s volume (e.g. a volume of 100/100 on the Youtube app ended up being equivalent to a volume of 10/100 for all other apps/inputs). It took Vizio 1-3 months to fix it.Unblockable ads on the home screen and genuinely multi-hundred millisecond response times on the app launcher infuriated me."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is likely incorrect.The $57.3 million is for the &#34;Platform+&#34; division. It includes profit from homescreen ads, selling of buttons on remotes, and cuts of streaming revenue. It&#39;s likely that only a small fraction of the division&#39;s $83 million in revenue comes from tracking and then selling viewing habits."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.ibiblio.org/harris/500milemail.html">The case of the 500-mile email (2002)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29213064">
-						
-							
-								<p class="story__comment_first line-clamp">"On a similar theme, I remember reading a story about a server that would crash mysteriously every couple of weeks. They eventually worked out that this happened whenever there was a new moon or a full moon, and the resulting high tide caused a battleship moored in a nearby harbour to rise just high enough that its powerful radar would interfere with the server."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; &#34;When did this start?  A
-few days ago, you said, but did anything change in your systems at that time?&#34;&gt; &#34;Well, the consultant came in and patched our server and rebooted it.&gt; Having established that--unbelievably--the problem as reported was true,
-and repeatableAs far as problems go, this is an easy one to solve. Accurate description of the problem. Accurate reporting of what changed. Problem is consistently repeatable.Compared to a problem that doesn’t reliably reproduce and for which the person reporting it claims nothing changed, this one is child’s play.But it’s still amusing to read every time.I had something similar occur in the early 2000s on a patch release of Solaris 2.6 (I think) where the sleep call was broken and would always return almost instantly. This caused all sorts of weird behaviors on the running system.I also recall the first time I ran into an issue with MTU on a dedicated frame relay link we had to admin our web farm in the late nineties. One day a developer reported they could login to our bastion but when they ran “ls -l” in a big enough directory their ssh connection would hang. It turned out the connection would hang whenever a packet was generated near the MTU and we eventually tracked it down to an issue with the frame relay connection. We played with MTUs until we found out what worked. It then took a while to convince our provider what was going on but they eventually replaced a line card on the far end of the connection which allowed us to re-raise the MTU to 1500.Another fun problem I had was an email to SMS gateway I wrote for myself that worked by posting to a Verizon web form. I developed it on a Mac (probably 2002 or so) where it worked fine but when I deployed it to my Linux box on my same home network, the script couldn’t connect to Verizon’s site. It turned out the Linux box was a setting a flag on the TCP connection (ECN I think) that was tripping up Verizon’s web firewall. The work-around was disabling ECN on the Linux box."</p>
-							
-						
-							
-								<p class="story__comment_others">"In the mid-90s I used to repair PCs. Customer brought PC in where left mouse button did not function.Easy. Replace mouse. NOPE.OK, software issue. Reinstall mouse driver. NOPE.OK, deeper software issue. Replace HDD from working PC. NOPE.OK, replace RAM? NOPE.OK, replace motherboard and all add-in cards. NOPE.At this point we have a different HDD, motherboard, CPU, RAM, video card and mouse. Still left mouse button doesn&#39;t work. Mouse moves fine. Right button works.Only thing left is the case and the PSU.Replace PSU. Left mouse button works perfectly.FML."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/hectorm/docker-qemu-win2000">Show HN: Windows 2000 on Docker</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29217622">
-						
-							
-								<p class="story__comment_first line-clamp">"This brings back great memories. Windows 2000 sparked my interest in computing.I was in elementary school and was obsessed with the &#39;Log on to&#39; 
-dropdown box on Windows login screens, and how you could use the same credentials on any PC.Somehow I managed to salvage an old computer and source myself a copy of the ISO and managed to setup an ADDS domain controller and join my mother&#39;s laptop to the domain.I went and asked the IT guy for advice on doing a multi forest configuration and I think it blew his mind. Why did I want multi forest? Guess I was preoccupied with whether or not I could, and didn&#39;t stop to think if I should. : )"</p>
-							
-						
-							
-								<p class="story__comment_others">"I just ran this on a Fedora machine and connected to Windows using rdesktop. It works and it&#39;s amazing. I like it. The Internet will surely be confused today with a surge of traffic from Internet Explorer 5. Incidentally, google.com still loads and allows searching; bing.com does not load."</p>
-							
-						
-							
-								<p class="story__comment_others">"Windows 2000 was my favorite version of the OS. I kept it running far longer than I should reasonably have. Thanks for giving me another reason to fire it up!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://projecteuler.net">Project Euler</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29211532">
-						
-							
-								<p class="story__comment_first line-clamp">"For people that love Project Euler, check out project rosalind!
-http://rosalind.info/about/Conceptually similar, but the problems are focused around bioinformatics. Most lot of the problems contain some background context that teaches you a little biology/statistics as well."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have big love for PE. I&#39;ve learnt so much in the process of trying to solve some of these problems. In particular, number theory and data structures are two fields that I have come to love almost entirely because of this website. I did a random selection of the first 200 problems on my own about a decade ago but ran out of steam as the problems got harder.Recently, however, I introduced it at work as a way of encouraging the team I manage to work collaboratively. We have a fortnightly catch up where we talk through solutions, pick new problems (we have a script that randomly picks an easy, medium and hard problem, which has become an exciting ritual), and then we have an initial discussion about each of the new problems.It&#39;s a good way to foster group work. It&#39;s also a great way to introduce people to using version control and pull-requests in a non-scary way!"</p>
-							
-						
-							
-								<p class="story__comment_others">"So I&#39;m a mostly self trained low level programmer and found Project Euler is great but there is a level of math knowledge that left me more puzzled on the formulas than actual coding. Is this something I should focus on as someone learning to code, or the other coding puzzle sites with &#34;linked list&#34; type of challenges are just as good."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.forbes.com/sites/johnkoetsier/2021/11/12/apple-quietly-buying-ads-via-google-for-high-value-subscription-apps-to-capture-app-publisher-revenue/">Apple buying Google ads for high-value subscription apps</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29217277">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; When people buy access to a service via a subscription in an iOS app, they are essentially Apple’s customers. For privacy reasons Apple does not provide much information about them to the apps or businesses that run the apps. That means it’s hard to do customer service, address issues, or solve any problems.&gt; “The user experience is much worse,” a marketing executive from one company told me. “When you buy with the developer, they have a relationship with you ... when you buy from Apple: sorry, you’re Apple’s customer, not ours, and if you have a problem with a subscription … we can’t really help them.”Now interview a real user of subscriptions instead of a brand marketing executive and ask them if the user experience is worse.PS. Even when not confronted with such a piece, remember that Forbes is no longer the business journalism folks may have grown up with.  For the past decade, it’s a blogging platform for independent contributors:&gt; Each contributor flies solo with his own blog. He is responsible for conceiving and creating the content, ensuring its accuracy and building an engaged, loyal readership. Forbes provides the technology and compensates some of the contributors, but otherwise, like all entrepreneurs, contributors are left to sink or swim on their own.https://www.poynter.org/reporting-editing/2012/what-the-forb..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Lovely corporate ethics. I posted this in our company slack room as an example of how not to act for bizdevGoogle benefits too much from this sort of arrangement to have any incentive to stop it, even though these are unauthorized advertisements that are specifically against Google&#39;s AdWords TOS (side note, I wonder if there is a legal avenue to follow when a vendor doesn&#39;t follow their own TOS? An interesting thought...).This is also a recurring issue with all of Google&#39;s advertising revenue -- malicious behavior such as fraudulent clicks, unauthorized ads, etc., are a decent portion of the revenue stream, and Google is financially incentivized to keep these sorts of abuse going until the ruse is up and the accuracy of their system is called into question publicly in a way that scares away advertisers, but with NDAs and corporate secrecy, it is far too easy to keep things unbalanced, and keep abuse like this in the dark.Business models like this demonstrate just how dire the need for regulation is in some areas of the tech world, particularly among FANG."</p>
-							
-						
-							
-								<p class="story__comment_others">"That Apple would do this is interesting, but more interesting to me is Google&#39;s position, and obligation, here. There was a throw-away line in the article about Google &#34;not doing anything about it&#34;. What could or should Google do about it? Has Google mediated between competitive ad-buyers in the past? I am not sympathetic to goog in general but it seems like that line puts them in a no-win situation: either they err for not doing anything, or they err for doing something (but not the right thing). Indeed, in this case it would seem the corrective action would better come from Apple than from Google. (Also note this whole play feels like Apple trying to get creative with ways to productively bleed off ridiculously huge capital reserves in a low risk way. It would be ironic for Apple if this blows up into a big thing, but somehow I really doubt it will. )"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://bam.kalzumeus.com/archive/debit-cards-are-hidden-financial-infrastructure/">Debit cards are hidden financial infrastructure</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29206462">
-						
-							
-								<p class="story__comment_first line-clamp">"The beginning of this article is a fairy tale that ignores what used to be one of the biggest drivers of revenue for banks: overdraft fees. Maybe the HN crowd has never been in a situation where they were auto-billed into a negative balance, which then caused an overdraft fee that then further drove their balance into negative territory, but this was a weekly/monthly fiasco for millions of Americans.I was once in a meeting with one of the senior executives at JPMorgan, where the guy smugly told me he felt they were “doing a service for the community” by charging people overdraft fees. After leaving the meeting, my very senior colleague said, “I had to hold myself back from throwing that guy out of his window.”These sorts of articles — half PR, half history lesson — tend to leave out these sorts of politically inconvenient but important bits of history. It’s so much work to unpack the bias..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Typically, the apps offer their users a choice: payouts at the speed of banking, for free, or payouts at the speed of the Internet, for a small convenience fee. Cash App charges 1.5% with a minimum of a quarter.This is just another way the financial system (including fintech startups) preys on the poor. If you are well off, you wouldn&#39;t want to pay any convenience fee for the privilege of receiving money from a business a few days earlier. In fact, you can think of it as interest: from first principles if someone delays a payment to you, theoretically they should pay more because of interest; now if you opt for waiting 3 days and saving the 1.5% convenience fee, you would effectively earn an interest of 1/(1-0.015)-1 = 1.5% in 3 days. That&#39;s not even an annualized figure. If annualized it would be 1.5%/3*365=122% implied annual interest rate. No one in their right mind who does not have cash flow issues would opt for receiving debit card payments with such a fee.&gt; Many report that it transforms the nature of their interaction with the underlying application; delivery driving for casual drivers becomes something that you can burst up to fill an immediate cash need or mentally allocate against a particular desired expenditure (e.g. “Drive for 3 hours to afford a night out starting immediately after you log off.”)If your cash flow is not an issue and have credit, this is how you would handle it: let&#39;s drive for 3 hours, receive the full payment amount in a few days instead of immediately, and put all the charges from the night out on a credit card, whose bill will become due in a month or two, with no interest. But the poor doesn&#39;t have a bank account or a credit card, so they suffer. They pay more in fees. That&#39;s the injustice of the system."</p>
-							
-						
-							
-								<p class="story__comment_others">"I took a look through glassdoor reviews of stripe as a result of his pitch at the end - lots of complaints about work-life balance / being overworked. Any stripe engineers want to weigh in on that? Are there areas of the company that are better than others?"</p>
 							
 						
 						</a>

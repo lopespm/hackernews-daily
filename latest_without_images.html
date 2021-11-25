@@ -33,29 +33,31 @@
 	</div>
 
 	
-	<div class="day__date">24 November 2021</div>
+	<div class="day__date">25 November 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.apple.com/newsroom/2021/11/apple-sues-nso-group-to-curb-the-abuse-of-state-sponsored-spyware/">Apple sues NSO Group to curb the abuse of state-sponsored spyware</a></h3>
+					<h3><a href="https://phoboslab.org/log/2021/11/qoi-fast-lossless-image-compression">QOI: Lossless Image Compression in O(n) Time</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29320986">
+						<a href="https://news.ycombinator.com/item?id=29328750">
 						
 							
-								<p class="story__comment_first line-clamp">"It is great to see this happen.It&#39;s also fascinating that the crux of the Apple&#39;s case against NSO hinges on NSO engineers that accepted iCloud&#39;s terms and conditions.From related NYT article:&gt;The sample of Pegasus gave Apple a forensic understanding of how Pegasus worked. The company found that NSO’s engineers had created more than 100 fake Apple IDs to carry out their attacks. In the process of creating those accounts, NSO’s engineers would have had to agree to Apple’s iCloud Terms and Conditions, which expressly require that iCloud users’ engagement with Apple “be governed by the laws of the state of California.”The clause helped Apple bring its lawsuit against NSO in the Northern District of California.https://www.nytimes.com/2021/11/23/technology/apple-nso-grou..."</p>
-							
-						
-							
-								<p class="story__comment_others">"The framing of NSO as &#34;state-sponsored&#34; cannot be overstated, and Apple didn&#39;t miss the chance to do just that.A hard blow to Israel&#39;s policy just as much as it is to NSO itself."</p>
+								<p class="story__comment_first line-clamp">"Very nice.Regarding the comments about complexity of existing formats - I agree, with the exception of PNG. In terms of complexity, QOI is very similar to PNG filtering phases, i.e. when you strip primary compression phase (Huffman coding) from PNG.Also, I admire how the author combined a lot of common and cool tricks into QOI:- Block tags form a sort of a prefix code, making it easy to differentiate block types with differing sizes- Look-back array is used (common trick from LZW family)- Delta-coding is used when storing pixel diffs- In the end, if nothing else works, full pixel value is writtenAlso, the fact that everything is byte aligned is very appreciated.This is a breath of fresh air and really impressive how good performance (both processing and size reduction) this gets with so little (very readable!) C."</p>
 							
 						
 							
-								<p class="story__comment_others">"NSO is pretty well covered by Darknet Diaries:https://darknetdiaries.com/episode/99/
-https://darknetdiaries.com/episode/100/I have no sympathy for NSO."</p>
+								<p class="story__comment_others">"I know you don&#39;t like &#34;design by committee&#34; and overly complex formats. Also, the compression algorithm itself is somewhat independent of the &#34;container format&#34; that it&#39;s used with.However, if I may make a suggestion: If you do end up rolling your own container format for any reason, always include a way to store the colour space of the image!Treating RGB images as arrays of bytes without further tags is like treating char* as &#34;text&#34; without specifying the code page. It could be UTF8. Or Latin-1. Or something else. You don&#39;t know. Other people don&#39;t know. There&#39;s often no way to tell.Similarly with colour spaces: sRGB, Display P3, and Adobe RGB are just close enough to be easily confused, but end up looking subtly wrong if mixed up."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; To keep things O(n) when encoding, there&#39;s only one lookup into this array. The lookup position is determined by a “hash” of the rgba value (really just r^g^b^a).Is a bit imprecise.
+The algorithm would still be O(n) even with a linear search through the &#34;seen pixel array&#34;, as it is bounded by 64 length and therefore a constant factor that gets eaten by the Big-O notation.Because of this hash the algorythm seems to do something else than first described though.
+Instead of &#34;a running array of the 64 pixels it previously encountered&#34;, it&#39;s actually the previous 64 pixel _values_ previously encountered, which allows for much bigger jumpback.By deterministically computing this array during execution it itself seems to act as a kind of compressed jumpback table, allowing for approximated arbitrary jumpback with just 6 bit.Quite impressive!Edit:
+I think there might be an interesting tweak that could increase the effectiveness of the hashing technique used.If one were to walk and store the pixels in a Z-Curve order, the runtime would stay the same but the locality of the color value pool, might be increased."</p>
 							
 						
 						</a>
@@ -68,22 +70,22 @@ https://darknetdiaries.com/episode/100/I have no sympathy for NSO."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://gist.githubusercontent.com/plutooo/733318dbb57166d203c10d12f6c24e06/raw/15c5b2612ab62998243ce5e7877496466cabb77f/tsec.txt">Full key extraction of Nvidia TSEC</a></h3>
+					<h3><a href="https://www.datacenterdynamics.com/en/news/samsung-plans-17-billion-chip-plant-in-taylor-texas/">Samsung plans $17B chip plant in Taylor, Texas</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29315378">
+						<a href="https://news.ycombinator.com/item?id=29330599">
 						
 							
-								<p class="story__comment_first line-clamp">"As a boring software engineer nowadays, these hackers &#34;for fun and profit&#34; make me proud of our profession. They&#39;re like a Robin Hood version of Alan Turing &amp; co. working on cracking the Enigma encryption. No matter how tight the black box is, there is always a gap somewhere.I&#39;ve done some reversing when I was younger, cracked some software and hardware locks, there&#39;s nothing as exhilarating as breaking through something that looked impossible. Well done!"</p>
-							
-						
-							
-								<p class="story__comment_others">"The concept of undervolting the chip, causing bitflips, to do a differential fault analysis[0] seems like a stroke of genius. I had no idea AES could be broken in such a fashion, of interfering with just the last 1-2 rounds of the cipher.I wonder if it will be mitigated by requiring a larger minimum voltage?[0] https://en.wikipedia.org/wiki/Differential_fault_analysis"</p>
+								<p class="story__comment_first line-clamp">"After the TX grid failure last winter, it&#39;s probably not a coincidence that Samsung&#39;s new facility will be near ERCOT&#39;s operation center in Taylor, which manages the TX grid, and will likely be the last load to shed when the grid&#39;s stressed. Used to work in the Austin fab, and the amount of money lost per minute in a power failure is mind boggling.  The tax breaks Taylor offered ($314m) are not that different from what Samsung was reported to have lost due to the grid failure ($270m)."</p>
 							
 						
 							
-								<p class="story__comment_others">"Holy cow. Reading these recaps I feel a lot the Impostor Syndrome. I think I&#39;m competent on what I do, but when I see those guys it&#39;s hard not to feel really dumb.Congrats to them !"</p>
+								<p class="story__comment_others">"I worked at Samsung Austin Semiconductor for ten years as a software engineer. AMA.I very much love the people I worked with at SAS. It was one of the best experiences of my life and I&#39;m very happy to see them expand like this.Wayne at Louie Mueller&#39;s BBQ had better add a few more pits, they&#39;re about to get a lot busier!"</p>
+							
+						
+							
+								<p class="story__comment_others">"‘Impossible&#39;:TSMC founder Morris Chang on US dreams for onshoring chip supply chainhttps://www.taiwannews.com.tw/en/news/4327937Morris Chang spent 25 years (1958–1983) at Texas Instruments.He knows US very well."</p>
 							
 						
 						</a>
@@ -96,22 +98,22 @@ https://darknetdiaries.com/episode/100/I have no sympathy for NSO."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://reactionwheel.net/2021/11/your-boards-of-directors-is-probably-going-to-fire-you.html">Boards are dangerous to founder/CEOs</a></h3>
+					<h3><a href="https://maheshba.bitbucket.io/blog/2021/10/19/42Things.html">Things I learned from building a production database</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29320078">
+						<a href="https://news.ycombinator.com/item?id=29322515">
 						
 							
-								<p class="story__comment_first line-clamp">"I always thought stuff like this happened to OTHER founders, but would never happen to me. But my board fired me six months after closing our series A.The advice in this article is 100% spot on. I didn&#39;t know any of this. I was totally focused on building my company. But if you raise money you can&#39;t do that anymore. 50% of your time will always be occupied with working on your next round of funding or managing your board of directors.I noticed super early that VCs were not &#34;helpful&#34; at all like they had claimed during the fundraising process.So I got fired, and I thought, &#34;well, at least I still have my founders stock!&#34;Then a year after I got fired the series A investor led the next round of funding and decided to value the company at $0, so I got diluted by 99.99%. Sounds illegal, right? Well, it probably was, but what am I going to do about it? They have billions of dollars and I had no money.I just let it go and started something new - bootstrapping of course. On the bright side, the new CEO ran the company into the ground. Meanwhile my new company is doing well and I love my job.Anyway, do what this guy says to manage your board and just plan on being fired at some point if you raise VC money."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is something you should really understand if you&#39;re starting a company. The board isn&#39;t your &#34;friend&#34; while individual board members may be, as an entity it probably isn&#39;t. The understanding that individuals can be &#34;good&#34; and the composite can be &#34;bad&#34; is usually encountered by most people when some government is doing something &#34;bad&#34; but the people who live where that government is in power are known to be &#34;good.&#34; We see a lot of companies that have &#34;good&#34; employees but act in a &#34;bad&#34; way as a company.So with that in mind, you have to understand that none of your &#34;friends&#34; would fire you, but the &#34;board of directors&#34; (even if composed of people you consider friends) could easily decide to do that.Tom Lyon used to joke that it was only on your third startup that you funded yourself that you are really in control. The wisdom of that took a while to sink in for me."</p>
+								<p class="story__comment_first line-clamp">"&gt; [10] Make your project robust to re-orgs. A company management hierarchy is inherently fragile (a tree is a 1-connected graph, after all); socialize the project continuously with managers who might take over in the future. Do whatever it takes to make sure that manager churn does not result in unfair career outcomes for ICs.&gt; [17] For storage systems, bias heavily in the beginning towards consistency and durability rather than availability; these are harder to measure and harder to fix if broken. Because availability is easier to measure, there will be external pressure to prioritize it first; push back.It&#39;s kind of crazy how well the author is able to move from the very top to the very bottom of the technical project management stack."</p>
 							
 						
 							
-								<p class="story__comment_others">"It may be gauche to express this opinion on HN of all places and I hope it doesn&#39;t come off as tonedeaf disrespect, but does anybody notice VC is falling out of favor unless absolutely necessary?I am noticing a lot of bootstrappers that are emerging with the ethos that VC isn&#39;t what it used to be for some markets, and often a poor choice of the right VC can be a detriment to a project&#39;s longevity, with some teams choosing to avoid it at all costs."</p>
+								<p class="story__comment_others">"I really think this is a great list however I think one of the major factors why this project succeeded isn&#39;t listed but is mentioned in the intro.&gt; We hit production with a 3-person team in less than a year; and subsequently scaled the team to 30+ engineers spanning multiple sub-teamsStarting with a small skilled team to build the core and actively plan for a larger team at some point is absolutely critical for project success in my experience, especially with complex projects like this. That small team can have a much tighter communication loop and all keep a single unified picture of what the end goal is. When the team grows this single unified picture is no longer feasible so it has to be broken down into sections, which is a good thing, but if the core isn&#39;t setup so that the sections are sufficiently decoupled things fall apart quickly."</p>
+							
+						
+							
+								<p class="story__comment_others">"Lot of good, actionable learnings there. I liked this one in particular.&gt; [26] In a transparent codebase with quick review cycles, APIs will leak implementation details unless you gate-keep.It&#39;s tempting to make quick fixes to APIs but please take it slow. Think through existing customers as well as how could new ones will use it.Also, something I learned while building/maintaining public APIs was to always clearly document (along with examples) the context in which an API should (ideally) be used and how it combines with other APIs to enable common use cases."</p>
 							
 						
 						</a>
@@ -124,23 +126,23 @@ https://darknetdiaries.com/episode/100/I have no sympathy for NSO."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://rarehistoricalphotos.com/cocaine-paraphernalia-ads-1970s/">Cocaine Paraphernalia Ads in the 70s</a></h3>
+					<h3><a href="https://support.apple.com/en-us/HT212960">Apple will notify users about state-sponsored cybersecurity threats</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29316180">
+						<a href="https://news.ycombinator.com/item?id=29333694">
 						
 							
-								<p class="story__comment_first line-clamp">"A little digging and it appears these ads were in magazines like Hustler, Penthouse and High Times - not the The New York Review of Books or more mainstream titles, which makes much more sense.https://flashbak.com/cocaine-advertising-of-the-1970s-1980s-...
-https://dangerousminds.net/comments/magazine_ads_from_the_he..."</p>
-							
-						
-							
-								<p class="story__comment_others">"https://1.bp.blogspot.com/-MgX_VMXj3Sc/YZvryBNXhUI/AAAAAAAAg... &#34;finest center cuts of imported African ivory&#34;Wow. That and https://1.bp.blogspot.com/-w3Xc47mDO8E/YZvrzIxkirI/AAAAAAAAg... (&#34;solid Honduras mahogany&#34;) really hit me.I wonder what they see 50 years from now and shake their heads about what we squandered. My guess is &#34;wild caught salmon&#34; and atoll beach resorts."</p>
+								<p class="story__comment_first line-clamp">"I know of one case of a Polish prosecutor who does not obey (do not want to bend the law) Zbigniew Ziobro, who is both the minister of justice and the prosecutor general. She received a notification from Apple just today.Source:
+https://mobile.twitter.com/e_wrzosek/status/1463551631648251..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I remember all the little &#34;coffee stirrers&#34; with the comically tiny spoon like ends. Of course the explanation was it&#39;s for stirring your coffee or adding a little sugar. Though who adds a tiny bump of sugar to their coffee? Turns out it was for coke and they were commonly available everywhere. The McDonalds ones were semi famous for that.Its similar to those little fake flowers in a glass tube on counters in corner stores which make great crack pipes (same with those short cheap tire pressure gauges). Or the cheap looking socks they oddly sell which are useful for tie off before shooting heroin."</p>
+								<p class="story__comment_others">"I see a lot of pessimism in the comments. But I think this is a great step in the right direction.Other companies should take note. More of this, please!"</p>
+							
+						
+							
+								<p class="story__comment_others">"So something like PRISM that targets everybody won&#39;t trigger a warning?"</p>
 							
 						
 						</a>
@@ -153,22 +155,22 @@ https://dangerousminds.net/comments/magazine_ads_from_the_he..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.the-angry-chef.com/blog/the-worlds-deadliest-thing">The World&#39;s Deadliest Thing</a></h3>
+					<h3><a href="https://www.stephendiehl.com/blog/nothing-burger.html">The Handwavy Technobabble Nothingburger of Crypto</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29305867">
+						<a href="https://news.ycombinator.com/item?id=29330879">
 						
 							
-								<p class="story__comment_first line-clamp">"Pop quiz!Do you ever buy frozen vacuum-sealed fish? The kind where each piece is sealed in its own plastic pouch? It is convenient and delicious. To me it can taste fresher than some &#34;fresh&#34; fish. One reason is that the sealed pouch keeps oxygen out.Have you wondered why it says &#34;remove all packaging before defrosting&#34;? And ignored that advice like I did for many years?After all, the fish seems to defrost just fine in its original vacuum-sealed packaging, whether you defrost it in the refrigerator or in a cold water bath. And it is so convenient to leave it in the pouch while defrosting.Well, there is a reason to take those instructions seriously. The vacuum-sealed package is an anerobic environment, just right for botulinum and listeria.So unwrap the fish, let it have that little kiss of oxygen, and then rewrap it for defrosting.https://www.google.com/search?q=remove+frozen+fish+from+pack..."</p>
-							
-						
-							
-								<p class="story__comment_others">"The rapid, long-lasting and highly noticeable cosmetic effects made Botox a near instant success. In small doses, the same nerve damage that causes fatal paralysis in poisoning cases, helps to remove forehead creases and crow’s feet, with the only side effects being an inability to express emotion using your face,…ironic that many celebrities who publicly advocated a clean living, chemical-free lifestyle, were also early adopters of a treatment that involves injecting the deadliest substance on earth into your face (looking at you, Paltrow). If any of them were surprised at this seeming paradox, they certainly didn’t show it.Loved the subtle irony here."</p>
+								<p class="story__comment_first line-clamp">"If anything, I think stablecoins are way more dangerous than the author indicates.People talk about things like Bitcoin as a threat to sovereign currencies, and they are, as competitors, of sorts. But stablecoins are another matter entirely. One huge aspect of the value of sovereign currencies is that they are instruments of law -- courts will settle in them as a lowest common denominator, and it is safe to use them in all sorts of settings as a result.When dollar-denominated assets appear, they always run the risk of being considered a dollar-equivalent. For example, bank deposits are dollar-denominated, and are considered dollar-equivalent (even dollar-superior, in the sense that there are transactions that you can&#39;t legally do with specie, only with bank deposits, like buy stocks). That means that if banks (which are businesses) are not good at doing business, the government is essentially forced to treat them as dollar-equivalents by making them whole. See Savings &amp; Loan Crisis, the GFC, LTCG, etc., etc.Stablecoins piggyback on the legal aspects of dollars, and as long as you treat them as dollar-denominated assets, you&#39;re fine. The second you treat them as dollar-equivalents, you run the risk of a change in the value of that asset being something that the government is forced into supporting."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; The lethal dose when consumed orally is around 30 billionths of a gram, which if you want a relatable comparison, is about the same as if you cut a single poppy seed into ten thousand equal pieces and ate one of them. It is an amount so tiny, it really doesn’t make sense.That&#39;s right - it makes no sense. How could such a small amount of anything do enough damage to shut down your entire body? According to wikipedia, it works by &#34;cleaving key proteins required for nerve activation&#34;. Unless there&#39;s some self-replication mechanism, how does that even work?edit: I went and did the math. At an LD of 30 nanograms, that&#39;s about 1.2 billion actual molecules of this stuff to die. I guess that&#39;s enough to shut down a sufficient number of nerves that you just can&#39;t function anymore.The math: lethal dose / per molecule weight (molar mass / avogadro)(3.0e-10) / (149323.05 / 6.0221409e+23) = 1209888406.377984"</p>
+								<p class="story__comment_others">"I wonder how much of the Crypto hype is because the US banking system still lives in the 1980s or thereabouts.If everybody in the US had access to bank accounts with easy electronic transfers within 5 seconds for no charge, no chargebacks and so on, as people are used to in the EU, would people still be excited about Bitcoin?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Most people on HN are rational people who look at the world in a rational way. Bitcoin and friends are not operating in a rational market, therefore we don&#39;t understand them, and most of us would probably be pretty lousy investors since we would try to make decisions rationally instead of memeing and YOLOing.But, and this is a key point, that doesn&#39;t make us right and them wrong. It&#39;s just a different kind of market, one that I am not very good at, but it is for sure possible to make money in it. You just need to be a different kind of person. We can say our way is &#34;better&#34;, but who are we to decide that?"</p>
 							
 						
 						</a>
@@ -181,32 +183,22 @@ https://dangerousminds.net/comments/magazine_ads_from_the_he..."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/">Django, HTMX and Alpine.js: Modern websites, JavaScript optional</a></h3>
+					<h3><a href="https://allthatsinteresting.com/max-headroom-hack">The Max Headroom Incident</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29319034">
+						<a href="https://news.ycombinator.com/item?id=29319651">
 						
 							
-								<p class="story__comment_first line-clamp">"Can someone genuinely explain to the the desire/interest to use HTMX/Hotwire/LiveView etc?I was writing web apps when rendering templated HTML views on your server was standard, and you had controller endpoints that returned HTML content, or things like Rails &#34;Unobtrusive Javascript&#34; where you had code like:  $(‘#user-list’).html(“&lt;%= j render(‘index’, users: @users) %&gt;”)
-
-As an automatic callback to some action.Whether or not you love or hate this model of development is irrelevant, because if at some point you need to render on a client other than a browser -- you have to start from the beginning and write an API now.IE, so that your Android/iOS app in Java/Swift or whatnot, can ask your backend for data and render it using the tools available on that platform.When we turned apps into pure API&#39;s and just exchanged data with them, it opened up the ability to be platform-agnostic.I guess I don&#39;t understand why someone would choose to build an app that sends HTML over the wire instead of JSON/XML/whatever, that any client can render. All it means is that you have to write this functionality later when you want it, in addition to now having this HTML stuff."</p>
-							
-						
-							
-								<p class="story__comment_others">"After reading some HTMX criticism, there&#39;s one point people seem to miss. Making HTML your application interface does *not* prevent you from having a JSON (or something else) API. If anything, it probably forces you to split your functions better. e.g:  def get_user_data(user_id: int) -&gt; Dict (JSON-looking data):
-      ...
-
-  def render_user_view(user_id: int) -&gt; HTML:
-      user_data = get_user_data(user_id)
-      render_template(&#34;user_detail_view.html&#34;, context=user_data)
-
-If you need the user data in a JSON API, nothing prevents you from exposing `get_user_data` as a JSON endpoint. You can also use WebViews in a mobile app.People tend to overestimate the &#34;interactivity&#34; needs of their apps and underestimate what they can achieve by just swapping HTML. HTMX also lets you swap &#34;Out of Band&#34; [0]. This makes it easy to model more complex interactions (like &#34;reactions&#34;), for example, updating a counter somewhere else in the app when a form is submitted. Reactive frameworks can also become a Rube Goldberg machine if an app is not properly designed from the beginning. Then you start fighting rendering loops, build dependencies, components&#39; side effects, etc.Personally speaking, HTML-driven apps are not just about easy vs. hard development, it&#39;s also about your users [1]. Maybe a big React app runs fine on 8 CPU cores and 32 GB of RAM, but very often, your users just want to read some content, maybe submit a few forms, and leave. They may not want to download 2 MB of JS so that the page can render boxes with text, even more if your browser can already do that if you give it some HTML.[0] https://htmx.org/attributes/hx-swap-oob/
-[1] https://shkspr.mobi/blog/2021/01/the-unreasonable-effectiven..."</p>
+								<p class="story__comment_first line-clamp">"Similar incident: in 1985, political opposition in People&#39;s Republic of Poland &#34;hijacked&#34; TV by broadcasting in sync with the actual TV signal. This allowed them to superimpose things on top of the image (within some range around their transmitter), which they used to broadcast political messages.Differences: not complete replacement, but superposition; &#34;attacked&#34; signal was the final signal to consumers; the hackers were caught (by standard police methods).Some details: https://hackaday.com/2016/07/05/retrotechtacular-how-solidar..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I agree that the way modern JS (need to?) download half the Internet for a semi-useful app is annoying, wasteful and dangerous.However, I still remember the hell that was updating the state and keeping the rendering in sync with it when using jQuery. Native JS of course doesn&#39;t improve on that, and (judging by the description - no experience with it) Alpine.js doesn&#39;t either. For me, the paradigm of rendering from the internal state is what makes React (and Vue,...) useful. Too bad that npm ecosystem sucks and that everyone is inventing new shiny useless new things all the time... But React makes non-trivial single-page apps possible.Of course, if you need server-side rendering (for example because of SEO) then the equation changes, and maybe using Alpine.js makes sense."</p>
+								<p class="story__comment_others">"This always reminds me of the 2007 incident on Czech TV, where someone hijacked a weather panorama broadcast: https://www.youtube.com/watch?v=ea4eft_3p-IIIRC the panorama cam was connected to the Internet and had been hacked, so no microwave magic there. Good execution nonetheless..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The assumption that the content of the video had something do do with why it was broadcast may not be reasonable. Someone wanting to play the technical prank might well find some of the most random shit available to broadcast, hoping (perhaps mistakenly) that the point would be clear anyway.I think its also possible that the the technically equipped people who did this were perhaps not thinking as clearly as usual that evening. Intoxicants may have been involved. There were some gifted organic chemists working out in the suburbs then."</p>
 							
 						
 						</a>
@@ -219,22 +211,22 @@ If you need the user data in a JSON API, nothing prevents you from exposing `get
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://ludocode.com/blog/flatpak-is-not-the-future">Flatpak Is Not the Future</a></h3>
+					<h3><a href="https://www.nasa.gov/feature/greening-of-the-earth-mitigates-surface-warming/">Greening of the Earth mitigates surface warming</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29316024">
+						<a href="https://news.ycombinator.com/item?id=29335646">
 						
 							
-								<p class="story__comment_first line-clamp">"To be fair, as a daily user and (to some extent) app developer, in my experience Flatpaks have solved the problem of library fragmentation and app distribution on Linux.While my experience on Snaps was mostly negative (due to bugs, virtual &#34;loop disks&#34; per every app affecting the system performance, etc.), I found that Flatpak finally lets me install essentially any app on any distro.For example, the Elementary OS &#34;AppCenter&#34; apps are now available in any other distribution, thanks to the Flatpak remote. Testing daily GNOME apps has become as easy as installing their Flatpak reference, and letting them update automatically.Regarding memory, storage and power consumption:- The base runtimes (which are the heaviest bit) are downloaded only once per system, e.g., one for the KDE Plasma ecosystem, one for Elementary, and so on. The first app you install will pull them, so I do not see it as much more bloaty than having an enormous bundle of system-wide dependencies (e.g. if you install a KDE app in a primarily GNOME environment) as would happen otherwise.- Memory and CPU-wise, Flatpaks are very light containers (which do not require loop disks, or anything else) which should have almost no overhead. I never witnessed any loss of performance, at least.- Bug and crash-wise, I experienced a tremendously stable and &#34;flat&#34; experience on Flatpaks. That is, if there is a bug in one app on one distribution, the bug will exist on all, or vice versa. This is not as common as it should be in containerized app install tools, and makes debugging overall much easier.The only drawback are updates taking longer than on other platforms, probably because compressed deltas are not yet available unlike in other major package managers.With this, I don&#39;t want to describe Flatpak as a panacea in everything, but at least for GUI apps, it solved a lot of distribution fragmentation issues in my case."</p>
-							
-						
-							
-								<p class="story__comment_others">"I agree with all of this and... I just don&#39;t care.I download a Flatpak from the Pop OS store and it works. It installs only in my profile, so another user on the same machine doesn&#39;t have access.  You can&#39;t do that with a .deb!I&#39;ve never got into dependency hell where I need to apt-get a specific version of a library from a dodgy PPA.If I uninstall it, Flatpak doesn&#39;t leave acres of cruft strewn around my disk.I don&#39;t see how randomly installing a Flatpak is any worse for security than compiling the source myself. The permission model on Linux is far worse than Android - so I just hope for the best anyway.Snaps never worked right for me - and seemed to frequently break. But all my Flatpaks have run fine and at full speed.Does it take up more disk space? Sure. But that&#39;s a trade-off I&#39;m willing to make in order to just download and run with no extra work.Sure, there are some efficiency and security gains to be made. But I&#39;m much happier with a Flatpak world than the alternative."</p>
+								<p class="story__comment_first line-clamp">"Before life got in the way, I wanted a Bachelor of Science in Environmental Resource Management as a foundation for a Master&#39;s in Urban Planning. I currently run r/UrbanForestry for the same reason:I don&#39;t think it makes sense to see human settlements as separate from nature. I think of nature as the fabric within which such configurations occur.It isn&#39;t inevitable that human development must be a concrete jungle. You can include plants, permeable surfaces, etc in your plans so people can live more lightly and less intrusively on the land.I also think America has a lot of room for adding back walkable mixed-use neighborhoods where at least some people can live, work and shop in the same neighborhood. Or at least live and shop if they are retirees, teens, or similar groups who aren&#39;t seeking a job or who already work at home or from home in some capacity.Studies suggest this leads to greater wealth in such neighborhoods (such as more sales) and we know vehicle traffic is a significant burden wrt human-caused climate change. Making it possible to skip the long commute makes for a better quality of life and less pollution adding to this issue.We currently frame this issue as a painful choice between short-term gratification and current high quality of life with a long-term cost of global disaster versus short-term sacrifice for slim hope of assuaging our guilt with no guarantee of real improvement in the future. I don&#39;t think that&#39;s necessary.I&#39;ve lived without a car in the US for more than a decade. I think you can live that way and live well. I think we can design and build a world that provides a high quality of life for people and doesn&#39;t destroy the environment in the process."</p>
 							
 						
 							
-								<p class="story__comment_others">"There is a deep trend happening in software development.As the number of dependencies for building an application grows, it becomes exponentially harder to shake the tree. This used to be the role of Linux distributions, they were acting as a push-back force, asking projects to support multiple versions of C libraries. This was acceptable because there is not C package manager.Now that each language has their own package manager, the role of distributions have faded. They are even viewed as a form of nuisance by some developers. It&#39;s easier to support one fixed set of dependencies and not have to worry about backward-compatibility. This is something all distributions have been struggling with for a while now, especially with NodeJS.This trend is happening on all platforms, but is more pronounced in Linux because of the diversity of the system libraries ecosystem. On Windows and macOS, there are some SDKs the application can lean on. On Linux, the only stable &#34;SDK&#34; is the Linux kernel API."</p>
+								<p class="story__comment_others">"This is not the answer the Australian government is looking for.The solution needed by politicians is highly technological, expensive, allows us to keep selling coal, and isn&#39;t understood by people so can be easily spun into ridiculous tales by politicians.&#34;Just plant trees&#34; would be ridiculously expensive and is totally impractical, the politicians would say."</p>
+							
+						
+							
+								<p class="story__comment_others">"77% of agricultural land is devoted to livestock.  We could return a lot of that land to wilderness if we adopted a whole food plant based diet.https://www.onegreenplanet.org/news/chart-shows-worlds-land-..."</p>
 							
 						
 						</a>
@@ -247,22 +239,22 @@ If you need the user data in a JSON API, nothing prevents you from exposing `get
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.garbageday.email/p/when-the-traffic-firehose-is-pointed">Unmasking the most viral page on Facebook</a></h3>
+					<h3><a href="https://tikolu.net/emojimix/">Emojimix</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29309201">
+						<a href="https://news.ycombinator.com/item?id=29305546">
 						
 							
-								<p class="story__comment_first line-clamp">"I had a somewhat similar experience at a much smaller scale a long time ago.  I used to buy and sell domains.   Bought one that was very close to being on the first page of Google results for a keyword related to personal finance.Did a bit of sprucing up the page, dropped a few links, and it did get on the front page for a few months, with AdSense paying me several thousands dollars a month while it lasted.  The page itself wasn&#39;t a scam per se, but it was roughly 1000 medium-effort words on the topic I wrote in a day, along with a few original photos that took another day, and a couple of inline AdSense ads.It didn&#39;t deserve to be on the first page of results.  I guess the &#34;kingmaker&#34; thing still exists where big tech decides who today&#39;s winner is, and doesn&#39;t always get it right."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Facebook flipped a switch, favoring comments and reactions over shares, and suddenly a food blogger from Utah became the largest publisher in the country, if not the world.&#34;While the firehose volume is disproportionate, the direction wasn&#39;t random. Whoever is copywriting these messages is an artist, drawing an outstanding number of responses. I felt the urge to react when I read them and bravely restrained myself. There&#39;s a lot of power in asking someone the right personal question."</p>
+								<p class="story__comment_first line-clamp">"Really cool concept. Apparently these are all handmade emojis made for Google&#39;s Android Keyboard [1]. And by the looks of it they are all available at fairly obvious URLs [2], which this tool exposes in a fun interface.1: https://9to5google.com/2021/09/24/gboard-emoji-kitchen-list/2: e.g. https://www.gstatic.com/android/keyboard/emojikitchen/202108..."</p>
 							
 						
 							
-								<p class="story__comment_others">"A while back I was trying to get twitter followers.  I experimented with a few different strategies - quick reactions to big accounts I agreed with or disagreed with, saying what I thought people wanted to hear, saying what I thought would be controversial hot takes, tweeting about everything trending, etc.  I basically got no traction.  I was getting low tens of thousands of impressions a month according to the twitter analytics tool and maybe 1 or 2 new followers a month - and, to be honest, those new followers were probably bots.Eventually, I hit on a new strategy.  Instead of trying to generate good tweets I just followed people at random.  I forget the exact number, but somewhere between 15-30% of the people I followed at random would follow me back.  I realized I could probably get an arbitrary number of followers this way but it would be a pretty stupid and meaningless achievement so I quit doing it.The &#34;viral post&#34; strategy of the article, asking things like &#34;Who the heck sleeps with the fan on?&#34; maybe similar as a kind of brainless strategy to get followers.  I guess some people like responding to these prompts.  I suspect it has the same weakness as the &#34;follow back&#34; strategy though.  Nobody really cares about the account or connects with it or even understands what you&#39;re trying to do.  These people aren&#39;t your followers so much as they are people who like small talk and coalesced around you for a time."</p>
+								<p class="story__comment_others">"The prompts are super annoying and don&#39;t make me want to check out the rest of the site. Takes me out of the experience a bit, especially because it&#39;s like a worse popup since they can&#39;t be blocked.That said, this is cute. I wonder if this uses the same approach that certain Android keyboards use to combine emojis"</p>
+							
+						
+							
+								<p class="story__comment_others">"The attention to detail is some cases is impressive. E.g. in the regular owl emoji the owl has its wings folded; but when mixed with a celebrating emoji, it spreads its wings. Not to mention mixing bat and cake.That being said, the UI can be annoying. It&#39;s hard to scroll the lists and the popups are distracting."</p>
 							
 						
 						</a>
@@ -275,22 +267,23 @@ If you need the user data in a JSON API, nothing prevents you from exposing `get
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.gatesnotes.com/About-Bill-Gates/Holiday-Books-2021">Books I loved reading this year</a></h3>
+					<h3><a href="https://sfstandard.com/controversy-rages-as-california-follows-sfs-lead-with-new-approach-to-teaching-math/">California moves to recommend delaying algebra to 9th grade statewide</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29309758">
+						<a href="https://news.ycombinator.com/item?id=29324551">
 						
 							
-								<p class="story__comment_first line-clamp">"I recently read Enough: True Measures of Money, Business, and Life, by Jack Bogle, the founder of Vanguard. Written during the 2008 recession, it&#39;s so much more than a business book. It highlights in detail how the financial industry at large leeches so much wealth for itself while creating so little, and offers insights from someone truly introspective of life, business, finance, and the future of the country. Highly recommend a read/listen.https://amazon.com/John-C-Bogle/e/B001H6NWEM"</p>
-							
-						
-							
-								<p class="story__comment_others">"- List for the lazy -A Thousand Brains: A New Theory of Intelligence, by Jeff Hawkins.The Code Breaker: Jennifer Doudna, Gene Editing, and the Future of the Human Race, by Walter Isaacson.Klara and the Sun, by Kazuo Ishiguro.Hamnet, by Maggie O’Farrell.Project Hail Mary, by Andy Weir."</p>
+								<p class="story__comment_first line-clamp">"I&#39;m perpetually perplexed at why some people seem to think that lowering the standards is going to help anyone. Do they not realise the source of all scientific and technical advancement is really the result of a minority of high achievers, and that by trying to &#34;flatten&#34; this inequality and effectively make everyone equally stupid, they are also going to be affected negatively?applies social justice principles to math lessonsThe inmates aren&#39;t running the asylum anymore; they&#39;re running the government. All I hope is that this cancerous ideology (I&#39;ll resist the prop65 joke...)  doesn&#39;t grow any further than it already has. The decline is certainly sad to see and already rather visible."</p>
 							
 						
 							
-								<p class="story__comment_others">"I was disappointed by A Thousand Brains. The last part of the book veered into ... I don&#39;t really know. On the other hand, I loved Jeff Hawkins&#39; earlier book on this topic: On Intelligence [1]. It&#39;s easily one of the top 5 books that I&#39;ve read and the first part of A Thousand Brains recaps much of that work, so still relevant today according to the author.[1] https://numenta.com/resources/on-intelligence/"</p>
+								<p class="story__comment_others">"I’m Danish and not at all interested in the politics of it, but there can be a case for teaching algebra late. We do it in Denmark, because it’s the subject children have the hardest time learning, and having too many of them fail too early kills their interest in math. We still teach algebra in grade 7-9, but we’ve gone through the social experiments of teaching it at different ages, and have lost entire generations because it was taught too soon.I don’t think social justice or equality should play a part of the argument, but it’s always hard to tell where the legislation ends and the propaganda begins these days, and I’m honestly no interested enough to read the 800 page document this article is about.I will say, however, that I think we’re going to have problems teaching math until we reform the school system to be suited for the modern world instead of the early 1900’s “assembly line” society. It makes no sense to place children in classes based on their age, and certainly not for all subjects.The result is always going to be that both slow and brilliant students get fucked over, in a myriad of ways, especially if they are a mix of good and bad at different subjects.Why exactly is it that you aren’t taught courses like math, or history or language according to your ability instead of your age?"</p>
+							
+						
+							
+								<p class="story__comment_others">"These superficial debates are in my eyes futile since they presuppose: &#34;We ought to have a strict curriculum for a certain narrow age group.&#34;After what we have learned the last 30-50 years from cognitive sciences one has to wonder what schools are actually for, nowadays. There are most certainly not optimized for &#34;learning&#34; by any means. 
+Imho to put it blatantly schools are reduced to be a effective stronghold for indoctrination. They justify their power by using &#34;science, technology, art, literature, history, social community, cultural exchange ...&#34;. Of course sheer by its power and scope we certainly &#34;learn&#34; something there. And you also happen to find great teachers in that system but its certainly not its main purpose.Going back historically, schools still remain inherently (and shockingly so) medieval institutions. Interestingly &#34;school&#34; originally stems from the greek word of σχολή (/skʰo.lɛ̌ː/) which simply means &#34;free time, leisure&#34; which got hijacked by the church with &#34;monastic schools&#34; and today &#34;school&#34; means quite the opposite.Throughout its (western) history with changing society they were succesful adaptions made (Prussian system, Humboldt&#39;s Ideal, Montessori pedagogy) skyrocketing literacy, expolding number of scientists etc.But today the educational system is massively outpaced by the societal changes and by failing simply regresses to its medieval core of indoctrination (&#34;preparation for the labor market&#34;).No scientific literacy (aka critical thinking, controversial debates), no &#34;learning&#34; grounded on cognitive sciences, no hearing and tending to the needs of our young which they can perfectly articulate."</p>
 							
 						
 						</a>
@@ -303,22 +296,22 @@ If you need the user data in a JSON API, nothing prevents you from exposing `get
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://ianthehenry.com/posts/how-to-learn-nix/">How to Learn Nix</a></h3>
+					<h3><a href="https://rarehistoricalphotos.com/nasa-space-colony-concepts/">Space colonies of the future as imagined by NASA in the 1970s</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29303641">
+						<a href="https://news.ycombinator.com/item?id=29317734">
 						
 							
-								<p class="story__comment_first line-clamp">"Oh hi! Author here. Fun thing to wake up to.I wanted to point something out that the series doesn&#39;t do a good job of highlighting:You can use Nix alongside your existing package manager.They won&#39;t conflict. You can set up dev environments with Nix without drinking the kool-aid. I still have Homebrew installed, and I still occasionally reach for it in the rare cases where Nix is missing some package I want to try. But I am sad every time I do: I never really realized how unbelievably slow Homebrew is until I tried Nix.So if you&#39;re Nix-curious, you can try it out without committing to anything upfront. I didn&#39;t make the switch until part 19:https://ianthehenry.com/posts/how-to-learn-nix/switching-fro...Nix is weird and hard to learn, but it&#39;s a lot like git in that respect. Yes, the UI is terrible. You have to learn the difference between `reset --hard` and `reset --mixed` and it&#39;s weird and unintuitive but you eventually get over it.And people are using it despite how unintuitive it is, because of how valuable it is to them. No one is arguing that `nix-env -qaP package` is a reasonable command to ask a fellow human being to type, but people are willing to type it anyway because the benefits are worth it. As a fun example, a few weeks ago I wrote up a little hack that I would not have even attempted before spending the time to learn Nix:https://ianthehenry.com/posts/janet-game/how-to-patch-emacs/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve bounced off Nix a couple of times and figured that the problem is that it was too different. A lot of Linux distros (especially post-systemd) have a fair number of similarities and it&#39;s pretty easy to translate knowledge between them. NixOS _probably_ works very similarly, but it&#39;s also got this additional declarative configuration layer on top, which is the point of using NixOS, and it&#39;s got its own special way of doing things.You can&#39;t translate Linux knowledge to a NixOS config directly, you need NixOS&#39; documentation to understand the &#34;NixOS Way&#34; of doing things, and the NixOS way of doing things does not translate into other distros. And the documentation is difficult to understand and at times seemingly arbitrary.You have to commit to learning NixOS and understand that you are only learning NixOS, it won&#39;t help you use anything else. Other Linux distros help you learn Linux in general and inform your understanding of Linux system construction, but NixOS is its own thing. Plenty of people learn NixOS anyway, and more power to them, but it&#39;s definitely pushed me away."</p>
+								<p class="story__comment_first line-clamp">"One thing many of these designs don&#39;t bring up is long-term growth. Is the plan to build it once and that&#39;s it? Boring, and too prone to failure if the project runs into trouble at any point in time.What I&#39;d prefer to see is a space construction that is continuous. Imagine a ring station, but one that is cellular in nature- lots of smaller modules that together form the huge station. This allows one to construct and add further modules over time, growing as needed.The beauty of this design principle is that we could start today. Design the first iteration of these modules, with the intent to fit them into SpaceX&#39;s Starship (or whatever heavy rockets come next). Launch 10 or 20 of them, connect them, and spin them up to 1/5th gravity, something not too hard to do. Add modules in the centre of the ring that are zero-G, where zero-G things can be done- but allowing those who live on station to live in mild gravity at least.All the while, you can dream big. You can plan for how this station goes from 10 or 20 small modules to thousands."</p>
 							
 						
 							
-								<p class="story__comment_others">"We know documentation is too scattered and incomplete.I&#39;ve started https://nix.dev about a year ago to provide a resource for newcomers.I&#39;m working on comprehensive language tutorial next, but I&#39;m mostly interested what you&#39;d like to learn when getting started."</p>
+								<p class="story__comment_others">"I remember seeing some of these actual pictures in the late 70s, early 80s, they were very striking and mindblowing to me as a child, the idea of huge pieces of structure with lush green parks and farmland in space. They are really memorable and probably shaped a lot of peoples imaginations about what might be possible one day."</p>
+							
+						
+							
+								<p class="story__comment_others">"I was thinking about these drawings yesterday when I saw the mockup of a ring made from 32 Starship fuselages.  Welded end to end, 32 pieces would net a 1/4 mile diameter ring with a volume ~85x the ISS.Elon estimates that the refueling procedure necessary for interplanetary starship missions would require 8 fuel tanker starship launches, but this could be cut in half if the tankers were stripped of the elements needed for reentry and landing.I could see the economics working out to where it would make more sense to launch stripped down single use fuel tanker starships, and then sell the empty orbiting shells to someone interested in building in space.https://caseyhandmer.wordpress.com/2021/11/17/science-upside...."</p>
 							
 						
 						</a>
