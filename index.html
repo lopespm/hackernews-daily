@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">01 December 2021</div>
+	<div class="day__date">02 December 2021</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://blog.asciinema.org/post/smaller-faster/">
+					<a href="https://googleprojectzero.blogspot.com/2021/12/this-shouldnt-have-happened.html">
 						<picture>
-							<source srcset="default_29387761.webp" type="image/webp">
-							<source srcset="default_29387761.png" type="image/png">
-							<img src="default_29387761.png" alt="Preview of '4x Smaller, 50x Faster'">
+							<source srcset="default_29407636.webp" type="image/webp">
+							<source srcset="default_29407636.png" type="image/png">
+							<img src="default_29407636.png" alt="Preview of 'This shouldn&#39;t have happened: A vulnerability postmortem'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://blog.asciinema.org/post/smaller-faster/">4x Smaller, 50x Faster</a></h3>
+					<h3><a href="https://googleprojectzero.blogspot.com/2021/12/this-shouldnt-have-happened.html">This shouldn&#39;t have happened: A vulnerability postmortem</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29387761">
+						<a href="https://news.ycombinator.com/item?id=29407636">
 						
 							
-								<p class="story__comment_first line-clamp">"It&#39;s awesome to see performance-oriented projects to find their way to SolidJS(https://www.solidjs.com). So satisfying to see success stories like this one. Great work."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; ClojureScript is not that easy to integrate with the JS ecosystem. I know, there’s been a lot of improvements done in this space over the years, and I’m sure someone will immediately point me to relevant docs, but it’s still the extra mile you need to go when compared to regular JS codebaseThis always kills me. Clojure(script) is one of the neatest languages I&#39;ve ever used, but it is just such a pain to work with. I spent hours getting NPM imports working in a project, when it ought to take seconds. It really makes it hard to recommend, even though the language itself is amazing."</p>
+								<p class="story__comment_first line-clamp">"A title that actually describes the post, mostly paraphrasing the first paragraph:Reasons why this buffer overflow wasn&#39;t caught earlier despite doing all the right thingsAnd then to give those reasons:- &#34;each component is fuzzed independently&#34; ... &#34;This fuzzer might have produced a SECKEYPublicKey that could have reached the vulnerable code, but as the result was never used to verify a signature, the bug could never be discovered.&#34;- &#34;There is an arbitrary limit of 10000 bytes placed on fuzzed input. There is no such limit within NSS; many structures can exceed this size. This vulnerability demonstrates that errors happen at extremes&#34;- &#34;combined [fuzzer] coverage metrics [...]. This data proved misleading, as the vulnerable code is fuzzed extensively but by fuzzers that could not possibly generate a relevant input.&#34;The conclusion is, of course, to fix those problems if your code base also has them, but also &#34;even extremely well-maintained C/C++ can have fatal, trivial mistakes&#34;."</p>
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s funny how it starts out with &#34;immutability is really fast and GCs are soo good&#34; and ends up with &#34;rewriting everything in unmanaged code made it 50x faster&#34;.Similar how &#34;Ruby and Python interpreters are slow but webapps are IO bound anyway so it doesn&#39;t matter&#34; to &#34;how can I get this to handle more than x req/sec, can we get a JIT to speed up our dog slow backend&#34;."</p>
+								<p class="story__comment_others">"I think the main surprising thing here is that people are putting smallish arbitrary limits on the sizes of inputs that they let their fuzzer generate.With the benefit of a little hindsight, that does feel rather like saying &#34;please try not to find any problems involving overflows&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don’t understand why the “lessons learned” doesn’t recommend always* passing the destination buffer size (using  memcpy_s or your own wrapper). It has been a long time since I wrote C++, but when I did this would have been instantly rejected in code review.*…with, I suppose, potential exceptions in performance-critical code when you control and trust the input; I don’t believe that this code qualifies on either count."</p>
 							
 						
 						</a>
@@ -76,33 +76,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=29392702">
+					<a href="https://adventofcode.com/">
 						<picture>
-							<source srcset="default_29392702.webp" type="image/webp">
-							<source srcset="default_29392702.png" type="image/png">
-							<img src="default_29392702.png" alt="Preview of 'Ask HN: Has Google search become quantitatively worse?'">
+							<source srcset="default_29403522.webp" type="image/webp">
+							<source srcset="default_29403522.png" type="image/png">
+							<img src="default_29403522.png" alt="Preview of 'Advent of Code 2021'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29392702">Ask HN: Has Google search become quantitatively worse?</a></h3>
+					<h3><a href="https://adventofcode.com/">Advent of Code 2021</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29392702">
+						<a href="https://news.ycombinator.com/item?id=29403522">
 						
 							
-								<p class="story__comment_first line-clamp">"The results keep getting &#34;refined&#34; so as to suit the popular 80% of queries, while getting much worse for any technical or obscure queries. Forced synonyms and &#34;people also searched for&#34; are typically useless and almost infuriating. Once you get off the first or second page, the results get even worse-- with pages entirely unrelated to the query (e.g. not even containing the searched phrases). They are probably testing/already implemented some sort of multi armed bandit type optimization like on Youtube&#39;s search results where they just show any popular pages (ignoring relevancy) to see if they yield a click.I&#39;ve used DDG for the past ~5 years, and it is typically worse without using a hashbang like !so for technical queries. I guess that is what the web has evolved to-- knowing which mega-site you want to search against rather than discover new sites?"</p>
-							
-						
-							
-								<p class="story__comment_others">"It feels like the algorithm (combined with the SEO/marketing industry) has effectively nuked discussions from organic results.Based on the search box suggestions I get, it seems many people work around this by appending reddit to their searches. If I search for &#34;warmest winter coat&#34; it&#39;s a bunch of untrustworthy content marketing until you try something like &#34;warmest winter coat reddit&#34;Unfortunately I prefer to avoid reddit (which also has a fair amount of astroturfing), but I haven&#39;t found a good alternative. I severely miss Google&#39;s old &#34;discussions&#34; (or was it forums?) filter."</p>
+								<p class="story__comment_first line-clamp">"I love adventofcode. I have a rule I follow now which makes it a lot more enjoyable: if I can&#39;t make headway on a problem after trying for a day or so, I&#39;ll use the subreddit to find a hint, and then usually that&#39;s enough to help me to the answer. Very occasionally I just completely cheat (often the pure math based questions).I don&#39;t like missing out on the stars.... I mean it&#39;s the only way you get to see the awesome ascii art when you collect all 50 for the year.Many thanks to Eric and team for what must be a huge effort to run such a fun programme.Oh, the other thing I do: I don&#39;t even start until sometime in January :) far less stress and keeps the whole family much happier ;)"</p>
 							
 						
 							
-								<p class="story__comment_others">"There&#39;s a whole class of searches that no longer have value because of SEO. Try &#34;best exercise bike&#34; or anything that can be similarly monetized and you will of course end up at a well-crafted page designed to monetize you.My deepest apologies for saying this, but for any type of query that has a monetization angle, I now add &#34;site:www.reddit.com&#34; to the query to find actual discussion about it.Normal Reddit disclaimers apply as much of what you find is garbage but at least if you search &#34;best exercise bike&#34; confined to reddit you&#39;ll get real opinion not hellbent on monetizing you."</p>
+								<p class="story__comment_others">"I&#39;d like to remind everyone that it&#39;s totally okay to do the first 10-15 days and leave the really hard stuff to people who are smarter or maybe have more free time. The first few days will still be fun.I&#39;m checking out Elixir this year, because I write 95 % Ruby at work and I&#39;m getting really intrigued by the functional stuff seeping into it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I respect that AoC gets very difficult and is for an audience that isn’t me.But I love the format and what I’d enjoy is a similar project where the difficulty doesn’t really increase, but each day is a different problem domain. Breadth not depth.For example, perhaps we start with some data processing from a file. Then answer some basic statistics question about the data.  Then maybe some basic signal processing.  We form an image. We transform the image. We play the image as audio.  We break it into packets of some sort then share it on a “network.” We reassemble it. We build a state machine and pass it the reassembled data in some way. We discover some new output.Etc. etc. culminating with some fun discovery that inside that original data was a secret code or whatever.And instead of an intense challenge, we’ve just had a fun walk through an intro to two dozen subdomains of CS/sweng. You may not have immediately known the answer to each puzzle but you never felt lost."</p>
 							
 						
 						</a>
@@ -114,34 +114,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://aws.amazon.com/private5g/">
+					<a href="http://oskarstalberg.com/Townscaper/">
 						<picture>
-							<source srcset="default_29394605.webp" type="image/webp">
-							<source srcset="default_29394605.png" type="image/png">
-							<img src="default_29394605.png" alt="Preview of 'AWS Private 5G'">
+							<source srcset="default_29404447.webp" type="image/webp">
+							<source srcset="default_29404447.png" type="image/png">
+							<img src="default_29404447.png" alt="Preview of 'Townscaper Running in the Browser'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://aws.amazon.com/private5g/">AWS Private 5G</a></h3>
+					<h3><a href="http://oskarstalberg.com/Townscaper/">Townscaper Running in the Browser</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29394605">
+						<a href="https://news.ycombinator.com/item?id=29404447">
 						
 							
-								<p class="story__comment_first line-clamp">"It seems everyone here is confused. Here&#39;s the official FAQ, and it has 0 marketing garbage.https://aws.amazon.com/private5g/faqs/There&#39;s no &#34;telecom as a service&#34;, and there&#39;s no &#34;5g can be split into multiple networks&#34; nonsense.Amazon is just selling 5g access points and hardware (just like you would install wifi), and rents you a private connection for that hardware to AWS, and management of that network from AWS. Basically."</p>
-							
-						
-							
-								<p class="story__comment_others">"Become a telecom as a service!Super cool. For those who are glancing over, this is a big deal. 5G isn&#39;t really like 4G upgraded. It&#39;s more its own thing. I believe this has been available though for a while and many telecoms have partnerships with FAANG beyond Amazon.With 5G you can essentially split a network into multiple partitions and scale them independently on-demand called Network Slicing. (like cloud computing but just the network).This could be extremely useful for security. Maybe even the death of VPNs. This is also useful for scaling network resources to services as they need it.Short-term, things like &#34;Tesla Free Network&#34; could exist for their self-driving cars. Or, Uber offering free fast Internet to their drivers or a truly private device.Long-term, I am concerned about the emergence of private networks with different access. Such as a &#34;Google Network&#34; or a &#34;Netflix Network&#34; that offer different services or privacy levels at different costs.It&#39;s a crazy, scary, but also fun direction we are going.Edit: Final comment. If you think this might be the death of AT&amp;T with independent providers, think again . Amazon &amp; Co. and others like Google are bringing their developer platform, while the telecoms offer their infrastructure. It&#39;s a gross partnership that makes sense. When you send bits over the network -- everyone will be getting paid except you."</p>
+								<p class="story__comment_first line-clamp">"There is also another game/toy by Oskar Stålberg in which you can build a teeny, tiny block of house(s) on a 5x5 grid. Very cute, especially with all the well decorated balconies.https://oskarstalberg.com/game/house/index.htmlThe author is on Twitter and sometimes tweets about development of his games and the techniques involved.https://twitter.com/OskSta"</p>
 							
 						
 							
-								<p class="story__comment_others">"Let me put my perspective, coming from a guy who is involved in private Cellular networking (US as well as other countries):1) Private 5G can be deployed either with licensed operator (Cellular provider) or in CBRS band (CBRS band is opened by FCC for the private cellular deployment). It can be used free or paid, different options. (Fees is minimal).2) CBRS still doesnt support 5G. No idea how AWS will provide. But even if it is private 4G, for the end user it doesnt matter.3) Your available bandwidth is limited by the air waves bandwidth you are using, nit by 4G or 5G. Per enterprise, CBRS band is limited to LTE equivalent band (20MHz). Total CBRS band is 200MHz, if I am not wrong). You are not going to get giga speed just because its 5G.4) Not all phones support CBRS band. You will be limited to CBRS band support in handset feature.
-5) Each end device will need SIM (SIM card either physical or virtual). Its not like your laptop will be connected with private 4G or 5G. You will need modem as well as SIM card (unless your devices support these features).6) Its really for small geographic reason. Its not that easy to take the equipment with you and start using. (like in car or train etc).7) There is a concept of SAS server, that&#39;s why AWS device needs to be connected to this server in cloud (There are SAS license holders, to them). Once you install the system and that is connected to the SAS server, first you get the frequency band which is open in your area. If some one using that band (another CBRS player), you are out of luck (ask me , who has to call different teams when deploy in lab). PLus, there are scenarios when these licenses can be revoked (if you are using free band). The law enforcement can ask FCC to use the band temporarily. GCC can revoke your lic and stop the system.What AWS did is big, but for enterprises."</p>
+								<p class="story__comment_others">"This uses the &#34;wave function collapse&#34; algorithm. Oskar Stalberg also made a great demo of how it works[0], but it might not make sense just from that. Martin Donald made a really nice youtube video on how it works[1]. The name &#34;wave function collapse&#34; can be off putting but it&#39;s pretty straightforward, and an algorithm that can come in handy for many uses both in game development and just general software development.I&#39;m actually procrastinating on HN from working on a GPU parallelised version that can generate millions of positions every frame. In Townscaper you can actually see that the algorithm runs quite slow and lags behind the players input, there&#39;s just a bunch of animation to hide it. I&#39;m hoping to eventually get a version that can run in log2(mapsize) time.[0]http://oskarstalberg.com/game/wave/wave.html
+[1]https://www.youtube.com/watch?v=2SuvO4Gi7uY"</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow, the entire town is URL encoded!! Example: http://oskarstalberg.com/Townscaper/#IzpjOEQ0ejP2X9w-b--c-X-..."</p>
 							
 						
 						</a>
@@ -153,33 +153,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://oxide.computer/blog/hubris-and-humility">
+					<a href="https://www.protocol.com/workplace/stripe-hiring-issues-rescinded-jobs">
 						<picture>
-							<source srcset="default_29390751.webp" type="image/webp">
-							<source srcset="default_29390751.png" type="image/png">
-							<img src="default_29390751.png" alt="Preview of 'Hubris – A small operating system for deeply-embedded computer systems'">
+							<source srcset="default_29403976.webp" type="image/webp">
+							<source srcset="default_29403976.png" type="image/png">
+							<img src="default_29403976.png" alt="Preview of 'Stripe hiring issues make some lose job offers'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://oxide.computer/blog/hubris-and-humility">Hubris – A small operating system for deeply-embedded computer systems</a></h3>
+					<h3><a href="https://www.protocol.com/workplace/stripe-hiring-issues-rescinded-jobs">Stripe hiring issues make some lose job offers</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29390751">
+						<a href="https://news.ycombinator.com/item?id=29403976">
 						
 							
-								<p class="story__comment_first line-clamp">"I really like this quote from the manual:&lt;&lt;There are a class of &#34;ideal attractors&#34; in engineering, concepts like &#34;everything is an object,&#34; &#34;homoiconicity,&#34; &#34;purely functional,&#34; &#34;pure capability system,&#34; etc. Engineers fall into orbit around these ideas quite easily. Systems that follow these principles often get useful properties out of the deal.However, going too far in any of these directions is also a great way to find a deep reservoir of unsolved problems, which is part of why these are popular directions in academia.In the interest of shipping, we are consciously steering around unsolved problems, even when it means we lose some attractive features.&gt;&gt;"</p>
-							
-						
-							
-								<p class="story__comment_others">"We are gettig an increasing amount of interesting Rust operating system for different uses.- Hubris for deep embedded- Redox OS for Desktop/Server (https://www.redox-os.org/)- Tock for embedded (https://www.tockos.org/)- Xous for trusted devices (https://xobs.io/announcing-xous-the-betrusted-operating-syst...)I assume there are more."</p>
+								<p class="story__comment_first line-clamp">"Reputation is a fragile thing. I&#39;ve got no horse in this, it&#39;s not my industry and I&#39;m just a spectator. But two days ago I thought of Stripe as a top notch company, with top notch leadership. Since I&#39;m well aware that PR is a thing, that reputation also tends to be brittle, but while nobody had said anything bad about Stripe, I thought they were tops. This is not so much about Stripe as about the PR world we&#39;ve created: we know that everything we&#39;re told is polished to make it look as nice as possible, so when the facade cracks, we should adjust heavily.So now I&#39;m going to have to shift my priors, and it may well be unfair to the firm. For one, I don&#39;t know if the allegations are true. I also don&#39;t know whether this is a one-off, or whether this happens all the time and this is the tip of the iceberg. I do know that whatever I hear is going to be deeply invested one way or the other.Specifically about the rescinded offers, the only acceptable reason to do that is when the person has gotten the offer in bad faith, eg they lied about their CV or claimed to have done something they provably hadn&#39;t. Other than that, someone who&#39;s gotten an offer may well have started moving house, taking their kids out of school, gotten their spouse to quit their job, and all sorts of hard-to-reverse decisions. It&#39;s an utterly crappy thing to have happen, and any company that does it should be outed for it."</p>
 							
 						
 							
-								<p class="story__comment_others">"I have an embedded real-time control project that is currently written in Rust, but runs with RTIC (https://rtic.rs/), a framework which is conceptually similar (no dynamic allocation of tasks or resources) but also has some differences. RTIC is more of a framework for locks and critical sections in an interrupt based program than a full fledged RTOS. Looking through the docs, here&#39;s the main differences (for my purposes) I see:1. In Hubris, all interrupt handlers dispatch to a software task. In RTIC, you can dispatch to a software task, but you can also run the code directly in the interrupt handler. RTIC is reliant on Cortex-M&#39;s NVIC for preemption, whereas Hubris can preempt in software (assuming it is implemented). This does increase the minimum effective interrupt latency in Hubris, and if not very carefully implemented, the jitter also.2. Hubris compiles each task separately and then pastes the binaries together, presumably with a fancy linker script. RTIC can have everything in one source file and builds everything into one LTO&#39;d blob. I see the Hubris method as mostly a downside (unless you want to integrate binary blobs, for example), but it might have been needed for:3. Hubris supports Cortex-M memory protection regions. This is pretty neat and something that is mostly out of scope for RTIC (being built around primitives that allow shared memory, trying to map into the very limited number of MPU regions would be difficult at best). Of course, it&#39;s Rust, so in theory you wouldn&#39;t need the MPU protections, but if you have to run any sort of untrusted code this is definitely the winner.Hubris does support shared memory via leases, but I&#39;m not sure how it manages to map them into the very limited 8 Cortex-M MPU regions. I&#39;m quite interested to look at the implementation when the source code is released.Edit: I forgot to mention the biggest difference, which is that because tasks have separate stacks in Hubris, you can do blocking waits. RTIC may support async in the future but for now you must manually construct state machines."</p>
+								<p class="story__comment_others">"Stripe&#39;s recruitment pipeline is well known (at least in most ruby dev circles) to be fucked. I&#39;ve experienced this first hand and even gotten lip service from exec leadership (see my HN comment history). Stripe is very good at PR, aren&#39;t they?The thing is, there are lots and lots of companies who don&#39;t have these types of problems; that don&#39;t treat candidates poorly, follow thru with the offers they make (I can&#39;t believe I&#39;m typing that!).Hiring is already a power dynamic slanted for the employer... this shit just seem excessive and like 0 fucks are given.As a job seeker, don&#39;t waste your time interviewing at companies that have these fundamental problems just getting in the door. The odds will never be in your favor, but these types of problems make for a much larger mountain to climb.Knowing these things, and how good Stripe is at PR, I wouldn&#39;t be surprised if things on the inside are actually a dysfunctional mess. I hope not."</p>
+							
+						
+							
+								<p class="story__comment_others">"Some people are getting side-tracked asking if this is a common problem. I think that&#39;s a distraction: the right number of rescinded offers to engineers and other individual contributors is 0.[0]If the actual number of candidates affected is small, then it would be cheap to make it right for them. You could find a team that can take the engineer (we&#39;re not interchangeable parts, but Stripe is a big company), and/or offer monetary compensation for the opportunity cost.[0] I&#39;ll reserve judgment about higher level management. I don&#39;t know if the norms and circumstances are different. Obviously this also excludes failed background checks, candidates being dishonest, etc, etc."</p>
 							
 						
 						</a>
@@ -191,33 +191,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.wsj.com/articles/workers-quit-jobs-in-droves-to-become-their-own-bosses-11638199199">
+					<a href="https://news.ycombinator.com/item?id=29403947">
 						<picture>
-							<source srcset="default_29387262.webp" type="image/webp">
-							<source srcset="default_29387262.png" type="image/png">
-							<img src="default_29387262.png" alt="Preview of 'Workers quit jobs in droves to become their own bosses'">
+							<source srcset="default_29403947.webp" type="image/webp">
+							<source srcset="default_29403947.png" type="image/png">
+							<img src="default_29403947.png" alt="Preview of 'Ask HN: What are these low quality “code snippet” sites?'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.wsj.com/articles/workers-quit-jobs-in-droves-to-become-their-own-bosses-11638199199">Workers quit jobs in droves to become their own bosses</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=29403947">Ask HN: What are these low quality “code snippet” sites?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29387262">
+						<a href="https://news.ycombinator.com/item?id=29403947">
 						
 							
-								<p class="story__comment_first line-clamp">"https://archive.ph/FCRdw"</p>
-							
-						
-							
-								<p class="story__comment_others">"I hope everyone considers themselves as working for themselves, regardless of the actual vehicle that attaches themselves to their current income stream (job or their own company or whatever...)Even self-employed, you still have many bosses (customers, etc). In fact _those_ bosses can be harder to fire depending on contracting terms... And you might find it harder to churn out the sales to maintain a steady income stream.Even company-employed, you still should frame things in working-for-yourself. What are you getting out of the relationship? Is the employer holding up its end for you?The traditional, paternalistic concept of employment is outmoded. It says your career growth should be managed by your employer (don&#39;t let it...). It presumes the work you do and your job are always 100% the same (they&#39;re not). It assumes a kind of one-sided evaluation of the employee, where the employer has all the power (very untrue these days)."</p>
+								<p class="story__comment_first line-clamp">"For years now I&#39;ve ran a programming site (stackabuse.com) and have closely followed the state of Google SERPs when it comes to programming content. A few thoughts/ramblings:- The search results for programming content has been very volatile the last year or so. Google has released a lot of core algorithm updates in the last year, which has caused a lot of high-quality sites to either lose traffic or stagnate.- These low-quality code snippet sites have always been around, but their traffic has exploded this year after the algorithm changes. Just look at traffic estimates for one of the worst offenders - they get an estimated 18M views each month now, which has grown almost 10x in 12 months. Compare that to SO, which has stayed flat or even dropped in the same time-frame- The new algorithm updates seem to actually hurt a lot of high-quality sites as it seemingly favors code snippets, exact-match phrases, and lots of internal linking. Great sites with well-written long-form content, like RealPython.com, don&#39;t get as much attention as they deserve, IMO. We try to publish useful content, but consistently have our traffic slashed by Google&#39;s updates, which end up favoring copy-pasted code from SO, GitHub, and even our own articles.- The programming content &#34;industry&#34; is highly fragmented (outside of SO) and difficult to monetize, which is why so many sites are covered in ads. Because of this, it&#39;s a land grab for traffic and increasing RPMs with more ads, hence these low-quality snippet sites. Admittedly, we monetize with ads but are actively trying to move away from it with paid content. It&#39;s a difficult task as it&#39;s hard to convince programmers to pay for anything, so the barrier to entry is high unless you monetize with ads.- I&#39;ll admit that this is likely a difficult problem because of how programmer&#39;s use Google. My guess is that because we often search for obscure errors/problems/code, their algorithm favors exact-match phrases to better find the solution. They might then give higher priority to pages that seem like they&#39;re dedicated to whatever you searched for (i.e. the low-quality snippet sites) over a GitHub repo that contains that snippet _and_ a bunch of other unrelated code.Just my two cents. Interested to hear your thoughts :)"</p>
 							
 						
 							
-								<p class="story__comment_others">"These stories always feel like they picked a few good anecdotes and interviews, but they wanted to present it as a national trend to make it sound like a bigger deal.Indeed, the statistics they provide aren&#39;t as significant as the headline suggests:&gt; Hundreds of thousands of Americans are striking out on their own...For reference, the United States has around 160 million employed people. 0.1% of them moving to freelancing might be significant, but is it really a new era? That was happening on the regular well before COVID.1 in 1000 people striking out on their own doesn&#39;t really explain the &#34;ongoing  shake-up in the world of work&#34; like they&#39;re trying to suggest."</p>
+								<p class="story__comment_others">"Somewhat tangential but I believe Google Search is going downhill, they seem to be losing the content junk spam SEO fight. Recently, I&#39;ve had to append wiki/reddit/hn to queries I search for because everything near the top is shallow copied content marketing."</p>
+							
+						
+							
+								<p class="story__comment_others">"Not only SO threads, I particularly hate the ones that mirror GitHub Issues. They don&#39;t even link back to the original thread, for Christ&#39;s sake!"</p>
 							
 						
 						</a>
@@ -229,33 +229,35 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://propertyofthepeople.org/document-detail/?doc-id=21114562">
+					<a href="https://www.princeton.edu/news/2021/11/29/new-cancer-therapy-yibin-kangs-lab-holds-potential-switch-major-cancer-types">
 						<picture>
-							<source srcset="default_29396643.webp" type="image/webp">
-							<source srcset="default_29396643.png" type="image/png">
-							<img src="default_29396643.png" alt="Preview of 'FBI&#39;s ability to legally access secure messaging app content and metadata [pdf]'">
+							<source srcset="default_29398187.webp" type="image/webp">
+							<source srcset="default_29398187.png" type="image/png">
+							<img src="default_29398187.png" alt="Preview of 'New cancer therapy holds potential to switch off major cancer types'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://propertyofthepeople.org/document-detail/?doc-id=21114562">FBI&#39;s ability to legally access secure messaging app content and metadata [pdf]</a></h3>
+					<h3><a href="https://www.princeton.edu/news/2021/11/29/new-cancer-therapy-yibin-kangs-lab-holds-potential-switch-major-cancer-types">New cancer therapy holds potential to switch off major cancer types</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29396643">
+						<a href="https://news.ycombinator.com/item?id=29398187">
 						
 							
-								<p class="story__comment_first line-clamp">"Some FBI agents came to my house once and told me that my home Internet had been used to visit Islamic Extremist websites. They brought a local police office with them and a &#39;threat assessment&#39; coordinator from my workplace. They asked me if my family was Muslim and wanted to know if we had been radicalized.We are not religious (at all). We do not attend church, synagogue or mosque. We are lower middle class white Americans born and raised in the USA and have never traveled outside the country.I have no idea why they thought this about us. Maybe it was an IP mix-up, but it was very disturbing. I feared that I may lose my job. I became very afraid of the FBI that day. I think this could happen to anyone at anytime."</p>
-							
-						
-							
-								<p class="story__comment_others">"They left off one very popular messenger, SMS:* Message content: All* Subpoena: can render all message content for the last 1-7 years* 18 U.S.C 2703(d): can render all message content for the last 1-7 years* Search warrant: can render all message content for the last 1-7 years* Vague suspicion plus a small fee to the carrier: can render all message content for the last 1-7 years"</p>
+								<p class="story__comment_first line-clamp">"PCLX-001 is similar drug in clinical trial that target cancerous cells but spares the healthy one, it&#39;s not the same target as the one in the article but I think (I&#39;m not a biologist) that it&#39;s a similar mechanism. They even have a test to know beforehand if it&#39;s going to be effective in a particular cancer. It&#39;s developed by a company named Pacylex.Here&#39;s the link to the clinical trial https://clinicaltrials.gov/ct2/show/NCT04836195?term=pclx-00...Edit: removed a duplicated word"</p>
 							
 						
 							
-								<p class="story__comment_others">"This seems like a good place to say that I strongly recommend Yasha Levine&#39;s Surveillance Valley book (https://www.goodreads.com/book/show/34220713-surveillance-va...) where he suggests that all of this is working as intended, going all the way back to the military counter-insurgency roots of the arpanet first in places like Vietnam, and then back home in anti-war and leftist movements. The contemporary themes that are relevant are the fact that current privacy movements like Tor, Signal, OTF, BBG are fundamentally military funded and survive on government contracts. It distracts from the needed political discourse into a technology one where &#34;encryption is the great equalizer&#34; and everyone can resist big brother in their own way on the platforms the government has built. Encryption does exist, but it also distracts from other vectors like vulnerabilities (that led to Ulbricht getting caught), what services you would e2e connect to, how you get the clients to connect to those services, what store can push binaries for said clients etc."</p>
+								<p class="story__comment_others">"&gt; MTDH is important for most major human cancers, not important for normal cells, and it can be eliminated with no obvious side effectsI&#39;m not fully buying that.If you look at &#34;Function&#34; on Wikipedia, it seems to have some important roles, including angiogenesis (which is still important outside of cancer).  It&#39;s not like evolution would select for something that is useless outside of helping cancer.I&#39;d be curious what the side effects are in humans.   How can it be claimed that it can be eliminated with &#34;no obvious side effects&#34; when they are still years away from human trials?https://en.wikipedia.org/wiki/MTDH"</p>
+							
+						
+							
+								<p class="story__comment_others">"Here is the research:Small-molecule inhibitors that disrupt the MTDH–SND1 complex suppress breast cancer progression and metastasis
+https://www.nature.com/articles/s43018-021-00279-5Pharmacological disruption of the MTDH–SND1 complex enhances tumor antigen presentation and synergizes with anti-PD-1 therapy in metastatic breast cancer
+https://www.nature.com/articles/s43018-021-00280-y"</p>
 							
 						
 						</a>
@@ -267,33 +269,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.axios.com/uk-regulators-order-facebook-meta-giphy-sale-457ccd20-f28e-4631-a508-a88639b1b121.html">
+					<a href="https://www.fisher-price.com/en-us/product/chatter-telephone-hgj69">
 						<picture>
-							<source srcset="default_29391726.webp" type="image/webp">
-							<source srcset="default_29391726.png" type="image/png">
-							<img src="default_29391726.png" alt="Preview of 'U.K. regulators order Meta to sell Giphy'">
+							<source srcset="default_29401454.webp" type="image/webp">
+							<source srcset="default_29401454.png" type="image/png">
+							<img src="default_29401454.png" alt="Preview of 'Fisher Price Chatter Telephone with Bluetooth'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.axios.com/uk-regulators-order-facebook-meta-giphy-sale-457ccd20-f28e-4631-a508-a88639b1b121.html">U.K. regulators order Meta to sell Giphy</a></h3>
+					<h3><a href="https://www.fisher-price.com/en-us/product/chatter-telephone-hgj69">Fisher Price Chatter Telephone with Bluetooth</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29391726">
+						<a href="https://news.ycombinator.com/item?id=29401454">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; Meta argued that the regulator was “sending a chilling message to start-up entrepreneurs: do not build new companies because you will not be able to sell them.”This overlooks the traditional and perhaps now unpopular reason to start a company: making money by selling something useful. No need to sell the company. By the way, Facebook buys, does not sell."</p>
-							
-						
-							
-								<p class="story__comment_others">"I guess I don&#39;t get it. This is based on speculative misuse - that FB may in the future deny access to Giphy to competitors.  So if you own a tool that your competitors may use then that&#39;s anti-competitive? Seems like that could apply to a lot of companies. Why not wait for actual misuse and base a case on that?Also what&#39;s so special about Giphy? Seems it could be duplicated fairly easily by any serious competitor.And competition being defined as other social media platforms? Pretty broad definition.Seems FB hatred is making bad law. And that bad law will bite others not just FB."</p>
+								<p class="story__comment_first line-clamp">"I doubt anyone needs this, but I want to buy it just for the product description! It&#39;s full of gems, e.g. &#34;Sort of sleek mobile design experience with colors, numbers, and wobbly eyes that will turn heads&#34;.Can&#39;t tell if this is inspired by market research, or if someone at the company simply had the freedom to create something that&#39;s just fun. Kinda wish it&#39;s the latter."</p>
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s just open season on Meta and big tech in general. Giphy isn&#39;t exactly an ad powerhouse nor a real competitor to Meta, but any acquisitions are now opportunities for political theater."</p>
+								<p class="story__comment_others">"My new washer-dryer (not as much fun as the telephone) has bluetooth ,and I can monitor and control it with an app (&#39;Homewhiz&#39;).....that connects to a cloud server &#39;somewhere&#39;....for which the app suppliers want: my location and access to my microphone, camera and contacts - and the app won&#39;t install or run if you start denying access.Nope, not happening.I wish I was more of a hacker/programmer because I&#39;d like to do some protocol sniffing and create a connector for Node-Red so that I could link the appliance to my home automation system without becoming a personal data asset for the manufacturer."</p>
+							
+						
+							
+								<p class="story__comment_others">"Fisher-Price is doing amazing things these days. I don’t know what happened and I can’t find any press about it.I got a Soothe’n’Snuggle for my 3 year old child and it is a full on sleep-inducing soft robot. It works. Very sophisticated for less than $40.https://www.fisher-price.com/en-gb/product/soothe-n-snuggle-..."</p>
 							
 						
 						</a>
@@ -305,33 +307,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://tdinh.notion.site/Every-pricing-page-should-have-GIFs-e74d6d363d4c4d33b5ff754452f7ab96">
+					<a href="https://hackaday.com/2021/12/01/supersonic-projectile-exceeds-engineers-dreams-the-supersonic-trebuchet/">
 						<picture>
-							<source srcset="default_29348328.webp" type="image/webp">
-							<source srcset="default_29348328.png" type="image/png">
-							<img src="default_29348328.png" alt="Preview of 'Every pricing page should have GIFs'">
+							<source srcset="default_29408127.webp" type="image/webp">
+							<source srcset="default_29408127.png" type="image/png">
+							<img src="default_29408127.png" alt="Preview of 'Supersonic Trebuchet'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://tdinh.notion.site/Every-pricing-page-should-have-GIFs-e74d6d363d4c4d33b5ff754452f7ab96">Every pricing page should have GIFs</a></h3>
+					<h3><a href="https://hackaday.com/2021/12/01/supersonic-projectile-exceeds-engineers-dreams-the-supersonic-trebuchet/">Supersonic Trebuchet</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29348328">
+						<a href="https://news.ycombinator.com/item?id=29408127">
 						
 							
-								<p class="story__comment_first line-clamp">"There&#39;s a UX problem on mobile. I have to click on something to make the GIF appear. What do I click? A link. Expected behavior of a link is to link me elsewhere, not to show a pop-up GIF, so I&#39;m immediately confused when that happens. I also can&#39;t figure out how to make the link actually link. Does it link anywhere? Is it even a link or just Jscript onClick thingy? Do I have to click on the GIF to make it link, because that&#39;s 2 clicks when precisely one is accepted link practice. Clicking to engage and then clicking again to disappear is super aggravating, especially on mobile screen, especially on such a long list. Click, click, click, click, click click, click, click. Ahhhh!This works well if I can hover over the links with a mouse to engage the pop-ups, which then disappear when I hover away. If I have to click on the links, like you do on mobile, then click again to dismiss, neither click actually linking to anything, it fails UX.Also, too much info in too small a space on mobile. Too much being communicated. Too dense. What UX test calls engineeritis. You need drill down pages for these links. If I click one, I expect a page with detailed information, a drill down, not a pop-up summary GIF.Mixed UX metaphors. Not lethal, but not quite there yet. Very cool, though, especially for the rapidity with which you were able to implement it, but it needs a bit more test on the UX side on mobile.A button toggle that displays a responsive, inline GIF as a drop-down, not pop-up, is perhaps the better solution, even if it&#39;s not quite as neat as what your creativity created. That would work as expected without damaging your intent, but that still involves click click click."</p>
-							
-						
-							
-								<p class="story__comment_others">"Don&#39;t use GIFs, use audioless mp4s instead. They can be made to work in the exact same way as GIFs (autoplay, loop or not, etc) but are a fraction of the bandwidth."</p>
+								<p class="story__comment_first line-clamp">"Yes he ends up with a cute toy that flings a marble but sounds like a rifle.
+But in the video he explains the engineering process to start with the desired goal and then optimized and derive the parameters he needed to achieve that result. It was a good example of engineering."</p>
 							
 						
 							
-								<p class="story__comment_others">"Not a bad idea in and of itself, but screw hover effects.I&#39;ve come to really hate everything involving hover.  On all sorts of websites there&#39;s some menu bar at the top or the side where it&#39;s way too easy for me to accidentally move my cursor over it and suddenly 1/5 of the page is blocked.  I really wish that these things could just be replaced with a click.  If I want to view a dropdown or something with dense details, I can jolly well click or tap on it.EDIT: Interestingly, it appears possible to intercept and nullify mouseover events.```document.addEventListener(&#39;mouseover&#39;, (e) =&gt; e.stopPropagation(), true);```Works on wellsfargo.com, making their menus work like I think they should.  Obviously it wouldn&#39;t work for CSS-based hover.Maybe I&#39;ll make this into an extension."</p>
+								<p class="story__comment_others">"I’d like to suggest linking directly to the video (https://www.youtube.com/watch?v=gdXOS-B0Bus) instead of the hackaday page, which doesn’t even pretend to add anything and is largely incoherent besides."</p>
+							
+						
+							
+								<p class="story__comment_others">"The most striking aspect is that he was explicitly optimizing for project difficulty. I smiled when he said, in effect, &#39;let&#39;s mathematically calculate How Hard Can it Be&#39;. Sure kid...But that&#39;s what he did. Fantastic job determining the criticial criteria and engineering to it.3 weeks total project time.Kid&#39;s got a future..."</p>
 							
 						
 						</a>
@@ -343,33 +346,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://lunduke.substack.com/p/desqviewx-the-forgotten-mid-1990s">
+					<a href="https://proteanmag.com/2021/11/29/the-american-prison-systems-war-on-reading/">
 						<picture>
-							<source srcset="default_29396561.webp" type="image/webp">
-							<source srcset="default_29396561.png" type="image/png">
-							<img src="default_29396561.png" alt="Preview of 'DESQview/X: Forgotten mid-1990s OS from the future'">
+							<source srcset="default_29398891.webp" type="image/webp">
+							<source srcset="default_29398891.png" type="image/png">
+							<img src="default_29398891.png" alt="Preview of 'The American prison system’s war on reading'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://lunduke.substack.com/p/desqviewx-the-forgotten-mid-1990s">DESQview/X: Forgotten mid-1990s OS from the future</a></h3>
+					<h3><a href="https://proteanmag.com/2021/11/29/the-american-prison-systems-war-on-reading/">The American prison system’s war on reading</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29396561">
+						<a href="https://news.ycombinator.com/item?id=29398891">
 						
 							
-								<p class="story__comment_first line-clamp">"This was a wonderful surprise. DESQview (and anything early Quarterdeck) holds a special place in my heart.My uncle, Gary Pope, co-founded the company. I grew up with DESQview and QEMM as two of our primary pieces of software running on our computers.I moved onto Linux many years later, and used to have a Linux box as my primary machine, but with a DOS computer sitting next to it, DESQview/X loaded up, and would use DESQview/X as a makeshift second monitor by using it as an X11 display server.DESQview/X was based on X11R5, I believe, rather than X11R6, so I was a bit limited in terms of which software worked, but terminals were just fine.Anyway...A while back, I assembled all the DESQview/Quarterdeck material I had sitting around and put it up for others to look at. There&#39;s some stuff in here that you won&#39;t find anywhere else:https://www.dropbox.com/sh/htvf2edf3mrx0be/AABllqVhf0BzOytup...There&#39;s a README with some background, screenshots, marketing material, photos, product reviews, and even a paper that my mom wrote up about DESQ (the precursor to DESQview and DESQview/X), with a little bit of background on its development, back in 1984.Hope it proves interesting! :)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Wow, looks like this has never had an HN thread before. One interesting submission (https://archive.org/details/desqview-x-booklet) but no comments:DesqView/X: A Technical Perspective [book] - https://news.ycombinator.com/item?id=7061438 - Jan 2014 (0 comments)"</p>
+								<p class="story__comment_first line-clamp">"I used to be a volunteer teacher for a 3-hour weekly class in a local prison.One of the things this article misses is that gangs – which are especially active in prison systems – use books to pass ciphered messages.  Highlighting, underlining, dogeared corners, scratched out characters, etc. are used prolifically as encoded messages that would appear to be regular wear to a casual observer.  The &#34;tradecraft&#34; these guys employ is amazing (albeit for a horrible purpose).  We were allowed to have books shipped directly from publishers or known third-party entities (e.g., Amazon) and there was a request form an instructor could fill to add new approved vendors.All that to say, I understand the policy, even though it&#39;s not ideal for those honestly wanting to read.  It&#39;s hard for most people to imagine but a lot of the people in prison are some seriously bad dudes, and there are real cases of warring gangs orchestrating &#34;hits&#34; on other gang members through innocuous looking content."</p>
 							
 						
 							
-								<p class="story__comment_others">"I remember running DesqView (without the X) in the early 90&#39;s, it must have been on a 286 (is that possible?), I only got a 486 around 1994.I remember being impressed by the fact that I could run multiple applications at the same time and switch between them. I think I ran a BBS at the time (a combination of Frontdoor and something else... the memory is thin).I vaguely remember excitingly showing my parents, probably my mother, &#34;Look! I can run multiple applications and switch between them!!!&#34;, and she gave me a confused look of &#34;what the hell is this boy going on about&#34;."</p>
+								<p class="story__comment_others">"One of the things that happens with used books being donated is that the paper will be used as a medium for getting contraband drugs into the prison.An example of this (letters) https://nypost.com/2021/11/05/wisconsin-inmates-to-get-photo...&gt; Wisconsin prison inmates will begin receiving photocopies of their mail next month as officials attempt to stem the flow of paper laced with drugs into correctional facilities.&gt; The Wisconsin Department of Corrections (DOC) said paper and envelopes can be sprayed or soaked in synthetic cannabinoids such as K2 and then sent into prisons, where they are torn into strips and smoked and sold to inmates.&gt; The Fox Lake prison switched to photocopying prison mail in April after nine “potential overdoses” and two incidents of violent behavior connected to drug use. In the months since, the prison has seen numbers in both categories drop before reaching zero in August, officials said.That&#39;s for a single sheet of paper - consider the difficulty of verifying that a couple hundred pages of a novel haven&#39;t been tampered with.One of the easier ways to do this is to have the book be new and come directly from a distributor."</p>
+							
+						
+							
+								<p class="story__comment_others">"Given all these discussions about drug laced paper makes you wonder if a system of shuffling books could be employed. Given the price of media mail, it seems like prisons could just do regular swaps so that the books always came from someone else&#39;s collection. Ideally, you&#39;d get a tragedy of the commons where all the books stopped being drugs because no one was getting back what they put into it."</p>
 							
 						
 						</a>
@@ -381,33 +384,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://ungoogled-software.github.io/">
+					<a href="https://github.com/jesseduffield/lazygit">
 						<picture>
-							<source srcset="default_29384856.webp" type="image/webp">
-							<source srcset="default_29384856.png" type="image/png">
-							<img src="default_29384856.png" alt="Preview of 'Google Chromium, sans integration with Google'">
+							<source srcset="default_29394162.webp" type="image/webp">
+							<source srcset="default_29394162.png" type="image/png">
+							<img src="default_29394162.png" alt="Preview of 'Lazygit: A simple terminal UI for Git commands'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://ungoogled-software.github.io/">Google Chromium, sans integration with Google</a></h3>
+					<h3><a href="https://github.com/jesseduffield/lazygit">Lazygit: A simple terminal UI for Git commands</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29384856">
+						<a href="https://news.ycombinator.com/item?id=29394162">
 						
 							
-								<p class="story__comment_first line-clamp">"I really hope the privacy-conscious people downloading this aren&#39;t just downloading these binary blobs and instead compiling it from source. Especially after seeing this disclaimer on their download page:&gt;&gt;&gt;IMPORTANT: These binaries are provided by anyone who are willing to build and submit them. Because these binaries are not necessarily reproducible, authenticity cannot be guaranteed. For your consideration, each download page lists the GitHub user that submitted those binaries."</p>
-							
-						
-							
-								<p class="story__comment_others">"The problem with this is updates: there is no trusted publisher of binaries, and even if you pick one person to trust, oftentimes builds are 6 - 8 weeks out of date with Chromium which means you&#39;re susceptible to all the published zero-days.Tried building it myself and it takes 4 hours on my 32-core 5950x, and you still depend on someone actually porting a version bump because their patches need to be regenerated for every new chromium build.I like the idea of it in principle; if someone donates some CI time and we get official CI builds, plus getting more active with picking up new builds it&#39;ll be a real contender. I&#39;ll stick with Firefox for now."</p>
+								<p class="story__comment_first line-clamp">"A very satisfied user. As a (neo)vim user, I did suffer from magit envy but at the end, Lazygit takes care of all my needs. I prefer the UX (Just a personal preference).Kudos to the dev for the wonderful toolPS: There is also lazydocker by same person
+https://github.com/jesseduffield/lazydocker"</p>
 							
 						
 							
-								<p class="story__comment_others">"What&#39;s surprising to me is that this product not only removes Google services integration, but also adds rather opinionated &#34;Enhancing Features&#34; of its own. Many of these are pretty good, but not everyone will like all of them. I, for example, doesn&#39;t like the &#34;Force all pop-ups into tabs&#34; change.https://ungoogled-software.github.io/features/"</p>
+								<p class="story__comment_others">"&gt; Rant time: You&#39;ve heard it before, git is powerful, but what good is that power when everything is so damn hard to do? Interactive rebasing requires you to edit a goddamn TODO file in your editor? Are you kidding me? To stage part of a file you need to use a command line program to step through each hunk and if a hunk can&#39;t be split down any further but contains code you don&#39;t want to stage, you have to edit an arcane patch file by hand? Are you KIDDING me?! Sometimes you get asked to stash your changes when switching branches only to realise that after you switch and unstash that there weren&#39;t even any conflicts and it would have been fine to just checkout the branch directly? YOU HAVE GOT TO BE KIDDING ME!&gt; If you&#39;re a mere mortal like me and you&#39;re tired of hearing how powerful git is when in your daily life it&#39;s a powerful pain in your ass, lazygit might be for you.I sympathise, deeply. If you&#39;ve never found yourself counting lines - repeatedly, because your last attempt failed - while manually editing a hunk, then I envy you."</p>
+							
+						
+							
+								<p class="story__comment_others">"If there is one thing that terrifies me it&#39;s using Git, or any source control, from the command line. No matter how long I&#39;ve been in this industry, I just can&#39;t get cozy with doing a lot of heavy lifting in any shell environment. Give me the GUI all day every day."</p>
 							
 						
 						</a>
