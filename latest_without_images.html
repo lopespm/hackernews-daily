@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">07 December 2021</div>
+	<div class="day__date">08 December 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.modernwiki.app/">Show HN: I made a modern web UI for Wikipedia</a></h3>
+					<h3><a href="https://status.aws.amazon.com/">AWS us-east-1 outage</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29461735">
+						<a href="https://news.ycombinator.com/item?id=29473630">
 						
 							
-								<p class="story__comment_first line-clamp">"Hey HN,I made this free browser extension that modernizes the Wikipedia design. I started making this for myself just because I wanted more of a &#34;reader mode&#34; like experience (narrower column, nicer fonts, dark mode etc).  Then I got a bit carried away and implemented everything I could think of for a modern redesign of Wikipedia.  Hope you like it!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I am one of those people who actually like Wikipedia the way it is. It&#39;s what I hoped the web to become.But i am sure there are people who will appreciate your effort. Thank you for your work."</p>
+								<p class="story__comment_first line-clamp">"Looks like they&#39;ve acknowledged it on the status page now. https://status.aws.amazon.com/&gt; 8:22 AM PST We are investigating increased error rates for the AWS Management Console.&gt; 8:26 AM PST We are experiencing API and console issues in the US-EAST-1 Region. We have identified root cause and we are actively working towards recovery. This issue is affecting the global console landing page, which is also hosted in US-EAST-1. Customers may be able to access region-specific consoles going to https://console.aws.amazon.com/. So, to access the US-WEST-2 console, try https://us-west-2.console.aws.amazon.com/"</p>
 							
 						
 							
-								<p class="story__comment_others">"OP, thanks for making this, I bet it was fun to build.That being said, I want someone to do the opposite of what this does. Less chrome, less bytes over the wire, less predictive search, less &#34;flatness?&#34;, less timely, more timeless."</p>
+								<p class="story__comment_others">"I worked at a company that hired an ex-Amazon engineer to work on some cloud projects.Whenever his projects went down, he fought tooth and nail against any suggestion to update the status page. When forced to update the status page, he&#39;d follow up with an extremely long &#34;post-mortem&#34; document that was really just a long winded explanation about why the outage was someone else&#39;s fault.He later explained that in his department at Amazon, being at fault for an outage was one of the worst things that could happen to you. He wanted to avoid that mark any way possible.YMMV, of course. Amazon is a big company and I&#39;ve had other friends work there in different departments who said this wasn&#39;t common at all. I will always remember the look of sheer panic he had when we insisted that he update the status page to accurately reflect an outage, though."</p>
+							
+						
+							
+								<p class="story__comment_others">"Haha my developer called me in panic telling that he crashed Amazon - was doing some load tests with Lambda"</p>
 							
 						
 						</a>
@@ -67,22 +67,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://scanofthemonth.com/">CT scans of AirPods evolution</a></h3>
+					<h3><a href="https://www.fastly.com/blog/debunking-cloudflares-recent-performance-tests">Debunking Cloudflare’s recent performance tests</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29465668">
+						<a href="https://news.ycombinator.com/item?id=29465729">
 						
 							
-								<p class="story__comment_first line-clamp">"This is still the strongest apple advantage: design, engineering and build quality.Recently I wanted to buy a second notebook so I could leave my MBPro at home in trips where I didn&#39;t want to work, but still had a machine that run linux and windows for some quick idea or even some light gaming.Decided for a Samsung Galaxy Book Pro. Expensive machine, but slightly cheaper than a MacBook Air. good i7 11gen processor, excellent battery life, very light but with surprisingly good thermals, 1tb SSD, but unfortunately no option to have it with more than 16GB RAM.Anyway, was very satisfied with it, and it was so light that I was even booting it with linux and doing some programming on it.But, one day I just opened the lid by the sides, heard a crack, and the gorgeous OLED screen had cracked.Of course I didnt abuse it, I just opened it, without excessive force or speed. But the screen is very fragile, the lid is paper thin, but not rigid enough, it seems, to avoid this problem.And of course, Samsung says it was my fault, and I will have to pay the fix.And yes, I know people have plenty of complaints about apple, but I never had encountered such an obvious problem with an Apple product. Have they not stress-tested this stuff?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Does anyone have a canonical URL to the previous month&#39;s scan of the LEGO mini-figure? I didn&#39;t see any navigation on the site unless there&#39;s a magic spot I missed or am inadvertently adblocking: https://news.ycombinator.com/item?id=29253441This month&#39;s entry comes off way too much like advertising for my taste, with the flowery language like &#34;magic features&#34; instead of just &#34;features&#34;, or the seemingly-unnecessary sales statistics in lieu of a technical description of the Airpods Pro: &#34;In 2020, Apple sold 110,000,000 AirPod products. Talk about mass manufacturing.&#34;Maybe it&#39;s just an unconscious tic when talking about Apple products. Even I have a hard time not saying &#34;Boom&#34; when showing off something cool :) https://www.youtube.com/watch?v=Nx7v815bYUw"</p>
+								<p class="story__comment_first line-clamp">"OK...So, I&#39;m the tech lead for Cloudflare Workers. In complete honestly, I did not even know we ran some sort of comparison benchmark with Compute@Edge until Fastly complained about it, nor did I know about our ToS clause until Fastly complained about it. I honestly don&#39;t know anything about either beyond what&#39;s publicly visible.But as long as we&#39;re already mud slinging, I&#39;d like to take the opportunity to get a little something off my chest. Fastly has been trumpeting for years that Compute@Edge has 35 microsecond cold starts, or whatever, and repeatedly posting blog posts comparing that against 5 milliseconds for Workers, and implying that they are 150x faster. If you look at the details, it turns out that 35 microsecond time is actually how long they take to start a new request, given that the application is already loaded in memory. A hot start, not a cold start. Whereas Workers&#39; 5ms includes time to load the application from disk (which is the biggest contributor to total time). Our hot start time is also a few microseconds, but that doesn&#39;t seem like an interesting number?We never called this out, it didn&#39;t seem worth arguing over. But excuse me if I&#39;m not impressed by claims of false comparisons...On a serious note, I&#39;ve been saying for decades that benchmarks are almost always meaningless, because different technologies will have different strengths and weaknesses, so you usually can&#39;t tell anything about how your use case will perform unless you actually test that use case.  So, I would encourage everyone to run your own test and don&#39;t just go on other people&#39;s numbers. It&#39;s great that Fastly has opened up C@E for self-service testing so that people can actually try it out."</p>
 							
 						
 							
-								<p class="story__comment_others">"I think the AirPods Pro were a regression from the OG AirPods for four reasons:- Idle life took a huge dive from the originals. My OGs haven&#39;t been charged in something like six months, and the case is still at something like 20%. Meanwhile, the case holding the APPs would die in less than a week and the buds inside of them a week after that.My wife&#39;s APPs have been lost for a while because of this.- Noise cancellation performs worse than the original firmware. They have actually been outclassed by other offerings, such as the Sony WF1000XM4.- The buds themselves have a design flaw wherein earwax will accumulate in its inner grille severely enough to significantly compromise bass response. There&#39;s a thread in MacRumors that&#39;s something like 36 pages long acknowledging this. Apple quietly fixed this in version 2 of the APPs (with the MagSafe case).- The mic isn&#39;t as good. The original APs performed extremely well in wind and loud surroundings. I think the downward beam-forming mics were a big part of this. The mic on the APPs perform worse in these scenarios IMO.I&#39;m glad that Apple went back to beam-forming mics.Regardless, I&#39;m thankful for Apple for lighting up the true wireless headphone industry. The APs were a dream come true when they came out; nothing before it compared (and I had $600 custom IEMs that were waterproof and had a control scheme controlled by head nods). The APPs accelerated the creation of noise cancelling true wireless. I&#39;m excited for the next iteration of these products."</p>
+								<p class="story__comment_others">"I was expecting a point-by-point comparison from Fastly. Instead, this comes off incredibly defensive and evasive, basically boiling down to two irrelevant points:* Rust compiled to WASM is faster than Javascript (ok, but I&#39;m not going to switch my entire stack just to use your CDN)* Fastly performance throttles their free accounts (ok, but not Cloudflare&#39;s fault, and I definitely don&#39;t want to get into your pricing game if you&#39;re going to start offering different tiers of serverless workers... part of Cloudflare&#39;s allure is its simplicity in pricing).They do have two good points:* Benchmarks between CDNs should be done from the same client locations (fine, but why did you then use your own set)* Cloudflare should not prohibit benchmarking of their products (fair)But this whole post read like a feeble attempt at misdirection, and made me distrust Fastly as a company. The complaints about their methodology aren&#39;t solved by using your own, even more flawed, methodology that doesn&#39;t even use the same language. You could&#39;ve just emailed them and asked to work together on an apple-to-apples test instead of creating an even more flawed benchmark."</p>
+							
+						
+							
+								<p class="story__comment_others">"As mentioned in the article, Cloudflare expressly prohibits benchmarking their services in the tos.I think it&#39;s rather disingenuous for Cloudflare to publish their own benchmarks calling out competitors when they won&#39;t allow anyone to run their own tests and comparisons."</p>
 							
 						
 						</a>
@@ -95,22 +95,23 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29458246">YouTube suspended my account for posting DeFi hackathon video</a></h3>
+					<h3><a href="https://blog.klungo.no/2021/12/07/cloudflare-images-has-a-lot-of-issues/">Issues with Cloudflare Images</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29458246">
+						<a href="https://news.ycombinator.com/item?id=29474743">
 						
 							
-								<p class="story__comment_first line-clamp">"Update: 3 hours after posting and being on the hacker news front page:Automated email out of the blue: &#34;We’re pleased to let you know that we’ve recently reviewed your YouTube account, and after taking another look, we can confirm that it is not in violation of our Terms of Service. We have lifted the suspension of your account, and it is once again active and operational.&#34;Thanks hacker news for voting this up and clearly triggering something within the GooglePlex. Still a big -1 for Google/YouTube that their normal processes are completely broken."</p>
-							
-						
-							
-								<p class="story__comment_others">"Presumably, many Googlers who are directly involved in designing and implementing content moderation are active readers of Hacker News, as is evidenced by the fact that having a story hit the front page is an effective way to solve problems like these.But what I never see is any of those Googlers taking the time to explain why they feel these seemingly-broken approaches are the only ways to solve the problem of moderation at scale. To me, it seems insulting to one&#39;s intelligence to receive an automated message that your channel&#39;s been banned, be given the option to appeal, and to receive an equally automated message rnd() minutes later that your appeal has been denied. But what do I know? I&#39;ve never been tasked with solving such an engineering problem.I know FAANGers here may feel put upon by what appears to be a hostile environment against their companies, but that&#39;s at least in part because you&#39;ve never said exactly which technical and practical challenges lead to this state of affairs. If it&#39;s not against your company&#39;s NDAs, I challenge you all to try; whether the community agrees with you or not, I think we would all learn something useful from a productive discussion about the problem."</p>
+								<p class="story__comment_first line-clamp">"I love Cloudflare, but these Image products are a black mark on their reputation.Every point the author says is 100% correct. I&#39;ll add one more point, which ended up making it a total non-starter: you can&#39;t import lots of images because their rate limits are so pernicious. If you have tens of thousands or millions of images, keeping within their single digit per second rate limit, which appears to be totally non-negotiable, makes it impossible to add images at any scale.They have another product called Cloudflare Images which can work from Workers: but here the pricing is almost absurd and from the data they show on their dashboard, they only cache a tiny percentage of the requests. This means you end up paying a lot more than makes sense."</p>
 							
 						
 							
-								<p class="story__comment_others">"The problem is not the content of the video, crypto or not. The problem is not that YT moderates aggressively (it doesn&#39;t do enough IMHO) or even how it moderates.The problem is that there is no serious appeals process, and no third party oversight of moderation decisions. This is true for all the big platforms.How do we fix that, IDK, but probably at the government level."</p>
+								<p class="story__comment_others">"I thought Cloudflare was going to win the image hosting/serving/resizing game based on their original blog post, but that doesn&#39;t seem to be the case.I kept getting frustrated with the complexity and changing costs of solutions out there, so about a year ago I launched https://www.simplefileupload.com. It&#39;s a super easy, flat rate cost solution to quickly allow users to upload images and files. It provides a customizable upload widget and serves files via a CDN and firewall to protect against attacks. It doesn&#39;t have query param image resizing yet, but it&#39;s coming!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Thanks for the feedback. I&#39;m on the CF Images product team.
+We will allow the download of the original images, it is actually one of the next features coming up. Also we will introduce webhooks and Images Analytics next."</p>
 							
 						
 						</a>
@@ -123,22 +124,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://blog.sesse.net/blog/tech/2021-12-05-16-41_leaving_mysql.html">Leaving MySQL</a></h3>
+					<h3><a href="https://www.djangoproject.com/weblog/2021/dec/07/django-40-released/">Django 4.0</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29455852">
+						<a href="https://news.ycombinator.com/item?id=29470729">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; MySQL is a pretty poor database, and you should strongly consider using Postgres instead.Wow, right on the chin with that one.&gt; More jarring were the people who insisted everything was OK (it seems most MySQL users and developers don&#39;t really use other databases)I only have anecdata of my usages of MySQL and Postgres but I swear people that cut their teeth on MySQL and have never used Postgres just don&#39;t know what they are missing.Yes Postgres can be slower out of the box and yes Postgres has worse connection handling that usually requires a pooler but the actual engine and it&#39;s performance makes it worth it in my opinion."</p>
-							
-						
-							
-								<p class="story__comment_others">"I got into programming in 2000 and right when I did Tim Perdue wrote a very important article comparing MySQL and Postgres. He concluded that Postgres was the better database.[edit] Thanks to DocTomoe for finding this:https://phpbuilder.com/mysql-and-postgresql-compared/Some of the discussion of the article survives:https://www.postgresql.org/message-id/39635C4A.1A4486D9%40al...The article was a very big deal at the time, because it was so well researched and so devastating for MySQL.I figured that article was the death knell for MySQL, but then MySQL surprised me by just going and going and going. It was helped along back then by having a very close relationship with the PHP language. Nowadays, you can use any database you want with PHP, but in 2000 PHP was very much biased in favor of MySQL, and every article written about PHP was written with the assumption you&#39;d be using MySQL as the database. I suspect that MySQL would have died except for the massive life support it got from PHP during those years.The moral I take from all of this is that sometimes you can have two technologies, and one is clearly better, yet the one that is clearly better can remain under-utilized for 21 straight years.I know a bunch of HN people will now show up and defend MySQL, or defend a lazy style of programming that accepts defaults even when that means using a poor cousin of something good. But we should stop for a moment and really think about the implications of this. Because it really is remarkable that people have known of the superiority of Postgres for 21 years and yet people still use MySQL."</p>
+								<p class="story__comment_first line-clamp">"Django has allowed me to enjoy some side entrepreneurship. I have released three products as a solo part time dev that I would never have been able to do in a reasonable time using Java/Spring (my strongest stack). My first project went nowhere, but the second generated 1k+ a month and sold for 50k, and the third one is following a similar trajectory.My advice - keep it simple- function based views- centralize access to the ORM (avoid fat models, use a service layer)- responsive bootstrap template with crispy forms- minimal js- 12 factor type setup - django-environ or similar- be aware of n+1 select problem (I use django debug toolbar but looking into django-zen-queries)- plop it on heroku, AWS lightsail, Digital Ocean or if containerizing use AWS Fargate- avoid celery unless you are at a scale you need it - use django-cron, django-db-queue or similar- use a managed database and managed email serviceI have had zero scalability problems. People say Django is slow but it handled 10k active users on a small EC2 instance without any issues (static stuff served via cloudfront)"</p>
 							
 						
 							
-								<p class="story__comment_others">"It is incredibly hard to improve something that your user base doesn’t think needs improving. That part really stands out to me.When I first moved to Postgres I was fairly reluctant - my impression was that it was some arbitrary flavour of sql, and since I was used to MySQL (the only sql database I’d ever used) it seemed incredibly unnecessary to bother with. I imagine there are tons of people out there like I was who would rather let things be.Since the first few weeks I don’t think I’ve ever chosen to use MySQL again; Postgres totally changed my career for the better."</p>
+								<p class="story__comment_others">"Django is the nicest framework I&#39;ve come across! For some context, my favorite overall programming language is Rust. Despite Rust having several web frameworks, I use Python the server due to Django being so nice.In Python, there are micro frameworks like Flask, and whatever new ones claim to be &#34;Blazingly fast!&#34;, async etc. Once you get over the learning curve, Django seems the nicest to use, due to including features like an auto-updating ORM, email, authentication, admin page etc. None of the Rust frameworks, in contrast, come close to feature parity.Django&#39;s feature base is vast, and I admit I don&#39;t understand much of it. You can choose the feature sets you need. The template language is inflexible, but you can smooth this over using JS instead A/R."</p>
+							
+						
+							
+								<p class="story__comment_others">"We went all in on FastAPI with my team, but we&#39;re hit the issue that the projects of Tiangolo (FastAPI, SQLModel, Typer) seem to be turning pretty much unmaintained : https://github.com/tiangolo/fastapi/discussions/3970We&#39;ve already been hit by multiple bugs with fixing PR opened, but left to rot, and missing documentation : the &#39;tutorial&#39; documentation is great, but if you want a reference you have to go read the code.I guess that&#39;s the issue when you pick projects maintained by one person, so for my next projects I might get back to something built on stronger grounds, like Django.How is Django this day with modern Python constructs like typing in general and Pydantic models integration ?"</p>
 							
 						
 						</a>
@@ -151,22 +152,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://mastodon.technology/@rysiek/107390725207653910">You click a link to a news site, to read an article that seems interesting</a></h3>
+					<h3><a href="https://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/">How a Kalman filter works, in pictures</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29454289">
+						<a href="https://news.ycombinator.com/item?id=29473271">
 						
 							
-								<p class="story__comment_first line-clamp">"Not just news sites, either.  A lot of fandom wikis run on the same platform, fandom.com.  That site is a pain in the absolute fucking ass to use on any mobile device, specifically because of the autoplaying video that takes up half the screen on every page load.  Weirdly, desktop is fine; no autoplaying videos or any such nonsense.  It&#39;s only on mobile that Fandom has seemingly made a deliberate effort to make the user experience as frustrating as possible.  And not once has the video had even a tangential relationship to the article being viewed.The worst part is that uBlock Origin&#39;s element picker doesn&#39;t work on Firefox for Android (or if it does, I haven&#39;t figured out how to use it), so on the one platform where it&#39;s maximally annoying I can&#39;t do anything to block it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel like these are “somebody got a promotion” patterns.Basically, somebody was able to “prove” to Higher-Up Managers that $X number of these videos were “watched” or “engaged with” (or whatever today’s BS lingo is), and therefore the business “benefited” in some way by “reaching” more people.  Profit?In reality, at least in my case, what happens is: (1) I say “WTF!?!?”, (2) I make a mental note to never ever visit the site again, and (3) (sadly) I see it again and again at different sites."</p>
+								<p class="story__comment_first line-clamp">"Couple of years ago I blogged about how it was developed for  the Apollo program [1] and then I wrote an implementation of different variations of it in Go [2].[1] https://cybernetist.com/2019/01/13/apollo-kalman-filter-and-...[2] https://github.com/milosgajdos/go-estimate"</p>
 							
 						
 							
-								<p class="story__comment_others">"If they can trigger a &#34;video fired&#34; message in the analytics, that&#39;s one more &#34;Person viewed our video&#34; they can show to a potential advertiser. That&#39;s all it&#39;s about, not the end user&#39;s experience."</p>
+								<p class="story__comment_others">"Michel van Biezen has an excellent video series on Kalman filters:https://www.youtube.com/watch?v=CaCcOwJPytQHe walks you though all the way from the rationale, to a simple algebraic example, to the full blown Linear Algebraic Matrix solution.  It&#39;s really worth watching even just the first couple videos to get a deeper understanding of this very useful technique."</p>
+							
+						
+							
+								<p class="story__comment_others">"The best exercise I had in our sensing &amp; estimation class was to derive the Kalman filter from &#39;scratch&#39;. It&#39;s actually just the series of steps used to perform a minimization of a convex cost function, where the cost function is the inverse likelihood of the measurements given the data.Someone once joked that all of sensing and estimation (and path planning and optimal control) is just applied convex minimization."</p>
 							
 						
 						</a>
@@ -179,22 +180,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.airgradient.com/resources/ikea-vindriktning-accuracy/">Ikea Vindriktning Air Quality Sensor Review and Accuracy</a></h3>
+					<h3><a href="https://networked.substack.com/p/web3-i-have-my-daots">Web3? I have my DAOts</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29458404">
+						<a href="https://news.ycombinator.com/item?id=29466024">
 						
 							
-								<p class="story__comment_first line-clamp">"Author here. I forgot to mention:With a Wemos D1 mini (ESP8266) MCU that costs around USD 2.00, you can pretty easily make the Vindriktning WiFi connected and get the data to a backend [1].You just need to solder three wires, and there is enough space within the enclosure to fit the D1 mini inside.This would then allow you to get the exact measurements and to better understand if the &#34;green&#34; is more on the lower end or the higher side.[1] https://github.com/Hypfer/esp8266-vindriktning-particle-sens..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Informative article with fair, fact based, conclusions.I&#39;d like to add that:- The VINDRIKTNING is extremely consumer accessible ($11.99, good build, simple traffic light system).- It may be put into spaces that previously had no particulate air quality monitoring.- The spouse-acceptance-factor is extremely high (unlike e.g. a couple of circuit boards wired together off of Aliexpress).There are other consumer friendly offerings, but they aren&#39;t affordable (e.g. Amazon Smart Air Quality Monitor 4x cost, Airthings 10x cost). That being said, IKEA could fix their traffic-light system&#39;s cut off points for free and should consider it."</p>
+								<p class="story__comment_first line-clamp">"OK. The reason all this happening is that Bitcoin really did go to the moon. That&#39;s what powers all this speculation. If the price of Bitcoin had been stable for a decade, and it worked reliably, it would be a useful medium of exchange, but nobody would care. This is all about MAKE MONEY FAST.Bitcoin found some early use cases. Drugs first. Then getting money out of China. Money laundering. Tax evasion.  Scams. Bitcoin is the scammers dream - remote, anonymous, irreversible transactions. Much less risk of the mark coming for the scammer with a baseball bat.Then China cracked down on cryptocurrency, shut down all the miners, and arrested a few hundred of them. Financial regulators in the more legit countries started regulating Bitcoin exchanges, so the operators couldn&#39;t just steal the money. Know Your Customer became a thing. In the US, the IRS, FinCen, the FBI, and the SEC all started paying attention to what was happening on blockchains. Cryptocurrency crime was no longer risk-free for the crooks.But by now, sheer momentum kept Bitcoin going up. That&#39;s a powerful force. It&#39;s not forever, though. Check out meme stocks a few years later. Remember, all this stuff is zero-sum. For every winner, there has to be a loser.That&#39;s what provides the engine behind &#34;Web3&#34;, NFTs, DAOs, and whatnot. It&#39;s not the technology."</p>
 							
 						
 							
-								<p class="story__comment_others">"I would be very careful with this kind of evaluation. There are lots of sensors that perform well vs reference instruments but not in the field.If you want real evaluations, SCAQMD (the folks in charge of air quality for southern california) do evaluations of commercially available, low cost sensors, both against reference instruments and the lab.See http://www.aqmd.gov/aq-spec/evaluationsYou can see what i said is true from the table - lots of sensors that are very well correlated with reference instruments in the lab, but suck horribly in the field.I would think you would be better off submitting the sensor in question to them, and letting them put it through its paces.(They publish within a month of finishing testing, and testing takes ~8 weeks)"</p>
+								<p class="story__comment_others">"I find both the evangelism of and the hostility towards “Web 3” kind of silly. Obviously there’s some amount of interesting stuff and obviously there’s some amount of tech bro assholes getting rich who “shouldn’t”.Just like ~2008-2012, ~1999-2002, ~1994-1996, ~1982-1986, etc.On the technology side: distributed Byzantine consensus is an open problem with some promising prototypes. It would have very cool use cases: remittance is huge, ENS is fucking cool, Brave/BAT is cool, NFTs for e.g. concert tickets or restaurant reservations or whatever would be cool, IPFS is cool.The technology isn’t there yet. POW doesn’t scale. Ouroboros Praus/Genesis needs a clock oracle (see: Spanner), Tendermint/Algorand/PBFT are too slow (global 3-phase. commit, right). Solana/ICON/etc. are expensive cloud databases. L2 rollups/Lightning/sharding are “kick-the-can” exercises. But it took time to go from the Paxos paper to Chubby as well, maybe someone solves it.Yeah, it’s mostly scams today. But it’s always been mostly scams. Microsoft bundling IE was a scam. Pets.com was a scam. Path was a scam. Uber and AirBnB were (are?) illegal as hell. Third-party cookies powering Google and FB is a scam.When the dust settles some amount of this stuff will have been worked out technically, legally, and financially, and the rest will be “lol do you remember when…”.This time some people will be rich who neither had rich parents nor knew Bay Area royalty, but YC wasn’t always part of the machine either. I’m sure Goldman and YC will eventually embrace those people with open arms.I for one look forward to us collectively getting our knickers untwisted about it so we can go back to rewriting every calculator app on earth in Rust (I kid! Don’t hit me! Doofy Haskell is better than no Haskell!).;)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I completely agree with the author. I&#39;ve been reading a lot about the EVM, and while there&#39;s some interesting technology involved, it feels unlikely to be able to support any worthwhile applications outside of blockchain finance or moving $ around the world[0] (since the code can really only directly reference the blockchain itself).It&#39;s a bit like playing with a programming language in a sandbox that has (1) has no I/O functions[1], and (2) has enormous costs associated with even the most basic of computations. Ok, it&#39;s not like that; it is exactly that.Sure, you could build a crypto toy and convince some suckers to transfer some of their wealth to you, but calling it an app platform or the next evolution of the web is definitely a stretch. I sincerely wish that wasn&#39;t the case (I&#39;d love to find an exception), but that&#39;s what I&#39;ve come to conclude.[0] Don&#39;t get me wrong, there&#39;s tremendous value in being able to move money around the world without the blessing of governments and central banks![1] Any interaction with entities outside the blockchain require oracles, and at that point, you might as well throw away the other benefits of being on a blockchain."</p>
 							
 						
 						</a>
@@ -207,24 +208,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29457930">Ask HN: Why is everything changing too fast?</a></h3>
+					<h3><a href="https://github.com/gorhill/uBlock/wiki/Why-don%27t-you-accept-donations%3F">Why don&#39;t you accept donations?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29457930">
+						<a href="https://news.ycombinator.com/item?id=29462336">
 						
 							
-								<p class="story__comment_first line-clamp">"I’m your age and of similar profession with a known history of doing software development. Having been a nerd since very early age I come to the conclusion that0) I am growing older and I may get more conservative  
-1) I used a lot of products that evolved to a local optimum but I see a lot of them being thrown back into a evolutionary state they already passed a decade ago. Maybe to eveolve better, but I have my doubts. 
-2) Everything is bloating now. Instead of a collection of good tools interacting I have now 3+ ways of opening an Excel-File someone shared in Teams. All of them are broken and Teams is broken, too.I feel as if the excellent wrenches I have been using for 20+ years are growing tumors in the form of a can opener. All to please people who never used a wrench or a can opener before. And production of the original wrenches is cancelled. Over night.Next time I need a wrench it may be made of felt, because fedoras are en vogue and the mad hatter has to sink venture capital into expanding his business.(Funfact: In German you could make up the very valid and understandable, but still strange word “dosenöffnerförmige Tumore” )"</p>
-							
-						
-							
-								<p class="story__comment_others">"I think there at least 3 things at play here:#1) Software used to live on a disk you buy. That software doesn&#39;t change, until buy a new disk. Then it lived in apps, where you can update or not. Now often, it lives in the mythical cloud where changes can happen all the time.Now, even on the disk front, things were always changing. Often for the better, sometimes for the worse. In the OS world Dos-&gt;Windows-&gt;Windows 95 were big changes, and the OS9-&gt;OSX change also huge! But now the changes are always.#2) The entire software world is built on VC money. VC money is not looking for slow and sustainable growth. Or a happy userbase of 10k people. The VC world doesn&#39;t mind if 99 companies crash and burn trying to harvest the wind while building their sails if one takes off.#3) Out of the VC/startup world, large companies must justify their existence and every team and every programmer on that team must justify theirs. No one ever stuck around by saying &#34;everything is good, we literally don&#39;t need to do anything or acquire another customer, let&#39;s all cut out hours to 2 days a week, keep patching bugs and making security updates, be happy with our current level of subscriptions, and spend a bit of time in R&amp;D to make sure we have other bait in the water too if for some reason our users stop liking this."</p>
+								<p class="story__comment_first line-clamp">"I can&#39;t think of too many pieces of software that have improved my life as significantly as uBlock Origin in the last decade. It&#39;s been an absolute godsend."</p>
 							
 						
 							
-								<p class="story__comment_others">"IMHO the answer is the tech version of bullshit jobs.You know the concept - jobs that exist just to exist and pay for someone&#39;s living, though they produce nothing of actual value, and it takes effort to actually remove so no one does.With software it goes something like this:1) A  product is built, something that solves a real issue. It&#39;s new, rough around the edges and has only the basic critical features.2) Funding is found and a large team is hired to implement what&#39;s needed and fix all the rough edges.3) The team comes up with good, new ideas that actually improve the product experience for everyone, so in the eyes of management and the investors they have merit.4) After the first 10 good ideas are implemented, the next ideas are... not as helpful, but some users still like them and nobody wants to fire anyone who&#39;s been doing really good work so far.5) Fast forward a couple of years, the team is huge and there is really no headroom to improve the product. Everyone tries to come up with bullshit ideas and force their ideas through, just to have something to show come performance review time. The users stay with their tried and true product, and they&#39;re so invested at this point that a few regressions make them bitter - but not enough to leave.6) Rinse and repeat.I&#39;ve been on that team. The engineers there are often mentally older, comfortable, and smart - or at least were smart.  Many of them are sure what they do is important. But they&#39;re wrong. They now hold bullshit jobs."</p>
+								<p class="story__comment_others">"&gt; no donations = no expectationsNo donations should result in no expectations, but unfortunately all sorts of people will have all sorts of expectations from you when you release an open-source project, donations or not."</p>
+							
+						
+							
+								<p class="story__comment_others">"Gorhill has to me always been a beacon of integrity. I always feel a bit uneasy about browser add-ons and the people in control of them and I am really thankful for not having a single worry about installing ublock origin on any browser I spend some time in."</p>
 							
 						
 						</a>
@@ -237,22 +236,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://maggrand.com/new-york-ceo-fires-900-employees-on-zoom-call-video/">Better.com CEO fires 900 employees on Zoom call</a></h3>
+					<h3><a href="https://www.hetzner.com/news/12-21-ipv6-only/">Hetzner now provides IPv6 only dedicated servers</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29460985">
+						<a href="https://news.ycombinator.com/item?id=29471986">
 						
 							
-								<p class="story__comment_first line-clamp">"I know this sounds horrible but in the days of covid and working from home, what are companies supposed to do if they have to lay off large amounts of people?Make them all risk their health to come to an in-person event, only to be fired? Drive to every employee&#39;s house to fire them in person?It obviously sucks but I don&#39;t see how, in 2021, this is any different from the kind of thing that would happen all the time in mass layoffs."</p>
-							
-						
-							
-								<p class="story__comment_others">"To anybody affected by this layoff, my company Placement.com created a Better.com Alumni Job Board [0] to help smooth the transition. We&#39;ve seen over and over how much easier it is to get a job at a company where:1. You have a connection (or can build one easily)2. The company recognizes the companies you previously worked forTargeting companies that ex-colleagues work at is a powerful strategy! So we made this board for everybody affected. Also, if you are interested in talking to a career coach, I&#39;m happy to give a free intro session to everybody affected here. Just email me sean@.The lack of empathy shown in this situation is intense and I hope y&#39;all know that there are amazing companies that will value you more waiting with open arms![0] https://www.placement.com/boards/bettercom-alumni-companies"</p>
+								<p class="story__comment_first line-clamp">"I don&#39;t know if others have experienced it, but I run a monitoring server from Hetzner and have daily issues with IPv6 latency and packet loss (edit: Finland DC).I monitor 3 other IPv6 locations, the monitoring server will very randomly throw alerts, and only from Hetzner. Yet, when I opened a ticket, I was told it was the fault of the other providers, despite the mtr traces showing otherwise, and not having issues outside Hetzner.Hopefully more IPv6 users means that I won&#39;t be the only one impacted by those networking issues. I find IPv6 useful for servers that are not public-facing. They are firewalled of course, but it also means I can access them directly from home without hops or VPN (my home having a static IPv6 address)."</p>
 							
 						
 							
-								<p class="story__comment_others">"I know it’s just an anecdote but as a customer I kind of believe this.I just completed a transaction with them that had to be extended beyond the rate lock window. For about 10 days there was a daily back and forth where they asked me to provide some documentation. I would provide the requested documentation and about 12 hours later I would receive a task of uploading the same required documentation.The document was a 50ish page legal document that required someone to look at it. It’s clear nobody was actually spending any effort on it. Even calling my loan officer wasn’t getting me anywhere. It wasn’t until the deadline approached that they called me and wanted to get it all sorted out and they extended my rate lock.The way management handled this looks horrible but if there’s any truth to these employees essentially stealing wages from their employer then they’re lucky they’re just being fired and not being prosecuted."</p>
+								<p class="story__comment_others">"I assume this is common knowledge, but I personally find Hetzner to be exceptionally good.It&#39;s always been good to me when I was using their European data centers, but that was always a bit of a bummer because of latency. Now that they have a DC in the US, I just can&#39;t think of a single good reason to use other cloud providers for smaller deployments. They&#39;re pretty much the best bang for your buck you can get anywhere."</p>
+							
+						
+							
+								<p class="story__comment_others">"Warning, Rootless Docker doesn&#39;t support the ability to see the users source IP yet with IPv6.* https://github.com/rootless-containers/rootlesskit/issues/25...* https://github.com/rootless-containers/slirp4netns/issues/25...This has repercussions if you need to be able to see the user&#39;s IP for throttling, banning, etc."</p>
 							
 						
 						</a>
@@ -265,22 +264,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://krebsonsecurity.com/2021/12/ubiquiti-developer-charged-with-extortion-causing-2020-breach/">Ubiquiti developer charged with extortion, causing 2020 “breach”</a></h3>
+					<h3><a href="https://www.nasa.gov/feature/goddard/2021/nasa-returns-hubble-to-full-science-operations/">NASA returns Hubble to full science operations</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29455730">
+						<a href="https://news.ycombinator.com/item?id=29478343">
 						
 							
-								<p class="story__comment_first line-clamp">"The funny thing is that krebsonsecurity.com are the ones that published the false information in the first place.Good summary of the whole saga by Crosstalk youtube channel which covers mostly Ubiquiti: https://www.youtube.com/watch?v=paLm0tP5GbI"</p>
-							
-						
-							
-								<p class="story__comment_others">"For me a company of their size and, what I would expect, maturity, this new announcement does not satisfy me or provide me much assurance. Consequently I am still happy I have been recommending people against Ubiquiti since the original announcement from Krebs.* Why was it so easy for a lead engineer to get access to a root AWS user without anyone else being notified? I.e. AWS GuardDuty provides FREE alerting for when an AWS root IAM account is logged in or used, this account should be under lock and key and when used, confirmed and audited by relevant persons or teams.Start edit/* Furthermore on the root account being easily accessed, the root account in the companies I&#39;ve worked at had MFA enabled, and the QR code is locked in a safe only accessible by two people agreeing it needs to be accessed in a break glass situation, where warranted./End edit* Why was he also able to delete critical CloudTrail logs and reduce their retention to 1 day? I.e. These logs should be in a S3 bucket or other environment where such changes cannot be made. Alternatively, they should be shipped to a redundant service that manages this risk to prevent data deletion* Why did Ubiquti not announce they were compromised sooner? The hack started in early December, Ubiquiti noticed the compromise on Dec. 28. Ubiquiti told the market on January 11th. Is that a satisfactory turn around? Giving them some credit for the XMas break I&#39;ll say this partially understandable.All the AWS configuration I&#39;m speaking of above, I would describe as Security 101.Most of these settings can be set and managed from AWS Organisations for free, and backed up with alarming and alerts for Guard Duty trivially. That a company of Ubiquiti&#39;s size and maturity had such basic risks not managed is still a concern.I understand AWS Organisations can be difficult to set up for legacy AWS accounts, but even with that said, setting the alarms and monitoring up that would help manage the risk associated to the questions above is not difficult and should have been in place.That Ubiqitui would only find relief ultimately from the developers poor OpSec rather than Ubiquiti&#39;s own security policies and procedures provides a commending perspective of their internal security posture."</p>
+								<p class="story__comment_first line-clamp">"I love the phrasing in “… is now operating with all four active instruments collecting science.”Reminds me of strategy games where feeding enough “science units” into opaque “research labs” unlocks branches of the technology tree."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Investigators say they were able to tie the downloads to Sharp and his work-issued laptop because his Internet connection briefly failed on several occasions while he was downloading the Ubiquiti data. Those outages were enough to prevent Sharp’s Surfshark VPN connection from functioning properly — thus exposing his Internet address as the source of the downloads.Not the first time I’ve read about a VPN unable to mask someone’s ip when they were on a wonky connection."</p>
+								<p class="story__comment_others">"Having worked at Lockheed on the engineering side of Hubble for four summers as an intern during undergrad, the idea of the telescope reaching its end of life makes me deeply sad."</p>
+							
+						
+							
+								<p class="story__comment_others">"The purpose of NASA is not only to explore but inspire. In light of that, I&#39;d be fully supportive of using a Starship launch to bring Hubble home."</p>
 							
 						
 						</a>
@@ -293,22 +292,25 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/">WebAssembly and Back Again: Fine-Grained Sandboxing in Firefox 95</a></h3>
+					<h3><a href="https://github.com/intoli/exodus">Exodus – relocation of Linux binaries–and all of their deps–without containers</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29459499">
+						<a href="https://news.ycombinator.com/item?id=29446297">
 						
 							
-								<p class="story__comment_first line-clamp">"WebAssembly is kind of a hack here (although a clever hack that saves a lot of effort) - the essence of what the Mozilla folks have done isn&#39;t WebAssembly, it&#39;s a trusted compiler - by which I mean a compiler that emits trustable code, regardless of how untrusted the source is. It&#39;s a really neat idea that I hope to see more adoption of, because our current security models for software suck.Security based on process isolation is extremely inefficient and coarse-grained - having a trusted compiler could (eventually) massively increase performance by removing processes entirely (no more virtual memory! no more TLB flushes and misses! less task switch overhead!) and eliminating the kernel/user mode separation, with an increase in security.&#34;Could&#34; because it&#39;s not clear to me if the reduction in expressiveness from our languages now to future languages with a theoretical trusted compiler (all jump targets have to be known at compile-time?) will be accepted by the majority of the populace. Look at how hard it is to get people to accept borrow-checkers..."</p>
+								<p class="story__comment_first line-clamp">"I often use exodus to move software onto a Synology NAS (after hosing my installation in the past through haphazard use of alternative package managers) and it has been incredibly helpful.  It&#39;s great to be able to bring over utilities without fighting with docker, building appimages, or the like.Thank you so much for it!It just works most of the time, which is wild given how diverse the environments it operates in can be.  One piece of software I have struggled with however is w3m.   Wrong __data_start/_end pair
+   Aborted (core dumped)
+
+I get the above error messages which I understand to be related to libc, but I cannot get around it. Is this something anyone has seen before?"</p>
 							
 						
 							
-								<p class="story__comment_others">"This sandboxing is achieved via RLBox[0], which is a toolkit for sandboxing third-party libraries. It comprises of a WASM sandbox and an API which existing application can leverage. The research paper[1].[0]: https://plsyssec.github.io/rlbox_sandboxing_api/sphinx/[1]: https://arxiv.org/abs/2003.00572"</p>
+								<p class="story__comment_others">"This probably won&#39;t work on binaries that contain references to system files necessary in order to run the binary that aren&#39;t code. You usually can&#39;t detect them other than running the program and watching it die, or running the program with strace and looking for the files it&#39;s trying to stat/open.In the past what I&#39;ve done when I have to copy a binary somewhere, is statically compile it in a Docker container and export the install files, then copy those over. I have about a half dozen tools prepped like that (gdb, curl, strace, busybox, etc)"</p>
 							
 						
 							
-								<p class="story__comment_others">"So if I&#39;m understanding this correctly, Firefox compiles its dependencies as WASM, effectively blocking function calls to things it shouldn&#39;t and illegal memory access, and then translates it back to C so it can compile it normally? Sounds neat!"</p>
+								<p class="story__comment_others">"Could this be used to relocate Android-native libraries to other platforms? Even if the architecture matches, the bionic libc calls is what I found more challenging."</p>
 							
 						
 						</a>
