@@ -36,6 +36,408 @@
 	</div>
 
 	
+	<div class="day__date">16 December 2021</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=29567170">
+						<picture>
+							<source srcset="default_29567170.webp" type="image/webp">
+							<source srcset="default_29567170.png" type="image/png">
+							<img src="default_29567170.png" alt="Preview of 'Tell HN: AWS appears to be down again'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=29567170">Tell HN: AWS appears to be down again</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29567170">
+						
+							
+								<p class="story__comment_first line-clamp">"I checked their health status page. All is good. /shttps://downdetector.com/status/aws-amazon-web-services/"</p>
+							
+						
+							
+								<p class="story__comment_others">"They really need to stop requiring SVPs or higher to show non-green status on the status page, as other HNers have revealed in last week&#39;s AWS post. It&#39;s effectively not a status page, and they could probably be sued if it can be demonstrated that X service was down but the status page showed green (since the SLA is based on status page). Should be automated and based on sample deployments running in every region and every service. And they should use non-AWS instances to do the sampling, so they can actually sample when, say, we experience the obligatory black friday us-east-1 outage every year."</p>
+							
+						
+							
+								<p class="story__comment_others">"I tried to monitor services status using https://stop.lying.cloud, but they are also hosted to AWS, and down too."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://jvns.ca/blog/2021/12/15/mess-with-dns/">
+						<picture>
+							<source srcset="default_29568510.webp" type="image/webp">
+							<source srcset="default_29568510.png" type="image/png">
+							<img src="default_29568510.png" alt="Preview of 'Mess with DNS'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://jvns.ca/blog/2021/12/15/mess-with-dns/">Mess with DNS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29568510">
+						
+							
+								<p class="story__comment_first line-clamp">"Neat project! Setting up your own DNS server for a throwaway domain is definitely a pain, especially if you&#39;ve never done so and use anything other than PowerDNS really, so this is useful for messing around with.I do hope the author has set some limits on the DNS configuration you can freely enter. One annoying trick DDoS spammers will use is that they will set up DNS records that are as large as possible to use for their botnet&#39;s amplification attack, so allowing them arbitrarily large requests on your domain may be problematic and may cause nasty complaints against your domain. I&#39;d recommend anyone running a free subdomain service (or something super cool like this!) to consider this in their configuration. We can&#39;t have nice things because of these bad people :("</p>
+							
+						
+							
+								<p class="story__comment_others">"This tool is so neat! One thing I&#39;ve learned from it is my ISP (sonic.net) seems to be doing queries to _.example.com. For instance:$ dig @50.0.1.1 nelson.lily6.messwithdns.com aResults in two queries being answered by the messwithdns server. One for nelson.lily6.messwithdns.com as expected, but also one for _.lily6.messwithdns.com.Any guesses what that naked underscore query is for? Not every nameserver does it (Cloudflare, Google, Quad9, and Adguard all don&#39;t). But Sonic isn&#39;t the only one that does.I&#39;ve asked on Twitter and the best guess right now is it has something to do with RFC2782 or RFC 8552. But those are about using _ to make unique tokens that aren&#39;t likely domain names, things like _tcp or _udp. What would a naked _ mean?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is awesome.But I wish a service existed that made domain names easy enough to use that the average person could manage them. IMO you shouldn&#39;t have to learn DNS and TLS in order to securely use a domain name. If I want to sign up to have Fastmail host my email, why do I have to manually copy and paste a bunch of DNS records? Fastmail already knows exactly what records need to be set. I should be able to OAuth redirect over to my domain registrar and approve giving Fastmail control over a subdomain of my choosing, and Fastmail should be able to use a simple open protocol to update the records."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://googleprojectzero.blogspot.com/2021/12/a-deep-dive-into-nso-zero-click.html">
+						<picture>
+							<source srcset="default_29568625.webp" type="image/webp">
+							<source srcset="default_29568625.png" type="image/png">
+							<img src="default_29568625.png" alt="Preview of 'A deep dive into an NSO zero-click iMessage exploit: Remote Code Execution'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://googleprojectzero.blogspot.com/2021/12/a-deep-dive-into-nso-zero-click.html">A deep dive into an NSO zero-click iMessage exploit: Remote Code Execution</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29568625">
+						
+							
+								<p class="story__comment_first line-clamp">"From the top of the article:&gt; We want to thank Citizen Lab for sharing a sample of the FORCEDENTRY exploit with us, and Apple’s Security Engineering and Architecture (SEAR) group for collaborating with us on the technical analysis.This reminded me that NSO went after Citizen Lab on multiple fronts. They even tried to use a spy to talk to JSR (https://www.johnscottrailton.com) and make him say controversial things, which could be later used to malign Citizen Lab. Darknet Diaries covered this incident recently: https://darknetdiaries.com/episode/99/"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is mind boggling. NSO used a compression format&#39;s instructions to create logic gates and then from there &#34;a small computer architecture with features such as registers and a full 64-bit adder and comparator which they use to search memory and perform arithmetic operations&#34;, all within a single pass of decompression. Combine this with a buffer overflow and you&#39;ve got your sploit."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s a real shame that the people who came up with this exploit are working for NSO and not on solving P = NP or something. I&#39;m sure if we got them and the ones working on crypto at NSA in a room together, we&#39;d have it and clean unlimited energy in a week.I often feel sad thinking about how many brilliant engineers are dedicating their time to helping governments spy on people or other governments."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/">
+						<picture>
+							<source srcset="default_29561532.webp" type="image/webp">
+							<source srcset="default_29561532.png" type="image/png">
+							<img src="default_29561532.png" alt="Preview of 'Log4Shell update: second Log4j vulnerability published'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/">Log4Shell update: second Log4j vulnerability published</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29561532">
+						
+							
+								<p class="story__comment_first line-clamp">"We also wrote a Log4Shell payload that will in-memory &#34;hot patch&#34; your server against Log4Shell.${jndi:ldap://hotpatch.log4shell.com:1389/a}If you paste that into a vulnerable server (or even throw it into a log statement in your `main` function), that&#39;ll patch you against this until you can manage to update properly.Source code is on GitHub here[0][1] if you want to host it yourself.(This work is based on Logout4Shell[2], but we rewrote it to fix the bugs, make it work in more places, and also hosted it so that you don&#39;t have to muck with DNS and live server stuff.)0: https://github.com/lunasec-io/lunasec/releases/1: (Go source code) https://github.com/lunasec-io/lunasec/tree/master/tools/log4...2: https://github.com/Cybereason/Logout4Shell"</p>
+							
+						
+							
+								<p class="story__comment_others">"(Maybe) Unpopular opinion: this whole ordeal is also due to the JRE being a clusterfuck of legacy and poor ideas. I understand it was the 90s but allowing to download arbitrary .class files from a server is _insane_, no matter how you spin it around."</p>
+							
+						
+							
+								<p class="story__comment_others">"I just saw a fun user-agent string in my (not log4j!) logs. In case anyone thought they could buy themselves some time with a naive filter on the string &#34;${jndi&#34; in front of your app or something, enjoy the user-agent string beginning:    ${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p} ...
+
+Which I assume is a form of escaping/embedding which will work on at least some log4j&#39;s, although that&#39;s just an assumption I&#39;m making seeing this in my logs, I&#39;m not familiar with the details.I could have seen myself, not really a security person, thinking a filter on `jndi` would work too..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://log4jmemes.com">
+						<picture>
+							<source srcset="default_29566541.webp" type="image/webp">
+							<source srcset="default_29566541.png" type="image/png">
+							<img src="default_29566541.png" alt="Preview of 'Log4jmemes.com: for those of us that need a laugh'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://log4jmemes.com">Log4jmemes.com: for those of us that need a laugh</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29566541">
+						
+							
+								<p class="story__comment_first line-clamp">"The one about using print/console.log/whatever lol.I&#39;ve always done this, never have I used a library for this, because:  - running manually? &gt;myapp.log 2&gt;&amp;1
+  - using systemd? use journalctl
+  - using docker/kubernetes? capture automatically the stdout/stderr of your containers and pipe them through logstash or something
+
+Real question: why would an application need to know where its logs go? This is not in the business perimeter, but the ops perimeter. Am I wrong?EDIT:Most responses are about configuring logging level, output format, etc... This can be done with a print-based approach without sending a request to an external service (which would need to trust you and your inputs).Example: Python&#39;s default logging module.Still, thank you for your insightful answers :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I spent this weekend removing Elasticsearch usage in our project. Just earlier I saw that our API wasn&#39;t responding, and was wondering how the hell someone with log4j got to us. Turns our AWS West 2 was down.If it weren&#39;t for the fear of DDOS attacks, I&#39;d put every webservice in a physical server in a basement somewhere and be done with it. I&#39;ve been fighting this whole year to simplify and reduce the number of dependencies we use, but it&#39;s such an exhausting battle as it goes against the grain of the industry right now, and everyone almost actively works against you: build now, someone else may pay this technical debt."</p>
+							
+						
+							
+								<p class="story__comment_others">"On a serious note, I think it&#39;s a good time to remember to donate some $ to open source, especially the Apache foundation for their incredible work over the years!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://requestmetrics.com/web-performance/http3-is-fast">
+						<picture>
+							<source srcset="default_29563229.webp" type="image/webp">
+							<source srcset="default_29563229.png" type="image/png">
+							<img src="default_29563229.png" alt="Preview of 'HTTP/3 Is Fast'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://requestmetrics.com/web-performance/http3-is-fast">HTTP/3 Is Fast</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29563229">
+						
+							
+								<p class="story__comment_first line-clamp">"Author here. I am seeing a lot of comments about how the graphs are not anchored at 0.  The intent with the graphs was not to &#34;lie&#34; or &#34;mislead&#34; but to fit the data in a way that was mostly readable side by side.The goal was to show the high level change, in a glanceable way, not to get in to individual millisecond comparisons.  However, in the future I would pick a different visualization I think :)The benchmarking has also come under fire. My goal was to just to put the same site/assets on three different continents and retrieve them a bunch of times.  No more, no less.  I think the results are still interesting, personally.  Clean room benchmarks are cool, but so are real world tests, imo.Finally, there was no agenda with this post to push HTTP/3 over HTTP/2.  I was actually skeptical that HTTP/3 made any kind of difference based on my experience with 1.1 to 2.  I expected to write a post about &#34;HTTP/3 is not any better than HTTP/2&#34; and was frankly surprised that it was so much faster in my tests."</p>
+							
+						
+							
+								<p class="story__comment_others">"What’s great about HTTP 1.1 is it’s simplicity. I mean, you can explain it to a complete newby and have that person write a functioning implementation in a few lines of shell script, all in one afternoon.In fact, you can probably figure it out by yourself just by looking at what goes across the wire.And yet, it runs the whole modern world. That’s beautiful. I think simplicity is underrated and it’s something I really value when choosing the tools I use."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am a little confused about the test methodology.The post clearly explains that the big advantage of HTTP/3 is that it deals much better with IP packet loss. But then the tests are done without inducing (or at least measuring) packet loss?I guess the measured performance improvements here are mostly for the zero round-trip stuff then. But unless you understand how to analyze the security vs performance trade-off (I for one don&#39;t), that probably shouldn&#39;t be enabled."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://picocss.com/">
+						<picture>
+							<source srcset="default_29559961.webp" type="image/webp">
+							<source srcset="default_29559961.png" type="image/png">
+							<img src="default_29559961.png" alt="Preview of 'Pico CSS Framework'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://picocss.com/">Pico CSS Framework</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29559961">
+						
+							
+								<p class="story__comment_first line-clamp">"This is a similar project (by a friend), that recreates the look and feel of the outstanding UK Government design system:https://gdcss.netlify.app/Same idea and Pico (classless, simple, small etc)."</p>
+							
+						
+							
+								<p class="story__comment_others">"On the surface this looks nice, until you start using 3rd party componentsand the defaults they assumed for the component are overwritten because the default is changed.It&#39;s no coincidence that we use classes to explicitly apply styles, I don&#39;t think this library is a good idea.It&#39;s the same issues as changing native prototypes in Javascript, stuff depends on the defaults to be exactly as specified.Explicit &gt; Implicit
+Stuff magically working is great until you need to make an exception."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wish more front-end stuff was oriented this way.
+This is how I want front-end coding to be:
+  Rattle off what I need, semantically,
+and then by default it will be styled and presented in a sensible way.
+  Then later, if our company stylist want our apps to 
+look a particular kind of fancy, he can configure some styling
+that will apply to all.This is also why I hate Windows WPF so much:
+If you just add a label, a field, and two OK/Cancel buttons to a form,
+it will look horrendous by default.
+  Only if you manually or deliberately set up some styling for it,
+will it start to look sensible.I want gui frameworks to look sensible out-of-the-box,
+without cluttering everything with piles of boilerplate crap."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.macrumors.com/2021/12/15/apple-nixes-csam-references-website/">
+						<picture>
+							<source srcset="default_29564300.webp" type="image/webp">
+							<source srcset="default_29564300.png" type="image/png">
+							<img src="default_29564300.png" alt="Preview of 'Apple removes references to CSAM  from its child safety webpage'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.macrumors.com/2021/12/15/apple-nixes-csam-references-website/">Apple removes references to CSAM  from its child safety webpage</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29564300">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s incredibly disturbing to me how little much of the HN crowd seems to understand how these systems like CSAM actually work.  I&#39;m not talking about the tech or programming.This is a fast track tool to putting anyone in jail for the most despised crime a person can commit.  The tool has no oversight, no transparency, no counter, no clear your name, no real usage definitions other than relentless spying on the &#34;protect the children&#34; fallacy.Most people don&#39;t understand how life destroying a false accusation is once the government paperwork is started.  At that point like it or not you are basically considered guilty by all the agents of the governement by default.  Their jobs are to prosecute not eliminate false positives.  Once you have been on their radar your life will never ever be the same.  And since it is CP related you will not even get helpful people willing to touch it with a 10ft pole cause of fear they may be implicated.  CSAM is a dastardly and effective way to establish a totalitarian rule by fear of life in jail, nothing more."</p>
+							
+						
+							
+								<p class="story__comment_others">"This case reminds me a bit of the big stink with the Daraprim price hikes and Martin Shkreli being dumb enough to be the public face of it. That worked out pretty bad for him but also bad for everyone else, because now we had a guy to blame for it, instead of asking the harder questions like &#34;why aren&#39;t drug prices regulated?&#34; Utilities must go to the public utility commission to raise rates so why is the same not done for drugs? The federal government stockpiles oil in case of shortages, why is it not responsible for ensuring that drug production is continued?The maddening thing about the Apple CSAM scanning controversy is that I still have no idea which legislation Apple is complying with, and it&#39;s difficult to find out any reporting on that aspect. US? UK? EU? Clearly there is/are some government organization(s) with teeth long enough that Apple is not willing to go to court again as was the case with the San Bernandino shooter. Point is, whether or not Apple has been dishonest about this whole thing, they are still just a distraction."</p>
+							
+						
+							
+								<p class="story__comment_others">"So far all the comments are predictably negative and imply that Apple will at some time in the future attempt to covertly implement the feature in secret.Another take would be that they took on-board the extensive public criticism, and changed their minds."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://busysimulator.com/">
+						<picture>
+							<source srcset="default_29561296.webp" type="image/webp">
+							<source srcset="default_29561296.png" type="image/png">
+							<img src="default_29561296.png" alt="Preview of 'Busy Simulator: Feign importance with repeating app sounds'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://busysimulator.com/">Busy Simulator: Feign importance with repeating app sounds</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29561296">
+						
+							
+								<p class="story__comment_first line-clamp">"*Turns everything to maximum and sits listening to the result for a few moments*So this is what a career-ending catastrophic production failure sounds like.I feel I should be responding to this like a horror movie with clowns in it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh man I feel like I have PTSD from procrastinating on projects for so many years. Heart rate is up, and I feel like drinking in excess."</p>
+							
+						
+							
+								<p class="story__comment_others">"Thanks for posting, I made this. Let me know if I&#39;m missing any of your (least) favorite sounds."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://cloud.google.com/blog/topics/developers-practitioners/find-anything-blazingly-fast-googles-vector-search-technology">
+						<picture>
+							<source srcset="default_29554986.webp" type="image/webp">
+							<source srcset="default_29554986.png" type="image/png">
+							<img src="default_29554986.png" alt="Preview of 'Find anything fast with Google&#39;s vector search technology'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://cloud.google.com/blog/topics/developers-practitioners/find-anything-blazingly-fast-googles-vector-search-technology">Find anything fast with Google&#39;s vector search technology</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29554986">
+						
+							
+								<p class="story__comment_first line-clamp">"I built multiple systems using vector search, one of them demoed in a search engine for non-commercial content at http://teclis.comRunning vector search (also sometimes referred to as semantic search, or a part of semantic search stack) is a trivial matter with open-source libraries like Faiss https://github.com/facebookresearch/faissIt takes 5 minutes to set up. You can search billion vectors on common hardware. For low-latency (up to couple of hundred milliseconds) use cases, it is highly unlikely that any cloud solution like this would be a better choice than something deployed on premise because of the network overhead.(worth noting is that there are about two dozen vector search libraries, all benchmarked at http://ann-benchmarks.com/ and most of them open-source)A much more interesting (and harder) problem is creating good vectors to begin with. This refers to the process of converting a text or an image to a multidimensional vector, usually done by a machine learning model such as BERT (for text) or ImageNet (for images).Try entering a query like &#39;gpt3&#39; or &#39;2019&#39; into the news search demo linked in the Google&#39;s PR:https://matchit.magellanic-clouds.com/The results are nonsensical. Not because the vector search didn&#39;t do its job well, but because generated vectors were suboptimal to begin with. Having good vectors is 99% of the semantic search problem.A nice demo of what semantic search can do is Google&#39;s Talk to Books https://books.google.com/talktobooks/This area of research s fascinating. For those who want to play with this more, an interesting end-to-end (including both vector generation and search) open-source solution is Haystack https://github.com/deepset-ai/haystack"</p>
+							
+						
+							
+								<p class="story__comment_others">"People say google search is terrible these days, but I find the opposite.I can vaguely describe in a sentence the gist of an article I&#39;ve read, or an image, and the proper result will usually be in the first page.Of course, it doesn&#39;t always work, sometimes there are &#34;hash collisions&#34; so to speak, but I don&#39;t think the old algorithm would have been more successfully either, since if I knew the exact keywords to use, I wouldn&#39;t need to start with a vague description in the first place."</p>
+							
+						
+							
+								<p class="story__comment_others">"Interesting – we are working on an open source vector search engine called Weaviate and did the same for the complete Wikipedia and Wikidata.[1] Docs: https://www.semi.technology/developers/weaviate/current/[2] Github: https://github.com/semi-technologies/weaviate[3] Wikipedia demo dataset: https://github.com/semi-technologies/semantic-search-through...[4] Wikidata dataset: https://github.com/semi-technologies/biggraph-wikidata-searc...Last week there was also a feature on Techcrunch about vector search and Weaviate: https://techcrunch.com/2021/12/11/2246180/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">15 December 2021</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -183,7 +585,7 @@ Now that Go is going to have generics, all we need is sugar syntax for early ret
 							
 						
 							
-								<p class="story__comment_others">"Gestures are nice but what I love most about Apple trackpads is everything else. Accidental input avoidance, precision along with speed, registering a click anywhere on the surface…The gesture I care the most is smooth scrolling, which is a combination of OS graphic and input. Again, nothing smooth scrolls like the Mac or iOS"</p>
+								<p class="story__comment_others">"Hi, I&#39;m the developer behind this effort. I can answer any questions you have."</p>
 							
 						
 						</a>
@@ -221,7 +623,7 @@ Now that Go is going to have generics, all we need is sugar syntax for early ret
 							
 						
 							
-								<p class="story__comment_others">"I would imagine that a virus would eventually adapt/evolve to a point to where it co-exists harmoniously with the host organism. I&#39;ve heard somewhere that herpes simplex virus used to have terrible symptoms, like genital blisters, but over the years the most common variant has no symptoms, and most people have no idea they have it.... and a huge proportion of human have it.I would imagine all viral contagions would eventually go that route. Because a virus cannot propagate if the host organism goes extinct, or for whatever reason the host organism is itself not fit for survival, or diminished in any way.... anything that might impact virus propagation.I&#39;ve read some where the common cold was probably a pandemic virus originally, and it mutated to a common cold we have today, and we mutually evolved to deal with the common cold. Something like that..."</p>
+								<p class="story__comment_others">"Did anyone notice the comparison of vaccine-based immunity to natural immunity in the findings within the source PR [0]? With a little work, you can compare them.If we convert the measure used in finding 2 (relative risk of reinfection) to finding 1&#39;s (relative protection), then the study found that natural immunity from Delta variant gives 60% protection against Omicron; roughly double the vaccine&#39;s protection.Unfortunately, no stat was given for natural immunity&#39;s protection against hospitalization.From finding 1: individuals who received two doses of the Pfizer-BioNTech vaccine had 33% protection against infection, relative to the unvaccinatedFrom finding 2: People who were infected with COVID-19 in South Africa’s third (Delta) wave face a 40% relative risk of reinfection with OmicronAm I reading this right? Wonder why they used different metrics?0: https://www.discovery.co.za/corporate/news-room#/pressreleas..."</p>
 							
 						
 						</a>
@@ -299,7 +701,7 @@ In his book &#39;Factfulness&#39; (definitely read it), he talks about &#34;bad 
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve never been so nervous for a launch in my life."</p>
+								<p class="story__comment_others">"Launch delayed: https://blogs.nasa.gov/webb/2021/12/14/webb-space-telescope-..."</p>
 							
 						
 						</a>
@@ -571,7 +973,7 @@ https://amp.rs/"</p>
 							
 						
 							
-								<p class="story__comment_others">"NGE has always been a favorite of me because of the UIs that are represented throughout the series. The new(ish?) movies are just gorgeous, I highly suggest you give them a try if you haven&#39;t already.If you like this, you may as well enjoy: https://scifiinterfaces.com/"</p>
+								<p class="story__comment_others">"I think so many people focus on the personal emotional journey of Shinji and the horror of the Evas, it&#39;s so easy to miss how good NGE is at things like this.Personally what surprised me on re-watch and through the rebuild-series is how much emphasis there is on the beauty of industry itself - so many scenes of machinery on landscapes.  This is particularly notable with Ramiel, the beam-weapon octohedron - in the original series they explain that the weapon to defeat it will require all of the electrical power in Japan.  In the rebuild, they make the effort of &#34;we have to build electrical equipment to get all the power in Japan into one spot for a few seconds, and we have to do this in like a day or two&#34; feel real and amazing.As much as Evangelion is a story about isolation and loneliness, visually there&#39;s a sort of celebration of industrial civilization - especially the rebuild.  Not just individuals, but kind of a &#34;together look what we can achieve&#34; thing.  In most other series, the images of machinery and industrial equipment weaponry splayed out over beautiful mountain landscapes and put to task would be dystopian... but in Evangelion, the artists instead make it heroic.The original series has this too - everybody loves the machinery of Tokyo 3, even poor Shinji, it&#39;s just amped up in the rebuild."</p>
 							
 						
 						</a>
@@ -885,11 +1287,11 @@ Edit: fixing typos."</p>
 							
 						
 							
-								<p class="story__comment_others">"Someone I know met Simon one day and thought I’d like his autograph, since I was working in security at the time. I had in fact introduced that team to PuTTY, though this friend didn’t know that.So I own a postcard that says words to the effect, “nobody has ever asked me for an autograph before”. It is framed."</p>
+								<p class="story__comment_others">"I thought this was such a fantastic response, particularly the sections where he talks about how he responds to companies demanding he reply as if he has a contract with them.The main point being that, with the log4j issue (and others before that), the thing that&#39;s struck me when maintainers complain about not being appreciated or that they are working as hard as they can, unpaid, is that maintainers are under no obligation to respond at all, and that you can&#39;t control how other people will react.As someone who&#39;s dealt with anxiety for a long time (and as a former opensource primary maintainer), I can most definitely commiserate with feeling burdened by the expectations of others, but one of the best things I learned from therapy is that you can&#39;t control others emotions, you can only attempt to understand why you react as you do in certain situations."</p>
 							
 						
 							
-								<p class="story__comment_others">"I thought this was such a fantastic response, particularly the sections where he talks about how he responds to companies demanding he reply as if he has a contract with them.The main point being that, with the log4j issue (and others before that), the thing that&#39;s struck me when maintainers complain about not being appreciated or that they are working as hard as they can, unpaid, is that maintainers are under no obligation to respond at all, and that you can&#39;t control how other people will react.As someone who&#39;s dealt with anxiety for a long time (and as a former opensource primary maintainer), I can most definitely commiserate with feeling burdened by the expectations of others, but one of the best things I learned from therapy is that you can&#39;t control others emotions, you can only attempt to understand why you react as you do in certain situations."</p>
+								<p class="story__comment_others">"Someone I know met Simon one day and thought I’d like his autograph, since I was working in security at the time. I had in fact introduced that team to PuTTY, though this friend didn’t know that.So I own a postcard that says words to the effect, “nobody has ever asked me for an autograph before”. It is framed."</p>
 							
 						
 						</a>
@@ -1004,7 +1406,7 @@ Edit: fixing typos."</p>
 							
 						
 							
-								<p class="story__comment_others">"If anyone is responsible for Python&#39;s success, after Guido, it&#39;s Fredrik Lundh.  When I was learning Python, it was his libraries and his documentation I kept using and learning from.  I feel this one more personally than others, even though I never interacted with him."</p>
+								<p class="story__comment_others">"En legend har gått ur tiden. Vila i frid."</p>
 							
 						
 						</a>
@@ -3598,390 +4000,6 @@ I get the above error messages which I understand to be related to libc, but I c
 						
 							
 								<p class="story__comment_others">"So if I&#39;m understanding this correctly, Firefox compiles its dependencies as WASM, effectively blocking function calls to things it shouldn&#39;t and illegal memory access, and then translates it back to C so it can compile it normally? Sounds neat!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">06 December 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://merecivilian.com/apple-broke-up-with-me/">
-						<picture>
-							<source srcset="default_29446529.webp" type="image/webp">
-							<source srcset="default_29446529.png" type="image/png">
-							<img src="default_29446529.png" alt="Preview of 'Apple broke up with me'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://merecivilian.com/apple-broke-up-with-me/">Apple broke up with me</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29446529">
-						
-							
-								<p class="story__comment_first line-clamp">"Something very similar happened to me with Amazon. I used a new debit card from an online bank to purchase an expensive item and deliver it to a foreign address (which is admittedly suspicious). The payment bounced, Amazon immediately locked my account and requested to see a card billing statement sent to my home address to reactivate it. Upon login I am presented with a stern request for documentation, a pdf upload field, a tweet-sized text field for comments, and all communication comes from a noreply@amazon.com address. All my kindle/audible/etc media immediately became inaccessible.I went through every possible channel to explain that the card does not send me a billing statement and I cannot possibly produce one, requesting to be called or at least emailed by a human, to no avail. After spending tens of thousands of dollars on Amazon over the course of fifteen years I couldn&#39;t even get a personal call from the case manager, and all my purchased media is gone.To this day I have found no resolution, and the only next step is to contact them through a lawyer."</p>
-							
-						
-							
-								<p class="story__comment_others">"A lot of people in this thread talking about losing their store credit and app/content purchases. I&#39;d imagine the worst case scenario could be much worse.  Apple runs fairly popular cloud storage services that are strongly encouraged to you for your photo storage and files.  The photo storage especially has an option to automatically delete your local media because it&#39;s already backed up on Apple&#39;s servers.  Will these all be locked out without warning or recourse for a miscellaneous card whoopsie?Even standard files on iCloud.  Who knows how important the average users&#39; cloud files are to them?  (I don&#39;t use public cloud storage at all anymore because of this exact fear - what if some arbitrary billing/transaction error locks me out of everything without recourse?).To be fair I&#39;ve no idea what the person in question got their account locked for and if there was any shadiness involved but I doubt they&#39;d write about it publicly (or get access restored) if there were, which implies that at any time your account and your data can be taken away for something entirely mundane.It makes me really concerned in fact how Google would handle something similar to this - given that for Chromebook users everything (literally EVERYTHING you would normally do locally on a computer) is in/via your Google account."</p>
-							
-						
-							
-								<p class="story__comment_others">"Every company (Apple, Google, Amazon, etc) is guilty of pulling this non-sense on customers. It is too easy for them to wipe out thousands of dollars of value with no meaningful explanation (read the Terms and Services and go away? seriously Apple?) and no accountability.IMO, states should enact laws where you can take the company to court in your local county and no contract can override that right. If the termination is found justified, the company must refund all account assets at fair market value and any remaining balance. If it was not justified, the company must reinstate the account, pay all court and legal fees, and a reasonable amount of mandatory punitive damages.Also, I don&#39;t get why Apple et al pull these stunts anyways. They already have a huge &#34;regulate me&#34; post it on their back."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://twitter.com/arkann1985/status/1467202744947822594">
-						<picture>
-							<source srcset="default_29447854.webp" type="image/webp">
-							<source srcset="default_29447854.png" type="image/png">
-							<img src="default_29447854.png" alt="Preview of 'Bumble claims IP rights on employee&#39;s open-source libs'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://twitter.com/arkann1985/status/1467202744947822594">Bumble claims IP rights on employee&#39;s open-source libs</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29447854">
-						
-							
-								<p class="story__comment_first line-clamp">"Many years ago I had a job offer at Badoo in the UK. After many rounds of going back-and-forth with the contract, me trying to better understand certain clauses, them going back to the lawyers, etc. I told them I&#39;d be happy to sign if they removed the caluses that stated pretty much anything I created on or off hours belonged to them.They went back to the lawyers and came back to me saying that this is not the first time this has been brought up, that the contract was standard across the org and was originally written for managerial types and C-suites, and that the company had never even considered taking over an employee&#39;s off-hours work, open source or otherwise.I said good, then it should not be a problem to remove the clause. They said they would have another discussion and would really like it for me to join. I said great, then once you issue me a contract with that clause I&#39;ll be happy to join, assuming I hadn&#39;t found something else.They never came back to me. For years I wondered if anything had actually changed. Reading this tweet I&#39;m glad I declined."</p>
-							
-						
-							
-								<p class="story__comment_others">"A note to Bumble, this makes me not want to work for you or anyone who is currently in a related leadership position at Bumble (ie: eng leadership, etc.). Given the lack of supply in engineering the bad publicity is going to cost you more than any miniscule gain.edit: And I don&#39;t even publish OSS anymore but if you&#39;re willing to go after an employee for something this petty what else would you go after them for."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here in Russia Rambler tried to do the same with nginx, and they failed to achieve their goals. I don&#39;t know, it creates nothing but bad publicity without giving anything in return considering they won&#39;t maintain it anyway if the core devs leave (and nothing stops them from forking and creating their commercial solution right now). The image of Rambler before: &#34;Igor Sysoev created nginx while working at Rambler&#34; (positive association). The image now: &#34;Igor Sysoev created nginx in his spare time and he just happened to work for Rambler at the time and Rambler tried to take away his project by SWATing their office&#34;. It&#39;s like some pointless greed (&#34;it&#39;s mine!!&#34;) above all pragmatism."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://dither8.xyz/blog/minecraft-cliffs-terrain/">
-						<picture>
-							<source srcset="default_29446877.webp" type="image/webp">
-							<source srcset="default_29446877.png" type="image/png">
-							<img src="default_29446877.png" alt="Preview of 'One decade later, Minecraft world generation is interesting again'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://dither8.xyz/blog/minecraft-cliffs-terrain/">One decade later, Minecraft world generation is interesting again</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29446877">
-						
-							
-								<p class="story__comment_first line-clamp">"The new worldgen is incredible, both above and below the surface. Hats off to everyone at Mojang that worked on this!One of my favorite game memories of all time was the first time I played Minecraft during the alpha days and immediately got lost in the world. For me, going into a 1.18 world and finding a giant mountain chain and then finding a cave on the peak of the mountain that falls all the way into a giant underground ocean at the bottom of the world in a huge cavern complete with underground vegetation… it brought me right back to that sense of exploration and wonder that I remember from the very first time I played Minecraft.Also, I found this datapack (sort of like a mod but doesn’t require patching the game since the game natively supports loading datapack files) called Terralith [1] that extends the 1.18 worldgen with even more cool stuff. Wandering around the new 1.18-style mountains is incredible, and then stumbling across something the resembles Yellowstone National Park added by Terralith is even more incredible. It’s worth a try if you like just wandering around in Minecraft marveling at the scenery.[1] https://www.planetminecraft.com/data-pack/terralith-overworl..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Man. I really do want to like it, but this update is the first one that gives me the Microsoft-finally-took-over vibes. Traversal and with that exploration just became so much harder. The landscape is now riddled with holes that you either build scraggly bridges over, or lead to massive detours. The sides of bodies of water are much higher and steeper on average, making it impossible to see the landscape you&#39;re passing, and getting up there to take a look is tedious.So you&#39;re basically stuck near spawn unless you want to spend much more time getting around.A lot of surface iron was replaced with copper, which is useless, meaning progress is now slower than ever, and grinding becomes even more of a necessity. Generally, many of the items that now clutter the inventory are mostly useless, and the inventory needs constant attention.Minecraft is a fantastic game that I have spent well over a thousand hours on over the last decade, with many more to come very likely. That being said, with the account transition to Microsoft/Xbox and this update that gives me personally the &#34;Microsoft knows whats best for its users&#34; vibes that I still distinctly remember from WLM and Skype, I am definitely less optimistic about the game&#39;s future than I was a few years ago. I do hope my caution proves to be unwarranted."</p>
-							
-						
-							
-								<p class="story__comment_others">"If you like voxel world generation, I strongly advise you to check out Veloren[1], it has a much much deeper worldgen that what Minecraft offers.[1]: https://veloren.net/ the game is still under development but it has been playable for more than a year now."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.cnbc.com/2021/12/04/how-amazon-beats-supply-chain-chaos-with-ships-and-long-haul-planes.html">
-						<picture>
-							<source srcset="default_29450420.webp" type="image/webp">
-							<source srcset="default_29450420.png" type="image/png">
-							<img src="default_29450420.png" alt="Preview of 'Amazon is bypassing supply chain chaos with chartered ships and long-haul planes'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.cnbc.com/2021/12/04/how-amazon-beats-supply-chain-chaos-with-ships-and-long-haul-planes.html">Amazon is bypassing supply chain chaos with chartered ships and long-haul planes</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29450420">
-						
-							
-								<p class="story__comment_first line-clamp">"I have a lot of ex-military friends who go work for Amazon, and it&#39;s not hard to see why after reading this article. Moonshot ideas are exciting, but untangling the nationwide chokehold of shipping failures would be such a tangible, rewarding project to work on."</p>
-							
-						
-							
-								<p class="story__comment_others">"Amazon is such a remarkable company. I may have underestimated their long-term prospects. I&#39;ve been skeptical they would be able to maintain a monopoly for a few decades, but even without Jeff Bezos at the helm, they got enough foresight to continue to expand their operations nonstop.Color me completely impressed."</p>
-							
-						
-							
-								<p class="story__comment_others">"Did anyone else find this somewhat surprising:&#34;The seasonal workers are unloading and loading, picking and packing at more than 250 new facilities Amazon says it’s opened in the U.S. just in 2021...&#34;250 new warehouse facilities opened in the United States in 2021.  Five new facilties per state?  And, obviously, some states would only have gotten 1 or 2 (or maybe less) - so some states would have been getting 10-15....That just seems like a suspiciously high number to me, I&#39;m not sure if I buy it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.zrythm.org/en/index.html">
-						<picture>
-							<source srcset="default_29450212.webp" type="image/webp">
-							<source srcset="default_29450212.png" type="image/png">
-							<img src="default_29450212.png" alt="Preview of 'Zrythm: A highly automated and intuitive digital audio workstation'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.zrythm.org/en/index.html">Zrythm: A highly automated and intuitive digital audio workstation</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29450212">
-						
-							
-								<p class="story__comment_first line-clamp">"There was a comment on the recent Blender 3.0 thread posted here wondering why there isn&#39;t an equivalent program for audio. This looks very polished and much more approachable compared to Ardour or LMMS, and seems like a good candidate. But one feature I really wish my dream &#34;Blender for audio&#34; had would be the convenient device view that Ableton and Bitwig offer for working quickly with effects. It&#39;s so much faster than the type of effect chains offered by DAWs like FL and makes it fun to mess around and experiment with effects-based synthesis. Looking at the screenshots and videos it looks like Zrythm doesn&#39;t have this feature, although I understand how tedious it would be to implement because you would essentially have to write your own effects or create wrappers around others to expose an interface that can fit in a device view. Probably not high on the list of priorities for a work in progress DAW"</p>
-							
-						
-							
-								<p class="story__comment_others">"Looks nice, particularly the piano roll.Do any Free DAWs have Ableton-like VST &#34;hiding&#34;? I can&#39;t leave Ableton because of how insane window management gets on complex projects when 10 different VSTs are all fighting for screen space. Even the screenshots for this app look chaotic from all of the VSTs covering the screen at the same time."</p>
-							
-						
-							
-								<p class="story__comment_others">"Meta: I always really like HN Threads about DAWs, a lot of people with a ton of knowledge and good recomendations tend to show up :)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.youtube.com/watch?v=x4Av3jGKee8">
-						<picture>
-							<source srcset="default_29445298.webp" type="image/webp">
-							<source srcset="default_29445298.png" type="image/png">
-							<img src="default_29445298.png" alt="Preview of 'How can a ski lift allow turns to the left and the right on its route? [video]'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.youtube.com/watch?v=x4Av3jGKee8">How can a ski lift allow turns to the left and the right on its route? [video]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29445298">
-						
-							
-								<p class="story__comment_first line-clamp">"Not the only approach that&#39;s possible. There&#39;s quite a few lifts in France that pull a similar trick, but with only one cable.They solve the problem by having the bar below the clamp be a flexible section, as the bar approaches the turn, a section a static rails forces the bar to rotate 30-40 deg around the cable, moving the protruding part of the clamp out of the horizontal plane. Then the cable passes around a large diameter wheel, also 30-40 from vertical, to create the turn.Because both the bar and the wheel are both 30-40 degrees from vertical, the wheel meets the top of clamp, rather than the side, but cable can still make a turn in the horizontal plane. They&#39;re a little uncomfortable for the rider, because the bar you holding onto gets jerked left and right, but you make around the bend just fine, and without an elaborate 2 wire system.I think the Chardonnet ski lift at  Val d&#39;Isère is an example of this type of lift, but I can&#39;t find any photos of the corner unfortunately.For chair lifts, the lift at Ski Dubai has turn half way up, and their chairs are permanently clamped to the cable. For going up the chair just goes around the outside of normal wheel. For going down, to passes around an elaborate wheel with cutouts to make space for the chair clamp and bar. The running surface of this wheel is made up of smaller rollers, and there&#39;s a big friction break on hub. So a computer watches for incoming chairs, then slows the big wheel down as needed to align the chair with a cut out. You can catch a glimpse of this here (best video I could find)[2].[2] https://youtu.be/M7ghP4YTk3M?t=204"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s BTW also possible to make a left turn on a single rope if you push something against the t-bars.  In German it&#39;s called &#34;Bachmannkurve&#34; and it uses a giant wheel.  You can see it in action here: https://www.youtube.com/watch?v=gfw4em7e2OQVideo quality is bad, but this is what it looks like on a picture: https://blog.jacomet.ch/wp-content/20170120-schwanden-052.jp..."</p>
-							
-						
-							
-								<p class="story__comment_others">"In Japan, there were a couple of ski lifts that make almost 90-degree turn, called &#34;bending lift (屈曲リフト)&#34;. Near the turning point they put up a warning sign like &#34;please hold tight or you might be thrown off&#34;. As a kid I always enjoyed the experience though. Sadly all of them have been torn down by about a decade ago, due to its high maintenance cost.cf. http://cable.cocolog-nifty.com/sakudo/2006/02/post_d5e1.html"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://faq.whatsapp.com/general/26000016">
-						<picture>
-							<source srcset="default_29454893.webp" type="image/webp">
-							<source srcset="default_29454893.png" type="image/png">
-							<img src="default_29454893.png" alt="Preview of 'WhatsApp has removed answer to “how do I choose not to share data with FB”'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://faq.whatsapp.com/general/26000016">WhatsApp has removed answer to “how do I choose not to share data with FB”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29454893">
-						
-							
-								<p class="story__comment_first line-clamp">"I worked at WhatsApp between 2011 and 2019. This FAQ had very specific instructions for how to opt out of sharing that were only available for a limited amount of time. The FAQ serves as documentation of the product and there&#39;s no need to keep online specific instructions that can no longer be followed.In order to opt out, you needed to have an existing account and take specific actions around the time you agreed to the 2016 new terms of service. Based on the internet archive, this article was removed after April 20, 2018, and before May 5, 2018. When it was most likely obsolete (I don&#39;t recall the specific deadlines for accepting the 2016 TOS)On the plus side, the various terms of services are all available without digging in the internet archive https://www.whatsapp.com/legal/terms-of-service/revisions"</p>
-							
-						
-							
-								<p class="story__comment_others">"Old habits and mindsets never seem to change despite corporate pronouncements and PR puff pieces written by stenographers. The regulators (and legislators) are either the biggest dupes, or much more likely in on it.Let’s not forget the FTC hookup for Netflix by Obama and the eventual payout when he left office.Or Ajit Pai who came from Verizon to run the FTC and undid the Obama era changes favorable to Netflix and inimical to Verizon.——-I hardly see any of these events as triggers for the mass migration to apps like Signal. The network effects seem impregnable for now."</p>
-							
-						
-							
-								<p class="story__comment_others">"According to archive.org, it was removed sometime between Apr 20th and May 5th, 2018. Last snapshot: https://web.archive.org/web/20180420190834/https://faq.whats...Even when the option was there, it was hidden behind the &#39;read terms and conditions&#39; link.If you missed that, there was an opt-out in Settings &gt; Account &gt; Share my account info. But the site implies that option is only available for the first 30 days.And even if you, despite their best efforts, opt-out, it&#39;s a very limited opt-out:The Facebook family of companies will still receive and use this information for other purposes such as improving infrastructure and delivery systems, understanding how our services or theirs are used, securing systems, and fighting spam, abuse, or infringement activities. "</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://jvns.ca/blog/2021/12/04/how-to-use-dig/">
-						<picture>
-							<source srcset="default_29441333.webp" type="image/webp">
-							<source srcset="default_29441333.png" type="image/png">
-							<img src="default_29441333.png" alt="Preview of 'How to use dig'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://jvns.ca/blog/2021/12/04/how-to-use-dig/">How to use dig</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29441333">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s worth noting that dig (and host) bypass the normal DNS resolution mechanism used by most programs on the host. i.e. These tools aren&#39;t using getaddrinfo/gethostbyname.Sometimes, I want to see the results from getaddrinfo, which are impacted by caching on the host itself and/or OS-specific configuration settings that dig and host know nothing about. (scutil --dns on macOS, systemd-resolvedand nscd on Linux, etc.)In that case, I usually use ping. e.g., waiting for a DNS change to propagate to a host, I might use:    while :; do ping -c 1 hostname; sleep 1; done"</p>
-							
-						
-							
-								<p class="story__comment_others">"Dig is great and DNS is hella underrated. It seems like not nearly enough folks know how to wield it. At both $lastco and $thisco people just used a mess of configuration to point to service IPs/URIs. I showed them how to set private zones and records for both A and SRV and suddenly everything is just using sane defaults.Side note: does anyone know why dig&#39;s output is so...eye-bleeding? Why does it show so much info by default? +short should be the default. Why the ;; &#34;comment&#34; prefix?"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; By the way: if you’ve ever wondered what IN means, it’s the “query class” and stands for “internet”. It’s basically just a relic from the 80s and 90s when there were other networks competing with the internet like “chaosnet”.Reading things like this makes me feel better about the relics in my code that aren&#39;t really hurting anything but would take work to remove."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://publicdomainreview.org/features/entering-the-public-domain/2022/">
-						<picture>
-							<source srcset="default_29420667.webp" type="image/webp">
-							<source srcset="default_29420667.png" type="image/png">
-							<img src="default_29420667.png" alt="Preview of 'What will enter the public domain in 2022'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://publicdomainreview.org/features/entering-the-public-domain/2022/">What will enter the public domain in 2022</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29420667">
-						
-							
-								<p class="story__comment_first line-clamp">"This comes up every year so I ask a question:If you could fix copyright, how would you do it?Here is what I would do:1.  All works must be registered in a government registry.If it&#39;s not in there it&#39;s not copyrighted.  If you want to register a work from before the law passes, you have to prove you own it under the current system.  This would solve the orphan works problem -- if no one can prove they own it, it becomes public domain.  Basically, ownership should be recorded like actual property with a proper chain of title.  It would be published on a public ledger.2. You must renew your registration every three years.  The fee for renewal will be X% of the revenue from the work, where X = years since first registration - 5 (edit: With a minimum fee of $100 to discourage hoarding useless IP).  First renewal is at 8 years.  Your registration fee would be recorded on the public ledger.If you want to continue to derive benefit from your work you have to pay for the privilege.  After 105 years it will obviously no longer be worth it, but probably long before that.  This would be reported like income taxes -- you self report your profits but if the government thinks you&#39;re cheating, they can audit you.  If you have multiple works in one product (think Marvel movies) then all revenue goes to the oldest work (that way you can&#39;t avoid the fee by putting new and old characters together).If you don&#39;t renew, the work goes to the public domain.How would you fix copyright?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Might be faster to link to the Wikipedia page [0]. As an American some names that stick out to me are Sinclair Lewis and Ludwig Wittgenstein.[0]: https://en.wikipedia.org/wiki/2022_in_public_domain"</p>
-							
-						
-							
-								<p class="story__comment_others">"For those of us who are helplessly impatient, run this in console:    document.querySelectorAll(&#34;.countdown-calendar__door&#34;).forEach(e =&gt; e.classList.add(&#34;will-open&#34;))"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://gmplib.org/list-archives/gmp-devel/2021-September/006013.html">
-						<picture>
-							<source srcset="default_29420622.webp" type="image/webp">
-							<source srcset="default_29420622.png" type="image/png">
-							<img src="default_29420622.png" alt="Preview of '“Risc V greatly underperforms”'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://gmplib.org/list-archives/gmp-devel/2021-September/006013.html">“Risc V greatly underperforms”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29420622">
-						
-							
-								<p class="story__comment_first line-clamp">"I don&#39;t think they even tried to read the ISA spec documents. If they did, they would have found that the rationale for most of these decisions is solid: Evidence was considered, all the factors were weighted, and decisions were made accordingly.But ultimately, the gist of their argument is this:&gt;Any task will require more Risc V instructions that any contemporary instruction set.Which is easy to verify as utter nonsense. There&#39;s not even a need to look at the research, which shows RISC-V as the clear winner in code density. It is enough to grab any Linux distribution that supports RISC-V and look at the size of the binaries across architectures."</p>
-							
-						
-							
-								<p class="story__comment_others">"RISC V is an opinionated architecture and that is always going to get some people fired up. Any technology that aims for simplicity has to make hard choices and trade offs. It isn’t hard to complain about missing instructions when there are less than 100 of them. Meanwhile nobody will complain about ARM64 missing instructions because it had about 1000 of them.Therein lies the problem. Nobody ever goes out guns blazing complaining about too many instructions despite the fact that complexity has its own downsides.RISC-V has been designed aggressively to have minimal ISA to leave plenty of room to grow, and require minimal number of transistors for a minimal solution.Should this be a showstopper down the road, then there will be plenty of space to add an extensions that fixes this problem. Meanwhile embedded systems paying a premium for transistors are not going to have to pay for these extra instructions as only 47 instructions have to be implemented in a minimal solution."</p>
-							
-						
-							
-								<p class="story__comment_others">"So this is one tiny corner of the ISA, not something that makes ALL instruction sequences longer - essentially RISCV has no condition codes (they&#39;re a bit of an  architectural nightmare for everyone doing any more than the simplest CPUs, they make every instruction potentially have dependencies or anti-dependencies with every other).It&#39;s a trade off - and the one that&#39;s been made is one that makes it possible to make ALL instructions a little faster at the expense of one particular case that isn&#39;t used much - that&#39;s how you do computer architecture, you look at the whole, not just one particular caseRISCV also specifies a 128-bit variant that is of course FASTER than these examples"</p>
 							
 						
 						</a>

