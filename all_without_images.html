@@ -36,6 +36,299 @@
 	</div>
 
 	
+	<div class="day__date">17 December 2021</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=29581125">Ask HN: Are most of us developers lying about how much work we do?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29581125">
+						
+							
+								<p class="story__comment_first line-clamp">"I just look at what my KPIs are (key performance indicators) and maximize those. Management won&#39;t tell you what they are, but it&#39;s usually the same between companies- making managers look good by stakeholder demos
+- making sure your a team player
+- being active in core hours
+- unblock peers in PRs
+- not abusing pto time, just state your working and do your own thing so long as works done 
+- delivering high visibility features 
+- delivering value in planning sessionsWhen I get my actual work done and how long it takes for me to do it is irrelevant. What I do make sure is that I&#39;m also outperforming some of my peersI usually do all my work is one shot somewhere in the afternoon everyday. We also have to put comments on tickets everyday so I just have enough to write a paragraph and use that for standup. That takes me 2 hours of coding everyday give or take. most days I don&#39;t work more than 5 hours. This doesn&#39;t include the time I spend thinking about the problem though"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Do people regularly run into coworkers like me during their career and simply ignore it because they find it too awkward to criticize them? Have I just been incredibly lucky and every boss I have had is too incompetent to notice? Do I have imposter syndrome and I am actually a 10x developer whose laziness makes them a 1x developer?Lazy developers don&#39;t really bother me, if you do a couple hours of high-quality work a week I&#39;d have no complaint. (Many weeks I do as little, some weeks I do a decent amount of real work :) The problem is developers making negative progress, usually messes that need to be cleaned up ... and it&#39;s an awkward situation, no matter your relative authority. I&#39;m in the &#34;we should consider them lines spent, not lines produced&#34; camp.An old disputed quote:&gt; I divide my officers into four classes as follows: The clever, the industrious, the lazy, and the stupid. Each officer always possesses two of these qualities.&gt; Those who are clever and industrious I appoint to the General Staff. Use can under certain circumstances be made of those who are stupid and lazy. The man who is clever and lazy qualifies for the highest leadership posts. He has the requisite nerves and the mental clarity for difficult decisions. But whoever is stupid and industrious must be got rid of, for he is too dangerous."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think there&#39;s also something to be said for passive processing.Sometimes I&#39;ll know I need to write some code or some function and I&#39;ll just think about it in the back of my head while doing other things, sometimes for a whole day or two. Then I&#39;ll sit down and write it in like 20-30 minutes. Did I work 20-30 minutes, or have I been working for a day or two? I would say a day or two, and the 20-30 minutes was the time needed to produce the deliverable of that work."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://arnoldgalovics.com/microservices-in-production/">Don&#39;t start with microservices – monoliths are your friend</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29576352">
+						
+							
+								<p class="story__comment_first line-clamp">"I wonder why no one ever talks about architectures in the middle between those two - modular monoliths.The point in time where you&#39;re splitting your codebase up in modules (or maybe are a proponent of hexagonal architecture and have designed it that way from the beginning), leading to being able to put functionality behind feature flags. That way, you can still run it either as a single instance monolith, or a set of horizontally scaled instances with a few particular feature flags enabled (e.g. multiple web API instances) and maybe some others as vertically scaled monoliths (e.g. scheduled report instance).I wrote more about that approach on my blog, as one of the first articles, &#34;Moduliths: because we need to scale, but we also cannot afford microservices&#34;: https://blog.kronis.dev/articles/modulith-because-we-need-to...In my eyes, the good part is that you can work with one codebase and do refactoring easily across all of it, have better scalability than just a monolith without all of the ops complexity from the outset, while also not having to worry as much about shared code, or perhaps approach the issue gently, by being able to extract code packages at first.The only serious negatives is that this approach is still more limited than microservices, for example, compilation times in static languages would suffer and depending on how big your project is, there will just be a bit of overhead everywhere, and not every framework supports that approach easily."</p>
+							
+						
+							
+								<p class="story__comment_others">"There is a lot of talk about monoliths vs microservices lately.. I just want to throw into the ring that you can do both at the same time. easily. And noone is going to kill you for it either.maybe we are getting caught up in sematics because its christmas, but &#34;monorepo/monolith/microservices/etc&#34; is -just- the way you organize your code.Developing a montolith for years but now you have written a 15 line golang http api that converts pdfs to stardust and put it into on a dedicted server in your office? welp thats a microservice.Did you write a 150 repo application that can not be deployed seperatly anyway? welp thats a monolith.You can also build a microservice ecosystem without kubernetes on your local network. We have done it for years with virtual machines. Software defined networking just makes things more elegant.So dont stop using microservices because its &#34;hard&#34; or start writing monoliths because its &#34;easy&#34;, because none of that is true in the long run.What is true is that you have a group of people trying to code for a common goal. The way you reach that goal together defines how you organize your code."</p>
+							
+						
+							
+								<p class="story__comment_others">"Unless you have a strong technical or organizational reason to use microservices, using microservices is just more work to achieve the same results.Organizational reason would be multiple people/teams who don&#39;t want or can&#39;t talk much to each other, so they develop pieces of a larger system as relatively independent projects, with clear API and responsibility boundaries. Frontend/backend style web development is an example of such approach, even though we don&#39;t typically call these parts &#34;microservices&#34;.A technical reason I can see is some component of a system actually having to be written in a different stack, or to be run in a separate location for business reasons (separate physical computer, separate VMs or containers don&#39;t count). Like a firmware running on an IoT system. Or most of the system uses python, but there&#39;s a really good library in java for solving some very specific problem, so let&#39;s use it.If neither of these reasons stands, you don&#39;t have a microservice architecture, you have a distributed monolith. You just replaced some function calls with RPC. RPC call which takes a much a longer time than a local one, and can randomly fail. Most of your microservices are written in a single stack, so you refactor common parts into a library, but then different services are stuck to use different versions of this library. You end up with a much slower and a much more fragile system which is harder to work on for no good reason."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://nikodunk.com/a-node-js-developer-discovers-rails/">From Node to Ruby on Rails</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29577897">
+						
+							
+								<p class="story__comment_first line-clamp">"The years when Rails monoliths were the de facto web stack were some of the best of my career. As I progressed in my career and the popular tech stack shifted to things like microservices, document DBs, serverless functions, Node, importing tiny nom packages for everything, docker containers, React, and GraphQL, the sheer cognitive overhead of getting a simple app up and running gradually took all the fun out of the job for me. The fast, satisfying feedback loop of writing a feature in Rails was replaced with weeks-long coordination efforts between independent microservices, constant discussions about tooling, and doubts over whether or not we had chosen the “right” flavor-of-the-week framework or library for our product. Every time I started a new project or a joined a new company, we had the reinvent the wheel for our bespoke Node/serverless stack and have the same tiring conversations about naming conventions, logging, data consistency, validation, build scripts, etc., all of which Rails gives you by default. I ended up spending more time on tooling setup than actual business logic.I eventually gave up and switched to a semi-technical product management role."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have spent a lot of time with node(express), Java(Spring) and rails. I see a lot of complaints about node, but node with typescript has been a joy to work with. It is lightweight and has a type system. I know where every piece of code is coming from, there is no magic involved. I either wrote the function in that file, I am importing it, or it is a method on a js object. I only have know one language for both front end and back end. A better standard library would be nice.Rails is nice in terms of getting the project set up, not bikeshedding about the tooling, and working with the db. But the actual coding has been painful for me. I really dislike working with a non typed language. I dislike optional parans in function calls and optional braces for hashes. I dislike all the magic of rails. I never know what is going on because there is some functionality that inherits from a rails class or some other part of the code base. I would rather write a bit more code for a bit more clarity. Maybe if python were typed I would like Django? But python has all of that nonsense around virtualenv.Spring has been ok, but not great. Too much bloated abstract factory creator nonsense. Dependency injection never really clicked for me. All of these annotations. I quite liked plain Java but Spring just felt like this monster.All in all node(express) has been the nicest for me."</p>
+							
+						
+							
+								<p class="story__comment_others">"Yeah it&#39;s funny... Now 10 years+ in the web dev business. I occasionally  got drawn by the hype, dug myself considerably deep into express based frameworks, sails.js, koa.js, nest.js... But in the end i had to conclude, my first go-to framework django always came out superior in terms of developer productivity. It even eventually covered the bases where i still thought node was superior like async/websocket communication. Imho Django and similar batteries-included frameworks are as state-of-the-art as they&#39;ve ever been."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.howtogeek.com/774542/windows-11-officially-shuts-down-firefoxs-default-browser-workaround/">Windows 11 Officially Shuts Down Firefox’s Default Browser Workaround</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29579994">
+						
+							
+								<p class="story__comment_first line-clamp">"So far in the last year or so, I&#39;ve heard 0 reasons why I&#39;d even need, want or benefit from Win11 over Win10. Tons of reasons in the negative column though. There isn&#39;t even anything to salivate over that might make you think it might be worth it to deal with the other tradeoffs. Hard pass."</p>
+							
+						
+							
+								<p class="story__comment_others">"Firefox should go all the way on this. Exploit bugs, modify binaries, whatever it takes. With user consent of course. If the user says they want Firefox to be their default browser, Firefox is justified in modifying the operating system to achieve that. Ultimately Microsoft is powerless to stop this except by using their antivirus to block installation of Firefox in the first place, and I&#39;d like to see them try that because the blowback would be epic."</p>
+							
+						
+							
+								<p class="story__comment_others">"Anyone on the fence about ditching Windows for Linux should just do it. If you pick a popular distro and hardware you&#39;ll likely run into only minimal issues, if any. My sound and wifi worked right out of the box even though I built my own system.Why anyone still puts up with this garbage, abusive, disrespectful OS is beyond me."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.marketwatch.com/story/pelosi-defends-lawmakers-and-their-spouses-trading-stocks-we-are-a-free-market-economy-01639606786">Pelosi defends stock trading by lawmakers. ‘We are a free-market economy’</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29578450">
+						
+							
+								<p class="story__comment_first line-clamp">"&#34;We are a free-market economy&#34; is simply not a defense of congress members being able to trade individual stocks with no restrictions. Free-market economies still take measures against insider trading, still place limits on how and when high-ranking executives can trade company stock. Placing restrictions on how congress members can trade, when they have access to material non-public information, is totally compatible with a free-market economy.This is not a defense, it&#39;s a dismissal."</p>
+							
+						
+							
+								<p class="story__comment_others">"Yes, we are a free-market. But there are people, like company executives (and high-ranking politicians) who have non-public information that does not belong to them. When congress uses insider knowledge, they are stealing from the ameria, and undermining any semblance of policy integrity.And for that reason, the SEC has 10b-5 plans, which can certainly be critiqued, but at least removes the low-hanging fruit like &#34;we are getting acquired so I&#39;ll buy as many shares and out of the money options as I can&#34;.Iirc her husband was basically buying fairly far-out (~16-18 months) calls at the onset of the pandemic, and they were expiring around the time of, was it an antitrust hearing? The timing itself was poor, but the expiration didn&#39;t seem diabolical.But it was just like, c&#39;mon, I don&#39;t even like the anti-trust bent congress is on, but how are you thinking people are taking your goals in good faith when you have any explicit (and intrinsically timed) personal interest in not harming the businesses you are looking into anti-trust action against?The Fed trading ethics thing with Kaplan and Rosengren was also pretty bad. But imo, they made real changes. They restricted a lot of individual trading, and anything they can still trade in, has to be requested 45 days in advance. I think they understood the gravity of what that said about them, and took real steps to remedy.The STOCK Act otoh says Congress and employees have to report within 45 days..."</p>
+							
+						
+							
+								<p class="story__comment_others">"When I worked for a finance adjacent firm, not even a firm that handled money, my compliance policy was super strict even by industry standards and I was a lowly Sr. SWE. 
+The reasoning I was given was to not never even provide a hint of impropriety or using data ahead of our customers. Reputation was everything.The blanket company-wide policy was as follows. Certain departments had rules on top of this.1. Limited to general stocks, ETFs, mutual funds, etc. No derivatives allowed (options, etc.). Even private stock or private options from my prior require required a review from compliance when I started.
+2. No selling for a gain within 30 days of the purchase date on ANY security. Selling for a loss was allowed at any time.
+3. All brokerage accounts had to be linked to their compliance portal. An automated compliance check pulled your statements weekly and would open a ticket with compliance if anything looked to violate policy. If your brokerage was not supported electronically, you had to submit monthly paper statements.I don&#39;t see why Congress shouldn&#39;t be subject to similar rules, especially those on finance committees."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://tqdm.github.io/">Tqdm (Python)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29582437">
+						
+							
+								<p class="story__comment_first line-clamp">"I really love the wave of new tools that are gaining traction in the Python world: tqdm, rich (and soon textual), fastpi, typer, pydantic, shiv, toga, doit, diskcache...With the better error messages in 3.10 and 11, plus the focus on speed, it&#39;s a fantastic era for the language and it&#39;s a ton of fun.I didn&#39;t expect to find back the feeling of &#34;too-good-to-be-true&#34; I had when starting with 2.4, and yet.In fact, being a dev is kinda awesome right now, no matter where you look. JS and PHP are getting more ergonomics, you get a load of new low level languages to sharpen your hardware, Java is modern now, C# runs on Unix, the Rust and Go communities are busy with shipping fantastic tools (ripgrep, fdfind, docker, cue, etc), windows has a decent terminal and WSL, my mother is actually using Linux and Apple came up with the M1. IDEs and browsers are incredible, and they do eat a lot of space, but I have a 32 Go RAM + 1TO SSD laptop that&#39;s as slim as a sheet of paper.Not to mention there is a lot of money to be made.I know it&#39;s trendy right now to say everything is bad in IT, but I disagree, overall, we have it SO good."</p>
+							
+						
+							
+								<p class="story__comment_others">"Might as well toss out Plumbum: https://plumbum.readthedocs.io/en/latest/No more bash! No more subprocess! Write shell-like code with the convenience of Python!Seriously, it&#39;s a great module. A bit of a learning curve, but then it feels natural."</p>
+							
+						
+							
+								<p class="story__comment_others">"If you like tqdm, it&#39;s worth checking out pqdm, a parallelized version. If you have embarrassingly parallel work to process in a script, it makes it dead simple to parallelize and monitor the progress of something. Highly recommend:https://github.com/niedakh/pqdm"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/markets/us/reddit-files-us-ipo-2021-12-16/">Reddit files to go public</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29574359">
+						
+							
+								<p class="story__comment_first line-clamp">"Good! I‘ll go long on them.Reddit is the ONLY place on the Internet where you can simultaneously watch garbage recycled content from TikTok and visit extremely-niche and highly knowledgeable communities in the same session. Heck, I get my HN updates from Reddit now.Facebook/Instagram/TikTok are nothing like this in that the info you get is wholly dependent on your social graph. Twitter has very high quality content, but it’s a firehose that is very difficult to curate and keep up with. Reddit is democratizing in a sense, like riding the NYC subway.An even wilder bet: Reddit can fit nicely into the metaverse (as a news outlet of sorts, on steroids) and even potentially minimize the need for Google Search.Anecdotally, a VERY LARGE percentage of my Google searches end in “site:reddit.com” these days. Reddit posts, especially from smaller subs, tend to be higher quality and don’t have ulterior motives (ad revenue). If Reddit’s Lucene cluster were better, between that and SO, I’d use Google a handful of times a week. Maybe this IPO can help fund that.If the ad revenue from the whale subs allow me to continue learning about interior design, supply chain logistics,  the inner workings of car sales, finance and tax strategies if I become high net worth, and more, I’m here for it."</p>
+							
+						
+							
+								<p class="story__comment_others">"The Reddit of 2006 where tutorials on generating HTML in Lisp rocket to the top of the homepage is long gone. I can&#39;t imagine investing in an ad company that is fueled by clickbait and outrage the way Reddit is. Plus, some percentage of the userbase will always run aggressive ad blockers and be impossible to effectvely monetize. However, my brain works very differently from other people&#39;s, so I could be wrong."</p>
+							
+						
+							
+								<p class="story__comment_others">"The larger subreddits have problems, but Reddit has done a remarkable job of collecting people with niche interests into one area.I wouldn&#39;t discount their success and future success (as much as I&#39;d like to).What&#39;s odd is they haven&#39;t stopped growing. It&#39;s just been linear user growth.They could literally do nothing and the site would still grow. It&#39;s closer to Wikipedia than a social network in some respects. And by that standard, we should try to judge it.I look forward to the next forum site as much as the next person. But I don&#39;t know what it would look like. If anyone does, I definitely urge you to build it if you can.Substack has every incentive to build a community. Discord as well. So there&#39;s definitely opportunities, but from where I sit, I don&#39;t have any insight as to what you could do to beat this behemoth."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.da.vidbuchanan.co.uk/widgets/pngdiff/">PNG Parser Differential</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29573792">
+						
+							
+								<p class="story__comment_first line-clamp">"https://www.hackerfactor.com/blog/index.php?/archives/895-Co...&gt; on the first retina iPads, decoding PNGs was a huge portion of the total launch times for some apps, while one of the two cores sat completely idle.Could they distribute decoding PNG files to a thread pool, instead of making multithreaded PNG files? Or would this fail for single large PNG files?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Is there a conjecture that says for a field with given a degree of complexity, a given string or function of a can be encoded equivalently in a number of different ways that is proportional to its size and maybe complexity class?Between this and project zero&#39;s analysis (https://news.ycombinator.com/item?id=29568625) of NSO using compression encoding to create a virtual machine for calculating exploit offsets, while unrelated except at a very high level of abstraction, it reminds me conceptually of cryptographic hash collisions, where over a large enough search space or field / domain of complexity there are many equivalent encodings or homonyms/isomorphisms.The issue with the NSO exploit was they found that the compression encoding for a font was Turing complete, and then wrote a virtual architecture in it, and then ran programs on it that did the calculations necessary for their exploit.This png encoding issue is different, but if you abstract it upwards to find a general principle it may be the effect of, it&#39;s like there is fast rule where if if you know the size or definition of the field of possibilities, and then have a definition of a given string in it, the function that describes or defines that string will also yield all strings whose evaluation is the same. It&#39;s like Kolmolgorov complexity, but where instead of finding the smallest progam to compute something, it&#39;s: given the number of instructions to define programs over a field of inputs of a given size, there are N programs beneath length L that are equivalent.Sort of a showerthought, but it&#39;s interesting to think that our ideas of encodings and general isomorphisms may be instances of the same concept linked by a sort of &#34;imaginary&#34; function."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am on MacOS. The miniature in the desktop icon of the file shows &#34;Hello World&#34;, but opening the file shows &#34;Hello Apple&#34;."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://there.oughta.be/a/wifi-game-boy-cartridge">There oughta be a WiFi Game Boy cartridge</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29580726">
+						
+							
+								<p class="story__comment_first line-clamp">"Very cool project, and impressive he got it working!I feel like possibly a better way to deal with the communication though might be to put a dual-port RAM [e.g. 1] in-between the gameboy and the microcontroller, and load in a program to it so the Gameboy is just waiting for certain areas of memory to be updated (with flags that one side sets as &#39;new data&#39; and then the gameboy flips). Basically some kind of circular buffer of commands, and as long as there&#39;s enough space in there and you only fill it from the microcontroller slower than the Gameboy can process them, you wouldn&#39;t need to have careful synchronisation. The microcontroller just has to check that the next slot in the circular buffer has had its status bit flipped to &#39;processed&#39; (or hasn&#39;t been used yet) before putting the next command/data in.1. https://www.renesas.com/us/en/products/memory-logic/multi-po..."</p>
+							
+						
+							
+								<p class="story__comment_others">"That design is badly missing some registers (D-type flip-flops) -- the whole &#34;let&#39;s read/write multiple bytes and discard the first one because the ESP is not ready yet&#34; seems like a super hacky solution.A pair of something like 74574&#39;s would make this so much easier. When sending to ESP, register latches the last byte written and then ESP can read it at its leisure. When reading from ESP, ESP pre-loads the data into register, and then gameboy reads data from the register. This generates interrupt which ESP uses to load next byte into register.Moreover, there might be a right logical series which will be compatible with both 3.3 and 5V busses. Then one could replace the level converters with register, keeping the overall complexity about the same."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wonderful, pure creativity and determination at work here. It&#39;s so cool to see what wild ideas people will follow through with.A gemini client would be a cool next step for this:https://gemini.circumlunar.space/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://rubyonrails.org/2021/12/15/Rails-7-fulfilling-a-vision">Rails 7 Released</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29573607">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m pretty experienced in Node and React, and discovering Rails recently has been an absolute joy. I feel like I&#39;ve made the opposite journey from everyone else on HN, because I joined the programming community _after_ the big RoR hype and during the Node/React hype.Trying out rails, I understand how much magic is involved here. Because I&#39;ve had to build all this crap myself - many, many times over. Complicated things become simple, and tasks that usually make me sigh (add a new data point and add it right through Knex, Hapi models, routes, redux actions, redux store, dispatch/selector and template) turns into a SINGLE COMMAND. Sold :)Very excited about this new release!Edit: I wrote a blog about this a while ago btw, but there are many others pieces out there like it: https://nikodunk.com/a-node-js-developer-discovers-rails/ - using it to create https://electrade.app currently."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve played around with the new default frontend (no js build step at all!) and it&#39;s been an absolute joy. I was able to write basically babby&#39;s first Rails app and have it look, feel and behave like an SPA, and that&#39;s a wonderful thing for apps that need just a little bit of interactivity. While I&#39;ve mostly moved on to Phoenix for my personal &#34;weekend project&#34; web needs, Rails is still a wonderful framework for getting an app off the ground fast."</p>
+							
+						
+							
+								<p class="story__comment_others">"Just today I was helping a junior (php) developer get setup &amp; started with ruby.RVM, gems, bundler. Then onto rails. Upon first attempt to launch rails it choked on yarn requiring to install packages.And then I had to go through node, npm/yarn, webpacker, rails is primarily the backend, webpacker manages the front end. And it all seemed needlessly complicated.I love that rails have doubled down on the low-js direction.  Progressive enhancement, the whole js ecosystem is there if/when you need. But until then KISS."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">16 December 2021</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -77,15 +370,15 @@
 						<a href="https://news.ycombinator.com/item?id=29568510">
 						
 							
-								<p class="story__comment_first line-clamp">"Neat project! Setting up your own DNS server for a throwaway domain is definitely a pain, especially if you&#39;ve never done so and use anything other than PowerDNS really, so this is useful for messing around with.I do hope the author has set some limits on the DNS configuration you can freely enter. One annoying trick DDoS spammers will use is that they will set up DNS records that are as large as possible to use for their botnet&#39;s amplification attack, so allowing them arbitrarily large requests on your domain may be problematic and may cause nasty complaints against your domain. I&#39;d recommend anyone running a free subdomain service (or something super cool like this!) to consider this in their configuration. We can&#39;t have nice things because of these bad people :("</p>
-							
-						
-							
-								<p class="story__comment_others">"This tool is so neat! One thing I&#39;ve learned from it is my ISP (sonic.net) seems to be doing queries to _.example.com. For instance:$ dig @50.0.1.1 nelson.lily6.messwithdns.com aResults in two queries being answered by the messwithdns server. One for nelson.lily6.messwithdns.com as expected, but also one for _.lily6.messwithdns.com.Any guesses what that naked underscore query is for? Not every nameserver does it (Cloudflare, Google, Quad9, and Adguard all don&#39;t). But Sonic isn&#39;t the only one that does.I&#39;ve asked on Twitter and the best guess right now is it has something to do with RFC2782 or RFC 8552. But those are about using _ to make unique tokens that aren&#39;t likely domain names, things like _tcp or _udp. What would a naked _ mean?"</p>
+								<p class="story__comment_first line-clamp">"This tool is so neat! One thing I&#39;ve learned from it is my ISP (sonic.net) seems to be doing queries to _.example.com. For instance:$ dig @50.0.1.1 nelson.lily6.messwithdns.com aResults in two queries being answered by the messwithdns server. One for nelson.lily6.messwithdns.com as expected, but also one for _.lily6.messwithdns.com.Any guesses what that naked underscore query is for? Not every nameserver does it (Cloudflare, Google, Quad9, and Adguard all don&#39;t). But Sonic isn&#39;t the only one that does.I&#39;ve asked on Twitter and the best guess right now is it has something to do with RFC2782 or RFC 8552. But those are about using _ to make unique tokens that aren&#39;t likely domain names, things like _tcp or _udp. What would a naked _ mean?"</p>
 							
 						
 							
 								<p class="story__comment_others">"This is awesome.But I wish a service existed that made domain names easy enough to use that the average person could manage them. IMO you shouldn&#39;t have to learn DNS and TLS in order to securely use a domain name. If I want to sign up to have Fastmail host my email, why do I have to manually copy and paste a bunch of DNS records? Fastmail already knows exactly what records need to be set. I should be able to OAuth redirect over to my domain registrar and approve giving Fastmail control over a subdomain of my choosing, and Fastmail should be able to use a simple open protocol to update the records."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a neat tool! FYI, make sure the domain is registered with Safe Browsing in advance. If one subdomain is cataloged as malicious by google the entire domain can be flagged. It can be a pain to deal with."</p>
 							
 						
 						</a>
@@ -141,9 +434,7 @@
 							
 						
 							
-								<p class="story__comment_others">"I just saw a fun user-agent string in my (not log4j!) logs. In case anyone thought they could buy themselves some time with a naive filter on the string &#34;${jndi&#34; in front of your app or something, enjoy the user-agent string beginning:    ${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p} ...
-
-Which I assume is a form of escaping/embedding which will work on at least some log4j&#39;s, although that&#39;s just an assumption I&#39;m making seeing this in my logs, I&#39;m not familiar with the details.I could have seen myself, not really a security person, thinking a filter on `jndi` would work too..."</p>
+								<p class="story__comment_others">"We spent a few hours writing this today due to the sh*tstorm that&#39;s hit the internet since this 2nd CVE was posted up. It took us some time to do a security analysis of it and to publish our findings.If you&#39;ve patched against Log4Shell, please read this to make sure you&#39;re not still vulnerable to this 2nd CVE. In some cases, you&#39;re still vulnerable depending on how you patched.In response to this, Apache published log4j 2.16.0 to mitigate the bugs in prior versions (including 2.15.0, the release that was supposed to mitigate Log4Shell initially)"</p>
 							
 						
 						</a>
@@ -227,8 +518,7 @@ Real question: why would an application need to know where its logs go? This is 
 							
 						
 							
-								<p class="story__comment_others">"On the surface this looks nice, until you start using 3rd party componentsand the defaults they assumed for the component are overwritten because the default is changed.It&#39;s no coincidence that we use classes to explicitly apply styles, I don&#39;t think this library is a good idea.It&#39;s the same issues as changing native prototypes in Javascript, stuff depends on the defaults to be exactly as specified.Explicit &gt; Implicit
-Stuff magically working is great until you need to make an exception."</p>
+								<p class="story__comment_others">"Reminds me of a framework I made 6 years ago (http://barecss.com). If this sort of thing comes back into trend I might go back and modernise it (https://github.com/longsien/BareCSS)."</p>
 							
 						
 							
@@ -295,11 +585,11 @@ without cluttering everything with piles of boilerplate crap."</p>
 							
 						
 							
-								<p class="story__comment_others">"Oh man I feel like I have PTSD from procrastinating on projects for so many years. Heart rate is up, and I feel like drinking in excess."</p>
+								<p class="story__comment_others">"Thanks for posting, I made this. Let me know if I&#39;m missing any of your (least) favorite sounds."</p>
 							
 						
 							
-								<p class="story__comment_others">"Thanks for posting, I made this. Let me know if I&#39;m missing any of your (least) favorite sounds."</p>
+								<p class="story__comment_others">"Oh man I feel like I have PTSD from procrastinating on projects for so many years. Heart rate is up, and I feel like drinking in excess."</p>
 							
 						
 						</a>
@@ -531,7 +821,7 @@ In his book &#39;Factfulness&#39; (definitely read it), he talks about &#34;bad 
 							
 						
 							
-								<p class="story__comment_others">"Launch delayed: https://blogs.nasa.gov/webb/2021/12/14/webb-space-telescope-..."</p>
+								<p class="story__comment_others">"I&#39;ve never been so nervous for a launch in my life."</p>
 							
 						
 						</a>
@@ -1056,7 +1346,7 @@ Edit: fixing typos."</p>
 							
 						
 							
-								<p class="story__comment_others">"En legend har gått ur tiden. Vila i frid."</p>
+								<p class="story__comment_others">"If anyone is responsible for Python&#39;s success, after Guido, it&#39;s Fredrik Lundh.  When I was learning Python, it was his libraries and his documentation I kept using and learning from.  I feel this one more personally than others, even though I never interacted with him."</p>
 							
 						
 						</a>
@@ -2714,292 +3004,6 @@ I get the above error messages which I understand to be related to libc, but I c
 						
 							
 								<p class="story__comment_others">"Could this be used to relocate Android-native libraries to other platforms? Even if the architecture matches, the bionic libc calls is what I found more challenging."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">07 December 2021</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.modernwiki.app/">Show HN: I made a modern web UI for Wikipedia</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29461735">
-						
-							
-								<p class="story__comment_first line-clamp">"Hey HN,I made this free browser extension that modernizes the Wikipedia design. I started making this for myself just because I wanted more of a &#34;reader mode&#34; like experience (narrower column, nicer fonts, dark mode etc).  Then I got a bit carried away and implemented everything I could think of for a modern redesign of Wikipedia.  Hope you like it!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I am one of those people who actually like Wikipedia the way it is. It&#39;s what I hoped the web to become.But i am sure there are people who will appreciate your effort. Thank you for your work."</p>
-							
-						
-							
-								<p class="story__comment_others">"OP, thanks for making this, I bet it was fun to build.That being said, I want someone to do the opposite of what this does. Less chrome, less bytes over the wire, less predictive search, less &#34;flatness?&#34;, less timely, more timeless."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://scanofthemonth.com/">CT scans of AirPods evolution</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29465668">
-						
-							
-								<p class="story__comment_first line-clamp">"This is still the strongest apple advantage: design, engineering and build quality.Recently I wanted to buy a second notebook so I could leave my MBPro at home in trips where I didn&#39;t want to work, but still had a machine that run linux and windows for some quick idea or even some light gaming.Decided for a Samsung Galaxy Book Pro. Expensive machine, but slightly cheaper than a MacBook Air. good i7 11gen processor, excellent battery life, very light but with surprisingly good thermals, 1tb SSD, but unfortunately no option to have it with more than 16GB RAM.Anyway, was very satisfied with it, and it was so light that I was even booting it with linux and doing some programming on it.But, one day I just opened the lid by the sides, heard a crack, and the gorgeous OLED screen had cracked.Of course I didnt abuse it, I just opened it, without excessive force or speed. But the screen is very fragile, the lid is paper thin, but not rigid enough, it seems, to avoid this problem.And of course, Samsung says it was my fault, and I will have to pay the fix.And yes, I know people have plenty of complaints about apple, but I never had encountered such an obvious problem with an Apple product. Have they not stress-tested this stuff?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Does anyone have a canonical URL to the previous month&#39;s scan of the LEGO mini-figure? I didn&#39;t see any navigation on the site unless there&#39;s a magic spot I missed or am inadvertently adblocking: https://news.ycombinator.com/item?id=29253441This month&#39;s entry comes off way too much like advertising for my taste, with the flowery language like &#34;magic features&#34; instead of just &#34;features&#34;, or the seemingly-unnecessary sales statistics in lieu of a technical description of the Airpods Pro: &#34;In 2020, Apple sold 110,000,000 AirPod products. Talk about mass manufacturing.&#34;Maybe it&#39;s just an unconscious tic when talking about Apple products. Even I have a hard time not saying &#34;Boom&#34; when showing off something cool :) https://www.youtube.com/watch?v=Nx7v815bYUw"</p>
-							
-						
-							
-								<p class="story__comment_others">"I think the AirPods Pro were a regression from the OG AirPods for four reasons:- Idle life took a huge dive from the originals. My OGs haven&#39;t been charged in something like six months, and the case is still at something like 20%. Meanwhile, the case holding the APPs would die in less than a week and the buds inside of them a week after that.My wife&#39;s APPs have been lost for a while because of this.- Noise cancellation performs worse than the original firmware. They have actually been outclassed by other offerings, such as the Sony WF1000XM4.- The buds themselves have a design flaw wherein earwax will accumulate in its inner grille severely enough to significantly compromise bass response. There&#39;s a thread in MacRumors that&#39;s something like 36 pages long acknowledging this. Apple quietly fixed this in version 2 of the APPs (with the MagSafe case).- The mic isn&#39;t as good. The original APs performed extremely well in wind and loud surroundings. I think the downward beam-forming mics were a big part of this. The mic on the APPs perform worse in these scenarios IMO.I&#39;m glad that Apple went back to beam-forming mics.Regardless, I&#39;m thankful for Apple for lighting up the true wireless headphone industry. The APs were a dream come true when they came out; nothing before it compared (and I had $600 custom IEMs that were waterproof and had a control scheme controlled by head nods). The APPs accelerated the creation of noise cancelling true wireless. I&#39;m excited for the next iteration of these products."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29458246">YouTube suspended my account for posting DeFi hackathon video</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29458246">
-						
-							
-								<p class="story__comment_first line-clamp">"Update: 3 hours after posting and being on the hacker news front page:Automated email out of the blue: &#34;We’re pleased to let you know that we’ve recently reviewed your YouTube account, and after taking another look, we can confirm that it is not in violation of our Terms of Service. We have lifted the suspension of your account, and it is once again active and operational.&#34;Thanks hacker news for voting this up and clearly triggering something within the GooglePlex. Still a big -1 for Google/YouTube that their normal processes are completely broken."</p>
-							
-						
-							
-								<p class="story__comment_others">"The problem is not the content of the video, crypto or not. The problem is not that YT moderates aggressively (it doesn&#39;t do enough IMHO) or even how it moderates.The problem is that there is no serious appeals process, and no third party oversight of moderation decisions. This is true for all the big platforms.How do we fix that, IDK, but probably at the government level."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s terrifying that the punishments are so draconian (because one false move and you lose access to the entire Google account, and possibly become persona non-grata and lose the ability to create another one even in a company context), it&#39;s hard to understand what the rules are, the appeals process generally won&#39;t help, and even being a paying customer won&#39;t save you.It seems like best practice for any professional who needs to use Google anything would be to avoid Google to the greatest extent possible except in professional contexts, lest some inadvertent mistake (or something malicious like a hack) cripple your career."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.sesse.net/blog/tech/2021-12-05-16-41_leaving_mysql.html">Leaving MySQL</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29455852">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; MySQL is a pretty poor database, and you should strongly consider using Postgres instead.Wow, right on the chin with that one.&gt; More jarring were the people who insisted everything was OK (it seems most MySQL users and developers don&#39;t really use other databases)I only have anecdata of my usages of MySQL and Postgres but I swear people that cut their teeth on MySQL and have never used Postgres just don&#39;t know what they are missing.Yes Postgres can be slower out of the box and yes Postgres has worse connection handling that usually requires a pooler but the actual engine and it&#39;s performance makes it worth it in my opinion."</p>
-							
-						
-							
-								<p class="story__comment_others">"It is incredibly hard to improve something that your user base doesn’t think needs improving. That part really stands out to me.When I first moved to Postgres I was fairly reluctant - my impression was that it was some arbitrary flavour of sql, and since I was used to MySQL (the only sql database I’d ever used) it seemed incredibly unnecessary to bother with. I imagine there are tons of people out there like I was who would rather let things be.Since the first few weeks I don’t think I’ve ever chosen to use MySQL again; Postgres totally changed my career for the better."</p>
-							
-						
-							
-								<p class="story__comment_others">"Honestly, the post feels a bit bitter.&gt; ...let me point out something that I&#39;ve been saying both internally and externally for the last five years...Life is short, don&#39;t get stuck in a job/relationship/situation/etc. you hate for half a decade. IMO the irony is that he&#39;s moving to the Chrome team, which has been an absolute shitshow. Woohoo, now you&#39;re going to work on fantastic ways of screwing up the web, inserting ads where we don&#39;t want them, tracking users against their will, and banning extensions on the Chrome store. Interesting technical challenges, indeed."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://mastodon.technology/@rysiek/107390725207653910">You click a link to a news site, to read an article that seems interesting</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29454289">
-						
-							
-								<p class="story__comment_first line-clamp">"Not just news sites, either.  A lot of fandom wikis run on the same platform, fandom.com.  That site is a pain in the absolute fucking ass to use on any mobile device, specifically because of the autoplaying video that takes up half the screen on every page load.  Weirdly, desktop is fine; no autoplaying videos or any such nonsense.  It&#39;s only on mobile that Fandom has seemingly made a deliberate effort to make the user experience as frustrating as possible.  And not once has the video had even a tangential relationship to the article being viewed.The worst part is that uBlock Origin&#39;s element picker doesn&#39;t work on Firefox for Android (or if it does, I haven&#39;t figured out how to use it), so on the one platform where it&#39;s maximally annoying I can&#39;t do anything to block it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel like these are “somebody got a promotion” patterns.Basically, somebody was able to “prove” to Higher-Up Managers that $X number of these videos were “watched” or “engaged with” (or whatever today’s BS lingo is), and therefore the business “benefited” in some way by “reaching” more people.  Profit?In reality, at least in my case, what happens is: (1) I say “WTF!?!?”, (2) I make a mental note to never ever visit the site again, and (3) (sadly) I see it again and again at different sites."</p>
-							
-						
-							
-								<p class="story__comment_others">"If they can trigger a &#34;video fired&#34; message in the analytics, that&#39;s one more &#34;Person viewed our video&#34; they can show to a potential advertiser. That&#39;s all it&#39;s about, not the end user&#39;s experience."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.airgradient.com/resources/ikea-vindriktning-accuracy/">Ikea Vindriktning Air Quality Sensor Review and Accuracy</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29458404">
-						
-							
-								<p class="story__comment_first line-clamp">"Author here. I forgot to mention:With a Wemos D1 mini (ESP8266) MCU that costs around USD 2.00, you can pretty easily make the Vindriktning WiFi connected and get the data to a backend [1].You just need to solder three wires, and there is enough space within the enclosure to fit the D1 mini inside.This would then allow you to get the exact measurements and to better understand if the &#34;green&#34; is more on the lower end or the higher side.[1] https://github.com/Hypfer/esp8266-vindriktning-particle-sens..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Informative article with fair, fact based, conclusions.I&#39;d like to add that:- The VINDRIKTNING is extremely consumer accessible ($11.99, good build, simple traffic light system).- It may be put into spaces that previously had no particulate air quality monitoring.- The spouse-acceptance-factor is extremely high (unlike e.g. a couple of circuit boards wired together off of Aliexpress).There are other consumer friendly offerings, but they aren&#39;t affordable (e.g. Amazon Smart Air Quality Monitor 4x cost, Airthings 10x cost). That being said, IKEA could fix their traffic-light system&#39;s cut off points for free and should consider it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I would be very careful with this kind of evaluation. There are lots of sensors that perform well vs reference instruments but not in the field.If you want real evaluations, SCAQMD (the folks in charge of air quality for southern california) do evaluations of commercially available, low cost sensors, both against reference instruments and the lab.See http://www.aqmd.gov/aq-spec/evaluationsYou can see what i said is true from the table - lots of sensors that are very well correlated with reference instruments in the lab, but suck horribly in the field.I would think you would be better off submitting the sensor in question to them, and letting them put it through its paces.(They publish within a month of finishing testing, and testing takes ~8 weeks)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29457930">Ask HN: Why is everything changing too fast?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29457930">
-						
-							
-								<p class="story__comment_first line-clamp">"I’m your age and of similar profession with a known history of doing software development. Having been a nerd since very early age I come to the conclusion that0) I am growing older and I may get more conservative  
-1) I used a lot of products that evolved to a local optimum but I see a lot of them being thrown back into a evolutionary state they already passed a decade ago. Maybe to eveolve better, but I have my doubts. 
-2) Everything is bloating now. Instead of a collection of good tools interacting I have now 3+ ways of opening an Excel-File someone shared in Teams. All of them are broken and Teams is broken, too.I feel as if the excellent wrenches I have been using for 20+ years are growing tumors in the form of a can opener. All to please people who never used a wrench or a can opener before. And production of the original wrenches is cancelled. Over night.Next time I need a wrench it may be made of felt, because fedoras are en vogue and the mad hatter has to sink venture capital into expanding his business.(Funfact: In German you could make up the very valid and understandable, but still strange word “dosenöffnerförmige Tumore” )"</p>
-							
-						
-							
-								<p class="story__comment_others">"I think there at least 3 things at play here:#1) Software used to live on a disk you buy. That software doesn&#39;t change, until buy a new disk. Then it lived in apps, where you can update or not. Now often, it lives in the mythical cloud where changes can happen all the time.Now, even on the disk front, things were always changing. Often for the better, sometimes for the worse. In the OS world Dos-&gt;Windows-&gt;Windows 95 were big changes, and the OS9-&gt;OSX change also huge! But now the changes are always.#2) The entire software world is built on VC money. VC money is not looking for slow and sustainable growth. Or a happy userbase of 10k people. The VC world doesn&#39;t mind if 99 companies crash and burn trying to harvest the wind while building their sails if one takes off.#3) Out of the VC/startup world, large companies must justify their existence and every team and every programmer on that team must justify theirs. No one ever stuck around by saying &#34;everything is good, we literally don&#39;t need to do anything or acquire another customer, let&#39;s all cut out hours to 2 days a week, keep patching bugs and making security updates, be happy with our current level of subscriptions, and spend a bit of time in R&amp;D to make sure we have other bait in the water too if for some reason our users stop liking this."</p>
-							
-						
-							
-								<p class="story__comment_others">"IMHO the answer is the tech version of bullshit jobs.You know the concept - jobs that exist just to exist and pay for someone&#39;s living, though they produce nothing of actual value, and it takes effort to actually remove so no one does.With software it goes something like this:1) A  product is built, something that solves a real issue. It&#39;s new, rough around the edges and has only the basic critical features.2) Funding is found and a large team is hired to implement what&#39;s needed and fix all the rough edges.3) The team comes up with good, new ideas that actually improve the product experience for everyone, so in the eyes of management and the investors they have merit.4) After the first 10 good ideas are implemented, the next ideas are... not as helpful, but some users still like them and nobody wants to fire anyone who&#39;s been doing really good work so far.5) Fast forward a couple of years, the team is huge and there is really no headroom to improve the product. Everyone tries to come up with bullshit ideas and force their ideas through, just to have something to show come performance review time. The users stay with their tried and true product, and they&#39;re so invested at this point that a few regressions make them bitter - but not enough to leave.6) Rinse and repeat.I&#39;ve been on that team. The engineers there are often mentally older, comfortable, and smart - or at least were smart.  Many of them are sure what they do is important. But they&#39;re wrong. They now hold bullshit jobs."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://maggrand.com/new-york-ceo-fires-900-employees-on-zoom-call-video/">Better.com CEO fires 900 employees on Zoom call</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29460985">
-						
-							
-								<p class="story__comment_first line-clamp">"I know this sounds horrible but in the days of covid and working from home, what are companies supposed to do if they have to lay off large amounts of people?Make them all risk their health to come to an in-person event, only to be fired? Drive to every employee&#39;s house to fire them in person?It obviously sucks but I don&#39;t see how, in 2021, this is any different from the kind of thing that would happen all the time in mass layoffs."</p>
-							
-						
-							
-								<p class="story__comment_others">"To anybody affected by this layoff, my company Placement.com created a Better.com Alumni Job Board [0] to help smooth the transition. We&#39;ve seen over and over how much easier it is to get a job at a company where:1. You have a connection (or can build one easily)2. The company recognizes the companies you previously worked forTargeting companies that ex-colleagues work at is a powerful strategy! So we made this board for everybody affected. Also, if you are interested in talking to a career coach, I&#39;m happy to give a free intro session to everybody affected here. Just email me sean@.The lack of empathy shown in this situation is intense and I hope y&#39;all know that there are amazing companies that will value you more waiting with open arms![0] https://www.placement.com/boards/bettercom-alumni-companies"</p>
-							
-						
-							
-								<p class="story__comment_others">"I know it’s just an anecdote but as a customer I kind of believe this.I just completed a transaction with them that had to be extended beyond the rate lock window. For about 10 days there was a daily back and forth where they asked me to provide some documentation. I would provide the requested documentation and about 12 hours later I would receive a task of uploading the same required documentation.The document was a 50ish page legal document that required someone to look at it. It’s clear nobody was actually spending any effort on it. Even calling my loan officer wasn’t getting me anywhere. It wasn’t until the deadline approached that they called me and wanted to get it all sorted out and they extended my rate lock.The way management handled this looks horrible but if there’s any truth to these employees essentially stealing wages from their employer then they’re lucky they’re just being fired and not being prosecuted."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://krebsonsecurity.com/2021/12/ubiquiti-developer-charged-with-extortion-causing-2020-breach/">Ubiquiti developer charged with extortion, causing 2020 “breach”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29455730">
-						
-							
-								<p class="story__comment_first line-clamp">"The funny thing is that krebsonsecurity.com are the ones that published the false information in the first place.Good summary of the whole saga by Crosstalk youtube channel which covers mostly Ubiquiti: https://www.youtube.com/watch?v=paLm0tP5GbI"</p>
-							
-						
-							
-								<p class="story__comment_others">"For me a company of their size and, what I would expect, maturity, this new announcement does not satisfy me or provide me much assurance. Consequently I am still happy I have been recommending people against Ubiquiti since the original announcement from Krebs.* Why was it so easy for a lead engineer to get access to a root AWS user without anyone else being notified? I.e. AWS GuardDuty provides FREE alerting for when an AWS root IAM account is logged in or used, this account should be under lock and key and when used, confirmed and audited by relevant persons or teams.Start edit/* Furthermore on the root account being easily accessed, the root account in the companies I&#39;ve worked at had MFA enabled, and the QR code is locked in a safe only accessible by two people agreeing it needs to be accessed in a break glass situation, where warranted./End edit* Why was he also able to delete critical CloudTrail logs and reduce their retention to 1 day? I.e. These logs should be in a S3 bucket or other environment where such changes cannot be made. Alternatively, they should be shipped to a redundant service that manages this risk to prevent data deletion* Why did Ubiquti not announce they were compromised sooner? The hack started in early December, Ubiquiti noticed the compromise on Dec. 28. Ubiquiti told the market on January 11th. Is that a satisfactory turn around? Giving them some credit for the XMas break I&#39;ll say this partially understandable.All the AWS configuration I&#39;m speaking of above, I would describe as Security 101.Most of these settings can be set and managed from AWS Organisations for free, and backed up with alarming and alerts for Guard Duty trivially. That a company of Ubiquiti&#39;s size and maturity had such basic risks not managed is still a concern.I understand AWS Organisations can be difficult to set up for legacy AWS accounts, but even with that said, setting the alarms and monitoring up that would help manage the risk associated to the questions above is not difficult and should have been in place.That Ubiqitui would only find relief ultimately from the developers poor OpSec rather than Ubiquiti&#39;s own security policies and procedures provides a commending perspective of their internal security posture."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Investigators say they were able to tie the downloads to Sharp and his work-issued laptop because his Internet connection briefly failed on several occasions while he was downloading the Ubiquiti data. Those outages were enough to prevent Sharp’s Surfshark VPN connection from functioning properly — thus exposing his Internet address as the source of the downloads.Not the first time I’ve read about a VPN unable to mask someone’s ip when they were on a wonky connection."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/">WebAssembly and Back Again: Fine-Grained Sandboxing in Firefox 95</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29459499">
-						
-							
-								<p class="story__comment_first line-clamp">"WebAssembly is kind of a hack here (although a clever hack that saves a lot of effort) - the essence of what the Mozilla folks have done isn&#39;t WebAssembly, it&#39;s a trusted compiler - by which I mean a compiler that emits trustable code, regardless of how untrusted the source is. It&#39;s a really neat idea that I hope to see more adoption of, because our current security models for software suck.Security based on process isolation is extremely inefficient and coarse-grained - having a trusted compiler could (eventually) massively increase performance by removing processes entirely (no more virtual memory! no more TLB flushes and misses! less task switch overhead!) and eliminating the kernel/user mode separation, with an increase in security.&#34;Could&#34; because it&#39;s not clear to me if the reduction in expressiveness from our languages now to future languages with a theoretical trusted compiler (all jump targets have to be known at compile-time?) will be accepted by the majority of the populace. Look at how hard it is to get people to accept borrow-checkers..."</p>
-							
-						
-							
-								<p class="story__comment_others">"This sandboxing is achieved via RLBox[0], which is a toolkit for sandboxing third-party libraries. It comprises of a WASM sandbox and an API which existing application can leverage. The research paper[1].[0]: https://plsyssec.github.io/rlbox_sandboxing_api/sphinx/[1]: https://arxiv.org/abs/2003.00572"</p>
-							
-						
-							
-								<p class="story__comment_others">"So if I&#39;m understanding this correctly, Firefox compiles its dependencies as WASM, effectively blocking function calls to things it shouldn&#39;t and illegal memory access, and then translates it back to C so it can compile it normally? Sounds neat!"</p>
 							
 						
 						</a>
