@@ -36,6 +36,395 @@
 	</div>
 
 	
+	<div class="day__date">01 January 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://pkolaczk.github.io/server-slower-than-a-laptop/">
+						<picture>
+							<source srcset="default_29747921.webp" type="image/webp">
+							<source srcset="default_29747921.png" type="image/png">
+							<img src="default_29747921.png" alt="Preview of 'A single line of code made a 24-core server slower than a laptop'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://pkolaczk.github.io/server-slower-than-a-laptop/">A single line of code made a 24-core server slower than a laptop</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29747921">
+						
+							
+								<p class="story__comment_first line-clamp">"An aside:&gt; L3 cache is shared by all cores of a CPU.I recently learned this is no longer true! AMD EPYC processors (and maybe other recent AMDs?) divide cores into groups called &#34;core complexes&#34; (CCX), each of which has a separate L3 cache. My particular processor is 32-core where each set of 4 cores is a CCX. I discovered this when trying to figure out why a benchmark was performing wildly differently from one run to the next with a bimodal distribution -- it turned out to depend on whether Linux has scheduled the two processes in my benchmark to run on the same CCX vs. different CCXs.https://en.wikipedia.org/wiki/Epyc shows the &#34;core config&#34; of each model, which is (number of CCX) x (cores per CCX)."</p>
+							
+						
+							
+								<p class="story__comment_others">"The culprit was a shared atomic reference counter (Arc). The cache invalidation across cores eliminated any kind of scaling via multiple threads.The solution is to stop sharing. The author had to make changes specific to this codebase for each thread to have its own copy of the offending dataset."</p>
+							
+						
+							
+								<p class="story__comment_others">"The notion of &#34;lock-free&#34; is fundamentally misleading.It trips up everybody who hopes &#34;lock-free&#34; will be a magic bullet freeing them from resource contention bottlenecks.When you have explicit locks, aka mutexes (condition variables, semaphores, what-have-you), the interaction between your threads is visible on the surface. Replacing that with &#34;lock-free&#34; interaction, you have essentially the same set of operations as when taking a mutex. On the up side, overhead cost may be lower. On the down side, mistakes show up as subtly wrong results instead of deadlocks. And, you get less control, so when you have a problem, it is at best harder to see why, and harder to fix.Because the lock-free operations involve similar hardware bus interactions under the covers, they cannot fix contention problems. You have no choice but to fix contention problems at a higher, architectural design level, by reducing actual contention. Having solved the problems there, the extra cost of explicit mutex operations often does not matter, and the extra control you get may be worth any extra cost.What is lock-free good for, then? Lock-free components reduce overhead when there is no contention. Given any actual contention, performance is abandoned in favor of correctness. So, if you have mutexes and performance is good, moving to lock-free operations might make performance a little better. If performance is bad, mutexes and lock-free operations will be about equally as bad."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/FiloSottile/status/1476698207413493766">
+						<picture>
+							<source srcset="default_29742977.webp" type="image/webp">
+							<source srcset="default_29742977.png" type="image/png">
+							<img src="default_29742977.png" alt="Preview of 'Linux Kernel RNG is now Blake2 instead of SHA1 and 3x faster'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/FiloSottile/status/1476698207413493766">Linux Kernel RNG is now Blake2 instead of SHA1 and 3x faster</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29742977">
+						
+							
+								<p class="story__comment_first line-clamp">"This is an egregiously editorialized headline, but this was the easiest way to submit two separate links to LKML in one HN submission --- link to Fillipo&#39;s tweet about those links.The @zx2c4 Filippo is referring to is Jason Donenfeld, of WireGuard fame. It was news to me that he&#39;d taken over the Linux kernel random driver! But it&#39;s welcome news indeed."</p>
+							
+						
+							
+								<p class="story__comment_others">"The popularity of the Blake family annoys me, as I feel that it&#39;s overhyped. Sure, they&#39;re fast (on current hardware), but they&#39;re supposed to be cryptographic hash functions. I know that BLAKE received some scrutiny in this regard, as part of the SHA3 competition. But then BLAKE was obsoleted by BLAKE2, which in turn was obsoleted by BLAKE3, making the claims to security less and less sensible.And all this is before the actual winner of SHA3 comes into the picture. With parameters as specified by SHA3 it&#39;s a lot slower than BLAKE3, but it is my understanding (IANAC) that(1) The SHA3 security margin can safely be decreased, as NIST set the security requirements too high. This is one of the reasons for the speed difference.(2) The sponge-based crypto popularized by Keccak (the SHA3 winner) is much more amenable to cryptanalysis than the more traditional crypto such as the functions in the Blake family. This means that Blake&#39;s security would be less sure even had it received the same level of scrutiny. But AFAIK Blake received much less scrutiny than Keccak, or even other sponge-based functions, such as the ones in the NIST Lightweight Crypto competition.https://csrc.nist.gov/Projects/lightweight-cryptographyhttps://keccak.team/2017/not_arx.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"Note for those who only read the headline: the 3x speedup was achieved by removing a call to RDRAND in the extraction path, not the change in hash function."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://cprimozic.net/blog/my-selfhosted-websites-architecture/">
+						<picture>
+							<source srcset="default_29746223.webp" type="image/webp">
+							<source srcset="default_29746223.png" type="image/png">
+							<img src="default_29746223.png" alt="Preview of 'Self-Hosting Dozens of Web Applications and Services on a Single Server'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://cprimozic.net/blog/my-selfhosted-websites-architecture/">Self-Hosting Dozens of Web Applications and Services on a Single Server</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29746223">
+						
+							
+								<p class="story__comment_first line-clamp">"Easy setup with:- traefik (nginx proxy with auto letscencrypt)- portainer (docker container management)- fail2ban (basic security)- logwatch (server / security stats by mail)- munin (server stats)- restic (cloud backup)- unattended-upgrades (auto install security updates)- apticron (weekly info)- n8n (automatisation for e.g. quick info via telegram, if something not work)Run every app that you want in your container."</p>
+							
+						
+							
+								<p class="story__comment_others">"Three independent, but somewhat related thoughts on this topic:1). On HOWTO articles about infra (1/2): I&#39;d like to see more articles that lead with requirements, rather than setups that then justify the setup with requirements. Like, congrats, you managed to host a bunch of web applications via containers on a dedicated server. It&#39;s really nice for a super personal project and I&#39;m sure it helped OP gain a lot of operational experience across several domains, but I just find this type of article to be &#34;DYI porn&#34; for a highly specific subset of DYI.2). On HOWTO articles about infra (2/2): Is there any sort of comprehensive infra setup guide out there? Even something that just covers &#34;core&#34; AWS services (CloudFront, EC2, ELB, ECS, Lambda, CloudWatch, CloudTrail, and a few others...) feels like it would be incredibly useful for so many people.3). &#34;AWS on Rails&#34; - I feel like we&#39;re getting close to a time when &#34;AWS on Rails&#34; emerges and we see the birth of a new opinionated tool that says &#34;Most people just want to ship their product, not fiddle with cloud infra. Do it our way and you can focus on product instead of infra&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"I (my company) use a similar approach: a single dedicated server with docker containers, by using dokku [0], for an heroku-like self-hosted PaaS.Most of our applications are either:- app developped in-house (django/flask): Procfile + deploy with git push- standard app with a docker image available: deploy directlyDokku comes with useful &#34;service&#34; plugins for databases, auto https (letsencrypt), virtual hosts... Overall, a good experience.[0] https://dokku.com/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/mitchcohen/status/1476951534160257026">
+						<picture>
+							<source srcset="default_29750660.webp" type="image/webp">
+							<source srcset="default_29750660.png" type="image/png">
+							<img src="default_29750660.png" alt="Preview of 'Update: iPhone Camera app did not replace person&#39;s head with a leaf'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/mitchcohen/status/1476951534160257026">Update: iPhone Camera app did not replace person&#39;s head with a leaf</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29750660">
+						
+							
+								<p class="story__comment_first line-clamp">"Original discussion for the photo: https://news.ycombinator.com/item?id=29739235"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m amazed that such stupid stuff takes up attention, and more importantly, takes up my attention. Thankfully it&#39;s just a minute or two, but clearly I need to be more careful about what I click on (and let into my head...I&#39;m sure this type of thing degrades bayesian priors for everyone reading it)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think we bought into it because it looks plausible. In the original image[0], the boundary between the leaf and the person&#39;s face looks legitimately blended in a way that only AI auto-filling does. From that, it&#39;s not a leap to extrapolate that the leaf itself was auto-filled from the surroundings.0. https://pbs.twimg.com/media/FH0N9HNWQAE0n9R?format=jpg&amp;name=..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://danpetrov.xyz/programming/2021/12/30/telegram-google-translate.html">
+						<picture>
+							<source srcset="default_29746674.webp" type="image/webp">
+							<source srcset="default_29746674.png" type="image/png">
+							<img src="default_29746674.png" alt="Preview of 'How Telegram Messenger circumvents Google Translate&#39;s API'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://danpetrov.xyz/programming/2021/12/30/telegram-google-translate.html">How Telegram Messenger circumvents Google Translate&#39;s API</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29746674">
+						
+							
+								<p class="story__comment_first line-clamp">"Someone deleted an interesting comment about adversarial interoperability [0]I’d love to see and give money to a project to create and maintain easy to use and stable “adversarial interoperability” APIs for as many services and products as possible.Perhaps companies and projects would not often use these directly because of the risks (hopefully some would, though!) but individuals could drop the library or the URL to a server hosting it into their apps to gain extra features.If standardised, whole open source apps could be built around them that allow querying and analysis of data from services and aggregating and automating using the services including optimising prices, taking advantage of offers, and using undocumented APIs to the users advantage.Maybe something architected and incentivised like https://thegraph.com/ for adversarial intercom and undocumented APIs. Building as a network of nodes and funding with crypto would make it harder to attack and take down.[0] https://www.eff.org/deeplinks/2019/10/adversarial-interopera..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don’t understand the way this was implemented.They are bound to get in trouble with Google for this, but they can’t easily pull the feature. They can’t just be like „oh you’ve had translate for two weeks now, but now we can’t pay for it, so it’s gone.“What is the long term thinking behind this? Or is this just developers and management not communicating?"</p>
+							
+						
+							
+								<p class="story__comment_others">"As a small company who spends $70-80k per year on Google&#39;s official Translate API, it&#39;s disappointing if Google allows this type of abuse to continue.If they don&#39;t want to pay, they should be using a free open source alternative like https://github.com/LibreTranslate/LibreTranslate"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://seths.blog/2021/12/dont-waste-the-good-days/">
+						<picture>
+							<source srcset="default_29754120.webp" type="image/webp">
+							<source srcset="default_29754120.png" type="image/png">
+							<img src="default_29754120.png" alt="Preview of 'Don&#39;t Waste the Good Days'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://seths.blog/2021/12/dont-waste-the-good-days/">Don&#39;t Waste the Good Days</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29754120">
+						
+							
+								<p class="story__comment_first line-clamp">"People look at me like I’m insane when I tell them I’m packing up and taking a year off.I’ve f’in had enough. And that’s me, the wife and our two kids- not quite school age. No I haven’t FIREd. No I’m probably passing up a raise and a promo (or maybe not). Super linear growth requires super linear decision making. You either follow the sheeple or decide enough is enough and make some drastic change. Im not getting these years back and for the life of me can’t understand those who say, I’m gonna work till I’m 55 and then I’m done.Anyways HN fam- I’m already done.Here’s to 2022See y’all in Penang."</p>
+							
+						
+							
+								<p class="story__comment_others">"I feel like there is wisdom in &#34;Make hay while the sun shines.&#34; When you&#39;re young and unencumbered by responsibility and family, when your cognitive abilities are at their peak, when your energy is endless, when your body is strong and healthy, when your knees work, and your fingers can type without arthritis: that&#39;s the optimal time to work and earn. Min-max that salary and stay healthy. Due to compounding interest, a dollar made in your 20&#39;s is far, far more valuable than a dollar made in your 60&#39;s. Every morsel you make and save early means your retirement comes earlier. There will never be a more efficient time to earn those days of leisure that will come later if you stay healthy.Take that vacation to Bali when you&#39;re young, and you are wasting your prime, strongest days that could be making you financially secure and/or independent. Go windsurfing for a year in Ibiza after college, and you&#39;re adding 5 years to your working life--retiring at 62 instead of 57. It didn&#39;t sound like much time when I was young, but today, as I turn elderly, I&#39;m counting down the years until I can finally retire, and kicking myself for goofing around when I was younger. If I could do it all again, I&#39;d have tried harder to get into big tech early, I&#39;d have taken comp and 401(k)s and advancement more seriously. I&#39;d have played fewer video games, traveled less, and relaxed on the beach less.Life isn&#39;t short--it&#39;s LONG, and you have a brief moment in that life to maximize your preparation for the rest of it. Use it wisely."</p>
+							
+						
+							
+								<p class="story__comment_others">"Pithy, but true.It&#39;s only half the story, though. Moderation and balance are the real key. Overwork is not good in the long term. But underwork can also be a problem, even when employers let it slide.Starting in my 30s, my friends who operated in the extremes of overwork or underwork started to diverge from everyone else. Overworked people were burnt out and had few friends and social connections left. Underworking people were often first to be laid off and slowly fell behind in their skills relative to everyone they were competing against for jobs.Most of them found balance and got back on track, but I know a few holdouts who went all-in on the vagabond life of traveling the world and having fun, as well as a few who have just disappeared into their work and have basically lost social skills at this point.Balance and moderation aren&#39;t really that difficult when you make them a priority. Especially in this job market where employers aren&#39;t squeezing employees as hard because everyone has so many alternate opportunities."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://boingboing.net/2021/12/30/reporter-likely-to-be-charged-for-using-view-source-feature-on-web-browser.html">
+						<picture>
+							<source srcset="default_29745960.webp" type="image/webp">
+							<source srcset="default_29745960.png" type="image/png">
+							<img src="default_29745960.png" alt="Preview of 'Reporter likely to be charged for using “view source” feature on web browser'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://boingboing.net/2021/12/30/reporter-likely-to-be-charged-for-using-view-source-feature-on-web-browser.html">Reporter likely to be charged for using “view source” feature on web browser</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29745960">
+						
+							
+								<p class="story__comment_first line-clamp">"I don&#39;t really like the framing that the reporter is framed for using &#34;view source&#34;. This reinforces the idea that the people responsible for this are just uneducated. I&#39;m sure, at this point, someone already explained them.That reporter is a victim of harassment, and that if it wasn&#39;t for &#34;view source&#34;, it could be for some unrelated stuff. It&#39;s the same as protesters being arrested for all kinds of bogus reasons, or random people being arrested with planted evidence. The goal is to deter someone you don&#39;t like from exercising their legal right (journalism, protesting, standing in the street in the wrong neighbourhood), by weaponizing unrelated laws.The only reason &#34;view source&#34; is being talked about is because that looked like the best case when the book was thrown at that journalist.I hope that case remains at threats and doesn&#39;t get to actual charges."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The reporter discovered that the source code of the website contained Social Security numbers of educators. The reporter alerted the state about the social security numbers. After the state removed the numbers from the web page, the Post-Dispatch reported the vulnerability.I really hate the idea that trying to do the right thing (reporter telling MO DoE about SSNs being in their HTML) results in prosecution to save face instead of reflection and congratulations. This is how you get more crime.Also, REALLY?!That means that Google indexed those SSNs!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I think a lot of analogies miss the point that data was copied and transmitted to the client and accessed client side. I think it&#39;d be more accurate to compare to a barcodeImagine requesting a voter registration form and you receive a letter in the mail with all previous residents social security numbers encoded in QR codes that were added as a &#34;convenience feature&#34; for the voting officeIn that case, it&#39;d be ridiculous to claim you &#34;hacked the voting office&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://hookrace.net/blog/macos-setup/">
+						<picture>
+							<source srcset="default_29742551.webp" type="image/webp">
+							<source srcset="default_29742551.png" type="image/png">
+							<img src="default_29742551.png" alt="Preview of 'macOS Setup after 15 Years of Linux'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://hookrace.net/blog/macos-setup/">macOS Setup after 15 Years of Linux</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29742551">
+						
+							
+								<p class="story__comment_first line-clamp">"I really tried to like macOS for an entire year. I used Yabai[1] as tilling window manager which is much better than Amethyst mentioned in the article. I also wrote my own compose key tool macos-compose[2] and rofi-like clone choosem[3] (eventually bought into Alfred).Yet with all of this effort I still went back to linux after a year (Arch with Qtile and Gnome). What really killed macos for me was the fact that animations could not be disabled entirely and everything felt like it&#39;s behind several ms of a delay. I work on the move so I don&#39;t have the luxury of multi-screen setup so switching between programs, workspaces and windows is the most important part of my workflow - it just drove me nuts.Now I run simple Lenovo yoga laptop with arch+qtile+gnome and honestly, my performance at work at least doubled. That&#39;s my anecdote anyway.1 - https://github.com/koekeishiya/yabai2 - https://github.com/Granitosaurus/macos-compose3 - https://github.com/Granitosaurus/choosem"</p>
+							
+						
+							
+								<p class="story__comment_others">"I did the exact opposite. I was on MacOS since 10.2.But lately I felt things have become way too locked down (both hardware and software), too dumbed down (too many apps resemble mobile apps with limited functionality) and too opinionated. Sometimes I just want things differently. Another reason was that many new features are specific to iCloud integration and as I use many OSes (both computer and mobile) I could not take advantage of those anyway. I need cross platform. So a lot of selling points became irrelevant.I moved to FreeBSD with KDE on top and it felt like a breath of fresh air finally being able to set up my system the way I want it. This is so empowering.It became my daily driver about a year ago and I haven&#39;t looked back though I still use Mac and Windows for work, Windows personally for gaming and Linux for some servers.Of course I lost some stuff too like Apple&#39;s excellent multi DPI and great hardware integration. And many apps that were great like pixelmator. But I gained a lot of configurability and the ability to upgrade my hardware again."</p>
+							
+						
+							
+								<p class="story__comment_others">"For me Linux is about freedom. Other systems might be better in UI/UX or performance (e.g. give more FPS in games for NVidia cards), but I remember the times when Microsoft dominated the IT world and it looked scary.All corporations strive to fragment the market using non-compatible technologies and then to monopolize the market by consuming other fragments.This strategy failed in the 90s with the arrival of Linux. Although many times I felt like the whole world will become Microsoft/Wintel, I think we barely missed.Now, corporations are trying to do it e.g. via forcing everybody into the cloud and killing open protocols. E.g. I have several email accounts and I can&#39;t gather mail from all of my mailboxes in one application. Situation is even worse with Calendars. I have two jobs and also my own personal calendar server and I can&#39;t collect all my calendars in one app also. I have to routinely check Google Calendar, because even though I can add it to my Thunderbird Calendar, moved or canceled events changes are not propagating to Thunderbird. And I can&#39;t integrate Microsoft Outlook calendar into my Thunderbird at all.I really don&#39;t want to rely on whims of one corporation. Also, regarding MacBooks: I remember when the touchbar had no alternatives and it is really awful. This is what monopoly means: you have to live with bad decisions. You have to pay absurd money for a piece of cloth or a roller for the desktop case."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/fikrikarim/companies-with-successful-pivot">
+						<picture>
+							<source srcset="default_29746370.webp" type="image/webp">
+							<source srcset="default_29746370.png" type="image/png">
+							<img src="default_29746370.png" alt="Preview of 'Companies that had successful pivots'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/fikrikarim/companies-with-successful-pivot">Companies that had successful pivots</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29746370">
+						
+							
+								<p class="story__comment_first line-clamp">"My favorite part of the Nintendo story is that back when it was a playing card company, the heir to the family business took a trip to America that included a meeting at the largest card company in the world.He had expected it to have a luxurious, palatial campus… but its entire headquarters turned out to be like the fourth floor of a single building in a generic office park. He was like, “This is the absolute pinnacle I can ever hope for if I succeed beyond my wildest dreams running the playing-card company. I need a new idea.”You can read all about it in an outstanding book called I Am Error that, beyond extensive interviews with the historic key players, also takes an incredibly deep dive into the technical details."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Netflix had considered offering movies online, but there were speeds and bandwidth problem in mid-2000.One of the more interesting things I learned from the (outstanding) documentary &#34;Enron - The Smartest Guys in The Room&#34; [0] was that Enron planned an online movie streaming service together with Blockbuster in the late 90ies (to start in 2000), but failed for the same reasons.&gt; Enron would store the entertainment and encode and stream the entertainment
+over its global broadband network. Pilot projects in Portland, Seattle and Salt Lake
+City were created to stream movies to a few dozen apartments from servers set up
+in the basement. Based on these pilot projects, Enron went ahead and recognized
+estimated profits of more than $110 million from the Blockbuster deal, even
+though there were serious questions about technical viability and market demand [1]But of course Enron &#34;pivoted&#34; to outright fraud some years before that.[0] https://www.youtube.com/watch?v=rDyMz1V-GSg[1] https://pubs.aeaweb.org/doi/pdfplus/10.1257/0895330037658884..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Twitch started out as Justin.TV, where Justin Kan wore a camera on his head 24/7 and livestreamed the results.Then they expanded to a small handful of streamers, then anybody could stream, but it never really took off and they were running out of runway.Then they noticed that the one area growing faster than any other was videogame streaming, and rebuilt the whole company around that."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://terrainformatica.com/2021/04/25/sciter-uses-javascript-from-now-and-on/">
+						<picture>
+							<source srcset="default_29742670.webp" type="image/webp">
+							<source srcset="default_29742670.png" type="image/png">
+							<img src="default_29742670.png" alt="Preview of 'Sciter, the 5 MB Electron alternative, has switched to JavaScript'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://terrainformatica.com/2021/04/25/sciter-uses-javascript-from-now-and-on/">Sciter, the 5 MB Electron alternative, has switched to JavaScript</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=29742670">
+						
+							
+								<p class="story__comment_first line-clamp">"Some previous discussion on SciterJS here: https://news.ycombinator.com/item?id=24797423The issue is that this isn&#39;t actually an Electron alternative; the author is upfront about this not actually being a browser-compatible rendering engine. It&#39;s just a rendering engine that happens to use some subset / superset of HTML, JS and CSS, but it is not compatible with web libraries and components.As a basic example, SciterJS crashes loading the &#34;hello world&#34; ReactJS project (at least it did last time I tried it - the author recommended I used a custom version of React he publishes). It&#39;s perfectly fine to come up with a lightweight cross-platform UI rendering engine (we know we need more of those), but having it web-adjancent while not really web-compatible is a recipe for frustration."</p>
+							
+						
+							
+								<p class="story__comment_others">"I see, in this thread, talks about what Sciter does and does not offer.It&#39;s not the only alternative to Electron, but it might be one that offers predictable and repeatable results.I released a small open source project on HN last week (https://github.com/Fusion/pngsource) and I wrote its backend logic in Go. I built the frontend using Tailwind (https://tailwindcss.com) and DaisyUI (https://daisyui.com) and, using Go compiler flags, I can release the app using both WebView (github.com/webview/webview) (which, yes, does require the host OS&#39; collaboration) and Wails (wails.app) (which also does.)On Linux/AMD64, the binary&#39;s size is 3.7M when building for WebView, and 6.8M when targeting Wails.The way the app works is I drag/drop files to the UI, magic happens, and I use github.com/ncruces/zenity to prompt the user for a save location.I cross-compile the apps using xgo (https://github.com/karalabe/xgo)It&#39;s been working pretty well on Linux, Windows, MacOS. I think WebView&#39;s approach of limiting the feature set is working well as it feels more &#34;native&#34; than Wails (better refreshes and resize operations for instance)However, I already have a few tickets reporting that, for instance, the app is displayed as a blank window in some environments. And it&#39;s hard to debug remotely, obviously. So, this is where Sciter may be a better option."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Fabrice Bellard have created his QuickJS embeddable JS engineOh. That&#39;s the QEMU/FFMPEG Fabrice Bellard? That sounds definitely interesting. (Perhaps more than the actual article, haha.)https://bellard.org/quickjs/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">31 December 2021</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -140,11 +529,11 @@ not sure exactly what happened here but I’m pretty sure everyone asking for �
 							
 						
 							
-								<p class="story__comment_others">"I sometimes hang out on mountainbike forums.A user posts that despite a new chain and setting up their rear derailleur according to instructions gear-changes are clunky or the chain skips when applying power on the pedals.The usual reply from the forum members is then to send a photo of the cassette since excessive wear there leads to these problems.This used to clearly show that the user needed to replace their worn cassette too.Lately these photos of cassettes can look all mangled. Like ML tried to “enhance” mountains or the back of an alligator or some other structure from nature on to the cassette.This has to be a problem in all sorts of technical trouble-shooting."</p>
+								<p class="story__comment_others">"There was an update -- sounds like a leaf was really in the shot:&gt; Big news!  I sent @sdw the original image.  He theorized a leaf from a foreground tree obscured the face.  I didn’t think anything was in view, and the closest tree is a Japanese Maple (smaller leaves).  But he’s right!  Here’s a video I just shot, showing the parallax.  Wow!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I hate how much phones lately alters the images. Of course it most of the time makes the images look better, and cameras are a big selling point on a phone.But I don&#39;t like how my photos of people suddenly have a filter applied to the faces, how a picture of leaves during fall have vibrance exaggerated, how the sky looks clearer than it really did."</p>
+								<p class="story__comment_others">"I sometimes hang out on mountainbike forums.A user posts that despite a new chain and setting up their rear derailleur according to instructions gear-changes are clunky or the chain skips when applying power on the pedals.The usual reply from the forum members is then to send a photo of the cassette since excessive wear there leads to these problems.This used to clearly show that the user needed to replace their worn cassette too.Lately these photos of cassettes can look all mangled. Like ML tried to “enhance” mountains or the back of an alligator or some other structure from nature on to the cassette.This has to be a problem in all sorts of technical trouble-shooting."</p>
 							
 						
 						</a>
@@ -408,11 +797,11 @@ Though as mentioned later in the article the standard library documentation is n
 							
 						
 							
-								<p class="story__comment_others">"This implementation is amazing. Is it humans on top 40? The instant replay is genius! I almost can&#39;t believe my eyes."</p>
+								<p class="story__comment_others">"Is there a way to play with a gamepad controller?This is the coolest web game I&#39;ve ever seen. So fast and smooth even on my ancient laptop.I didn&#39;t know you could do this in a browser. Now I want to see a Subspace remake to complete my 90&#39;s nostalgia trip."</p>
 							
 						
 							
-								<p class="story__comment_others">"Is there a way to play with a gamepad controller?This is the coolest web game I&#39;ve ever seen. So fast and smooth even on my ancient laptop.I didn&#39;t know you could do this in a browser. Now I want to see a Subspace remake to complete my 90&#39;s nostalgia trip."</p>
+								<p class="story__comment_others">"This implementation is amazing. Is it humans on top 40? The instant replay is genius! I almost can&#39;t believe my eyes."</p>
 							
 						
 						</a>
@@ -3556,398 +3945,6 @@ But in order for that to work, I&#39;d probably be taking most of this reviewer&
 						
 							
 								<p class="story__comment_others">"Is Zig going strong in community, or it&#39;s likely to remain as a niche / fans language? I like the idea, but anybody knows how community / companies react to it in a more wider &#34;looking to use in production&#34; environment?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">21 December 2021</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.google.com/maps/place/39%C2%B001%2718.5%22N+93%C2%B035%2740.5%22W/@39.0219215,-93.5946774,253m/data=!3m1!1e3!4m5!3m4!1s0x0:0xd87af7588b9c362e!8m2!3d39.0218056!4d-93.5945833">
-						<picture>
-							<source srcset="default_29627105.webp" type="image/webp">
-							<source srcset="default_29627105.png" type="image/png">
-							<img src="default_29627105.png" alt="Preview of 'Stealth bomber in flight on Google Maps'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.google.com/maps/place/39%C2%B001%2718.5%22N+93%C2%B035%2740.5%22W/@39.0219215,-93.5946774,253m/data=!3m1!1e3!4m5!3m4!1s0x0:0xd87af7588b9c362e!8m2!3d39.0218056!4d-93.5945833">Stealth bomber in flight on Google Maps</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29627105">
-						
-							
-								<p class="story__comment_first line-clamp">"Interesting how the three separate R/G/B images are taken independently a few ~seconds~ milliseconds apart, with a different color filter placed over the image sensor.I assume this is to maximize resolution, since no Bayer interpolation [0] is needed to  demosaic the output of a traditional image sensor that integrates the color filters onto the sensor pixels themselves. As these satellites are not intended to photograph things in motion, the color channel alignment artifacts seen here are a rare, small price to pay for vastly improved resolution and absence of demosaicing artifacts.[0] https://en.m.wikipedia.org/wiki/Bayer_filter"</p>
-							
-						
-							
-								<p class="story__comment_others">"Artist James Bridle calls them &#34;Rainbow planes&#34; and has used this in his art.Rainbow Plane 002: Kiev. October 29, 2014: https://booktwo.org/notebook/rainbow-plane-002-kiev/Rainbow Planes: https://www.flickr.com/photos/stml/sets/72157637938061015/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I live on a farm very close to this area.All the B-2s are based at nearby Whiteman Air Force Base. They fly over often -- one even fly over my farm today about an hour ago.This one was probably on final approach during the summer when the winds are usually out of the south and was probably about 2,000 feet above the ground."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://perell.com/essay/against-3x-speed/">
-						<picture>
-							<source srcset="default_29621642.webp" type="image/webp">
-							<source srcset="default_29621642.png" type="image/png">
-							<img src="default_29621642.png" alt="Preview of 'Against 3x Speed'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://perell.com/essay/against-3x-speed/">Against 3x Speed</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29621642">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m impressed more by the comments than the article itself. Some people insist they make progress and listen 3x, but nobody showed any practical measurements of own skills.A personal example: I used to listen to a famous linguist, and everything seemed nice and clear, but then I decided to go in details on one particular question (I think accentuantion), and opened his book. It was like if you showed your programming code to a farmer: incomprehensible stream of linguistic terms. My complacency was shattered in 1 minute.There&#39;s some scientific evidence as well:1. Lectures are proved to be a bad way to learn things. https://www.science.org/content/article/lectures-arent-just-...2. A nice experiment showing that if you enjoy a lesson, it usually means you make no progress, meanwhile hard practice actually does make you progress: https://www.pnas.org/content/116/39/19251I suppose, those who insist they learn something, do make progress at memorizing trivia, but not at practical skills or any systematic understanding.This kind of knowledge feels firm only until it&#39;s tested by practical task or by serious questioning."</p>
-							
-						
-							
-								<p class="story__comment_others">"I get the point you&#39;re making - but honestly I have to raise the counter argument, which I think is equally valid. Take for example, the average lecture video. The information density is so low, that I&#39;d imagine that a 60 minute video could be compressed into 10-12 minutes without any loss of information. It really depends on what you&#39;re listening to/watching."</p>
-							
-						
-							
-								<p class="story__comment_others">"The few podcasts I listen to, I do so in 0.2x speed or even less. Not by slowing the playback speed, obviously, but by pausing and rewinding very often to think about what has been said and even take notes if I find something that resonates with me.Most podcasts though I listen to at infinite speed, meaning I don&#39;t listen to them at all. You can go through them 2-3x speed because there&#39;s really nothing there.It&#39;s like code: if it&#39;s boilerplate you can just skim it but if it&#39;s really doing something you have to read it slowly multiple times. And just like the saying: nothing of value is easily gained.If you find yourself speeding though things - in general, not just podcasts - I would ask myself if they&#39;re worth doing at all."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://httptoolkit.tech/">
-						<picture>
-							<source srcset="default_29624319.webp" type="image/webp">
-							<source srcset="default_29624319.png" type="image/png">
-							<img src="default_29624319.png" alt="Preview of 'HTTP Toolkit'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://httptoolkit.tech/">HTTP Toolkit</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29624319">
-						
-							
-								<p class="story__comment_first line-clamp">"I am glad to see HTTP Toolkit back on HN: The author is an old friend who dedicated a lot of time and resources to make this tool and as someone who fiddled with it, it&#39;s a great alternative to Postman - which I used to love but now it&#39;s a little bit too heavy on pushing their marketing agenda.
-Also how on earth is Postman a $5.6 billion dollar company - I am super curious to see how much money Postman actually makes from enterprise sales - it must be a lot from the looks of that valuation."</p>
-							
-						
-							
-								<p class="story__comment_others">"I’ve been looking for an alternative to postman that isn’t so insanely geared to monetization. I feel postman compromises it’s entire UX to force a simple offline tool to be cloud based."</p>
-							
-						
-							
-								<p class="story__comment_others">"We are in a similar space, our tool (https://caido.io) is geared toward bug bounty hunters and pentesters. HTTP Toolkit looks great congrats to the dev! It seems to compete more with requestly (https://requestly.io/) than burp suite (https://portswigger.net/)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.thenation.com/article/society/parents-collecting-cans-bottles/">
-						<picture>
-							<source srcset="default_29617276.webp" type="image/webp">
-							<source srcset="default_29617276.png" type="image/png">
-							<img src="default_29617276.png" alt="Preview of 'My parents collect cans for a living'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.thenation.com/article/society/parents-collecting-cans-bottles/">My parents collect cans for a living</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29617276">
-						
-							
-								<p class="story__comment_first line-clamp">"My family used to do this all the time when we were kids. We&#39;d go along the ditches on the side of the road and make a family outing of it on weekends. At the beach my brother and I would drag big plastic garbage bags around and collect as much as we could from people who were happy to help some kids out and also happy to be rid of the bottles and cans. You could make some decent coin at it, but that was also in the 80s when 5c a can and 10-20c a bottle was worth something.It gets into your bones. Even today with 25 years software dev experience under my belt, I still feel the twitch whenever I see a discarded bottle or can."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have not thought about collecting cans in a very long time. Decades ago you could make a decent bit of cash collecting aluminum cans. It was a common past time for poor people and undoubtedly contributed to the very high recycle rate for aluminum since it was a source of income for many people. This was widely known, so people would often go out of their way to make their aluminum trash easily available to be collected. It was kind of low-key charity of sorts.At some point this just kind of dried up. I suspect it coincided with municipalities selling the rights to collect recyclables to waste management companies."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here is a story of a man who collected cans and bottles for cash and invested the money he got in the stock market, he died a millionaire.&#34;Curt Degerman, known to many as &#34;Tin Can Curt,&#34; Degerman spent nearly 30 years roaming the streets of Skelleftea in northern Sweden collecting tin cans and bottles for cash. Those who passed him by simply assumed he was another ordinary street bum.But to the surpise of many, when Degerman died in 2008, he left more than $1.4 million to his cousin. In between collecting cans, Degerman spent a lot of time in his local library reading business papers and studying the stock market. &#34;He knew stocks inside and out,&#34; said his cousin.By immersing himself in an education of thrift and smart investing, Degerman used his tin-can earnings to purchase mutual funds. He bought 124 gold bars and also expanded his cash with a savings account. By riding a bicycle and not having a mortgage on his house, his savings were made even easier.But in 2008, Degerman died of a heart attack, leaving his entire estate to a cousin who had visited him regularly during his last days. He died a millionaire.&#34;Sources:https://www.nydailynews.com/news/money/tin-collector-dies-mi...https://www.wsj.com/articles/BL-WHB-2895https://archive.md/kB5F4"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://zig.news/xq/a-challenger-to-the-throne-of-vector-graphics-svg-is-dead-long-live-tinyvg-4on8">
-						<picture>
-							<source srcset="default_29629792.webp" type="image/webp">
-							<source srcset="default_29629792.png" type="image/png">
-							<img src="default_29629792.png" alt="Preview of 'TinyVG: A challenger to the throne of vector graphics'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://zig.news/xq/a-challenger-to-the-throne-of-vector-graphics-svg-is-dead-long-live-tinyvg-4on8">TinyVG: A challenger to the throne of vector graphics</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29629792">
-						
-							
-								<p class="story__comment_first line-clamp">"I am not sure how relevant this is, but I recently published a proof a concept library  that converts SVG documents into simulated machines. See the link below.https://www.getlazarus.org/videos/physics/blueprint/The rendering in my library relies upon OpenGL and the NanoVG library. My library is called Tiny Sim. All of these nano tiny and vg names seem to be colliding adding a bit of confusion in my opinion."</p>
-							
-						
-							
-								<p class="story__comment_others">"There are many other popular vector graphics formats beyond those mentioned here. Lottie has already displaced SVG for animation/motion graphics, and for static content IconVG exists and is backed by Google. There&#39;s also PDF, PostScript, Flash, the glyf format in OpenType, etc."</p>
-							
-						
-							
-								<p class="story__comment_others">"A small nitpick as the resvg author: the repo located here https://github.com/RazrFalcon/resvg I&#39;m not sure why the author linked some random, outdated fork. If you&#39;re trying to beat SVG, you should have done a better research.But yes, SVG is extremely bloated and under-documented. Especially SVG 2. The core resvg codebase is close to 20 KLOC, while the whole package is like 50 KLOC.On the other hand, resvg is an exception, because it doesn&#39;t rely on any system and/or 3rd party libraries. 95% of the code in the final binary was written by one person (me). Not because it was strictly required, but because it was fun. resvg is basically an epitome of RIIR."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://the.exa.website/">
-						<picture>
-							<source srcset="default_29609388.webp" type="image/webp">
-							<source srcset="default_29609388.png" type="image/png">
-							<img src="default_29609388.png" alt="Preview of 'Exa - A Modern Replacement for ls'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://the.exa.website/">Exa - A Modern Replacement for ls</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29609388">
-						
-							
-								<p class="story__comment_first line-clamp">"I used to think exa was a good ls replacement, but I found out that it&#39;s significantly slower than ls[0]. Heck, it&#39;s even slower than lf[1]. Quite frankly I didn&#39;t know what to think, but I removed the alias ls=exa.0: https://asciinema.org/a/454216 vs https://asciinema.org/a/4542171: https://asciinema.org/a/454213"</p>
-							
-						
-							
-								<p class="story__comment_others">"Non-positive opinion ahead.Personally I can’t find a use for it. Colors are so vast that I can’t figure out which means what (and they rarely play nice with a custom bg color). And then, all I have to know is whether a file is “-&gt;”, “*”, “/“ or “”. Tree+git view could be useful, if not node_modules, .git and other tree spammers. Of course there is an option to ignore, but then my .bashrc grows again while all I need in a project dir is covered by git status -s (yes I can read these capital letters since svn).It is modern in a sense of presentation, and I see how it may appeal to someone, but not in a sense of ls being old or something. It feels to me like a strange tool that does everything but nothing specifically, as if someone always wanted a nice gui file explorer, but had no courage to admit this “lameness”.Why spend your time squinting at black and white text?*I usually spend time on colored output trying to read blue/lightgreen/etc on #444, and because my b/w tools are separated by colored PS1, which emphasizes important* things like hostname, user, cwd, exitcode and puts a newline so that each command is lined up and ends with an additional \n. File being a green file or a blue dir is not as important as me patching a wrong instance."</p>
-							
-						
-							
-								<p class="story__comment_others">"I always find pitches like this a little obnoxious:&gt; You list files hundreds of times a day. Why spend your time squinting at black and white text?Uh, `ls` has colors, if you know how or some benevolent distro-maintainer did.Now there&#39;s a ton of value in sane defaults and cutting out cruft and targeting specific use-cases, so not here to criticize the tool, at all. Just the marketing. Why not talk about what&#39;s actually special and different about it?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="http://fourlightyears.blogspot.com/2021/12/this-is-my-mums-80th-birthday-present.html">
-						<picture>
-							<source srcset="default_29620235.webp" type="image/webp">
-							<source srcset="default_29620235.png" type="image/png">
-							<img src="default_29620235.png" alt="Preview of 'Show HN: Mum&#39;s 80th birthday present- a rotary phone from the 1970&#39;s'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="http://fourlightyears.blogspot.com/2021/12/this-is-my-mums-80th-birthday-present.html">Show HN: Mum&#39;s 80th birthday present- a rotary phone from the 1970&#39;s</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29620235">
-						
-							
-								<p class="story__comment_first line-clamp">"A blast from the past.
-You&#39;re a great son.At home, I still use a W48 [0], I bought somewhere in the mid-90s on a flea market.
-Just have to change the carbon capsule microphone every twenty years or so.
-In doubt, one can change to a simple transistor circuit microphone.
-My router has a phone jack that provides enough voltage to the bell.
-Works like a charm.[0] https://en.wikipedia.org/wiki/W48_(telephone)"</p>
-							
-						
-							
-								<p class="story__comment_others">"My parents still have two working rotary phones on their landline.  And not one of those fancy, newfangled plastic ones, theirs are metal that hurt my fingers.  They are hard wired into the wall as they are from before RJ11 connectors.They got FIOS a while back.  The tech that showed up was gobsmacked that the phones still worked after the install."</p>
-							
-						
-							
-								<p class="story__comment_others">"Before reading the article I was sure you installed a SIP client on Raspberry Pi and wired the speaker/mic to the headset so she could actually make calls with it. 
-Still awesome."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://justine.lol/sectorlisp2/">
-						<picture>
-							<source srcset="default_29630293.webp" type="image/webp">
-							<source srcset="default_29630293.png" type="image/png">
-							<img src="default_29630293.png" alt="Preview of 'Show HN: Lisp with GC in 436 Bytes'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://justine.lol/sectorlisp2/">Show HN: Lisp with GC in 436 Bytes</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29630293">
-						
-							
-								<p class="story__comment_first line-clamp">"Everytime I see this domain I know I&#39;m in for a treat. I assume the Dev&#39;s name is Justine, and they&#39;re one hell of a programmer. Pretty sure Actually Portable Executables are from this dev as well, which are also incredibly interesting."</p>
-							
-						
-							
-								<p class="story__comment_others">"Very impressive.&gt; SectorLISP uses what we call an ABC garbage collector and it took only 40 bytes of assembly.&gt; [...]&gt; Fast immediate garbage collection with zero memory overhead and perfect heap defragmentation is as easy as ABC when your language guarantees data structures are acyclic.Neat, but my understanding was that even pure functional languages can&#39;t generally make this guarantee, because things like letrec complicate matters. If SectorLISP can take this approach, why doesn&#39;t Haskell? (Or does it?)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Past related thread:Show HN: SectorLISP now fits in one sector - https://news.ycombinator.com/item?id=29047584 - Oct 2021 (75 comments)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://twitter.com/Sega__JEANAsis/status/1472198123506257937">
-						<picture>
-							<source srcset="default_29615268.webp" type="image/webp">
-							<source srcset="default_29615268.png" type="image/png">
-							<img src="default_29615268.png" alt="Preview of 'Someone attached an AirTag to my car while I was in a bar'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://twitter.com/Sega__JEANAsis/status/1472198123506257937">Someone attached an AirTag to my car while I was in a bar</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29615268">
-						
-							
-								<p class="story__comment_first line-clamp">"This is news just because it&#39;s an Apple device being used for something that was already trivially possible.GPS trackers designed to be magnet-attached to a car which report their location via cell signal cost ~$20 on Amazon. You then tend to need to pay for either a SIM card or a subscription to the device maker&#39;s service 
--- bringing you up to about the cost of an AirTag. These are much harder to detect, as you might imagine.The Apple device does try to make itself less useful for abusive purposes. Nearby iPhones will notify you if there&#39;s an AirTag following you. Apple released an Android app to scan for them (manually -- it&#39;d probably be nice if they released something that did the same passive scanning as iPhones get, but there&#39;s battery trade-offs there, and obviously most people won&#39;t have that app). AirTags will also beep if they&#39;re separated from their owner.In fact, this is news we&#39;re hearing about because of the steps Apple took to make it harder to use these devices for bad purposes. The tweet author got a warning about the device following them.It&#39;s tricky to make something that lets you find where you dropped your keys while walking the dog that can&#39;t also be used for nefarious purposes."</p>
-							
-						
-							
-								<p class="story__comment_others">"While it’s theoretically possible that this happened, I think this particular story was made up. For a number of reasons: 1) How did the stalker know that that’s her car? She said she was on a night out. Unless she went back to her car all the time, he must have seen her arrive in it. 2) Sticking an AirTag to the inside of the front wheel well isn’t easy. There is dirt and grime there and the surfaces aren’t flat. The stalker would have had to use a very strong adhesive to make the AirTag stick while the car was moving. 3) While it’d be a smart idea to not drive home while a foreign AirTag tracks you, who is alert enough after a night out AND happens to have friends in the vicinity that you can wake up at what must have been a very late hour? 4) Her friend who found and removed the AirTag took no photo. Really?"</p>
-							
-						
-							
-								<p class="story__comment_others">"The interesting thing is that I have seen multiple reports of this ( think this is is the third), but in every case, they have destroyed it, lost it, or thrown it away before hand - not given it to the police.Apple can&#39;t tell who the devices is from signals in the wild, but they can figure out who it is if someone gives them the physical device. (Apple tracks the serial number of the device, and from what I understand, can provide purchaser/activator information based on the serial number)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.accountingcoach.com/">
-						<picture>
-							<source srcset="default_29625571.webp" type="image/webp">
-							<source srcset="default_29625571.png" type="image/png">
-							<img src="default_29625571.png" alt="Preview of 'Learn accounting for free'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.accountingcoach.com/">Learn accounting for free</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29625571">
-						
-							
-								<p class="story__comment_first line-clamp">"Background: I&#39;m a qualified accountant, and have taught courses on accounting and finance.My thoughts on OP:I read through the first two parts of the first course on this site:- Part 1 Introduction to Accounting Basics, A Story for Relating to Accounting Basics- Part 2 Income StatementBased on what I read, I could not recommend this. You could get to the end of the &#39;income statement&#39; part, without encountering any definition of &#39;profit&#39;, which is the very thing that the income statement is meant to show.If you want a solid introduction to accounting, I&#39;d recommend Frank Wood&#39;s book &#34;Business Accounting 1&#34;. You don&#39;t need the latest (15th edition). The principles haven&#39;t changed. I used the 10th edition: Business Accounting Volume 1 https://www.amazon.co.uk/dp/0273681494/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m a software engineer who moved into freelance consulting a few years ago (I do back-ends and front-ends for mobile and web, nothing finance specific other than occasional credit card payment integrations). It&#39;s been a roller-coaster in many regards and one of the highlights is having learned a lot about bookkeeping, taxes, financial planning and everything that comes with running a small business in general. (Aspects which I initially despised but now I&#39;ve accepted as necessary and doing them as routine.)During these years I started playing with the idea of training myself in basic/intermediate accounting and/or finance. The motivation is twofold: run my own business better (and maybe stop paying an accountant to do my taxes) and maybe work on software projects in finance (where I suspect there is good money to be made).I&#39;d be interested hearing stories from fellow software engineers who did similar training!"</p>
-							
-						
-							
-								<p class="story__comment_others">"There are other online resources to learn accounting. A lot of them are listed on https://hledger.org/accounting.html#accounting-links .https://www.dwmbeancounter.com/ is often mentioned on similar threads. People also like to link to beancount&#39;s manual http://furius.ca/beancount/doc/double-entry .But I agree with mindslight&#39;s comment. They all kinda suck. Reading an actual textbook like the top comment suggested is probably better."</p>
 							
 						
 						</a>

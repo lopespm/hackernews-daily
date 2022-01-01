@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">31 December 2021</div>
+	<div class="day__date">01 January 2022</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://med.stanford.edu/news/all-news/2021/10/depression-treatment.html">
+					<a href="https://pkolaczk.github.io/server-slower-than-a-laptop/">
 						<picture>
-							<source srcset="default_29732090.webp" type="image/webp">
-							<source srcset="default_29732090.png" type="image/png">
-							<img src="default_29732090.png" alt="Preview of 'Experimental depression treatment is nearly 80% effective in controlled study'">
+							<source srcset="default_29747921.webp" type="image/webp">
+							<source srcset="default_29747921.png" type="image/png">
+							<img src="default_29747921.png" alt="Preview of 'A single line of code made a 24-core server slower than a laptop'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://med.stanford.edu/news/all-news/2021/10/depression-treatment.html">Experimental depression treatment is nearly 80% effective in controlled study</a></h3>
+					<h3><a href="https://pkolaczk.github.io/server-slower-than-a-laptop/">A single line of code made a 24-core server slower than a laptop</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29732090">
+						<a href="https://news.ycombinator.com/item?id=29747921">
 						
 							
-								<p class="story__comment_first line-clamp">"While depression can certainly be caused by chemical imbalance and not because of how your unconscious mind impacts/limits your experience of life, I took the approach that exploring my subconscious through therapy was the way to get out.For me it worked very well and I think the journey is an amazing one to go on. Building from the ground up and understanding all the foundations within. I always wonder about treatments which don&#39;t have this benefit, although the results in terms of lifestyle change sound extremely positive.One of the hardest parts of therapy is diagnosis of what to work on. Even though an issue will be &#34;presenting&#34; itself clearly, it can often be a bit of a decoy. For example, a lack of self-esteem is often a useful derivative of an unconscious fear of upsetting others. Low self-esteem =&gt; avoid situations/behaviours that upset others.During therapy I found dreams, when analysed outside of the &#34;conventional&#34; Freudian/Jungian frameworks provided a simple and accurate method of reaching the root diagnosis (the fear of upsetting others vs. the decoy issue of low self-esteem).I got a bit obsessed by the topic and wrote a paper on it which can be downloaded here: https://psyarxiv.com/k6trzAnd was discussed on HN here: https://news.ycombinator.com/item?id=19143590"</p>
-							
-						
-							
-								<p class="story__comment_others">"“I don’t procrastinate anymore,” he added. “I’m sleeping better. I completely quit alcohol. I’m walking my dog and playing the guitar again, for nothing more than the sheer joy of it.”  Most importantly, he said, “I’m remaining positive and being respectful of others. These are big changes in my life.”Serious question: are these typical signs of depression?  Now I&#39;m wondering if I have depression."</p>
+								<p class="story__comment_first line-clamp">"An aside:&gt; L3 cache is shared by all cores of a CPU.I recently learned this is no longer true! AMD EPYC processors (and maybe other recent AMDs?) divide cores into groups called &#34;core complexes&#34; (CCX), each of which has a separate L3 cache. My particular processor is 32-core where each set of 4 cores is a CCX. I discovered this when trying to figure out why a benchmark was performing wildly differently from one run to the next with a bimodal distribution -- it turned out to depend on whether Linux has scheduled the two processes in my benchmark to run on the same CCX vs. different CCXs.https://en.wikipedia.org/wiki/Epyc shows the &#34;core config&#34; of each model, which is (number of CCX) x (cores per CCX)."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; “The treatment, known as Stanford accelerated intelligent neuromodulation therapy (SAINT) or simply Stanford neuromodulation therapy, is an intensive, individualized form of transcranial magnetic stimulation. In the study, remission typically occurred within days and lasted months. The only side effects were temporary fatigue and headaches.”&gt; “Twenty-nine people with treatment-resistant depression participated in the study: About half received SAINT, and the rest underwent a placebo procedure that mimicked the real treatment. After five days of treatment, 78.6% of the participants in the treatment group were no longer depressed, according to several standard methods of evaluation. “It’s quite a dramatic effect, and it’s quite sustained,” said Alan Schatzberg, MD, the Kenneth T. Norris, Jr. Professor in Psychiatry and Behavioral Sciences, who was a co-author of the study.”Makes me wonder what percentage of the placebo group improved?&gt; The transcranial magnetic stimulation treatment currently approved by the Food and Drug Administration requires six weeks of once-daily sessions. Only about half of patients who undergo the treatment improve, and only about a third experience remission from depression."</p>
+								<p class="story__comment_others">"The culprit was a shared atomic reference counter (Arc). The cache invalidation across cores eliminated any kind of scaling via multiple threads.The solution is to stop sharing. The author had to make changes specific to this codebase for each thread to have its own copy of the offending dataset."</p>
+							
+						
+							
+								<p class="story__comment_others">"The notion of &#34;lock-free&#34; is fundamentally misleading.It trips up everybody who hopes &#34;lock-free&#34; will be a magic bullet freeing them from resource contention bottlenecks.When you have explicit locks, aka mutexes (condition variables, semaphores, what-have-you), the interaction between your threads is visible on the surface. Replacing that with &#34;lock-free&#34; interaction, you have essentially the same set of operations as when taking a mutex. On the up side, overhead cost may be lower. On the down side, mistakes show up as subtly wrong results instead of deadlocks. And, you get less control, so when you have a problem, it is at best harder to see why, and harder to fix.Because the lock-free operations involve similar hardware bus interactions under the covers, they cannot fix contention problems. You have no choice but to fix contention problems at a higher, architectural design level, by reducing actual contention. Having solved the problems there, the extra cost of explicit mutex operations often does not matter, and the extra control you get may be worth any extra cost.What is lock-free good for, then? Lock-free components reduce overhead when there is no contention. Given any actual contention, performance is abandoned in favor of correctness. So, if you have mutexes and performance is good, moving to lock-free operations might make performance a little better. If performance is bad, mutexes and lock-free operations will be about equally as bad."</p>
 							
 						
 						</a>
@@ -76,33 +76,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://apenwarr.ca/log/20211229">
+					<a href="https://twitter.com/FiloSottile/status/1476698207413493766">
 						<picture>
-							<source srcset="default_29736369.webp" type="image/webp">
-							<source srcset="default_29736369.png" type="image/png">
-							<img src="default_29736369.png" alt="Preview of 'The gift of it&#39;s your problem now'">
+							<source srcset="default_29742977.webp" type="image/webp">
+							<source srcset="default_29742977.png" type="image/png">
+							<img src="default_29742977.png" alt="Preview of 'Linux Kernel RNG is now Blake2 instead of SHA1 and 3x faster'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://apenwarr.ca/log/20211229">The gift of it&#39;s your problem now</a></h3>
+					<h3><a href="https://twitter.com/FiloSottile/status/1476698207413493766">Linux Kernel RNG is now Blake2 instead of SHA1 and 3x faster</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29736369">
+						<a href="https://news.ycombinator.com/item?id=29742977">
 						
 							
-								<p class="story__comment_first line-clamp">"This was a long, thoughtful read. I really enjoyed it and mostly see things as the author does.&gt; So it is with free software. You literally cannot pay for it. If you do, it becomes something else.This is really the crux. Everyone is mad there’s no money in writing free/os software, but if there was money it wouldn’t be free/os software. It would just be like what we do at our day jobs.You can write the code someone else wants and get paid for it (aka a day job). You also have the option to write the code YOU want to write, but in this case you’ll need to figure out a plan for making money on your own."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; I read a book once which argued that the problem with modern political discourse is it pits the &#34;I don&#39;t want things taken from me&#34; (liberty!) people against the &#34;XYZ is a human right&#34; (entitlement!) people. And that a better way to frame the cultural argument is &#34;XYZ is my responsibility to society.&#34;I don’t know if it’s the book he’s talking about, but Simone Weil makes this argument in the beginning of The Need for Roots[+]—that the correct way to think about our relationship to society isn’t “rights” (someone else’s problem) but obligations (our problem).[+] https://antilogicalism.com/wp-content/uploads/2019/04/need-r..."</p>
+								<p class="story__comment_first line-clamp">"This is an egregiously editorialized headline, but this was the easiest way to submit two separate links to LKML in one HN submission --- link to Fillipo&#39;s tweet about those links.The @zx2c4 Filippo is referring to is Jason Donenfeld, of WireGuard fame. It was news to me that he&#39;d taken over the Linux kernel random driver! But it&#39;s welcome news indeed."</p>
 							
 						
 							
-								<p class="story__comment_others">"What other gifts continue to be the responsibility of the giver after they&#39;re given?If I give you a puppy, and it gets sick, should the vet bill me?If I gave you a car, and the wheels fall off two years later, is that my problem?In this instance people have been using this Java package for years I gather without problems. Why is the responsibility for changing the package anyone but theirs, the people using it; now that they&#39;re decided they have stricter requirements for that need?Even the entertainment industry&#39;s notion of &#34;ownership&#34; isn&#39;t so endless. They&#39;d like to be paid every time we use their product, but have settled for &#34;licensed media&#34; ... but that license doesn&#39;t extend to replacing the media when it wears out."</p>
+								<p class="story__comment_others">"The popularity of the Blake family annoys me, as I feel that it&#39;s overhyped. Sure, they&#39;re fast (on current hardware), but they&#39;re supposed to be cryptographic hash functions. I know that BLAKE received some scrutiny in this regard, as part of the SHA3 competition. But then BLAKE was obsoleted by BLAKE2, which in turn was obsoleted by BLAKE3, making the claims to security less and less sensible.And all this is before the actual winner of SHA3 comes into the picture. With parameters as specified by SHA3 it&#39;s a lot slower than BLAKE3, but it is my understanding (IANAC) that(1) The SHA3 security margin can safely be decreased, as NIST set the security requirements too high. This is one of the reasons for the speed difference.(2) The sponge-based crypto popularized by Keccak (the SHA3 winner) is much more amenable to cryptanalysis than the more traditional crypto such as the functions in the Blake family. This means that Blake&#39;s security would be less sure even had it received the same level of scrutiny. But AFAIK Blake received much less scrutiny than Keccak, or even other sponge-based functions, such as the ones in the NIST Lightweight Crypto competition.https://csrc.nist.gov/Projects/lightweight-cryptographyhttps://keccak.team/2017/not_arx.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"Note for those who only read the headline: the 3x speedup was achieved by removing a call to RDRAND in the extraction path, not the change in hash function."</p>
 							
 						
 						</a>
@@ -114,34 +114,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://twitter.com/mitchcohen/status/1476351601862483968">
+					<a href="https://cprimozic.net/blog/my-selfhosted-websites-architecture/">
 						<picture>
-							<source srcset="default_29739235.webp" type="image/webp">
-							<source srcset="default_29739235.png" type="image/png">
-							<img src="default_29739235.png" alt="Preview of 'iPhone camera app replaces person’s head with a leaf in photo'">
+							<source srcset="default_29746223.webp" type="image/webp">
+							<source srcset="default_29746223.png" type="image/png">
+							<img src="default_29746223.png" alt="Preview of 'Self-Hosting Dozens of Web Applications and Services on a Single Server'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://twitter.com/mitchcohen/status/1476351601862483968">iPhone camera app replaces person’s head with a leaf in photo</a></h3>
+					<h3><a href="https://cprimozic.net/blog/my-selfhosted-websites-architecture/">Self-Hosting Dozens of Web Applications and Services on a Single Server</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29739235">
+						<a href="https://news.ycombinator.com/item?id=29746223">
 						
 							
-								<p class="story__comment_first line-clamp">"Those of us who have been shooting large digital cameras for the past decade and are some times sad that our photos often come out unsharp in poor light compared to smartphones can at least take some joy in this “no free lunch” demonstration.If this is due to stabilization and not some background blur face detection then it’s probably not something you can (or would want to) disable. Taking a telephoto shot with a tiny sensor in something other than great light (even a heavy overcast is often not enough) will require a lot of software processing. I’m
-not sure exactly what happened here but I’m pretty sure everyone asking for “unmodified raw photos” to be produced don’t understand what they are asking for. Those “unmodified” photos would be unusable in most cases outside very bright conditions."</p>
-							
-						
-							
-								<p class="story__comment_others">"I sometimes hang out on mountainbike forums.A user posts that despite a new chain and setting up their rear derailleur according to instructions gear-changes are clunky or the chain skips when applying power on the pedals.The usual reply from the forum members is then to send a photo of the cassette since excessive wear there leads to these problems.This used to clearly show that the user needed to replace their worn cassette too.Lately these photos of cassettes can look all mangled. Like ML tried to “enhance” mountains or the back of an alligator or some other structure from nature on to the cassette.This has to be a problem in all sorts of technical trouble-shooting."</p>
+								<p class="story__comment_first line-clamp">"Easy setup with:- traefik (nginx proxy with auto letscencrypt)- portainer (docker container management)- fail2ban (basic security)- logwatch (server / security stats by mail)- munin (server stats)- restic (cloud backup)- unattended-upgrades (auto install security updates)- apticron (weekly info)- n8n (automatisation for e.g. quick info via telegram, if something not work)Run every app that you want in your container."</p>
 							
 						
 							
-								<p class="story__comment_others">"I hate how much phones lately alters the images. Of course it most of the time makes the images look better, and cameras are a big selling point on a phone.But I don&#39;t like how my photos of people suddenly have a filter applied to the faces, how a picture of leaves during fall have vibrance exaggerated, how the sky looks clearer than it really did."</p>
+								<p class="story__comment_others">"Three independent, but somewhat related thoughts on this topic:1). On HOWTO articles about infra (1/2): I&#39;d like to see more articles that lead with requirements, rather than setups that then justify the setup with requirements. Like, congrats, you managed to host a bunch of web applications via containers on a dedicated server. It&#39;s really nice for a super personal project and I&#39;m sure it helped OP gain a lot of operational experience across several domains, but I just find this type of article to be &#34;DYI porn&#34; for a highly specific subset of DYI.2). On HOWTO articles about infra (2/2): Is there any sort of comprehensive infra setup guide out there? Even something that just covers &#34;core&#34; AWS services (CloudFront, EC2, ELB, ECS, Lambda, CloudWatch, CloudTrail, and a few others...) feels like it would be incredibly useful for so many people.3). &#34;AWS on Rails&#34; - I feel like we&#39;re getting close to a time when &#34;AWS on Rails&#34; emerges and we see the birth of a new opinionated tool that says &#34;Most people just want to ship their product, not fiddle with cloud infra. Do it our way and you can focus on product instead of infra&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"I (my company) use a similar approach: a single dedicated server with docker containers, by using dokku [0], for an heroku-like self-hosted PaaS.Most of our applications are either:- app developped in-house (django/flask): Procfile + deploy with git push- standard app with a docker image available: deploy directlyDokku comes with useful &#34;service&#34; plugins for databases, auto https (letsencrypt), virtual hosts... Overall, a good experience.[0] https://dokku.com/"</p>
 							
 						
 						</a>
@@ -153,33 +152,33 @@ not sure exactly what happened here but I’m pretty sure everyone asking for �
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://devblogs.microsoft.com/oldnewthing/20211229-00/?p=106061">
+					<a href="https://twitter.com/mitchcohen/status/1476951534160257026">
 						<picture>
-							<source srcset="default_29729931.webp" type="image/webp">
-							<source srcset="default_29729931.png" type="image/png">
-							<img src="default_29729931.png" alt="Preview of 'You can&#39;t copy code with memcpy'">
+							<source srcset="default_29750660.webp" type="image/webp">
+							<source srcset="default_29750660.png" type="image/png">
+							<img src="default_29750660.png" alt="Preview of 'Update: iPhone Camera app did not replace person&#39;s head with a leaf'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://devblogs.microsoft.com/oldnewthing/20211229-00/?p=106061">You can&#39;t copy code with memcpy</a></h3>
+					<h3><a href="https://twitter.com/mitchcohen/status/1476951534160257026">Update: iPhone Camera app did not replace person&#39;s head with a leaf</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29729931">
+						<a href="https://news.ycombinator.com/item?id=29750660">
 						
 							
-								<p class="story__comment_first line-clamp">"In my 1980s version of Empire, all the global variables were kept contiguously in one source file. To save/restore the game, it just took the address of the first one, the address of the last one, and blitted it to a disk file, and blitted it back.Very fast &amp; easy.Of course, it broke when COMDATs were introduced.I did a similar thing with my text editor. The colors were configurable. The usual way was to have a configuration file, which the editor would read upon startup. But floppy disk systems were unbearably slow. So what I did was take the address of the configuration data in the data segment. I&#39;d work backwards to where those bytes were in the EXE file, and patch the EXE file. This worked great!Until the advent of virus scanners, which broke that. Virus scanners hated self-modifying EXE files."</p>
-							
-						
-							
-								<p class="story__comment_others">"This reminded me of the old days working in Windows 3.1 and my first professional project was to write a SOCKS client that could be loaded up and intercept all calls to Winsock&#39;s connect() function.  It needed to do this without modifying the other programs and it had to happen at the DLL level and not the VxD layer where our IP stack ran.Turns out there was an undocumented Windows API function along the lines of &#34;AliasCsToDsRegister&#34; or something like that - I&#39;ve tried to find a reference to it but I can&#39;t find it.  It allowed me write into the code segment (the CS was global and read only - as it was shared among all processes)  and replace the first few bytes of the connect function call with a jump to my code which would then put it back, make the call to the socks server, do some other magic, put my jump hook back in and the return to the caller.  Good times!Kind of surprised I remember this and more so that it actually worked."</p>
+								<p class="story__comment_first line-clamp">"Original discussion for the photo: https://news.ycombinator.com/item?id=29739235"</p>
 							
 						
 							
-								<p class="story__comment_others">"I remember doing exactly this to get code injection working on GNU/Linux systems!  I made a library injection library in college for some coursework, which involved copying a C function into a code cave on a remote process and getting the remote process to execute it and return.  It only works because its so bare-bones, it doesn&#39;t use try/catch and calls to other functions are possible because the function pointers are passed in through the registers and the compiled code is small enough to fit in a single page.An example function I memcpy and run:https://github.com/skimmilk/liblibinject/blob/master/src/lib..."</p>
+								<p class="story__comment_others">"I&#39;m amazed that such stupid stuff takes up attention, and more importantly, takes up my attention. Thankfully it&#39;s just a minute or two, but clearly I need to be more careful about what I click on (and let into my head...I&#39;m sure this type of thing degrades bayesian priors for everyone reading it)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think we bought into it because it looks plausible. In the original image[0], the boundary between the leaf and the person&#39;s face looks legitimately blended in a way that only AI auto-filling does. From that, it&#39;s not a leap to extrapolate that the leaf itself was auto-filled from the surroundings.0. https://pbs.twimg.com/media/FH0N9HNWQAE0n9R?format=jpg&amp;name=..."</p>
 							
 						
 						</a>
@@ -191,33 +190,33 @@ not sure exactly what happened here but I’m pretty sure everyone asking for �
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://blog.wesleyac.com/posts/consider-sqlite">
+					<a href="https://danpetrov.xyz/programming/2021/12/30/telegram-google-translate.html">
 						<picture>
-							<source srcset="default_29727707.webp" type="image/webp">
-							<source srcset="default_29727707.png" type="image/png">
-							<img src="default_29727707.png" alt="Preview of 'Consider SQLite'">
+							<source srcset="default_29746674.webp" type="image/webp">
+							<source srcset="default_29746674.png" type="image/png">
+							<img src="default_29746674.png" alt="Preview of 'How Telegram Messenger circumvents Google Translate&#39;s API'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://blog.wesleyac.com/posts/consider-sqlite">Consider SQLite</a></h3>
+					<h3><a href="https://danpetrov.xyz/programming/2021/12/30/telegram-google-translate.html">How Telegram Messenger circumvents Google Translate&#39;s API</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29727707">
+						<a href="https://news.ycombinator.com/item?id=29746674">
 						
 							
-								<p class="story__comment_first line-clamp">"We&#39;ve been using SQLite in production as our exclusive means for getting bytes to/from disk for going on 6 years now. To this day, not one production incident can be attributed to our choice of database or how we use it.We aren&#39;t using SQLite exactly as intended either. We have databases in the 100-1000 gigabyte range that are concurrently utilized by potentially hundreds or thousands of simultaneous users. Performance is hardly a concern when you have reasonable hardware (NVMe/SSD) and utilize appropriate configuration (PRAGMA journal_mode=WAL).In our testing, our usage of SQLite vastly outperformed an identical schema on top of SQL Server. It is my understanding that something about not having to take a network hop and being able to directly invoke the database methods makes a huge difference. Are you able to execute queries and reliably receive results within microseconds with your current database setup?Sure, there is no way we are going to be able to distribute/cluster our product by way of our database provider alone, but this is a constraint we decided was worth it, especially considering all of the other reduction in complexity you get with single machine business systems. I am aware of things like DQLite/RQLite/et.al., but we simply don&#39;t have a business case that demands that level of resilience (and complexity) yet.Some other tricks we employ - We do not use 1 gigantic SQLite database for the entire product. It&#39;s more like a collection of microservices that live inside 1 executable with each owning an independent SQLite database copy. So, we would have databases like Users.db, UserSessions.db, Settings.db, etc. We don&#39;t have any use cases that would require us to write some complex reporting query across multiple databases."</p>
-							
-						
-							
-								<p class="story__comment_others">"I believe SQLite is about to explode in usage into areas it’s not been used before.SQL.js[0] and the incredible “Absurd SQL”[1] are making it possible to build PWAs and hybrid mobile apps with a local SQL db. Absurd SQL uses IndexedDB as a block store fs for SQLite so you don’t have to load the whole db into memory and get atomic writes.Also I recently discovered the Session Extension[2] which would potentially enable offline distributed updates with eventual consistency!I can imagine building a SAAS app where each customer has a “workspace” each as a single SQLite db, and a hybrid/PWA app which either uses a local copy of the SQLite db synced with the session extension or uses a serveless backend (like CloudFlare workers) where a lightweight function performs the db operations. I haven’t yet found a nice way to run SQLite on CloudFlare workers, it need some sort of block storage, but it can’t be far off.0: https://sql.js.org/1: https://github.com/jlongster/absurd-sql2: https://www.sqlite.org/sessionintro.html"</p>
+								<p class="story__comment_first line-clamp">"Someone deleted an interesting comment about adversarial interoperability [0]I’d love to see and give money to a project to create and maintain easy to use and stable “adversarial interoperability” APIs for as many services and products as possible.Perhaps companies and projects would not often use these directly because of the risks (hopefully some would, though!) but individuals could drop the library or the URL to a server hosting it into their apps to gain extra features.If standardised, whole open source apps could be built around them that allow querying and analysis of data from services and aggregating and automating using the services including optimising prices, taking advantage of offers, and using undocumented APIs to the users advantage.Maybe something architected and incentivised like https://thegraph.com/ for adversarial intercom and undocumented APIs. Building as a network of nodes and funding with crypto would make it harder to attack and take down.[0] https://www.eff.org/deeplinks/2019/10/adversarial-interopera..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve always thought it interesting that there was a time when large(ish) websites were hosted using servers that would struggle to outperform a modern smart toaster or wristwatch, and yet modern web applications tend to demand a dramatic distributed architecture. I like the examples in this article showing what a single modern server can do when you&#39;re not scaling to Google&#39;s level.As an aside, what about distributed derivatives of sqlite, like rqlite, as a response to the criticism that sqlite requires your database server to also be your web server. Could something like rqlite also provide a way for an sqlite database to grow into a distributed cluster at a later point?https://github.com/rqlite/rqlite"</p>
+								<p class="story__comment_others">"I don’t understand the way this was implemented.They are bound to get in trouble with Google for this, but they can’t easily pull the feature. They can’t just be like „oh you’ve had translate for two weeks now, but now we can’t pay for it, so it’s gone.“What is the long term thinking behind this? Or is this just developers and management not communicating?"</p>
+							
+						
+							
+								<p class="story__comment_others">"As a small company who spends $70-80k per year on Google&#39;s official Translate API, it&#39;s disappointing if Google allows this type of abuse to continue.If they don&#39;t want to pay, they should be using a free open source alternative like https://github.com/LibreTranslate/LibreTranslate"</p>
 							
 						
 						</a>
@@ -229,35 +228,33 @@ not sure exactly what happened here but I’m pretty sure everyone asking for �
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.duskborn.com/posts/2021-aoc-zig/">
+					<a href="https://seths.blog/2021/12/dont-waste-the-good-days/">
 						<picture>
-							<source srcset="default_29702607.webp" type="image/webp">
-							<source srcset="default_29702607.png" type="image/png">
-							<img src="default_29702607.png" alt="Preview of 'A Review of the Zig Programming Language (Using Advent of Code 2021)'">
+							<source srcset="default_29754120.webp" type="image/webp">
+							<source srcset="default_29754120.png" type="image/png">
+							<img src="default_29754120.png" alt="Preview of 'Don&#39;t Waste the Good Days'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.duskborn.com/posts/2021-aoc-zig/">A Review of the Zig Programming Language (Using Advent of Code 2021)</a></h3>
+					<h3><a href="https://seths.blog/2021/12/dont-waste-the-good-days/">Don&#39;t Waste the Good Days</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29702607">
+						<a href="https://news.ycombinator.com/item?id=29754120">
 						
 							
-								<p class="story__comment_first line-clamp">"Computer language inventors are torn between a voice whispering “use the language Luke” and and a more gravelly “let your feelings for the compiler grow, embrace the syntax side.”I did a two-day sprint through Zig a month ago and really really liked it. It has some quirks that I would have done differently, but overall I think it’s pretty cool. I just need a good small scale project to try it out on now.My favorite example of the “use the language” ethos is the way Zig does generics. I have hated generics/templates in every language I use them in. They are the gordian knot of confusion that most languages in pursuit of some sort of unified type theory impale themselves on (yes, I’m mashing metaphors here). But Zig just uses its own self to define user types and generics come along for free. It resonates (with me at least) as a realization of what Gilda Bracha has shared about how to reify generics.[1] https://gbracha.blogspot.com/2018/10/reified-generics-search..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Initializing arrays is weird in Zig. Lets say you want to have a 0 initialized array, you declare it like [_]u8{0} * 4 which means I want an array, of type u8, that is initialized to 0 and is 4 elements long. You get used to the syntax, but it’s not intuitive.Alternatively:  var some_array = std.mem.zeroes([4]u8);
-
-Though as mentioned later in the article the standard library documentation is not very good, making this not as obvious as it could be.&gt; Everything in Zig is const x = blah;, so why are functions not const bar = function() {};?Good question, there&#39;s an accepted proposal to fix this: https://github.com/ziglang/zig/issues/1717&gt; The builtin compiler macros (that start with @) are a bit confusing. Some of them have a leading uppercase, others a lowercase, and I never did work out any pattern to them.In idiomatic zig, anything that returns a type is uppercased as though it were itself a type. Since only a few builtins return types, the vast majority of builtins will start with a lowercase letter. I think it is only `@Type`, `@TypeOf`, `@This`, and `@Frame` that don&#39;t."</p>
+								<p class="story__comment_first line-clamp">"People look at me like I’m insane when I tell them I’m packing up and taking a year off.I’ve f’in had enough. And that’s me, the wife and our two kids- not quite school age. No I haven’t FIREd. No I’m probably passing up a raise and a promo (or maybe not). Super linear growth requires super linear decision making. You either follow the sheeple or decide enough is enough and make some drastic change. Im not getting these years back and for the life of me can’t understand those who say, I’m gonna work till I’m 55 and then I’m done.Anyways HN fam- I’m already done.Here’s to 2022See y’all in Penang."</p>
 							
 						
 							
-								<p class="story__comment_others">"I also did AoC 2021 in Zig: https://github.com/avorobey/adventofcode-2021One thing the OP didn&#39;t mention that I really liked was runtime checks on array/slice access and integer under/overflow. Because dealing with heap allocation is a bit of a hassle, I was incentivized to use static buffers a lot. I quickly figured out that I didn&#39;t have to worry about their sizes much, because if they&#39;re overrun by the unexpectedly large input or other behavior in my algorithms, I get a nice runtime error with the right line indicated, rather than corrupt memory or a crash. Same thing about choosing which integer type to use: it&#39;s not a problem if I made the wrong choice, I&#39;ll get a nice error message and fix easily. This made for a lot of peace of mind during coding. Obviously in a real production system I&#39;d be more careful and use dynamic sizes appropriately, but for one-off programs like these it was excellent.Overall, I really enjoyed using Zig while starting out at AoC problem 1 with zero knowledge of the language. To my mind, it&#39;s &#34;C with as much convenience as could be wrung out of it w/o betraying the low-level core behavior&#34;. That is, no code execution hidden behind constructors or overloads, no garbage collection, straight imperative code, but with so much done right (type system, generics, errors, optionals, slices) that it feels much more pleasant and uncomparably safer than C.(you can still get a segmentation fault, and I did a few times - by erroneously holding on to pointers inside a container while it resized. Still, uncomparably safer)"</p>
+								<p class="story__comment_others">"I feel like there is wisdom in &#34;Make hay while the sun shines.&#34; When you&#39;re young and unencumbered by responsibility and family, when your cognitive abilities are at their peak, when your energy is endless, when your body is strong and healthy, when your knees work, and your fingers can type without arthritis: that&#39;s the optimal time to work and earn. Min-max that salary and stay healthy. Due to compounding interest, a dollar made in your 20&#39;s is far, far more valuable than a dollar made in your 60&#39;s. Every morsel you make and save early means your retirement comes earlier. There will never be a more efficient time to earn those days of leisure that will come later if you stay healthy.Take that vacation to Bali when you&#39;re young, and you are wasting your prime, strongest days that could be making you financially secure and/or independent. Go windsurfing for a year in Ibiza after college, and you&#39;re adding 5 years to your working life--retiring at 62 instead of 57. It didn&#39;t sound like much time when I was young, but today, as I turn elderly, I&#39;m counting down the years until I can finally retire, and kicking myself for goofing around when I was younger. If I could do it all again, I&#39;d have tried harder to get into big tech early, I&#39;d have taken comp and 401(k)s and advancement more seriously. I&#39;d have played fewer video games, traveled less, and relaxed on the beach less.Life isn&#39;t short--it&#39;s LONG, and you have a brief moment in that life to maximize your preparation for the rest of it. Use it wisely."</p>
+							
+						
+							
+								<p class="story__comment_others">"Pithy, but true.It&#39;s only half the story, though. Moderation and balance are the real key. Overwork is not good in the long term. But underwork can also be a problem, even when employers let it slide.Starting in my 30s, my friends who operated in the extremes of overwork or underwork started to diverge from everyone else. Overworked people were burnt out and had few friends and social connections left. Underworking people were often first to be laid off and slowly fell behind in their skills relative to everyone they were competing against for jobs.Most of them found balance and got back on track, but I know a few holdouts who went all-in on the vagabond life of traveling the world and having fun, as well as a few who have just disappeared into their work and have basically lost social skills at this point.Balance and moderation aren&#39;t really that difficult when you make them a priority. Especially in this job market where employers aren&#39;t squeezing employees as hard because everyone has so many alternate opportunities."</p>
 							
 						
 						</a>
@@ -269,33 +266,33 @@ Though as mentioned later in the article the standard library documentation is n
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://gobolinux.org/">
+					<a href="https://boingboing.net/2021/12/30/reporter-likely-to-be-charged-for-using-view-source-feature-on-web-browser.html">
 						<picture>
-							<source srcset="default_29714825.webp" type="image/webp">
-							<source srcset="default_29714825.png" type="image/png">
-							<img src="default_29714825.png" alt="Preview of 'Gobolinux : Redefining Linux filesystem hierarchy'">
+							<source srcset="default_29745960.webp" type="image/webp">
+							<source srcset="default_29745960.png" type="image/png">
+							<img src="default_29745960.png" alt="Preview of 'Reporter likely to be charged for using “view source” feature on web browser'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://gobolinux.org/">Gobolinux : Redefining Linux filesystem hierarchy</a></h3>
+					<h3><a href="https://boingboing.net/2021/12/30/reporter-likely-to-be-charged-for-using-view-source-feature-on-web-browser.html">Reporter likely to be charged for using “view source” feature on web browser</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29714825">
+						<a href="https://news.ycombinator.com/item?id=29745960">
 						
 							
-								<p class="story__comment_first line-clamp">"This is a neat idea - and not without precedent.Installing each package into it&#39;s own directory, and maintaining symlinks into that directory structure, was an approach explored for large system installations in the 90s and 00s.NIST depot, Xheir, CMU, and Nix all did this in varying ways. The advantage of this approach was that packages could be installed once on an NFS, scoped by version/configuration, and mounted into the filesystem of every work station on a campus. The workstations then just needed to maintain references to the files on the NFS for their particular software configurations. There is also some interesting exploration of composable configuration templates that allow workstations to inherit and extend a particular configuration (i.e. the physics department might have a base template).Nix is easily the most successful in this space. It even uses something similar to the NFS approach! It can maintain a remote cache of observed configurations to pull from instead of redoing work.Reading these LISA papers is a lot of fun. If you work in system administration (i.e. maintaining an Artifactory instance for your company) and have a day to spare - I&#39;d very much recommend reading them, starting with the Nix paper!To get you started:Nix - https://www.usenix.org/conference/lisa-04/nix-safe-and-polic...Depot Lite - https://www.usenix.org/conference/lisa-viii/depot-lite-mecha..."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is actually a neat idea, and I am saying that as the archetypical, grumpy &#34;I like my sys the way it is, thank you very much!&#34; - kinda guy.A lot of the directory structure of POSIX systems is completely obsolete in the 21st century. The difference between sbin and bin? Historical, for the most part, and irrelevant in the age of rescue systems.One question that is nagging at my mind with this: What if two programs require the same lib, how is this resolved?Because, when I install progA, the lib is symlinked into the index, so when I now install progB, the lib is installed again if I understood correctly. Storage is irrelevant, the pkg manager sees there is a symlink, so it stays in place, all is well.But now I remove progA, so what happens? progB is still present, still requires the lib, it is also still installed, but now the symlink, which refered to /Programs/progA/libs/thelib.so is broken. How is this situation handled?"</p>
+								<p class="story__comment_first line-clamp">"I don&#39;t really like the framing that the reporter is framed for using &#34;view source&#34;. This reinforces the idea that the people responsible for this are just uneducated. I&#39;m sure, at this point, someone already explained them.That reporter is a victim of harassment, and that if it wasn&#39;t for &#34;view source&#34;, it could be for some unrelated stuff. It&#39;s the same as protesters being arrested for all kinds of bogus reasons, or random people being arrested with planted evidence. The goal is to deter someone you don&#39;t like from exercising their legal right (journalism, protesting, standing in the street in the wrong neighbourhood), by weaponizing unrelated laws.The only reason &#34;view source&#34; is being talked about is because that looked like the best case when the book was thrown at that journalist.I hope that case remains at threats and doesn&#39;t get to actual charges."</p>
 							
 						
 							
-								<p class="story__comment_others">"A response to inevitable critiques : https://gobolinux.org/doc/articles/clueless.html"</p>
+								<p class="story__comment_others">"&gt; The reporter discovered that the source code of the website contained Social Security numbers of educators. The reporter alerted the state about the social security numbers. After the state removed the numbers from the web page, the Post-Dispatch reported the vulnerability.I really hate the idea that trying to do the right thing (reporter telling MO DoE about SSNs being in their HTML) results in prosecution to save face instead of reflection and congratulations. This is how you get more crime.Also, REALLY?!That means that Google indexed those SSNs!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I think a lot of analogies miss the point that data was copied and transmitted to the client and accessed client side. I think it&#39;d be more accurate to compare to a barcodeImagine requesting a voter registration form and you receive a letter in the mail with all previous residents social security numbers encoded in QR codes that were added as a &#34;convenience feature&#34; for the voting officeIn that case, it&#39;d be ridiculous to claim you &#34;hacked the voting office&#34;"</p>
 							
 						
 						</a>
@@ -307,33 +304,33 @@ Though as mentioned later in the article the standard library documentation is n
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=29720803">
+					<a href="https://hookrace.net/blog/macos-setup/">
 						<picture>
-							<source srcset="default_29720803.webp" type="image/webp">
-							<source srcset="default_29720803.png" type="image/png">
-							<img src="default_29720803.png" alt="Preview of 'Ask HN: Why doesn&#39;t YC list compensation for their own open positions?'">
+							<source srcset="default_29742551.webp" type="image/webp">
+							<source srcset="default_29742551.png" type="image/png">
+							<img src="default_29742551.png" alt="Preview of 'macOS Setup after 15 Years of Linux'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29720803">Ask HN: Why doesn&#39;t YC list compensation for their own open positions?</a></h3>
+					<h3><a href="https://hookrace.net/blog/macos-setup/">macOS Setup after 15 Years of Linux</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29720803">
+						<a href="https://news.ycombinator.com/item?id=29742551">
 						
 							
-								<p class="story__comment_first line-clamp">"Here&#39;s the problem with non-deterministic conversations: everyone has an opinion (fair enough), and is willing to state it with the authority of a highly experienced subject matter expert.In deterministic conversations, a naive opinion stated with a lot of authority would be shut down quite quickly (eg: many areas in programming where you can quickly prove something to be right or wrong). You can&#39;t do that in politics, business, and many other areas. As a result, we have about 8 billion politicians and business experts.The author is making the assumption that listing a salary is connected to being a progressive business. A bunch of other people take this a step further and state how not listing the salary is a part of some conspiracy (in YC&#39;s case, apparently this is an attempt to lower the payroll costs of their portfolio companies).The reality is that even the most transparent companies out there (eg: Gitlab) do not disclose individual salaries. No, it has nothing to do with some secret plan to underpay anyone or certain groups. It&#39;s simply a fact that people become incredibly irrational when it comes to compensation, and the minute you lay it out in the open, you open up a huge surface area for conflict. Last year we learned that encouraging political activism at work has a similar dynamic, and many companies have made that a no go zone as well. It&#39;s not because they are racist or don&#39;t care - it&#39;s because it takes a tiny minority of people to get the entire business derailed, and it&#39;s hard enough to keep that from happening in the best of times; once you add a catalyst like salaries or politics, it&#39;s like adding fuel to the fire.But rather than ask ourselves why the leaders at Gitlab and millions of others companies have made the decisions they did, it&#39;s a lot easier to just make assumptions - &#34;it must be coming from a bad place, so let me brainstorm what some of those bad places could be.&#34;I&#39;ll take it a step further - Colorado State Senator Jessie Danielson would make you believe it&#39;s more likely that millions of companies are &#34;bad actors&#34; than that she just doesn&#39;t have the relevant experience in business to predict which way her bill was going to work out. Now that she&#39;s cost so many of her constituents lucrative remote jobs, it&#39;s too late to admit Mea Culpa, and instead it&#39;s everyone else&#39;s fault. If she was held a bit more accountable, the next time someone tries to bridge the gender pay gap they will hopefully spend some time interviewing and learning from people who have the relevant experience in hiring."</p>
-							
-						
-							
-								<p class="story__comment_others">"It really still isn&#39;t the norm anywhere to list compensation and I suspect that Y Combinator has the same problems of disparate compensation based on when people joined as any other company. Heck, we are all switching jobs constantly because the new guy got more than we did, despite being the same level and having more experience at the company.Plenty of companies decided to stop hiring from Colorado rather than post compensation in the job postings.If I had to guess, I suspect it provides no competitive advantage to list compensation except if you pay top tier.As an anecdote from a friend, the wage differences can be substantial. The friend just recently got a new job and the senior who mentored him in onboarding also got promoted a level too. That senior was talking about how they finally reached six figures (Canada has much lower pay than the USA, so this isn&#39;t crazy). My friend made six figures starting, with 3-5 fewer years of experience and just about two years overall.There are a lot of absurdly underpaid people out there."</p>
+								<p class="story__comment_first line-clamp">"I really tried to like macOS for an entire year. I used Yabai[1] as tilling window manager which is much better than Amethyst mentioned in the article. I also wrote my own compose key tool macos-compose[2] and rofi-like clone choosem[3] (eventually bought into Alfred).Yet with all of this effort I still went back to linux after a year (Arch with Qtile and Gnome). What really killed macos for me was the fact that animations could not be disabled entirely and everything felt like it&#39;s behind several ms of a delay. I work on the move so I don&#39;t have the luxury of multi-screen setup so switching between programs, workspaces and windows is the most important part of my workflow - it just drove me nuts.Now I run simple Lenovo yoga laptop with arch+qtile+gnome and honestly, my performance at work at least doubled. That&#39;s my anecdote anyway.1 - https://github.com/koekeishiya/yabai2 - https://github.com/Granitosaurus/macos-compose3 - https://github.com/Granitosaurus/choosem"</p>
 							
 						
 							
-								<p class="story__comment_others">"I tried to start a trend a few months ago on the month Who&#39;s hiring posts to get posters to put the compensation.  I automatically upvote any post with compensation, but few have it.I even posted about it once and got a ton of upvotes but then the mods buried my post.I would love to see more job posts with compensation in fairness to people who aren&#39;t good at negotiating, but it just isn&#39;t the norm these days."</p>
+								<p class="story__comment_others">"I did the exact opposite. I was on MacOS since 10.2.But lately I felt things have become way too locked down (both hardware and software), too dumbed down (too many apps resemble mobile apps with limited functionality) and too opinionated. Sometimes I just want things differently. Another reason was that many new features are specific to iCloud integration and as I use many OSes (both computer and mobile) I could not take advantage of those anyway. I need cross platform. So a lot of selling points became irrelevant.I moved to FreeBSD with KDE on top and it felt like a breath of fresh air finally being able to set up my system the way I want it. This is so empowering.It became my daily driver about a year ago and I haven&#39;t looked back though I still use Mac and Windows for work, Windows personally for gaming and Linux for some servers.Of course I lost some stuff too like Apple&#39;s excellent multi DPI and great hardware integration. And many apps that were great like pixelmator. But I gained a lot of configurability and the ability to upgrade my hardware again."</p>
+							
+						
+							
+								<p class="story__comment_others">"For me Linux is about freedom. Other systems might be better in UI/UX or performance (e.g. give more FPS in games for NVidia cards), but I remember the times when Microsoft dominated the IT world and it looked scary.All corporations strive to fragment the market using non-compatible technologies and then to monopolize the market by consuming other fragments.This strategy failed in the 90s with the arrival of Linux. Although many times I felt like the whole world will become Microsoft/Wintel, I think we barely missed.Now, corporations are trying to do it e.g. via forcing everybody into the cloud and killing open protocols. E.g. I have several email accounts and I can&#39;t gather mail from all of my mailboxes in one application. Situation is even worse with Calendars. I have two jobs and also my own personal calendar server and I can&#39;t collect all my calendars in one app also. I have to routinely check Google Calendar, because even though I can add it to my Thunderbird Calendar, moved or canceled events changes are not propagating to Thunderbird. And I can&#39;t integrate Microsoft Outlook calendar into my Thunderbird at all.I really don&#39;t want to rely on whims of one corporation. Also, regarding MacBooks: I remember when the touchbar had no alternatives and it is really awful. This is what monopoly means: you have to live with bad decisions. You have to pay absurd money for a piece of cloth or a roller for the desktop case."</p>
 							
 						
 						</a>
@@ -345,33 +342,38 @@ Though as mentioned later in the article the standard library documentation is n
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://ariadne.space/2021/12/29/glibc-is-still-not-y2038-compliant-by-default/">
+					<a href="https://github.com/fikrikarim/companies-with-successful-pivot">
 						<picture>
-							<source srcset="default_29722365.webp" type="image/webp">
-							<source srcset="default_29722365.png" type="image/png">
-							<img src="default_29722365.png" alt="Preview of 'Glibc is still not Y2038 compliant by default'">
+							<source srcset="default_29746370.webp" type="image/webp">
+							<source srcset="default_29746370.png" type="image/png">
+							<img src="default_29746370.png" alt="Preview of 'Companies that had successful pivots'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://ariadne.space/2021/12/29/glibc-is-still-not-y2038-compliant-by-default/">Glibc is still not Y2038 compliant by default</a></h3>
+					<h3><a href="https://github.com/fikrikarim/companies-with-successful-pivot">Companies that had successful pivots</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29722365">
+						<a href="https://news.ycombinator.com/item?id=29746370">
 						
 							
-								<p class="story__comment_first line-clamp">"We&#39;re 16 years away from the overflow. In other words, some of the systems being put in production right now are going to be around, untouched, unchanged, when it happens.Given this article, it seems we&#39;re still doing it wrong, and that means... 2038 will be &#34;fun&#34; (either the remediation, or the consequences of the lack thereof).At least most of us in the industry now have a good retirement plan: Fixing the legacy systems in 16 years..."</p>
-							
-						
-							
-								<p class="story__comment_others">"There are a lot of people, even in this very thread, who will say &#34;don&#39;t break backward compatibility!&#34; right up until 03:14:07 UTC on 19 January 2038. At SOME point we&#39;ll have to let saner people prevail, and actually break backward compatibility. I&#39;m just hoping it happens, you know, sooner rather than later."</p>
+								<p class="story__comment_first line-clamp">"My favorite part of the Nintendo story is that back when it was a playing card company, the heir to the family business took a trip to America that included a meeting at the largest card company in the world.He had expected it to have a luxurious, palatial campus… but its entire headquarters turned out to be like the fourth floor of a single building in a generic office park. He was like, “This is the absolute pinnacle I can ever hope for if I succeed beyond my wildest dreams running the playing-card company. I need a new idea.”You can read all about it in an outstanding book called I Am Error that, beyond extensive interviews with the historic key players, also takes an incredibly deep dive into the technical details."</p>
 							
 						
 							
-								<p class="story__comment_others">"The article says that users will never get 64-bit time_t on 32-bit systems on glibc.However, glibc documentation (https://www.gnu.org/software/libc/manual/html_node/Feature-T...) says:&gt; If _TIME_BITS is undefined, the bit size of time_t is architecture dependent. Currently it defaults to 64 bits on most architectures. Although it defaults to 32 bits on some traditional architectures (i686, ARM), this is planned to change and applications should not rely on this.So it sounds like glibc plans to change the default, just like musl has done."</p>
+								<p class="story__comment_others">"&gt; Netflix had considered offering movies online, but there were speeds and bandwidth problem in mid-2000.One of the more interesting things I learned from the (outstanding) documentary &#34;Enron - The Smartest Guys in The Room&#34; [0] was that Enron planned an online movie streaming service together with Blockbuster in the late 90ies (to start in 2000), but failed for the same reasons.&gt; Enron would store the entertainment and encode and stream the entertainment
+over its global broadband network. Pilot projects in Portland, Seattle and Salt Lake
+City were created to stream movies to a few dozen apartments from servers set up
+in the basement. Based on these pilot projects, Enron went ahead and recognized
+estimated profits of more than $110 million from the Blockbuster deal, even
+though there were serious questions about technical viability and market demand [1]But of course Enron &#34;pivoted&#34; to outright fraud some years before that.[0] https://www.youtube.com/watch?v=rDyMz1V-GSg[1] https://pubs.aeaweb.org/doi/pdfplus/10.1257/0895330037658884..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Twitch started out as Justin.TV, where Justin Kan wore a camera on his head 24/7 and livestreamed the results.Then they expanded to a small handful of streamers, then anybody could stream, but it never really took off and they were running out of runway.Then they noticed that the one area growing faster than any other was videogame streaming, and rebuilt the whole company around that."</p>
 							
 						
 						</a>
@@ -383,33 +385,33 @@ Though as mentioned later in the article the standard library documentation is n
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://tetr.io/">
+					<a href="https://terrainformatica.com/2021/04/25/sciter-uses-javascript-from-now-and-on/">
 						<picture>
-							<source srcset="default_29728892.webp" type="image/webp">
-							<source srcset="default_29728892.png" type="image/png">
-							<img src="default_29728892.png" alt="Preview of 'Tetr.io'">
+							<source srcset="default_29742670.webp" type="image/webp">
+							<source srcset="default_29742670.png" type="image/png">
+							<img src="default_29742670.png" alt="Preview of 'Sciter, the 5 MB Electron alternative, has switched to JavaScript'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://tetr.io/">Tetr.io</a></h3>
+					<h3><a href="https://terrainformatica.com/2021/04/25/sciter-uses-javascript-from-now-and-on/">Sciter, the 5 MB Electron alternative, has switched to JavaScript</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29728892">
+						<a href="https://news.ycombinator.com/item?id=29742670">
 						
 							
-								<p class="story__comment_first line-clamp">"Amazingly cool! Love it.Note that if there are others like me who have never set foot into game dev and are curious, there is the CS50G Introduction to Game Development at [1].[1] https://www.edx.org/course/cs50s-introduction-to-game-develo..."</p>
-							
-						
-							
-								<p class="story__comment_others">"This implementation is amazing. Is it humans on top 40? The instant replay is genius! I almost can&#39;t believe my eyes."</p>
+								<p class="story__comment_first line-clamp">"Some previous discussion on SciterJS here: https://news.ycombinator.com/item?id=24797423The issue is that this isn&#39;t actually an Electron alternative; the author is upfront about this not actually being a browser-compatible rendering engine. It&#39;s just a rendering engine that happens to use some subset / superset of HTML, JS and CSS, but it is not compatible with web libraries and components.As a basic example, SciterJS crashes loading the &#34;hello world&#34; ReactJS project (at least it did last time I tried it - the author recommended I used a custom version of React he publishes). It&#39;s perfectly fine to come up with a lightweight cross-platform UI rendering engine (we know we need more of those), but having it web-adjancent while not really web-compatible is a recipe for frustration."</p>
 							
 						
 							
-								<p class="story__comment_others">"Is there a way to play with a gamepad controller?This is the coolest web game I&#39;ve ever seen. So fast and smooth even on my ancient laptop.I didn&#39;t know you could do this in a browser. Now I want to see a Subspace remake to complete my 90&#39;s nostalgia trip."</p>
+								<p class="story__comment_others">"I see, in this thread, talks about what Sciter does and does not offer.It&#39;s not the only alternative to Electron, but it might be one that offers predictable and repeatable results.I released a small open source project on HN last week (https://github.com/Fusion/pngsource) and I wrote its backend logic in Go. I built the frontend using Tailwind (https://tailwindcss.com) and DaisyUI (https://daisyui.com) and, using Go compiler flags, I can release the app using both WebView (github.com/webview/webview) (which, yes, does require the host OS&#39; collaboration) and Wails (wails.app) (which also does.)On Linux/AMD64, the binary&#39;s size is 3.7M when building for WebView, and 6.8M when targeting Wails.The way the app works is I drag/drop files to the UI, magic happens, and I use github.com/ncruces/zenity to prompt the user for a save location.I cross-compile the apps using xgo (https://github.com/karalabe/xgo)It&#39;s been working pretty well on Linux, Windows, MacOS. I think WebView&#39;s approach of limiting the feature set is working well as it feels more &#34;native&#34; than Wails (better refreshes and resize operations for instance)However, I already have a few tickets reporting that, for instance, the app is displayed as a blank window in some environments. And it&#39;s hard to debug remotely, obviously. So, this is where Sciter may be a better option."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Fabrice Bellard have created his QuickJS embeddable JS engineOh. That&#39;s the QEMU/FFMPEG Fabrice Bellard? That sounds definitely interesting. (Perhaps more than the actual article, haha.)https://bellard.org/quickjs/"</p>
 							
 						
 						</a>
