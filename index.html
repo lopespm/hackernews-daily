@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">01 January 2022</div>
+	<div class="day__date">02 January 2022</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://pkolaczk.github.io/server-slower-than-a-laptop/">
+					<a href="https://old.reddit.com/r/sysadmin/comments/rt91z6/exchange_2019_antimalware_bad_update/">
 						<picture>
-							<source srcset="default_29747921.webp" type="image/webp">
-							<source srcset="default_29747921.png" type="image/png">
-							<img src="default_29747921.png" alt="Preview of 'A single line of code made a 24-core server slower than a laptop'">
+							<source srcset="default_29756714.webp" type="image/webp">
+							<source srcset="default_29756714.png" type="image/png">
+							<img src="default_29756714.png" alt="Preview of 'Microsoft Exchange stops passing mail due to bug on 1/1/22'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://pkolaczk.github.io/server-slower-than-a-laptop/">A single line of code made a 24-core server slower than a laptop</a></h3>
+					<h3><a href="https://old.reddit.com/r/sysadmin/comments/rt91z6/exchange_2019_antimalware_bad_update/">Microsoft Exchange stops passing mail due to bug on 1/1/22</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29747921">
+						<a href="https://news.ycombinator.com/item?id=29756714">
 						
 							
-								<p class="story__comment_first line-clamp">"An aside:&gt; L3 cache is shared by all cores of a CPU.I recently learned this is no longer true! AMD EPYC processors (and maybe other recent AMDs?) divide cores into groups called &#34;core complexes&#34; (CCX), each of which has a separate L3 cache. My particular processor is 32-core where each set of 4 cores is a CCX. I discovered this when trying to figure out why a benchmark was performing wildly differently from one run to the next with a bimodal distribution -- it turned out to depend on whether Linux has scheduled the two processes in my benchmark to run on the same CCX vs. different CCXs.https://en.wikipedia.org/wiki/Epyc shows the &#34;core config&#34; of each model, which is (number of CCX) x (cores per CCX)."</p>
-							
-						
-							
-								<p class="story__comment_others">"The culprit was a shared atomic reference counter (Arc). The cache invalidation across cores eliminated any kind of scaling via multiple threads.The solution is to stop sharing. The author had to make changes specific to this codebase for each thread to have its own copy of the offending dataset."</p>
+								<p class="story__comment_first line-clamp">"Many eons ago...Around 10 to 15 years ago...Seen a similar serialization and date processing bug with a Java based Enterprise Integration Platform used by some of the largest companies in the world.Several European Central Banks were unable to process transactions ;-). Can&#39;t provide more details, to protect the innocent. Since then, it has been a standard within the Testing group of that vendor to always have a running platform setup with a date 6 months ahead ( clock sync from a different source ). Something I added to my own Software Engineering and Testing standard practices."</p>
 							
 						
 							
-								<p class="story__comment_others">"The notion of &#34;lock-free&#34; is fundamentally misleading.It trips up everybody who hopes &#34;lock-free&#34; will be a magic bullet freeing them from resource contention bottlenecks.When you have explicit locks, aka mutexes (condition variables, semaphores, what-have-you), the interaction between your threads is visible on the surface. Replacing that with &#34;lock-free&#34; interaction, you have essentially the same set of operations as when taking a mutex. On the up side, overhead cost may be lower. On the down side, mistakes show up as subtly wrong results instead of deadlocks. And, you get less control, so when you have a problem, it is at best harder to see why, and harder to fix.Because the lock-free operations involve similar hardware bus interactions under the covers, they cannot fix contention problems. You have no choice but to fix contention problems at a higher, architectural design level, by reducing actual contention. Having solved the problems there, the extra cost of explicit mutex operations often does not matter, and the extra control you get may be worth any extra cost.What is lock-free good for, then? Lock-free components reduce overhead when there is no contention. Given any actual contention, performance is abandoned in favor of correctness. So, if you have mutexes and performance is good, moving to lock-free operations might make performance a little better. If performance is bad, mutexes and lock-free operations will be about equally as bad."</p>
+								<p class="story__comment_others">"We shouldn&#39;t blame Microsoft for this; I once worked in the veterinary industry, and one Practice Management System allowed you to register a pet including their real or approximate birth date, or by entering an approximate age.If you entered a birth date, the software would calculate the pet&#39;s age, and we noticed we had the odd quirk, like a 400 year-old cat etc. I couldn&#39;t see an obvious pattern to the anomaly, and it didn&#39;t occur often, so I created a support ticket.After a couple of days, I received a response that &#39;dates were hard&#39; and we should correct the ages manually as needed.So there you have it: Dates are hard.(No, the bug wasn&#39;t ever fixed.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"As far as I can tell, there&#39;s currently no official acknowledgement of this issue.It has affected 100% of the Exchange servers I&#39;m overseeing. In every case, a complete halt to mail was corrected by a fix only escribed on Reddit and Twitter."</p>
 							
 						
 						</a>
@@ -76,33 +76,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://twitter.com/FiloSottile/status/1476698207413493766">
+					<a href="https://onemileatatime.com/news/emirates-terrifying-boeing-777-flight-washington/">
 						<picture>
-							<source srcset="default_29742977.webp" type="image/webp">
-							<source srcset="default_29742977.png" type="image/png">
-							<img src="default_29742977.png" alt="Preview of 'Linux Kernel RNG is now Blake2 instead of SHA1 and 3x faster'">
+							<source srcset="default_29762387.webp" type="image/webp">
+							<source srcset="default_29762387.png" type="image/png">
+							<img src="default_29762387.png" alt="Preview of 'Boeing 777 departing Dubai nearly had a major incident after takeoff'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://twitter.com/FiloSottile/status/1476698207413493766">Linux Kernel RNG is now Blake2 instead of SHA1 and 3x faster</a></h3>
+					<h3><a href="https://onemileatatime.com/news/emirates-terrifying-boeing-777-flight-washington/">Boeing 777 departing Dubai nearly had a major incident after takeoff</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29742977">
+						<a href="https://news.ycombinator.com/item?id=29762387">
 						
 							
-								<p class="story__comment_first line-clamp">"This is an egregiously editorialized headline, but this was the easiest way to submit two separate links to LKML in one HN submission --- link to Fillipo&#39;s tweet about those links.The @zx2c4 Filippo is referring to is Jason Donenfeld, of WireGuard fame. It was news to me that he&#39;d taken over the Linux kernel random driver! But it&#39;s welcome news indeed."</p>
-							
-						
-							
-								<p class="story__comment_others">"The popularity of the Blake family annoys me, as I feel that it&#39;s overhyped. Sure, they&#39;re fast (on current hardware), but they&#39;re supposed to be cryptographic hash functions. I know that BLAKE received some scrutiny in this regard, as part of the SHA3 competition. But then BLAKE was obsoleted by BLAKE2, which in turn was obsoleted by BLAKE3, making the claims to security less and less sensible.And all this is before the actual winner of SHA3 comes into the picture. With parameters as specified by SHA3 it&#39;s a lot slower than BLAKE3, but it is my understanding (IANAC) that(1) The SHA3 security margin can safely be decreased, as NIST set the security requirements too high. This is one of the reasons for the speed difference.(2) The sponge-based crypto popularized by Keccak (the SHA3 winner) is much more amenable to cryptanalysis than the more traditional crypto such as the functions in the Blake family. This means that Blake&#39;s security would be less sure even had it received the same level of scrutiny. But AFAIK Blake received much less scrutiny than Keccak, or even other sponge-based functions, such as the ones in the NIST Lightweight Crypto competition.https://csrc.nist.gov/Projects/lightweight-cryptographyhttps://keccak.team/2017/not_arx.html"</p>
+								<p class="story__comment_first line-clamp">"The memo from Emirates about not setting altitude in system to airport altitude is so weird. I really hope that&#39;s not the actual message Emirates is putting out there.It doesn&#39;t matter was in system. You run your checklists and configure for your own flight / your own departure etc. Memo should be to training / recruitment - where did you find these pilots to fly a 777?So they obviously didn&#39;t pre-flight the flight. And they don&#39;t seem to have used their takeoff checklist either? That should get them through flap retract and 2,000 feet or so.Takeoff checklist might have rotate at 160 or so. Then you get to positive climb and V2. You then clean up the plane (flaps / gear etc), maybe hit 2,000 feet / 210kts?This is all checklist stuff. I&#39;ve no idea what&#39;s Emirates has as checklists, but this is like 101 entry level flying stuff. What was pilot monitoring doing during all this?They still on ground at 215 kts? 262 kts at 175 feet?!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Note for those who only read the headline: the 3x speedup was achieved by removing a call to RDRAND in the extraction path, not the change in hash function."</p>
+								<p class="story__comment_others">"Pilot (piston engine, with only around 20 hours of light jet dual). As a pax on this flight, I might not have noticed much unless I was looking out the window.This seems like a fault of the crew (obviously), but probably more on the PNF (pilot not flying) than the PF (pilot flying). Article says 4 pilots were on board, but fails to mention that 2 of them (relief pilots) were likely not in the cockpit on the departure.It’s hard for me to imagine that a qualified crew would fly such a non-standard departure with “we were following the flight director” as an excuse. There’s nothing above you to hit on departure; get away from terrain! Fly the calculated airspeeds. Where was the Vr callout?! That rotation to a pitch angle is what takes you off the runway, not the FD command bars.Once they made the mistake and corrected it, I don’t have much concern with the continuation. 262 knots indicated isn’t that big of a deal that I’d worry about shedding parts from departure flaps and leading edge devices or stressing the gear (they likely pulled the gear up well before breaking 250 KIAS anyway). I’d be more concerned with the safety of an overweight landing than continuing. (A 777 can dump fuel, but the crew that just moments ago couldn’t fly an entirely routine departure isn’t the crew that I want to be calling an audible and figuring out how to safely dump fuel at night and return for a max weight landing. How would they program the FD for that?! ;) )My prediction is that almost every pax had no idea how close to dying they came until they read about it later.I catch heat every time I mention that air crew training and certification standards are not uniform across the globe and that I am reluctant to fly on many foreign-flag carriers. (However, Emirates and most EU-flag carriers are ones that I would not hesitate to fly on.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;The thing that stands out here the most is the complete lack of control that the crew had over the plane. The crew was managing the computers rather than flying the aircraft.&#34;Perhaps they are &#34;Children of the Magenta&#34;:https://www.youtube.com/watch?v=5ESJH1NLMLs... and I cannot recommend this video enough.I am not a pilot and I have no interest in flying nor any particular interest in aviation, generally ... and I find this talk to be fascinating.EDIT:  you can jump to 3:35 where he gives a specific example of a situation where pilots need to choose between automation dependency and dropping down a level of automation.  He&#39;s a really good speaker and you can tell the audience is very engaged."</p>
 							
 						
 						</a>
@@ -114,33 +114,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://cprimozic.net/blog/my-selfhosted-websites-architecture/">
+					<a href="https://news.ycombinator.com/item?id=29755614">
 						<picture>
-							<source srcset="default_29746223.webp" type="image/webp">
-							<source srcset="default_29746223.png" type="image/png">
-							<img src="default_29746223.png" alt="Preview of 'Self-Hosting Dozens of Web Applications and Services on a Single Server'">
+							<source srcset="default_29755614.webp" type="image/webp">
+							<source srcset="default_29755614.png" type="image/png">
+							<img src="default_29755614.png" alt="Preview of 'Poll: Did you know that HN allows you to make polls?'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://cprimozic.net/blog/my-selfhosted-websites-architecture/">Self-Hosting Dozens of Web Applications and Services on a Single Server</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=29755614">Poll: Did you know that HN allows you to make polls?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29746223">
+						<a href="https://news.ycombinator.com/item?id=29755614">
 						
 							
-								<p class="story__comment_first line-clamp">"Easy setup with:- traefik (nginx proxy with auto letscencrypt)- portainer (docker container management)- fail2ban (basic security)- logwatch (server / security stats by mail)- munin (server stats)- restic (cloud backup)- unattended-upgrades (auto install security updates)- apticron (weekly info)- n8n (automatisation for e.g. quick info via telegram, if something not work)Run every app that you want in your container."</p>
-							
-						
-							
-								<p class="story__comment_others">"Three independent, but somewhat related thoughts on this topic:1). On HOWTO articles about infra (1/2): I&#39;d like to see more articles that lead with requirements, rather than setups that then justify the setup with requirements. Like, congrats, you managed to host a bunch of web applications via containers on a dedicated server. It&#39;s really nice for a super personal project and I&#39;m sure it helped OP gain a lot of operational experience across several domains, but I just find this type of article to be &#34;DYI porn&#34; for a highly specific subset of DYI.2). On HOWTO articles about infra (2/2): Is there any sort of comprehensive infra setup guide out there? Even something that just covers &#34;core&#34; AWS services (CloudFront, EC2, ELB, ECS, Lambda, CloudWatch, CloudTrail, and a few others...) feels like it would be incredibly useful for so many people.3). &#34;AWS on Rails&#34; - I feel like we&#39;re getting close to a time when &#34;AWS on Rails&#34; emerges and we see the birth of a new opinionated tool that says &#34;Most people just want to ship their product, not fiddle with cloud infra. Do it our way and you can focus on product instead of infra&#34;"</p>
+								<p class="story__comment_first line-clamp">"I did not know that you could make polls on HN and I’m also 5 karma points short of being able to make them. Besides that, I don’t think that I would make polls here, I value the good story links posted and the insightful replies, and often when I see polls in other places it just seems to ignite flame wars and low value discussions. It’s a good thing that it is obscure, long may it be rarely used!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I (my company) use a similar approach: a single dedicated server with docker containers, by using dokku [0], for an heroku-like self-hosted PaaS.Most of our applications are either:- app developped in-house (django/flask): Procfile + deploy with git push- standard app with a docker image available: deploy directlyDokku comes with useful &#34;service&#34; plugins for databases, auto https (letsencrypt), virtual hosts... Overall, a good experience.[0] https://dokku.com/"</p>
+								<p class="story__comment_others">"&#34;How accurate are online polls?&#34;[M]ost online polls that use participants who volunteer to take part do not have a proven record of accuracy. There are at least two reasons for this. One is that not everyone in the U.S. uses the internet, and those who do not are demographically different from the rest of the public. Another reason is that people who volunteer for polls may be different from other people in ways that could make the poll unrepresentative. At worst, online polls can be seriously biased if people who hold a particular point of view are more motivated to participate than those with a different point of view.https://www.pewresearch.org/2010/12/29/how-accurate-are-onli...Rather than serve as accurate assessments of public opinion or beliefs, online polls at best surface sentiments and potential areas of interest.  Some are mere amusements.  Many serve a darker purpose of advocating for a specific cause or ideology (a &#34;push poll&#34; https://en.wikipedia.org/wiki/Push_poll), fishing for either insights on how audiences might be manipulated through advertising or propaganda, or outright soliciting personal information that is of use in hacking into accounts by guessing passwords or so-called &#34;security questions&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"Polls brought a plague of dumb clickbaitiness to LinkedIn, unwittingly amplified by commenters complaining of their lack of nuance. Let’s not do that here"</p>
 							
 						
 						</a>
@@ -152,33 +152,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://twitter.com/mitchcohen/status/1476951534160257026">
+					<a href="https://joeldare.com/why-im-using-http-basic-auth-in-2022.html">
 						<picture>
-							<source srcset="default_29750660.webp" type="image/webp">
-							<source srcset="default_29750660.png" type="image/png">
-							<img src="default_29750660.png" alt="Preview of 'Update: iPhone Camera app did not replace person&#39;s head with a leaf'">
+							<source srcset="default_29761728.webp" type="image/webp">
+							<source srcset="default_29761728.png" type="image/png">
+							<img src="default_29761728.png" alt="Preview of 'Using HTTP Basic Auth in 2022'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://twitter.com/mitchcohen/status/1476951534160257026">Update: iPhone Camera app did not replace person&#39;s head with a leaf</a></h3>
+					<h3><a href="https://joeldare.com/why-im-using-http-basic-auth-in-2022.html">Using HTTP Basic Auth in 2022</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29750660">
+						<a href="https://news.ycombinator.com/item?id=29761728">
 						
 							
-								<p class="story__comment_first line-clamp">"Original discussion for the photo: https://news.ycombinator.com/item?id=29739235"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m amazed that such stupid stuff takes up attention, and more importantly, takes up my attention. Thankfully it&#39;s just a minute or two, but clearly I need to be more careful about what I click on (and let into my head...I&#39;m sure this type of thing degrades bayesian priors for everyone reading it)."</p>
+								<p class="story__comment_first line-clamp">"HTTP Basic Auth could be so much better with a little help from browsers. If it was a bit better, most websites wouldn&#39;t need to implement login pages over and over again. Plus it would be more secure since the popup is in its own security context.* Add a button to log out. Logout never really worked across browsers with basic auth.* Allow to inject a logo or a tiny bit of customization for branding. The default popup looks too ugly.* Improve the Digest auth to modern crypto standards. Stop passing plain passwords over the wire.That&#39;s it. It&#39;s not a massive amount of work and it could enable to simplify a lot of the Internet."</p>
 							
 						
 							
-								<p class="story__comment_others">"I think we bought into it because it looks plausible. In the original image[0], the boundary between the leaf and the person&#39;s face looks legitimately blended in a way that only AI auto-filling does. From that, it&#39;s not a leap to extrapolate that the leaf itself was auto-filled from the surroundings.0. https://pbs.twimg.com/media/FH0N9HNWQAE0n9R?format=jpg&amp;name=..."</p>
+								<p class="story__comment_others">"Caddy comes with basic auth support because it&#39;s still useful for a lot of use cases.IMO the biggest weakness of basicauth (when deployed over TLS) is the fact that most server configurations store the passwords in plaintext, usually in a config file. This is like storing passwords in plaintext in a database. Caddy does not allow this. You have to use a secure hash on the password before adding it to your config: https://caddyserver.com/docs/modules/http.authentication.pro...Of course, password hashes are slow, so KDF&#39;ing a plaintext string at every HTTP request can grind even powerful servers to a halt. So Caddy can optionally cache hash results in memory (we do expect memory to be safer than a config file -- and Go is a memory-safe language in this regard). And while this can introduce nuanced timing variances (fast if recently hashed), they do not necessarily correspond to correct passwords.If you think this stuff is interesting and want to help make Caddy&#39;s basic auth even better, feel free to contribute or sponsor: https://github.com/caddyserver/caddy"</p>
+							
+						
+							
+								<p class="story__comment_others">"The primary flaw isn&#39;t BASIC AUTH. It&#39;s the password itself. Brute force attacks are easy. The only good way of securing anything is through an Authenticator app."</p>
 							
 						
 						</a>
@@ -190,33 +190,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://danpetrov.xyz/programming/2021/12/30/telegram-google-translate.html">
+					<a href="https://news.ycombinator.com/item?id=29759115">
 						<picture>
-							<source srcset="default_29746674.webp" type="image/webp">
-							<source srcset="default_29746674.png" type="image/png">
-							<img src="default_29746674.png" alt="Preview of 'How Telegram Messenger circumvents Google Translate&#39;s API'">
+							<source srcset="default_29759115.webp" type="image/webp">
+							<source srcset="default_29759115.png" type="image/png">
+							<img src="default_29759115.png" alt="Preview of 'Ask HN: Who wants to collaborate?'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://danpetrov.xyz/programming/2021/12/30/telegram-google-translate.html">How Telegram Messenger circumvents Google Translate&#39;s API</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=29759115">Ask HN: Who wants to collaborate?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29746674">
+						<a href="https://news.ycombinator.com/item?id=29759115">
 						
 							
-								<p class="story__comment_first line-clamp">"Someone deleted an interesting comment about adversarial interoperability [0]I’d love to see and give money to a project to create and maintain easy to use and stable “adversarial interoperability” APIs for as many services and products as possible.Perhaps companies and projects would not often use these directly because of the risks (hopefully some would, though!) but individuals could drop the library or the URL to a server hosting it into their apps to gain extra features.If standardised, whole open source apps could be built around them that allow querying and analysis of data from services and aggregating and automating using the services including optimising prices, taking advantage of offers, and using undocumented APIs to the users advantage.Maybe something architected and incentivised like https://thegraph.com/ for adversarial intercom and undocumented APIs. Building as a network of nodes and funding with crypto would make it harder to attack and take down.[0] https://www.eff.org/deeplinks/2019/10/adversarial-interopera..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don’t understand the way this was implemented.They are bound to get in trouble with Google for this, but they can’t easily pull the feature. They can’t just be like „oh you’ve had translate for two weeks now, but now we can’t pay for it, so it’s gone.“What is the long term thinking behind this? Or is this just developers and management not communicating?"</p>
+								<p class="story__comment_first line-clamp">"I work for a national park in the Democratic Republic on the Congo as a tech lead. Some of the things we are doing: LoRaWAN for tracking and emergency response, ML to identify gorillas by their unique nose prints, and long-range drones for mapping and surveillance, and a management web app.If you’re interested in conservation / sustainable development and associated technologies let me know! Always looking to collaborate and bounce ideas off others."</p>
 							
 						
 							
-								<p class="story__comment_others">"As a small company who spends $70-80k per year on Google&#39;s official Translate API, it&#39;s disappointing if Google allows this type of abuse to continue.If they don&#39;t want to pay, they should be using a free open source alternative like https://github.com/LibreTranslate/LibreTranslate"</p>
+								<p class="story__comment_others">"I&#39;m quitting my full-time job this month (already gave my notice) to start a startup with my brother. We&#39;re trying to make cheap-but-performant prosthetic hands using 3D printers and Arduino, focusing on the north-west of Syria. To shed some light, it&#39;s estimated that around *50 THOUSAND* people suffer from minor or major imputations due to the ongoing war, and most of them need some form of prosthetics. Some estimates even upwards *80 THOUSAND*![1]Now, I know most of the technical stuff we need, and my brother knows all the medical details (he&#39;s a physical therapist), but neither of us have built a startup before.We have a plan on mind, but I would love to chat with anyone with experience building similar startups (a mix of software and hardware), or really anyone who&#39;s interested in this project.We also plan on starting a crowdfunding campaign soon this month.[1](https://www.ri.org/providing-life-changing-prosthetics-for-s...)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I am a former principal software engineer at a MAMAA company turned independent educational researcher. My primary interest is in deliberate practice and how to use spaced repetition (i.e., Anki) to develop expertise.I have three primary areas that I am working on and would love to find serious collaborators:1) I am building high-quality content for math, English language arts, chess, etc. (see [0] for a good explanation of what this looks like). This is primarily for my  2nd grade child, but I have also written hundreds of cards for high school level math, undergraduate level math, and programming languages.For example, I used this approach to build an Anki deck that decomposed the NNAT test (i.e., a gifted program test) into atomic chunks and then demonstrated how sample NNAT questions were composed of those primitives.2) I am eventually looking to leverage this content and knowledge to build turn-key resources for others. This is surprisingly challenging for reasons I won’t touch on, but it could profoundly improve learning outcomes for many people.3). I am pondering how to enable richer sharing and collaboration between people. I have a number of patents in this space and can envision a few business opportunities.----[0] https://andymatuschak.org/prompts/"</p>
 							
 						
 						</a>
@@ -228,33 +228,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://seths.blog/2021/12/dont-waste-the-good-days/">
+					<a href="https://perell.com/note/intellectual-loneliness/">
 						<picture>
-							<source srcset="default_29754120.webp" type="image/webp">
-							<source srcset="default_29754120.png" type="image/png">
-							<img src="default_29754120.png" alt="Preview of 'Don&#39;t Waste the Good Days'">
+							<source srcset="default_29754072.webp" type="image/webp">
+							<source srcset="default_29754072.png" type="image/png">
+							<img src="default_29754072.png" alt="Preview of 'Intellectual Loneliness'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://seths.blog/2021/12/dont-waste-the-good-days/">Don&#39;t Waste the Good Days</a></h3>
+					<h3><a href="https://perell.com/note/intellectual-loneliness/">Intellectual Loneliness</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29754120">
+						<a href="https://news.ycombinator.com/item?id=29754072">
 						
 							
-								<p class="story__comment_first line-clamp">"People look at me like I’m insane when I tell them I’m packing up and taking a year off.I’ve f’in had enough. And that’s me, the wife and our two kids- not quite school age. No I haven’t FIREd. No I’m probably passing up a raise and a promo (or maybe not). Super linear growth requires super linear decision making. You either follow the sheeple or decide enough is enough and make some drastic change. Im not getting these years back and for the life of me can’t understand those who say, I’m gonna work till I’m 55 and then I’m done.Anyways HN fam- I’m already done.Here’s to 2022See y’all in Penang."</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel like there is wisdom in &#34;Make hay while the sun shines.&#34; When you&#39;re young and unencumbered by responsibility and family, when your cognitive abilities are at their peak, when your energy is endless, when your body is strong and healthy, when your knees work, and your fingers can type without arthritis: that&#39;s the optimal time to work and earn. Min-max that salary and stay healthy. Due to compounding interest, a dollar made in your 20&#39;s is far, far more valuable than a dollar made in your 60&#39;s. Every morsel you make and save early means your retirement comes earlier. There will never be a more efficient time to earn those days of leisure that will come later if you stay healthy.Take that vacation to Bali when you&#39;re young, and you are wasting your prime, strongest days that could be making you financially secure and/or independent. Go windsurfing for a year in Ibiza after college, and you&#39;re adding 5 years to your working life--retiring at 62 instead of 57. It didn&#39;t sound like much time when I was young, but today, as I turn elderly, I&#39;m counting down the years until I can finally retire, and kicking myself for goofing around when I was younger. If I could do it all again, I&#39;d have tried harder to get into big tech early, I&#39;d have taken comp and 401(k)s and advancement more seriously. I&#39;d have played fewer video games, traveled less, and relaxed on the beach less.Life isn&#39;t short--it&#39;s LONG, and you have a brief moment in that life to maximize your preparation for the rest of it. Use it wisely."</p>
+								<p class="story__comment_first line-clamp">"It’s far more likely that the OP is lacking in social skills. People are not two dimensional, and people who are who you find at most parties. Conversations in a social setting have a certain protocol to them. They start out with small talk, that’s how you learn someone’s mannerisms, personality, flow, etc. without having to actually concentrate on the details of what you’re talking about. You read their subtle cues to learn how to interact with them.Not everyone is matched appropriately and I find it takes a lot of effort, especially emotional effort to connect with someone you don’t know for the first time, at a party where there are a lot of distractions. Have you ever noticed people who glide effortlessly from person to person, and who are able to talk to anyone? Seek those people out and study how they interact with other humans.Having good social skills is just as important as being well read, maybe even more so. A good book can be entertaining but it only takes a chance encounter to meet a life long friend, form a beneficial relationship, or meet a romantic partner. Part of me wonders if the OP were to meet one of the authors of the books he reads at a party, would he be able to interact with them? Probably not, and that’s my point exactly.You’re going to go to a lot of parties in life, if you give up on them you are depriving yourself of valuable life experience. It has nothing to do with books or how smart you are."</p>
 							
 						
 							
-								<p class="story__comment_others">"Pithy, but true.It&#39;s only half the story, though. Moderation and balance are the real key. Overwork is not good in the long term. But underwork can also be a problem, even when employers let it slide.Starting in my 30s, my friends who operated in the extremes of overwork or underwork started to diverge from everyone else. Overworked people were burnt out and had few friends and social connections left. Underworking people were often first to be laid off and slowly fell behind in their skills relative to everyone they were competing against for jobs.Most of them found balance and got back on track, but I know a few holdouts who went all-in on the vagabond life of traveling the world and having fun, as well as a few who have just disappeared into their work and have basically lost social skills at this point.Balance and moderation aren&#39;t really that difficult when you make them a priority. Especially in this job market where employers aren&#39;t squeezing employees as hard because everyone has so many alternate opportunities."</p>
+								<p class="story__comment_others">"from this thread and the far-too-many-hours I&#39;ve spent on Reddit - obviously these feeling are not uncommon, but the tone in which this stuff is presented always reeks of unearned superioritylike I think its great that people like OP have enjoyment and passion for &#34;intellectual pursuits&#34;, but most other people don&#39;t. you have an interest, and like most other interests, people aren&#39;t going to share your interest because they have their own, different interests. so don&#39;t be surprised when you try to pivot the conversation, people don&#39;t want to talk aboutlike it sucks you can&#39;t share your interest with those close to you, that&#39;s a problem most everyone has, but when it&#39;s on the topic of &#34;intellectual pursuits&#34; or whatever 
+ - articles like this it always read as &#34;I&#39;m smart, everyone else is dumb, woe is me&#34;that may not be what people like OP are intending - but the problem is others just have different passions and priorities than you and are turned off when you want to discuss only what interests you. I&#39;m certain most could have such a conversation with someone like OP, but why would they when their tone smells like &#34;smarter than tho&#34; because they want to talk about esoteric philosophy or abstract ideas at a college partyif one want to get rid of this &#34;loneliness&#34; you either need to find a community of like-minded others (see the internet) or introduce conversation topics in a more mutually interesting manner instead of wishing for others to meet you where you areI write this as someone who has been on both sides of the conversation"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m a few years out of grad school, working at a tech company, and single.  I came from an academic background where talking about interesting ideas and concepts was the norm.  I had a pretty uncommon career path into tech and I&#39;m not some coder.My experience is that when you&#39;re in my position, it&#39;s getting harder and harder (with age) to find people who are interested in talking about ideas, entertaining the curiosities in life without some agenda/getting offended by the controversial ones, talking about possibilities and concepts (rather than objects).  Like having conversations on advanced mode with people who are similar.Often times at parties, when I get bored, I think of a quote, &#34;Great minds discuss ideas. Average minds discuss events/things. Small minds discuss wine.&#34;It&#39;s getting more and more common that I find people just wanting to talk about wine.  Or the equivalent.  Stuff that&#39;s completely forgettable after you leave the party.  I mean that stuff is fine, and there&#39;s nothing wrong with talking about good food you&#39;ve had, some articles you&#39;ve read, movies seen, etc. too.   And to be funny and engaging while talking about it.  It just feels like... after you&#39;re done talking about that, what then?Or if I do meet people who are intellectually interesting, how to get more connected or where to take it after a chance meeting and pleasant chat?That said, what do I have to offer at this stage of my life either, to a stranger?  I&#39;m unmarried, so I don&#39;t have kids or the mortgage to talk about.  I&#39;m not a CEO or someone powerful.  Also I&#39;m single -- what are people supposed do with that?   Don&#39;t have a lot of great reasons for anyone to want to go out of their way to spend more time with me after even an interesting 30 min conversation, without some other excuse.We&#39;re not all living close together in shared housing to make intellectually stimulating conversations natural and prolonged.  People have their lives to lead, not sit around talking about theoretical ideas.  To contact the few people I&#39;ve found who are interesting would be... how?  &#34;Would you like to schedule a get-together again for a conversation date?&#34;It&#39;s not going to get easier either.   Probably in a few years I&#39;ll be the really odd guy.  Eh, it&#39;s a life choice I&#39;ve made, I realize that too -- to be more interested in ideas and experiences than say... people.I figure I&#39;d better find some interesting hobbies to make up for the lack of intellectual stimulation.   But deeper, what am I working towards?  For whom?  So, sometimes I think of changing jobs just to see more of the world and gather experiences to be able to have more intellectually stimulating conversations.  Learn about VC?  Hear about more companies?  Where/how?Yeah, it&#39;s a bit of a problem sometimes to ponder."</p>
 							
 						
 						</a>
@@ -266,33 +267,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://boingboing.net/2021/12/30/reporter-likely-to-be-charged-for-using-view-source-feature-on-web-browser.html">
+					<a href="https://danwang.co/2021-letter/">
 						<picture>
-							<source srcset="default_29745960.webp" type="image/webp">
-							<source srcset="default_29745960.png" type="image/png">
-							<img src="default_29745960.png" alt="Preview of 'Reporter likely to be charged for using “view source” feature on web browser'">
+							<source srcset="default_29759309.webp" type="image/webp">
+							<source srcset="default_29759309.png" type="image/png">
+							<img src="default_29759309.png" alt="Preview of '2021 Letter'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://boingboing.net/2021/12/30/reporter-likely-to-be-charged-for-using-view-source-feature-on-web-browser.html">Reporter likely to be charged for using “view source” feature on web browser</a></h3>
+					<h3><a href="https://danwang.co/2021-letter/">2021 Letter</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29745960">
+						<a href="https://news.ycombinator.com/item?id=29759309">
 						
 							
-								<p class="story__comment_first line-clamp">"I don&#39;t really like the framing that the reporter is framed for using &#34;view source&#34;. This reinforces the idea that the people responsible for this are just uneducated. I&#39;m sure, at this point, someone already explained them.That reporter is a victim of harassment, and that if it wasn&#39;t for &#34;view source&#34;, it could be for some unrelated stuff. It&#39;s the same as protesters being arrested for all kinds of bogus reasons, or random people being arrested with planted evidence. The goal is to deter someone you don&#39;t like from exercising their legal right (journalism, protesting, standing in the street in the wrong neighbourhood), by weaponizing unrelated laws.The only reason &#34;view source&#34; is being talked about is because that looked like the best case when the book was thrown at that journalist.I hope that case remains at threats and doesn&#39;t get to actual charges."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The reporter discovered that the source code of the website contained Social Security numbers of educators. The reporter alerted the state about the social security numbers. After the state removed the numbers from the web page, the Post-Dispatch reported the vulnerability.I really hate the idea that trying to do the right thing (reporter telling MO DoE about SSNs being in their HTML) results in prosecution to save face instead of reflection and congratulations. This is how you get more crime.Also, REALLY?!That means that Google indexed those SSNs!"</p>
+								<p class="story__comment_first line-clamp">"&#34;And there’s no obvious leader in the southeast, but it is between Shenzhen, the richest city in the region, and Guangzhou, the political capital ...&#34;An incredible statement - made even more so by possibly being true.It was less than ten years ago that Hong Kong might have been considered the leading city in all of China and certainly the most dynamic on the axes that he is considering.FWIW, I think the CCP has made a tactical error in their handling of Hong Kong:As a business owner in Hong Kong I was, previously, only peripherally and philosophically concerned with the behavior of the party throughout the rest of the country - it was possible to compartmentalize the &#34;two systems&#34;.But if Hong Kong is just another Chinese city and if there is only one &#34;system&#34; then I am forced to very critically reconsider my business activities there - small as they are.This makes me very sad - Hong Kong has for my entire adult life been my favorite city and the city I thought was the most interesting and exciting."</p>
 							
 						
 							
-								<p class="story__comment_others">"I think a lot of analogies miss the point that data was copied and transmitted to the client and accessed client side. I think it&#39;d be more accurate to compare to a barcodeImagine requesting a voter registration form and you receive a letter in the mail with all previous residents social security numbers encoded in QR codes that were added as a &#34;convenience feature&#34; for the voting officeIn that case, it&#39;d be ridiculous to claim you &#34;hacked the voting office&#34;"</p>
+								<p class="story__comment_others">"Key points:&#34;Thus Beijing prefers that the best talent in the country work in manufacturing sectors rather than consumer internet and finance. Personally, I think it has been a tragedy for the US that so many physics PhDs have gone to work in hedge funds and Silicon Valley.&#34;&#34;The US focus on efficiency has revealed the brittleness of its economy, which has neither the manufacturing capability to scale up domestic production of goods nor the logistics capacity to handle greater imports. Decades of American deindustrialization as well as an aversion against idle capacity has eroded domestic manufacturing.&#34;&#34;In the face of this challenge against a new peer competitor, the US has demonstrated a superb capacity for self-harm.&#34;&#34;For someone in the middle class, there has never been a better year to live in China. That comes down to the entrepreneurs, who are creating businesses to please people.&#34;All, absolutely true as I&#39;ve commented previously in other posts. The decline of America is primarily a story about misallocation of talent and the demise of the American middle class as a result."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Manhattan meets MauiI think that is a stretch beyond snapping point for Hong Kong. Most days in Hong Kong I could see the air pollution obscuring buildings in the distance. It&#39;s AQI is terrible https://aqicn.org/city/hongkong/ . There are nice mountain walks and nearby islands but it is extremely dense and urban. It&#39;s one of the places Ghost in the Shell used for reference!Also the narrative here feels mostly from the mainland China point of view; having to go and deal with &#34;problematic&#34; Hong Kong. But problems between Hong Kong and the mainland began when Beijing used its influence to restrict Hong Kong&#39;s traditional democracy, so only &#34;approved&#34; candidates could be voted into office. And since then it&#39;s increasingly clamped down on the freedoms Hong Kong previously enjoyed, most recently doing things such as removing the Tiananmen Square memorials (https://www.bbc.co.uk/news/world-asia-china-59764029). At this point the writing is on the wall and bit by bit Hong Kong will brought in step with the rest of mainland China.Unlike the author I found the Hong Kong bureaucracy fast and effective. Enforcers &#34;sometimes able to look the other way&#34; sounds like corruption to me and people with better guanxi being able to bend the rules. I&#39;d rather have the laws fair, clear and applied to all equally (though that&#39;s always going to be a gradient).Despite all that, it&#39;s undeniable China is on the rise and that&#39;s going to be the dominant story of this century. There&#39;s potential for that to be a great boon to the world and I hope that&#39;s the reality that comes to be."</p>
 							
 						
 						</a>
@@ -304,33 +305,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://hookrace.net/blog/macos-setup/">
+					<a href="http://www.smartbolts.com/">
 						<picture>
-							<source srcset="default_29742551.webp" type="image/webp">
-							<source srcset="default_29742551.png" type="image/png">
-							<img src="default_29742551.png" alt="Preview of 'macOS Setup after 15 Years of Linux'">
+							<source srcset="default_29748617.webp" type="image/webp">
+							<source srcset="default_29748617.png" type="image/png">
+							<img src="default_29748617.png" alt="Preview of 'Smartbolts'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://hookrace.net/blog/macos-setup/">macOS Setup after 15 Years of Linux</a></h3>
+					<h3><a href="http://www.smartbolts.com/">Smartbolts</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29742551">
+						<a href="https://news.ycombinator.com/item?id=29748617">
 						
 							
-								<p class="story__comment_first line-clamp">"I really tried to like macOS for an entire year. I used Yabai[1] as tilling window manager which is much better than Amethyst mentioned in the article. I also wrote my own compose key tool macos-compose[2] and rofi-like clone choosem[3] (eventually bought into Alfred).Yet with all of this effort I still went back to linux after a year (Arch with Qtile and Gnome). What really killed macos for me was the fact that animations could not be disabled entirely and everything felt like it&#39;s behind several ms of a delay. I work on the move so I don&#39;t have the luxury of multi-screen setup so switching between programs, workspaces and windows is the most important part of my workflow - it just drove me nuts.Now I run simple Lenovo yoga laptop with arch+qtile+gnome and honestly, my performance at work at least doubled. That&#39;s my anecdote anyway.1 - https://github.com/koekeishiya/yabai2 - https://github.com/Granitosaurus/macos-compose3 - https://github.com/Granitosaurus/choosem"</p>
-							
-						
-							
-								<p class="story__comment_others">"I did the exact opposite. I was on MacOS since 10.2.But lately I felt things have become way too locked down (both hardware and software), too dumbed down (too many apps resemble mobile apps with limited functionality) and too opinionated. Sometimes I just want things differently. Another reason was that many new features are specific to iCloud integration and as I use many OSes (both computer and mobile) I could not take advantage of those anyway. I need cross platform. So a lot of selling points became irrelevant.I moved to FreeBSD with KDE on top and it felt like a breath of fresh air finally being able to set up my system the way I want it. This is so empowering.It became my daily driver about a year ago and I haven&#39;t looked back though I still use Mac and Windows for work, Windows personally for gaming and Linux for some servers.Of course I lost some stuff too like Apple&#39;s excellent multi DPI and great hardware integration. And many apps that were great like pixelmator. But I gained a lot of configurability and the ability to upgrade my hardware again."</p>
+								<p class="story__comment_first line-clamp">"I’m a mechanical engineer - smartbolts are cool but rarely used in my experience. Much more commonly used are DTI washers: https://en.m.wikipedia.org/wiki/Direct_tension_indicatorDue to the washer style can be used with a wide range of fasteners. The most common type, in my experience, due to the ease of use, has a little bit of colored goo inside the arched cells. The goo squirts out when the specified torque is reached.That being said, there are a lot of approaches to this same problem. Another common technique is breakaway bolts that are driven with a piece that snaps away when a certain torque is reached: https://youtu.be/lrCoi3gaLfU"</p>
 							
 						
 							
-								<p class="story__comment_others">"For me Linux is about freedom. Other systems might be better in UI/UX or performance (e.g. give more FPS in games for NVidia cards), but I remember the times when Microsoft dominated the IT world and it looked scary.All corporations strive to fragment the market using non-compatible technologies and then to monopolize the market by consuming other fragments.This strategy failed in the 90s with the arrival of Linux. Although many times I felt like the whole world will become Microsoft/Wintel, I think we barely missed.Now, corporations are trying to do it e.g. via forcing everybody into the cloud and killing open protocols. E.g. I have several email accounts and I can&#39;t gather mail from all of my mailboxes in one application. Situation is even worse with Calendars. I have two jobs and also my own personal calendar server and I can&#39;t collect all my calendars in one app also. I have to routinely check Google Calendar, because even though I can add it to my Thunderbird Calendar, moved or canceled events changes are not propagating to Thunderbird. And I can&#39;t integrate Microsoft Outlook calendar into my Thunderbird at all.I really don&#39;t want to rely on whims of one corporation. Also, regarding MacBooks: I remember when the touchbar had no alternatives and it is really awful. This is what monopoly means: you have to live with bad decisions. You have to pay absurd money for a piece of cloth or a roller for the desktop case."</p>
+								<p class="story__comment_others">"At Boeing, I learned that bolts should be lubricated before torquing them in order to ensure an accurate torque. I initially thought wouldn&#39;t the lubrication allow the bolt to unwind itself? Surprisingly, no.Since then, on my car, I always put a bit of grease on a bolt beforehand. It keeps the water out, preventing the bolt from rusting itself together. It makes for an accurate torque. I&#39;ve never had one unscrew itself, and I can always get the lug nuts off!Of course, you still need to use lock washers. For critical bolts, use a cotter pin or a safety wire."</p>
+							
+						
+							
+								<p class="story__comment_others">"I was one of the folks who put together the steel for a waterslide in a certain amusement park in California. Our method consisting of putting a mark across the bolt and nut after tightening it all the way down with a spud wrench, and then using a breaker bar until the mark on the nut was at the 4 o&#39;clock position( or maybe it was 8, I don&#39;t recall ).The inspectors would then use a telescope to check every mark. Completely blew my mind that they relied on this method, rather than something that measured the force directly."</p>
 							
 						
 						</a>
@@ -342,38 +343,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/fikrikarim/companies-with-successful-pivot">
+					<a href="https://www.science.org/doi/10.1126/scitranslmed.abm2504">
 						<picture>
-							<source srcset="default_29746370.webp" type="image/webp">
-							<source srcset="default_29746370.png" type="image/png">
-							<img src="default_29746370.png" alt="Preview of 'Companies that had successful pivots'">
+							<source srcset="default_29739349.webp" type="image/webp">
+							<source srcset="default_29739349.png" type="image/png">
+							<img src="default_29739349.png" alt="Preview of 'An mRNA-based anti-tick vaccine'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/fikrikarim/companies-with-successful-pivot">Companies that had successful pivots</a></h3>
+					<h3><a href="https://www.science.org/doi/10.1126/scitranslmed.abm2504">An mRNA-based anti-tick vaccine</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29746370">
+						<a href="https://news.ycombinator.com/item?id=29739349">
 						
 							
-								<p class="story__comment_first line-clamp">"My favorite part of the Nintendo story is that back when it was a playing card company, the heir to the family business took a trip to America that included a meeting at the largest card company in the world.He had expected it to have a luxurious, palatial campus… but its entire headquarters turned out to be like the fourth floor of a single building in a generic office park. He was like, “This is the absolute pinnacle I can ever hope for if I succeed beyond my wildest dreams running the playing-card company. I need a new idea.”You can read all about it in an outstanding book called I Am Error that, beyond extensive interviews with the historic key players, also takes an incredibly deep dive into the technical details."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Netflix had considered offering movies online, but there were speeds and bandwidth problem in mid-2000.One of the more interesting things I learned from the (outstanding) documentary &#34;Enron - The Smartest Guys in The Room&#34; [0] was that Enron planned an online movie streaming service together with Blockbuster in the late 90ies (to start in 2000), but failed for the same reasons.&gt; Enron would store the entertainment and encode and stream the entertainment
-over its global broadband network. Pilot projects in Portland, Seattle and Salt Lake
-City were created to stream movies to a few dozen apartments from servers set up
-in the basement. Based on these pilot projects, Enron went ahead and recognized
-estimated profits of more than $110 million from the Blockbuster deal, even
-though there were serious questions about technical viability and market demand [1]But of course Enron &#34;pivoted&#34; to outright fraud some years before that.[0] https://www.youtube.com/watch?v=rDyMz1V-GSg[1] https://pubs.aeaweb.org/doi/pdfplus/10.1257/0895330037658884..."</p>
+								<p class="story__comment_first line-clamp">"Summary: the tests were conducted on guinea pigs because they can develop immune reactions to repeated tick bites like humans do. Mice do not seem to be suited for that for once.The vaccine was administered intradermally. It consists of nucleoside-modified mRNA encapsulated in lipid nanoparticles like we know them from Covid vaccines already. The contained mRNA sequences encode 19 different proteins that are usually found in the saliva of a particular kind of tick in the US. These proteins were selected because of prior research it was known that they seemed to cause inflammatory reactions in the host. The inflammatory reaction that occured at the site of the tick bite hampered feeding of the ticks and reduced risk of disease transmission. The vaccine mostly seems to buy more time to remove the ticks before an infection can take place because the disease causing bacteria was not directly targeted by the vaccine."</p>
 							
 						
 							
-								<p class="story__comment_others">"Twitch started out as Justin.TV, where Justin Kan wore a camera on his head 24/7 and livestreamed the results.Then they expanded to a small handful of streamers, then anybody could stream, but it never really took off and they were running out of runway.Then they noticed that the one area growing faster than any other was videogame streaming, and rebuilt the whole company around that."</p>
+								<p class="story__comment_others">"Interestingly, there was a Lyme vaccine in the late 90s that was pulled from the market:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2870557/I think it’s a shame it was withdrawn, with a low effectiveness of 80% and even requiring annual boosters I’d view that as a great option if I lived somewhere with deer ticks. Lyme disease is scary."</p>
+							
+						
+							
+								<p class="story__comment_others">"An article on the subject without a paywall:https://allianceforscience.cornell.edu/blog/2021/12/a-lab-st..."</p>
 							
 						
 						</a>
@@ -385,33 +381,34 @@ though there were serious questions about technical viability and market demand 
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://terrainformatica.com/2021/04/25/sciter-uses-javascript-from-now-and-on/">
+					<a href="https://ottertune.com/blog/2021-databases-retrospective/">
 						<picture>
-							<source srcset="default_29742670.webp" type="image/webp">
-							<source srcset="default_29742670.png" type="image/png">
-							<img src="default_29742670.png" alt="Preview of 'Sciter, the 5 MB Electron alternative, has switched to JavaScript'">
+							<source srcset="default_29731885.webp" type="image/webp">
+							<source srcset="default_29731885.png" type="image/png">
+							<img src="default_29731885.png" alt="Preview of 'Databases in 2021: A Year in Review'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://terrainformatica.com/2021/04/25/sciter-uses-javascript-from-now-and-on/">Sciter, the 5 MB Electron alternative, has switched to JavaScript</a></h3>
+					<h3><a href="https://ottertune.com/blog/2021-databases-retrospective/">Databases in 2021: A Year in Review</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29742670">
+						<a href="https://news.ycombinator.com/item?id=29731885">
 						
 							
-								<p class="story__comment_first line-clamp">"Some previous discussion on SciterJS here: https://news.ycombinator.com/item?id=24797423The issue is that this isn&#39;t actually an Electron alternative; the author is upfront about this not actually being a browser-compatible rendering engine. It&#39;s just a rendering engine that happens to use some subset / superset of HTML, JS and CSS, but it is not compatible with web libraries and components.As a basic example, SciterJS crashes loading the &#34;hello world&#34; ReactJS project (at least it did last time I tried it - the author recommended I used a custom version of React he publishes). It&#39;s perfectly fine to come up with a lightweight cross-platform UI rendering engine (we know we need more of those), but having it web-adjancent while not really web-compatible is a recipe for frustration."</p>
-							
-						
-							
-								<p class="story__comment_others">"I see, in this thread, talks about what Sciter does and does not offer.It&#39;s not the only alternative to Electron, but it might be one that offers predictable and repeatable results.I released a small open source project on HN last week (https://github.com/Fusion/pngsource) and I wrote its backend logic in Go. I built the frontend using Tailwind (https://tailwindcss.com) and DaisyUI (https://daisyui.com) and, using Go compiler flags, I can release the app using both WebView (github.com/webview/webview) (which, yes, does require the host OS&#39; collaboration) and Wails (wails.app) (which also does.)On Linux/AMD64, the binary&#39;s size is 3.7M when building for WebView, and 6.8M when targeting Wails.The way the app works is I drag/drop files to the UI, magic happens, and I use github.com/ncruces/zenity to prompt the user for a save location.I cross-compile the apps using xgo (https://github.com/karalabe/xgo)It&#39;s been working pretty well on Linux, Windows, MacOS. I think WebView&#39;s approach of limiting the feature set is working well as it feels more &#34;native&#34; than Wails (better refreshes and resize operations for instance)However, I already have a few tickets reporting that, for instance, the app is displayed as a blank window in some environments. And it&#39;s hard to debug remotely, obviously. So, this is where Sciter may be a better option."</p>
+								<p class="story__comment_first line-clamp">"Postgres&#39;s dominance is well deserved, of course. My only concerns with it, both are actively worked on, are bloat management (significant for update heavy workloads and programmers used to the MySQL model of rollback segments) and the scaling of concurrency (going over 500 connections). Bloat was taken over by Cybertec[1] after stalling for a bit and is funded (yay), while concurrency was also enhanced out of Microsoft [2]. All in all, an excellent future for our beloved Postgres.[1] https://github.com/cybertec-postgresql/zheap
+[2] https://techcommunity.microsoft.com/t5/azure-database-for-po..."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Fabrice Bellard have created his QuickJS embeddable JS engineOh. That&#39;s the QEMU/FFMPEG Fabrice Bellard? That sounds definitely interesting. (Perhaps more than the actual article, haha.)https://bellard.org/quickjs/"</p>
+								<p class="story__comment_others">"The author is a professor at CMU who specializes in databases: https://www.cs.cmu.edu/~pavlo/Not completely related, but his lectures on databases on YouTube are really good. Much better than the DB class I had at college."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m really excited by all the database love in the last few years. I moved to PG from MySQL in 2014 and don&#39;t regret it since.Timescaledb looks very exciting, as it&#39;s &#34;just&#34; a PG extension, but their compression work looks great. [0]I&#39;m also really loving clickhouse, but haven&#39;t deployed that to production yet (haven&#39;t had the need to yet, almost did for an apache arrow reading thing, but didn&#39;t end up using arrow). They do some amazing things there, and the work they do is crazy impressive and fast. Reading their changelog they power through things.[0] https://docs.timescale.com/timescaledb/latest/how-to-guides/..."</p>
 							
 						
 						</a>
