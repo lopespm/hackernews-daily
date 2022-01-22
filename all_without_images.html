@@ -36,6 +36,323 @@
 	</div>
 
 	
+	<div class="day__date">22 January 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://frame.work/blog/open-sourcing-our-firmware">Open-Sourcing our Firmware</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30027117">
+						
+							
+								<p class="story__comment_first line-clamp">"I checked the keyboard debouncing logic [0] and it was fine. Some keyboards from other manufacturers, notably Lenovo Thinkpads, have absurd debouncing algorithms that scramble keys or add delays, so it&#39;s good to see Framework has a correct solution.[0]: https://github.com/FrameworkComputer/EmbeddedController/blob..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been so happy to see what Framework has been doing lately, and really want to support them, but I already have a desktop as my primary computer and two Thinkpads that are already set up nicely, but that I rarely use. I moved from 15&#34; laptops to 14&#34; when Lenovo added the numpad on the larger variant, and 14&#34; is about as small as I want to go.I kind of want to buy a framework though, just to support them? But I have no use for another laptop, let alone a small 12&#34; one! Should I get one anyway because, what the hell, why not? Should I wait and then jump on one if/when they release a larger model?Anybody else have similar feelings?Edit to add:I also have one of the last Thinkpad models that support S3 sleep (T480 -- within a model or two, I think?), which is currently super critical for Linux... I need to be able to close the lid and come back after a week.It&#39;s easy to blame the manufacturers for this, but the consistent answer seems to be &#34;Intel&#39;s Tiger Lake platform does not support S3 sleep,&#34; and all of the system builders base their work on what Intel&#39;s reference platform does. So short of going to extreme effort to hack it together themselves (something that is likely not their specialty), reasonable sleep behavior is not going to be an option unless Intel brings S3 back, or does work to improve the S0ix states.I absolutely do not want to support the no-more-S3 clusterfuck right now."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been running NixOS on my Framework for the last few months, and I&#39;ve been really happy with it. I initially got it so I&#39;d have viable hardware to do osdev on, so learning that they are going to open-source its firmware makes me even more happy."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://gitlab.com/edouardklein/falsisign">FalsiScan: Make it look like a PDF has been hand signed and scanned</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30024165">
+						
+							
+								<p class="story__comment_first line-clamp">"I had another version of this at the DMV. They needed to see bills that offered proof of my residence (ie power/water/etc). Turns out they wanted them to be mailed to you, which wasn&#39;t going to work because I do paperless billing for everything. So I printed them out and tri-folded them as if it had been in an envelope.People in front of me in line got turned away for using printed bills, but mine worked just fine."</p>
+							
+						
+							
+								<p class="story__comment_others">"I really hate dealing with my printer (or any printer for that matter), so I make pretty liberal use of my drawing tablet at this point.  I import the PDF into Krita, use the ballpoint pen brush, and sign.  I export to PNG, then use an imagemagick script to rotate it some random number between 1-3 degrees, and add noise onto it to look like a scan.It&#39;s a pain, but it&#39;s still less annoying than dealing with a printer."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have a shell script based on ImageMagick that gives a PDF a &#34;scanner&#34; look. I typically open the PDF in Master PDF Editor to insert an image of my signature, then pass it through my script. When I do need it, it&#39;s rare, but it becomes a real life saver. It has avoided me the need to print and scan 100+ pages for a mortgage company, some stock brokers and banks. Key points of the script:&#34;+noise Random -fill white -colorize 95%&#34; to add some noise to the image&#34;-distort ScaleRotateTranslate &#39;$x,$y $angle&#39;&#34; to randomly shift horizontally and vertically the document, and randomly rotate it slightly&#34;-density 150&#34; for a low-ish resolution so it better hides the fact the PDF wasn&#39;t really scanned&#34;-colorspace Gray&#34; to make it black &amp; white&#34;-quality 60&#34; to increase JPG compression and somewhat reduce picture quality  #!/bin/bash
+  # Make a pdf look like it was scanned.
+ 
+  if [ $# -ne 2 ]; then
+      echo &#34;Usage: $0 input output&#34; &gt;&amp;2
+      exit 1
+  fi
+  tmp=&#34;$1&#34;.scanner-look.tmp
+  mkdir &#34;$tmp&#34; &amp;&amp;
+  # without -flatten some PDF convert to a JPG with a black background
+  convert -density 150 &#34;$1&#34; -colorspace Gray -quality 60 -flatten &#34;$tmp&#34;/p_in.jpg &amp;&amp;
+  : || exit 1
+  # each page is randomly shifted in the X and Y plane.
+  # units seem to depend on angle of rotation in ScaleRotateTranslate?
+  offset() { echo $(($RANDOM % 1000)); }
+  for f in &#34;$tmp&#34;/p_in*jpg; do
+      # each page is randomly rotated by [-0.5 .. 0.5[ degrees
+      angle=$(python -c &#39;import random; print(random.random()-0.5)&#39;)
+      x=$(offset)
+      y=$(offset)
+      convert &#34;$f&#34; \
+        -blur 0x0.5 \
+          -distort ScaleRotateTranslate &#34;$x,$y $angle&#34; +repage \
+        \( +clone +noise Random -fill white -colorize 95% \) \
+        -compose darken \
+        -composite \
+        ${f/p_in/p_out}.pdf || exit 1
+  done
+  # concatenate all the pages to one PDF
+  # use &#34;ls -v&#34; to order files correctly (p_out-X.jpg where X is 0 1 2 ... 9 10 11 ...)
+  pdftk $(ls -v &#34;$tmp&#34;/p_out*.pdf) cat output &#34;$2&#34; &amp;&amp;
+  rm -rf &#34;$tmp&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://fly.io/blog/free-postgres/">Free Postgres databases for small projects</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30018197">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m so glad Fly exists. Every other edge focused thing out there I&#39;m aware of are &#34;serverless&#34; which these days basically means they charge per request.That&#39;s fine for a lot of use cases, but the unit economics of the per request pricing model means it&#39;s really hard to operate a predictably sustainable (i.e. profitable) business without also charging our customers on a usage basis, or enforcing limits on usage, neither of which is ideal for maximizing engagement as incentives are no longer aligned.Fly just gives us compute at the edge for a predictable price per unit of actual compute resources as opposed to requests, and gives us freedom to serve as much traffic as we can min-max onto those resources, like we could with traditional cloud compute.This provides much better unit economics for many kinds of applications, at the cost of having to manage the scaling ourselves. But because the option exists, we can make this tradeoff on a case-by-case basis, which is so much better than if all we had was &#34;serverless&#34; stuff at the edge and had to choose between just low latency across the globe vs good unit economics."</p>
+							
+						
+							
+								<p class="story__comment_others">"IMO, small projects most often do not need a database. It is much simpler to serialize to a binary encoding and read/write to disk. I have several small projects, even some with &gt; 100GB of data, that use this approach and it is very nice. I even have login/out without storing user data at all (yes, it is possible)...The primary exception to this being if you absolutely have to normalize your data (with key constraints), or need the transactional guarantees of a database."</p>
+							
+						
+							
+								<p class="story__comment_others">"Fly is great.They’ve got Chris McCord there, who has already improved their Elixir deployment story. I tweeted a few weeks ago about improving the default Rails deployment experience to not require DB provisioning and configuration of env vars like SECRET_BASE_KEY and they said it would likely ship within the next 3 months.My hot take is they’re setting themselves up to ride the server-side rendered HTML renaissance we are experiencing with LiveView and Hotwire. It will become much more important to deploy applications geographically closer to customers to lower latency, which Fly makes sane for the rest of us."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/technology/intel-plans-new-chip-manufacturing-site-ohio-report-2022-01-21/">Intel&#39;s $20B Ohio factory could become world&#39;s largest chip plant</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30025695">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.is/66jAS"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is actually a brilliant location for them. One of those places that has much more going for it than people not from the region would realize.International airport, large rail depot, extremely low cost of living and a city/region that has more good restaurants and activities than might be expected. Ohio State University is in the city and is a huge school that is rapidly growing in academic standing. Road transit in the area is also very good allowing access to any part of the city from any other part in rapid fashion. Good schools, relatively low crime, etc. Probably the only drawback, from a lifestyle point of view, would be the winter and that&#39;s not even that bad, compared to other winter regions."</p>
+							
+						
+							
+								<p class="story__comment_others">"This same street has a Facebook data center, an AWS data center, and a Google data center (within a couple of miles).  There is a biotech research campus, Bath &amp; Bodyworks main research lab, and the main operations center for AEP (a midwest electric company).  If you travel about 2-3 miles orthogonal to that street we have a big data center for Nationwide Insurance, a campus for Discover (credit cards), and a State Farm insurance facility.It is literally across street from one of the Ohio East-2 availability zones.  If they were making rack-mounted server boards, they could just walk them across the street and plug them into the cloud."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/DREAM-DK/MAKRO">Danish government makes its new economic model open source</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30026606">
+						
+							
+								<p class="story__comment_first line-clamp">"Wow, cool! The model is specified as a constrained nonlinear optimization problem for which a solution is found using high-quality proprietary numerical solvers.[a] All partial differential equations specifying the model have a basis in economic theory or in heuristics and approximations shown to be consistent with reality. Parameters come directly from (what I assume is a large amount of) economic data collected by the Danish government.The authors working for the Danish government deserve an A+ for making their code and assumptions public, along with comprehensive high-quality documentation.[b] It was a delightful surprise to click on the link and find... a carefully curated repo.I have only one nitpicking: This looks like the kind of project that should have been -- and in fact probably should be -- implemented in Julia, instead of in a proprietary language. I suspect many heuristics and approximations could be more accurately modeled by ML components, interspersed between equations, as has long been proposed by Julia folks like Chris Rackauckas.--[a] https://news.ycombinator.com/item?id=30028188[b] https://media.githubusercontent.com/media/DREAM-DK/MAKRO/mai..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Note that the model is implemented in GAMS[1], a proprietary language focused at constrained optimization problems (think Matlab, but more niche). This makes it a non-starter for most interested outsiders.[1] https://en.wikipedia.org/wiki/General_Algebraic_Modeling_Sys..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Economics is not a science like physics. We can&#39;t do controlled experiments, we can&#39;t falsify hypothesis. This leads to very muddy waters and what you are left with are two kinds of economists: Those who tell people what they want to hear and those nobody listens to.Econometrics gives people everything they want to hear, and with a scientific veneer as a bonus. The HN crowd should however appreciate how susceptible this is to the tyranny of metrics. Claude-Frédéric Bastiat warned of this over a century ago with his parable of the broken window: Think not only of what you can see (the glazier who is employed to repair the window), but also of what you cannot see (the alternative purchase of a suit) had the window not been broken."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.addictionjournal.org/posts/cannabis-use-produces-persistent-cognitive-impairments">Cannabis use produces persistent cognitive impairments: meta review</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30019841">
+						
+							
+								<p class="story__comment_first line-clamp">"Since the article and the study are light on the details of &#34;persistent&#34; Here&#39;s the supporting data&#39;s in a bit more detail[0].Overall this makes sense to me as an individually who personally enjoys it. The whole point of getting high is to be impaired (for me). So it&#39;s not really telling me anything new. Like drinking, I can&#39;t expect myself to be 100% functioning the next day so plan accordingly.The question is how long is that persistence and how much does it affect? Permanent? Doesn&#39;t really seem to be answered in a way that I was hoping.[0] https://onlinelibrary.wiley.com/action/downloadSupplement?do..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve known many people in silicon valley who smoke cannabis regularly (several times a week if not daily). They all seemed to be cognitively normal. Some of them function on a level I only wish I could attain.I think regular cannabis use attracts a certain type of person. That type of person can vary in their ability and intelligence, just like any type of person. This is also true of say, hardcore fans of fantasy fiction. They all have certain things in common, but you couldn&#39;t paint all of them as &#34;creative&#34; or any other trait.I&#39;m hesitant when hearing about long term effects, even on developing brains. Both Barack Obama and Carl Sagan smoked a ton of cannabis when they were younger. And they and others really turned out fine.This paper seems to be a meta study that combines the results from other studies. Since there were multiple methodologies it&#39;s hard to get a sense of exactly what questions they were answering."</p>
+							
+						
+							
+								<p class="story__comment_others">"Before anyone freaks out too much:&#34;Persistent&#34; means up to one week. From the actual paper: &#34;However, results were not significant for an abstinence period of more than 7 days.&#34;Basically, science has proved that stoners behave like stoners. And if you stop it takes a few days for everything to wear off."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.pcworld.com/article/549576/the-windows-11-taskbar-is-an-annoying-step-backward.html">The Windows 11 taskbar is an annoying step backward</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30018763">
+						
+							
+								<p class="story__comment_first line-clamp">"The strange trend of &#34;authoritarian minimalism&#34; design that seems to be working its way through the majority of newer software is very strange. I wonder who actually wants this stuff, and is not content to merely make it a default, but instead forces it to be the one and only way.Monitors are bigger than ever with huge resolutions, and yet UIs are being dumbed down to uselessness and alienating an increasing number of users.A recent related article https://news.ycombinator.com/item?id=29954266 seems to indicate that not even people inside Microsoft --- who are being forced to use Win11, because MS --- have any say in the matter. It&#39;s almost like some tiny extremist faction has gained control of Windows and is determined to show everyone else how much power they have by making these changes and gloating sadistically at seeing everyone object, but still end up using Windows.I wonder how much damage they will inflict before people start turning to WINE and a saner Linux distro, just to run their Windows applications."</p>
+							
+						
+							
+								<p class="story__comment_others">"My #1 issue with Windows 11 is not being able to un-group my taskbar items.I found having multiple instances of apps open across multiple monitors was extremely painful after using it ungrouped for so many years. And the little dot provided to indicate an open app is worthless. I resorted to StartAllBack to fix it. Everything else has been generally fine for me. So disappointed.There are several highly voted feedback posts and comments about the taskbar but I don&#39;t think I&#39;ve seen anyone at MS acknowledge any of it.(Main suggestion is currently at 11k votes. https://aka.ms/AAeyt69)And as if that wasn&#39;t enough, sometimes just clicking the taskbar item does nothing. It can sometimes take several clicks to get it to re-open an app.https://twitter.com/vyrotek/status/1461748895906553856"</p>
+							
+						
+							
+								<p class="story__comment_others">"I am mad about how slow the search is now. I used to press window button, start typing first few letters of app of choice hit enter and it would open. Now it takes like 3 seconds for the search to start and by muscle memory I&#39;ve hit enter now before its even warmed up and for whatever reason ends up doing a web search..That alone Makes me want to quit Windows."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://tricycle.org/trikedaily/thich-nhat-hanh-dies/">Thich Nhat Hanh has died</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30030454">
+						
+							
+								<p class="story__comment_first line-clamp">"Wow. I used to go to the mindfulness retreats at his affiliated monastery in San Diego. You left your phone in your car, and had 3-5 days (or more sometimes) of meditation, fresh cooked meals, and nature. It was really peaceful, and so different from what I had expected (something like a cult, being plied for donations etc. there was none of that). I stopped going when I left California, but it&#39;s hard to feel much more free than that these days. You&#39;re on a schedule for sleep, meals and events, basically making no decisions, and without internet pulling your attention, you feel like your mind is coming back to yourself."</p>
+							
+						
+							
+								<p class="story__comment_others">"Thich Nhat Hanh taught that just like a cloud seems to disappear from the sky, it&#39;s not really, it has simply changed form. The appearance of vanishing is just that: an appearance. Really nothing is created or destroyed. In this way, there is no loss here, Thầy has transitioned into another phase of life. A beauty worth celebrating"</p>
+							
+						
+							
+								<p class="story__comment_others">"This man was my first introduction to meditation.  I read his book &#34;the miracle of mindfulness&#34; when I was undergoing an extremely difficult, near suicidal period of my life, and it pulled me out and put me back on track.  I&#39;m indebted to him and I wish I had an opportunity to meet him."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.androidpolice.com/google-camera-randomly-changes-some-qr-code-urls-on-android-12/">Google Camera randomly changes some QR code URLs on Android 12</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30015810">
+						
+							
+								<p class="story__comment_first line-clamp">"There is no reason to autocorrect a QR code scan. QR codes come with built-in error correction, so there’s a vanishingly small chance of a successfully-scanned QR code containing an error. It seems like Camera here might be treating QR code URLs as manually entered URLs or OCRed URLs and applying autocorrection logic."</p>
+							
+						
+							
+								<p class="story__comment_others">"So far, I&#39;ve been able to reproduce a few transformations:* www[0-9].example.tld -&gt; [0-9].example.tld,
+e.g. www1.nyc.gov -&gt; 1.nyc.gov* example[ac|co|gov|edu].tld -&gt; example.[ac|co|gov|edu].tld
+e.g. exampleac.uk -&gt; example.ac.ukMy guess, as someone else further down the comments mentioned, is that some URL handling library is doing more than expected to its input. I filed an internal bug report referencing some of the public reports from a dev build of Android 12, so hopefully this will get triaged soon if someone hasn&#39;t already done a similar reproduction.(I work at Google, but on nothing remotely related to Android.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Sigh. There is literally nothing I like about the changes in Android 12 versus 11.  This seems like yet another shoe-horning in of &#34;cleverness&#34; when it wasn&#39;t invited and in this case appears to be outright broken.After disabling every single assistant or enrichment option I could find, Android is still putting auto-reply prompts into any notification that has a reply button. GO AWAY!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/JetBrains/JetBrainsMono">JetBrains Mono – the free and open-source typeface for developers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30009287">
+						
+							
+								<p class="story__comment_first line-clamp">"I used to use Fira Code.  Then I played this font game and I switched to JetBrains Mono.https://www.codingfont.com/"</p>
+							
+						
+							
+								<p class="story__comment_others">"I think I switched to this font a couple of years ago and I&#39;ve been unable to find anything that even comes close! At this point I would consider JetBrains Mono to be my forever font."</p>
+							
+						
+							
+								<p class="story__comment_others">"After playing the CodingFont that others commented (https://www.codingfont.com/), I ended up with this list of winners:* Cousine* JetBrains Mono* Roboto Mono* Source Code ProHowever, when actually testing, they all have a something that doesn&#39;t click as good as the Ubuntu Mono in terms of horizontal spacing.All these fonts are too wide, and the step from 10pt to 11pt causes a huge increment on horizontal space usage. Whereas Ubuntu Mono stays in a perfect sweet spot when set at 13pt.Anyone finding the same?EDIT: I made a quick visual comparison (mind that all of the fonts listed above have practically the same width):https://pasteboard.co/qZ8rvfV4aEHf.png"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">21 January 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -53,11 +370,11 @@
 							
 						
 							
-								<p class="story__comment_others">"I often wonder how I would have made a living and a good life without the internet. I finished high school in 1994 with little career inspiration, landed in a generic business degree that held little interest for me, but it was at that uni campus I discovered the internet in early 95.I immediately found it exciting and grasped how transformative it would be, and quickly got to work learning web development and finding material and communities related to my interests (mostly obscure Australian rock bands). It&#39;s been the platform for my career ever since, and has also enabled me to go deep learning about some unusual health and emotional challenges that had afflicted me since early life, and enabled me to make profound changes to my health and wellbeing, leading to the place I&#39;m at now, with a solid career, great relationship and a wonderful young son.When I think about the person I was and the path I was on when I finished high school, it&#39;s hard to imagine how it would have turned out well had I come of age in a different era.Which is not to say life has been easy or simple; quite the opposite, and the internet has no doubt made life more complicated and challenging in many ways, My life has had several major ups and downs that probably wouldn&#39;t have been as pronounced without the internet. But I still have no doubt at all I&#39;m in a much better place than I&#39;d have been without it."</p>
+								<p class="story__comment_others">"The internet to me was a blessing and a curse. In economic terms, it has granted me lots of opportunities I might have not otherwise had; in social terms, it has taken a big toll, significantly isolating me from the world, which I didn&#39;t admit until very recently. I remember a smart classmate at university who, one day, just stopped attending and sold his computers, saying something like &#34;these little colored lights have turned me into something I don&#39;t like&#34;. Some days I wish I had done the same."</p>
 							
 						
 							
-								<p class="story__comment_others">"The internet to me was a blessing and a curse. In economic terms, it has granted me lots of opportunities I might have not otherwise had; in social terms, it has taken a big toll, significantly isolating me from the world, which I didn&#39;t admit until very recently. I remember a smart classmate at university who, one day, just stopped attending and sold his computers, saying something like &#34;these little colored lights have turned me into something I don&#39;t like&#34;. Some days I wish I had done the same."</p>
+								<p class="story__comment_others">"I often wonder how I would have made a living and a good life without the internet. I finished high school in 1994 with little career inspiration, landed in a generic business degree that held little interest for me, but it was at that uni campus I discovered the internet in early 95.I immediately found it exciting and grasped how transformative it would be, and quickly got to work learning web development and finding material and communities related to my interests (mostly obscure Australian rock bands). It&#39;s been the platform for my career ever since, and has also enabled me to go deep learning about some unusual health and emotional challenges that had afflicted me since early life, and enabled me to make profound changes to my health and wellbeing, leading to the place I&#39;m at now, with a solid career, great relationship and a wonderful young son.When I think about the person I was and the path I was on when I finished high school, it&#39;s hard to imagine how it would have turned out well had I come of age in a different era.Which is not to say life has been easy or simple; quite the opposite, and the internet has no doubt made life more complicated and challenging in many ways, My life has had several major ups and downs that probably wouldn&#39;t have been as pronounced without the internet. But I still have no doubt at all I&#39;m in a much better place than I&#39;d have been without it."</p>
 							
 						
 						</a>
@@ -170,7 +487,7 @@ https://anilnetto.com/governance/accountability/come-on-guys...This one doesn&#3
 							
 						
 							
-								<p class="story__comment_others">"This is not surprising at all, as a nation that is second only to China for its density of CCTV surveillance in public places would hate that anyone have the capacity to elude constant monitoring/&#34;oversight&#34;."</p>
+								<p class="story__comment_others">"Watched their little ad, the text goes scrambled and the scary subwoofer comes on. &#34;Don&#39;t give them a place to hide, oh please, let us constantly monitor every reasonably accessible message in our entire society at the hardware level because some marginal percentage of the people out there are gross predators&#34;.Five eyes, burgers and lies; at it again."</p>
 							
 						
 						</a>
@@ -195,6 +512,10 @@ https://anilnetto.com/governance/accountability/come-on-guys...This one doesn&#3
 						
 							
 								<p class="story__comment_others">"The article does not reference cultures where alcohol has been consumed for several millennia without any significant  harmful effects. Consider, Italy and middle east where the cultures have consumed wine for thousands of years and is even partaken during religious ceremonies. I am confused."</p>
+							
+						
+							
+								<p class="story__comment_others">"Just wait 5 years."</p>
 							
 						
 						</a>
@@ -559,11 +880,11 @@ I&#39;m not annoyed that I have to pay, it&#39;s been ~13 years of free service 
 							
 						
 							
-								<p class="story__comment_others">"For those of you who are younger and perhaps haven&#39;t experienced it, forget the movie version of true love.  This story is a much better example - it&#39;s imperfect, illogical, sometimes downright gritty and yet it persists (with bouquets of flowers spread throughout)."</p>
+								<p class="story__comment_others">"It&#39;s a lovely story, but quite honestly, Alzheimer&#39;s/dementia is a shitshow. I wouldn&#39;t wish it on my worst enemy and there are many people I despise. There is nothing crueler than dementia.My mom is suffering through dementia right now. We did something similar. We made photo albums, and went through them every day, until my mom stopped responding to them. Within a couple of years, she forgot who we were, or she would mix up my sister for her sister.After 7 years from her diagnosis, she no longer talks and she no longer responds to me. My sister is taking full time care of her, and she is cleaning her several times a day because she&#39;s incontinent. My mom recently has stopped swallowing. She also seems to have contracted a mild case of COVID, and my sister has been self-flagellating herself because she felt guilty about it. I of course told my sister there&#39;s no reason to feel guilty, everyone is getting it and it&#39;s something everyone will deal with, especially my mom. I secretly wish it would take my mom&#39;s life to end her misery.The worst part in the first few years were her lucid moments. During one of those moments she wrote a letter to God, asking to die, because she knew something was wrong but she didn&#39;t know what. We found the letter hidden in her dresser. Every time I think about it, I burst out in tears, even now. It&#39;s disgustingly cruel for someone who spend her entire life sacrificing her life for her kids and family, and asking nothing else.So when articles like this come out, it is extremely difficult to contain my contempt at any stories that don&#39;t paint the picture exactly how it is: a complete and utter shitshow. It&#39;s unfair for the victim and it&#39;s unfair for the caretakers. And it&#39;s extremely expensive and almost impossible to keep your loved one living in a modicum of dignity."</p>
 							
 						
 							
-								<p class="story__comment_others">"Dementia is in the future for many of us. If not you then your parents or children, or friends, colleagues, whatever. You&#39;ll see someone with it, one day, and it&#39;s truly horrible.Donate to your nation&#39;s dementia or Alzheimer&#39;s research foundations."</p>
+								<p class="story__comment_others">"For those of you who are younger and perhaps haven&#39;t experienced it, forget the movie version of true love.  This story is a much better example - it&#39;s imperfect, illogical, sometimes downright gritty and yet it persists (with bouquets of flowers spread throughout)."</p>
 							
 						
 						</a>
@@ -1290,7 +1611,7 @@ https://bayesiancomputationbook.comhttps://www.routledge.com/Bayesian-Modeling-a
 							
 						
 							
-								<p class="story__comment_others">"It seems Feedback Hub is a way to give people the feeling that they have somewhere to be heard, without them actually making any difference.It&#39;s a bit like with online petitions: most people feel they have done something after signing a petition, but the vast majority of petitions don&#39;t change anything."</p>
+								<p class="story__comment_others">"I once even spotted a Microsoft employee who took the time to raise their concerns on the public tracker:That is just incredibly exasperating to see. When even MS employees are being forced to &#34;bend over and take it&#34;, you&#39;d think there would be some sort of &#34;find the people responsible for this shitshow in the Windows team inside MS, and keep emailing them to fix it&#34; protest. That one employee he noticed seemed to have concluded his comment with a rather sarcastic thanks directed toward someone who might be one of the responsible?On the other hand, what I can find in the news about internal protests at MS are all seemingly SJW-ish topics, and absolutely none about the quality of the products themselves. I think that alone says a lot about who&#39;s working there and what they actually care about doing --- which is clearly not improving their products. The people who do care about that are being heavily outnumbered, and perhaps a lot of them have already deemed MS to be unsalvageable and left.I can&#39;t believe the incredible amount of reality distortion they must have in order to spew forth marketing BS like https://news.ycombinator.com/item?id=28753528 with a straight face."</p>
 							
 						
 						</a>
@@ -1766,7 +2087,7 @@ academic-reactor designer is a dilettante.&#34;Little that’s happened in the 6
 							
 						
 							
-								<p class="story__comment_others">"These kinds of alternative justice systems always seem fascinating to me. I feel like a sociological study on &#34;alternative forms of justice&#34; could be very fruitful."</p>
+								<p class="story__comment_others">"I live in NJ where weed is legal but you can&#39;t buy it (legally) so we are sort of in a weird spot.anyway, it makes me really not care about ordering weed on the dark web from CA.  if the feds catch it, its an ounce of weed to a residence, they don&#39;t care and im not gonna go in front of some federal judge on federal drug crimes.  if CA or NJ catch it, its legal there, who cares.but the site I use uses an escrow system where if you don&#39;t get the product or if you aren&#39;t satisfied you can file a complaint.  i&#39;ve never used it as i always have gotten what i&#39;ve ordered but it is pretty odd."</p>
 							
 						
 						</a>
@@ -2455,11 +2776,11 @@ Seems like it&#39;s stuck in the &#39;SocketThread&#39;, repeatedly doing this: 
 						<a href="https://news.ycombinator.com/item?id=29897611">
 						
 							
-								<p class="story__comment_first line-clamp">"I have a similar idea with PDF documents. Instead of having the royal PITA of parsing generated PDFs (e.g. invoices), things would be much simpler if every generated PDF came with a built-in SQLite or JSON that contains the structured data of that PDF.One day I will do it.Speaking more broadly, whether we talk about HTML or PDF it&#39;s the same problem: documents should have two representations - human-friendly and machine-friendly until AI gets so good that only having the human-friendly representation is enough."</p>
+								<p class="story__comment_first line-clamp">"The semantic web is not a technical problem, it&#39;s an incentive problem.RSS can be considered a primitive separation of data and UI, yet was killed everywhere. When you hand over your data to the world, you lose all control of it. Monetization becomes impossible and you leave the door wide open for any competitor to destroy you.That pretty much limits the idea to the &#34;common goods&#34; like Wikipedia and perhaps the academic world.Even something silly as a semantic recipe for cooking is controversial. Somebody built a recipe scraping app and got a massive backlash from food bloggers. Their ad-infested 7000 word lectures intermixed with a recipe is their business model.Unfortunately, we have very little common good data, that is free from personal or commercial interests. You can think of a million formats and databases but it won&#39;t take off without the right incentives."</p>
 							
 						
 							
-								<p class="story__comment_others">"The semantic web is not a technical problem, it&#39;s an incentive problem.RSS can be considered a primitive separation of data and UI, yet was killed everywhere. When you hand over your data to the world, you lose all control of it. Monetization becomes impossible and you leave the door wide open for any competitor to destroy you.That pretty much limits the idea to the &#34;common goods&#34; like Wikipedia and perhaps the academic world.Even something silly as a semantic recipe for cooking is controversial. Somebody built a recipe scraping app and got a massive backlash from food bloggers. Their ad-infested 7000 word lectures intermixed with a recipe is their business model.Unfortunately, we have very little common good data, that is free from personal or commercial interests. You can think of a million formats and databases but it won&#39;t take off without the right incentives."</p>
+								<p class="story__comment_others">"I have a similar idea with PDF documents. Instead of having the royal PITA of parsing generated PDFs (e.g. invoices), things would be much simpler if every generated PDF came with a built-in SQLite or JSON that contains the structured data of that PDF.One day I will do it.Speaking more broadly, whether we talk about HTML or PDF it&#39;s the same problem: documents should have two representations - human-friendly and machine-friendly until AI gets so good that only having the human-friendly representation is enough."</p>
 							
 						
 							
@@ -2643,293 +2964,6 @@ In a usual compiled language, these two functions would only be able to print &#
 								<p class="story__comment_others">"When they were acquired by LogMeIn a few years ago, the thread on HN about it was recommending switching to Bitwarden. Which I did.
 In a few weeks, I&#39;ll have to pay $10 to renew it. 
 Meanwhile, since December we have those kind of worrying news from LastPass which is almost 4 times more expensive than Bitwarden."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">12 January 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.joshwcomeau.com/css/make-beautiful-gradients/">CSS Gradients that avoid the “gray dead zone”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29894608">
-						
-							
-								<p class="story__comment_first line-clamp">"Just before Christmas I got an urge to add a dither filter to my JS canvas library. The past few weeks have certainly been a very intense adventure through a very deep rabbit hole involving color spaces, color distances and discovering how to generate a best-fit reduced palette of colors and then dither it (hello, blue noise!)I finally managed to complete the work last week and I&#39;m quite happy with the results. Using the library people can set the colors of graphical objects or gradients using any CSS color space string (RGB, HSL, HWB, LAB, LCH) and the color should render as expected. The reduce-noise filter uses LAB internally to calculate color distances, but in the end I compromised and used euler distances for the algorithm rather than one of the more modern algorithms.Work is still on a branch in the library[1] but I&#39;m hoping to merge it into the main code in the next week or so (after testing across devices/screens/etc).Aside: Safari has gone ahead and introduced support for HWB, LAB and LCH color strings in CSS. Sadly, they&#39;re not recognised by Safari&#39;s canvas engine (yet). Also, their HSL and HWB gradients seem to be the same as the RGB gradients; their LAB/LCH gradients seem to dodge the dreaded Gray Zone.[1] - https://github.com/KaliedaRik/Scrawl-canvas/tree/dec-21-dith..."</p>
-							
-						
-							
-								<p class="story__comment_others">"This article seems to give RGB a bad rap but I think it makes the most sense for gradients. I wouldn&#39;t want a yellow to blue gradient to cycle through a (partial) rainbow of colors. But I also wouldn&#39;t really ever choose to make a pure yellow to pure blue gradient. Most pleasing gradients you see in the wild use colors that are more similar to begin with, so it&#39;s a bit of a strawman. It&#39;s really just about carefully choosing your start and end (and optionally intermediate) colors."</p>
-							
-						
-							
-								<p class="story__comment_others">"There is a related video by minute physics about how the RGB color space stores the square root of the brightness of each color channel, because human color perception is roughly logarithmic. Bad color blending is therefore pretty commonplace because it uses the average of square roots instead of the square root of the average of the original brightness values. See: https://www.youtube.com/watch?v=LKnqECcg6Gw"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.armbrustusa.com/pages/mask-testing">Show HN: I bought and tested the filtration of every mask on Amazon</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29878971">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;ve spent about 1,000 hours on this with my team using a very expensive (~$250k) lab and I&#39;d love for this to be a great resource for people when choosing a mask.The heavy lift we are doing here is around our particulate filtration efficiency test in which we do either the NIOSH N95 NaCL (0.3 micron) test or the ASTM 0.1 micron latex particle test.I&#39;d love HN feedback on how we improve the interface and make this a true resource for people.Disclaimer: Yes, I&#39;m a mask manufacturer and that&#39;s how I justify keeping all of this equipment up to spec, but I&#39;m not big enough to make all of the masks for the world so I&#39;d rather people find a good mask than just use my mask.Any feedback is appreciated."</p>
-							
-						
-							
-								<p class="story__comment_others">"Wow, this is fabulous!  They spent almost $5000 to buy and test every mask available on Amazon.If you click on a mask it will take you to a page with the test details.  More incredibly, most of the masks also have 5-7 minute video review!If you click on the &#34;Breathability&#34; column, then on &#34;Grade&#34; twice, you will end up with a list of masks that Pass with the most breathable masks first.Way to go, Lloyd.  I&#39;ve never heard of you or your company before, but I am genuinely impressed."</p>
-							
-						
-							
-								<p class="story__comment_others">"Project N95 is the National Critical Equipment Clearinghouse for personal protective equipment (PPE), COVID-19 diagnostic tests and critical equipment.
-Edit: stupid typo on url, sorry
-https://www.projectn95.org/US based non profit, not tied to amazon.  I&#39;ve bought their stuff.  They are legit."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.mozilla.org/en-US/firefox/96.0/releasenotes/">Firefox 96</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29891726">
-						
-							
-								<p class="story__comment_first line-clamp">"Developer notes: https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Rel...Highlights:* CSS color-scheme support, which was the last of the major browsers:https://caniuse.com/?search=color-scheme* Web Locks API: https://developer.mozilla.org/en-US/docs/Web/API/Web_Locks_A... (Still not in Safari)"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;We’ve also significantly reduced main-thread load.Such an important detail that deserve at least few more sentence of marketing message or explanation. But the whole release note just feels like they couldn&#39;t be bothered anymore."</p>
-							
-						
-							
-								<p class="story__comment_others">"Is saving the webpage (as PDF or MHTML or ANY BLOODY FORMAT) on Android back? It&#39;s incredible that that functionality just disappeared a few years ago and Mozilla is apparently ignoring user feedback."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.michigan.gov/mdot/0,4616,7-151-9615-575096--,00.html">Michigan DOT Snowplow Names</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29883840">
-						
-							
-								<p class="story__comment_first line-clamp">"Even better, the &#34;MI Drive&#34; site (for Michigan road conditions) actually shows live webcam footage from many (all?) of the DOT plows.This is valuable during the winter to see the road conditions outside of areas like metro Detroit or Grand Rapids (which have fixed road cameras).https://mdotjboss.state.mi.us/MiDrive/map?plows=trueEDIT: I mostly drive between Grand Rapids and Lansing, and I haven&#39;t looked in a while, but there are actually a lot of fixed cameras on major highways now, even outside metro areas:https://mdotjboss.state.mi.us/MiDrive/map?cameras=true"</p>
-							
-						
-							
-								<p class="story__comment_others">"I do think the Scots still have some better ones: https://www.cnet.com/google-amp/news/scotland-snow-plows-nam...Clearopathra is inspired, though."</p>
-							
-						
-							
-								<p class="story__comment_others">"Truck Norris does not plow snow. The snow sees Truck Norris coming and the snow jumps out of the way."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.surgehq.ai/blog/is-google-search-deteriorating-measuring-search-quality-in-2022">Is Google Search Deteriorating? Measuring Google&#39;s Search Quality in 2022</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29886423">
-						
-							
-								<p class="story__comment_first line-clamp">"One thing I find annoying is that they still return results that are those sites that seem to register a load of terms that all point to the same page. You see this with telephone numbers, song lyrics etc. where the result looks like &#34;Lyrics for Stairway to Heaven&#34; but you click through and there is no content, just a page that says &#34;Upload some lyrics to this song&#34;.. etc.These sites should be heavily penalised for click-baiting and they have been doing it for years."</p>
-							
-						
-							
-								<p class="story__comment_others">"Ironically, my work on my own search engine has led me to be a bit more patient with Google&#39;s problems. At least I think I understand them better. Search engines fail in weird ways.I think in part that Google just has gotten a spectacularly confusing failure mode. If it can&#39;t find good matching contents, it starts second-guessing your query and producing other results, which makes you think it&#39;s not even considering what you entered. It may even be &#34;better&#34; in the sense that it&#39;s more likely to return at least something relevant, but in practice it&#39;s bad UX because it&#39;s so unintuitive what&#39;s happening. It&#39;s probably one of those unfortunate optimizations that are invisible when they work and frustrating when they don&#39;t.There is so much stuff on the Internet it&#39;s easy to start thinking there is guaranteed to be good results for any search, and that just doesn&#39;t seem to be the case. Especially with highly specified searches with 6-8 terms, you quickly enter the domain where you&#39;re reasonably unlikely to find an exact match."</p>
-							
-						
-							
-								<p class="story__comment_others">"When I search for &#34;databricks series b valuation&#34; in Google (from Argentina, using Google.com in English) result #6 is:&#34;Python get value from database - Büro Jorge Schmidt&#34;, which judging by title and preview seems to be a Python + MySQL tutorial. It returns a 403 error and might be a hacked site, since the home page is for a graphic design studio in Munich.Result #8 is something similar:&#34;Intellij flatten packages - Músicos de Viaje&#34;. This is definitely a hacked site (from Spain, apparently) that redirects me somewhere else.Result #10:&#34;How to calculate tax percentage in sql query&#34;. Another hacked site, this time for an evangelical church from Brazil.Now... how can Google think that any of these sites are relevant? Even if it doesn&#39;t realize the pages are hacked... even its crawler has been fed content that included the keywords... :A - The sites themselves don&#39;t match the query at all.B - No legit site about the subject would link to these sites.C - The results themselves (title, url, preview), as Google shows them, have nothing to do with the search!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://unixsheikh.com/articles/is-the-madness-ever-going-to-end.html">Is the madness ever going to end?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29898030">
-						
-							
-								<p class="story__comment_first line-clamp">"The author is fighting a strawman. Rather than engage with the specific problems these solutions were built to solve they dismissively regard them as just flavor of the week trends purely for the sake of chasing newness. This is true of the entire post, but I&#39;ll tackle just one since it&#39;s emblematic of my issues with all the rest:The argument for Electron and React Native isn&#39;t &#34;it&#39;s modern&#34;, it&#39;s &#34;it&#39;s much cheaper&#34;. Hiring experienced desktop application devs to build a quality native app for each platform is going to be expensive, hiring a few JS bootcampers to build one react UI that works on every platform is extremely cheap - shittier performance is the tradeoff to instantly have access to every platform. It&#39;s not a coincidence that Electron apps like e.g. Slack, Spotify, Discord are massively dominant players in their markets, I doubt you&#39;d look the engineering leads of these companies in the face and tell them that you believe they put no thought into the tradeoffs of Electron and that they&#39;re just following trends."</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel comfortable with asserting that the author has never worked on a complex web application. This web-dev hate borders on pathological: this is a guy that seems to specialize in Unix/Linux tooling, doesn&#39;t have a single tutorial on web app development [1], and yet has an intense hatred towards a space that he barely understands.These types of arguments are incredibly embarrassing to read, not only because they betray a stunning lack of familiarity with the topic, but it&#39;s basically a conspiracy theory: everybody is stupid except me, all these successful companies making billions of dollars and attracting top talent are just throwing money into a fire for fun.[1] https://unixsheikh.com/tutorials.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m a greybeard. I&#39;ve been doing this since before HTML existed, and I&#39;ve kept up with the changes as they occurred along the way.I&#39;m not going to refute the author&#39;s points one by one. Everything being complained about exists for a reason. I agree that it&#39;s incredibly complex. It&#39;s overwhelming. That&#39;s why people specialize.An individual can still own an entire application and infrastructure, limit their technology choices to those from the 90s, and produce a perfectly functional, modern web application indistinguishable from anything using the latest tools and frameworks. It&#39;s a whole lot of work, though.If you take the time to learn some of the modern tools, they&#39;ll save you a lot of time. Why re-invent the wheel? But all these time-saving frameworks are complex, and learning all of them would take years, if you haven&#39;t been keeping up as they evolved. You can learn one or two of them quickly, though. You can specialize.That&#39;s why we have DevOps teams, UI teams, API teams, database teams. That&#39;s a lot of people. But that&#39;s what it takes if you want a high-performance web application that can scale to support hundreds of millions of users, is responsive around the world, supports a variety of languages, can handle disruptions, complies with regulations, and on and on. Don&#39;t need those things? Then stick with PHP and HTML on a server you run yourself. This isn&#39;t the 90s anymore. There are a lot of people out there, and if you&#39;re building something worth using, it&#39;s a different ballgame."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://road.cc/content/news/milan-confirms-new-bike-network-289375">Milan confirms new cycling network linking 80% of the city to bike paths</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29875007">
-						
-							
-								<p class="story__comment_first line-clamp">"Meanwhile our idiot city (Oxford, UK) is spending £1.2m on &#34;Quickways&#34;, which are painted lines on existing roads... guaranteed to keep cyclists 0% safe. This in the face of national Government guidance in favour of physical segregation from cars. (Plans at https://letstalk.oxfordshire.gov.uk/quickway-cycle-route-oxf...: the promise of &#34;segregation where possible&#34; in reality means about 5% of the network.)It is really frustrating how highway engineers, as a profession, are unwilling to consistently learn lessons from the Netherlands in designing cycle infrastructure. Many cities seem to delight in half-assing their own solutions. So congratulations to Milan, who look like they may have got it right."</p>
-							
-						
-							
-								<p class="story__comment_others">"If you live in a region where bike infrastructure is underfunded, and car infrastructure is overfunded, it’s probable that’s because cycling is viewed as a recreational activity in your area and thus undeserving of tax dollars compared to ‘essential’ car travel.If you disagree with that, (and live in a democracy) let someone know! Find out who controls the infrastructure spending in your area and call/email them."</p>
-							
-						
-							
-								<p class="story__comment_others">"If any of you have been to Milan, the inner circle of the image [1] is more or less the city boundary. That path could be anything between 70 to 100 km according to how they&#39;ll design it. I had no problems cycling 100+ km around the city during the second quasi-lockdown of one winter ago.The grey area is what&#39;s called &#34;città metropolitana&#34; now, basically the old province of Milan including more than 100 of other cities. Milan accounts for almost half of the population.[1] Deep link to the bike paths network https://cdn.road.cc/sites/default/files/styles/main_width/pu..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.jim-nielsen.com/2022/a-web-for-all/">The optional chaining operator, “modern” browsers, and my mom</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29894300">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; Turns out, you can’t. From what I could gather, the version of Chrome was tied to ChromeOS which couldn’t be updated because of the hardware. No new ChromeOS meant no new Chrome which meant stuck at version 76.This is the most surprising part of the article. If ChromeOS does not allow the browser to be updated after the hardware has reached end-of-support, I would recommend it to nobody, ever."</p>
-							
-						
-							
-								<p class="story__comment_others">"A friend lent me a 2017 iPad that she&#39;s no longer using. I wanted to download Spotify, but couldn&#39;t, because I needed a newer version of iOS.The device does not get a new version of iOS, so I tried Safari to see if the web client works. Spotify&#39;s web client does not work on that version of Safari.So I tried downloading Firefox and Chrome, but I can&#39;t because they no longer support my version of iOS.So I looked for a way to download older versions of apps (Spotify, or an older version of Firefox or Chrome on which Spotify would still work). As it turns out, there&#39;s a way: you first need to &#34;purchase&#34; the app you&#39;re interested in on a newer device that supports the latest version. Then, you can log into your older device and download an older version of the same app.That means there&#39;s a way for me to run an older version of an app that works on my iPad, but nah, I need to first get a newer device and &#34;purchase&#34; it there.My conclusion: the onus is on the device manufacturers to not arbitrarily restrict their users. Jim Nielsen&#39;s mom&#39;s iPad is perfectly capable of opening that website, but its manufacturers are limiting it artificially."</p>
-							
-						
-							
-								<p class="story__comment_others">"The first line of the article is misleading. It&#39;s not just about a &#34;crappy laptop&#34;, it&#39;s about locked-down devices (ChromeOS, iPad) that have had their support terms expire. I suppose that is crappy, but it&#39;s not quite the image I&#39;d conjure myself.For various reasons but mainly because I so rarely use laptops, I have a crappy laptop from ca. 2010. It&#39;s slow, with a spinning-rust hard disk and an Intel Celeron from its day; it&#39;s a miracle it even allowed up to a 4GB RAM upgrade. With a GPU that can barely manage to process a 1366x768 framebuffer needed for the built-in screen, it&#39;s an unpleasant experience all around. By all means it&#39;s the definition of crappy laptop and that held even when the thing was new.All the same, it has no problem running Debian 11, and both the newest Chromium and Firefox can at least launch on it. It does take half a minute for the browser windows to actually appear, but it works, more or less. The per-site experience after this depends heavily on how much &#34;cool tech&#34; web site developers have opted to use. YouTube is practically unusable even in the tiny video window it displays and 360p videos. Hacker News is perfectly fine.Perhaps bias on my own part, but I would argue that this case is the crappy laptop that&#39;s reasonable to optimize for. It may not be pleasant, but for large classes of web sites, it should be bearable to some extent. I&#39;m pretty sure both the Chromebook and iPad mentioned in the article have better hardware specs than my thing, but they&#39;re both made by companies that are far too willing to drop support after a short period, leaving users in an insecure status and many of them just don&#39;t know why web sites stop working."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.antipope.org/charlie/blog-static/rants/nothing-like-this-will-be-buil.html">Nothing like this will be built again (2002)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29890470">
-						
-							
-								<p class="story__comment_first line-clamp">"My dad who passed away some years ago on my 50th birthday, worked on the design for the AGR for many, many years. Fond memories of him picking me up from school and excitedly telling me the interesting problems he had to solve that day on the walk home. A lovely way to start my day - thank you for sharing."</p>
-							
-						
-							
-								<p class="story__comment_others">"I bet the Fukushima backup power system would have fit this explanation perfectly:&gt; in addition to the grid connection, there are four twelve megawatt diesel generator stations spaced around each corner of the plant -- each with two generators, any one of which is able to provide operating power to keep the reactor&#39;s safety systems working.Unfortunately for Fukushima, all generators were flooded by a single Tsunami. What are the odds of an unknown event that will affect all generators? Think of EMP, contaminated fuel, a large cloud of C)2 suffocating the engines... All seem highly unlikely, but how do you plan for the unknown unknowns?The most likely (and I think underestimated) risk for Nuclear plants is a systemic change due to a large (climate?) crisis and/or war. Think of the collapse of the Soviet Union, that definitely increased risk and reduced maintenance budget for a few Nuclear plants. Any significant sea level rise, drought or flood could very well trigger such events (even if the reactor is not affected directly, the society around it will be). That is why I think nuclear is a risky option to reach net-zero; every plant you build is a bet on the future stability of society for at least 75 years (time until the plant will be safely decommissioned by future generations). I would feel much safer in a world covered in solar panels, wind turbines and transmission lines (and highly variable spot pricing) than in one with nuclear plants that require constant care by experts and that even in the best case incur a huge cost on society to safely decommission.&gt; In 2016 the European Commission assessed that European Union&#39;s nuclear decommissioning liabilities were seriously underfunded by about 118 billion euros, with only 150 billion euros of earmarked assets to cover 268 billion euros of expected decommissioning costs covering both dismantling of nuclear plants and storage of radioactive parts and waste. France had the largest shortfall with only 23 billion euros of earmarked assets to cover 74 billion euros of expected costs  [1][1] https://en.wikipedia.org/wiki/Nuclear_decommissioning"</p>
-							
-						
-							
-								<p class="story__comment_others">"French power grid agency RTE made a report[0] forecasting 2050 France energy mix, and because of loss of knowledge and increased security measures, even with strong political will, France won&#39;t be able to maintain its 70% nuclear power electricity share.
-Most nuclear-intensive scenario in this report is max 50% nuclear energy.[0]https://assets.rte-france.com/prod/public/2021-12/Futurs-Ene... in french"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.science.org/content/article/covid-19-may-have-killed-nearly-3-million-india-far-more-official-counts-show">Covid-19 may have killed nearly 3M in India, far more than official counts show</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29873286">
-						
-							
-								<p class="story__comment_first line-clamp">" Not very surprised.An Indian expat living in NL, with parents living back home in India. My (retired, old) parents are afraid to get tested for COVID because they hear way too many incidents from their neighbourhood about “hospitals faking COVID test results just so that they can admit them for 4 days, administer expensive drugs, charge them some hefty bill, and send home”. As stupid as it sounds, I could not force my parents to go and wait in the line to get COVID test, after he says “I believe I don’t have COVID now. But if I go to the testing center that is so badly managed and understaffed where only people with obvious high level of COVID are brought to get official result, I will get COVID there!”.Say what you will, but if the basic trust in doctors and healthcare is lost, how would people get tested, and how can you trust any statistics from there?!I’m ashamed, stupefied and angry at the same time."</p>
-							
-						
-							
-								<p class="story__comment_others">"Excess deaths will need to become the standard statistic used to compare nations.  Otherwise, we&#39;ll be debating &#34;deaths FROM vs. deaths WITH COVID&#34; and the differing statistical definitions from nation to nation.  Moreover, is a death from lack of access to medical care due to the collapse of a medical system a COVID death?  Is a death of despair from isolation and unemployment a COVID death?My sense is, when the pandemic is analyzed historically, &#34;excess deaths&#34; will be the only salient statistic in the literature."</p>
-							
-						
-							
-								<p class="story__comment_others">"India desperately needs a public institution like the NHS of the UK!Few years ago my father died of ILD(Interstitial Lung Disease), as per the doctors. I had my doubts about the diagnosis, but I had no where to go to for second opinion. There is a private hospital syndicate in every city of India; no hospital goes against other hospitals in the same city; they will cover each others back because most of the hospitals have the same &#34;consulting doctors&#34;. They just loot the patient&#39;s relatives by prescribing same drug but from different manufacturer. And if they realise that the patient is going to die, then the family members are pressured to take the patient home or elsewhere, this is to avoid &#34;death count&#34; on their register. I was literally asked to take my father home the day he died suggesting that &#34;take him home, we will provide the ambulance and he will die on the way home so it won&#39;t be on anyone of us!&#34;The medicine profession in India is not just joke, it is inhumane and lacks any value for humanity.India should have looked at some of the European countries when setting up it&#39;s healthcare, education and news media policy. Unfortunately the country has copied verbatim everything in this regard from the US!"</p>
 							
 						
 						</a>
