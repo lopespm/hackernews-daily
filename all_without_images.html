@@ -36,13 +36,327 @@
 	</div>
 
 	
+	<div class="day__date">25 January 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.troyhunt.com/how-i-got-pwned-by-my-cloud-costs/">I got pwned by my cloud costs</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30054739">
+						
+							
+								<p class="story__comment_first line-clamp">"Don&#39;t put Cloudflare in front of a Cloud egress bill. i.e. don&#39;t do this: Azure|Amazon &gt; CloudflareAlways use your own proxy where the egress is well within your free tier, i.e. do this: Azure|Amazon &gt; Hetzner|Linode &gt; CloudflareWhy?Because Cloudflare cache is a massively multi-tenant LRU cache and whilst hot files will be cached well (and with Cloudflare Tiered Cache even better - but this itself is a cost) anything else is still going to expose you to some degree of egress cost.When I exposed AWS to the web I paid $3k per month to AWS. With Cloudflare in front of AWS I paid $300 per month to AWS. With Linode in front of AWS and behind Cloudflare I paid $20 per month to Linode and about $12 per month to AWS.A Linode, Hetzner instance... or any other dumb cheap web server that comes with a healthy free tier of bandwidth is all you need to set up a simple nginx reverse proxy and have it cache things to disk https://docs.nginx.com/nginx/admin-guide/content-cache/conte..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Ah the old cloud provider switcheroo. Yip this is the way they make money. They make it easy to setup some gigantic hugely scalable website then hit you with a gigantic scaled up bill. AWS would do this as well.Team I&#39;m in at the moment is in the early stages of cloud adoption but the company in total has fell hook line and sinker for AWS. When I mentioned the cost there is always an excuse.The main one being that you don&#39;t have to hire sysadmins anymore as that&#39;s taken care now by AWS. Ah yes but they have actually been replaced with a &#34;DevOps&#34; team plus just our department now spend &gt; £1 million per year to AWS in hosting costs. A 20% reduction in those fees could pay for a few sysadmin(s).The next one is that no other vendor would be able to supply the kit. You know StackOverflow is able to run on a single webserver (https://nickcraver.com/blog/2016/02/17/stack-overflow-the-ar...). Plus many of the other providers have loads of instances available.I mean I&#39;m not against cloud it&#39;s just not the cheapest option if you choose one of the big 3 providers. I use a company called scaleway (https://www.scaleway.com/en/) they have all the essential cloud services you need and everything else you can run yourself in docker or k8s."</p>
+							
+						
+							
+								<p class="story__comment_others">"Ouch. If Troy Hunt of all people can make this mistake, it can happen to anybody. HIBP is an awesome service funded totally by donations, so it&#39;s too bad this happened. Of course Microsoft is happy to hide behind their confusing pricing model and let customers overpay for Azure without alerting them."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/emilyldolson/status/1485434187968614411">Google Drive flags file only containing “1” for copyright infringement</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30060405">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m curious if it was related to the file name.  I created a few 1-byte files with just &#34;1&#34; in them, with different names, including &#34;output04.txt&#34;.  No problems so far. Also uploaded variations with &#34;\n&#34; and &#34;\r\n&#34; after the &#34;1&#34;.  And enabled sharing to anyone with the link. No issues so far.Google drive does support metadata like a description and comments. I wonder if someone posted some copyrighted text in a comment?Update: Recreated it. Most of them are now flagged. Took about an hour for that to happen.  So far, all that have just one byte, being a &#34;1&#34;, and also the one that contains &#34;1\n&#34;.The one with &#34;1\r\n&#34; hasn&#39;t been flagged.   The file names of the flagged files: &#34;one.txt&#34;, &#34;onev2.txt&#34;, &#34;output04.txt&#34; and &#34;output05.txt&#34;.Screenshots of the email and Google drive: https://imgur.com/a/RHnEJcj (note the little flags on the Google drive view, and the file sizes)Just added some files with &#34;0&#34; and &#34;0\n&#34;, we&#39;ll see if &#34;0&#34; is copyrighted :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"All software has bugs; I&#39;m not mad at all that this silly test case was flagged incorrectly. The truly infuriating part is &#34;A review cannot be requested for this restriction.&#34;Translation: &#34;We have no idea if you actually own this content or not, but it would be _way too expensive_ for us to find out for sure! So you&#39;re out of luck, but don&#39;t worry — it&#39;s all worth it so we can make sure children can&#39;t stream Marvel movies from Google Drive! Thank you for your contributions to Disney+&#39;s bottom line.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"I experienced something similar building an internal tool on GSuite. I had a large file with sequences of 9 digit numbers specific to our use-case, all tied to names of people (employees). Whelp, at one point the tool I was working on stopped working, and it was flagged as apparently containing social security numbers (which I suppose matched the character length).Whelp, on the admin panel, you can get a report of those files, and then mark it as a false positive. Which I did. But then nothing happened, and nothing changed. It was no use.The hilarious bit: It did, of course, allow me to make a copy of the file in question, and then just point the resource I was building to the new file, which was exactly the same. Weeks later... so far, so good."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=30055222">Last Windows 11 update changed all default browser settings to Edge</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30055222">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; How do you deal with Microsoft&#39;s crap on a daily basis?I don&#39;t; I develop on Linux. Ignoring this, within my very limited usage of Windows, it seems to me that MS has become increasingly more hostile over the last few years or so.To answer with something actionable: I discourage people from upgrading to Windows 11."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; How do you deal with Microsoft&#39;s crap on a daily basis? Any similar stories?Based on this very recent comment, even the creaters of Windows do not:This has been the case for a while. I worked on the Windows Desktop Experience Team from Win7-Win10. Starting around Win8, the designers had full control, and most crucially essentially none of the designers use Windows.I spent far too many years of my career sitting in conference rooms explaining to the newest designer (because they seem to rotate every 6-18 months) with a shiny Macbook why various ideas had been tried and failed in usability studies because our users want X, Y, and Z.https://news.ycombinator.com/item?id=30019307"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; How do you deal with Microsoft&#39;s crap on a daily basis? Any similar stories?My advice is that, unless you are developing for Windows is don&#39;t. If you need the Adobe tools, you can get them for Macs and, since M1, Macs offer a lot of bang for the buck while being a perfectly usable Unix machine, they are an excellent choice.If you don&#39;t need tools that aren&#39;t available on Linux, then Linux is a really good option. Hardware support may be an issue, so I always recommend the most boring machines possible - Intel, with integrated graphics - and only get components you know will work well with Linux."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://graphics.reuters.com/TONGA-VOLCANO/lgpdwjyqbvo/">How big was the Tonga eruption?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30060458">
+						
+							
+								<p class="story__comment_first line-clamp">"I posted a visualization of the shock wave as a submission, but I&#34;ll repost it here. This is a satellite measurement of integrated atmospheric water vapor (IIUC), so changes in the density of air change the integrated measurement, such that you can see the shock wave travel around half the globe.https://cimss.ssec.wisc.edu/satellite-blog/images/2022/01/22...(it take a few seconds to load, but I believe this is one of the most incredible things I&#39;ve ever seen)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Heard it go bang, 2600km away, echoing through the hills around our place at the top of the South Island of New Zealand. That&#39;s pretty staggering to think about it. Then to see other peoples Home Assistants around the world pick up the change in pressure on opposite sides of the planet. Mental, just mental..."</p>
+							
+						
+							
+								<p class="story__comment_others">"My cheap weather station has recorded the blast wave three times.https://michilehr.de/the-eruption-of-hunga-tonga-volcano-and..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.wesleyac.com/posts/the-curse-of-nixos">The Curse of NixOS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30057287">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve been using Nix and NixOS for a while and I&#39;ve seen four core advantages:1. Nix store: what the article covers: multiple versions of the same package, &#34;virtualenv for everything&#34;... etc2. Reproducibility: because package definitions are self-contained, I can pin and reliably reproduce everything for my packages. And I do mean everything.3. Flexibility: Nix works for system packages on NixOS as well as user packages on any Linux or macOS. I&#39;ve been sharing like 70% of my system config between Linux and macOS, and I don&#39;t know of any other tool that can do that.4. Programmability: package definitions and config are extensible and composable. Yes, learning an ad hoc language to do this is a pain, but once I learned it I got a higher-level and better-abstracted way to define and combine packages than any other tool I&#39;ve used. It&#39;s like going from C to OCaml. At this point I&#39;ve started hating Dockerfiles because they can&#39;t easily be composed and don&#39;t provide any real facilities for abstraction.Ultimately, Nix took system management from feeling like an operational activity—maintaining and changing a bunch of mutable state to run the system—to declarative programming. Learning curve aside, making system management a reproducible programming activity with no system state to worry about has been a massive improvement."</p>
+							
+						
+							
+								<p class="story__comment_others">"I tried using NixOS on a laptop for a month and switched back to Arch a couple of months ago. It was an interesting experience - I never used functional programming language before, but nix was pretty ok as a configuration language. It looks like funny version of JSON with functions.Debugging it was a real pain though - I was trying to write (or copy from someone else config) a function to recursively import all modules from a folder and the error messages were hard to understand with stacktraces ending somewhere deep in standard library.The other problem was with nixpkgs, i.e. I haven&#39;t found a clear list of packages that were going to be updated. Jetbrains IDEA was updating very slowly and when I wanted to pin a version of it simply overriding version variable in the overlay was not enough - there were also some other linked variables. Emacs package from custom overlay constantly tried to compile itself, requiring me to check build status on hydra build system.In the end I decided that it&#39;s not really worth it. I don&#39;t have many systems and services to manage and for a raspberry pi and a vps multiple docker-compose.yaml files in git repo is enough. 
+I think Henrik Lissner (author of Doom Emacs) wrote a really good piece about why someone should choose to use NixOS - https://github.com/hlissner/dotfiles#frequently-asked-questi..."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;&#34;&#34;The first is relatively simple: they developed their own programming language to do configuration, which is not very good and is extremely difficult to learn. The vast majority of people using NixOS do not understand the language, and simply copy/paste example configurations, which mostly works until you need to do something complicated, at which point you&#39;re completely high and dry.&#34;&#34;&#34;Maybe this is nitpicking, but: the Nix language is about as straightforward as &#34;JSON plus functions&#34;. Maybe that is difficult for people who haven&#39;t had an experience with pure/functional programming?Though, yes, the way Nix is used can be quite complicated/sophisticated. -- Even if all of Nixpkgs were translated to JavaScript, I think it&#39;d still be complicated to understand. (Though I suspect using a more general purpose language would allow for more footguns).+1 to the sentiment that most of the time you can get by just fine, but when you can&#39;t, NixOS is more difficult to make progress with compared to other Linux distributions."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/max-sixty/prql">PRQL – A proposal for a better SQL</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30060784">
+						
+							
+								<p class="story__comment_first line-clamp">"I like the flow direction compared to standard SQL.  SQL is supposed to read like a sentence I suppose but I have many times looked at it and really wanted things to be in a more logical order.My main suggestion would be to be a bit less terse and introduce a bit more firm formatting.  I&#39;m not a huge fan of the term &#34;split&#34; and feel like jazzing that up to &#34;split over&#34; or even just reviving &#34;group by&#34; would improve readability.  Additionally the aliasing could use work, I&#39;d suggest reversing the assignment to be something closer to `use salary + payroll_tax as gross salary`.  In terms of firm formatting, unless I&#39;m missing something there isn&#39;t any reason to allow a filter statement before any aliases - so you can force two fixed positions for filter clauses which would make it always legal to reference aliases in filters.On the brief topic of form vs. flexibility.  SQL is a thing that, when complex, is written by many people over the course of its lifetime - removing the ability to make bad decisions is better than enabling the ability to write simple things even simpler - those silly do nothing queries like &#34;SELECT * FROM customer WHERE deleted=&#39;f&#39;` are written once[1] in a moments time and never inspected again.  The complex queries are what you want to optimize for.1. If they even are - with ORMs available a lot of those dead simple queries just end up being done through an ORM."</p>
+							
+						
+							
+								<p class="story__comment_others">"I like it, it&#39;s readable, unlike some SQL alternatives I&#39;ve seen it doesn&#39;t make me feel like I&#39;m dumb and don&#39;t understand what a query even is.I can&#39;t decide if it would be better or worse if it stuck more closely to SQL keywords. You use &#34;from&#34; and &#34;select&#34;, but not &#34;where&#34;, &#34;order by&#34;, &#34;group by&#34;. There&#39;s some danger of it being in an uncanny valley of SQLish, but I&#39;m pretty sure I&#39;d prefer just using those terms verbatim (including the space in &#34;order by&#34;... that style is less common in modern languages but it&#39;s not really that much harder to parse).I&#39;d like to see more examples of joins and composing SQL. Does this language make it easier to make more general SQL queries? Can I take two queries and squash them together in a reliable way? I feel like I end up with a lot of theme and variation in my queries, often involving optional filters.I might even like a notion of encapsulation that could help this query language when it&#39;s embedded in other languages. Like if I could say, in the language itself, that a query has certain unbound variables (and not just ? or other placeholders). This language seems like it would be better for generating than SQL, and sometimes generation is just necessary (like in any application that supports data exploration), but for most common cases I&#39;d hope to avoid that. Defining inputs and then making whole filter sections or other statements conditional on those inputs would help here."</p>
+							
+						
+							
+								<p class="story__comment_others">"Now this is actually nice, unlike the other suggestion posted today[1].Maybe I&#39;m just too used to non-standard extensions of our database but the SQL example could, at least for our db, be rewritten as    SELECT TOP 20
+        title,
+        country,
+        AVG(salary) AS average_salary,
+        SUM(salary) AS sum_salary,
+        AVG(gross_salary) AS average_gross_salary,
+        SUM(gross_salary) AS sum_gross_salary,
+        AVG(gross_cost) AS average_gross_cost,
+        SUM(gross_cost) AS sum_gross_cost,
+        COUNT(*) as count
+    FROM (
+        SELECT
+            title,
+            country,
+            salary,
+            (salary + payroll_tax) AS gross_salary,
+            (salary + payroll_tax + healthcare_cost) AS gross_cost
+        FROM employees
+        WHERE country = &#39;USA&#39;
+    ) emp
+    WHERE gross_cost &gt; 0
+    GROUP BY title, country
+    ORDER BY sum_gross_cost
+    HAVING count &gt; 200
+
+This cuts down the repetition a lot, and can also help the optimizer in certain cases. Could do another nesting to get rid of the HAVING if needed.Still, think the PRQL looks very nice, especially with a &#34;let&#34; keyword as mentioned in another thread here.[1]: https://news.ycombinator.com/item?id=30053860"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/theryanking/status/1485784823641755648">Bolt founder on Stripe/YC</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30066969">
+						
+							
+								<p class="story__comment_first line-clamp">"To be honest, this feels like a PR stunt since we all know if you add &#34;YC is bad&#34; and share it on HN, people will look and react. I haven&#39;t heard of Bolt, I&#39;m not familiar with the space at all. I use Stripe because the product just works and I can trust my business with it. Seeing a CEO who publicly complains turns me away from even wanting to try the product.On a related note - I helped review a little over 100+ YC applications since getting in myself in S20 as a way to give back. There were a lot of bad applications or just ideas that seemed over saturated (a social media for some niche as an example). Literally tens of thousands of people apply for YC every batch. I personally recommended around 20 with around 15 getting interviews and around 10 getting in. I only recommend companies that I personally would want to invest in if I had the capital. YC has funded a handful of competitors in my space (PaaS) and I actually had calls with them to exchange notes and see where we could help each other."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think if you get over the drama here and implied &#34;dirtiness&#34;, the main result is still a bit interesting.Even if you exclude the implied carteling and take everything he said with a grain of salt, the outcomes of this incentive structure are clear: once SV (i.e. the YC centered VC machine) gets into a space and has a main horse, SV can no longer incubate new innovation/competition in the space. It can also very likely become predatory to the potential innovators that SV is supposed to support.At a more macro scale, this means that YC will fade in the same way as everything else does because it won&#39;t be able to entertain a wave of innovators, and they will, as he did, seek and build the next SV."</p>
+							
+						
+							
+								<p class="story__comment_others">"Public fights can occasionally be net positive for one of the participants, but your arguments will be publicly scrutinized and they better be watertight. If the logic you presented is your best work, then I can easily see why you&#39;ve experienced some trouble in getting people to support you.Let&#39;s start with the very first argument you presented: getting rejected by YC is a clear proof of collusion.Getting rejected by YC happens to tens of thousands of applicants each batch. Your chances of getting accepted increase disproportionally if you can show progress since the rejection. To react the way you did is a contrarian move. And it kind of fits the pattern - to publicly insult every VC on Stripe&#39;s cap table is also a contrarian move. Not to mention that you also made it clear to all your future potential talent that there&#39;s this thing about you not being liked by the VC community in Silicon Valley.I will skip all the little jumps to conclusions that you also presented throughout your thread, and will instead focus on the big picture here. The whole time I was reading your thread, I was waiting for the triumphant finish (eg: today we&#39;re announcing that we stole Stripe&#39;s biggest customer). Instead, all I heard was that Stripe is unbeatable, which sounded quite depressing from your company&#39;s point of view. I wonder how this will make future fundraising or deal closing any easier. Another contrarian move.I am not in a position to criticize you because clearly you&#39;ve gotten very far and something that you&#39;re doing must be working. But whatever it is, it&#39;s super contrarian. So rather than presenting the Stripe-Bolt competition in the light of a mobster movie, I think a Rambo analogy would be more appropriate - a traumatized but highly skilled fighter declaring war on everyone and their grandmother."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://it-notes.dragas.net/2022/01/24/why-were-migrating-many-of-our-servers-from-linux-to-freebsd/">We&#39;re migrating many of our servers from Linux to FreeBSD</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30057549">
+						
+							
+								<p class="story__comment_first line-clamp">"Funny enough, I decided to play with FreeBSD for personal projects in 2020. I gave up and I am reverting all my servers to Linux in 2022, for the opposite of the reasons mentioned in this article.* Lack of systemd. Managing services through shell scripts is outdated to me. It feels very hacky, there is no way to specify dependencies, and auto-restarts in case of crashes. Many FreeBSD devs praise launchd, well... systemd is a clone of launchd.* FreeBSD jail are sub-optimal compared to systemd-nspawn. There are tons of tools to create freebsd jails (manually, ezjail, bastillebsd, etc…) half of them are deprecated. At the end all of your jails end up on the same loopback interface, making it hard to firewall. I couldn&#39;t find a way to have one network interface per jail. With Linux, debootstrap + machinectl and you&#39;re good to go.* Lack of security modules (such as SELinux) -- Edit: I should have written &#34;Lack of good security module&#34;* nftables is way easier to grasp than pf, and as fast as pf, and has atomic reloads."</p>
+							
+						
+							
+								<p class="story__comment_others">"The reasons are, for a large part, not on the technical side. I was surprised, because this this a lot of work for little visible gain. Here are the reasons, slightly abbreviated:&gt; The whole system is managed by the same teamMostly philosophical.&gt; FreeBSD development is less driven by commercial interests.Mostly philosophical.&gt; Linux has Docker but FreeBSD has jails!IMO, this comparison is a mistake. In the Linux world, systemd&#39;s nspawn is very similar to Jails. It&#39;s a glorified chroot, with security and resource management. All the systemd tools work seemlessly with nspawn machines (e.g. `systemctl status`). Containers à la Docker are a different thing.BTW, I thought the last sentence about security issues with Docker images was strange. If you care about unmaintained images, build them yourself. On the other side, the FreeBSD official documentation about Jails has a big warning that starts with &#34;Important: the official Jails are a powerful tool, but they are not a security panacea.&#34;&gt; Linux has no official support for zfs and suchFair point, though I&#39;ve heard about production systems with zfs on Linux.&gt; The FreeBSD boot procedure is better than grub.YMMV&gt; FreeBSD&#39;s network is more performant.Is there some conclusive recent benchmark about this. The post uses a 2014 post about ipv6 at Facebook, which I think is far from definitive today. Especially more since it &#34;forgot&#34; to mention that Facebook intended to enhance the &#34;Linux kernel network stack to rival or exceed that of FreeBSD.&#34; Did they succeed over these 8 years ?&gt; Straightforward system performance analysisThe point is not about the quality of the tools, but the way each distribution packages them. Seems very very low impact to me.&gt; FreeBSD&#39;s Bhyve against Linux&#39;s KVMThe author reluctantly admits that KVM is more mature."</p>
+							
+						
+							
+								<p class="story__comment_others">"The characterisation of systemd in this post really bothers me, particularly this:&gt; 70 binaries just for initialising and loggingIt’s just not true. Those 70 binaries provide much more functionality than an init system, they can cover a significant portion of system management, including a local DNS resolver, network configuration or system time management. You can dislike the fact everything is so tightly integrated (which feels ironic given that the post goes on to praise a user space from one team), but let’s at least be correct about this."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.actionsbyexample.com/">GitHub Actions by Example</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30060765">
+						
+							
+								<p class="story__comment_first line-clamp">"GitHub Actions with act to test stuff locally is actually pretty usable. We use on-prem k8s-hosted runners to get access to servers/clusters with limited internet access, works great.But as always with “”gitops”” themed tools I think it’s pretty awkward to handle rollbacks. Either you take the stance that master is the source of truth and let the CI/CD tooling revert commits if deployment fails, or you store that state elsewhere and allow e.g manifests to diverge from git.I would be curious to hear how other people do it"</p>
+							
+						
+							
+								<p class="story__comment_others">"While dealing with an unfamiliar project recently, being able to run actions locally with act[1] was a great time saver for me:[1] https://github.com/nektos/act"</p>
+							
+						
+							
+								<p class="story__comment_others">"Word of advice, if you are thinking of running self hosted runners and use Actions for your organisation, do yourself a favour and check them out in a year or two and use something like Argo Workflows or Tekton instead.GHA isn’t a product thought for GH private organisations, you will find that every much needed feature for this use is very low in GH roadmap."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://rohitpaulk.com/articles/accidentally-used-yaml-instead-of-json">I accidentally used YAML.parse instead of JSON.parse and it worked</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30052128">
+						
+							
+								<p class="story__comment_first line-clamp">"YAML was intended to be a superset, but it isn&#39;t quite, which is about the worst case scenario. See https://metacpan.org/pod/JSON::XS#JSON-and-YAML , for instance.(I am an absolutist on this matter. To be a superset, all, that&#39;s A L L valid JSON strings must also be valid YAML to be a superset. A single failure makes it not a superset. At scale, any difference will eventually occur, which is why even small deviations matter.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Are people not even reading about what they are using?Always read documentation or you will get burned by something completely innocuous. For example, that’s how you get Norway missing in your config file with YAML:  NI: Nicaragua
+  NL: Netherlands
+  NO: Norway
+
+Oops, “NO” evaluates to false like 10 other reserve words."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have a love-hate relationship with YAML.Hate:- human-wise ambiguity of its syntax (If I understand correctly, you &#34;can&#34; indent array items, but you don&#39;t have to. And than one guys says &#34;OK, I&#39;m gonna indent&#34;, and another guy says &#34;Nah. I&#39;m not gonna indent&#34;)- still no support for datetime as a first class citizen- strings usually don&#39;t need quotes, until they do (I prefer to always quote)Note that two of the above points are about allowing inconsistent styles, which is a thing I hate.Love:- it supports comments whereas JSON does not. If the IETF ever officially updated JSON to support C-style inline (and maybe block) comments, I would absolutely ditch YAML."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">24 January 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=30051054">Gmail account security</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=30051054">Ask HN: Gmail account security</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
@@ -77,15 +391,15 @@
 						<a href="https://news.ycombinator.com/item?id=30048332">
 						
 							
-								<p class="story__comment_first line-clamp">"I love the general renaissance of terminal UI tools we are seeing in the last few years.I can&#39;t quite put my finger on what I like about it so much. Something to do with  the simplicity and directness of these UIs, guaranteed optimised for efficient keyboard nav, widespread adoption of vim-like navigation keys, and the fact that they link directly with my terminal shell so I can stay entirely in a stream of thought while working through complex series of tasks that weave in and out of these apps and shell interactions.I do wish it was easier to select text from the terminal screen without using the mouse. It is supported in terminals to place text onto the system clipboard, but rarely implemented in most of these apps. It&#39;s the main reason my hands leave the keyboard."</p>
+								<p class="story__comment_first line-clamp">"I love Charm; doing `ssh git.charm.sh` is a lot of fun and really sparks the imagination about SSH apps. They also have usable solutions for auth and storage, which like, if you&#39;re thinking of writing something like this are the first things you&#39;d start reaching for. They also work hard to enable you to run all your own services, so you don&#39;t rely on the Charm cloud for everything. Definitely a good model for future punk projects IMO."</p>
 							
 						
 							
-								<p class="story__comment_others">"I love Charm; doing `ssh git.charm.sh` is a lot of fun and really sparks the imagination about SSH apps. They also have usable solutions for auth and storage, which like, if you&#39;re thinking of writing something like this are the first things you&#39;d start reaching for. They also work hard to enable you to run all your own services, so you don&#39;t rely on the Charm cloud for everything. Definitely a good model for future punk projects IMO."</p>
+								<p class="story__comment_others">"TUIs over ssh/telnet can be a lot of fun. Especially in cases where multiple people can interact with each other on the server. It simplifies the programming model as you only have one state on the backend that you render to multiple connections. Syncing up everyone becomes trivial. You can also use some React concepts, like rendering a virtual TUI and sending just the right set of minimal escape sequences back to the user to bring their display up to date.A few months ago I implemented a telnet chat server[0] for fun and it was surprisingly easy to do so. Even by using a wasm vm that I was still working on at the same time.[0]: https://github.com/lunatic-solutions/chat"</p>
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t know. I&#39;m very skeptical about the recent TUI approaches. At least that&#39;s NOT what the current infrastructure is designed for.I personally believe we really should graduate from the terminal infrastructure that was designed in the ancient time. We can make a good use of stuffs like client-side UI rendering (fast &amp; reactive), graphical boxes (more compact boxes), image embedding, native multiplexing, capability negotiation, etc. These might be still possible on the existing infrastructure, but a clean slate should provide more consistent experience for everyone involved."</p>
+								<p class="story__comment_others">"This is what I come to HN to see - what a masterful and cool project. I&#39;m literally dropping my plans today to make a project using this."</p>
 							
 						
 						</a>
@@ -109,11 +423,11 @@
 							
 						
 							
-								<p class="story__comment_others">"As someone doing a CS degree now, I seem to be the only one who doesn&#39;t want to have anything on my resume to do with &#34;AI&#34;, blockchain, ML, NFT, chatbots, etc... all I see is overhyped product after product, one-size-fits all solutions that frustrate customers and create problems for humans to clean up, hugely valued companies that have very little real improvement over conventional technology, etc.An &#34;AI chatbot&#34; is far inferior to a real user interface. A real user interface allows discoverability (looking through menus to notice functions that may be useful later), experimentation, and puts the user in control of the program.For example, my bank apparently only supports viewing the reason for card declines through the chatbot--something I never knew, because I took the time to go through the menus when I first got the app and learn what functions existed."</p>
+								<p class="story__comment_others">"I worked at IBM Watson as one of the early engineers when they first started commercializing the product. It was a fucking joke - Ginni Rometty would go up on stage and said that Watson can help diagnose cancer from CT scans and we would just look at each other and be like &#34;Dude, Watson is just a glorified Lucene index, wtf is she talking about.&#34; They started selling Watson as the end-all for everything from cancer diagnosis to customer service chat - they even had a stupid Watson Chef thing at SXSW one year - but none of that used the original Watson codebase - it was all built from the ground up and lots of it was just simple logistic regression"</p>
 							
 						
 							
-								<p class="story__comment_others">"I worked at IBM Watson as one of the early engineers when they first started commercializing the product. It was a fucking joke - Ginni Rometty would go up on stage and said that Watson can help diagnose cancer from CT scans and we would just look at each other and be like &#34;Dude, Watson is just a glorified Lucene index, wtf is she talking about.&#34; They started selling Watson as the end-all for everything from cancer diagnosis to customer service chat - they even had a stupid Watson Chef thing at SXSW one year - but none of that used the original Watson codebase - it was all built from the ground up and lots of it was just simple logistic regression"</p>
+								<p class="story__comment_others">"As someone doing a CS degree now, I seem to be the only one who doesn&#39;t want to have anything on my resume to do with &#34;AI&#34;, blockchain, ML, NFT, chatbots, etc... all I see is overhyped product after product, one-size-fits all solutions that frustrate customers and create problems for humans to clean up, hugely valued companies that have very little real improvement over conventional technology, etc.An &#34;AI chatbot&#34; is far inferior to a real user interface. A real user interface allows discoverability (looking through menus to notice functions that may be useful later), experimentation, and puts the user in control of the program.For example, my bank apparently only supports viewing the reason for card declines through the chatbot--something I never knew, because I took the time to go through the menus when I first got the app and learn what functions existed."</p>
 							
 						
 						</a>
@@ -225,7 +539,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Instead of a special right to repair law, it may be more prudent to expand anti-competition law to include the practice of precluding competition via impeding repair."</p>
+								<p class="story__comment_others">"I dont understand why people keep buying JD tractors.They have a reputation for reliability, so do many other brands. Kubota, Deutz, Fent, Massy, Case, New Holland... a bunch more.It&#39;s amazing the brand loyalty hold JD have on farmers."</p>
 							
 						
 						</a>
@@ -2655,298 +2969,6 @@ academic-reactor designer is a dilettante.&#34;Little that’s happened in the 6
 						
 							
 								<p class="story__comment_others">"I live in NJ where weed is legal but you can&#39;t buy it (legally) so we are sort of in a weird spot.anyway, it makes me really not care about ordering weed on the dark web from CA.  if the feds catch it, its an ounce of weed to a residence, they don&#39;t care and im not gonna go in front of some federal judge on federal drug crimes.  if CA or NJ catch it, its legal there, who cares.but the site I use uses an escrow system where if you don&#39;t get the product or if you aren&#39;t satisfied you can file a complaint.  i&#39;ve never used it as i always have gotten what i&#39;ve ordered but it is pretty odd."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">15 January 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.engadget.com/paypal-lawsuit-freezing-customer-accounts-funds-073128563.html">PayPal faces lawsuit for freezing customer accounts and funds</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29933481">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m so happy to see this. I am working on publishing a book on leanpub, and leanpub disburses payments using paypal. Yesterday, I logged into my paypal account and I remembered that this happened to me and my funds and account were frozen since 2010 (something I must have put out of my mind :p).I was searching for this issue and found this lawsuit and cannot wait to be part of it.Dealing with Paypal during the time was borderline abusive and I felt helpless every step of the way. In 2010 when they froze my account they mailed me a physical letter with an activation code which took weeks, and when I called to confirm my account I was told that the code was incorrect...I had very very little money in my account &lt; $100 and I can&#39;t imagine how frustrating it would be for someone who needed paypal for their income.I&#39;m happy to be in a position where I can choose to never use paypal again and I hope they are punished for the way they treat their customers."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Lena Evans, one of the plaintiffs who&#39;d been a PayPal user for 22 years, said the website seized $26,984 from her account six months after it got frozen without ever telling her why.Wait, what? They&#39;re actually taking the money? I thought the article was just being careless with the terms &#34;frozen&#34; and &#34;seized&#34;.On what power are they doing so? It&#39;s understandable when the relevant authorities (be it a tax authority, or a financial supervisory authority, or a court, or whatever) seize money, but they are not an authority.Furthermore, if the money in question actually were illicit, then by what fantasy argument would they be allowed to keep it themselves rather than having to hand it over to the goverment? The entire point is that the money is dirty and nobody may keep it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Link to actual lawsuit: https://aupdamages.com/wp-content/uploads/2022/01/PayPal_Fil...(I had to Google this and find it in a Reddit thread, so it&#39;s not directly from the court&#39;s website.  If anyone can  find that it&#39;d help)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.cyberlink.com:443/support/faq-content.do?id=26690">Why can’t I play Ultra HD Blu-ray movies on my new Intel CPU platform?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29932630">
-						
-							
-								<p class="story__comment_first line-clamp">"MakeMKV (US$60 for Windows, Mac, or Linux) can rip UHD Blu-Ray discs with the appropriate drive, removing the encryption in the process:https://www.makemkv.com/buy/Some drives need to have their firmware flashed in order to enable ripping of UHD discs:https://forum.makemkv.com/forum/viewtopic.php?f=19&amp;t=19113I&#39;m not affiliated with the product other than having used it to rip my entire disc library. It can also rip DVDs and regular blu-rays.Once ripped, they can be played back with VLC, mpv, or derivatives. (On Macs, IINA is very good.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; For users who use an older compatible platform and want to keep the Ultra HD Blu-ray playback compatibility on the PC and with PowerDVD, we suggest you continue using the 7th - 10th generation Core i series of Intel CPUs and motherboards that support the Intel SGX feature. You should also consider not updating the OS (e.g., upgrading to Windows 11) and related Intel drivers to the latest versions in order to keep the Intel SGX feature from being removed from your PC. You should also ensure your platform meets all the other playback requirements of Ultra HD Blu-ray as the playback solution:
-https://www.cyberlink.com/support/faq-content.do?id=19144Wow, the official solution is to use old hardware and software. I&#39;m sure that&#39;s a great idea :)Sarcasm aside, I wonder when corporations will realize that until they offer proper easy and affordable solutions, people have little incentives to actually jump through the official loops and simply not pirate content. I hope to see this realization sometime in my life, but maybe I&#39;m too optimistic."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll never understand the stupidity of studios/streaming platforms (DRM/Widevine). DRM only hurts legit customers, period. Any TV Show or Movie you want to watch is going to be on Torrents/Usenet within hours at most of release, their DRM has completely and utterly failed to stop piracy, instead it punishes paying users.I still remember a good decade ago getting a DVD from Redbox and trying to watch it with some friends. Tons of unskippable ads, FBI warnings, etc. Partway through the hell of enforced watching I started a torrent, before we got to the title screen it was done and we watched the downloaded version instead.Furthermore, look at the state of TV today with all the streaming platforms. I&#39;m excluding &#34;live&#34; TV because I can&#39;t imagine why anyone would subject themselves to that cesspool. Having to jump between streaming services/UIs/UX/etc is terrible. &#34;What platform was that show on?&#34;, &#34;Wait, weren&#39;t we watching this on service X? That&#39;s why it lost our place in the season&#34;, &#34;Oh, did they remove Y show?&#34;, and the list goes on.It&#39;s incredibly sad the the best TV experience is some combo of Plex/Jellyfin+*arr-type software. Music piracy is practically non-existent in my friend groups (the same could not be said 10+ years ago), Spotify and friends did that. Not any laws, not any enforcement, not any crackdowns, etc, no a /paid/ service beat music piracy. Why? Because it was better, it was easier, and it had everything. As long as we only have a choice of disjointed services and platforms TV/Movies will never be better than piracy.Things like Amazon Channels and Apple TV (yes the app, not the device, not the service, come on Apple...) are somewhat of a step in a better direction but Plex is still bar none. No ads, instant playback, no BS."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.science.org/content/blog-post/multiple-sclerosis-causality">Multiple Sclerosis Causality</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29937345">
-						
-							
-								<p class="story__comment_first line-clamp">"Here&#39;s a link to the article [0].Just a bit of background - 95% of humans will experience infection with EBV at some point in their lives.  Once you&#39;re infected, it remains latent, only flaring up in particular circumstances.  MS is an autoimmune disease, like many others, and this paper does not imply that EBV directly causes MS.  Obviously, as so many more people have EBV than have MS, EBV infection does not completely explain why people get MS.Just to put a small caveat to the paper.  The comparison is to EBV &#39;seronegative&#39; population - this is a minority of people (i.e. people who do not have evidence of being infected with EBV).  You could argue this is an &#39;unusual&#39; population in the first place and there&#39;s something about them that provides protection from MS.Another point is that EBV is a risk factor, there are other risk factors known too.  I think the key to understanding a lot of autoimmune diseases is to understand how our adaptive immune system works.  Our immune response is a very complex cell-to-cell interaction between millions of cells all with different roles, and how the immune system decides whether something is a threat or not is not, and how to respond to it, is not yet clear.[0] https://www.science.org/doi/10.1126/science.abj8222"</p>
-							
-						
-							
-								<p class="story__comment_others">"I have MS and my first relapse was a pretty textbook case of transverse myelitis of the sort that the EBV can cause.I know some people have been asking about why that might be the case when a ton of people have EBV, and I think the causality may go the other way: Those of us with something wrong are more likely to both have EBV complications and MS.There are other viruses like this as well (ones that most people get/have but aren&#39;t dangerous). I was on one medication where I needed to be tested monthly because if I got one particular (normally harmless) virus, the suppression caused by the medication meant I would probably die.There&#39;s pretty clearly some sort of relation between the state of one&#39;s immune system + how it deals with &#39;benign&#39; viruses + auto-immunity, and I&#39;m excited to see what the future holds, but for now it&#39;s a cool confirmation of something a lot of MSers have talked about amongst ourselves for a while."</p>
-							
-						
-							
-								<p class="story__comment_others">"What is interesting is that Epstein-Barr has been reported to be related to Multiple Sclerosis since the early 1980s.https://pubmed.ncbi.nlm.nih.gov/?term=epstein+barr+multiple+...It is great if there is new information and if this leads to knowledge on how to reduce the chance of getting MS."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/johnschreiber/status/1481770722271760384">Train burglaries in LA</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29930970">
-						
-							
-								<p class="story__comment_first line-clamp">"Kind of related : America Is Falling Apart at the Seams
-https://www.nytimes.com/2022/01/13/opinion/america-falling-a...A loss of civic sense and cultural criminality are incredibly hard to weed out of a population, once it has taken root. I worry that the a mix of pessimism and a loss of civic sense is sending non-elite America into a death spiral.Opponents of return-to-normalcy claim that these are temporary and anomalous circumstances as a result of covid. However, a 2 year period of cultural erosion can lead to this regression getting cemented as a modern cultural identity of non-elite US.Cost-benefit analyses have been ignored in favor of tunnel-visioning on viral outcomes and short term political gain. At the end of this, we might just find ourselves asking &#34;We made it out of this, but at what cost?&#34;.p.s: I am not advocating for any particular policy, just pointing to the absence of any holistic response. That being said, the complete failure of the American response in terms of &#39;viral outcomes&#39; despite tunnel visioning on it, doesn&#39;t inspire confidence in it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Having the community police its members can only be done with the proper external incentives to that community. The times in history where clans or family managed their own delinquents where also times where the clan or family as a whole was called to pay for the damage.What we have here is not a sudden lapse in morals - it&#39;s a result of, rather on purpose, individualism. Since the community has nothing to lose or gain, the community just stands aside and looks.As an aside, this reminds me of gypsy villages in Romania - places where lines of concern between insiders and outsiders are so sharply drawn, that from the outside it looks like complete lawlessness. It&#39;s not - it&#39;s lawless only if you&#39;re an outsider, and that village doesn&#39;t care about you.Social mechanisms can be pretty complex (and fascinating). TBH, rather than trying to figure them out, it might be easier in cases like that to just throw manpower (and cameras) at the problem. But long term - this is where it&#39;s very much worth it to have cops work with/as social workers and get embedded in their communities. That this got to where it got speaks volumes about police and citizens there being in a purely adversarial context - otherwise the first old lady to meet a cop 6 months ago would have told him what&#39;s going on and who&#39;s started it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Comment from someone on Reddit (https://www.reddit.com/r/pics/comments/s2sjxj/los_angeles_th...):&gt; It’s not just in LA, theft and vandalism have gone way up on all the rail networks. My company is experiencing some of the worst loss numbers while in rail transit. We just announced that all transport carts will be welded shut and unwelded when it gets to the destination. Even locks aren’t enough."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29937305">Poll: Why are people leaving their jobs?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29937305">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;ll be departing my job at the end of the month. I had too many roles, affecting too many pieces of engineering, and my title didn&#39;t reflect my work. I needed to go down to a 4 day work week and have my title reflect my roles, but my manager attempted to call my bluff and essentially said it&#39;s not going to happen. I hinted about what my decision would have to be if these accomodations couldn&#39;t be made, but he didn&#39;t budge. When I gave my verbal notice, suddenly there was immediate backpedaling and said maybe something could be worked out. I declined because I don&#39;t negotiate like that. If you mismanage a negotiation, there is no do-overs just because you overplayed your hand. The trust is broken."</p>
-							
-						
-							
-								<p class="story__comment_others">"One of the good things that I think happened from the pandemic is that more and more people are realizing that tying up your identity and sense of self-worth in your job is a bad thing, that&#39;s why I&#39;m very glad to see compensation so high on this list.Sure, everyone wants to work in a good working environment, but I think the idea that &#34;nobody left because of the money&#34; is finally being put to bed.The fact is that corporations and VCs have always realized that business is primarily just about the money, and their ability to get people to work for their &#34;passion&#34; has resulted in people getting underpaid. I&#39;m always especially amused when people are expected to have &#34;passion&#34; when they&#39;re working at like a bank or an insurance company.You work to make money. There are plenty of opportunities for hobbies and volunteering for passions. I&#39;m not saying you shouldn&#39;t enjoy what you do at work, but don&#39;t lose sight of why someone is paying you to do it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Rather than look for another job I retired at 63.5. My job was long hours, high stress, high visibility, continuous deadlines and changes that never ended at a large non FAANG company. Compensation was OK (not FAANG but OK for where I am). Everything I or my team shipped worked great; but lots of things with these challenges never shipped for political/idiotic reasons. So much budget was wasted on Exec whims and fantasy. I just grew tired of the frustration. If I were younger I would have left and gone to the local competition or even moved somewhere. But enough was enough after almost 6 years here.I still write code but now its just for me to support my generative art. I still hear stories from my former team; not missing the nightmare at all."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=29934192">Ask HN: Should I publish my research code?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29934192">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; it&#39;s substantially more work to clean and organize the code for publishing, it will increase the surface for nitpicking and criticism (e.g. coding style, etc).Matt Might has a solution for this that I love:  Don&#39;t clean &amp; organize!  Release it under the CRAPL[0], making explicit what everyone understands, viz.:&#34;Generally, academic software is stapled together on a tight deadline; an expert user has to coerce it into running; and it&#39;s not pretty code. Academic code is about &#39;proof of concept.&#39;&#34;[0] https://matt.might.net/articles/crapl/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Hi, I’m a Research Software Engineer (a person who makes software that helps academics/researchers) at a university in the UK. My recommendation is that not only do you publish the code, you mint a DOI (digital object identifier, Zenodo is usually the go to place for that) for the specific version that was used in your paper and you associate them. And you include a citation file (GitHub supports them now: https://docs.github.com/en/repositories/managing-your-reposi...) in your software repo.Benefits: people who want to reproduce your analysis can use exactly the right software, and people who want to build on your work can find the latest in your repo. Either know how to cite your work correctly.In practice drive-by nitpicking over coding style is not that common, particularly in (some) science fields where the other coders are all other scientists who don’t have strong views on it. Nitpicks can be easily ignored anyway.BTW should you choose to publish, the Turing Way has a section on software licenses written for researchers: https://the-turing-way.netlify.app/reproducible-research/lic..."</p>
-							
-						
-							
-								<p class="story__comment_others">"In my view and personal experience, the pros outweigh the cons:* You increase the impact of your work and as a consequence also might get more citations.* It&#39;s the right thing to do for open and reproducible research.* You can get feedback and improve the method.* You are still the expert on your own code. That someone picks it up, implements an idea that you also had and publishes before you is unlikely.* I never got comments like &#34;you could organize the code better&#34; and don&#39;t think researchers would tend to do this.* Via the code you can get connected to groups you haven&#39;t worked with yet.* It&#39;s great for your CV. Companies love applicants with open-source code."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://animatize.com/">Show HN: Create animations by dragging an element with your mouse</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29924666">
-						
-							
-								<p class="story__comment_first line-clamp">"Hi HN,This idea has been a dream of mine for years [0]. As a web developer, I never learned After Effects or any other complex animation software.But I&#39;ve always dreamed of creating interactive demos and animations just by using my natural mouse movements. It just feels right.So last week I took a few days off from my main project to create Animatize [1], a proof-of-concept showing off the idea of using natural movement to create an animation.I&#39;d love to know what you think.[0] http://motioncomicbuilder.storylog.com/[1] https://github.com/panphora/animatize"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is such a cool project. Quick suggestion: would be nice to have some way of &#34;smoothening&#34; the animations; I think a simple interface for that would make it a lot more usable in practice. The human hand is a bit shaky :)Anyway, bookmarked!"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is what ergonomics looks like. Even small children can convey the movement of actors through space using similar techniques. It&#39;s an extremely natural way to communicate how something moves. But we have lost that basic idea in favor of very precise animation tools and the complexity that comes with them."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://sloanreview.mit.edu/article/toxic-culture-is-driving-the-great-resignation/">Toxic culture is driving the great resignation</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29917755">
-						
-							
-								<p class="story__comment_first line-clamp">"A huge problem with this industry is the inflexibility to pay current engineers LARGELY increasing comp each year. The thought is that there is a market rate for an engineer and that pay can increase with the market rate, but this is a fallacy. An engineer that has been at a largish company for 1 year is worth 20-30% more than the year they were hired because they have specific knowledge of the tech stack. Yet that engineer will likely be offered a 3-5% raise. An engineer with 3+ years might be worth 50%+ because they have developed the specific skills relevant to the job AND know the idiosyncacies about org politics and the nitty gritty parts of the codebase. Yet they will still only get a 10-15% raise. So that engineer moves on and accepts a 40% raise elsewhere. And thus we see the constant churn of highly talented engineers which is a huge drain on productivity for all involved."</p>
-							
-						
-							
-								<p class="story__comment_others">"Perhaps I’ve been unlucky but my experience at big tech has been marred by churn and burn culture - high pressure tactics to get the most work out of employees and discarding them when they inevitably burn out. Average tenure was 1-3 years.  Amazon was particularly bad at this. The only modicum of power employees have is in quitting and now that they’re exercising it the employers are acting like their throats have been cut.Edit: a story I like to tell people about what it’s like to deal with Big Co. is that I solo built a $50Mp.a. profit data science artifact in my first year. They offered me the highest once off bonus on offer $30K stretched over 6 years, no promotion (those were used to keep US citizens). I said, give me the same bonus as my manager for for ‘managing’ my project ~$150K in one year or I’ll quit. They said no so I quit. The artifact was extremely difficult to build and written in Scala, it took a lot out of me, no one understood it after I left. They rewrote it in Java which made it even harder to understand. It atrophied over 5 years and now it doesn’t even work at all. I’m in contact with my former colleagues and keep offering to fix it for 7 figures, but no dice. They’ve now convinced themselves it is impossible to do. That’s how committed they are to maintaining the status quo."</p>
-							
-						
-							
-								<p class="story__comment_others">"This article does accidentally capture one of the major corporate problems pretty well. The conclude from their data that Toxic Workplace Culture is the biggest cause of resignation, and then they immediately suggest 4 short term things to try that don&#39;t relate to culture at all.If you have a toxic workplace culture, the very first thing you should do is to start fixing your culture. This is very hard and not fast (as they acknowledge to be fair). One thing you can do though is to acknowledge it to your employees - &#34;X, Y and Z is wrong and we&#39;re working to fix it&#34;. Nothing destroys morale more than employees being unhappy about a set of things and then management standing up and telling you there aren&#39;t any problems."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/evilksandr/status/1479507618066571268">YouTube suspended my channel for a video with disclosed issue in Grammarly</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29933516">
-						
-							
-								<p class="story__comment_first line-clamp">"1) At the blocking moment I had only 2 videos (just screen records) on my channel which showed the same problem in 2 different Grammarly products
-2) these videos were an illustration for my report https://hackerone.com/reports/1282282, which Grammarly disclosed to the public and does not consider this a problem.
-3) these videos were published after Grammarly representatives allowed me to release this information
-4) in the description of the video there were links to the HackerOne case for the problem  and to my blog https://evilksandr.medium.com/7bdb343c956b with a detailed study of this problem
-5) the video was posted for educational purposes only and without malicious intent
-I believe that my channel was blocked by mistake.
-Please, anyone who knows somebody from YT/G team, tag them in my tweet."</p>
-							
-						
-							
-								<p class="story__comment_others">"After Grammarly spent millions of dollars on Google ads, I expect them not to accept valid criticism on Google platforms.But it&#39;s unfair to block a guy that talked about a real flaw in Grammarly&#39;s plagiarism checker, at least pretend that you allow free speech and take down that video for a random reason specified in your ToS."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those wanting a more honest alternative to Grammarly, LanguageTool[1] is open source and quite good.That said, I am not a power user and my English is just passable, so your mileage may vary.[1] https://languagetool.org"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://goteleport.com/blog/security-hardening-ssh-bastion-best-practices/">SSH Bastion Host Best Practices</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=29924053">
-						
-							
-								<p class="story__comment_first line-clamp">"I think this article has come up before? Either way, it&#39;s a quirky thing for Gravitational to post, since their flagship project --- Teleport --- basically eliminates bastion servers altogether (you might think of it as an API-controlled self-contained bastion server). Teleport is free, and worth checking out: it solves a bunch of SSH management problems, not just controlling access, but also linking SSH access to SSO, running fleet-wide commands selectively, and generating transcripts of SSH sessions.Teleport is kind of big and sprawling. But they&#39;ve repeatedly contracted Doyensec to do assessment work for it, and Doyensec is a fantastic firm. I think parked behind Tailscale, so none of your SSH infra is exposed to the Internet to begin with, it&#39;s a pretty great solution, and I&#39;d do that again before I ever hand-tooled an SSH bastion host again."</p>
-							
-						
-							
-								<p class="story__comment_others">"There&#39;s a few weird things, but it&#39;s mostly okay.Do not trust the firewall on the bastion host, if an attack can get into the bastion host, they can disable the firewall, so it cannot be used to limit egress. It&#39;s better than nothing, but consider using a firewall that&#39;s managed on a via a separate management network. I do agree that you should only allow SSH from a few known IPs.Limiting the number of users is weird, and not recommended. Create all the accounts you need to provide individual accounts for the staff that need to access the bastion host, you will need that as things like HIPAA require named accounts for auditing. None of the accounts need any privileges other than the most basic. Users do not need sudo/root privileges on a jump host.Other than those two complains, it&#39;s good recommendations.A final recommendation: If you use AWS though, consider using Session Manager instead of SSH and drop the bastion host. You can still connect using the SSH command, using proxy command in OpenSSH, but no public IP or bastion host is required."</p>
-							
-						
-							
-								<p class="story__comment_others">"Twice I&#39;ve seen Bastion Hosts compromised. Both times it practically gave the attackers the highest access. In one case it basically hid where the attack came from (compromised logs and all). In another it let them hijack an admin&#39;s password by reading his sudo.IMHE, Bastion Hosts suck.If you are forced to use one, send logs to a safer one-way storage encrypted and put tampering triggers everywhere you can in the Bastion Host. Also make sure you log outgoing connections. And make sure you can easily match incoming to outgoing.If you absolutely have to use sudo on the Bastion Host force it to OTP only. Or if absolutely not possible, use 2FA, but this is a risk as something somewhere might not be properly protected and the password will leak. But the better way would be to have the bastion host run on some read-only image and not letting it upgrade or do any admin task at all. Maybe even remove admin users, SSH, the whole lot.And related, do not have a single account with god-like access to everything. Isolate permissions. This is probably the hardest to get OK&#39;d but it&#39;s the classic SPOF where they got you by the balls."</p>
 							
 						
 						</a>
