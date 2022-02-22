@@ -36,6 +36,418 @@
 	</div>
 
 	
+	<div class="day__date">22 February 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/xenadu02/status/1495693475584557056">
+						<picture>
+							<source srcset="default_30419618.webp" type="image/webp">
+							<source srcset="default_30419618.png" type="image/png">
+							<img src="default_30419618.png" alt="Preview of 'I tested four NVMe SSDs from four vendors – half lose FLUSH’d data on power loss'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/xenadu02/status/1495693475584557056">I tested four NVMe SSDs from four vendors – half lose FLUSH’d data on power loss</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30419618">
+						
+							
+								<p class="story__comment_first line-clamp">"I always liked the embedded system model where you get flash hardware that has two operations -- erase block and write block.  GC, RAID, error correction, etc. are then handled at the application level.  It was never clear to me that the current tradeoff with consumer-grade SSDs was right.  On the one hand, things like the error correction, redundancy, and garbage collection don&#39;t require the attention from CPU (and more importantly, doesn&#39;t tie up any bus).  On the other hand, the user has no control over what the software on the SSD&#39;s chip does.  Clearly vendors and users are at odds with each other here; vendors want the best benchmarks (so you can sort by speed descending and pick the first one), but users want their files to exist after their power goes out.It would be nice if we could just buy dumb flash and let the application do whatever it wants (I guess that application would be your filesystem; but it could also be direct access for specialized use cases like databases).   If you want maximum speed, adjust your settings for that.  If you want maximum write durability, adjust your settings for that.  People are always looking for that one size fits all use case, but it&#39;s hard here.  Some people may be running cloud providers and already have software to store that block on 3 different continents.  Some people may be an embedded system with a fixed disk image that changes once a year, with some temporary storage for logs.  There probably isn&#39;t a single setting that gets optimal use out of the flash memory for both use cases.  The cloud provider doesn&#39;t care if a block, flash chip, drive, server rack, availability zone, or continent goes away.  The embedded system may be happy to lose logs in exchange for having enough writes left to install the next security update.It&#39;s all a mess, but the constraints have changed since we made the mess.  You used to be happy to get 1/6th of a PCI Express lane for all your storage.  Now processors directly expose 128 PCIe lanes and have a multitude of underused efficiency cores waiting to be used.  Maybe we could do all the &#34;smart&#34; stuff in the OS and application code, and just attach commodity dumb flash chips to our computer."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve actually run into some data loss running simple stuff like pgbench on Hetzner due to this -- I ended up just turning off write-back caching at the device level for all the machines in my cluster:https://vadosware.io/post/everything-ive-seen-on-optimizing-...Granted I was doing something highly questionable (running postgres with fsync off on ZFS) It was very painful to get to the actual issue, but I&#39;m glad I found out.I&#39;ve always wondered if it was worth pursuing to start a simple data product with tests like these on various cloud providers to know where these corners are and what you&#39;re really getting for the money (or lack thereof).[EDIT] To save people some time (that post is long), the command to set the feature is the following:    nvme set-feature -f 6 -v 0 /dev/nvme0n1
+
+The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced together across some man pages:https://man.archlinux.org/man/nvme.1https://man.archlinux.org/man/nvme-set-feature.1.enIt&#39;s a bit hard to find all the NVMe features but 6 is the one for controlling write-back caching.https://unix.stackexchange.com/questions/472211/list-feature..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think this is something LTT could handle with their new test lab. They already said they want to set new standards when it comes to hardware testing, so if they can hold up to what they promised and hire enough experts this should be a trivial thing to add to a test Parcours for disk drives."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://memex.marginalia.nu/log/48-i-have-no-capslock.gmi">
+						<picture>
+							<source srcset="default_30421399.webp" type="image/webp">
+							<source srcset="default_30421399.png" type="image/png">
+							<img src="default_30421399.png" alt="Preview of 'I have no capslock and I must scream'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://memex.marginalia.nu/log/48-i-have-no-capslock.gmi">I have no capslock and I must scream</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30421399">
+						
+							
+								<p class="story__comment_first line-clamp">"Very similar to A Plan for the Improvement of English Spelling by M. J. Shields (frequently misattributed to Mark Twain):&#34;For example, in Year 1 that useless letter &#34;c&#34; would be dropped to be replased either by &#34;k&#34; or &#34;s&#34;, and likewise &#34;x&#34; would no longer be part of the alphabet. The only kase in which &#34;c&#34; would be retained would be the &#34;ch&#34; formation, which will be dealt with later. Year 2 might reform &#34;w&#34; spelling, so that &#34;which&#34; and &#34;one&#34; would take the same konsonant, wile Year 3 might well abolish &#34;y&#34; replasing it with &#34;i&#34; and Iear 4 might fiks the &#34;g/j&#34; anomali wonse and for all.Jenerally, then, the improvement would kontinue iear bai iear with Iear 5 doing awai with useless double konsonants, and Iears 6-12 or so modifaiing vowlz and the rimeining voist and unvoist konsonants. Bai Iear 15 or sou, it wud fainali bi posibl tu meik ius ov thi ridandant letez &#34;c&#34;, &#34;y&#34; and &#34;x&#34; -- bai now jast a memori in the maindz ov ould doderez -- tu riplais &#34;ch&#34;, &#34;sh&#34;, and &#34;th&#34; rispektivli.Fainali, xen, aafte sam 20 iers ov orxogrefkl riform, wi wud hev a lojikl, kohirnt speling in ius xrewawt xe Ingliy-spiking werld.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is cute but it refuses to actually think about the problem of keyboard layout design. Take the reductio the other way and you end up adding keys to create a keyboard with a key for “the” and one for “and”, “or”, “but”, “of”... The author is just saying they want the QWERTY keyboard exactly as it is without actually thinking how this layout got there in the first place.The Caps Lock key makes no sense in the context of a computer keyboard. Back in the days of typewriters when everything was a single monospaced font, typing in all caps was the only way to make something bold (there weren’t italics, bold, font sizes or different fonts). Having a convenient way to hold down the shift key was nice in this context. In the context of a computer keyboard that has multiple fonts, sizes and weights, it is a dumb key. Larry Tesler’s dictum “no modes” is immediately applicable. Steve Jobs tried to get rid of the caps lock key twice (once at Apple and once at Next). Google’s pixel books have replaced it with a search shortcut, which is not that useful but much better than having a key whose primary function is to mess up password entry and shout online without any extra effort for shouting. On a Mac keyboard there are a few common substitutions for caps lock that you can use. Any of these substitutions are preferable (I have it as Option for tab navigation but any of the other main hot keys make a better use of keyboard real estate)."</p>
+							
+						
+							
+								<p class="story__comment_others">"The title is a reference to this story by Harlan Ellison, which won a Hugo award in 1968:[NSFW - contains graphic descriptions of torture and other severe violence]https://wjccschools.org/wp-content/uploads/sites/2/2016/01/I..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://forums.swift.org/t/core-team-to-form-language-workgroup/55455/6">
+						<picture>
+							<source srcset="default_30416070.webp" type="image/webp">
+							<source srcset="default_30416070.png" type="image/png">
+							<img src="default_30416070.png" alt="Preview of 'Chris Lattner left Swift core team'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://forums.swift.org/t/core-team-to-form-language-workgroup/55455/6">Chris Lattner left Swift core team</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30416070">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; It is obvious that Swift has outgrown my influence, and some of the design premises I care about (e.g. &#34;simple things that compose&#34;)As someone who was heavily invested in Swift, and an active member of the community from around 2015-2019, I&#39;m a bit sad to see the direction the language is taking.From the time I started experimenting with Swift, I absolutely loved the philosophy of the language.  It seemed to really prioritize having a set of well-factored systems, each with their own very rationally designed interfaces, which could be composed to do really powerful things.  It was an incredibly expressive language which allowed for writing code with an incredible level of clarity - when writing Swift code I always felt I was writing at the level of the problem domain, not writing syntax.  At the same time it offered really nice features for ensuring safety and correctness, like ADT&#39;s and best-in-class nullability syntax.It was a language which sometimes seemed to move at a glacial pace, but the implicit tradeoff was that when a feature landed, it was for the most part very well thought out, and would add to the language with minimal negative impact.A few years ago that seemed to start to change.  From my perspective, some of the features added to the language to support SwiftUI - specifically property wrappers and function builders - very much felt rushed and forced into the language based on external deadlines.  And imo they have a largely negative impact on the language: it used to be the case that you could look at a piece of Swift code and roughly understand how it would compile to assembly pretty easily, but with these new features there&#39;s a ton of compiler magic going on behind the scenes."</p>
+							
+						
+							
+								<p class="story__comment_others">"I clicked on this thread because I knew exactly what I wanted to comment about, and was surprised to see that Chris mentioned exactly it in his message:&gt;After several discussions generating more heat than light, when my formal proposal review comments and concerns were ignored by the unilateral accepts, and the general challenges with transparency working with core team, I decided that my effort was triggering the same friction with the same people, and thus I was just wasting my time.I stopped paying attention to Swift for this exact reason. I have actually submitted and implemented a feature in Swift and I think it was one of my most frustrating experiences with open-source projects. It seems that almost every thread in this forum devolves into people fighting over the most irrelevant details, and my proposal specifically took months to be submitted into review because a couple of users simply refused to back down from how they personally wanted it to work, ignoring the actual problem the feature aimed to solve. After a long time deflecting the comments, the feature was accepted the way I originally intended and I never entered the forum again.Example aside, it doesn&#39;t take a proposal to see that almost every thread in the forum looks like this. Open sourcing Swift has benefits, but I think when it comes to the actual progress of the project, this particular democratic process was a mistake."</p>
+							
+						
+							
+								<p class="story__comment_others">"Key takeaway for me was the note that it “definitely isn’t a community designed language”. This is telling, I’ve watched a lot of neat languages over the years and absolutely none of the ones without community involvement have grown beyond the sphere of influence of their primary companies.I like swift enough I’m learning it to build my own personal tech nerd ideal podcast client because I own apple devices and want an app that works between macOS, iOS, iPadOS, tvOS,and watchOS. but I doubt I’ll ever use it for anything beyond this one personally motivated project. Even if i release it as an app on the store for download or purchase I don’t know if I will ever be motivated enough to build anything else using it. Because the scope is too narrow. Business work is converging on open stacks like react, and angular, and the dark horse of C# with its latest release supporting WASM web components backed by GRPC-web and a C# function driven stack from front to back, even without SQL Server costs this is a compelling ecosystem backed by PostgreSQL and other completely open source tools.But Swift remains Apple’s language for apple stuff and… while a profitable niche, it’s still a niche.Edit: typo fix."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://web3isgoinggreat.com/?id=2022-02-21-0">
+						<picture>
+							<source srcset="default_30420990.webp" type="image/webp">
+							<source srcset="default_30420990.png" type="image/png">
+							<img src="default_30420990.png" alt="Preview of 'Coinbase CEO tweets how they came up with Super Bowl ad, lied about it'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://web3isgoinggreat.com/?id=2022-02-21-0">Coinbase CEO tweets how they came up with Super Bowl ad, lied about it</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30420990">
+						
+							
+								<p class="story__comment_first line-clamp">"Coinbase CEO&#39;s excuse is that he sees Martin Agency as a &#34;creative firm&#34; not a &#34;traditional ad agency&#34; and he felt they &#34;were all one team&#34;. Although it should be noted that last Tweet was posted hours after the original set of Tweets.https://twitter.com/brian_armstrong/status/14958203518796595..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Plot twist: this drama is fabricated and is part of a meta-advertising package offered by The Martin Agency."</p>
+							
+						
+							
+								<p class="story__comment_others">"Tangent, but I thought it was a funny commentary: I was watching the olympics with my kid (&lt;12yo) and the Coinbase commercial came on (Didn&#39;t see it during the superbowl, but I assume they were the same?). And after the commercial ended my kid said, &#34;was that... some kind of app for gambling or something?&#34;Yes. Something like that. :)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=30413228">
+						<picture>
+							<source srcset="default_30413228.webp" type="image/webp">
+							<source srcset="default_30413228.png" type="image/png">
+							<img src="default_30413228.png" alt="Preview of 'Tell HN: Airbnb just stole me 5 minutes of my time adding dices'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=30413228">Tell HN: Airbnb just stole me 5 minutes of my time adding dices</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30413228">
+						
+							
+								<p class="story__comment_first line-clamp">"I see this as high-IQ software developers building systems to shut out non-high-IQ people from society. Managers look at these CAPTCHAs and think &#34;oh I could solve these no problem, let&#39;s use them&#34;. In fact, they can only be solved by unusually smart people or by ML bots. Arkose Labs (the maker of this particular captcha) explicitly advertises that their methods can keep out &#34;low-skilled workers&#34; on &#34;human fraud farms&#34;. They keep out everyone else too if they&#39;re not that good at mental rotation and mental arithmetic or logic -- this dice puzzle and the mouse labyrinth puzzle are pretty much prototypical IQ test problems."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s Arkose Labs (also used by Roblox, GitHub, Dropbox, Twitch, and more). There&#39;s some more links here: https://github.com/dessant/buster/issues/178 (Buster is a browser extension for automated captcha solving). You can subscribe here https://github.com/dessant/buster/issues/320Their audio captcha (no longer available?) involved listening to 3 MIDI tunes and picking &#34;the sad one&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"Airbnb has been very human hostile since the beginning.The first time I had to create an account, they required that I connect with a google account with access to all my contacts. Then ask me to make a video of myself.I didn&#39;t create the account and booked an hotel.Now they are less aggressive with their new procedures, but still, you can see that the people behind it see technical solutions way before they perceive the human impact.My grand-father was like that. A brilliant engineer from the most elite school of his generation in France. He once told me very seriously a solution for making more accommodations for the poorest people would be to remove individual bathrooms, and create common ones for the whole building instead.Airbnb tech teams remind me of him."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://groups.google.com/g/vim_announce/c/MJBKVd-xrEE/m/joVNaDgAAgAJ">
+						<picture>
+							<source srcset="default_30416558.webp" type="image/webp">
+							<source srcset="default_30416558.png" type="image/png">
+							<img src="default_30416558.png" alt="Preview of 'Vim 9 will be dedicated to Sven Guckes'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://groups.google.com/g/vim_announce/c/MJBKVd-xrEE/m/joVNaDgAAgAJ">Vim 9 will be dedicated to Sven Guckes</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30416558">
+						
+							
+								<p class="story__comment_first line-clamp">"  &gt; Our friend Sven Guckes died in Berlin on February 20, 2022.
+  &gt; He was diagnosed with a brain tumor in December 2021.
+
+Sheesh so fast... scary. RIP."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’m surprised about Sneak’s comment being flagged on here.It’s okay to express your opinion about the person being discussed and add more information to it in general.If VIM is being dedicated to an alleged sexual harasser, I as an interested person is happy to know about this."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve used Vim nearly every day for the last 20 years. Thank you for FOSS. RIP."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1938081">
+						<picture>
+							<source srcset="default_30417811.webp" type="image/webp">
+							<source srcset="default_30417811.png" type="image/png">
+							<img src="default_30417811.png" alt="Preview of 'What are the most important statistical ideas of the past 50 years?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1938081">What are the most important statistical ideas of the past 50 years?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30417811">
+						
+							
+								<p class="story__comment_first line-clamp">"Validation on holdout sets.When I was a student in the 1990s, I was taught about hypothesis testing (and all the hassle of p-fishing etc.), and about Bayesian inference (which is lovely, until you have to invent priors over the model space -- e.g. a prior over neural network architectures). These are both systems that tie themselves in epistemological knots when trying to answer the simple question &#34;What model shall I use?&#34;Holdout set validation is such a clean simple idea, and so easy to use (as long as you have big data), and it does away with all the frequentist and Bayesian tangle, which is why it&#39;s so widespread in ML nowadays.It also aligns statistical inference with Popper&#39;s idea of scientific falsifiability -- scientists test their models against a new experimental data, data scientists can test their model against qualitatively different holdout sets. (Just make sure you don&#39;t get your holdout set by shuffling, since that&#39;s not what Popper would call a &#34;genuine risky validation&#34;.)The article mentions Breiman&#39;s &#34;alternative view of the foundations of statistics based on prediction rather than modeling&#34;. Breiman does make a big deal of evaluation on holdout sets; but his &#34;prediction&#34; idea isn&#39;t general enough, since it doesn&#39;t accommodate generative modelling (e.g. GPT, GANs). I think it&#39;s better to frame ML in terms of &#34;evaluating model fit on a holdout set&#34;, since that accommodates both predictive and generative modelling."</p>
+							
+						
+							
+								<p class="story__comment_others">"Off-the-cuff, i.e. without digging deeply into a set of history of statistics books:Tied 1st place:• Markov chain Monte Carlo (MCMC) and the Metropolis–Hastings algorithm• Hidden Markov Models and the Viterbi algorithm for most probable sequence in linear time• Vapnik–Chervonenkis theory of statistical learning (Vladimir Naumovich Vapnik &amp; Alexey Chervonenkis) and SVMs4th place:• Edwin Jaynes: maximum entropy for constructing priors (borderline: 1957)Honorable mentions:• Breiman et al.&#39;s CART (Classification and Regression Trees) algorithm (and Quinlan&#39;s C5.0 extension)• Box–Jenkins method (autoregressive moving average (ARMA) / autoregressive integrated moving average (ARIMA) to find the best fit of a time-series model to past values of a time series)(The beginning of the 20th century was much more fertile in comparison - Kolmogorov, Fisher, Gosset, Aitken, Cox, de Finetti, Kullback, the Pearsons, Spearman etc.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a side issue, but I wonder what changes could be made to the teaching of statistics, most importantly &#34;stats for scientists&#34; taught in college and even high school. What occurs to me right off the bat is that I learned stats by the use of formulas to boil data sets down to answers. For example, null hypothesis significance testing and the dreaded p-value. We had to do it this way, as widespread availability of computers was still on the horizon.Today, computation is easy and cheap. I wonder if we could learn stats in a different way, perhaps starting by just playing with data, and simulated random numbers, graphing, and so forth. Can something like null hypothesis testing be taught primarily through bootstrapping, with the formulas introduced as an aside?Yes I know that statistics is a formal branch of math, with theorems and proofs. I took that class. But the students who take &#34;stats for scientists&#34; don&#39;t ever see that side of it. Understanding the formulas without seeing the proofs is like trying to learn freshman physics without calculus."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://revelry.co/insights/development/nix-time/">
+						<picture>
+							<source srcset="default_30384121.webp" type="image/webp">
+							<source srcset="default_30384121.png" type="image/png">
+							<img src="default_30384121.png" alt="Preview of 'Nix: An idea whose time has come'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://revelry.co/insights/development/nix-time/">Nix: An idea whose time has come</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30384121">
+						
+							
+								<p class="story__comment_first line-clamp">"I love the idea of nix but the inconsistency and developer experience is terrible.   I want to suggest people use it but there is too many rough edges currently.For example, if you want to install a package the old way, you&#39;ll install it including the channel:    nix-env -iA nixpkgs.ripgrep
+
+
+but then if you want to remove one, you don&#39;t reference the channel:    nix-env -e ripgrep
+
+You have a similar issue if you want to use the new `nix` command.  To install a package you&#39;ll do:    nix profile install nixpkgs#ripgrep
+
+
+but running:    nix profile remove nixpkgs#ripgrep
+
+
+will do nothing.  It won&#39;t say &#34;I didn&#39;t remove the package&#34; or &#34;package not found&#34;.  It just returns silently.    The only way to remove it is to point to the number from `nix profile history` or the actual path.It is unbearably slow:    &gt; time nix-env -qaP ripgrep
+    nixpkgs.ripgrep  ripgrep-13.0.0
+
+    11.17s user 2.70s system 73% cpu 18.970 total
+
+
+Overall I love the idea but it has a long way to go in developer experience and quality before it is ready for any mainstream adoption."</p>
+							
+						
+							
+								<p class="story__comment_others">"  &gt; Nix often scares newcomers and experienced devs alike, because it proposes a fairly radical overhaul to how we think about package management and how we run software in general.
+
+I am not sure this is the main put-off of nix.Ideologically, I love nix. The syntax/language itself is a massive barrier IMO.I use Nix for personal projects, but I prefer the experience of Devcontainers. They&#39;re easier to understand and debug (for me).I&#39;m watching eagerly the work being done by the ostree/rpm-ostree folks who are also trying to solve for a similar problem. Hoping to see something like &#34;Nix but with YAML/JSON&#34; come out of that.https://ostree.readthedocs.io/en/stable/manual/related-proje..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have been running NixOS and uxing Nix for almost everything since I switched to it, and my experience has been great so far. It is one versatile solution to a lot of applications:1. I run NixOs on on laptop and workstation, for work and for personal use. Any change to the configuration can be immediately transfered to other machines. And give me a new machine, I can quickly bring it up with the configuration that I am always using.
+2. I run NixOS on my home server and machine learning cluster. Deploy experiment and service on them is as simple as updating the git-managed configurations. Meanwhile, if I want to use more power to run an experiment, NixOps can quickly bring up a set of machines on AWS with the configuration identical to my local experiment. You do not need to worry about setting up CUDA/pytorch and other dependencies every.
+3. In my start-up, it definitely took more time to train the developers to learn Nix, but once they get familiar, everyone becomes a good DevOps engineer, which solves development environemnt (that invloves C++/Python), CI/CD and release really well."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://probablydance.com/2022/02/19/reasons-why-babies-cry-in-the-first-three-months-how-to-tell-them-apart-and-what-to-do/">
+						<picture>
+							<source srcset="default_30401882.webp" type="image/webp">
+							<source srcset="default_30401882.png" type="image/png">
+							<img src="default_30401882.png" alt="Preview of 'Why babies cry in the first three months, how to tell them apart, and what to do'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://probablydance.com/2022/02/19/reasons-why-babies-cry-in-the-first-three-months-how-to-tell-them-apart-and-what-to-do/">Why babies cry in the first three months, how to tell them apart, and what to do</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30401882">
+						
+							
+								<p class="story__comment_first line-clamp">"Of kids I&#39;ve always thought &#34;maybe one day&#34;.  I can see how it&#39;d be a tough, but extremely rewarding and meaningful endeavor.But reading this article made me think for the first time &#34;actually, I think I don&#39;t want kids.&#34;So many &#34;mental CPU cycles&#34; spent learning about pregnancy, babies, why they cry, how to care for them.  It just doesn&#39;t appeal to me at all - I think it&#39;d resent it taking me away from spending time on the topics that legitimately interest me -   stuff like space, technology, fiction, stocks, politics, philosophy, hobbies.  (I realize how much this comes off as a young white tech nerd... But that&#39;s exactly what I am!)And all this just of the knowledge gathering.  We haven&#39;t even touched on the truly hard part - executing it!I guess this article made raising a kid real in a way that none other have before.  Took the high ideal of &#34;raising a family&#34; and shined light on all the tough, hard realities.Of course this is all from my current perspective.  I&#39;m sure it all totally changes in ways I just can&#39;t conceive when it&#39;s your own kid.Open to any insights from others who may have been here before!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Great if it works for you, but for those who are dealing with babies, I wouldn&#39;t beat myself up if this advice doesn&#39;t apply. The parenting advice world is chock full of people who found something that worked for them and who then made the unwarranted conclusion that it is universal truth. For example, their techniques that &#34;always work&#34; definitely do not always work. Maybe they always worked for their particular babies, but I have been in situations with my kids where neither shushing and patting nor holding and walking worked to stop crying.My general feeling is that you can drive yourself nuts trying to figure out why your baby is crying, and, as the blog author mentioned in his conclusion, you may still be unable to figure it out. IMO this is a great time of one&#39;s life to discard the illusion of control."</p>
+							
+						
+							
+								<p class="story__comment_others">"Newly minted dad of twins and uncle for 5 others.Infant phaseThe work is intense when they are young since they can’t do much on their own and need help very often. But this doesn’t last for too long. Most parents exaggerate this phase since it is very intense from their otherwise happy days without kids. I had enough nephews and nieces around that I helped with so my kids are not the first time I am doing something this intense.Toddler phaseThey are very manageable because of their size. Not those helpless poor little things any more. But they need to be entertained. Having others kids help a lot here. One more reason to have more than one kids. Only kids can match kids energy level.Beyond infantsThis is when things get interesting they start engaging with you a lot with words and actions.Most of the problems with millennials for fear of having kids got to do with not having much experience before having their own. So they get overwhelmed, this is very specific to societies with lack of communities (western urban societies).Once your friends have kids they are out of your circle since they cannot come out and do as much as they used to do.With medical advancements and tools available to raise a child it is lot easier to raise kids than before. Over focusing on parenthood is also another issue. This is product of abundance of time and money. My mom of 3 children didn’t have tools and time to engage with us like our generation do. She did exceptionally well without over indulging in the name of parenthood.Note: I am leaning game development and reading books while having full time job and having twins as my first children on my own at 40.It’s totally doable. Try being around your friends with kids, that’s helpful for them as well as you.Most rewarding thing and easily attainable for most of us is to raise children never forget the entertainment and stress buster aspect of having kids as well.Once a wise women from the east said to us raised in the west: If you can have pets I don’t seem to understand your issues having kids. Kids are Pets+++"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://vaghetti.dev/posts/times-are-great/">
+						<picture>
+							<source srcset="default_30410856.webp" type="image/webp">
+							<source srcset="default_30410856.png" type="image/png">
+							<img src="default_30410856.png" alt="Preview of 'Times are great for programmers now. How does it end?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://vaghetti.dev/posts/times-are-great/">Times are great for programmers now. How does it end?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30410856">
+						
+							
+								<p class="story__comment_first line-clamp">"I feel like we have so much leverage and don&#39;t use it at all.We&#39;re still attending stand-ups every day with non programmers telling us when we can and cannot refactor. It&#39;s nuts to me that a skilled profession - that not many can do - lets themselves get micro-managed like this.If anyone has read Developer Hegemony, I&#39;m fully on board with that general premise - we start operating like lawyers with partnerships, and turn bosses into customers. Though that does require us to think of ourselves as professionals not nerds who are too smart for business."</p>
+							
+						
+							
+								<p class="story__comment_others">"Programmers are increasingly needed for *everything*.I mean, we&#39;ve entered an age, where a farmer can&#39;t milk their cows, if the software of the milking robot has a hitch - can&#39;t plow their fields, when the gps-software that drives the tractor isn&#39;t working.Apart from that, programming is becoming every other job - as far as domain knowledge is concerned.I&#39;ve personally experienced (multiple times!) professional accounting companies complaining about not being able to just modify official invoices (totally illegal) but having to cancel and re-issue them with a new invoice number (how it MUST be done).
+-&gt; It&#39;s now the responsibility of the programmers to understand how accounting works. Professional accountants just click a button and expect the software to &#34;do the right thing&#34;.
+-&gt; As in this case, the professional accountant no longer adds much value, they&#39;ll probably be entirely replaced by software at some point.A more relatable example might be Taxis drivers. It might take years still, but at some point, all Taxis will be self-driving vehicles, created by robots in a fully automated factory. Programmers will be needed for the driving software and the factory software. You might still need some mechanics to repair the factory robots - until when that job is done by robots as well (that have to be programmed).It currently seems more likely to me, that we are headed towards a future, where programming is the *only* job - and everything else is done by software."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think it ends with everyone becoming a developer.Making machines do things will never end. However, the tools for making machines do things is evolving very quickly.The general art of being a developer will continue to get specialized and at some point specialists at any field would be expected to be able to program their machines.Very few people are learning how to run their servers and much more are moving into AWS type of infrastructure and “cloud literacy” has become a thing.I would expect layers of abstraction to continue to build up and programming to become something like using spreadsheets to do your actual task.Eventually, “true programming” will scale back to building these tools. It would be rather niche, very high skill serious engineering - an elite, hard to get in profession that continues to fetch high salaries. They probably will have some kind of association similar to the lawyers/doctors, the code they write will no longer tolerate bugs as a fact of life but they will be responsible as any other licensed professionals. Skipping unit test will land you in jail or very high fine due to malpractice if something goes wrong."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">21 February 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -102,15 +514,15 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 						<a href="https://news.ycombinator.com/item?id=30408434">
 						
 							
-								<p class="story__comment_first line-clamp">"IMO this would be more enjoyable if the shapes were more different morphologically, and fewer (ideally no) close pairs which differ only in the length of a segment by a single block.After the first couple of wrong guesses (though I&#39;m pretty sure one guess was correct - could be the bug https://news.ycombinator.com/item?id=30408567) I started to count segment lengths rather than relying on mental shape rotation."</p>
+								<p class="story__comment_first line-clamp">"Sometimes the initial rotation hides a part of the shape.Also, I have always wondered if there&#39;s a way to translate these shapes to strings for quick &#34;mental algorithm&#34; matching. Something like, &#34;5, left turn, 3, right turn...&#34;I guess you&#39;d need a normal form. The first turn can be defined as always &#34;right&#34; or &#34;left,&#34; and subsequent turns can be right, left, up or down. The first turn that&#39;s &#34;up&#34; or &#34;down,&#34; can be defined as &#34;up.&#34; That leaves two ways to read any shape, but that&#39;s an uhh constant-factor overhead. :)(I can&#39;t think of a way to define a normal form reading direction that wouldn&#39;t involve potentially reading an arbitrary distance in before having to re-start the other way.)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Sometimes the initial rotation hides a part of the shape.Also, I have always wondered if there&#39;s a way to translate these shapes to strings for quick &#34;mental algorithm&#34; matching. Something like, &#34;5, left turn, 3, right turn...&#34;I guess you&#39;d need a normal form. The first turn can be defined as always &#34;right&#34; or &#34;left,&#34; and subsequent turns can be right, left, up or down. The first turn that&#39;s &#34;up&#34; or &#34;down,&#34; can be defined as &#34;up.&#34; That leaves two ways to read any shape, but that&#39;s an uhh constant-factor overhead. :)(I can&#39;t think of a way to define a normal form reading direction that wouldn&#39;t involve potentially reading an arbitrary distance in before having to re-start the other way.)"</p>
+								<p class="story__comment_others">"IMO this would be more enjoyable if the shapes were more different morphologically, and fewer (ideally no) close pairs which differ only in the length of a segment by a single block.After the first couple of wrong guesses (though I&#39;m pretty sure one guess was correct - could be the bug https://news.ycombinator.com/item?id=30408567) I started to count segment lengths rather than relying on mental shape rotation."</p>
 							
 						
 							
-								<p class="story__comment_others">"For VR (Quest/Steam) There is a beautiful minimalistic game called Cubism that uses a similar set of shapes in 3 dimensional space where you need to fit the group of blocks into increasingly complex forms.  It&#39;s a very soothing environment and the graphics are so clear with technical touches like a high frame rate (120hz), perfect hand controls, and use of AR/passthrough, all possible due to the relatively simple game requirements.   Highly recommend the experience if you can do it.There is also a free open version similar to Cubism built in WebXR called Plockle that follows the same theme [2].[1] https://www.cubism-vr.com/[2] https://constructarcade.com/game/plockle/"</p>
+								<p class="story__comment_others">"A totally different style of game which also seriously stretches spatial reasoning: https://vladimirslepnev.itch.io/zigzagInspired by Super Hexagon (remember that?), you need to repeatedly tell a &#34;snake&#34; which way to go with the left and right arrow keys... while the game viewport twists and rotates randomly as it continually zooms out.GoOd lUcK.(It&#39;s from here, 1 month ago: https://news.ycombinator.com/item?id=29923707)I incidentally find I have to mute the background music, as I really get into it (used to listen to it often!) and zone out... welp(Also, for completeness - the APK link is sadly dead, but it still lives on on the scary APK sites that are out there, and my phone doesn&#39;t seem to mind it.)"</p>
 							
 						
 						</a>
@@ -140,15 +552,15 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 						<a href="https://news.ycombinator.com/item?id=30408236">
 						
 							
-								<p class="story__comment_first line-clamp">"On personal anecdotes, I&#39;ve used the same internet identity across all platforms and it&#39;s not hard to locate my real life identity from there...since like 20 years ago when I got on the internet. So all the good reputation and bad reputation followed me through all the time, and surprised me in better and worse way depending on the context. There&#39;re times when I wished I had concealed myself saying certain things (or just haven&#39;t said it), and times when I felt the joy of recognition when people connected dots. Now as I&#39;m getting old, it&#39;s just a habit, no longer about risk or rewards.Both younger me and older me will probably be very indecisive about doing this if they&#39;ve never done it and are told about all the fortune/misfortune from this."</p>
-							
-						
-							
-								<p class="story__comment_others">"As careful as some of the things he suggests are...if you&#39;re truly wanted by a state-level actor or sufficiently motivated attacker, you won&#39;t be able to hide by simply using VPN and Tor. Especially if you&#39;re running something with many transactions like AlphaBay. You would need to obfuscate quite a bit more:- if you&#39;re using VPN traffic but most people &#34;around&#34; you aren&#39;t, you&#39;re a suspicious node; your ISP could easily flag you to your government. If you use wifi at a common point you&#39;re likely to be flagged and there isn&#39;t an easy way other than keeping on the move. But moving often is another anomalous event, and it&#39;s very difficult to do even for Drug Lords ( El Chapo ) or Terrorists that it behooves to do. This puts you in a sort of Zugzwang, to borrow a chess term.- there&#39;s always leakage, for instance, in the way you talk with people in the real world. At some point you send enough communication for sophisticated frequency analysis.- and there are other patterns of usage that could be used to identify you, like searches or even keyboard frequency on anonymized accounts can be de-anonymized by very specific markers ( ML works! ).- off ramps for crypto aren&#39;t very good. If you&#39;re in e.g. Brazil, haha, yeah, good luck spending bitcoin or any other crypto and going unnoticed. Mixers and tumblers will eventually leak and you&#39;ll be caught.- you&#39;re very vulnerable to social engineering by people you do business with. one slip where you stop communicating in a transactional mode of communication and that&#39;s a weak link in your armor.In the end, the FBI only has to be right once, and you have to be right every time."</p>
+								<p class="story__comment_first line-clamp">"As careful as some of the things he suggests are...if you&#39;re truly wanted by a state-level actor or sufficiently motivated attacker, you won&#39;t be able to hide by simply using VPN and Tor. Especially if you&#39;re running something with many transactions like AlphaBay. You would need to obfuscate quite a bit more:- if you&#39;re using VPN traffic but most people &#34;around&#34; you aren&#39;t, you&#39;re a suspicious node; your ISP could easily flag you to your government. If you use wifi at a common point you&#39;re likely to be flagged and there isn&#39;t an easy way other than keeping on the move. But moving often is another anomalous event, and it&#39;s very difficult to do even for Drug Lords ( El Chapo ) or Terrorists that it behooves to do. This puts you in a sort of Zugzwang, to borrow a chess term.- there&#39;s always leakage, for instance, in the way you talk with people in the real world. At some point you send enough communication for sophisticated frequency analysis.- and there are other patterns of usage that could be used to identify you, like searches or even keyboard frequency on anonymized accounts can be de-anonymized by very specific markers ( ML works! ).- off ramps for crypto aren&#39;t very good. If you&#39;re in e.g. Brazil, haha, yeah, good luck spending bitcoin or any other crypto and going unnoticed. Mixers and tumblers will eventually leak and you&#39;ll be caught.- you&#39;re very vulnerable to social engineering by people you do business with. one slip where you stop communicating in a transactional mode of communication and that&#39;s a weak link in your armor.In the end, the FBI only has to be right once, and you have to be right every time."</p>
 							
 						
 							
 								<p class="story__comment_others">"Or you can just be a known drug lord, launder billions of USD through a respected  international bank, no one goes to jail, small fine, and they&#39;re probably still laundering 10 years later and no one cares. No one is anonymous. They&#39;re probably all using SMS and corporate email.Sell a little bit of drugs through the silk road and you&#39;ll get royally f-ed! Sell all the opioids in the world through a public pharma corp and you can keep enjoying your jet-set life and yacht.The allegedly smartest people in the world are focusing on the dumbest problems while being reamed by the frat-boys that went to Wall Street and Politics, guns and drugs. LULZ."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s good advice. The problem with anonymity in an environment of ubiquitous surveillance is that it&#39;s paradoxical. The point of anonymity is achieving freedom, but staying anonymous expends energy and makes you a target, so you can&#39;t actually do any things that anonymity was supposed to get you.If what you really want is sovereignty, which is what most people confuse anonymity with,  the goal is to be like what Ernst Jünger called the anarch (in contrast to the anarchist), which is someone who complies and renders herself indifferent to authority, rather than standing out and drawing attention.A much better practice is to be as open as possible about the boring stuff, so you&#39;re not constrained and can do what everyone else does. Trying to be absolutist about anonymity is automatically like wearing a straitjacket."</p>
 							
 						
 						</a>
@@ -164,29 +576,29 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 						<picture>
 							<source srcset="default_30411049.webp" type="image/webp">
 							<source srcset="default_30411049.png" type="image/png">
-							<img src="default_30411049.png" alt="Preview of 'Google Tag Manager, the new anti-adblock weapon'">
+							<img src="default_30411049.png" alt="Preview of 'Google Tag Manager, the new anti-adblock weapon (2020)'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://chromium.woolyss.com/f/HTML-Google-Tag-Manager-the-new-anti-adblock-weapon.html">Google Tag Manager, the new anti-adblock weapon</a></h3>
+					<h3><a href="https://chromium.woolyss.com/f/HTML-Google-Tag-Manager-the-new-anti-adblock-weapon.html">Google Tag Manager, the new anti-adblock weapon (2020)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
 						<a href="https://news.ycombinator.com/item?id=30411049">
 						
 							
-								<p class="story__comment_first line-clamp">"God damn... this is it, this is the end-game. There&#39;s no way to fight this unless you customize and maintain blocking scripts for each individual website.Yes, websites could always have done this, but the REST (CDN-bypassing) requests&#39; cost and the manual maintenance for the telemetry endpoints and storage was an impediment that Google just gives them a drop-in solution for :(I think Google is happy to eat some of the cost for the &#34;proxy&#34; server given the abundance of data they&#39;ll be gobbling up (not just each request&#39;s query string and users&#39; IP address but -being a subdomain- all the 1st party cookies as well). I don&#39;t have the time or energy to block JavaScript and/or manually inspect each domain&#39;s requests to figure out if they use server-side tracking or not.I honestly don&#39;t know if there&#39;s any solution to this at all. Maybe using an archive.is-like service that renders the static page (as an image at the extreme), or a Tor-like service and randomizes one&#39;s IP address and browser fingerprint."</p>
+								<p class="story__comment_first line-clamp">"I&#39;m the author, good to see this on HN, raising awareness on the topicI don&#39;t know who made the translation and when it was made, but the original article in french (https://pixeldetracking.com/fr/google-tag-manager-server-sid...) contains more information on recent GTM &#34;improvements&#34;): mainly on how you can easily change JS library names and detailed instructions on how to host your container in other clouds or self-host"</p>
 							
 						
 							
-								<p class="story__comment_others">"As someone who has spent a lot of time on both sides of this, I think this is a great outcome, personally.The most annoying part of ad-tech for me, as a user, was the fact that I was running all sorts of random javascript, any bit of which could blow up performance on my browser.As someone who used to lead an e-commerce operation, I hated running all of this crap in my users&#39; browsers because I knew it would get blocked randomly or cause hard-to-diagnose errors.I eventually moved us to basically this approach using a home-grown solution and everyone was happier. It was even more robust because it just used session/cookie data and didn&#39;t require running any javascript execution to work."</p>
+								<p class="story__comment_others">"This kind of data collection abuse is why I think we need more addons like AdNauseam [1]. Unlike uBlock Origin, it&#39;s not available from the Chrome web store anymore, which is a good sign that Google hates these types of addons more than they hate simple blockers.Blocking A/AAAA domains with custom URLs to prevent tracking is almost impossible, so instead let&#39;s flood the trackers with useless, incorrect data that&#39;s not worth collecting.[1]: https://addons.mozilla.org/en-US/firefox/addon/adnauseam/"</p>
 							
 						
 							
-								<p class="story__comment_others">"Citing adblock feels like clickbait. Google Tag Manager can&#39;t run ads so I don&#39;t follow the comparison. Marketing analytics could always side-step anti-adblocking tools through server-side tracking."</p>
+								<p class="story__comment_others">"I read the original article back when it was published in November 2020[0]. This is what led me to introduce new static network filter options:- strict1p, strict3p [1]- header=, experimental, disabled by default [2]I used Simo Ahava&#39;s blog as test case, and with these new options, I could craft a filter to block the Google Tag Manager script on Simo Ahava&#39;s blog. However due to the lack of more test cases, no more progress has been made about this since then.Things that stood out to me when reading about all this:Simo Ahava&#39;s refers to the CNAME approach as &#34;vulnerable&#34;[3]:&gt; This way you’ll be instructed to use A/AAAA DNS records rather than the vulnerable CNAME alias&#34;Vulnerable&#34; to what? To uncloaking as I understand it, and by extension, &#34;vulnerable&#34; to users taking steps to protect their privacy.Whether the very experimental solution in uBO ends up working or not, this case shows very well how Google Chrome&#39;s Manifest Version 3 (MV3) put a lid on innovation content-blocking wise: All the new filter options introduced above can&#39;t be implemented with declarativeNetRequest.===[0] https://www.pixeldetracking.com/fr/google-tag-manager-server...[1] https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#...[2] https://github.com/gorhill/uBlock/wiki/Static-filter-syntax#...[3] https://www.simoahava.com/analytics/server-side-tagging-goog..."</p>
 							
 						
 						</a>
@@ -334,11 +746,11 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m no historian, but I really enjoy this podcast.I feel a bit of guilt knowing that a whole civilization had to fall to produce each of these episodes. This is really expensive to produce!"</p>
+								<p class="story__comment_others">"Happy to see the Fall of Civs podcast on HN. An amazingly well produced, thought provoking podcast - highly recommended by this Internet Stranger!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Happy to see the Fall of Civs podcast on HN. An amazingly well produced, thought provoking podcast - highly recommended by this Internet Stranger!"</p>
+								<p class="story__comment_others">"I&#39;m no historian, but I really enjoy this podcast.I feel a bit of guilt knowing that a whole civilization had to fall to produce each of these episodes. This is really expensive to produce!"</p>
 							
 						
 						</a>
@@ -492,11 +904,11 @@ Then we went Agile(tm) and the engineers were grouped into 6 to 9 person teams t
 							
 						
 							
-								<p class="story__comment_others">"Some other interesting complementary projects found from that reddit thread:Budibase: https://budibase.com/NocoDB: https://nocodb.com/"</p>
+								<p class="story__comment_others">"This distinctly reminds me of MS Access. Was a teen at the time, but saw (through my father) a whole bunch of small businesses that basically ran off of an Access database with a bunch of forms for invoicing and such."</p>
 							
 						
 							
-								<p class="story__comment_others">"This distinctly reminds me of MS Access. Was a teen at the time, but saw (through my father) a whole bunch of small businesses that basically ran off of an Access database with a bunch of forms for invoicing and such."</p>
+								<p class="story__comment_others">"Some other interesting complementary projects found from that reddit thread:Budibase: https://budibase.com/NocoDB: https://nocodb.com/"</p>
 							
 						
 						</a>
@@ -568,11 +980,11 @@ Then we went Agile(tm) and the engineers were grouped into 6 to 9 person teams t
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s amazing what some people can do in 20% of their work time."</p>
+								<p class="story__comment_others">"Interesting ideas! I especially like the automatic rebasing and associated ideas.It&#39;s a bit strange to see &#34;jj st&#34; will automatically add all files to the &#34;working copy&#34; commit. This means that when I initially create my project, run &#34;npm install&#34; to install 500 MB of dependencies, and then run &#34;jj st&#34; to figure out what to include in my first commit, the command is going to copy all of that into a commit object for no reason. I don&#39;t think I like that behavior, to be honest. Is this a requirement of any of the other unique features? Could this be turned off, or modified to be an explicit operation?[append]To be clear, the fact that it&#39;s `jj st` is actually a big part of the problem for me: this is the command I use to figure out what to put into my `.gitignore` in the first place! I don&#39;t think that any of the &#34;read-only&#34; commands should be making these kind of changes."</p>
 							
 						
 							
-								<p class="story__comment_others">"Interesting ideas! I especially like the automatic rebasing and associated ideas.It&#39;s a bit strange to see &#34;jj st&#34; will automatically add all files to the &#34;working copy&#34; commit. This means that when I initially create my project, run &#34;npm install&#34; to install 500 MB of dependencies, and then run &#34;jj st&#34; to figure out what to include in my first commit, the command is going to copy all of that into a commit object for no reason. I don&#39;t think I like that behavior, to be honest. Is this a requirement of any of the other unique features? Could this be turned off, or modified to be an explicit operation?[append]To be clear, the fact that it&#39;s `jj st` is actually a big part of the problem for me: this is the command I use to figure out what to put into my `.gitignore` in the first place! I don&#39;t think that any of the &#34;read-only&#34; commands should be making these kind of changes."</p>
+								<p class="story__comment_others">"&#34; It also means that you can always check out a different commit without first explicitly committing the working copy changes (you can even check out a different commit while resolving merge conflicts).&#34;That&#39;s really interesting. Having to manage stashes is annoying."</p>
 							
 						
 						</a>
@@ -880,11 +1292,11 @@ A big portion of quantitative easing by the Federal Reserve is buying billions o
 							
 						
 							
-								<p class="story__comment_others">"Irony.A linked article describing a scientist trying to rigorously find out how weight changes and energy expenditure and diet are connected, revealing the little we do know and the vast sea of what we do not know.The discussion here: full of anecdotes and bro science berating one another &#34;that&#39;s not how it works, it works like this&#34;, &#34;I personally do this-and-that&#34;, &#34;you just have to x-y-z, it&#39;s that simple&#34;."</p>
+								<p class="story__comment_others">"The conclusion is almost certainly wrong:1. From a simple sniff test, if this were true, then athletes wouldn&#39;t need a lot of calories. This obviously isn&#39;t true, eg Phelps eats 8-11K calories a day. I personally eat around 3.5K calories a day. If exercise didn&#39;t impact caloric burn I assure you I&#39;d be a lot fatter...2. The only plausible mechanisms for why exercise wouldn&#39;t result in more overall caloric burn is that less energy is expended in non exercising states, eg the body is trying to conserve energy and either reduces metabolism or reduces fidgeting, walking, etc. This often happens to people trying extreme calorie loss diets.The implication of this is that somehow the sedentary lifestyle of your average couch potato is the &#34;normal&#34; lifestyle for a body, and the lifestyle of a hunter gatherer is &#34;overactive&#34;, and their bodies are chronically tired and trying to reduce their metabolisms. That... seems quite unlikely.3. Finally, this blog post dives into some methodological issues: https://darrendahly.github.io/post/2012-08-31-hunter-gathere...EDIT: Increased metabolism due to muscle mass is not as big an effect as you’d think: https://www.unm.edu/~lkravitz/Article%20folder/metabolismcon..."</p>
 							
 						
 							
-								<p class="story__comment_others">"The conclusion is almost certainly wrong:1. From a simple sniff test, if this were true, then athletes wouldn&#39;t need a lot of calories. This obviously isn&#39;t true, eg Phelps eats 8-11K calories a day. I personally eat around 3.5K calories a day. If exercise didn&#39;t impact caloric burn I assure you I&#39;d be a lot fatter...2. The only plausible mechanisms for why exercise wouldn&#39;t result in more overall caloric burn is that less energy is expended in non exercising states, eg the body is trying to conserve energy and either reduces metabolism or reduces fidgeting, walking, etc. This often happens to people trying extreme calorie loss diets.The implication of this is that somehow the sedentary lifestyle of your average couch potato is the &#34;normal&#34; lifestyle for a body, and the lifestyle of a hunter gatherer is &#34;overactive&#34;, and their bodies are chronically tired and trying to reduce their metabolisms. That... seems quite unlikely.3. Finally, this blog post dives into some methodological issues: https://darrendahly.github.io/post/2012-08-31-hunter-gathere...EDIT: Increased metabolism due to muscle mass is not as big an effect as you’d think: https://www.unm.edu/~lkravitz/Article%20folder/metabolismcon..."</p>
+								<p class="story__comment_others">"Irony.A linked article describing a scientist trying to rigorously find out how weight changes and energy expenditure and diet are connected, revealing the little we do know and the vast sea of what we do not know.The discussion here: full of anecdotes and bro science berating one another &#34;that&#39;s not how it works, it works like this&#34;, &#34;I personally do this-and-that&#34;, &#34;you just have to x-y-z, it&#39;s that simple&#34;."</p>
 							
 						
 						</a>
@@ -2976,11 +3388,13 @@ Quite impressive how fast the US-politics can burn billions in $, endanger the t
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s interesting how sci-hub&#39;s papers on medicine dwarf those in many other fields like comp-sci, math, and physics.  I wonder if that reflects the number of papers in those fields, or if sci-hub just has a non-representative sample.  If the latter, why?"</p>
+								<p class="story__comment_others">"The publishers now encode their papers with individual identifiers, that generationP calls UUIDs on all pdf&#39;s. That means they can trace it back to the institution(and perhaps the actual prof?) They have then sent nastygrams to threaten them with fees or loss of access to the institution - potentially serious punishment.
+What is needed is a way to run the papers through an OCR recognition program to create renewed text and to further process to randomly vary a large number of adjacent letter spacings. (this is called &#39;micro kerning&#39; and it allowed a second order of unique document recognition where the document is scanned by the journal to look for these fractional kerning gaps in the letter spacing which can lead back to the institution). I suppose a program flow could be made to OCR + random micro kerning changes - it would take time, but once set up it would be a rapid computer based document flow process. Photos/charts could be sanitised as well, but legends etc on them would also need OCR and micro kerning adjustments. With 25 words of text, each with 6 letters, micro kerning can easily create 10,000 unique ID&#39;s, easily enough to cope with all subscribed institutions - and that is on one chart/photo.
+I suspect the subscribing institutions have acted with firm words to their profs and grad students to block this. This can easily be told to us if a few people in assorted institutions let us know if they have been read firm words about this?I am not sure how Sci-hub can get past this, unless they get a good Indian court ruling and can use Indian friends to scan printed copies of journals - if they exist in this online age?"</p>
 							
 						
 							
-								<p class="story__comment_others">"Interesting. Medical field dominates research in terms of publications. Chemistry produces double the papers compared to physics, and humanities are smaller than biology but larger than physics.  I wonder where machine learning papers fit in - CS or Math or both?"</p>
+								<p class="story__comment_others">"It&#39;s interesting how sci-hub&#39;s papers on medicine dwarf those in many other fields like comp-sci, math, and physics.  I wonder if that reflects the number of papers in those fields, or if sci-hub just has a non-representative sample.  If the latter, why?"</p>
 							
 						
 						</a>
@@ -3555,402 +3969,13 @@ And here in the Netherlands it is with many a sin to have the TV on in the backg
 							
 						
 							
+								<p class="story__comment_others">"The publishers now encode their papers with individual identifiers, that generationP calls UUIDs on all pdf&#39;s. That means they can trace it back to the institution(and perhaps the actual prof?) They have then sent nastygrams to threaten them with fees or loss of access to the institution - potentially serious punishment.
+What is needed is a way to run the papers through an OCR recognition program to create renewed text and to further process to randomly vary a large number of adjacent letter spacings. (this is called &#39;micro kerning&#39; and it allowed a second order of unique document recognition where the document is scanned by the journal to look for these fractional kerning gaps in the letter spacing which can lead back to the institution). I suppose a program flow could be made to OCR + random micro kerning changes - it would take time, but once set up it would be a rapid computer based document flow process. Photos/charts could be sanitised as well, but legends etc on them would also need OCR and micro kerning adjustments. With 25 words of text, each with 6 letters, micro kerning can easily create 10,000 unique ID&#39;s, easily enough to cope with all subscribed institutions - and that is on one chart/photo.
+I suspect the subscribing institutions have acted with firm words to their profs and grad students to block this. This can easily be told to us if a few people in assorted institutions let us know if they have been read firm words about this?I am not sure how Sci-hub can get past this, unless they get a good Indian court ruling and can use Indian friends to scan printed copies of journals - if they exist in this online age?"</p>
+							
+						
+							
 								<p class="story__comment_others">"It&#39;s interesting how sci-hub&#39;s papers on medicine dwarf those in many other fields like comp-sci, math, and physics.  I wonder if that reflects the number of papers in those fields, or if sci-hub just has a non-representative sample.  If the latter, why?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Interesting. Medical field dominates research in terms of publications. Chemistry produces double the papers compared to physics, and humanities are smaller than biology but larger than physics.  I wonder where machine learning papers fit in - CS or Math or both?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">12 February 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=30283264">
-						<picture>
-							<source srcset="default_30283264.webp" type="image/webp">
-							<source srcset="default_30283264.png" type="image/png">
-							<img src="default_30283264.png" alt="Preview of 'Ask HN: What is your “I don&#39;t care if this succeeds” project?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=30283264">Ask HN: What is your “I don&#39;t care if this succeeds” project?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30283264">
-						
-							
-								<p class="story__comment_first line-clamp">"I built a satirical social network called shlinkedin. It started as a way for me to learn elixir and make fun of thought leadership with my roommate, and has gradually gotten bigger. It’s all open source and a ton of fun to work on. Everyone is an alter ego (think Beff Jezos or Office Spider), and it’s hilarious to see how much people commit to the characters they create. And I can’t say enough good things about working with elixir / phoenix liveview. Definitely a steep learning curve for me (I’d never used a functional language before), but payoff is huge.https://www.shlinkedin.com"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m a musician.  Long term.  43 years old, been playing forever.  Don&#39;t care if I get any success at it.Not a hobby.  Makes money sometimes.  I play professionally.  For money. On stage.If you play for your entire life, you can get really good at a ton of things.I played pedal steel at a rehearsal for my country band tonight.  I played piano at a rehearsal for my hot club jazz band on Monday.  I played upright bass at a rehearsal for a string band last night.Sunday I recorded a new track with my girlfriend, ambient techno (novation circuit, moog, girlfriend&#39;s esoteric warblings).Monday I finished an EDM track.I have a bunch of aspirational goals.  I&#39;d like to DJ at my local ecstatic dance.  I&#39;d like to front a Louis Prima style jazz band.I&#39;ve been playing trumpet and trombone every day for the last 2 months.I don&#39;t care if I have any professional success.  But hard to say all that is a hobby.  Maybe I&#39;ll eventually be able to retire and just work as a musician, teaching and doing my little gigs and producing the records I engineer for other folks and running sound for the little parties we play out in the desert in Utah.Don&#39;t care.  My kids are raised, I&#39;ve got a reasonable remote day job.We&#39;ll see how it goes."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve been working on a project that aggregates data for every public transport provider in the country (Slovenia) and presents it as a simple API, along with an application to find rides with as few clicks as possible (without having to check every provider&#39;s website). This has involved tiring meetings with city officials convincing them to give us access to the data and writing scraping bots where they weren&#39;t convinced, so I&#39;ve sunk countless hours into the project.I currently know of only 3 people using it, but I&#39;m one of them and I believe this is something that should exist, so I don&#39;t care that I&#39;ll likely never evem break even on it. I&#39;ve started a nonprofit to fund the project, but it&#39;s been mostly my own money so far. Working on it has been really fun and I learned a ton about how stuff gets done in the intersection of public and private sector - both positive and negative.// For anyone in Slovenia interested in using it, there&#39;s an email in my profile. It&#39;s currently a closed beta, but everyone is welcome"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.apple.com/newsroom/2022/02/an-update-on-airtag-and-unwanted-tracking/">
-						<picture>
-							<source srcset="default_30290043.webp" type="image/webp">
-							<source srcset="default_30290043.png" type="image/png">
-							<img src="default_30290043.png" alt="Preview of 'An update on AirTag and unwanted tracking'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.apple.com/newsroom/2022/02/an-update-on-airtag-and-unwanted-tracking/">An update on AirTag and unwanted tracking</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30290043">
-						
-							
-								<p class="story__comment_first line-clamp">"Android users are still vulnerable, and these announcements do nothing to reduce that. All a stalker needs to do, is remove the speaker. To detect a rogue AirTag, an Android owner needs to:1) know AirTags exist (many obviously don&#39;t)2) go out of their way to install Apple&#39;s Android AirTag scanner app (only 100k-500k worldwide have done so according to Google Play stats)3) manually open the scanner app and scan, since it doesn&#39;t scan passively in the background; and even then, it won&#39;t help you find the speaker-less AirTag, since it doesn&#39;t tell you proximity &amp; direction.I continue to think Apple should have never released AirTags to the public, and should discontinue it. It&#39;s a very limited income stream, with limited use cases, and significantly increases the average person&#39;s risk of stalking.Practically all positive social media coverage of AirTags involves someone tracking a stolen stolen items (car, bike). Those use cases are dead, since thieves with iPhones will get alerts, and most thieves with Android will know to scan for AirTags. And since most lost items turn into stolen items after a few hours, that removes most use cases involving losing objects in public.That leaves &#34;finding your keys within your home&#34; as the only truly &#34;officially supported&#34; use case. Is that worth all the problems, and brand damage?People will argue that stalkers could always buy trackers, but Apple increased their availability, ease-of-acquisition and ease-of-use by orders of magnitude. AirTags are cheaper than competing GPS trackers, most of which require subscriptions.I remember seeing a chills-down-your-spine Apple Watch Series 7 TV ad, that featured beautiful remote nature landscapes, with the audio of 911 calls made from people&#39;s Apple Watches whose lives were saved by their Watch. Probably one of Apple&#39;s best and most impactful ad in the past decade. Compare that to AirTag&#39;s impact on Apple&#39;s brand. Why did Apple even bother?"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a great response - very happy to hear Apple&#39;s involvement with various groups to make things better.Some noteworthy bits:&gt; we innovated with the first-ever proactive system to alert you of unwanted trackingIf that&#39;s true, then Apple just raised the privacy bar and now Tile and other small players need to up their game to stay relevant.There is also lesson to learn here: whoever makes a tech/product popular is the one who gets the heat for all its shortcomings/problems. It doesn&#39;t matter how many existing small players were doing a horrible job for years.&gt; As an iPhone user moves, Precision Finding fuses input from the camera, ARKit, accelerometer, and gyroscope to guide them to the AirTagThis is something that&#39;s not appreciated. The UWB chip on the Airtag can only help iPhone know how far away it is from the tag. It&#39;s 3D modelling of the world through camera vision that helps triangulate and guide the user via live on-screen direction.Next time you think why we need tech X, just remember that you can&#39;t foresee what it&#39;ll enable in the future - (and before you comment &#34;all AR stuff to find my keys faster?&#34;, re-read the previous sentence again)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I like the functionality of the AirTags so I don&#39;t want them nerfed, but I can think of no way to fix their fundamental problem of being such easy to use stalking devices.Chefs knives are great for cooking and are inexpensive and easy to purchase; they can be very dangerous weapons in the wrong hands so we make it against the law to use them in that manner. Maybe that&#39;s the best we can do with AirTags."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.politico.eu/article/france-to-build-6-new-nuclear-reactors/">
-						<picture>
-							<source srcset="default_30291135.webp" type="image/webp">
-							<source srcset="default_30291135.png" type="image/png">
-							<img src="default_30291135.png" alt="Preview of 'France to Build Six New Nuclear Reactors'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.politico.eu/article/france-to-build-6-new-nuclear-reactors/">France to Build Six New Nuclear Reactors</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30291135">
-						
-							
-								<p class="story__comment_first line-clamp">"Looks like a G20 country is serious about the impending &#34;climate emergency&#34;. Regardless of the motives and timing behind this, I think its great to see a country is actually being serious and practical. Anyone going on about the climate and refuses to put nuclear energy at the forefront of the conversation is unserious and is only interested in virtual signaling in my opinion."</p>
-							
-						
-							
-								<p class="story__comment_others">"Keep in mind that the presidential election is in 3 months.Macron wants to show he is being pragmatic. Nuclear energy allows to reduce carbon emissions without sacrificing the economy. It&#39;s particularly smart in this moment of tension with Russia, as Europe depends a lot on Russian energy.But whether this happens or not remains to be seen."</p>
-							
-						
-							
-								<p class="story__comment_others">"I am skeptical to current nuclear power, would have liked Molten Salt Reactors instead. However I see leaders having to do something. Environmentalists are blocking  construction of more wind power, and crisis with Russia makes gas less accessible. France has a relatively good track record on nuclear power. They may pull this off. 2035 is a really long time to wait for new power to the grid though."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://boxbase.org/entries/2020/aug/3/case-against-oop/">
-						<picture>
-							<source srcset="default_30293622.webp" type="image/webp">
-							<source srcset="default_30293622.png" type="image/png">
-							<img src="default_30293622.png" alt="Preview of 'Case against OOP is understated, not overstated (2020)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://boxbase.org/entries/2020/aug/3/case-against-oop/">Case against OOP is understated, not overstated (2020)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30293622">
-						
-							
-								<p class="story__comment_first line-clamp">"In my mind, state is the real enemy impacting: comprehension, 
-brittleness towards making changes, and the surface area exposed to potential bugs. OOP as frequently implemented, while claiming to encapsulate state, ends up creating so much more.In accordance with this view, I think project architecture should be approached with an emphasis around how much state is necessary for it to run. This is why simulations like say someone making a game or simcity with like relatively independent entities that map to something in real life use OOP. If you&#39;re writing a service doing requests, you want as minimal state as possible. Singletons are state. Initialized/non-static objects are state. The smaller amount you have the easier it is to reason about the system.As I write this however, I worry a little that my view is overly simplistic, or maybe applicable only to domains that I have worked in. If anyone wouldn&#39;t mind poking holes in this argument or offering examples I would appreciate it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have not read the article but I&#39;ve seen other blog posts on the subject.
-The issue with &#34;OOP is bad&#34; is that OOP means different things to different people.Abstract Data Types are sort of a subset of OOP and are massively useful, I certainly don&#39;t think it&#39;s a good idea to expose the internal implementation of a data structure most of the time. Any sort of plugin system works in an OO matter. It is a useful tool, no question.Even things like Actors like in Erlang (which are much closer to the Alan Kay style OO) are massively useful in a distributed setting where state is naturally distributed.Where you get into trouble is when you go the whole &#34;lets model a taxonomy of the world&#34; style with inheritance hierarchies or go ham on design patterns, layers upon layers of abstraction and other nonsense like that.The saddest thing about the &#34;object–relational impedance mismatch&#34; is that the focus went totally to the wrong side. The relational model is a much nicer way to model relations than a graph of objects (that&#39;s the whole point after all). SQL sucks but that&#39;s a separate issue, Entity Component Systems are a form of relational modeling for example and work really well, or even better Datalog."</p>
-							
-						
-							
-								<p class="story__comment_others">"My issue with OOP is: Design Patterns: Elements of Reusable Object-Oriented Software.I don&#39;t take issue with the authors, with their insights, or anything related to the content of the book. It&#39;s that the book exists at all: it&#39;s a book filled with solutions to imaginary problems.When using a procedural language the first thing you do is start implementing a solution. When using OOP, you first have to solve the imaginary problems created by OOP, only then can you start down the path of typing out a solution.It&#39;s significantly more difficult to refactor OOP (even with great tools) than it is procedural.If you could spend 20% less brain power, possibly 40% fewer keystrokes to describe the exact same solution, why wouldn&#39;t you?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.wyden.senate.gov/news/press-releases/wyden-and-heinrich-newly-declassified-documents-reveal-previously-secret-cia-bulk-collection-problems-with-cia-handling-of-americans-information">
-						<picture>
-							<source srcset="default_30295532.webp" type="image/webp">
-							<source srcset="default_30295532.png" type="image/png">
-							<img src="default_30295532.png" alt="Preview of 'Newly declassified documents reveal previously secret CIA bulk collection'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.wyden.senate.gov/news/press-releases/wyden-and-heinrich-newly-declassified-documents-reveal-previously-secret-cia-bulk-collection-problems-with-cia-handling-of-americans-information">Newly declassified documents reveal previously secret CIA bulk collection</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30295532">
-						
-							
-								<p class="story__comment_first line-clamp">"Note that since it wasn&#39;t immediately apparent to me what or when the data was collected, this is about bulk collection of financial data in order to combat ISIL. Given the timeline of the report, https://www.cia.gov/static/63f697addbbd30a4d64432ff28bbc6d6/..., it makes it sound like they looked into activities in the 2014 timeframe."</p>
-							
-						
-							
-								<p class="story__comment_others">"The elephant in the room is the ability for the President to issue executive orders that can more often than not impinge on liberties that should be protected by the Constitution.The CIA will always want more power, that is the nature of the secret services but if the people are bothered, why isn&#39;t there more talk of curtailing what the President is allowed to do unilaterally?"</p>
-							
-						
-							
-								<p class="story__comment_others">"What is the data in question? I don&#39;t see it mentioned in the article."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.eff.org/deeplinks/2022/02/key-senators-have-voted-anti-encryption-earn-it-act">
-						<picture>
-							<source srcset="default_30296333.webp" type="image/webp">
-							<source srcset="default_30296333.png" type="image/png">
-							<img src="default_30296333.png" alt="Preview of 'Key senators have voted for the anti-encryption EARN IT act'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.eff.org/deeplinks/2022/02/key-senators-have-voted-anti-encryption-earn-it-act">Key senators have voted for the anti-encryption EARN IT act</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30296333">
-						
-							
-								<p class="story__comment_first line-clamp">"I guess this is the end of &#34;sending customer data to the us&#34;.
-Quite impressive how fast the US-politics can burn billions in $, endanger the technological lead and build a massive opportunity for Europe!I, as a European could not be happier about this, from a economic standpoint.Hope you guys over there are not drifting to a surveillance dystopian."</p>
-							
-						
-							
-								<p class="story__comment_others">"US folks who are interested in writing their Senators can find information at https://www.senate.gov/senators/senators-contact.htm?OrderBy...FWIW, I sent the email below (largely cribbed from the EFF).Dear :I am a constituent.  I urge you to oppose the EARN IT act, S.3538.  It does not strike a reasonable balance between fighting crimes and the rights of users to privacy and encryption.The bill empowers every state or territory to create sweeping new Internet regulations, by stripping away the legal protections for websites and apps in Section 230 of the Communications Decency Act of 1996. The states will be allowed to pass whatever law they want to hold private companies liable, as long as they somehow relate their new rules to online child abuse.The bill’s sponsors have stated that EARN IT will pressure Internet companies to do widespread scanning of user messages and photos. This scanning is incompatible with strong encryption.  Consequently, the act allows states to pass laws that will punish companies when they deploy end-to-end encryption, or offer other encrypted services. This includes messaging services like WhatsApp, Signal, and iMessage, as well as web hosts like Amazon Web Services.The sponsors have falsely claimed that the act would protect children. But abusive images are already highly illegal under federal law. Any Internet platforms that knows about child sexual abuse material being distributed or received are required to take action on it, and can be severely prosecuted if they do not.EARN IT would lead to penalties for people and companies that use encryption.  The harm done by this will fall on vulnerable people. Once we allow encryption to be compromised in order to scan for one thing, authoritarian regimes will demand the same capabilities to track information shared by activists and journalists. Another example is that people subject to domestic abuse, including children, won’t have secure channels of communication to report and reach out for trusted help.Once again, I urge you to oppose the EARN IT act.Thank you,"</p>
-							
-						
-							
-								<p class="story__comment_others">"What I don&#39;t see in the writeup, is which senators are voting which way. I can tell from the writeup what Blumenthal thinks of it, but not any other committee participants.I really wish politicians would embrace a &#34;we will make policies for things we can understand&#34; motto."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.nature.com/articles/d41586-022-00403-0">
-						<picture>
-							<source srcset="default_30297544.webp" type="image/webp">
-							<source srcset="default_30297544.png" type="image/png">
-							<img src="default_30297544.png" alt="Preview of 'Heart-disease risk soars after Covid, even with a mild case'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.nature.com/articles/d41586-022-00403-0">Heart-disease risk soars after Covid, even with a mild case</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30297544">
-						
-							
-								<p class="story__comment_first line-clamp">"COVID and the autoimmune response to it damages the endothelial layer of your cardiovascular systems. https://www.ahajournals.org/doi/10.1161/ATVBAHA.121.316101
-and
-https://www.nature.com/articles/s41392-021-00819-6The big question is how quickly and completely can that layer restore itself? If damage accumulates over time and people are catching new variants every 3-4 months it is only a matter of time before mortality from cardiovascular issues in COVID negative formerly infected people goes much higher and much younger. We need studies on the cardiovascular recovery pace after COVID damage in different age groups, and after repeat COVID diagnosis from different variants."</p>
-							
-						
-							
-								<p class="story__comment_others">"Many of the &#34;Covid-19 increases risk of XYZ&#34; popular media articles lack baseline comparisons to other virus infections. (Disclaimer: Yes, we know Covid-19 isn&#39;t the flu, and it&#39;s more deadly.) My point is: how much does heart-disease risk increase post-Covid compared to say post-Influenza? Is it comparable or is the risk magnitudes larger than with other virus infections? This is an important benchmark, I understand scientific journals don&#39;t cater to laypeople but popular media does.From CDC website: &#34;Studies have shown that flu illness is associated with an increase in heart attacks and stroke. A 2018 study found that the risk of having a heart attack was 6 times higher within a week of a confirmed flu infection.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"If I&#39;m reading Figure 5 right in the original paper*, it looks like the biggest cardiac impact is on people who were hospitalized or went to the ICU for covid, and the effect on people who were not hospitalized is present but relatively small. Am I interpreting the data correctly?* https://www.nature.com/articles/s41591-022-01689-3 h/t to @greenyoda for posting elsewhere in this thread."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://cs.au.dk/~danvy/lafb.html">
-						<picture>
-							<source srcset="default_30298732.webp" type="image/webp">
-							<source srcset="default_30298732.png" type="image/png">
-							<img src="default_30298732.png" alt="Preview of 'Feynman on group decision-making at Los Alamos (1985)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://cs.au.dk/~danvy/lafb.html">Feynman on group decision-making at Los Alamos (1985)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30298732">
-						
-							
-								<p class="story__comment_first line-clamp">"What strikes me is not a bunch of people keeping their ego in check -- that helps because it ensures that all points will be heard, but it doesn&#39;t ensure coherent decision-making. What strikes me is that everybody was able to keep track of what were the major points and minor points, so they could talk through the whole range of possible objections and decide that they were all less valid or less important than the points in favor. This is how engineers talk, searching for flaws and weighing the ones they find.I think it&#39;s important for engineering decision-makers to be comfortable with this culture. It&#39;s disheartening when you have a great conversation like the one Feynman describes, the engineers are in agreement, and then the person in charge stands up and says, &#34;Look, if everybody hates this idea, we can&#39;t be lazy and go forward with it just because we don&#39;t have a better one,&#34; or, &#34;I guess we can&#39;t make a decision on this, because there&#39;s too much negativity and people are just going to nit-pick every idea to death!&#34; No, no, talking through every possible objection to an idea is how you can tell that people are starting to zero in on it as the most likely best solution. The closer an idea gets to acceptance, the more thoroughly you vet it. The more it becomes clear that an idea is the best way forward, the more you start to prepare for dealing with the reality of it.This makes practical sense, but not political sense, so it seems weird and unnatural to a lot of outside observers, who expect respect to be communicated by agreement, and emerging consensus around an idea to be expressed by a shared avoidance of mentioning the downsides."</p>
-							
-						
-							
-								<p class="story__comment_others">"In my experience (and coming just out of a meeting alike) these types of respectful and forward-moving meetings are typically in a case where each attendant has roughly the same level expertise in a given domain and knows the basics of scientific principles. Hence, everybody in the meeting brings in his or her unique view of the topic at hand and knows intrinsically when it makes sense to contribute something to the discussion. Usually things get out of hands, if somebody is talking just for the noise or, and this is worse, a clearly bad idea wins the discussion because politics or the messenger has shouted the loudest."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have been in such environments and I while I hadn&#39;t considered that the reason they worked so well was that they were great people: they were, in fact, great people.An interesting thing happens when there&#39;s a high level of respect.People stop being so anxious about not &#34;winning&#34;, or &#34;being heard&#34;, people just remove themselves from their ideas and feel comfortable and confident.I left that company because the company around that team was a bit shit, but I wish I could foster an environment of high trust and mutual respect like that again."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.dailyprincetonian.com/article/2022/02/stem-intro-courses-humanites-exploration">
-						<picture>
-							<source srcset="default_30302079.webp" type="image/webp">
-							<source srcset="default_30302079.png" type="image/png">
-							<img src="default_30302079.png" alt="Preview of 'Why won’t anyone teach me math?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.dailyprincetonian.com/article/2022/02/stem-intro-courses-humanites-exploration">Why won’t anyone teach me math?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30302079">
-						
-							
-								<p class="story__comment_first line-clamp">"My 2 cents: The author presumably goes to Princeton - the ivy league is in general a tough place to &#34;start learning&#34; things, especially STEM. Few of the staff would teach you the basics of anything, mostly because you are attending a research college, where teaching is the professors&#39; side gig.I went to an ivy league school, and a large portion of the people in the CS program did competitive programming/knew number theory and discrete math from high school etc. All the problems we got as homework were really intense - I&#39;d consistently do more than 60-70 hours of studying outside of classes to keep up. Mind you, for me CS was/is like crack - I feel like I&#39;d have put in even more time if I didn&#39;t need to sleep or want to hang out with my friends.There are some intro classes, of course, but the quality of those varies a lot.Edit: I don&#39;t mean to discourage people with this post. I was actually one of the few people who didn&#39;t have much of a CS/quanty background in my CS classes. My advisor told me to have a backup major in case I fail the tougher required classes, but I made it through."</p>
-							
-						
-							
-								<p class="story__comment_others">"I wonder if some universities should pay more attention to the impact of discouragement on some students.I remember attempting a grad class called &#34;Hard problems in combinatorial optimization&#34;. I was struggling so I asked the professor for advice on getting my footing in the class.His answer was that I may just not have the &#34;mathematical maturity&#34; for the material. I was so discouraged that I dropped out of the program.What I didn&#39;t realize at the time was the particular meaning of that term. His advice was well intended and accurate.But what I heard was that I was hopeless in this topic area because I wasn&#39;t smart enough.So much pain could have been avoided if we just extended the conversation by a few minutes, or he invited me for a discussion over coffee."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here&#39;s the class description for MAT 202, &#34;Linear Algebra with Applications&#34;  at Princeton.[1] Here&#39;s a problem set with answers.[2]It&#39;s painful to read. Problem 2: &#34;Find the matrix A describing the following linear transformation from R2 to R&#39;2 : First rotate clockwise by π/6, then scale by a factor of 2, then reflect about the x2 axis.&#34; Anyone who programs video games recognizes that as a stack of transformations. You set up the matrix for the rotate, the scale, and the reflection (which is a scale of -1 on one axis). You multiply the matrices to get the result. This is a pain to do with pencil and paper. GPUs have hardware for it.Books on graphics programming cover this problem. But they usually do it much better, with graphical examples.
-The presentation here is done very abstractly, without any motivation.
-Most of linear algebra has graphical representations. It takes a useful and relatively easy area of math and makes it harder.This is apparently on purpose.  The class description says:The calculations are relatively simple once you understand what you need to compute, but it can take time to master the abstract concepts well enough to understand what that might be. The challenge in 201 (a calculus class) is usually how to finish a problem as the technical complications mount, whereas in 202 the challenge is often in seeing how to start the problem.Right. In calculus, problems usually involve trying to integrate something, where you get stuck and need to transform the problem in some non-obvious way to make forward progress. It&#39;s puzzle-solving. In linear algebra, the actual operations are mostly matrix adds and multiplies. It&#39;s setting up the problem that&#39;s hard.It&#39;s annoying to see this for a useful area of applied math. If you&#39;re headed for abstract algebra, where intuition breaks down, this approach might be useful. But if you want to use ordinary linear systems to get work done, which is common in engineering, it&#39;s not.[1] https://www.math.princeton.edu/undergraduate/placement/MAT20...[2] https://www.math.princeton.edu/sites/default/files/2018-04/M..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.thediff.co/p/the-factorio-mindset">
-						<picture>
-							<source srcset="default_30302607.webp" type="image/webp">
-							<source srcset="default_30302607.png" type="image/png">
-							<img src="default_30302607.png" alt="Preview of 'The Factorio Mindset'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.thediff.co/p/the-factorio-mindset">The Factorio Mindset</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30302607">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m literally playing Factorio right now, with my kid. Got into it over Christmas based on HN talking about it all the time. Good game to multi because I don&#39;t have to pay attention all the time.It really reminds me of software in many ways. You fiddle with tiny little things like balancing a belt, and then move on to building belt balancers. You then move up the abstractions to where you&#39;re not really placing inserters all the time. Maybe you make some blueprints and you&#39;re placing a whole set of nuke power plants in one go, or looking at trains.The kid loves it, but you can (luckily) tell the difference between what he makes and what I make. That engineer keep-stuff-organized thing takes a bit of time to hone, but he&#39;s getting there. He also understands how to find root causes now, based on looking at where there&#39;s a blockage in production and tracking back along the chain.One thing that&#39;s interesting is that the game is a bit, you know, dark. I mean we&#39;ve built hell and the kid doesn&#39;t mind. Literally paved paradise with concrete. The air is black with robots, 100k of them at the moment. There&#39;s furnaces all over the place. We got rid of the steam power generation but there are huge areas of nukes all over. The natives are getting atomic bombs thrown at them constantly, it takes a while to even get to the nearest spawner. Or water that isn&#39;t green.And yet he doesn&#39;t ask about how we destroyed all the cliffs and filled in the lakes, and chopped the trees.&#34;How should we make it bigger, dad?&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"My problem with games like Factorio (and more recently Oxygen no Included), is that after I get addicted and get up past 100 hours of gameplay I start to question what the hell I&#39;m doing with my life. Up until that point it&#39;s great fun designing, building, and optimizing, but then a switch in my head flips. I start to become anxious about the fact that I was excited about getting better at skills in a virtual world. Usually around this time I start watching videos of more advanced builds, and then become increasingly depressed about the idea of sinking 1000+ hours into a game, when I could just be building something in the real world, or out riding my bike. This is usually the time I put the game down and never play it again.I think the problem for me is that these games give me the illusion of learning, building, and accomplishing things, which my little engineer brain loves. But once I come out of the haze of addiction, I realize it&#39;s nothing more than an illusion, and I just stomach going on."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have over 5000 hours in Factorio. I am part of a group where several of us are over 5000 hours. Some of us have Autism. Some of us have ADHD. Some of us have both. The majority of us are in the tech industry.The companies we work at have been made to understand that the factory must grow."</p>
 							
 						
 						</a>

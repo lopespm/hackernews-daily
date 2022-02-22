@@ -33,33 +33,30 @@
 	</div>
 
 	
-	<div class="day__date">21 February 2022</div>
+	<div class="day__date">22 February 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.biphelps.com/blog/The-Fastest-GIF-Does-Not-Exist">The fastest GIF does not exist</a></h3>
+					<h3><a href="https://twitter.com/xenadu02/status/1495693475584557056">I tested four NVMe SSDs from four vendors – half lose FLUSH’d data on power loss</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30405815">
+						<a href="https://news.ycombinator.com/item?id=30419618">
 						
 							
-								<p class="story__comment_first line-clamp">"An interesting quick dive into how some of the artifacts of historical implementations can carry forward decades later. I&#39;m saving this one. While everyone on HN is probably familiar with a pile of examples of this in our own work particularly if you do anything lower level, this is a nice example because it&#39;s really easy to grasp even for total non-programmers and gives a feel for the layers upon layers the digital world is built on. Details on the x86-64 bootstrap sequence are interesting to tech people but this is the sort of thing I might show in a school class.That said at first I thought the author was being a bit tongue in cheek on the suggestion to fix it with:&gt;A downside to making any changes is that the badly formatted GIFs won&#39;t render any more. I reckon just be bold, like the release of Netscape 2.0...If Netscape was fine with breaking poorly-made GIFs, we should be too!But we kind of have a bit more content now then when Netscape 2 was released, and it seems they&#39;re serious?  Support more than 256 colours in a single frame of GIF animation
-  Support fast GIFs (10ms delay)
-  No confusing behaviour with small delay = slow GIF
-  Better compression for GIFs with multiple small areas updated per frame
+								<p class="story__comment_first line-clamp">"I always liked the embedded system model where you get flash hardware that has two operations -- erase block and write block.  GC, RAID, error correction, etc. are then handled at the application level.  It was never clear to me that the current tradeoff with consumer-grade SSDs was right.  On the one hand, things like the error correction, redundancy, and garbage collection don&#39;t require the attention from CPU (and more importantly, doesn&#39;t tie up any bus).  On the other hand, the user has no control over what the software on the SSD&#39;s chip does.  Clearly vendors and users are at odds with each other here; vendors want the best benchmarks (so you can sort by speed descending and pick the first one), but users want their files to exist after their power goes out.It would be nice if we could just buy dumb flash and let the application do whatever it wants (I guess that application would be your filesystem; but it could also be direct access for specialized use cases like databases).   If you want maximum speed, adjust your settings for that.  If you want maximum write durability, adjust your settings for that.  People are always looking for that one size fits all use case, but it&#39;s hard here.  Some people may be running cloud providers and already have software to store that block on 3 different continents.  Some people may be an embedded system with a fixed disk image that changes once a year, with some temporary storage for logs.  There probably isn&#39;t a single setting that gets optimal use out of the flash memory for both use cases.  The cloud provider doesn&#39;t care if a block, flash chip, drive, server rack, availability zone, or continent goes away.  The embedded system may be happy to lose logs in exchange for having enough writes left to install the next security update.It&#39;s all a mess, but the constraints have changed since we made the mess.  You used to be happy to get 1/6th of a PCI Express lane for all your storage.  Now processors directly expose 128 PCIe lanes and have a multitude of underused efficiency cores waiting to be used.  Maybe we could do all the &#34;smart&#34; stuff in the OS and application code, and just attach commodity dumb flash chips to our computer."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve actually run into some data loss running simple stuff like pgbench on Hetzner due to this -- I ended up just turning off write-back caching at the device level for all the machines in my cluster:https://vadosware.io/post/everything-ive-seen-on-optimizing-...Granted I was doing something highly questionable (running postgres with fsync off on ZFS) It was very painful to get to the actual issue, but I&#39;m glad I found out.I&#39;ve always wondered if it was worth pursuing to start a simple data product with tests like these on various cloud providers to know where these corners are and what you&#39;re really getting for the money (or lack thereof).[EDIT] To save people some time (that post is long), the command to set the feature is the following:    nvme set-feature -f 6 -v 0 /dev/nvme0n1
 
-But frankly at this point why? We&#39;ve got good universally adapted image formats that do more than 256 colors. We&#39;ve got webm and so on (even Apple caved on that one in the end) for baked animation which is much smaller and more powerful than gif, and plenty of CPU and libraries for generation on the fly. We&#39;ve got powerful ways to do animation purely with HTML/CSS/SVG/JS. GIF is a historical artifact with a lot of its value at this point purely about old things. This wouldn&#39;t even retroactively bring newer capabilities to older systems because it would require updated code which by definition means the ability to run new browsers and thus modern capabilities.I get they really enjoy hacking on gif but come on. Only way I can see it working is if all the players agreed on some metadata that could be added to gifs which wanted &#39;standards&#39; vs &#39;historical&#39; playback with the default remaining historical, and potentially also make it a browser setting. That&#39;d still leave the ad issue, but maybe at this point that&#39;s moot given the advancements in blockers (and it&#39;d be a very easy thing to look for as an indication of an ad, and thus be selected against)."</p>
+The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced together across some man pages:https://man.archlinux.org/man/nvme.1https://man.archlinux.org/man/nvme-set-feature.1.enIt&#39;s a bit hard to find all the NVMe features but 6 is the one for controlling write-back caching.https://unix.stackexchange.com/questions/472211/list-feature..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I like the ”Internet Explorer 5 is closed source, but could hypothetically look something like this” bit.Is this source code available through MS partnership programs or an old leak?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Rate limiting or clamping &#34;0&#34; delays upwards can also help for polling applications where you want to be as fast as possible, but you&#39;re never going to be actually zero. For example if you have a thread that&#39;s pulling images from a camera (publishing at 30 fps) in a loop, you can delay for 1ms between polls and nobody is going to know, but that can have an enormous impact on CPU usage; especially on embedded platforms. Instead of running at 100% thread usage (calling camera.read() and waiting for it to return true), the spin/loop cost is basically free and you only need to worry about the cost of acquiring/decoding the frame. In theory branch prediction should help because you&#39;ll take the &#34;no image yet&#34; branch 99% of the time, but in practice that just makes the loop iterate faster. I learned this the hard way writing a custom camera publisher in ROS, but I&#39;ve seen it a lot in tutorial code and I think a lot of beginners make that mistake."</p>
+								<p class="story__comment_others">"I think this is something LTT could handle with their new test lab. They already said they want to set new standards when it comes to hardware testing, so if they can hold up to what they promised and hire enough experts this should be a trivial thing to add to a test Parcours for disk drives."</p>
 							
 						
 						</a>
@@ -72,22 +69,22 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://0xf00ff00f.github.io/rotator/">Show HN: Test your shape rotation skills</a></h3>
+					<h3><a href="https://memex.marginalia.nu/log/48-i-have-no-capslock.gmi">I have no capslock and I must scream</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30408434">
+						<a href="https://news.ycombinator.com/item?id=30421399">
 						
 							
-								<p class="story__comment_first line-clamp">"IMO this would be more enjoyable if the shapes were more different morphologically, and fewer (ideally no) close pairs which differ only in the length of a segment by a single block.After the first couple of wrong guesses (though I&#39;m pretty sure one guess was correct - could be the bug https://news.ycombinator.com/item?id=30408567) I started to count segment lengths rather than relying on mental shape rotation."</p>
-							
-						
-							
-								<p class="story__comment_others">"Sometimes the initial rotation hides a part of the shape.Also, I have always wondered if there&#39;s a way to translate these shapes to strings for quick &#34;mental algorithm&#34; matching. Something like, &#34;5, left turn, 3, right turn...&#34;I guess you&#39;d need a normal form. The first turn can be defined as always &#34;right&#34; or &#34;left,&#34; and subsequent turns can be right, left, up or down. The first turn that&#39;s &#34;up&#34; or &#34;down,&#34; can be defined as &#34;up.&#34; That leaves two ways to read any shape, but that&#39;s an uhh constant-factor overhead. :)(I can&#39;t think of a way to define a normal form reading direction that wouldn&#39;t involve potentially reading an arbitrary distance in before having to re-start the other way.)"</p>
+								<p class="story__comment_first line-clamp">"Very similar to A Plan for the Improvement of English Spelling by M. J. Shields (frequently misattributed to Mark Twain):&#34;For example, in Year 1 that useless letter &#34;c&#34; would be dropped to be replased either by &#34;k&#34; or &#34;s&#34;, and likewise &#34;x&#34; would no longer be part of the alphabet. The only kase in which &#34;c&#34; would be retained would be the &#34;ch&#34; formation, which will be dealt with later. Year 2 might reform &#34;w&#34; spelling, so that &#34;which&#34; and &#34;one&#34; would take the same konsonant, wile Year 3 might well abolish &#34;y&#34; replasing it with &#34;i&#34; and Iear 4 might fiks the &#34;g/j&#34; anomali wonse and for all.Jenerally, then, the improvement would kontinue iear bai iear with Iear 5 doing awai with useless double konsonants, and Iears 6-12 or so modifaiing vowlz and the rimeining voist and unvoist konsonants. Bai Iear 15 or sou, it wud fainali bi posibl tu meik ius ov thi ridandant letez &#34;c&#34;, &#34;y&#34; and &#34;x&#34; -- bai now jast a memori in the maindz ov ould doderez -- tu riplais &#34;ch&#34;, &#34;sh&#34;, and &#34;th&#34; rispektivli.Fainali, xen, aafte sam 20 iers ov orxogrefkl riform, wi wud hev a lojikl, kohirnt speling in ius xrewawt xe Ingliy-spiking werld.&#34;"</p>
 							
 						
 							
-								<p class="story__comment_others">"For VR (Quest/Steam) There is a beautiful minimalistic game called Cubism that uses a similar set of shapes in 3 dimensional space where you need to fit the group of blocks into increasingly complex forms.  It&#39;s a very soothing environment and the graphics are so clear with technical touches like a high frame rate (120hz), perfect hand controls, and use of AR/passthrough, all possible due to the relatively simple game requirements.   Highly recommend the experience if you can do it.There is also a free open version similar to Cubism built in WebXR called Plockle that follows the same theme [2].[1] https://www.cubism-vr.com/[2] https://constructarcade.com/game/plockle/"</p>
+								<p class="story__comment_others">"This is cute but it refuses to actually think about the problem of keyboard layout design. Take the reductio the other way and you end up adding keys to create a keyboard with a key for “the” and one for “and”, “or”, “but”, “of”... The author is just saying they want the QWERTY keyboard exactly as it is without actually thinking how this layout got there in the first place.The Caps Lock key makes no sense in the context of a computer keyboard. Back in the days of typewriters when everything was a single monospaced font, typing in all caps was the only way to make something bold (there weren’t italics, bold, font sizes or different fonts). Having a convenient way to hold down the shift key was nice in this context. In the context of a computer keyboard that has multiple fonts, sizes and weights, it is a dumb key. Larry Tesler’s dictum “no modes” is immediately applicable. Steve Jobs tried to get rid of the caps lock key twice (once at Apple and once at Next). Google’s pixel books have replaced it with a search shortcut, which is not that useful but much better than having a key whose primary function is to mess up password entry and shout online without any extra effort for shouting. On a Mac keyboard there are a few common substitutions for caps lock that you can use. Any of these substitutions are preferable (I have it as Option for tab navigation but any of the other main hot keys make a better use of keyboard real estate)."</p>
+							
+						
+							
+								<p class="story__comment_others">"The title is a reference to this story by Harlan Ellison, which won a Hugo award in 1968:[NSFW - contains graphic descriptions of torture and other severe violence]https://wjccschools.org/wp-content/uploads/sites/2/2016/01/I..."</p>
 							
 						
 						</a>
@@ -100,22 +97,22 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://kg.dev/thoughts/be-anonymous">Be anonymous</a></h3>
+					<h3><a href="https://forums.swift.org/t/core-team-to-form-language-workgroup/55455/6">Chris Lattner left Swift core team</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30408236">
+						<a href="https://news.ycombinator.com/item?id=30416070">
 						
 							
-								<p class="story__comment_first line-clamp">"On personal anecdotes, I&#39;ve used the same internet identity across all platforms and it&#39;s not hard to locate my real life identity from there...since like 20 years ago when I got on the internet. So all the good reputation and bad reputation followed me through all the time, and surprised me in better and worse way depending on the context. There&#39;re times when I wished I had concealed myself saying certain things (or just haven&#39;t said it), and times when I felt the joy of recognition when people connected dots. Now as I&#39;m getting old, it&#39;s just a habit, no longer about risk or rewards.Both younger me and older me will probably be very indecisive about doing this if they&#39;ve never done it and are told about all the fortune/misfortune from this."</p>
-							
-						
-							
-								<p class="story__comment_others">"As careful as some of the things he suggests are...if you&#39;re truly wanted by a state-level actor or sufficiently motivated attacker, you won&#39;t be able to hide by simply using VPN and Tor. Especially if you&#39;re running something with many transactions like AlphaBay. You would need to obfuscate quite a bit more:- if you&#39;re using VPN traffic but most people &#34;around&#34; you aren&#39;t, you&#39;re a suspicious node; your ISP could easily flag you to your government. If you use wifi at a common point you&#39;re likely to be flagged and there isn&#39;t an easy way other than keeping on the move. But moving often is another anomalous event, and it&#39;s very difficult to do even for Drug Lords ( El Chapo ) or Terrorists that it behooves to do. This puts you in a sort of Zugzwang, to borrow a chess term.- there&#39;s always leakage, for instance, in the way you talk with people in the real world. At some point you send enough communication for sophisticated frequency analysis.- and there are other patterns of usage that could be used to identify you, like searches or even keyboard frequency on anonymized accounts can be de-anonymized by very specific markers ( ML works! ).- off ramps for crypto aren&#39;t very good. If you&#39;re in e.g. Brazil, haha, yeah, good luck spending bitcoin or any other crypto and going unnoticed. Mixers and tumblers will eventually leak and you&#39;ll be caught.- you&#39;re very vulnerable to social engineering by people you do business with. one slip where you stop communicating in a transactional mode of communication and that&#39;s a weak link in your armor.In the end, the FBI only has to be right once, and you have to be right every time."</p>
+								<p class="story__comment_first line-clamp">"&gt; It is obvious that Swift has outgrown my influence, and some of the design premises I care about (e.g. &#34;simple things that compose&#34;)As someone who was heavily invested in Swift, and an active member of the community from around 2015-2019, I&#39;m a bit sad to see the direction the language is taking.From the time I started experimenting with Swift, I absolutely loved the philosophy of the language.  It seemed to really prioritize having a set of well-factored systems, each with their own very rationally designed interfaces, which could be composed to do really powerful things.  It was an incredibly expressive language which allowed for writing code with an incredible level of clarity - when writing Swift code I always felt I was writing at the level of the problem domain, not writing syntax.  At the same time it offered really nice features for ensuring safety and correctness, like ADT&#39;s and best-in-class nullability syntax.It was a language which sometimes seemed to move at a glacial pace, but the implicit tradeoff was that when a feature landed, it was for the most part very well thought out, and would add to the language with minimal negative impact.A few years ago that seemed to start to change.  From my perspective, some of the features added to the language to support SwiftUI - specifically property wrappers and function builders - very much felt rushed and forced into the language based on external deadlines.  And imo they have a largely negative impact on the language: it used to be the case that you could look at a piece of Swift code and roughly understand how it would compile to assembly pretty easily, but with these new features there&#39;s a ton of compiler magic going on behind the scenes."</p>
 							
 						
 							
-								<p class="story__comment_others">"Or you can just be a known drug lord, launder billions of USD through a respected  international bank, no one goes to jail, small fine, and they&#39;re probably still laundering 10 years later and no one cares. No one is anonymous. They&#39;re probably all using SMS and corporate email.Sell a little bit of drugs through the silk road and you&#39;ll get royally f-ed! Sell all the opioids in the world through a public pharma corp and you can keep enjoying your jet-set life and yacht.The allegedly smartest people in the world are focusing on the dumbest problems while being reamed by the frat-boys that went to Wall Street and Politics, guns and drugs. LULZ."</p>
+								<p class="story__comment_others">"I clicked on this thread because I knew exactly what I wanted to comment about, and was surprised to see that Chris mentioned exactly it in his message:&gt;After several discussions generating more heat than light, when my formal proposal review comments and concerns were ignored by the unilateral accepts, and the general challenges with transparency working with core team, I decided that my effort was triggering the same friction with the same people, and thus I was just wasting my time.I stopped paying attention to Swift for this exact reason. I have actually submitted and implemented a feature in Swift and I think it was one of my most frustrating experiences with open-source projects. It seems that almost every thread in this forum devolves into people fighting over the most irrelevant details, and my proposal specifically took months to be submitted into review because a couple of users simply refused to back down from how they personally wanted it to work, ignoring the actual problem the feature aimed to solve. After a long time deflecting the comments, the feature was accepted the way I originally intended and I never entered the forum again.Example aside, it doesn&#39;t take a proposal to see that almost every thread in the forum looks like this. Open sourcing Swift has benefits, but I think when it comes to the actual progress of the project, this particular democratic process was a mistake."</p>
+							
+						
+							
+								<p class="story__comment_others">"Key takeaway for me was the note that it “definitely isn’t a community designed language”. This is telling, I’ve watched a lot of neat languages over the years and absolutely none of the ones without community involvement have grown beyond the sphere of influence of their primary companies.I like swift enough I’m learning it to build my own personal tech nerd ideal podcast client because I own apple devices and want an app that works between macOS, iOS, iPadOS, tvOS,and watchOS. but I doubt I’ll ever use it for anything beyond this one personally motivated project. Even if i release it as an app on the store for download or purchase I don’t know if I will ever be motivated enough to build anything else using it. Because the scope is too narrow. Business work is converging on open stacks like react, and angular, and the dark horse of C# with its latest release supporting WASM web components backed by GRPC-web and a C# function driven stack from front to back, even without SQL Server costs this is a compelling ecosystem backed by PostgreSQL and other completely open source tools.But Swift remains Apple’s language for apple stuff and… while a profitable niche, it’s still a niche.Edit: typo fix."</p>
 							
 						
 						</a>
@@ -128,22 +125,22 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://chromium.woolyss.com/f/HTML-Google-Tag-Manager-the-new-anti-adblock-weapon.html">Google Tag Manager, the new anti-adblock weapon</a></h3>
+					<h3><a href="https://web3isgoinggreat.com/?id=2022-02-21-0">Coinbase CEO tweets how they came up with Super Bowl ad, lied about it</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30411049">
+						<a href="https://news.ycombinator.com/item?id=30420990">
 						
 							
-								<p class="story__comment_first line-clamp">"God damn... this is it, this is the end-game. There&#39;s no way to fight this unless you customize and maintain blocking scripts for each individual website.Yes, websites could always have done this, but the REST (CDN-bypassing) requests&#39; cost and the manual maintenance for the telemetry endpoints and storage was an impediment that Google just gives them a drop-in solution for :(I think Google is happy to eat some of the cost for the &#34;proxy&#34; server given the abundance of data they&#39;ll be gobbling up (not just each request&#39;s query string and users&#39; IP address but -being a subdomain- all the 1st party cookies as well). I don&#39;t have the time or energy to block JavaScript and/or manually inspect each domain&#39;s requests to figure out if they use server-side tracking or not.I honestly don&#39;t know if there&#39;s any solution to this at all. Maybe using an archive.is-like service that renders the static page (as an image at the extreme), or a Tor-like service and randomizes one&#39;s IP address and browser fingerprint."</p>
-							
-						
-							
-								<p class="story__comment_others">"As someone who has spent a lot of time on both sides of this, I think this is a great outcome, personally.The most annoying part of ad-tech for me, as a user, was the fact that I was running all sorts of random javascript, any bit of which could blow up performance on my browser.As someone who used to lead an e-commerce operation, I hated running all of this crap in my users&#39; browsers because I knew it would get blocked randomly or cause hard-to-diagnose errors.I eventually moved us to basically this approach using a home-grown solution and everyone was happier. It was even more robust because it just used session/cookie data and didn&#39;t require running any javascript execution to work."</p>
+								<p class="story__comment_first line-clamp">"Coinbase CEO&#39;s excuse is that he sees Martin Agency as a &#34;creative firm&#34; not a &#34;traditional ad agency&#34; and he felt they &#34;were all one team&#34;. Although it should be noted that last Tweet was posted hours after the original set of Tweets.https://twitter.com/brian_armstrong/status/14958203518796595..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Citing adblock feels like clickbait. Google Tag Manager can&#39;t run ads so I don&#39;t follow the comparison. Marketing analytics could always side-step anti-adblocking tools through server-side tracking."</p>
+								<p class="story__comment_others">"Plot twist: this drama is fabricated and is part of a meta-advertising package offered by The Martin Agency."</p>
+							
+						
+							
+								<p class="story__comment_others">"Tangent, but I thought it was a funny commentary: I was watching the olympics with my kid (&lt;12yo) and the Coinbase commercial came on (Didn&#39;t see it during the superbowl, but I assume they were the same?). And after the commercial ended my kid said, &#34;was that... some kind of app for gambling or something?&#34;Yes. Something like that. :)"</p>
 							
 						
 						</a>
@@ -156,22 +153,22 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/quenhus/uBlock-Origin-dev-filter">Filters to block and remove copycat-websites from DuckDuckGo, Google and other</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=30413228">Tell HN: Airbnb just stole me 5 minutes of my time adding dices</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30374905">
+						<a href="https://news.ycombinator.com/item?id=30413228">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;ve been recently searching for some very specific keyword stuff, and bumping into a lot of sites which seemed like just reformatted copy-n-paste of stackoverflow and various mailing lists, adding zero value and clogging up the top 100 search results.Now that I see the HUGE number of copycat sites in the stackoverflow_copycats.txt file, I am beginning to understand what&#39;s going on.Thanks!"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s crazy the community has had to come together to create rag-tag tools like this to patch up what is supposed to be a trillion dollar search engine that should be the pinnacle of human civilization. But then I remember it&#39;s the same sort of crazy whereby the richest country in the world has homeless people, child hunger, and decaying infrastructure :/"</p>
+								<p class="story__comment_first line-clamp">"I see this as high-IQ software developers building systems to shut out non-high-IQ people from society. Managers look at these CAPTCHAs and think &#34;oh I could solve these no problem, let&#39;s use them&#34;. In fact, they can only be solved by unusually smart people or by ML bots. Arkose Labs (the maker of this particular captcha) explicitly advertises that their methods can keep out &#34;low-skilled workers&#34; on &#34;human fraud farms&#34;. They keep out everyone else too if they&#39;re not that good at mental rotation and mental arithmetic or logic -- this dice puzzle and the mouse labyrinth puzzle are pretty much prototypical IQ test problems."</p>
 							
 						
 							
-								<p class="story__comment_others">"I never understood why Google isn&#39;t blocking these crap results, it&#39;s really making my experience of search really bad for a light of my searches"</p>
+								<p class="story__comment_others">"It&#39;s Arkose Labs (also used by Roblox, GitHub, Dropbox, Twitch, and more). There&#39;s some more links here: https://github.com/dessant/buster/issues/178 (Buster is a browser extension for automated captcha solving). You can subscribe here https://github.com/dessant/buster/issues/320Their audio captcha (no longer available?) involved listening to 3 MIDI tunes and picking &#34;the sad one&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"Airbnb has been very human hostile since the beginning.The first time I had to create an account, they required that I connect with a google account with access to all my contacts. Then ask me to make a video of myself.I didn&#39;t create the account and booked an hotel.Now they are less aggressive with their new procedures, but still, you can see that the people behind it see technical solutions way before they perceive the human impact.My grand-father was like that. A brilliant engineer from the most elite school of his generation in France. He once told me very seriously a solution for making more accommodations for the poorest people would be to remove individual bathrooms, and create common ones for the whole building instead.Airbnb tech teams remind me of him."</p>
 							
 						
 						</a>
@@ -184,22 +181,25 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://jvns.ca/blog/2022/02/20/things-that-used-to-be-hard-and-are-now-easy/">Things that used to be hard and are now easy</a></h3>
+					<h3><a href="https://groups.google.com/g/vim_announce/c/MJBKVd-xrEE/m/joVNaDgAAgAJ">Vim 9 will be dedicated to Sven Guckes</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30406201">
+						<a href="https://news.ycombinator.com/item?id=30416558">
 						
 							
-								<p class="story__comment_first line-clamp">"I would also add something along the lines of &#34;building big webapps&#34;. Large frontend codebases used to be scary Lovecraftian horror where things were only touched out of utmost necessity. Runtime errors for weird corner cases. Dangling dependencies that no one could figure out whether they&#39;re safe to update/remove or not. Refactoring was both an art and an arcane incantation at the same time. Modern tooling and best practices have made most if not all of these problems nearly non-existent, and I&#39;m grateful for it."</p>
+								<p class="story__comment_first line-clamp">"  &gt; Our friend Sven Guckes died in Berlin on February 20, 2022.
+  &gt; He was diagnosed with a brain tumor in December 2021.
+
+Sheesh so fast... scary. RIP."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Things that used to be hard and are now easy:&gt; Concurrency, with async/await (in several languages)The number of times I&#39;ve been bitten by the very specific semantics around async/await in JavaScript makes me wonder if I&#39;ve hit some kind of a ceiling in trying to grok it.Coming from the world of threads, I&#39;ve found Kotlin&#39;s structured concurrency approach the best of the lot I&#39;ve used so far, even if it isn&#39;t with out its quirks: https://kotlinlang.org/docs/composing-suspending-functions.h..."</p>
+								<p class="story__comment_others">"I’m surprised about Sneak’s comment being flagged on here.It’s okay to express your opinion about the person being discussed and add more information to it in general.If VIM is being dedicated to an alleged sexual harasser, I as an interested person is happy to know about this."</p>
 							
 						
 							
-								<p class="story__comment_others">"As someone who leans frontend,  I find firebase and serverless (somebody else’s server) solutions really powerful for prototyping an idea or building a proof of concept. You can get something in front of your users tomorrow.  I would second guess SaaS startups that start by building the infra/data models unless they’re going for a highly technical play (aerospace, hardware, etc) or already have a ton of market knowledge.I’m in the middle of a mongoDB to Postgres migration for a product with 0 users. When you’re trying to scale from 0 to 1 user then everything should help you explore the user’s problem space, even if it seems backwards to build the UI before the backend."</p>
+								<p class="story__comment_others">"I&#39;ve used Vim nearly every day for the last 20 years. Thank you for FOSS. RIP."</p>
 							
 						
 						</a>
@@ -212,22 +212,22 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.cesifo.org/en/publikationen/2022/working-paper/facebook-shadow-profiles">Facebook Shadow Profiles [pdf]</a></h3>
+					<h3><a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1938081">What are the most important statistical ideas of the past 50 years?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30389905">
+						<a href="https://news.ycombinator.com/item?id=30417811">
 						
 							
-								<p class="story__comment_first line-clamp">"That shouldn&#39;t be a surprise. At an old job with far smaller user base, we used to do something very similar and while the shadow profiles were not materialized in the form of actual profiles, the amount of data you can gather about someone just by having his/her number pop up in the contact list of several of your actual users is staggering: full name, workplace, city/neighborhood where they live, their partners, their hobbies and all sorts of things which you generally should not know. And we are not talking people who have their entire life published online, but people with little to no online visibility. Assuming that facebook is not doing something similar considering that their main business comes from profiling and modeling user behavior is just naive."</p>
-							
-						
-							
-								<p class="story__comment_others">"Facebook also has shadow profiles for non-users that connect directly to name, email address, and/or phone number.  At the very least these seem to be populated when people share their contact list with Facebook.I have long wondered whether they can match these two kinds of shadow profiles together. One profile with personally identifiable information. The other profile with detailed browsing history. That would raise a huge privacy concern especially since these are non-Facebook users and therefore people who have not opted into this at any level."</p>
+								<p class="story__comment_first line-clamp">"Validation on holdout sets.When I was a student in the 1990s, I was taught about hypothesis testing (and all the hassle of p-fishing etc.), and about Bayesian inference (which is lovely, until you have to invent priors over the model space -- e.g. a prior over neural network architectures). These are both systems that tie themselves in epistemological knots when trying to answer the simple question &#34;What model shall I use?&#34;Holdout set validation is such a clean simple idea, and so easy to use (as long as you have big data), and it does away with all the frequentist and Bayesian tangle, which is why it&#39;s so widespread in ML nowadays.It also aligns statistical inference with Popper&#39;s idea of scientific falsifiability -- scientists test their models against a new experimental data, data scientists can test their model against qualitatively different holdout sets. (Just make sure you don&#39;t get your holdout set by shuffling, since that&#39;s not what Popper would call a &#34;genuine risky validation&#34;.)The article mentions Breiman&#39;s &#34;alternative view of the foundations of statistics based on prediction rather than modeling&#34;. Breiman does make a big deal of evaluation on holdout sets; but his &#34;prediction&#34; idea isn&#39;t general enough, since it doesn&#39;t accommodate generative modelling (e.g. GPT, GANs). I think it&#39;s better to frame ML in terms of &#34;evaluating model fit on a holdout set&#34;, since that accommodates both predictive and generative modelling."</p>
 							
 						
 							
-								<p class="story__comment_others">"A link that is shared on facebook gets an additional fbclid query parameter (interesting that google has it&#39;s equivalent glclid query parameter for links from google adds).I think that it is easy to get rid of this query parameter, when want to use such a link. (just adding, as I don&#39;t see that mentioned in the pdf)I think that the purpose of this query param is to act as a substitute for cross site cookies: when you click on some link then the original url is further transfered as the http referrer header of the http request, if they can get hold of the logs of some affiliated site, then they can possibly track the flow of these fbclid attributes.Interesting to observe, how every tiny detail is getting used for tracking purposes. I guess that browsers won&#39;t get rid of any specific query parameters when the url is passed as the referrer header, as that would be a violation of the protocol. However it may be possible to write a browser plug-in that does so."</p>
+								<p class="story__comment_others">"Off-the-cuff, i.e. without digging deeply into a set of history of statistics books:Tied 1st place:• Markov chain Monte Carlo (MCMC) and the Metropolis–Hastings algorithm• Hidden Markov Models and the Viterbi algorithm for most probable sequence in linear time• Vapnik–Chervonenkis theory of statistical learning (Vladimir Naumovich Vapnik &amp; Alexey Chervonenkis) and SVMs4th place:• Edwin Jaynes: maximum entropy for constructing priors (borderline: 1957)Honorable mentions:• Breiman et al.&#39;s CART (Classification and Regression Trees) algorithm (and Quinlan&#39;s C5.0 extension)• Box–Jenkins method (autoregressive moving average (ARMA) / autoregressive integrated moving average (ARIMA) to find the best fit of a time-series model to past values of a time series)(The beginning of the 20th century was much more fertile in comparison - Kolmogorov, Fisher, Gosset, Aitken, Cox, de Finetti, Kullback, the Pearsons, Spearman etc.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a side issue, but I wonder what changes could be made to the teaching of statistics, most importantly &#34;stats for scientists&#34; taught in college and even high school. What occurs to me right off the bat is that I learned stats by the use of formulas to boil data sets down to answers. For example, null hypothesis significance testing and the dreaded p-value. We had to do it this way, as widespread availability of computers was still on the horizon.Today, computation is easy and cheap. I wonder if we could learn stats in a different way, perhaps starting by just playing with data, and simulated random numbers, graphing, and so forth. Can something like null hypothesis testing be taught primarily through bootstrapping, with the formulas introduced as an aside?Yes I know that statistics is a formal branch of math, with theorems and proofs. I took that class. But the students who take &#34;stats for scientists&#34; don&#39;t ever see that side of it. Understanding the formulas without seeing the proofs is like trying to learn freshman physics without calculus."</p>
 							
 						
 						</a>
@@ -240,22 +240,43 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://podcasts.apple.com/us/podcast/14-vijayanagara-the-last-emperors-of-south-india/id1449884495?i=1000551515692">Vijayanagara – The Last Emperors of South India [audio]</a></h3>
+					<h3><a href="https://revelry.co/insights/development/nix-time/">Nix: An idea whose time has come</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30402624">
+						<a href="https://news.ycombinator.com/item?id=30384121">
 						
 							
-								<p class="story__comment_first line-clamp">"I really like this podcast.If anyone is interested in podcasts from or about India (mostly history related), here I list some:- Scroll &amp; Leaves - https://scrollsandleaves.com/- Incarnations: India in 50 lives - https://www.bbc.co.uk/programmes/b05rptbv- History of India - https://overcast.fm/itunes1041684187/the-history-of-india-po...- Desi Stones and Bones - https://desistonesandbones.org- Echoes of India - https://shows.ivmpodcasts.com/show/echoes-of-india-a-history...There are two fine BBC podcasts on modern India (last colonial years and onwards) but those are in Hindi (ones I am aware of) and have pleasantly short episodes.Then there’s the contemporary Seen and the Unseen (https://seenunseen.in) having pleasantly very long episodes."</p>
+								<p class="story__comment_first line-clamp">"I love the idea of nix but the inconsistency and developer experience is terrible.   I want to suggest people use it but there is too many rough edges currently.For example, if you want to install a package the old way, you&#39;ll install it including the channel:    nix-env -iA nixpkgs.ripgrep
+
+
+but then if you want to remove one, you don&#39;t reference the channel:    nix-env -e ripgrep
+
+You have a similar issue if you want to use the new `nix` command.  To install a package you&#39;ll do:    nix profile install nixpkgs#ripgrep
+
+
+but running:    nix profile remove nixpkgs#ripgrep
+
+
+will do nothing.  It won&#39;t say &#34;I didn&#39;t remove the package&#34; or &#34;package not found&#34;.  It just returns silently.    The only way to remove it is to point to the number from `nix profile history` or the actual path.It is unbearably slow:    &gt; time nix-env -qaP ripgrep
+    nixpkgs.ripgrep  ripgrep-13.0.0
+
+    11.17s user 2.70s system 73% cpu 18.970 total
+
+
+Overall I love the idea but it has a long way to go in developer experience and quality before it is ready for any mainstream adoption."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m no historian, but I really enjoy this podcast.I feel a bit of guilt knowing that a whole civilization had to fall to produce each of these episodes. This is really expensive to produce!"</p>
+								<p class="story__comment_others">"  &gt; Nix often scares newcomers and experienced devs alike, because it proposes a fairly radical overhaul to how we think about package management and how we run software in general.
+
+I am not sure this is the main put-off of nix.Ideologically, I love nix. The syntax/language itself is a massive barrier IMO.I use Nix for personal projects, but I prefer the experience of Devcontainers. They&#39;re easier to understand and debug (for me).I&#39;m watching eagerly the work being done by the ostree/rpm-ostree folks who are also trying to solve for a similar problem. Hoping to see something like &#34;Nix but with YAML/JSON&#34; come out of that.https://ostree.readthedocs.io/en/stable/manual/related-proje..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Happy to see the Fall of Civs podcast on HN. An amazingly well produced, thought provoking podcast - highly recommended by this Internet Stranger!"</p>
+								<p class="story__comment_others">"I have been running NixOS and uxing Nix for almost everything since I switched to it, and my experience has been great so far. It is one versatile solution to a lot of applications:1. I run NixOs on on laptop and workstation, for work and for personal use. Any change to the configuration can be immediately transfered to other machines. And give me a new machine, I can quickly bring it up with the configuration that I am always using.
+2. I run NixOS on my home server and machine learning cluster. Deploy experiment and service on them is as simple as updating the git-managed configurations. Meanwhile, if I want to use more power to run an experiment, NixOps can quickly bring up a set of machines on AWS with the configuration identical to my local experiment. You do not need to worry about setting up CUDA/pytorch and other dependencies every.
+3. In my start-up, it definitely took more time to train the developers to learn Nix, but once they get familiar, everyone becomes a good DevOps engineer, which solves development environemnt (that invloves C++/Python), CI/CD and release really well."</p>
 							
 						
 						</a>
@@ -268,22 +289,22 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://alexanderpruss.blogspot.com/2022/02/game-boy-wordle-how-to-compress-12972.html">Game Boy Wordle clone: How to compress 12972 five-letter words to 17871 bytes</a></h3>
+					<h3><a href="https://probablydance.com/2022/02/19/reasons-why-babies-cry-in-the-first-three-months-how-to-tell-them-apart-and-what-to-do/">Why babies cry in the first three months, how to tell them apart, and what to do</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30402407">
+						<a href="https://news.ycombinator.com/item?id=30401882">
 						
 							
-								<p class="story__comment_first line-clamp">"I love little compression hacks like the one given in the article.I created a word search game way back in late 1978/early 1979 4KB of RAM. I had about 2KB for storing the word database. And I recall I had about 2,500 words. Which I had to type in by hand.I used the 26 tables of words trick too, to drop the first letter. I also treated each word being made up of 32 symbols. I called them letters, but they didn&#39;t represent individual letters necessarily.Edit 36 minutes after writing my original comment: Having just checked my notes from December 24th 1978, I need to correct myself and say it was 38 symbols. Though I seem to recall I actually got it down to 32 symbols. I need to keep looking through my notes to refresh my brain on the solution.A word might end in &#34;ING&#34; so that was considered a single letter/symbol. Words were between four and seven letters long.Most words took up two bytes, some only took up a single byte, only a few took up three bytes, maybe a few dozen took up four bytes. And I judiciously pruned the database to minimize the words that took up three or four bytes so that I didn&#39;t have too many of them. I also packed the bits, so that there was no gaps between words.And it was all written in 6502 assembly, originally for the CBM PET, and later for the Acorn Atom.I was 11 years old and so proud of myself for such cleverness. I still have my notes and scribblings, including the digitised versions from all those years back.Later, when I wrote a much more complex Bookworm type of game I had to take a word list that was about 8MB long, uncompressed, which would just barely fit on the hard drive, and turned it into a trie, which brought it down to just a few dozen kilobytes, which handily fit on a SS/SD 100KB 5+1/4&#34; floppy."</p>
-							
-						
-							
-								<p class="story__comment_others">"I got nerd sniped and compressed it to under 28K, which was good enough for the goal of fitting it in a 32K NROM cartridge for the NES. On the NES, you don’t need to do better than that, because you get a separate 8K for graphics, and 4K is plenty of space to fit the code for your Wordle clone.https://www.moria.us/blog/2022/01/dictionary-compressionThe annoying part is that the NES only gives you four background palettes, and you are constrained to use all four of those to color your words."</p>
+								<p class="story__comment_first line-clamp">"Of kids I&#39;ve always thought &#34;maybe one day&#34;.  I can see how it&#39;d be a tough, but extremely rewarding and meaningful endeavor.But reading this article made me think for the first time &#34;actually, I think I don&#39;t want kids.&#34;So many &#34;mental CPU cycles&#34; spent learning about pregnancy, babies, why they cry, how to care for them.  It just doesn&#39;t appeal to me at all - I think it&#39;d resent it taking me away from spending time on the topics that legitimately interest me -   stuff like space, technology, fiction, stocks, politics, philosophy, hobbies.  (I realize how much this comes off as a young white tech nerd... But that&#39;s exactly what I am!)And all this just of the knowledge gathering.  We haven&#39;t even touched on the truly hard part - executing it!I guess this article made raising a kid real in a way that none other have before.  Took the high ideal of &#34;raising a family&#34; and shined light on all the tough, hard realities.Of course this is all from my current perspective.  I&#39;m sure it all totally changes in ways I just can&#39;t conceive when it&#39;s your own kid.Open to any insights from others who may have been here before!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Related but not the same: does anyone have information on how the old T9 pre-smartphone system stored its compressed and fast dictionaries? I remember reading about it a long time ago but can&#39;t find it now.That system used some sort of lossy compression that created artifacts like fake words that don&#39;t exist but look enough like real words from the dictionary&#39;s point of view that they can be generated.I find it fascinating."</p>
+								<p class="story__comment_others">"Great if it works for you, but for those who are dealing with babies, I wouldn&#39;t beat myself up if this advice doesn&#39;t apply. The parenting advice world is chock full of people who found something that worked for them and who then made the unwarranted conclusion that it is universal truth. For example, their techniques that &#34;always work&#34; definitely do not always work. Maybe they always worked for their particular babies, but I have been in situations with my kids where neither shushing and patting nor holding and walking worked to stop crying.My general feeling is that you can drive yourself nuts trying to figure out why your baby is crying, and, as the blog author mentioned in his conclusion, you may still be unable to figure it out. IMO this is a great time of one&#39;s life to discard the illusion of control."</p>
+							
+						
+							
+								<p class="story__comment_others">"Newly minted dad of twins and uncle for 5 others.Infant phaseThe work is intense when they are young since they can’t do much on their own and need help very often. But this doesn’t last for too long. Most parents exaggerate this phase since it is very intense from their otherwise happy days without kids. I had enough nephews and nieces around that I helped with so my kids are not the first time I am doing something this intense.Toddler phaseThey are very manageable because of their size. Not those helpless poor little things any more. But they need to be entertained. Having others kids help a lot here. One more reason to have more than one kids. Only kids can match kids energy level.Beyond infantsThis is when things get interesting they start engaging with you a lot with words and actions.Most of the problems with millennials for fear of having kids got to do with not having much experience before having their own. So they get overwhelmed, this is very specific to societies with lack of communities (western urban societies).Once your friends have kids they are out of your circle since they cannot come out and do as much as they used to do.With medical advancements and tools available to raise a child it is lot easier to raise kids than before. Over focusing on parenthood is also another issue. This is product of abundance of time and money. My mom of 3 children didn’t have tools and time to engage with us like our generation do. She did exceptionally well without over indulging in the name of parenthood.Note: I am leaning game development and reading books while having full time job and having twins as my first children on my own at 40.It’s totally doable. Try being around your friends with kids, that’s helpful for them as well as you.Most rewarding thing and easily attainable for most of us is to raise children never forget the entertainment and stress buster aspect of having kids as well.Once a wise women from the east said to us raised in the west: If you can have pets I don’t seem to understand your issues having kids. Kids are Pets+++"</p>
 							
 						
 						</a>
@@ -296,24 +317,24 @@ But frankly at this point why? We&#39;ve got good universally adapted image form
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=30396454">Ask HN: Do you find working on large distributed systems exhausting?</a></h3>
+					<h3><a href="https://vaghetti.dev/posts/times-are-great/">Times are great for programmers now. How does it end?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30396454">
+						<a href="https://news.ycombinator.com/item?id=30410856">
 						
 							
-								<p class="story__comment_first line-clamp">"Yes, I used to,but No, I fixed it :)Among other things, I am team lead for a private search engine whose partner-accessible API handles roughly 500 mio requests per month.I used to feel powerless and stressed out by the complexity and the scale, because whenever stuff broke (and it always does at this scale), I had to start playing politics, asking for favors, or threatening people on the phone to get it fixed. Higher management would hold me accountable for the downtime even when the whole S3 AZ was offline and there was clearly nothing I could do except for hoping that we&#39;ll somehow reach one of their support engineers.But over time, management&#39;s &#34;stand on the shoulders of giants&#34; brainwashing wore off so that they actually started to read all the &#34;AWS outage XY&#34; information that we forwarded to them. They started to actually believe us when we said &#34;Nothing we can do, call Amazon!&#34;. And then, I found a struggling hosting company with almost compatible tooling and we purchased them. And I moved all of our systems off the public cloud and onto our private cloud hosting service.Nowadays, people still hold me (at least emotionally) accountable for any issue or downtime, but I feel much better about it :) Because now it actually is withing my circle of power. I have root on all relevant servers, so if shit hits the fan, I can fix things or delegate to my team.Your situation sounds like you will constantly take the blame for other people&#39;s fault. I would imagine that to be disheartening and extremely exhausting."</p>
-							
-						
-							
-								<p class="story__comment_others">"What do you find exhausting?One anti-pattern I&#39;ve found is that most orgs ask a single team to handle on-call around the clock for their service. This rarely scales well, from a human standpoint. If you&#39;re getting paged at 2:00 in the morning on a regular basis you will start to resent it. There&#39;s not much you can do about that so long as only one team is responsible for uptime 24/7.The solution is to hire operations teams globally, and then setup follow-the-sun operations whereby the people being paged are always naturally awake at that hour, and allows them to work normal eight hour shifts. But this requires companies to, gasp, have specialized developers and specialized operators collaborate before allowing new feature work into production, to ensure that the operations teams understand what the services are supposed to do and keep it all online. It requires (oh, the horror!) actually maintaining production standards, runbooks, and other documentation.So naturally, many orgs would prefer to burn out their engineers instead."</p>
+								<p class="story__comment_first line-clamp">"I feel like we have so much leverage and don&#39;t use it at all.We&#39;re still attending stand-ups every day with non programmers telling us when we can and cannot refactor. It&#39;s nuts to me that a skilled profession - that not many can do - lets themselves get micro-managed like this.If anyone has read Developer Hegemony, I&#39;m fully on board with that general premise - we start operating like lawyers with partnerships, and turn bosses into customers. Though that does require us to think of ourselves as professionals not nerds who are too smart for business."</p>
 							
 						
 							
-								<p class="story__comment_others">"My experience is that the expectations on what your average engineer should be able to handle has grown enormously during the last 10 years or so.
-Working both with large distributed systems and medium size monolithic systems I have seen the expectations become a lot higher in both.When I started my career the engineers at our company were assigned a very specific part of the product that they were experts on. Usually there were 1 or 2 engineers assigned to a specific area and they knew it really well.
-Then we went Agile(tm) and the engineers were grouped into 6 to 9 person teams that were assigned features that spanned several areas of the product. The teams also got involved in customer interaction, planning, testing and documentation. The days when you could focus on a single part of the system and become really good at it were gone.Next big change came when the teams moved from being feature teams to devops teams. None of the previous responsibilities were removed but we now became responsible also for setting up and running the (cloud) infrastructure and deploying our own software.In some ways I agree that these changes have empowered us. But it is also, as you say, exhausting. Once I was simply a programmer; now I&#39;m a domain expert, project manager, programmer, tester, technical writer, database admin, operations engineer, and so on."</p>
+								<p class="story__comment_others">"Programmers are increasingly needed for *everything*.I mean, we&#39;ve entered an age, where a farmer can&#39;t milk their cows, if the software of the milking robot has a hitch - can&#39;t plow their fields, when the gps-software that drives the tractor isn&#39;t working.Apart from that, programming is becoming every other job - as far as domain knowledge is concerned.I&#39;ve personally experienced (multiple times!) professional accounting companies complaining about not being able to just modify official invoices (totally illegal) but having to cancel and re-issue them with a new invoice number (how it MUST be done).
+-&gt; It&#39;s now the responsibility of the programmers to understand how accounting works. Professional accountants just click a button and expect the software to &#34;do the right thing&#34;.
+-&gt; As in this case, the professional accountant no longer adds much value, they&#39;ll probably be entirely replaced by software at some point.A more relatable example might be Taxis drivers. It might take years still, but at some point, all Taxis will be self-driving vehicles, created by robots in a fully automated factory. Programmers will be needed for the driving software and the factory software. You might still need some mechanics to repair the factory robots - until when that job is done by robots as well (that have to be programmed).It currently seems more likely to me, that we are headed towards a future, where programming is the *only* job - and everything else is done by software."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think it ends with everyone becoming a developer.Making machines do things will never end. However, the tools for making machines do things is evolving very quickly.The general art of being a developer will continue to get specialized and at some point specialists at any field would be expected to be able to program their machines.Very few people are learning how to run their servers and much more are moving into AWS type of infrastructure and “cloud literacy” has become a thing.I would expect layers of abstraction to continue to build up and programming to become something like using spreadsheets to do your actual task.Eventually, “true programming” will scale back to building these tools. It would be rather niche, very high skill serious engineering - an elite, hard to get in profession that continues to fetch high salaries. They probably will have some kind of association similar to the lawyers/doctors, the code they write will no longer tolerate bugs as a fact of life but they will be responsible as any other licensed professionals. Skipping unit test will land you in jail or very high fine due to malpractice if something goes wrong."</p>
 							
 						
 						</a>
