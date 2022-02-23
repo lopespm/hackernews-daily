@@ -33,30 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">22 February 2022</div>
+	<div class="day__date">23 February 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/xenadu02/status/1495693475584557056">I tested four NVMe SSDs from four vendors – half lose FLUSH’d data on power loss</a></h3>
+					<h3><a href="https://www.raptitude.com/2016/12/five-things-you-notice-when-you-quit-the-news/">Things you notice when you quit the news (2016)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30419618">
+						<a href="https://news.ycombinator.com/item?id=30430041">
 						
 							
-								<p class="story__comment_first line-clamp">"I always liked the embedded system model where you get flash hardware that has two operations -- erase block and write block.  GC, RAID, error correction, etc. are then handled at the application level.  It was never clear to me that the current tradeoff with consumer-grade SSDs was right.  On the one hand, things like the error correction, redundancy, and garbage collection don&#39;t require the attention from CPU (and more importantly, doesn&#39;t tie up any bus).  On the other hand, the user has no control over what the software on the SSD&#39;s chip does.  Clearly vendors and users are at odds with each other here; vendors want the best benchmarks (so you can sort by speed descending and pick the first one), but users want their files to exist after their power goes out.It would be nice if we could just buy dumb flash and let the application do whatever it wants (I guess that application would be your filesystem; but it could also be direct access for specialized use cases like databases).   If you want maximum speed, adjust your settings for that.  If you want maximum write durability, adjust your settings for that.  People are always looking for that one size fits all use case, but it&#39;s hard here.  Some people may be running cloud providers and already have software to store that block on 3 different continents.  Some people may be an embedded system with a fixed disk image that changes once a year, with some temporary storage for logs.  There probably isn&#39;t a single setting that gets optimal use out of the flash memory for both use cases.  The cloud provider doesn&#39;t care if a block, flash chip, drive, server rack, availability zone, or continent goes away.  The embedded system may be happy to lose logs in exchange for having enough writes left to install the next security update.It&#39;s all a mess, but the constraints have changed since we made the mess.  You used to be happy to get 1/6th of a PCI Express lane for all your storage.  Now processors directly expose 128 PCIe lanes and have a multitude of underused efficiency cores waiting to be used.  Maybe we could do all the &#34;smart&#34; stuff in the OS and application code, and just attach commodity dumb flash chips to our computer."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve actually run into some data loss running simple stuff like pgbench on Hetzner due to this -- I ended up just turning off write-back caching at the device level for all the machines in my cluster:https://vadosware.io/post/everything-ive-seen-on-optimizing-...Granted I was doing something highly questionable (running postgres with fsync off on ZFS) It was very painful to get to the actual issue, but I&#39;m glad I found out.I&#39;ve always wondered if it was worth pursuing to start a simple data product with tests like these on various cloud providers to know where these corners are and what you&#39;re really getting for the money (or lack thereof).[EDIT] To save people some time (that post is long), the command to set the feature is the following:    nvme set-feature -f 6 -v 0 /dev/nvme0n1
-
-The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced together across some man pages:https://man.archlinux.org/man/nvme.1https://man.archlinux.org/man/nvme-set-feature.1.enIt&#39;s a bit hard to find all the NVMe features but 6 is the one for controlling write-back caching.https://unix.stackexchange.com/questions/472211/list-feature..."</p>
+								<p class="story__comment_first line-clamp">"I fully agree with this. Scanning Google News or a couple of the more professional international news services like BBC / Al Jazeera / Reuters I still feel pretty well informed (and confident that there&#39;s usually nothing of immediate consequence to me) but it doesn&#39;t grow into &#34;expert analysis&#34; or impact my feelings much. Here&#39;s another thing I noticed: how manipulated / manipulative it is. And not just news and I don&#39;t just mean politically - I know everyone thinks that news that doesn&#39;t align with their politics is just brainwashing. Broadcast TV is just generally awful now IMO.We went quite a few years without ever seeing cable. My kids would stream shows and consume other media on-demand, but any advertising was minimal and fairly non-intrusive. And then they were watching a kids show at a hotel once and the ads came on and the effect it had on them was crazy. They suddenly desperately needed all the toys in the commercials and were repeating catch phrases from ads after only seeing them a couple of times. The contrast in their behavior was insane. And they HAD to keep watching it like I hadn&#39;t seen before. I spent a week off-grid with my parents a while back and it was great. We came home and my Mom put on the news suddenly everything was terrible and she was angry, but she had to keep watching.Just awful for mental health if you can&#39;t separate yourself from it."</p>
 							
 						
 							
-								<p class="story__comment_others">"I think this is something LTT could handle with their new test lab. They already said they want to set new standards when it comes to hardware testing, so if they can hold up to what they promised and hire enough experts this should be a trivial thing to add to a test Parcours for disk drives."</p>
+								<p class="story__comment_others">"As someone who just stepped back into pop culture after being in prison for years (so might as well been on the moon) my first shock was just how horrible it all is now. There is no news worth watching. Cable news is just a pile of filth excremented by a Labrador Retriever that solely eats baby diapers. I thought I will watch Bloomberg since if real money is involved it can&#39;t be too manipulative. Nope, wrong. The internet is just a fireheap. Let&#39;s check Reddit. Oh god close the browser window immediately. WTF? Slashdot? Um, what is this, someone wearing a Slashdot skin suit? How about the sites by supposedly rational academics on each side of the political persuasion to get some balance. WTF? Just hate and anger and toxicity on a crazy level otherizing any opinion not their own. People are once thought great intellectual insides making incredibly uncharitable frankly hate filled comments and self isolating in echo chambers. Google Discovery app... &#34;here&#39;s some blog posts summarizing relationship posts made on Reddit&#34;. Huh? Why would anyone want to read this let alone have it further aggregated for them? Seriously, modern American discourse has less humanity, compassion, depth, and recognition of nuance THAN PRISON. Or maybe prison just made me less patient of bull crap and able to immediate horrible people by their mannerisms. Seriously this site is the only place I have found still sane and enlightening."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think the value-added of journalism to society has changed drastically since the Internet. If I&#39;m interested in a topic or issue I can find writing by people who actually practice it, and I can find the primary sources if at all possible.In particular, I question the need for giant journalistic institutions like the New York Times or Fox News or any other. If anything happens anywhere I tune to the local news first, because I&#39;d rather read that then the NYT copy/pasta from that, along with some quote from some friend-of-a-former-professor expert.That said, the news fills a valuable function even if you don&#39;t read it. When Alzheimer&#39;s gets cured, I will likely learn about it from a headline.I am torn on this issue, partially because I don&#39;t want to let my past deeply unhealthy relationship with reading about current events affect how I view it vis a vie society."</p>
 							
 						
 						</a>
@@ -69,22 +67,22 @@ The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://memex.marginalia.nu/log/48-i-have-no-capslock.gmi">I have no capslock and I must scream</a></h3>
+					<h3><a href="https://lehtimaeki.medium.com/why-i-will-never-by-another-samsung-device-2237a40002a6">Why I will never buy another Samsung device</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30421399">
+						<a href="https://news.ycombinator.com/item?id=30423815">
 						
 							
-								<p class="story__comment_first line-clamp">"Very similar to A Plan for the Improvement of English Spelling by M. J. Shields (frequently misattributed to Mark Twain):&#34;For example, in Year 1 that useless letter &#34;c&#34; would be dropped to be replased either by &#34;k&#34; or &#34;s&#34;, and likewise &#34;x&#34; would no longer be part of the alphabet. The only kase in which &#34;c&#34; would be retained would be the &#34;ch&#34; formation, which will be dealt with later. Year 2 might reform &#34;w&#34; spelling, so that &#34;which&#34; and &#34;one&#34; would take the same konsonant, wile Year 3 might well abolish &#34;y&#34; replasing it with &#34;i&#34; and Iear 4 might fiks the &#34;g/j&#34; anomali wonse and for all.Jenerally, then, the improvement would kontinue iear bai iear with Iear 5 doing awai with useless double konsonants, and Iears 6-12 or so modifaiing vowlz and the rimeining voist and unvoist konsonants. Bai Iear 15 or sou, it wud fainali bi posibl tu meik ius ov thi ridandant letez &#34;c&#34;, &#34;y&#34; and &#34;x&#34; -- bai now jast a memori in the maindz ov ould doderez -- tu riplais &#34;ch&#34;, &#34;sh&#34;, and &#34;th&#34; rispektivli.Fainali, xen, aafte sam 20 iers ov orxogrefkl riform, wi wud hev a lojikl, kohirnt speling in ius xrewawt xe Ingliy-spiking werld.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is cute but it refuses to actually think about the problem of keyboard layout design. Take the reductio the other way and you end up adding keys to create a keyboard with a key for “the” and one for “and”, “or”, “but”, “of”... The author is just saying they want the QWERTY keyboard exactly as it is without actually thinking how this layout got there in the first place.The Caps Lock key makes no sense in the context of a computer keyboard. Back in the days of typewriters when everything was a single monospaced font, typing in all caps was the only way to make something bold (there weren’t italics, bold, font sizes or different fonts). Having a convenient way to hold down the shift key was nice in this context. In the context of a computer keyboard that has multiple fonts, sizes and weights, it is a dumb key. Larry Tesler’s dictum “no modes” is immediately applicable. Steve Jobs tried to get rid of the caps lock key twice (once at Apple and once at Next). Google’s pixel books have replaced it with a search shortcut, which is not that useful but much better than having a key whose primary function is to mess up password entry and shout online without any extra effort for shouting. On a Mac keyboard there are a few common substitutions for caps lock that you can use. Any of these substitutions are preferable (I have it as Option for tab navigation but any of the other main hot keys make a better use of keyboard real estate)."</p>
+								<p class="story__comment_first line-clamp">"I avoid all things Samsung for a much more important reason: They spy on you mercilessly, up to about the same level as Facebook.For example, they take screenshots of what you watch on your Samsung Televisions!Don&#39;t believe me? Take it from them: https://www.samsung.com/us/business/samsungads/resources/tv-... and https://www.samsung.com/us/business/samsungads/insights/You&#39;re not their customer, you&#39;re the product.Additionally, Samsung have a habit of releasing forced updates that almost-but-not-entirely brick their TVs, slowing them down to molasses. They do this right before the next model becomes available for purchase.Last but not least, a colleague worked there as a consultant, and his stories of their lax IT security were nearly unbelievable. Even though they spy on you like Google or Facebook, they are not like a FAANG when it comes to protecting your private info! They&#39;ve been hacked for sure, probably by multiple nation state actors. Whatever you watch or do with their TVs is being relayed to the US, Russians, Chinese, or whomever. Assume that nothing you do with a Samsung device or Samsung software is remotely secure or safe.They&#39;re a slimy company made up of unscrupulous people trying to squeeze every last drop out of every rock.Don&#39;t give them your money. There are many other companies with much better track records."</p>
 							
 						
 							
-								<p class="story__comment_others">"The title is a reference to this story by Harlan Ellison, which won a Hugo award in 1968:[NSFW - contains graphic descriptions of torture and other severe violence]https://wjccschools.org/wp-content/uploads/sites/2/2016/01/I..."</p>
+								<p class="story__comment_others">"I am truly, deeply, unsurprised that foldable phones fail along the seam.I know that&#39;s not the point of the post, and I&#39;m not blaming the author. It just seems like such a ridiculous concept in the first place. My old flip phone had its own problems, and there wasn&#39;t even a display along the seam."</p>
+							
+						
+							
+								<p class="story__comment_others">"So the author had a folding phone that failed and couldn&#39;t get it repaired/replaced. The narrow take is that you&#39;re kinda crazy to buy a folding phone but Samsung was selling them so is really on the hook for the inevitable issues.The story of getting it fixed is really why people love Apple and even Amazon.I&#39;ve had the Wifi go unreliable on an iPad. I got a Genius appointment for later that day. They confirmed the Wifi module was shot and just gave me a new device on the spot. They even offered to do the transfer for me. This sort of convenience is what gives people confidence in buying Apple products.Even something as simple as accessory access matters. If my Macbook charger dies, I can walk into any number of stores and buy another. Dell charger? Not so much.Amazon has pretty accurate shipping estimates. This matters. So does Apple for the record. Just last week I got sent the wrong product. I didn&#39;t have to talk to anyone on the phone. I simply went to my order on my phone and clicked &#34;return item&#34; -&gt; &#34;wrong product&#34; and the entire matter was dealt with.I don&#39;t want to deal with support that is deliberately hard to contact that is monetarily motivated to not do anything for you."</p>
 							
 						
 						</a>
@@ -97,22 +95,26 @@ The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://forums.swift.org/t/core-team-to-form-language-workgroup/55455/6">Chris Lattner left Swift core team</a></h3>
+					<h3><a href="https://bitfieldconsulting.com/golang/career">A career ending mistake</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30416070">
+						<a href="https://news.ycombinator.com/item?id=30428602">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; It is obvious that Swift has outgrown my influence, and some of the design premises I care about (e.g. &#34;simple things that compose&#34;)As someone who was heavily invested in Swift, and an active member of the community from around 2015-2019, I&#39;m a bit sad to see the direction the language is taking.From the time I started experimenting with Swift, I absolutely loved the philosophy of the language.  It seemed to really prioritize having a set of well-factored systems, each with their own very rationally designed interfaces, which could be composed to do really powerful things.  It was an incredibly expressive language which allowed for writing code with an incredible level of clarity - when writing Swift code I always felt I was writing at the level of the problem domain, not writing syntax.  At the same time it offered really nice features for ensuring safety and correctness, like ADT&#39;s and best-in-class nullability syntax.It was a language which sometimes seemed to move at a glacial pace, but the implicit tradeoff was that when a feature landed, it was for the most part very well thought out, and would add to the language with minimal negative impact.A few years ago that seemed to start to change.  From my perspective, some of the features added to the language to support SwiftUI - specifically property wrappers and function builders - very much felt rushed and forced into the language based on external deadlines.  And imo they have a largely negative impact on the language: it used to be the case that you could look at a piece of Swift code and roughly understand how it would compile to assembly pretty easily, but with these new features there&#39;s a ton of compiler magic going on behind the scenes."</p>
+								<p class="story__comment_first line-clamp">"I changed careers at 40+ years old.  I&#39;m very happy that I did it.People have all sorts of constructs / ideas about how careers work (based on experience) or how they think it works, or how they want it to work.   I talk to some college graduates who tell me what they&#39;re planning for and have ZERO clue what industry they&#39;re talking about, their description is unrecognizable to me ... even tho I know it is the one I work in.I find your experience and paths can vary greatly company to company, even job to job.We all find truths we want to hold on to about work.   I recall trips to the valley where my coworkers where astonished to hear tales of people doing the same work they did, but doing it slightly differently elsewhere in the country.  Their view of how that job was done was entirely shaped by the couple places they worked (and everyone seemed to cycle through those couple companies).   You&#39;d think these folks though that if you didn&#39;t fill out the TPS report right to left that the world would end... I&#39;m pretty sure the vast majority of people fill them out left to right but I didn&#39;t feel like telling them that, it might have been too much for them to handle.&#34;
+I think there are three main kinds of career destination, at least in the tech industry:    Independent
+    Senior individual contributor (IC)
+    Management
+&#34;I have no idea why those are the only destinations ... for an article worried about being happy that seems kind of limited.The whole article feels very pie in the sky to me."</p>
 							
 						
 							
-								<p class="story__comment_others">"I clicked on this thread because I knew exactly what I wanted to comment about, and was surprised to see that Chris mentioned exactly it in his message:&gt;After several discussions generating more heat than light, when my formal proposal review comments and concerns were ignored by the unilateral accepts, and the general challenges with transparency working with core team, I decided that my effort was triggering the same friction with the same people, and thus I was just wasting my time.I stopped paying attention to Swift for this exact reason. I have actually submitted and implemented a feature in Swift and I think it was one of my most frustrating experiences with open-source projects. It seems that almost every thread in this forum devolves into people fighting over the most irrelevant details, and my proposal specifically took months to be submitted into review because a couple of users simply refused to back down from how they personally wanted it to work, ignoring the actual problem the feature aimed to solve. After a long time deflecting the comments, the feature was accepted the way I originally intended and I never entered the forum again.Example aside, it doesn&#39;t take a proposal to see that almost every thread in the forum looks like this. Open sourcing Swift has benefits, but I think when it comes to the actual progress of the project, this particular democratic process was a mistake."</p>
+								<p class="story__comment_others">"&#34;It&#39;s not surprising, then, that many of us find ourselves in less than fully satisfying jobs, with doubtful or non-existent prospects for advancement.&#34;Very true. I can&#39;t wait for my career to be over. I don&#39;t think I&#39;ll ever find the position where I feel I belong, so I&#39;ll just be miserable anywhere now that I know how broken the system really is."</p>
 							
 						
 							
-								<p class="story__comment_others">"Key takeaway for me was the note that it “definitely isn’t a community designed language”. This is telling, I’ve watched a lot of neat languages over the years and absolutely none of the ones without community involvement have grown beyond the sphere of influence of their primary companies.I like swift enough I’m learning it to build my own personal tech nerd ideal podcast client because I own apple devices and want an app that works between macOS, iOS, iPadOS, tvOS,and watchOS. but I doubt I’ll ever use it for anything beyond this one personally motivated project. Even if i release it as an app on the store for download or purchase I don’t know if I will ever be motivated enough to build anything else using it. Because the scope is too narrow. Business work is converging on open stacks like react, and angular, and the dark horse of C# with its latest release supporting WASM web components backed by GRPC-web and a C# function driven stack from front to back, even without SQL Server costs this is a compelling ecosystem backed by PostgreSQL and other completely open source tools.But Swift remains Apple’s language for apple stuff and… while a profitable niche, it’s still a niche.Edit: typo fix."</p>
+								<p class="story__comment_others">"&gt; I think there are three main kinds of career destination, at least in the tech industry:&gt; Independent&gt; Senior individual contributor (IC)&gt; ManagementI guess I&#39;ll stick my neck out and just admit that I don&#39;t want to give any more fucks about any of the above and just wake up, sip my tea, read the news and take a bloody nap whenever I want to. Also volunteering/open source but mostly, not doing things I don&#39;t want to do any more. Yep, I don&#39;t want to be &#34;incredibly excited&#34; about the &#34;next growth chapter of my life&#34; - I just want to live my life in a non-agile way without sprinting towards the end of it. That is about it."</p>
 							
 						
 						</a>
@@ -125,22 +127,22 @@ The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://web3isgoinggreat.com/?id=2022-02-21-0">Coinbase CEO tweets how they came up with Super Bowl ad, lied about it</a></h3>
+					<h3><a href="https://thehub.ca/2022-02-22/howard-anglin-in-our-cashless-society-we-need-to-take-digital-jail-seriously/">In our cashless society, we need to take digital jail seriously</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30420990">
+						<a href="https://news.ycombinator.com/item?id=30435215">
 						
 							
-								<p class="story__comment_first line-clamp">"Coinbase CEO&#39;s excuse is that he sees Martin Agency as a &#34;creative firm&#34; not a &#34;traditional ad agency&#34; and he felt they &#34;were all one team&#34;. Although it should be noted that last Tweet was posted hours after the original set of Tweets.https://twitter.com/brian_armstrong/status/14958203518796595..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Plot twist: this drama is fabricated and is part of a meta-advertising package offered by The Martin Agency."</p>
+								<p class="story__comment_first line-clamp">"The simple answer is to reject the cashless society.In the medium to long term it&#39;s simply incompatible with any reasonable definition of freedom. Surveillance is bad enough, but a system that allows governments to arbitrarily &#34;turn off&#34; thousands or millions of people at the push of a button is too powerful to not be abused.Even the mere existence of such a system has a chilling effect. Which I suspect is precisely what these people want and is exactly why we can&#39;t give it to them.I&#39;ll take inconvenience over slavery any day of the week.This isn&#39;t some sort of anarcho-libertarian paradise opinion, I have no issue with there being a well functioning justice system.But yeah, if you want to seize assets, get a court order and go and lock someone in a box and take their things, don&#39;t take the cowardly way out and pretend that you&#39;ve just flipped a database key and it&#39;s not really a big deal.By the same token, if you tell me there&#39;s been a murder on my street I&#39;ll give you the CCTV footage of my door cam. If you ask me for a backdoor, I&#39;ll tell you where to shove it. That&#39;s what being a member of a free society is, that seemingly minor distinction is one of the most important things we have and better minds than mine have sought to elaborate on why.Even a child is able to understand that force is still force regardless of whether it involves the direct visible physical kind."</p>
 							
 						
 							
-								<p class="story__comment_others">"Tangent, but I thought it was a funny commentary: I was watching the olympics with my kid (&lt;12yo) and the Coinbase commercial came on (Didn&#39;t see it during the superbowl, but I assume they were the same?). And after the commercial ended my kid said, &#34;was that... some kind of app for gambling or something?&#34;Yes. Something like that. :)"</p>
+								<p class="story__comment_others">"I agree that this needs to be taken very seriously. However, the author overstates his case significantly when he writes:&gt; Doing this to someone—a small business owner in BC, a public servant in Winnipeg, a student in Halifax—who made a small donation to support the convoy is a clear abuse of power.However:&gt; The RCMP, banking sector and federal government said Monday that account-freezing powers bestowed under the Emergencies Act to help authorities deal with convoy protests do not affect donors to the protests, despite unsubstantiated claims by a Conservative MP that a constituent had her bank account frozen over a $50 contribution.&gt; “At no time, did we provide a list of donors to Financial Institutions,” the RCMP said in a statement Monday. [1]Facts are important!1: https://www.theglobeandmail.com/canada/article-rcmp-banks-an..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The most concerning thing about Trudeau&#39;s use of the Emergencies Act is that it was both unnecessary and, despite the protests being quelled, ongoing.First, the police in Ottawa chose not to enforce even basic laws in the area of the protest for several weeks.  The result was lawlessness and a total lack of respect for the police.  They were being jeered at for putting threatening flyers under windshield wipers one day, and the next they brought in armoured vehicles and riot squads.  If the police had consistently written tickets and made arrests from the start of the protest it likely would not have grown as large as it did.Presently, Trudeau is keeping the Emergencies Act in effect, not because there is an ongoing emergency, but because there might be.  He&#39;s argued that some of the protesters have not left Ottawa and might return to the protest site if given the chance to do so, but there is nothing in the Emergency act that is required for the police to maintain peace and order.  Trudeau wants the act to remain in effect for other reasons apparently.The opposition is introducing a motion in parliament to end the Act, but that will likely fail unless Trudeau loses the NDP&#39;s support.  However, the senate could also end the Act at any time.  Given that the emergency is over they should do just that.  It is entirely unclear what Trudeau hopes to accomplish by holding onto these powers."</p>
 							
 						
 						</a>
@@ -153,22 +155,22 @@ The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=30413228">Tell HN: Airbnb just stole me 5 minutes of my time adding dices</a></h3>
+					<h3><a href="https://sloanreview.mit.edu/article/top-performers-have-a-superpower-happiness/">Top Performers Have a Superpower: Happiness</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30413228">
+						<a href="https://news.ycombinator.com/item?id=30424181">
 						
 							
-								<p class="story__comment_first line-clamp">"I see this as high-IQ software developers building systems to shut out non-high-IQ people from society. Managers look at these CAPTCHAs and think &#34;oh I could solve these no problem, let&#39;s use them&#34;. In fact, they can only be solved by unusually smart people or by ML bots. Arkose Labs (the maker of this particular captcha) explicitly advertises that their methods can keep out &#34;low-skilled workers&#34; on &#34;human fraud farms&#34;. They keep out everyone else too if they&#39;re not that good at mental rotation and mental arithmetic or logic -- this dice puzzle and the mouse labyrinth puzzle are pretty much prototypical IQ test problems."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s Arkose Labs (also used by Roblox, GitHub, Dropbox, Twitch, and more). There&#39;s some more links here: https://github.com/dessant/buster/issues/178 (Buster is a browser extension for automated captcha solving). You can subscribe here https://github.com/dessant/buster/issues/320Their audio captcha (no longer available?) involved listening to 3 MIDI tunes and picking &#34;the sad one&#34;."</p>
+								<p class="story__comment_first line-clamp">"I had the chance to work with a few people I&#39;d consider genius level.  While I&#39;m pretty smart myself, they all have something I don&#39;t always have:  The ability to be happy in any situation and interested in everything.For example, we were walking trough a hallway. On a wall is an old, damaged, ugly map of my country, half covered with graffiti.  I&#39;d walked past it almost every day for half a year.He checks it out, and starts noticing a lot of semi-interesting factoids about names, merged cities, obscure places, old mapping conventions, etc...  All of this with an absolute positive energy of pure interest.  We spent a fun hour just looking at it.  I should have known all this, and yet an hour with him makes me look at it with new eyes.Wherever he was, he instantly attracted a group of friends and wannabe girlfriends, and never really seemed to notice.  Same in this case:  There was a group of beautiful partygirls we&#39;d never met before, no nerdy interests at all, which accreted around the map in less than 5 minutes. They loved the situation just as much as us nerds did.I learned a lot from him, and try to follow this example, but I still can&#39;t do this today and am humiliated (in a positive way) by this way of living."</p>
 							
 						
 							
-								<p class="story__comment_others">"Airbnb has been very human hostile since the beginning.The first time I had to create an account, they required that I connect with a google account with access to all my contacts. Then ask me to make a video of myself.I didn&#39;t create the account and booked an hotel.Now they are less aggressive with their new procedures, but still, you can see that the people behind it see technical solutions way before they perceive the human impact.My grand-father was like that. A brilliant engineer from the most elite school of his generation in France. He once told me very seriously a solution for making more accommodations for the poorest people would be to remove individual bathrooms, and create common ones for the whole building instead.Airbnb tech teams remind me of him."</p>
+								<p class="story__comment_others">"&gt; we suggest that leaders follow the science and take a structured approach to hiring for, promoting, and developing employee happiness&gt; Measure happiness in both employees and job candidates.&gt; we conservatively advocate using measures of happiness and optimism as discriminators, or tiebreakers, because the risks are low and the benefits could be important.Good luck getting a job, unhappy people…I don’t think they have the evidence to make this recommendation, since they surveyed people already employed (by the US army), who may have been unhappier pre employment.&gt; might dismiss these results if you believe that military data somehow doesn’t apply to the business world, but you would be wrong to do so. After all, the U.S. Department of Defense is the single largest employer in the worldTheir entire argument for this also applying outside the military domain seems to be that the military is a very large employer… However, is not the military a vastly different environment from normal civilian workplaces?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Reading these comments is forehead slap inducing. People think that just because something is mental that it has to do with your mindset, your parents, your this your that.When a dude can run faster than other people, it’s written off as genetics. When someone is resilient to depression, it’s anything other than genetics. Both cases are the same: it’s just biological.I’ve been suffering super hard with depression recently and it’s made something clear to me: your mindset is bullshit. It might tip things one way or another but the actual mechanisms of depression will change your life. Everyone will be super humbled when we figure out how to turn off depression, and everyone gets it and everyone experienced on average a 50% boost to their intelligence and productivity. They will be humbled because they will realize that all of that relative suffering was totally pointless and for no other reason than a quirk of evolution. And that some people had it good for absolutely no reason. But it’s exciting to know that this day will come and it can’t come fast enough for me!"</p>
 							
 						
 						</a>
@@ -181,25 +183,22 @@ The docs for `nvme` (nvme-cli package, if you&#39;re Ubuntu based) can be pieced
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://groups.google.com/g/vim_announce/c/MJBKVd-xrEE/m/joVNaDgAAgAJ">Vim 9 will be dedicated to Sven Guckes</a></h3>
+					<h3><a href="https://liveuamap.com/?ll=48.11679266819489;37.739980468749984&amp;zoom=8">Ukraine Conflict Live Map</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30416558">
+						<a href="https://news.ycombinator.com/item?id=30429192">
 						
 							
-								<p class="story__comment_first line-clamp">"  &gt; Our friend Sven Guckes died in Berlin on February 20, 2022.
-  &gt; He was diagnosed with a brain tumor in December 2021.
-
-Sheesh so fast... scary. RIP."</p>
+								<p class="story__comment_first line-clamp">"This live map started 8 years ago and has been updating all the time since, showing all daily incidents that never stopped happening. It also followed ISIS wars in Iraq and Syria and so on."</p>
 							
 						
 							
-								<p class="story__comment_others">"I’m surprised about Sneak’s comment being flagged on here.It’s okay to express your opinion about the person being discussed and add more information to it in general.If VIM is being dedicated to an alleged sexual harasser, I as an interested person is happy to know about this."</p>
+								<p class="story__comment_others">"Couple of other maps:NYT: https://www.nytimes.com/interactive/2022/world/europe/ukrain...Centre For Information Resilience: https://maphub.net/Cen4infoRes/russian-ukraine-monitorfrom: https://googlemapsmania.blogspot.com/2022/02/the-russian-inv..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve used Vim nearly every day for the last 20 years. Thank you for FOSS. RIP."</p>
+								<p class="story__comment_others">"This makes me wounder how far we are from having real time high resolution satellite coverage of events like this. Some of the events reported in liveuamap are already based on high res sat images to identity military camps and troop movement."</p>
 							
 						
 						</a>
@@ -212,22 +211,32 @@ Sheesh so fast... scary. RIP."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1938081">What are the most important statistical ideas of the past 50 years?</a></h3>
+					<h3><a href="https://github.com/0xdanelia/regex_turing_machine">A functioning Turing Machine using Notepad++ and its find/replace regex engine</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30417811">
+						<a href="https://news.ycombinator.com/item?id=30425280">
 						
 							
-								<p class="story__comment_first line-clamp">"Validation on holdout sets.When I was a student in the 1990s, I was taught about hypothesis testing (and all the hassle of p-fishing etc.), and about Bayesian inference (which is lovely, until you have to invent priors over the model space -- e.g. a prior over neural network architectures). These are both systems that tie themselves in epistemological knots when trying to answer the simple question &#34;What model shall I use?&#34;Holdout set validation is such a clean simple idea, and so easy to use (as long as you have big data), and it does away with all the frequentist and Bayesian tangle, which is why it&#39;s so widespread in ML nowadays.It also aligns statistical inference with Popper&#39;s idea of scientific falsifiability -- scientists test their models against a new experimental data, data scientists can test their model against qualitatively different holdout sets. (Just make sure you don&#39;t get your holdout set by shuffling, since that&#39;s not what Popper would call a &#34;genuine risky validation&#34;.)The article mentions Breiman&#39;s &#34;alternative view of the foundations of statistics based on prediction rather than modeling&#34;. Breiman does make a big deal of evaluation on holdout sets; but his &#34;prediction&#34; idea isn&#39;t general enough, since it doesn&#39;t accommodate generative modelling (e.g. GPT, GANs). I think it&#39;s better to frame ML in terms of &#34;evaluating model fit on a holdout set&#34;, since that accommodates both predictive and generative modelling."</p>
-							
-						
-							
-								<p class="story__comment_others">"Off-the-cuff, i.e. without digging deeply into a set of history of statistics books:Tied 1st place:• Markov chain Monte Carlo (MCMC) and the Metropolis–Hastings algorithm• Hidden Markov Models and the Viterbi algorithm for most probable sequence in linear time• Vapnik–Chervonenkis theory of statistical learning (Vladimir Naumovich Vapnik &amp; Alexey Chervonenkis) and SVMs4th place:• Edwin Jaynes: maximum entropy for constructing priors (borderline: 1957)Honorable mentions:• Breiman et al.&#39;s CART (Classification and Regression Trees) algorithm (and Quinlan&#39;s C5.0 extension)• Box–Jenkins method (autoregressive moving average (ARMA) / autoregressive integrated moving average (ARIMA) to find the best fit of a time-series model to past values of a time series)(The beginning of the 20th century was much more fertile in comparison - Kolmogorov, Fisher, Gosset, Aitken, Cox, de Finetti, Kullback, the Pearsons, Spearman etc.)"</p>
+								<p class="story__comment_first line-clamp">"Cool demonstration of regular expression power!
+Note that as implemented, this is a space bounded Turing Machine with a hardcoded tape length limit:&gt; With the current implementation, the read/write head looks at the 22nd element of the tape whenever we want to read the current position. With complicated machines that utilize long lengths of the tape, you would need to increase this number so that you never delete a necessary tape element as you scroll along it. This can be done by increasing the {20} that appears at the beginning of the expression.Embedding the tape head pointer ^ within the tape, just to the left of the scanned bit, should remove this restriction."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is a side issue, but I wonder what changes could be made to the teaching of statistics, most importantly &#34;stats for scientists&#34; taught in college and even high school. What occurs to me right off the bat is that I learned stats by the use of formulas to boil data sets down to answers. For example, null hypothesis significance testing and the dreaded p-value. We had to do it this way, as widespread availability of computers was still on the horizon.Today, computation is easy and cheap. I wonder if we could learn stats in a different way, perhaps starting by just playing with data, and simulated random numbers, graphing, and so forth. Can something like null hypothesis testing be taught primarily through bootstrapping, with the formulas introduced as an aside?Yes I know that statistics is a formal branch of math, with theorems and proofs. I took that class. But the students who take &#34;stats for scientists&#34; don&#39;t ever see that side of it. Understanding the formulas without seeing the proofs is like trying to learn freshman physics without calculus."</p>
+								<p class="story__comment_others">"   The instruction sets are the remaining lines, formatted like &gt;C.I:WMN
+   C current instruction name.
+   I the input from the current tape position. Either 0 or 1. Each instruction has 
+   execution parameters for both inputs.
+   W the output to be written to the tape at the current position. Either 0 or 1.
+   M the movement of the read/write head. A 0 moves the head one position to the 
+   left. A 1 moves it to the right.
+   N the name of the next instruction to be executed at the new tape position.
+
+Would it have been clearer to use &#34;&lt;&#34; or &#34;&gt;&#34; to specify whether to move left/right from the current position?"</p>
+							
+						
+							
+								<p class="story__comment_others">"If you like this, you might also like Retina[0]![0]: https://github.com/m-ender/retina/tree/master/Examples"</p>
 							
 						
 						</a>
@@ -240,43 +249,22 @@ Sheesh so fast... scary. RIP."</p>
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://revelry.co/insights/development/nix-time/">Nix: An idea whose time has come</a></h3>
+					<h3><a href="https://thezvi.substack.com/p/convoy-crackdown">Convoy Crackdown – power to freeze bank accounts without trial or legal recourse</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30384121">
+						<a href="https://news.ycombinator.com/item?id=30431820">
 						
 							
-								<p class="story__comment_first line-clamp">"I love the idea of nix but the inconsistency and developer experience is terrible.   I want to suggest people use it but there is too many rough edges currently.For example, if you want to install a package the old way, you&#39;ll install it including the channel:    nix-env -iA nixpkgs.ripgrep
-
-
-but then if you want to remove one, you don&#39;t reference the channel:    nix-env -e ripgrep
-
-You have a similar issue if you want to use the new `nix` command.  To install a package you&#39;ll do:    nix profile install nixpkgs#ripgrep
-
-
-but running:    nix profile remove nixpkgs#ripgrep
-
-
-will do nothing.  It won&#39;t say &#34;I didn&#39;t remove the package&#34; or &#34;package not found&#34;.  It just returns silently.    The only way to remove it is to point to the number from `nix profile history` or the actual path.It is unbearably slow:    &gt; time nix-env -qaP ripgrep
-    nixpkgs.ripgrep  ripgrep-13.0.0
-
-    11.17s user 2.70s system 73% cpu 18.970 total
-
-
-Overall I love the idea but it has a long way to go in developer experience and quality before it is ready for any mainstream adoption."</p>
+								<p class="story__comment_first line-clamp">"All: if you&#39;re going to post in this thread, please make sure you&#39;re up to date on the site guidelines: https://news.ycombinator.com/newsguidelines.html.That includes not posting flamewar comments, not calling names, not crossing into personal attack, not being snarky, and not using the thread for political or ideological battle. You can make your substantive points without any of that, and we want curious conversation here."</p>
 							
 						
 							
-								<p class="story__comment_others">"  &gt; Nix often scares newcomers and experienced devs alike, because it proposes a fairly radical overhaul to how we think about package management and how we run software in general.
-
-I am not sure this is the main put-off of nix.Ideologically, I love nix. The syntax/language itself is a massive barrier IMO.I use Nix for personal projects, but I prefer the experience of Devcontainers. They&#39;re easier to understand and debug (for me).I&#39;m watching eagerly the work being done by the ostree/rpm-ostree folks who are also trying to solve for a similar problem. Hoping to see something like &#34;Nix but with YAML/JSON&#34; come out of that.https://ostree.readthedocs.io/en/stable/manual/related-proje..."</p>
+								<p class="story__comment_others">"I&#39;ve seen a lot of commentary about the fact that the Emergencies Act provisions &#34;expire&#34; automatically after 30 days, and include &#34;safeguards&#34;, ergo there&#39;s nothing worry about. People getting hung up on the text of the bill forget that it&#39;s merely an Act of Parliament, and thus can easily be amended or replaced via a simple majority vote.What played out last night indicates that none of these checks and balances really matter in a parliamentary system where the nuclear option of a non-confidence vote (and subsequent election) can be invoked to force any MPs with qualms to vote along party lines.It&#39;s easy to see what will happen next, based on this government&#39;s track record: they will introduce amendments to the Act, or new legislation containing only the provisions they would like to make permanent, and once again proclaim that voting against the amendment will result in a new election.They will probably also use it as an excuse to ram through their &#34;Online Harms Bill&#34;, i.e. internet censorship, targeted at &#34;misinformation&#34; (disagreeable speech) and, many suspect, independent media outlets that the PM despises.Internet censorship + government-directed financial de-platforming = Canada&#39;s near-term future if the situation doesn&#39;t change somehow."</p>
 							
 						
 							
-								<p class="story__comment_others">"I have been running NixOS and uxing Nix for almost everything since I switched to it, and my experience has been great so far. It is one versatile solution to a lot of applications:1. I run NixOs on on laptop and workstation, for work and for personal use. Any change to the configuration can be immediately transfered to other machines. And give me a new machine, I can quickly bring it up with the configuration that I am always using.
-2. I run NixOS on my home server and machine learning cluster. Deploy experiment and service on them is as simple as updating the git-managed configurations. Meanwhile, if I want to use more power to run an experiment, NixOps can quickly bring up a set of machines on AWS with the configuration identical to my local experiment. You do not need to worry about setting up CUDA/pytorch and other dependencies every.
-3. In my start-up, it definitely took more time to train the developers to learn Nix, but once they get familiar, everyone becomes a good DevOps engineer, which solves development environemnt (that invloves C++/Python), CI/CD and release really well."</p>
+								<p class="story__comment_others">"Occupy Wall Street was started by a group of organized Canadians and they blocked access to NYSE facilities. OWS was obviously an occupation (it’s right there in the name), but the better question is: was OWS a protest, too? If so, why can’t this be called one as well?There are generally more parallels between OWS and the truckers than people are willing to recognize, because there’s been a hell of an inversion: if you supported OWS 10 years ago you probably don’t like the truckers today and if you like the truckers you probably weren’t for OWS 10 years ago. There are a handful of Tim Pools that like both, and there are elites that disliked both, but the average person has to do some gymnastics.All that I ask is that everyone is consistent: if OWS is a protest, then this is too. If you don’t like that Americans funded the truckers, you have to be willing to call out that OWS took place in NYC but formed from a Canadian nonprofit."</p>
 							
 						
 						</a>
@@ -289,22 +277,22 @@ I am not sure this is the main put-off of nix.Ideologically, I love nix. The syn
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://probablydance.com/2022/02/19/reasons-why-babies-cry-in-the-first-three-months-how-to-tell-them-apart-and-what-to-do/">Why babies cry in the first three months, how to tell them apart, and what to do</a></h3>
+					<h3><a href="https://www.politico.eu/article/germany-to-stop-nord-stream-2/">Germany shelves Nord Stream 2 pipeline</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30401882">
+						<a href="https://news.ycombinator.com/item?id=30426934">
 						
 							
-								<p class="story__comment_first line-clamp">"Of kids I&#39;ve always thought &#34;maybe one day&#34;.  I can see how it&#39;d be a tough, but extremely rewarding and meaningful endeavor.But reading this article made me think for the first time &#34;actually, I think I don&#39;t want kids.&#34;So many &#34;mental CPU cycles&#34; spent learning about pregnancy, babies, why they cry, how to care for them.  It just doesn&#39;t appeal to me at all - I think it&#39;d resent it taking me away from spending time on the topics that legitimately interest me -   stuff like space, technology, fiction, stocks, politics, philosophy, hobbies.  (I realize how much this comes off as a young white tech nerd... But that&#39;s exactly what I am!)And all this just of the knowledge gathering.  We haven&#39;t even touched on the truly hard part - executing it!I guess this article made raising a kid real in a way that none other have before.  Took the high ideal of &#34;raising a family&#34; and shined light on all the tough, hard realities.Of course this is all from my current perspective.  I&#39;m sure it all totally changes in ways I just can&#39;t conceive when it&#39;s your own kid.Open to any insights from others who may have been here before!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Great if it works for you, but for those who are dealing with babies, I wouldn&#39;t beat myself up if this advice doesn&#39;t apply. The parenting advice world is chock full of people who found something that worked for them and who then made the unwarranted conclusion that it is universal truth. For example, their techniques that &#34;always work&#34; definitely do not always work. Maybe they always worked for their particular babies, but I have been in situations with my kids where neither shushing and patting nor holding and walking worked to stop crying.My general feeling is that you can drive yourself nuts trying to figure out why your baby is crying, and, as the blog author mentioned in his conclusion, you may still be unable to figure it out. IMO this is a great time of one&#39;s life to discard the illusion of control."</p>
+								<p class="story__comment_first line-clamp">"A related report from the BBC (published a few days ago):Europe gas prices: How far is Russia responsible? https://www.bbc.co.uk/news/58888451Some key points in the BBC article:- Russia supplies about 40% of the EU’s natural gas imports. Most of the rest comes from Norway and Algeria.- Russia sends gas to Europe through several main pipelines - such as the Nord Stream, the Yamal-Europe and the Brotherhood (see the map in the article).- Overall, Russian gas exports to Europe have been decreasing over the last couple of years - down 32% in February this year compared to February 2020. One factor - during the pandemic - has been falling demand as economic activity shrank. Stocks of gas across Europe have been depleted, which in turn is driving up prices.- Gazprom, Russia&#39;s majority state-owned energy company, supplies gas to Europe under two different arrangements: 1. Long-term contracts often lasting from 10 to 25 years. 2. &#34;Spot&#34; deals or one-off purchases for a fixed amount of gas.- It is understood that Gazprom met its obligations to European buyers last year under these contracts.- &#34;Spot&#34; sales don&#39;t appear to be happening in any significant quantity, going by data from Gazprom&#39;s own electronic sales platform.- The International Energy Agency&#39;s executive director, Fatih Birol, has accused Russia of reducing gas supplies to Europe for political purposes.- Gas storage across Europe is well below the 10-year average, with levels currently at about 75% of storage capacity, according to Gas Infrastructure Europe data."</p>
 							
 						
 							
-								<p class="story__comment_others">"Newly minted dad of twins and uncle for 5 others.Infant phaseThe work is intense when they are young since they can’t do much on their own and need help very often. But this doesn’t last for too long. Most parents exaggerate this phase since it is very intense from their otherwise happy days without kids. I had enough nephews and nieces around that I helped with so my kids are not the first time I am doing something this intense.Toddler phaseThey are very manageable because of their size. Not those helpless poor little things any more. But they need to be entertained. Having others kids help a lot here. One more reason to have more than one kids. Only kids can match kids energy level.Beyond infantsThis is when things get interesting they start engaging with you a lot with words and actions.Most of the problems with millennials for fear of having kids got to do with not having much experience before having their own. So they get overwhelmed, this is very specific to societies with lack of communities (western urban societies).Once your friends have kids they are out of your circle since they cannot come out and do as much as they used to do.With medical advancements and tools available to raise a child it is lot easier to raise kids than before. Over focusing on parenthood is also another issue. This is product of abundance of time and money. My mom of 3 children didn’t have tools and time to engage with us like our generation do. She did exceptionally well without over indulging in the name of parenthood.Note: I am leaning game development and reading books while having full time job and having twins as my first children on my own at 40.It’s totally doable. Try being around your friends with kids, that’s helpful for them as well as you.Most rewarding thing and easily attainable for most of us is to raise children never forget the entertainment and stress buster aspect of having kids as well.Once a wise women from the east said to us raised in the west: If you can have pets I don’t seem to understand your issues having kids. Kids are Pets+++"</p>
+								<p class="story__comment_others">"That is not remotely pulling the plug. This is &#34;thinking about it&#34; again. They already stopped accreditation a few weeks ago, otherwise it would already transport gas as the pipeline is already filled. They just say that they have officially stopped the process which they more or less already did. I think in a year it might come online again if the news cycle is on another topic.Overall it will be much more expensive for Europe than for Russia. Who do you think will profit the most if gas prices hike?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Here&#39;s some quick numbers I just googled to understand the big picture.This pipeline has an annual capacity of 55 billion cubic meters. It&#39;s the same capacity as the Nord Stream 1, which is already in operation. If Germany was truly meaning business, they&#39;d stop Nord Stream 1 the moment Russian boots enter Ukrainian territory. But let&#39;s leave that aside.55 billion cubic meters translate to about 0.6 billion MWh. The price today for natural gas Dutch TTF futures is EUR 78/MWh [1] , so that translates in about 40 billion EUR per year.  It has been as low as EUR 13 and as high as EUR 165 over the last 2 years. It&#39;s quite likely that Russia would make a profit even at the lower range, so the 40 billion EUR/year is pretty much pure profit for them.[1] https://www.theice.com/products/27996665/Dutch-TTF-Gas-Futur..."</p>
 							
 						
 						</a>
@@ -317,24 +305,22 @@ I am not sure this is the main put-off of nix.Ideologically, I love nix. The syn
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://vaghetti.dev/posts/times-are-great/">Times are great for programmers now. How does it end?</a></h3>
+					<h3><a href="https://bethesda.net/en/article/2RXxG1y000NWupPalzLblG/sunsetting-the-bethesda-net-launcher-and-migrating-to-steam">Sunsetting the Bethesda.net launcher and migrating to Steam</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30410856">
+						<a href="https://news.ycombinator.com/item?id=30432321">
 						
 							
-								<p class="story__comment_first line-clamp">"I feel like we have so much leverage and don&#39;t use it at all.We&#39;re still attending stand-ups every day with non programmers telling us when we can and cannot refactor. It&#39;s nuts to me that a skilled profession - that not many can do - lets themselves get micro-managed like this.If anyone has read Developer Hegemony, I&#39;m fully on board with that general premise - we start operating like lawyers with partnerships, and turn bosses into customers. Though that does require us to think of ourselves as professionals not nerds who are too smart for business."</p>
-							
-						
-							
-								<p class="story__comment_others">"Programmers are increasingly needed for *everything*.I mean, we&#39;ve entered an age, where a farmer can&#39;t milk their cows, if the software of the milking robot has a hitch - can&#39;t plow their fields, when the gps-software that drives the tractor isn&#39;t working.Apart from that, programming is becoming every other job - as far as domain knowledge is concerned.I&#39;ve personally experienced (multiple times!) professional accounting companies complaining about not being able to just modify official invoices (totally illegal) but having to cancel and re-issue them with a new invoice number (how it MUST be done).
--&gt; It&#39;s now the responsibility of the programmers to understand how accounting works. Professional accountants just click a button and expect the software to &#34;do the right thing&#34;.
--&gt; As in this case, the professional accountant no longer adds much value, they&#39;ll probably be entirely replaced by software at some point.A more relatable example might be Taxis drivers. It might take years still, but at some point, all Taxis will be self-driving vehicles, created by robots in a fully automated factory. Programmers will be needed for the driving software and the factory software. You might still need some mechanics to repair the factory robots - until when that job is done by robots as well (that have to be programmed).It currently seems more likely to me, that we are headed towards a future, where programming is the *only* job - and everything else is done by software."</p>
+								<p class="story__comment_first line-clamp">"Thank goodness. Bethesda&#39;s launcher was uniquely awful in a number of unpleasant ways. Slow, prone to crashes, bad user communication, not suitable for use on small monitors. The worst of the launcher apps I have used - and there are so many!I remember when it was in vogue for every game maker to build their own launcher or even full Steam clone - when EA pulled all its new games from Steam to get people to use Origin, when Ubisoft forced uPlay on you no matter how you bought the game, and so on. Now, it seems like we&#39;re pulling back from that situation somewhat - a lot of EA games are back on Steam, for example.I wonder whether the experiment didn&#39;t work, or if it worked, but now the goals have changed again?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I think it ends with everyone becoming a developer.Making machines do things will never end. However, the tools for making machines do things is evolving very quickly.The general art of being a developer will continue to get specialized and at some point specialists at any field would be expected to be able to program their machines.Very few people are learning how to run their servers and much more are moving into AWS type of infrastructure and “cloud literacy” has become a thing.I would expect layers of abstraction to continue to build up and programming to become something like using spreadsheets to do your actual task.Eventually, “true programming” will scale back to building these tools. It would be rather niche, very high skill serious engineering - an elite, hard to get in profession that continues to fetch high salaries. They probably will have some kind of association similar to the lawyers/doctors, the code they write will no longer tolerate bugs as a fact of life but they will be responsible as any other licensed professionals. Skipping unit test will land you in jail or very high fine due to malpractice if something goes wrong."</p>
+								<p class="story__comment_others">"Is there a technical reason why Steam is a such a force in the space? People, myself certainly included, often criticize Apple for taking 30% of developer revenue for merely existing in it&#39;s walled garden. Right or wrong, they control the ecosystem, so their ability to monopolize and heavily tax the App Store is unsurprising, they&#39;re exercising their pricing power as much as they possibly can.But how is it that on PC, where we have a mostly open field on which anyone can participate freely without a gatekeeper&#39;s blessing, Steam managed to consolidate so much of the gaming marketplace that even a titan like Microsoft is throwing the towel and bowing to Steam&#39;s cartelish 30%? I get that being the dominant two-sided marketplace of a given space is a strong network effect and moat, and consolidation is certainly convenient for users (I like having all my purchased games on a single account), but intuition tells me Bethesda doesn&#39;t need Steam&#39;s exposure to sell games or make new arrivals known (their announcement will go viral regardless), similarly to Riot, Mojang, Epic and co not listing on Steam. So I&#39;ve always found it surprising they were dual listing their games in the first place, but the fact they&#39;re now entirely giving up on direct selling is a testament to Steam&#39;s might in the gaming industry.Is Steam&#39;s product particularly good and hard to reproduce from the publisher&#39;s PoV, even one backed by Microsoft, to the extent it is hard to compete against with something like Microsoft Store? Or is this just another case of being early enough to establish the initial brand and let the self-fulfilling network effect kick in - with the userbase acting like gravity to bring in more users and developers - until it&#39;s large enough that sheer force of habit/inertia makes it quasi-&#34;indisruptible&#34;?Either way, I found it fascinating how Valve turned into Steam, whether it was accidental or not, what a homerun pivot. Seems that is the way of the Internet, being first matters more than just about anything, having the superior product (not claiming there is one for game stores) is irrelevant if you&#39;re remotely late, it just won&#39;t matter how much cash you pour into a Microsoft Store or a Google+. My gut tells me Microsoft is salivating at the idea of buying out Steam, seems like a perfect fit for the conglomerate if it wasn&#39;t for the scrutiny it would bring their way while they are positioning themselves as the good FAAMG."</p>
+							
+						
+							
+								<p class="story__comment_others">"As a matter of principle, I think digital delivery platforms benefit from competition, and we should not be locked down into a single monopolistic, stagnating platform.As a selfish consumer though, I hugely wish we just had Steam and Netflix:The Origins and Uplays and Battle.nets of the world exist solely to make my life difficult, refusing to play my game when I want it due to obscure update required or forgotten password or old email account (especially when they are an overlay on top of Steam), and have zero repeat zero positively zero benefit to myself as a consumer. It is blatantly anti-consumer, and not made with customer view in mind.(Gog.com gets a pass because it allows me to JUST download the game, with no launcher and crap, so essentially going into opposite direction from all publisher-owned platforms and provides a unique value proposition)Same for Netflix.  It&#39;s fine. It&#39;s good. It&#39;s great! Over the last 5 years, proliferation of Disneys, Amazons, HBOs, Hulus, CBS All Access, Paramount Ultra Plus Exclusive Diamond Platinum... the whatEVERs, all they do is make me have to guess which  service is content I want to play on. All they are, at any level, is &#34;we want more money for less consumer convenience, and we think we can get away with it due to exclusive content lock-in we refuse to license to the convenient platform&#34;.I understand I&#39;m supposed to vote with my money, but with exclusive lock-in that&#39;s difficult. My kid wants their Octonauts and their Stinky &amp; Dirties, dammit :D"</p>
 							
 						
 						</a>
