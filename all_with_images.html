@@ -36,6 +36,457 @@
 	</div>
 
 	
+	<div class="day__date">15 March 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=30668137">
+						<picture>
+							<source srcset="default_30668137.webp" type="image/webp">
+							<source srcset="default_30668137.png" type="image/png">
+							<img src="default_30668137.png" alt="Preview of 'Show HN: HN Avatars in 357 bytes'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=30668137">Show HN: HN Avatars in 357 bytes</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30668137">
+						
+							
+								<p class="story__comment_first line-clamp">"This is fun.One suggestion.. rather than creating a canvas for each user using a querySelectorAll and a loop, I&#39;d use an IntersectionObserver and only create the canvases as they scroll into view. That way the user&#39;s device won&#39;t need to create hundreds of elements when the code runs.    let observer = new IntersectionObserver(
+    (entries) =&gt; {
+        entries.forEach((entry, i) =&gt; {
+        if (entry.isIntersecting) {
+            const p = 2;
+            const c = document.createElement(&#39;canvas&#39;);
+            const x = c.getContext(&#39;2d&#39;);
+            c.width = 18;
+            c.height = 14;
+            const s = entry.target.innerText;
+            const r = 1;
+
+            if (s) {
+            for (
+                let s = entry.target.innerText, r = 1, i = 28 + s.length;
+                i--;
+
+            ) {
+                // xorshift32
+                (r ^= r &lt;&lt; 13), (r ^= r &gt;&gt;&gt; 17), (r ^= r &lt;&lt; 5);
+                const X = i &amp; 3,
+                Y = i &gt;&gt; 2;
+                if (i &gt;= 28) {
+                // seed state
+                r += s.charCodeAt(i - 28);
+                x.fillStyle =
+                    &#39;#&#39; + ((r &gt;&gt; 8) &amp; 0xffffff).toString(16).padStart(0, 6);
+                } else {
+                // draw pixel
+                if (r &gt;&gt;&gt; 29 &gt; (X * X) / 3 + Y / 2)
+                    x.fillRect(p * 3 + p * X, p * Y, p, p),
+                    x.fillRect(p * 3 - p * X, p * Y, p, p);
+                }
+            }
+            }
+
+            entry.target.prepend(c);
+        } else {
+            if (entry.target.firstChild.tagName === &#39;CANVAS&#39;)
+            entry.target.firstChild.remove();
+        }
+        });
+    },
+    { rootMargin: &#39;0px 0px 0px 0px&#39; }
+    );
+
+    document.querySelectorAll(&#39;.hnuser&#39;).forEach((user) =&gt; {
+    observer.observe(user);
+    });"</p>
+							
+						
+							
+								<p class="story__comment_others">"Hah! I got a really cool little icon that looks almost like the cassette tape pirate logo of Piratbyrån back in the day. I have old t-shirts with that logo.MAKE. THIS. PERMANENT!On the functional side, this really helps you see who is who in a long threaded discussion. Your eye is much quicker at following the little color icons than their names."</p>
+							
+						
+							
+								<p class="story__comment_others">"For better rendering on high-DPI screens and (more subjectively) screens of people that have zoomed in because HN’s text sizes are unreasonably small, add c.style.imageRendering=&#39;pixelated&#39;.I was going to say that the insertion of these 24 bytes allows you to save ten bytes elsewhere by halving the size of the image (making features one pixel in size, rather than two), but then you’d also have to set the doubled image dimensions, and that’d cost more than ten bytes.(Me, I use HN at 120% on top of a native scaling factor of 150%, which is currently implemented as downsampling of 200% rendering because Firefox hasn’t got fractional scaling right yet under Wayland, and widget.wayland.fractional_buffer_scale has some fairly debilitating side-effects on popup windows including non-rendering and crashes, which is a pity because it improves rendering so very much.)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.independent.co.uk/asia/india/mbbs-student-bluetooth-cheating-bhopal-b2021217.html">
+						<picture>
+							<source srcset="default_30675666.webp" type="image/webp">
+							<source srcset="default_30675666.png" type="image/png">
+							<img src="default_30675666.png" alt="Preview of 'Medical student surgically implants Bluetooth into own ear to cheat in final'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.independent.co.uk/asia/india/mbbs-student-bluetooth-cheating-bhopal-b2021217.html">Medical student surgically implants Bluetooth into own ear to cheat in final</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30675666">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m extremely skeptical of this story, at least as written.It makes great clickbait, but it doesn&#39;t really make sense. Where would someone implant a bluetooth earpiece into their ear? There&#39;s not really a lot of empty space in that area unless someone is very overweight and the device is implanted in layers of fat adjacent to the ear, which aren&#39;t great at conducting sound. Did someone really wrap an earpiece in some bio-compatible material, put it in someone right before the test (battery life is limited), and that person was then in a low enough level of pain and/or on enough painkillers that they could still complete the test? I&#39;m extremely doubtful.But the bigger question is: What use is a 1-way communication device? Did the student have a second cheating instrument to photograph the test and send it to someone off-site? Or did they have someone with the test answers reading them off in real-time (&#34;Question 34 - Answer is C&#34;)? It seems this would only be useful in an extremely narrow set of circumstances, if it could be pulled off at all.Really though, why wouldn&#39;t someone just grow out their hair or wear a wig and put an earpiece under their hair? The idea of surgically implanting something that could be easily concealed seems like a modern urban legend."</p>
+							
+						
+							
+								<p class="story__comment_others">"In my undergrad days, my sibling&#39;s medical college (KMC Mangalore) had an interesting case where the student had hired the service of a rice-engraving artist to etch complete medical manuals onto the sides of metallic ballpoint pens. He was wearing a high powered lens as bifocals.He was caught because he was noticed shuffling a wad of pens too often &amp; then the bifocal glasses were peculiar, prompting some investigation.He had paid the grain-engraving artist to the tune of $30,000-35,000 for the whole set (2006). It is a lot of money!"</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of people are missing the bigger point here.This person was just one who got caught. The likelihood that they’re the first one to think or do this is very low.There are probably more sophisticated ways of using tech to cheat and I would be very surprised if they haven’t been employed in high stakes exams like this before."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-is-testing-ads-in-the-windows-11-file-explorer/">
+						<picture>
+							<source srcset="default_30675908.webp" type="image/webp">
+							<source srcset="default_30675908.png" type="image/png">
+							<img src="default_30675908.png" alt="Preview of 'Microsoft is testing ads in the Windows 11 File Explorer'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-is-testing-ads-in-the-windows-11-file-explorer/">Microsoft is testing ads in the Windows 11 File Explorer</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30675908">
+						
+							
+								<p class="story__comment_first line-clamp">"I worked at Microsoft around the time of the Windows Vista disaster, and one of the big lessons that came out of that era was solve distractions, not discoverability. Windows and other Microsoft products tried to make features (and products) &#34;discoverable&#34; by pushing them on you with alerts and banners, but the result, when multiplied by dozens of product teams and PMs, was an overall user experience that was noisy and unpleasant.Looks like a new generation of engineers and designers is ready to learn this lesson the hard way again!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I look forward to the Microsoft brigade telling me again that none of the following exists:  - ads in file explorer
+  - ads on the lockscreen
+  - ads as notifications
+  - ads in the start menu
+  - ads in the &#34;change file association&#34; dialog
+  - ads in the apps (e.g. solitaire)
+  - mandatory updates that cannot be disabled and reboot your machine without asking
+  - pc turning itself on in the middle of the night OR when in my backpack to install updates
+  - un-disableable spyware (&#34;telemetry&#34;)
+
+Windows would be classed as malware by the 2002 definition"</p>
+							
+						
+							
+								<p class="story__comment_others">"Does anyone make a serious OS for people who need to get real work done on their computer anymore?Some recent frustrations with the big 3 OSs:1. MacOS: The File&gt;Save dialog has a unchangeable 35 character limit for what can be viewed in the file name field. WTF?! It&#39;s like these jokers have never worked in a real office where people create documents with dictated naming conventions like [Customer Name]_[Project Name]_[Project subtask]-[Date]. Maybe they think it is a way to force businesses to use Tags? Dear Apple, your OS seems toy like.2. Linux: There is an age old Ubuntu bug (which bleeds into many Ubuntu based Distributions) where the installer wipes out the bootloader of a drive that you aren&#39;t even installing the OS on. Dear open source community: your desktop OSs are still hobbyist tweaker mode. I3. Windows: First data mining telemetry and now you are going to show me ads? Dear MS, you keep trying to be Google or Facebook and all it has done is undermine a once serious OS.(note that this is just a &#34;what pissed me off this week list&#34; and not intended to be a comprehensive criticism)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://arstechnica.com/tech-policy/2022/03/google-hijacked-millions-of-customers-and-orders-from-restaurants-lawsuit-says/">
+						<picture>
+							<source srcset="default_30672021.webp" type="image/webp">
+							<source srcset="default_30672021.png" type="image/png">
+							<img src="default_30672021.png" alt="Preview of 'Google “hijacked millions of customers and orders” from restaurants – lawsuit'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://arstechnica.com/tech-policy/2022/03/google-hijacked-millions-of-customers-and-orders-from-restaurants-lawsuit-says/">Google “hijacked millions of customers and orders” from restaurants – lawsuit</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30672021">
+						
+							
+								<p class="story__comment_first line-clamp">"I could be wrong here, but, I think the lawsuit is totally misdirected. Restaurants should be upset with the ordering platforms (e.g., DoorDash) instead.The problem is the ordering platforms enabling this integration without restaurant consent. (Or, perhaps worse, offering orders without restaurant consent?)Google just provides an API that allows restaurant ordering from Maps, Search etc.  It connects to the ordering platforms (e.g., DoorDash) [1].  The ordering platforms integrate with this API by uploading data feeds and implementing a server with specific interface. [2]I don&#39;t think Google even takes a cut!I worked on an integration to a similar API, &#34;Reserve with Google&#34; [3]. With that one, at least, it can be enabled/disabled at the restaurant level.  I assume that &#34;Order with Google&#34; is similar.[1] https://developers.google.com/actions/food-ordering[2] https://developers.google.com/actions/food-ordering/guides/b...[3] https://www.google.com/maps/reserve/"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve seen this when searching for restaurants, and I spotted it right away. It&#39;s a classic dark pattern and I&#39;m surprised that more restaurants aren&#39;t suing them over this.Google search results have become dangerous (for lack of a better word) and really hard to use when searching for some things lately. I shouldn&#39;t have to carefully scrutinize every link ON Google and then double check I&#39;m actually ending up where Google said it was sending me. I understand they want to squeeze every possible dollar out of every search, but I no longer trust them for certain searches.I&#39;m not even talking about the results, this is just what&#39;s on the actual Google search results page. There&#39;s just way too many ads and other tricks like this happening."</p>
+							
+						
+							
+								<p class="story__comment_others">"I had this happen to me. Went to order something for pickup from maps. I thought it was the restaurant&#39;s page but the order went through postmates. When I arrived to pick up my order, the staff seemed to think I was an employee of postmates.Anyway, when I got home I did some searching and found out the restaurant had a different webpage from what I ordered from. The prices I paid were a little higher than the actual business websites. It seems postmates charged me more, taking a cut while doing nothing to make the food or deliver it. What a parasitic business to inject yourself as a third party like that."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.devgenius.io/keeping-developers-will-be-the-priority-in-great-developer-resignation-next-stage-9dfcdb6e75a4?gi=8d799e51c800">
+						<picture>
+							<source srcset="default_30668973.webp" type="image/webp">
+							<source srcset="default_30668973.png" type="image/png">
+							<img src="default_30668973.png" alt="Preview of 'Spending more on retaining developers reduces the cost of hiring developers'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.devgenius.io/keeping-developers-will-be-the-priority-in-great-developer-resignation-next-stage-9dfcdb6e75a4?gi=8d799e51c800">Spending more on retaining developers reduces the cost of hiring developers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30668973">
+						
+							
+								<p class="story__comment_first line-clamp">"Unless you work at a company that “gets” it (as listed below): instead of hoping or arguing for a raise that puts you and your colleagues in tech in-line with the market, just go out and interview for offers that should increase your total compensation 30-50%.I’ve been writing about this topic for months, including publishing how much companies in 2021 did one-off adjustments as discussed on HN [1] (a list of about 50 companies, between 5-30% as one-off increases outside annual raises) and suggesting to those in charge of budgets to do one-off adjustments ASAP to retain their engineers.Although many CTOs and VPEs read and understood the rationale, the majority could not get meaningful budget increases. The reason? Their non-technical CEO and CFO.This very hot market is only the case for tech and the rest of the business struggles to understand why tech should be any exception at annual budgeting.I see it as the typical story of execs assuming tech leaders are crying wolf when there is no wolf. By the time the wolf takes away most the sheep, it’s too late.The only exceptions I’ve seen are:1. Companies seeing attrition impossible to ignore. In May 2021 a company in the UK announced no pay raises till Apr 2022 answering an all-hands question. 25% of senior engineers left the next 3 months, and the company did an emergency 15% raise across engineering in November.2. Companies that collect, and act on market data. This is mostly Big Tech. It’s why Amazon has been decisive in increasing base salaries, and why Meta increased RSU refreshers by ~20-25% this year. They know the market better than any salary benchmarking company does (which companies’ data is outdated).I still get messages of engineering managers asking how they can make their leadership understand their dire situation. I tell them that unless their company is in the #2 category, the only way is to put them in #1, and suggest these engineering managers lead by example in securing much higher offers, leaving, and after enough people leave, non-technical leadership might eventually act.[1] https://news.ycombinator.com/item?id=29320889"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is just my anecdotal view but it’s based on a few decades in non-tech organisations, from startup to emerging-into-enterprise to enterprise (my path was enterprise -&gt; startup -&gt; e2e) and I think we’re a while out from non-tech organisations understanding the value of their own development resources.Its everything from how IT is still often viewed as a “them-and-us” resource drain similar to HR but less understood (and this less valued by the organisation) even though 95% of the people in every organisation now works with IT devices that wouldn’t operate without IT. To how development continues to live in the weird spectrum of the business that actually needs something more than excel, being under digitalisation (efficiency) and IT (operations and development are natural frenemies).It’s having to live in a 2022 where the “standard” solutions, the “document libraries” the “data-warehousing”, the “data-management-systems”, the “enterprise-architecture”, the “data/ml/bi-architecture “ is still just a bunch of really shitty systems and drawings that can’t connect together and quickly become a nightmare for anyone trying to do any real work leading back to massive excel usage and a constant need for “connection-inhouse-solutions” to make things actually work.Leading to developers still being one of the best paid resources inside organisations with almost limitless tolerance for their non-conformity and rolling eyes in management meetings because most of us simply don’t understand the organisation lingo or the internal political power plays (yes, the bullshit).Anyway, I’ve seen no change in change management to suggest that developers are going to be more valued going forward. If anything I think the want and belief in “standard” solutions might just birth the opposite in the coming decade, until the money managers once again realise that developers are simply necessary in a world where every “standard” solution is just as shitty as it was 20 years ago."</p>
+							
+						
+							
+								<p class="story__comment_others">"HR isn&#39;t getting any memo, they are threatening me with disciplinary measures because I refuse to follow their return to the office location policy.
+They even proposed to cut my salary in half if I persist in preferring to stay remote to save on expenses.I think some fast growing tech companies are causing many developers to leave their jobs for better pastures, and that&#39;s mostly because some tech companies are performing poorly hence not keeping up with decent salary increases.Easy to get a job with a salary bump ? My recent attempts took well over 6 weeks each, with 3 to 5 interview rounds, mostly being screened by developers and managers having significant tech skills gaps, making the questioning a painful dissonance exercise.But sure. The market is hot for developers and compensation are on the rise."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://alexturek.com/2022-03-07-How-to-do-less/">
+						<picture>
+							<source srcset="default_30642596.webp" type="image/webp">
+							<source srcset="default_30642596.png" type="image/png">
+							<img src="default_30642596.png" alt="Preview of 'How To Do Less'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://alexturek.com/2022-03-07-How-to-do-less/">How To Do Less</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30642596">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m currently reading through Johanna Rothman&#39;s &#34;Manage Your Project Portfolio&#34; and related literature and a bunch of this resonates:* Finishing work is more important than starting it* Teams working together on a single priority (&#34;swarming&#34;) seem to be more successful than teams where each person is doing 1-2 things on their ownA few subtle points in this article that made me think:* Keeping existing features working as well as customers expect is a great zeroth priority but it can be hard to know what customers actually expect. Absolutely the worst is when you carefully maintain a very reliable, feature-rich thing that no one particularly wants or uses. In an org without a dedicated PM, I&#39;m never quite sure how to account for time spent on the product-management work of &#34;listen to my customers about what they want from my service&#34;.* The article talks about engineers and stakeholders caring about &#34;project X&#34; and &#34;feature Y&#34;. A bunch of literature suggests that anyone who is thinking this way is probably a bit lost -- they have lost sight of the business outcome that the team&#39;s work is supposed to be getting (more sales, quantifiably happier customers, fewer pager alerts interrupting engineers, whatever). If you can tie particular features/projects to outcomes maybe you can make it easier to explain why you&#39;ve prioritized other work first (it makes bigger outcomes sooner)."</p>
+							
+						
+							
+								<p class="story__comment_others">"In my experience/opinion (disclaimer: small teams only) this single-item paradigm misses a lot of opportunities. I prefer the 60-30-10 approach (see https://minimal.app/603010) as it is more experimental/open while still capturing great focus.To back that up, I’d like to acknowledge that almost all significant contributions I’ve witnessed weren’t the top priority item (instead, they’re some weird experiment). I am generally suspicious of the human ability to form a hierarchy of needs/opportunities, so I try to favor qualities like experimentalism, curiosity.Of course, this is all circumstantial. I’m sure some teams have hard deliverables where there is little value in exploring or doing things with no known measurable impact."</p>
+							
+						
+							
+								<p class="story__comment_others">"As a self-employed person, this is essential. I&#39;m constantly using Things3 to take down notes on ideas for things I want to do, or could do. But there&#39;s only so much I can do in my waking hours. So when it comes time to &#34;prioritize&#34; and make my plan for the week, I throw everything that&#39;s not on fire in a secondary list called &#34;brain vomit&#34; that I simply never look at, while filtering out the important and urgent stuff to the main actual list of things I&#39;m actually going to do.This probably sounds insane but it&#39;s working for me. I think part of the reason is that I often don&#39;t have the mental bandwidth (or discipline) to recognize at the moment of task creation whether something is a good idea or not. I&#39;m simply moving too fast, multitasking too much, to make those calls. So I batch every new idea into the inbox and review it later. And even if I discover good ideas in there later, if they aren&#39;t essential to my work or life they go in the brain vomit folder. So I get all the satisfaction of stream of consciousness &#34;ubiquitous capture&#34; (a la GTD) without the emotional burden of having to actually do all that non-critical stuff."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://python-patterns.guide/">
+						<picture>
+							<source srcset="default_30649470.webp" type="image/webp">
+							<source srcset="default_30649470.png" type="image/png">
+							<img src="default_30649470.png" alt="Preview of 'Python Design Patterns (2018)'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://python-patterns.guide/">Python Design Patterns (2018)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30649470">
+						
+							
+								<p class="story__comment_first line-clamp">"I feel a bit contrarian about design pattern lists.  These always seem to contain a list of solutions and after some fancy gymnastics, a list of potential problems they might solve. I feel it might be more useful to create a list of common software problems and follow them with a pattern that helps solve the problem.  I think this would help address the issue of these pattern guides being applied overzealously."</p>
+							
+						
+							
+								<p class="story__comment_others">"If you&#39;re interested in Python anti-patterns instead, we wrote an open-source book on them a while ago: https://docs.quantifiedcode.com/python-anti-patterns/Hasn&#39;t received any updates in the last years but it still holds up quite well, disregarding the Python 2 specific anti-patterns of course which become less and less relevant, as well as the Django-specific ones, which probably are hopelessly outdated."</p>
+							
+						
+							
+								<p class="story__comment_others">"Not idiomatic Python. Don&#39;t model your best practices in Python based on what makes sense in e.g. C++ and Java."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://danluu.com/nothing-works/">
+						<picture>
+							<source srcset="default_30679935.webp" type="image/webp">
+							<source srcset="default_30679935.png" type="image/png">
+							<img src="default_30679935.png" alt="Preview of 'Why is it hard to buy things that work well?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://danluu.com/nothing-works/">Why is it hard to buy things that work well?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30679935">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s pretty depressing how many of the comments are purely answering the title and not discussing the content of the article. In particular, the comments seem mostly focused on consumer product build quality whereas the article is more focused on e.g. businesses trying to outsource something (like same day delivery) and getting a worse result even when they pay more than doing it internally. And the cultural obstacles that make these problems difficult to fix or even sometimes perceive.I will note that I often wish Dan Luu was a bit less apparently-uniformly-confident in some of the statements he writes. He does back up what he says, but he&#39;ll use the same tone for something he&#39;s seen anecdotally and something he&#39;s spent a month personally investigating."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think it&#39;s that you don&#39;t notice things that work well. House foundations, light switches, filesystems, silicon manufacturing, water delivery, grocery store logistics, etc etc etc.These are all things that most people never notice because they just work. It doesn&#39;t even occur to people day-to-day that these things can fail."</p>
+							
+						
+							
+								<p class="story__comment_others">"Looking through old Sears catalogs and seeing the prizes on older game shows, I think some of our memory is selective. Even in photos and SD video you can see the terrible build quality on many consumer products from those earlier times. This seems to be especially true for furniture and exercise equipment. When you convert into current dollars, this low quality junk often is more expensive than what is available today. There&#39;s plenty of junk being sold today too and paying more doesn&#39;t guarantee quality but the notion that it&#39;s more difficult to find quality today than in the past doesn&#39;t seem universal. We have plenty of items that survived earlier eras and are examples of durability but the landfills are full of junk that we don&#39;t see."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=30672841">
+						<picture>
+							<source srcset="default_30672841.webp" type="image/webp">
+							<source srcset="default_30672841.png" type="image/png">
+							<img src="default_30672841.png" alt="Preview of 'Launch HN: Living Carbon (YC W20) – Trees that capture and store more carbon'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=30672841">Launch HN: Living Carbon (YC W20) – Trees that capture and store more carbon</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30672841">
+						
+							
+								<p class="story__comment_first line-clamp">"Couple things:- C4 fixation is a characteristic of smaller, monocot plants.  Trees are slower-growing dicots.  There are more pathways to these organisms than just increasing energy production efficiency.  For example, have you proven that trees actually reinvest the excess glucose into growth, rather than trigger negative feedback pathways to slow glucose production?- Also, you claim that the plant is faster growing with harder wood.  Typically with trees, the speed of growth is inversely proportionate to the strength of the wood - i.e. cottonwoods and box elders grow fast but are terrible woods, while oak and maple are the inverse.  Given the long lifespan of these organisms, have you any preliminary data to back up these claims that these trees are growing faster and stronger?I used to do plant transgenics in a past life, and while skeptical, I do see projects like this as a solution for the future - though more along the lines of faster growing algae because ultimately the bottom line is the variable cost of converting sq meters of sunlight into carbon energy.  It&#39;s just super easy to fall for hype and go straight to science fiction rather than focus on the science."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow - this post is getting a lot of great discussion. We are working on responding to the comments directly. A few key points to add that help frame how we think about the role biotechnology plays in carbon capture and removal.Similar to how advanced biotechnology was able to help develop covid vaccines in record time, biotechnology can and should be used a tool in our fight against climate change. Living Carbon works on a broad array of biotech projects to help improve the carbon capture and sequestration of carbon underground.We chose to share our work on photosynthesis-enhancement as an example of one of the biotechnology tools that can be utilized because 1) there is precedent in literature for similar pathways working in other crops and RuBisCO engineering has been worked on for decades 2) many of the solutions to storing carbon underground for longer are metabolically taxing to plants and can benefit from biotechnology.In response to vague fears around genetic engineering, if Living Carbon’s work resulted in ecosystem destruction we would not have achieved any of the goals we set out to achieve as a company. We have warmed the world so quickly plants do not have the time to evolve to survive in the harsher world we have created.It would be silly to think that our trees alone could or should stop climate change. We view each pilot project as an opportunity to study trees in different ecosystem and understand any impacts they have on underlying ecosystems.We’re intentionally planting trees on land that human previously degraded - such as abandoned mine lands. We’re working to restore ecosystems that have already faced the consequences of human intervention, rather than integrating our trees into already-thriving wild forests.Many of our test pilot projects include the testing of different microbial treatments to help quantify the impact on photosynthesis and the growth rate of trees.75% of the earth’s land has already been degraded by humans. 60% of plants are struggling to survive because there are fewer animals and arable land to spread their seeds and maintain a meaningful population. Whether it’s through paving over our rivers or our urban sprawl, we’ve been modifying our world for centuries. Evolution, which is essentially sums of averages over, cannot move at the speed that humans have moved to degrade our plant and warm it.There is not silver bullet to climate change. Many solutions like mineralization, biochar, and DAC can increase their rate of carbon removal using biotechnology and more efficiently remove carbon from the atmosphere. We need to use human technology to help reintegrate ourselves into our ecosystem and understand how carbon farming using many different carbon removal technologies can help remove carbon from our ecosystem."</p>
+							
+						
+							
+								<p class="story__comment_others">"We&#39;ve got excellent mechanisms for improving the efficiency of plants through engineering and breeding that doesn&#39;t involve a for-profit company controlling IP and maximizing short term returns (the way that YC works). There is an academic community supported by governments and NGOs that works, even if agribusiness siphons off some of the expertise. I am happy that software companies can be created and destroyed quickly if venture companies want to support them. A 5-7 year return on capital doesn&#39;t really work for the carbon budget or agricultural heritage of the planet."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://cloud.google.com/blog/products/infrastructure/updates-to-google-clouds-infrastructure-pricing">
+						<picture>
+							<source srcset="default_30671997.webp" type="image/webp">
+							<source srcset="default_30671997.png" type="image/png">
+							<img src="default_30671997.png" alt="Preview of 'Updates to Google Cloud’s infrastructure capabilities and pricing'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://cloud.google.com/blog/products/infrastructure/updates-to-google-clouds-infrastructure-pricing">Updates to Google Cloud’s infrastructure capabilities and pricing</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30671997">
+						
+							
+								<p class="story__comment_first line-clamp">"Holy crap! They&#39;re actually doubling the pricing (for some important products)!I actually followed the links and found this:    &gt; Coldline Storage Class B operations pricing will increase from $0.05 per 10,000 operations to $0.10 per 10,000 operations.
+
+    &gt; Coldline Storage Class A operations pricing in regions will increase from $0.10 per 10,000 operations to $0.20 per 10,000 operations.
+
+    &gt; Coldline Storage Class A operations pricing in multi-regions and dual-regions will increase from $0.10 per 10,000 operations to $0.40 per 10,000 operations.
+
+    &gt; For all other storage classes, Class A operations pricing in multi-regions and dual-regions will increase to be double the Class A operations pricing in regions. For example, Standard Storage Class A operations in multi-regions and dual-regions will increase from $0.05 per 10,000 operations to $0.10 per 10,000 operations.
+
+This announcement is just an eye wash to hide the fact that they&#39;re doubling their pricing structure for some products. And they claim most customers will see a cost decrease.Sigh, I was just thinking of moving all my stuff, projects and even websites from cloud hosted solutions to my own home server and slapping a cache like CloudFlare on top of it and calling it a day. This is only pushing me in that direction, haha.Reference: https://cloud.google.com/storage/pricing-announce"</p>
+							
+						
+							
+								<p class="story__comment_others">"Google cloud has to be the most confusing product suite known to mankind. What an unbelievable mess.After merging two companies I had to move a bunch of stuff over to a new bankaccount. three weeks later and I&#39;m still not 100% sure that I got it all, the interfaces are so opaque and the different ways in which you can get billed so confusing (never mind the bills themselves) that it is nearly impossible to get a clear picture.This does not feel like it is an accident, and this message is very much in line with that.I always wonder how such systems come about. The number of confusing error messages you have to deal with for pretty basic stuff is off the scale. You can name anything, except of course when it actually matters and then only some cryptic UID is shown. Don&#39;t get me started on users and permission management, or how it is perfectly possible to orphan an entire project[1] if a person leaves your org. (Gsuite and GCP may superficially appear to share a bunch of stuff but that just sets you up for some very cute surprises, from which it can be extremely difficult to recover.)[1] https://cloud.google.com/resource-manager/docs/project-suspe..."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Will customers’ bills increase? Decrease? The impact of the pricing changes depends on customers’ use cases and usage. While some customers may see an increase in their bills, we’re also introducing new options for some services to better align with usage, which could lower some customers’ bills. In fact, many customers will be able to adapt their portfolios and usage to decrease costs. We’re working directly with customers to help them understand which changes may impact them.There is a zero percent chance they haven&#39;t ran the analysis and concluded what % of customers would see a bill increase. It&#39;s high. If its low-to-zero, cloud companies are clear about how the prices are changing, and usually outline how many customers are would be negatively impacted. If it&#39;s high, they&#39;re ambiguous about what is changing, and shift the blame onto customers; if its still expensive for you, you&#39;re just not using it right."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">14 March 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -144,7 +595,7 @@ https://wiki.debian.org/PrivacyIssues"</p>
 							
 						
 							
-								<p class="story__comment_others">"This is delightful! I got stuck against the far right library wall after the research papers page and couldn&#39;t escape so I had to start over, but I adore the concept. That said, I&#39;m glad I don&#39;t need to navigate a site like this every time I need to find any information at all, because fun as that would be it would take way too long lol."</p>
+								<p class="story__comment_others">"Very cool. I would suggest implementing pathfinding with A* or a similar algorithm so that the character can walk around obstacles on the way to the point you click with the mouse."</p>
 							
 						
 						</a>
@@ -263,7 +714,7 @@ https://www.howtogeek.com/557929/how-to-see-and-disable-the-..."</p>
 							
 						
 							
-								<p class="story__comment_others">"If the Rust game dev aspect interests you, check out the Rust Game Dev podcast too. One of the co-hosts works on Veloren:https://rustgamedev.com/"</p>
+								<p class="story__comment_others">"I feel like some of the &#34;inspired by cubeworld&#34; stuff is a little too heavily inspired, but I really enjoyed taking a quick look at the source and logging in to check things out.Things seemed pretty clean, and because everything has source posted I was able to mess around with the apis, and try a few things against your services :) (hope I didn&#39;t set off any alarms lol). That said, what I&#39;m assuming is Sha256 could always be a bit tighter, consider a strength upgrade on those credentials.There&#39;s a bit of snobbery going on here for go / voxel hate, but I really enjoyed digging into a completely open source setup for something that is already a nice intro of game, services, and execution, well done :)"</p>
 							
 						
 						</a>
@@ -370,11 +821,11 @@ It looks like Roland took a cue from Google&#39;s Blob Opera: https://artsandcul
 						<a href="https://news.ycombinator.com/item?id=30663739">
 						
 							
-								<p class="story__comment_first line-clamp">"I setup newpipe this week thinking maybe I should wean myself off being logged into yt (I&#39;ve become disgruntled with its actions, and I don&#39;t want to contribute to it anymore). &#34;But I can&#39;t give up sponsorblock!&#34; I told myself. Ha.Vanced (and user made hax/mods) was a big reason I chose android. One more major reason lost. Soon I&#39;ll be back to walking around with a laptop as a my personal media player."</p>
+								<p class="story__comment_first line-clamp">"Surprised it took so long to be honest. It was so good and unlike with other youtube alternative clients, you basically had almost 1:1 feature parity over the official app. Plus you had the option to disable almost all the recent UI changes easily and a sponsorblock integration.It was much much more of a threat to Google than newpipe or less &#34;normie&#34; friendly alt clients, and it was getting too popular for it&#39;s own good. I&#39;m wondering if the current Vance releases will keep working for a while, or if Google will try to target those too by breaking something in their backend."</p>
 							
 						
 							
-								<p class="story__comment_others">"Surprised it took so long to be honest. It was so good and unlike with other youtube alternative clients, you basically had almost 1:1 feature parity over the official app. Plus you had the option to disable almost all the recent UI changes easily and a sponsorblock integration.It was much much more of a threat to Google than newpipe or less &#34;normie&#34; friendly alt clients, and it was getting too popular for it&#39;s own good. I&#39;m wondering if the current Vance releases will keep working for a while, or if Google will try to target those too by breaking something in their backend."</p>
+								<p class="story__comment_others">"NewPipe [1] is an open-source alternative, although latest versions of Vanced will supposedly keep working for the foreseeable future [2].[1]: https://newpipe.net/[2]: https://nitter.net/YTVanced/status/1503055442506915846#m"</p>
 							
 						
 							
@@ -700,11 +1151,11 @@ In addition, I:* rewrote `message` to be an acceptable error message displayed t
 							
 						
 							
-								<p class="story__comment_others">"I feel like there must be better mathematics books than those two if what you want is a taste of mathematics. What you get from Euclid is the idea of proofs from a set of axioms, but Euclid in the original is quite a painful way to get introduced to that. And I&#39;ve never understood the obsession with Spivak. Of all the calculus and analysis books I read, it definitely wasn&#39;t up there as anything special.Not sure what the best books are these days to give people a flavour of university style mathematics. I quite liked Introductory Algebra and Analysis by Geoff Smith when I was teaching first year mathematics years ago but I assume that was published 25 years ago so I imagine has been superseded."</p>
+								<p class="story__comment_others">"I would suggest Essense of Decision (https://en.wikipedia.org/wiki/Essence_of_Decision)Because when you&#39;re working on a larger software team, or even a small software team within a larger company, understanding how organizations actually understand the world and make decisions is invaluable.A person can drive themself crazy expecting groups of people to behave like a monolithic rational agent."</p>
 							
 						
 							
-								<p class="story__comment_others">"I would suggest Essense of Decision (https://en.wikipedia.org/wiki/Essence_of_Decision)Because when you&#39;re working on a larger software team, or even a small software team within a larger company, understanding how organizations actually understand the world and make decisions is invaluable.A person can drive themself crazy expecting groups of people to behave like a monolithic rational agent."</p>
+								<p class="story__comment_others">"I feel like there must be better mathematics books than those two if what you want is a taste of mathematics. What you get from Euclid is the idea of proofs from a set of axioms, but Euclid in the original is quite a painful way to get introduced to that. And I&#39;ve never understood the obsession with Spivak. Of all the calculus and analysis books I read, it definitely wasn&#39;t up there as anything special.Not sure what the best books are these days to give people a flavour of university style mathematics. I quite liked Introductory Algebra and Analysis by Geoff Smith when I was teaching first year mathematics years ago but I assume that was published 25 years ago so I imagine has been superseded."</p>
 							
 						
 						</a>
@@ -750,7 +1201,7 @@ I think it&#39;s best not to write something that damaging without proof, especi
 							
 						
 							
-								<p class="story__comment_others">"That&#39;s before installing OpenWRT!This kind of shenanigans make (once again) the case for 3rd party post market FLOSS firmware to be installed on every device I own. Sure, I spend some extra time researching which router/AP/phone/ereader/smart appliance will be compatible with OpenWRT/LineageOS/KOReader/Tasmota/ESPHome/etc., but I feel more confortable this way. I have more trust in a bunch of people doing this for owning their devices than some corporation whose goals clearly don&#39;t align with mine."</p>
+								<p class="story__comment_others">"This is why for home and small office use, I usually get AVM Fritz [1] network devices. They have been around for since forever, provide regular updates for their devices and over a long period. Their web interface allows for a lot of fine-grained configuration and their devices have been rock solid for me. They are a German company and as far as I know software development is also done in Germany, so I expect that they operate within the relatively strict privacy regulations of the EU.[1] https://en.avm.de"</p>
 							
 						
 						</a>
@@ -990,7 +1441,7 @@ controls."</p>
 							
 						
 							
-								<p class="story__comment_others">"I dislike how companies are not only pushing proprietary mesh networks, but also making them automatically enabled for their users and opt-out. It feels like the companies are piggybacking on my internet connection, hardware and electricity for free to literally power their closed network. I don&#39;t get paid a penny for it, but their shareholders sure do.Open mesh networks could be really cool, but instead of open networks, we get mesh networks that only allow Alexa to pump ads into your home, while excluding you, me and everyone else except Amazon and their partners from doing amazing things with the meshnets."</p>
+								<p class="story__comment_others">"There are some battery draining tricks you can do with Bluetooth apps on a phone to drain the device batteries.Essentially if you did a ton of device queries to every BLE device visible, you could drain the batteries of every device in range.  Transmission is probably a heavier battery drain so just making them talk to your phone creates drain.It’s a single device example, but in a bar once I was showing a co-worker once how you could see and interrogate a lot of BLE devices. I pinged someone’s Fitbit, and read that it only had 3% battery left.  Then it vanished. I’m pretty sure in the process of asking it to give me the info, it drained the battery."</p>
 							
 						
 						</a>
@@ -1982,7 +2433,7 @@ https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-sp...The National Bank
 							
 						
 							
-								<p class="story__comment_others">"The title presumed that the crew could have been rescued if NASA had recognized that reentry was impossible. But that&#39;s far from clear. This article goes into fascinating detail about how difficult it would have been to prepare a rescue mission on time: https://arstechnica.com/science/2016/02/the-audacious-rescue...One huge issue, beyond whether a rescue mission would&#39;ve been possible, is whether it would&#39;ve be ethical. If NASA knew that Columbia was stranded in orbit, then it would be knowingly sending a second crew up on a vehicle with the exact same potential problem, with no time to mitigate it. I&#39;m sure a rescue crew would&#39;ve volunteered despite the risks, but anyway the point is that &#34;the slide that killed seven people&#34; is erasing all of these questions."</p>
+								<p class="story__comment_others">"Diane Vaughn&#39;s The Challenger Launch Decision misattributes responsibility for the disaster to the meeting in which a similar slide was shown.When the shuttle design was finalized in the late 1970s they knew it had a 2-3% chance of a hull loss per launch.  They were still planning to launch it 50 times a year so that would have meant losing a shuttle and crew every year!The shuttle had hundreds of critical flaws and that &#39;normalization of deviance&#39; meeting at which slides like this were shown at was a routine part of each shuttle launch.  For each of these unacceptable situations they had to convince themselves that,  with some mitigation (or not), they could accept it.  It was inevitable that something like this was going to happen and then there would be recriminations about the details of that meeting.Every other crewed space vehicle had an escape system to get the crew away from a failed rocket.  The Challenger crew survived the explosion but were killed when the reinforced crew section hit the ocean.  Similarly the Colombia astronauts were killed by a thermal protection system that was &#34;unsafe at any speed&#34;.  When the first few shuttles were launched there was a huge amount of concern about tiles breaking and coming off.  Once they&#39;d dodged the bullet a few times they assumed it was alright but it wasn&#39;t...In the literature &#34;normalization of deviance&#34; has turned from a formal process used in managing dangerous technology to incidents such as:  surgeon takes a crap and goes to work without washing his hands,  forklift operator smokes pot and operates, etc."</p>
 							
 						
 						</a>
@@ -3550,400 +4001,6 @@ I tried to find it to go see again ever since, but I could never get a clear sch
 						
 							
 								<p class="story__comment_others">"Protracted wars (i.e. long slow wars via hit-and-run and guerilla warfare) have been very successful in past to topal the mighty powers by far weaker forces. However, in recent times, I feel they are becoming much less effective. The electronic surveylence and automated targetting makes such warfare much difficult. This is especially the case because, (1) the ruling power will eventually control all communication and remove any free speech, (2) they will constantly find and kill leaders through electronic means which are now amazingly effective.A much better defensive route is probably mandatory militery training of all able citizens. Eventually, most professional armies are in the size of million at most and only 100,000 or so get deployed. If you have a million citizens with militery training, you are way harder to beat."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">05 March 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://arstechnica.com/information-technology/2022/03/cybercriminals-who-breached-nvidia-issue-one-of-the-most-unusual-demands-ever/">
-						<picture>
-							<source srcset="default_30550028.webp" type="image/webp">
-							<source srcset="default_30550028.png" type="image/png">
-							<img src="default_30550028.png" alt="Preview of 'Cybercriminals who breached Nvidia issue one of the most unusual demands ever'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://arstechnica.com/information-technology/2022/03/cybercriminals-who-breached-nvidia-issue-one-of-the-most-unusual-demands-ever/">Cybercriminals who breached Nvidia issue one of the most unusual demands ever</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30550028">
-						
-							
-								<p class="story__comment_first line-clamp">"A bit off-topic, but the fact that criminals asked for help mining, instead of money or crypto-money, just gave me an epiphany:The whole internet is showing the first signs of a digital Resource Curse [1] brought by crypto mining. Crypto mining changed the economics of the digital world in such a drastic way that it is poisoning all kinds of internet interactions. It is not just about disrupting how money used to work, it is disrupting every kind of interaction, even those that had nothing to do with money. Things that were completely economically neutral before, so people did them just for fun, can now be exploited to extract value, so naturally some people do it and the previous innocent/neutral status quo is lost. For example: most free unix shell providers, a fun tradition from nerds from the 90s, had to shut down because now there is such a big economic incentive to abuse such free service.And while writing above I realized that crypto is probably the second internet curse, with Google&#39;s algorithm being the first. When Google became the near-monopoly in the early 2000s, linking to a website ceased to be an economic neutral activity, people realized they could extract value from linking, so link spam became a big problem and forever changed the web.[1] https://en.wikipedia.org/wiki/Resource_curse"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; So, NVIDIA, the choice is yours! Either: Officially make current and all future drivers for all cards open source, while keeping the Verilog and chipset trade secrets... well, secret OR Not make the drivers open source, making us release the entire silicon chip files so that everyone not only knows your driver&#39;s secrets, but also your most closely-guarded trade secrets for graphics and computer chipsets too!Interesting. Someone got really fed up with them. I don&#39;t think their binary blob ever made them any friends."</p>
-							
-						
-							
-								<p class="story__comment_others">"There are two scenarios where carrying out their threat plausibly helps the open source community:1) A source drop demonstrates that Nvidia incorporated GPLed code into their drivers. This is, honestly, unlikely - Nvidia has sufficiently competent lawyers to ensure that everyone they employ is extremely aware of what the consequences of that would be2) The source drop includes the private keys used to sign Nvidia GPU firmware blobs. Nouveau is currently entirely hamstrung on the last few generations of Nvidia cards because they run extremely slowly unless appropriate signed firmware is loaded, and Nvidia refuse permission to distribute that firmware. I&#39;m not aware of any case law around whether private keys are copyrightable (I&#39;d assume not, given that they&#39;re supposed to be randomly generated), and whether it&#39;s a DMCA violation to make use of leaked keys if you don&#39;t violate any other technical protection mechanisms. This would potentially (given a lot of work) allow Nouveau to implement equivalent firmware and sign it, but this would presumably still just result in Nvidia switching to different keys for the next architecture.Obviously the calculation differs if Nvidia choose under duress to release the drivers under an open source license, but that doesn&#39;t seem likely - this still very much reads as an attempt to extort Nvidia into removing restrictions on crypto mining rather than an earnest attempt to improve open source support for their hardware."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.tampafp.com/youtube-suspends-the-hills-channel-for-playing-clip-of-donald-trump-denying-election-results/">
-						<picture>
-							<source srcset="default_30562131.webp" type="image/webp">
-							<source srcset="default_30562131.png" type="image/png">
-							<img src="default_30562131.png" alt="Preview of 'YouTube suspends The Hill for playing clip of Trump denying election results'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.tampafp.com/youtube-suspends-the-hills-channel-for-playing-clip-of-donald-trump-denying-election-results/">YouTube suspends The Hill for playing clip of Trump denying election results</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30562131">
-						
-							
-								<p class="story__comment_first line-clamp">"The UK is leading the charge for legislation [0] to force platforms to impose certain types of censorship. Youtube and the others are just getting ahead of curve. They have known what&#39;s coming since they were invited into No. 10 to discuss these issues with Theresa May and Amber Rudd in 2017.The legislation is based on the principle that everyone has the right to say what they want to say, but they have no right to be heard by others. This phraseology was used by several during the recent committee hearings, including by Facebook employees for example. So it will effectively enshrine in law: shadow banning, delisting from Google search etc.Also enshrined in the legislation is the principle of banning content which is &#39;legal but harmful to adults&#39;. &#39;Harmful&#39;, amongst many other terms, is not defined.Also enshrined in law will be the principle that certain types of &#39;journalistic&#39; content will be protected from this censorship if it meets criteria to be decided upon by the new regulator, Ofcom.This will be an enabling act. It is full, from front to back, of opportunity for scope creep through secondary legislation.As I said, the UK is leading the charge with this, but the EU has been keeping pace [1]. I haven&#39;t seen similar in the US as of yet.[0] - https://www.gov.uk/government/publications/draft-online-safe...
-[1] - https://ec.europa.eu/info/digital-services-act-ensuring-safe..."</p>
-							
-						
-							
-								<p class="story__comment_others">"After the mid-terms, any Section 230 protection these companies have is going bye-bye. Any kind of active moderation of perfectly legal speech through &#39;terms of service&#39;/&#39;community standards&#39; will remove any common-carrier liability shield.Actions like this have turned this into political red meat for some. These companies really need to learn how to read the room. Ratcheting downward the ability of people to freely use these platforms just feeds into whatever persecution complex they have, and justifies it. You don&#39;t get rid of bad ideas by allowing them not be spoken no matter how well meaning you are."</p>
-							
-						
-							
-								<p class="story__comment_others">"Fuck YouTube.  If they&#39;re going to control what news I get, I&#39;ll choose other than YouTube.  I do not need them.  I have read from both hard left and hard right, and am intelligent enough to make my own decisions about what makes sense.  Let them play their games, whether silly or dangerous.  I form my own opinions.  Losers!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://support.google.com/docs/thread/150905607/google-docs-new-feature-pageless?hl=en">
-						<picture>
-							<source srcset="default_30552142.webp" type="image/webp">
-							<source srcset="default_30552142.png" type="image/png">
-							<img src="default_30552142.png" alt="Preview of 'Google Docs New Feature: Pageless'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://support.google.com/docs/thread/150905607/google-docs-new-feature-pageless?hl=en">Google Docs New Feature: Pageless</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30552142">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m in the business of building an online word processor - https://www.zoho.com/writerIt&#39;s interesting how the documents industry is moving from print oriented legacy softwares (Google Docs, Word) to block based, app-ish, smart canvases (Notion, Coda, etc).Also both Microsoft &amp; Google have adopted completely different strategies to compete in this market. Microsoft launched Loop as an entirely new app while Google is incorporating these blocks as smart chips in Google Docs itself. Both strategies have their own pros and cons.My bet is on Google Docs style, because this means a group that&#39;s already invested in traditional document making skills (legal professionals, academic professionals, etc) will be able to incrementally step up their game without their workflow being completely destroyed. Sure, this will slow down the pace with which Google Docs can innovate and evolve - but overall it helps the older generation to smoothly transition over to the new age document editing, which is great."</p>
-							
-						
-							
-								<p class="story__comment_others">"A &#34;pageless document that lives online&#34; is also known as... a web page.Instead of creating web pages in html, css, and js, people will now create them using familiar &#34;word processing&#34; and &#34;spreadsheet&#34; apps on Google Drive.And these web pages come with nice fine-grained access controls -- authors can specify who is able to view, comment on, and edit their documents with a few clicks.Makes perfect sense."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; If your document contains elements like footnotes, headers and footers, or watermarks, and it is converted to pageless, those elements will not be visible.Headers and footers are print-oriented, but losing footnotes is not ok. They could have displayed on the side, or highlighted in some way to display on mouse over or click. Whatever, just make them available..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://developer.chrome.com/blog/canvas2d/">
-						<picture>
-							<source srcset="default_30553585.webp" type="image/webp">
-							<source srcset="default_30553585.png" type="image/png">
-							<img src="default_30553585.png" alt="Preview of 'It&#39;s always been you, Canvas2D'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://developer.chrome.com/blog/canvas2d/">It&#39;s always been you, Canvas2D</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30553585">
-						
-							
-								<p class="story__comment_first line-clamp">"I have been building a Canvas diagramming library since 2010 (https://gojs.net), if anyone has any questions about 2D Canvas use in the real-world I&#39;d be happy to answer them.roundRect is great. Though you don&#39;t need 4 arcTo in order to make a rounded rect, you can use bezier instead (we do). Their example is also 1% amusing because they set the `fillStyle` but then call `stroke` (and not `fill`). I&#39;ll have to do some performance comparisons, since that&#39;s the operative thing for my use case (and any library author).text modifiers are very welcome. It&#39;s crazy how annoying measuring still is, especially if you want thinks to look perfectly consistent across browsers. Though the chrome dominance is making things easier in one way, I guess.context.reset is kinda funny. Most high-performance canvas apps will never want to use it. For that matter you want to set all properties as little as possible, especially setting things like context.font, which are slow even if you&#39;re setting it to the same value. (Or it was, I haven&#39;t tested that in several years).I&#39;m sure most users know this by now, but generally for performance the fewer calls you make to the canvas and the context, the beter. This is even true of transforms: It&#39;s faster to make your own Matrix class, do all your own matrix translation, rotation, multiplication, etc, and then make a single call to `context.setTransform`, than it is to call the other context methods.One of the greatest things to happen to 2D canvas in all these years was hardware acceleration. It used to be significantly slower. (You could switch to WebGL canvas, but at a cost of complexity and all kinds of annoyances rendering text, and if you had a lot of text it often wasn&#39;t worth it.) Thinking back, I&#39;m also a little disappointed that after the death of Flash, it felt like Canvas never really took its place. The playful web that came before it in some ways simply closed up."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Rounded rectangles: the cornerstone of the internet, of computing, nigh, of civilization.That isn&#39;t wildly exaggerated if this story is true:https://www.folklore.org/StoryView.py?story=Round_Rects_Are_..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll add some of my thoughts about this article&#39;s take on latest Canvas2D developments.1. ctx.roundRect() - is a nice addition to the 2D stable of shapes, fitting alongside other recent additions like ctx.ellipse(). I was a little disappointed that the example of how to achieve this using existing functionality relied on a set of .moveTo, .lineTo and .arcTo instructions; the article misses a trick by not mentioning that we can also use an SVG path.d string to define a Path2D object and use that to fill/stroke the shape. Note: I can&#39;t find mention of .roundRect() in the MDN documentation.2. Canvas Conic gradients have been supported in both Firefox and Safari for a while now. Good to see it arriving in Chrome. To complete the set of gradients, it would also be nice to see support for ports of the CSS repeating-linear-gradient() and repeating-radial-gradient() into the Canvas API.3. Text modifiers - text has always been an over-simplistic mess in the Canvas2D API. In theory a user should be able to use ctx.font to load a valid CSS font string (including all the supported font size lengths, etc) and have the text rendered as expected; sadly the implementations between various browsers are all over the place. In my dreams I hope that one day we will be able to set a width/justification and have the text string broken into lines while respecting those requirements. Browsers do it already for DOM/CSS layout and rendering - I wonder how difficult it would be to tap into that functionality rather than having to reinvent it for 2D canvases?4. context.reset() - nice!5. Filters - SVG filters are massively powerful, yet also difficult to master. We can already build some really complex filters in SVG and reference them in the Canvas2D context; I also like the way we can add CSS filter strings to the context (eg for a nice, easy-to-understand and performant blur effect). The article mentions a `ctx.filter = new CanvasFilter([])` construction, but I can&#39;t find CanvasFilter in the MDN documentation."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://leafletjs.com/index.html">
-						<picture>
-							<source srcset="default_30551006.webp" type="image/webp">
-							<source srcset="default_30551006.png" type="image/png">
-							<img src="default_30551006.png" alt="Preview of 'Leaflet was created 11yrs ago by Vladimir Agafonkin, a Ukrainian citizen in Kyiv'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://leafletjs.com/index.html">Leaflet was created 11yrs ago by Vladimir Agafonkin, a Ukrainian citizen in Kyiv</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30551006">
-						
-							
-								<p class="story__comment_first line-clamp">"Vladimir Agafonkin here. Thanks for posting this! I&#39;ll be happy to answer any questions about Russia&#39;s invasion of Ukraine and current Ukrainian reality here whenever I get the chance."</p>
-							
-						
-							
-								<p class="story__comment_others">"There are also other Ukrainian companies you know and products you use. My top pick is Grammarly - IMHO by far the best automatic proofreader, both when it comes to suggestions and its UI.GitLab is another one."</p>
-							
-						
-							
-								<p class="story__comment_others">"Ah, good to see it here. Needs the signal boost.I was on the fence on donating in the first days of the conflict, but when I saw this it firmly pushed me over the edge. We&#39;ve been using leaflet for free in our product for quite some time, and I think it would be a dick move to ignore this plea in the current context."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/TrungNguyen1909/qemu-t8030">
-						<picture>
-							<source srcset="default_30545425.webp" type="image/webp">
-							<source srcset="default_30545425.png" type="image/png">
-							<img src="default_30545425.png" alt="Preview of 'iPhone 11 Emulated on QEMU'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/TrungNguyen1909/qemu-t8030">iPhone 11 Emulated on QEMU</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30545425">
-						
-							
-								<p class="story__comment_first line-clamp">"from https://mobile.twitter.com/ntrung03/status/14992749382173818...
-iOS QEMU fork is just published.
-Some notable features:
-- iOS Restore
-- S8000 SecureROM emulation (always FORCE_DFU)
-- USB
-- SPRR/GXF emulationTutorial/status can be found in the wiki section,
-e.g. https://github.com/TrungNguyen1909/qemu-t8030/wiki/Bringing-...It is still very far from a usable device:
-https://github.com/TrungNguyen1909/qemu-t8030/wiki/Project-s..."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those that don’t know about it, you can find a fairly complete commercial iPhone emulator at Corellium: https://www.corellium.com/It does essentially everything, short of hardware accelerated renderingYou can even emulate it being attached directly to your Mac and use it as a cloud device from Xcode"</p>
-							
-						
-							
-								<p class="story__comment_others">"With this, would it finally be possible to test iOS apps without having to first buy into the Apple ecosystem? Seems super helpful for developers, security testing, etc."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://huemint.com/">
-						<picture>
-							<source srcset="default_30529262.webp" type="image/webp">
-							<source srcset="default_30529262.png" type="image/png">
-							<img src="default_30529262.png" alt="Preview of 'Show HN: Huemint – Machine learning for color design'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://huemint.com/">Show HN: Huemint – Machine learning for color design</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30529262">
-						
-							
-								<p class="story__comment_first line-clamp">"Also, here&#39;s a writeup on how the machine learning system works: https://huemint.com/about/#machine-learningYou can guide the ML model by locking one or more colors, then clicking generate again. (click the circular swatch on top to lock a color)"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is really nice! It&#39;d be nice if the colors picked were saved in the url, so that you can use history to navigate the different patterns generated."</p>
-							
-						
-							
-								<p class="story__comment_others">"I’ve used multiple color palette generators and this is definitely one of the best. Besides the ML, showing the colors on images like a phone and real web pages is really impressive.My one suggestion is since you have Bootstrap support, maybe add TailwindCSS utility support as well"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://tidbits.com/2022/03/03/never-change-your-password/">
-						<picture>
-							<source srcset="default_30554714.webp" type="image/webp">
-							<source srcset="default_30554714.png" type="image/png">
-							<img src="default_30554714.png" alt="Preview of 'There’s no need to change passwords if they&#39;re robust, unique and not breached'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://tidbits.com/2022/03/03/never-change-your-password/">There’s no need to change passwords if they&#39;re robust, unique and not breached</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30554714">
-						
-							
-								<p class="story__comment_first line-clamp">"I feel like this post was intended to inflame or shock the reader with the writers stance on password policy. But anyone who has been in security for more than 1 month knows that regular password rotation has not been a recommendation for over 5 years. Both NIST, and MS have been trying to get the world to move to long, never rotated password, so long as those passwords are dictionary checked.Every company (all 3 of them) I have worked at within the last 10 years, the IAM team has already implimented, or was working on implimenting a system that removed regular rotation, special chars and number requirements, and relied on three things: Length, a dictionary check at the time of pass creation, and routine dictionary attacks against the credential store. This started 10 years ago, for someone to make the same claims now, is not a shock.Please note that if you are unable to impliment such an IAM system, especially the inability to dictionary check the credentials against known lists (seclists&#39; github is great for this), then length plus regular rotation is still the recommendation"</p>
-							
-						
-							
-								<p class="story__comment_others">"One missed point, the advice is even slightly better than they argue, since they only argue that it&#39;s not necessary to change it, which is just an argument of convenience.But updating a password is itself an attack surface. More so than merely using it to log in.It&#39;s one of the times where an attacker may be tricking you into giving it to them, either by a fake page or app dialog, or in concert with maybe they have a way to receive the verification email or text.Also it&#39;s a less frequent operation, meaning it&#39;s easier to fake. You are more likely to notice any tiny discrepency and detect a fake in the way your normal login screen looks than some account management screen.Basically updating a password is a riskier action than the normal daily use of the same password.And that alone is it&#39;s own even stronger argument for avoiding doing it unnecessarily."</p>
-							
-						
-							
-								<p class="story__comment_others">"In the USA, the latest government guidance from Jan 2022 is that &#34;Password policies MUST NOT require use of special characters or regular rotation&#34;. [1] This is a strong upgrade from earlier softer language like &#34;don&#39;t have to/should not&#34;.In practice, this new rule contradicts almost every InfoSec stance out there, but all government agencies must comply with this new rule by the end of the year, so expect lots of conversations and changes.[1] https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-0...
-Approachable summary at https://www.bastionzero.com/blog/i-read-the-federal-governme..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.qsl.net/9a4qv/WiFi_Ri.htm">
-						<picture>
-							<source srcset="default_30541576.webp" type="image/webp">
-							<source srcset="default_30541576.png" type="image/png">
-							<img src="default_30541576.png" alt="Preview of '43 km line of sight with USB WiFi stick (2005)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.qsl.net/9a4qv/WiFi_Ri.htm">43 km line of sight with USB WiFi stick (2005)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30541576">
-						
-							
-								<p class="story__comment_first line-clamp">"As always with radio, it&#39;s mostly about unobstructed line of sight and the gain in your antenna system.We&#39;re still in communication with Voyager 1, which is operating on a grand total of about 20W of RF power; and is currently about 14.5 billion miles away."</p>
-							
-						
-							
-								<p class="story__comment_others">"An easier to find link that shows how to make the home-brewed antenna for those interested in trying it out for themselveshttps://flylib.com/books/en/2.434.1/hack_83_make_a_deep_dish..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I want this to be part of a Hollywood movie. The protagonist is using his makeshift wifi setup to hack into a bank computer systems 43Km away from his location, and the bank people has no idea what is going on."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.nytimes.com/2022/03/03/business/media/new-york-times-tech-union.html">
-						<picture>
-							<source srcset="default_30548508.webp" type="image/webp">
-							<source srcset="default_30548508.png" type="image/png">
-							<img src="default_30548508.png" alt="Preview of 'New York Times tech workers vote to certify union'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.nytimes.com/2022/03/03/business/media/new-york-times-tech-union.html">New York Times tech workers vote to certify union</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30548508">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m surprised they weren&#39;t already in one.  I worked at a competitor (the Wall St. Journal) years ago and all software engineers there had to be part of the union.Unions in the news industry are extremely common and powerful.My subjective experience with it was that union membership was mostly inconsequential for developers.  The market for programmers is so strong that people would just leave if they weren&#39;t treated well or compensated fairly."</p>
-							
-						
-							
-								<p class="story__comment_others">"The general resistance in this thread is something. Every day on here we all find issues with the industry as a whole, have complaints, identify negative patterns grounded in investment goals or profit. A huge majority of people on here agree: there are problems and things as a whole need to change.Its not &#34;what use is a union to me&#34;, it is that there is an ethical imperative to try and fight against the destructive force of profit seeking itself, when left unchecked. It is about giving agency to the only force that can stand opposed to those destructive forces."</p>
-							
-						
-							
-								<p class="story__comment_others">"I need the long German word for “however this plays out, it will be used as a spurious example either for or against some extreme position”.If it works out, great - that hardly means unions are a foolproof idea - and if it fails it’s hardly a condemnation of unions themselves. And yet, it will be interesting to see how this plays out!"</p>
 							
 						
 						</a>
