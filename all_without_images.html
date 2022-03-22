@@ -36,13 +36,320 @@
 	</div>
 
 	
+	<div class="day__date">22 March 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://ruudvanasseldonk.com/2022/03/20/please-put-units-in-names">Please put units in names</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30749134">
+						
+							
+								<p class="story__comment_first line-clamp">"Built-in unit types are underrated. F# has them. Other languages should seriously consider adding them, despite the fact that feature bloat is a serious language problem and they&#39;re relatively niche: they are that useful, and I honestly don&#39;t think they would interfere much with other features.Something like:    unit type Meters = m
+    unit type Seconds = s
+
+    function sleep(time: Int[s]): void
+
+    val speed = 5.4 m/s // Type = Float[m/s]
+    val distance = parseFloat(prompt(&#39;enter time&#39;)) * 1 m // Convert unitless to meters just by multiplying
+    val time = distance / speed // Type = Float[s]
+    print(&#34;${time}&#34;) // Prints &#34;# s&#34;
+    print(&#34;${time / 1 s} seconds&#34;) // Prints &#34;# seconds&#34;
+
+    val complexUnit = 7 * 1 lbf/in2 // 7 lbf/in2
+    // != 7 psi (too hard to infer) but you can write a converter function
+    function toPsi&lt;N : Numeral&gt;(value: N[lbf/in2]): N[psi] {
+        return value * 1 psi*in2/lbf
+    }
+
+It requires extending number parsing, type parsing (if the brackets aren&#39;t already part e.g. in TypeScript), and extending types to support units of measurement at least if they are statically known to be subtypes of `Numeral`.Naming variables with their units doesn&#39;t solve the issue of mis-casting and using units incorrectly, and newtypes are too inconvenient (and sometimes impossible without affecting performance) so nobody uses them. Even as a very software-focused programmer I encounter units like seconds, bytes, pixels, etc. all the time, they are almost never newtypes, and I get bugs from forgetting to convert or converting incorrectly."</p>
+							
+						
+							
+								<p class="story__comment_others">"I used to work at a company with two database fields, speed_kmph.The documentation read &#34;speed_kmph - This field contains the travelling speed in MILES PER HOUR - please do not be confused by the name&#34;.Woo, great job guys."</p>
+							
+						
+							
+								<p class="story__comment_others">"Java and Kotlin have a nice Duration class. So in Kotlin you can do  delay(duration = Duration.ofMinutes(minutes = 1))
+
+which is equivalent to  delay(timeMillis = 60_000)
+
+Using the optional argument names here for clarity; you don&#39;t have to of course.Sticking with the JVM, a frequent source of confusion is the epoch. Is it in millis or in seconds? With 32 bit integers that has to be seconds (which will set you up for the year 2038 problem). However, Java always used 64 bit longs for tracking the epoch in milliseconds instead even before the year 2000 problem was still a thing. Knowing which you are dealing with is kind of relevant in a lot of places; especially when interfacing with code or APIs written in other languages with more 32 bit legacy.Things like network timeouts are usually in milliseconds. But how do you know this for sure? Specifying, them in seconds means that there&#39;s less risk of forgetting a 0 or something like that. So, using seconds is pretty common too. You can&#39;t just blindly assume one or the other. Even if you use the Duration class above, you&#39;d still want to put the magic number it takes as a parameter in some configuration property or constant. Those need good names too and they should include the unit."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/LinManuelRwanda/status/1505646738627088389">Sumerian dog jokes, or the difficulty of translating dead languages</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30752942">
+						
+							
+								<p class="story__comment_first line-clamp">"These translation issues will be familiar to anybody learning a current, very much alive language, especially if you&#39;re reading informal forums (say, Youtube comments). You have the same types of abbreviations, more-or-less voluntary misspellings and jokes or references that only make sense from a certain cultural standpoint.I&#39;m sure most foreign language students will sympathize with the very frustrating and demoralizing situation where you read a sentence, understand every single word but you still have absolutely no idea what it&#39;s trying to convey because you&#39;re missing some idiom, reference or alternative meaning of one of the words.For the English monolinguals reading this, imagine studying English and stumbling upon the sentence &#34;I fell for her&#34;, except that you only know the literal meaning of the verb &#34;to fall&#34; so while you understand the words in isolation the sentence remains completely opaque and meaningless to you."</p>
+							
+						
+							
+								<p class="story__comment_others">"For anyone interested in learning Sumerian, there is really nice introduction &#34;Learn to Read Ancient Sumerian&#34;[0] by J. Bowen and M. Lewis, which gives you rough ability to understand some grammar and also read cuneiform. It&#39;s extremely niche topic and I can guarantee that you&#39;ll have absolutely no use for this knowledge[1], but if you&#39;re into learning exotic languages, this can be fun. At least it was for me.[0] https://www.amazon.com/Learn-Read-Ancient-Sumerian-Introduct...[1] To some extent you can see the same cuneiform symbols in later Akkadian texts, but forget about the grammar."</p>
+							
+						
+							
+								<p class="story__comment_others">"Neil Postman: &#34;Puffs of smoke are insufficiently complex to express ideas on the nature of existence, and even if they were not, a Cherokee philosopher would run short of either wood or blankets long before he reached his second axiom. You cannot use smoke to do philosophy. Its form excludes the content.”Every time I see a Twitter post like this, I remember this quote."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/stevenpemberton/status/1505839184287870981">CSS&#39;s !important was added because of laws about font size for some text</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30757259">
+						
+							
+								<p class="story__comment_first line-clamp">"Engineering is doing what you can with what you&#39;ve actually got. If what you&#39;ve actually got is an inherited tremendous ball of spaghetti css, a need to change just one thing on the page, and scant prospects for future changes in the area, then it may be good engineering to use &#34;!important&#34; to make your change over a more complex solution. This is in fact the situation I find myself in at work somewhat often, although luckily I can&#39;t recall the last time I had to use &#34;!important&#34;. But I wouldn&#39;t issue a blanket disendorsement of it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think one concept that&#39;s slowly coming into focus for me is just how many  engineers want you to experience _their_ experience and spend your time reveling at how clever _their_ stuff is. As if they think you wake up and want to do CSS work.  CSS is not the goal. The website I&#39;m building isn&#39;t even the goal. The goal is to solve some problem.Everything that I have to do to solve that problem is an unfortunate (but inevitable) reality.  But let&#39;s be clear: the goal is to minimize as close to zero, how much time you have to spend doing these things.CSS, like all code, is a total liability. I want to spend as little time designing and writing it as possible. Which is why I hate CSS: it demands you know the exact current and future (hahahaha) structure of your webpage. `!important` is not some panacea, but I cackle at the ignorance of suggesting that the user is wrong for misusing it."</p>
+							
+						
+							
+								<p class="story__comment_others">"What&#39;s the source for this, I do see they&#39;re the CSS co-designer, was this requirement originally written somewhere?  I&#39;m looking at the description of important, and I don&#39;t see this intention carried through.https://www.w3.org/TR/css-cascade-5/#importanthttps://www.w3.org/TR/css-cascade-5/#importanceIf the intention is indeed as described, then the CSS designers failed to communicate it properly, and not &#34;a sign you may not understand the cascade properly.&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=30750710">Tell HN: Gnome on Wayland Is Amazing</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30750710">
+						
+							
+								<p class="story__comment_first line-clamp">"My experience is very similar. I tried the first iterations of Gnome 3 and was very disappointed.At some point I tried Windows+WSL but that was a complete disaster.A couple of years ago I decided to try Fedora+Gnome+Wayland. It is an outstanding experience. Everything is smooth, the UI is beautiful. Now with PipeWire and Libadwaita things are getting even better. After some stagnation, the Linux desktop is gaining momentum again.There are a lot of hate comments for Gnome in this post. My advice for those reading is: Try it for yourself! Most of the haters haven&#39;t used Gnome since 2004. Just try it!"</p>
+							
+						
+							
+								<p class="story__comment_others">"It is unfortunate that so many of the early comments are negative. Either Wayland is the future, or something that learns from Wayland&#39;s mistakes and leverages its ideas is. There is a really fertile field right now for experimentation in the world of compositors but I think people have been scared away by the long dark era of X Windows + binary graphics drivers. Maybe we&#39;re going to see a lot more of it on HN in the next decade?What kept me off Wayland was the screenshots thing, but the argument in favour of the idea is strong. The downside is Wayland&#39;s conception of permissions and interactions is too basic and crippled adoption for a few years but the fundamentals (blocking cross-application snooping) is going to be necessary. Operating systems have to be less trusting."</p>
+							
+						
+							
+								<p class="story__comment_others">"I had to go back to GNOME on Xorg. GNOME on Wayland won&#39;t run my 4k display at a consistent 60Hz, which results in horrible issues in games and emulators, as well as massive numbers of dropped frames in 50/60Hz videos. It is set to run at 60Hz in the display settings, but actually seems to run somewhere in the 50s.The easiest way to see this is checking the &#34;stats for nerds&#34; while watching a 60fps YouTube video and noting the persistent dropped frames. glxgears also doesn&#39;t maintain a consistent framerate.This doesn&#39;t happen in Sway, so I can only assume there is some bug in Mutter that has persisted across several versions of GNOME and Fedora. So Wayland might be great, but my experience with GNOME on it has not been."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://theprint.in/tech/two-minute-battery-changes-push-indias-delivery-riders-to-switch-to-e-scooters/881609/">Two-minute battery changes push India’s delivery riders to switch to e-scooters</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30758811">
+						
+							
+								<p class="story__comment_first line-clamp">"When I was in Taiwan we saw Gogoro scooters in the wild.  The battery is swapped at a kiosk in a couple of minutes.  Riders pay a subscription for the scooter and access to the battery kiosk.Seems like a really great option.  I would love to have that in my city.  We have dockless bicycles and scooters but a more capable and personal option would be awesome.  I&#39;d sign up in a heartbeat.Sadly my city planners do not seem aware of motorcycles as a transportation option.  We have no laws or infrastructure to encourage them or take advantage of the benefits.  At a state level we at least get to cut ferry lines, but that seems to be the only perk."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wonder if the electric car market (i.e. Tesla) is ripe for disruption.I read the article and thought back to the demo [1] Tesla did years ago of automated battery swap.  Tesla did it as a stunt; they publicly stated that they didn&#39;t plan to market that.As a Tesla owner, I don&#39;t want battery swap as long as I am paying for the battery as part of the price of the car.  I&#39;d be worried that my brand new max-range battery would be swapped with old worn-out batteries, and I would feel like I lost value.However, on road trips, I would much prefer a 5-10 minute battery swap over supercharging (which they no longer give me for free).  The electric car experience would essentially be the same as the IC experience.If Tesla (or someone) sold me a car without a battery, and I had to buy a battery &#34;subscription&#34;, I might go for that.  I&#39;d get a huge discount off the base price of the car, and now I wouldn&#39;t be concerned about swapping since it&#39;s not my battery.  I&#39;d do my normal day-to-day as usual, and on road trips or unexpected usage, I could swap out in minutes.  I could get on board with that.[1] https://www.youtube.com/watch?v=H5V0vL3nnHY
+ed: added video link"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34; She has to recharge three lithium-ion batteries — which give a combined range of 80 kilometers (50 miles) — in her auto rickshaw twice every five-hour shift.&#34;So you have to use three sets of batteries for 80kms. Sorry, but I would still use gas."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://meldmerge.org/">Meld is a visual diff and merge tool targeted at developers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30741123">
+						
+							
+								<p class="story__comment_first line-clamp">"As a long time Sublime Text[1] user, I&#39;ve been using Sublime Merge[2] since the day it&#39;s been launched and it brings me the same speed and minimalism I get with Sublime Text and has evolved quite a lot to be able to do most things I need in a merge tool.Not affiliated with them in any way by the way.[1] https://www.sublimetext.com/
+[2] https://www.sublimemerge.com/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Another fan of Beyond Compare here, but I want to point out something everyone else has missed so far, which is that BC is great for comparing all sorts of files, not just code.For example, I use its &#34;Table Compare&#34; feature to compare log files from different machines, sorted by timestamp.  This lets me easily see the order of operations in a distributed system."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been using Meld since years ago, and it&#39;s my default go-to diff viewer. The visual style they implemented helps me a lot to reason about how lines have been added or deleted from documents in the side by side comparison. Very neat!The directory contents tree diff is also really useful.I wish they made it even easier the basic case of comparing aribtrary text. Maybe it should be the default mode after opening the program, instead of having to click on a couple buttons, because I use it a lot to manually paste pieces of text. For example, logs from a server during testing, to compare what went different between runs.Another welcomed addition would be &#34;ignore masks&#34;. Some kind of regex input that could be used to quickly tell Meld which parts of the text to skip comparing. That way, comparison of log files could be made where a timestamps column would be ignored."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://myfox8.com/news/north-carolina/high-point/its-apparently-easy-to-bypass-a-gas-pump-and-steal-400-gallons-or-more/">Gas pumps happen to be about as insecure as your typical router</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30733337">
+						
+							
+								<p class="story__comment_first line-clamp">"The Arizona Petroleum Marketers Association has a pretty good document[0] on current skimmers and fuel theft methods:[0] https://apma4u.org/wp-content/uploads/2012/06/Crompco-Update..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Once I scanned barcodes from a competing store rewards program into a PointOfSale terminal of a grocery store. The machine promptly shutdown.  Sometimes I wonder if that was a failure mode to prevent attacks or a lack of sanitizing inputs."</p>
+							
+						
+							
+								<p class="story__comment_others">"Seems like this is blogspam of https://myfox8.com/news/north-carolina/high-point/its-appare..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://beny23.github.io/posts/on_weaponisation_of_open_source/">On the Weaponisation of Open Source</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30726098">
+						
+							
+								<p class="story__comment_first line-clamp">"In my opinion, these changes are effectively supply-chain attacks in their execution. That would make them bad regardless of how correct their expressed positions are about the Ukraine war.The fact that there has not been a strong push back confirms my suspicion that by now, everyone has gotten used to Node and NPM being insecure and silently accepted it as a way of life. Similarly, those Terraform scripts are apparently esoteric enough to only be used by a tiny minority of software developers, or else we would have heard about it in a different way.Thank god nobody did similar shenanigans to open source projects that are actually in wide use :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Also: when ‘colors’ and ‘faker’ packages printed stuff in the output in an endless loop, NPM and Github banned the author and took over the packages.When ‘node-ipc’ overwrote all files on disk, NPM just waited while the author himself published an amendment and posted that the package ‘only created a text file, no biggie’."</p>
+							
+						
+							
+								<p class="story__comment_others">"We&#39;ve pretty quickly decided to throw out decades of norms in favor of anti-Russia moves all the time. Not ideal."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://oneweb.net/resources/oneweb-resume-satellite-launches-through-agreement-spacex">OneWeb will resume satellite launches with SpaceX as the launch provider</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30755077">
+						
+							
+								<p class="story__comment_first line-clamp">"I don&#39;t think this was an unexpected result of the situation with Russia, there wasn&#39;t really any other options, but interesting to see SpaceX launching a direct competitor to Starlink. I suppose they always made it clear that they were not going to let their investment in Starlink stop them launching competitors constellations.I am still somewhat surprised by the UK governments investment in OneWeb, I hope the strategy pays off and it becomes an important national infrastructure project. My thoughts where that it may be about providing a future proof network for the remote areas of the UK but we aren&#39;t exactly a big country so I&#39;m not convinced that&#39;s the case. The rubbish that was written about it being a route to our own GPS system after Brexit forced us to leave the Galileo program was clearly all fluff to make it sound more impressive and tie it to a post Brexit strategy in some way."</p>
+							
+						
+							
+								<p class="story__comment_others">"The Russian space program was the most impressive thing to me about Russians, so to see it destroyed before my very eyes saddens me. Russians are quite clever about making do with little, but I don&#39;t see how a declining country like Russia is today can compete with the Indian or Chinese space programs, who are also doing amazing things that don&#39;t get a lot of press in America."</p>
+							
+						
+							
+								<p class="story__comment_others">"Galileo too, quite likely.https://twitter.com/SciGuySpace/status/1505879400641871872 (Eric Berger / Ars Technica)- &#34;Notable: Important space officials in Germany say the best course for Europe, in the near term, would be to move six stranded Galileo satellites, which had been due to fly on Soyuz, to three Falcon 9 rockets.&#34;- &#34;This will almost certainly be resisted by France-based Arianespace. However it may ultimately be necessary because there are no Ariane 5 cores left, and the new Ariane 6 rocket is unlikely to have capacity for a couple of years.&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://ymcinema.com/2022/03/17/vimeo-we-are-a-b2b-solution-not-the-indie-version-of-youtube/">Vimeo: “We are a B2B solution, not the indie version of YouTube.”</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=30743371">
+						
+							
+								<p class="story__comment_first line-clamp">"Recent and related:Popular Patreon creators are being hit with Vimeo price hikes - https://news.ycombinator.com/item?id=30686704 - March 2022 (223 comments)"</p>
+							
+						
+							
+								<p class="story__comment_others">"This sounds like a potentially great business clarity move:&gt; We are a B2B solution, not the indie version of YouTube”But this part -- bait&amp;switch, with only one week to decide or move, (if that&#39;s accurate) -- is not what you want from your B2B solution provider:&gt; “I was already paying $200 a year, which I think is pretty expensive,” [...] if she wanted to keep hosting her content on the site, she’d need to upgrade to a custom plan. Her quoted price: $3,500 a year. She was given a week to upgrade her content, decrease her bandwidth usage, or leave Vimeo."</p>
+							
+						
+							
+								<p class="story__comment_others">"We have used Vimeo for some corporate clients&#39; customer facing websites.This is because Vimeo&#39;s embed offers:1) No recommendations at the end2) Customisable player controls3) Control over where it can be embedded, etc4) No adsThe downside is that they don&#39;t have much transparency over TOS / content policy removals. We had a random violation in one instance where the uploader recorded a screencast of something. Our best guess is that the system flagged it because the screens showed a UI with a user&#39;s profile and some dummy information which was likely understood to be real private information."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">21 March 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://den.dev/blog/windows-priority-shuffle/">The Windows OS needs a change in priorities</a></h3>
+					<h3><a href="https://den.dev/blog/windows-priority-shuffle/">Windows needs a change in priorities</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
@@ -57,7 +364,7 @@
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t see any mention of Cortana or how hard that is to rip out of the OS, but I think it&#39;s worth mentioning. The tool called &#34;Everything&#34; by https://www.voidtools.com/ is so insanely better than Cortana and blazingly fast that I&#39;m not sure why they&#39;re still trying to push Cortana.https://www.getblackbird.net/ helps a lot and it&#39;s one of the first things I do to Windows installs when I need to use them, but it can break stuff if you&#39;re too aggressive with it (e.g. Windows store / Xbox stuff, which for some reason is how to record screenshot videos in Windows... https://support.microsoft.com/en-us/windows/record-a-game-cl... ).The article also didn&#39;t mention the Microsoft Store and how awful everything around that experience is, especially compared to macOS, where the worst part is how signing apps works ( https://developer.apple.com/library/archive/documentation/Se...  vs https://docs.microsoft.com/en-us/windows/msix/package/signin... )."</p>
+								<p class="story__comment_others">"This menu is familiar to me because that’s what the Windows API allows you to create (as long as you are not creating it through Windows Forms.) There is no dark theme for this, but at least there are rounded corners.That is just a huge WTF. Since the very earliest versions of Windows there has always been the option of a dark (or white, or rainbow, or ...) theme, where you could adjust the colours and sizes and fonts, and everything using Win32 would follow it. Here&#39;s Win95 example:https://64.media.tumblr.com/6d3e8c64cd9a38e70d24c0b1b2c73cb5...Yet if I&#39;m understanding correctly, in Win11 that stopped working completely? It really sounds like the Windows team has no one left who knows what used to be possible but isn&#39;t anymore, being replaced with probably younger developers making constant excuses to &#34;modernise&#34; by rewriting and breaking stuff. To use an analogy, they&#39;re not just reinventing the wheel but making it square."</p>
 							
 						
 						</a>
@@ -203,7 +510,7 @@ The large state schools are trying to fulfill all these conflicting roles. We sh
 							
 						
 							
-								<p class="story__comment_others">"Tailscale just keeps impressing. Love how simple their product is and how everything they touch just seems so well done."</p>
+								<p class="story__comment_others">"Modern computing seems to be a story of &#34;worse is better&#34;, and not just the classical &#34;worse is better&#34; of Gabriel&#39;s paper but something that amounts to &#34;worse is better squared&#34;. Gabriel bemoaned the adoption of Unix and C over more &#34;well-thought-out&#34; designs, but Unix and C were at least designed. (&#34;Say what you will, at least it&#39;s an ethos.&#34;) The same could go for TCP/IP&#39;s lean design as opposed to the heavyweight OSI model. But it seems like even these designs are too onerous for the modern day, and instead we build what would normally go on top of Unix or TCP/IP on the Web. All platforms are now the Web platform, which was never designed to run programs and hence is a non-cohesive mess. All networking is now client-server, or indeed is now just HTTP requests: goodbye end-to-end principle (hello NAT!), goodbye protocols other than TCP or UDP. We can build the same things on this platform as we did with native platforms, but we have to do it using kludgy methods which sacrifice a lot of performance and only work 95% of the time: so instead of TCP, we get WebRTC, and instead of assembly we have WebAssembly. And what do we gain? We gain security, and we gain ease of installation (just go to www.zombo.com vs go to zombo.com, click on &#34;Downloads&#34;, click on &#34;Windows x64&#34;, wait 4 minutes for it to download... and so on).Can we do better? I think we can: if operating systems caught on to capability-based security, then the Web platform could become a legacy platform. (We see that phone OSes, which use capability based security, still direct us to &#34;the app&#34; rather than &#34;the site&#34;.) And adoption of IPv6 could void all the kludgy workaround of NAT that we&#39;ve had to develop.But we live in the world we inherit, rather than the one we imagine, so currently all we can do is traverse NATs and write webapps."</p>
 							
 						
 						</a>
@@ -340,11 +647,11 @@ The large state schools are trying to fulfill all these conflicting roles. We sh
 						<a href="https://news.ycombinator.com/item?id=30729109">
 						
 							
-								<p class="story__comment_first line-clamp">"I was wondering why the star has 6 crisp points and found an explanation here (a 3 minute video):https://www.youtube.com/watch?v=VVAKFJ8VVp4The most interesting part of the video explains why even your naked eye viewing the sky at night will cause this effect -- it&#39;s due to imperfections in the lens of your eye."</p>
+								<p class="story__comment_first line-clamp">"I really appreciate how NASA is handling the James Webb. Instead of waiting for everything to be _done_ done, they’re bringing us all along for the setup, giving us “alpha” and “beta” images (if you will), and in so doing keeping interest in the telescope. I know it’ll continue, and I’m all hype about it."</p>
 							
 						
 							
-								<p class="story__comment_others">"I really appreciate how NASA is handling the James Webb. Instead of waiting for everything to be _done_ done, they’re bringing us all along for the setup, giving us “alpha” and “beta” images (if you will), and in so doing keeping interest in the telescope. I know it’ll continue, and I’m all hype about it."</p>
+								<p class="story__comment_others">"I was wondering why the star has 6 crisp points and found an explanation here (a 3 minute video):https://www.youtube.com/watch?v=VVAKFJ8VVp4The most interesting part of the video explains why even your naked eye viewing the sky at night will cause this effect -- it&#39;s due to imperfections in the lens of your eye."</p>
 							
 						
 							
@@ -516,7 +823,7 @@ The large state schools are trying to fulfill all these conflicting roles. We sh
 							
 						
 							
-								<p class="story__comment_others">"At this point it seems M1 Macs have better Linux/other unixes support than Intel Macs with a T2 chip. At least from my experience and what I’m seeing with Asahi Linux."</p>
+								<p class="story__comment_others">"What are the benefits of running (open)BSD on a workstation? Especially a laptop?Edit: this could of course also be used for running a server on a M1 mini!"</p>
 							
 						
 						</a>
@@ -2712,298 +3019,6 @@ I think it&#39;s best not to write something that damaging without proof, especi
 						
 							
 								<p class="story__comment_others">"This is a dump from Republic of Bashkortostan [1], a Russian republic. This initially confused me because I though of the republics as used in Soviet Union.Another interesting tidbit from Russian internet. Municipal services in Moscow are suggesting that folks move over to Russian browsers [2, in russian]. Some claim it&#39;s because Roskomnadzor is planning to sniff all traffic, even SSL. Some are saying it&#39;s because CAs are revoking Russian keys.[1]: https://en.wikipedia.org/wiki/Bashkortostan[2]: https://politota.d3.ru/cheburnet-prodolzhaet-okuklivatsia-22..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">12 March 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.youtube.com/watch?v=b3F9OtH2Xx4">Pockit: A tiny, powerful, modular computer [video]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30615959">
-						
-							
-								<p class="story__comment_first line-clamp">"What a truly beautiful and elegant design. This is so reminiscent of the hacker ethos in how it captures the potential and love of technology. How can a project this creative not be more famous? I have seen many of these kinds of &#39;small, powerful computer projects&#39; before and I&#39;ve never felt inspired by any of them. But this project really captures the imagination with the potential of modularity / expanding capabilities.This is honestly so creative. It makes me filled with that childish sense of wonder I initially had with coding. What things could you make if you had a whole box of snap-ins and a few Pockits? This is frigging insane. If you&#39;re an angel investor consider throwing this guy a bone!"</p>
-							
-						
-							
-								<p class="story__comment_others">"As far as I can tell, this is a single individual that has done all of this work. I am floored at the design and intricacy of this project.Really, truly blown away. I&#39;m sure there are plenty of edge cases to correct for but I haven&#39;t gotten so excited by a demo in a long time. I&#39;ve obviously signed up to learn more."</p>
-							
-						
-							
-								<p class="story__comment_others">"Sometimes the point of a technology is not its direct utility but to
-carry forth or promote an idea.Because of what&#39;s happening with climate, pollution and e-waste, the
-future is modular. Modular phones, computers, cars and even nuclear
-reactors.Having this kind of thing in schools helps kids get used to the idea
-that technology is configurable at the physical level without
-electronics skills.Strong interoperability legislation should be a part of technology
-going forward. Industry will welcome and adapt to it because it&#39;s
-ultimately a better compromise than tougher regulation and export
-controls."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://addons.mozilla.org/en-US/firefox/search/?sort=users&amp;type=extension">uBlock Origin becomes top addon on Firefox</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30641159">
-						
-							
-								<p class="story__comment_first line-clamp">"I instantly install this extension whenever I work on a new machine as I could not imagine browsing the web without it.For that reason I just went looking for a donate button to help fund the project and it turns out they don&#39;t even accept donationshttps://github.com/gorhill/uBlock/wiki/Why-don&#39;t-you-accept-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"uBlock Origin, with CNAME uncloaking is the most powerful ad/tracker blocking tool. Browsing Internet without it is often time a scary experience.It does block our [Wide Angle Analytics](https://wideangle.co/documentation/track-with-custom-domain) tracker about which we are open about.And ... we are not against. Every user should have a right to self determination and control when browsing the Internet. Our tracker is not invasive. It does not spy on users across site. We do not facilitate user profiling and personalized Ads. So maybe we should be against? But we are not.It is your browser. It is your device."</p>
-							
-						
-							
-								<p class="story__comment_others">"The most popular extension, and the 2nd most popular, just like the 6th, 7th, 9th and 10th most popular, are ad-blockers.I guess it&#39;s only marketers that love targeted ads..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/world/middle-east/israels-knesset-passes-law-barring-palestinian-spouses-2022-03-10/">Israel passes law denying naturalization to Palestinian spouses</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30639159">
-						
-							
-								<p class="story__comment_first line-clamp">"This article doesn’t really provide much in the way of explanation for why this law is being enacted. Here [0] is a better article that quotes supporters and objectors to the law.It includes the (IMHO not very convincing) figures that &#34;Between 1993 and 2003, around 130,000 Palestinians were given Israeli citizenship or residency through family unification, including children, according to court filings. The Shin Bet security service told the Knesset on Monday that between 2001 and 2021, about 48 were involved in terror activities.”48 of 130,000 amounts to 0.037% being involved in terrorist activities which seems very low to be used as justification for a law around security.[0]: https://www.timesofisrael.com/after-coalition-battle-knesset..."</p>
-							
-						
-							
-								<p class="story__comment_others">"We see more and more similar laws being passed in recent years, laws that are blatantly discriminatory. This may raise the indignation of many people, but in my opinion, Israel is shooting itself in the foot by passing these laws, because it reinforces the argument that it is an apartheid regime. Israel is slowly losing its support in the free democratic world where people believe in the inalienable universal rights of individuals and are less and less willing to turn a blind eye to such institutionalized racism."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here&#39;s an interesting exercise:1. Substitute &#34;Israel&#39;s Knesset&#34; for ANY other legislative body anywhere.2. Substitute &#34;Palestinian&#34; for ANY other nationality, ethnicity, race, sexual orientation, or other adjective describing a group to which YOU belong.3. See if you like how it feels: &#34;[Legislative body] passes law barring spouses who are [like you] from becoming citizens.&#34;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://annoying.technology/posts/d9d6d289a06def25/">Apple AirTags draining battery of devices close by</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30632568">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;ve seen this issue in a slightly different context.  A few years ago, my Android phone began dying much more quickly than before.  Looking at the built-in battery stats, nothing was amiss and there were no apps causing excessive wakeups.  It was only when I used Android Battery Historian that I saw there was a ton of bluetooth wakeups caused by Google Play Services.But why would it be waking up so much?  Usually the wake requests originate from some other app, but I didn&#39;t see any associated wakeups in the stats dump.  After a while I remembered that I installed GasBuddy recently, and a Google search revealed that other people had Bluetooth battery drain issues after installing it.  Apparently GasBuddy had an ads SDK that aggressively scanned for Bluetooth beacons.  Removing the app stopped the drain.I was shocked that no battery stats screen showed GasBuddy was the culprit.  Even the Battery Historian tool (which requires the user to run a Docker image and dump a bugreport) only hinted that there was some Bluetooth wakeups, but didn&#39;t show which app they originated from.This AirTag seems to be a similar issue, especially if a less experienced user doesn&#39;t realized all the &#34;Find My&#34; wakeups are caused by nearby AirTags.I think Apple needs to make the &#34;deep sleep&#34; states of their devices more strict so they can minimize drain when sitting (both when sitting overnight on a nightstand, or for a week in a living room).  Notifications (besides calls) can usually afford to be batched since users are asleep or not nearby.  As for AirTags, if one is being carried through an area, there&#39;s probably other iDevices that are being actively used nearby.  They&#39;re already awake and using RF, so they can handle the AirTag ping with virtually no additional power consumption."</p>
-							
-						
-							
-								<p class="story__comment_others">"This was a concern I had since day 0. I have been asking about things like this and been talked down to constantly as if I don&#39;t know how bluetooth works...My other concern was if these are hijacking your data plan. Maybe it&#39;s not that significant amount if you have a huge plan but like Ting for example gives you 100MB of data usage each month on their basic plan. That&#39;s MEGAbytes. I checked my system clock app for example, and it&#39;s using like 500 MB a year of cell data. So the cumulative data it uses per year is about half of that plan&#39;s budget.Settings uses like 1/5 of a month of data. What does settings even use cell data for? Every random app has data usage like this. Sure, you can turn it off but why should that be the user&#39;s problem in the first place? We don&#39;t live in an opt-out society.If you&#39;re a cargo delivery guy and someone decides to ship 500 airtags for fun that you walk by, are you now just screwed in over charges because Apple decided it was OK to use your cell data for whatever purposes that have no benefit to you?"</p>
-							
-						
-							
-								<p class="story__comment_others">"There are some battery draining tricks you can do with Bluetooth apps on a phone to drain the device batteries.Essentially if you did a ton of device queries to every BLE device visible, you could drain the batteries of every device in range.  Transmission is probably a heavier battery drain so just making them talk to your phone creates drain.It’s a single device example, but in a bar once I was showing a co-worker once how you could see and interrogate a lot of BLE devices. I pinged someone’s Fitbit, and read that it only had 3% battery left.  Then it vanished. I’m pretty sure in the process of asking it to give me the info, it drained the battery."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://smaller.fish/posts/language">Why does Google use location for language rather than browser settings?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30638590">
-						
-							
-								<p class="story__comment_first line-clamp">"https://archive.ph/zHE8Rhttp://web.archive.org/web/20220311170532/https://smaller.fi..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I met one-on-one with Google’s senior leadership in 2000 to talk about their internationalization efforts. This was very early in their trajectory, so I even sat down with Larry Page and chatted with him for half an hour.A year or two later I’m in Tokyo and talk to a new Google product manager based there. I tell her it is insane that Google serves me Japanese pages on my English-configured PowerBook just because I am in Japan. It doesn’t matter that I read Japanese just fine… Making this determination purely based on my IP address is madness, I tell her.Over two decades later, nothing has changed. Each year I spend several months abroad, and this is one of the most infuriating experiences I encounter. Google is the offender that frustrates me the most, but they are far from the only company to engage in this abhorrent practice. I am tempted to create an Internationalization Wall of Shame just to embarrass the companies that do this. (Not that I expect them to care.)Why do they do this? My theory has always been that in any given country, there are far more native speakers with misconfigured computing environments than there are visitors and nomadic folks like me. So it’s merely a numbers game: I may be frustrated, but at least Google and other companies aren’t losing business when folks with misconfigured computers close the tab because they got a page served to them in, say, English instead of their native language.I can’t say for certain whether this is the actual reason for this behavior. What I can say, however, is that I absolutely loathe this practice and actively avoid doing business with any company that uses geo-IP location to serve me pages specific to that locale. If this frustrates you as well, be sure to vote with your feet!"</p>
-							
-						
-							
-								<p class="story__comment_others">"The article talks about Microsoft, and boy, it&#39;s even more terrible in some respects: for example, language of some Office tools like Excel is bound to the organization!I worked for a French company, and I was forced to use web Excel in French, including keyboard shortcuts being FR-specific (&#34;ctrl-g&#34; for &#34;bold&#34; - &#34;grossir&#34;).I had my language set to English everywhere in browser, OS, MS profile, Office profile etc., not important.(FWIW native Windows Excel didn&#39;t have this issue, so I sticked with native Excel).---Re: location based on geoloc: I remember some HN user from Switzerland saying that IIRC either his IP is being moved around in geoIP databases between Swiss regions, or getting slightly distinct IP each time; as a result, he randomly gets all kinds of websites in French, and sometimes in German. Imagine this."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://theupheaval.substack.com/p/just-say-no-to-cbdcs">Just Say No to Central Bank Digital Currencies</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30634245">
-						
-							
-								<p class="story__comment_first line-clamp">"Some predictions:- The government&#39;s not going to have an official true cryptocurrency where anyone with a computer and an Internet connection can just generate a private key and anonymously send / receive coins.- The system won&#39;t allow an address to send / receive coins without approval from a government key, and that approval will only be given if the government&#39;s gotten a name / SSN / real-life identity to associate with that address.- The system will provide a function where a government-controlled key can freeze any address&#39;s ability to send or receive funds.- The government&#39;s going to say &#34;But we need to take a stand against terrorists / Russian oligarchs / drug kingpins&#34; and then it ends up being used against successively lower and lower degrees of criminals, such as money launderers / tax dodgers / deadbeat dads / unpaid parking tickets, and eventually ends up targeting ordinary citizens."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don’t really get the author’s argument. A lot of it seems very “slippery slope” to me.The government already can (and does) restrict what people can and cannot buy. The idea of limiting spending on certain things (like gas) is interesting, but that isn’t exactly a new thing. The government could already just straight up ban the sale of anything, this would just give them more nuance to their policy.Other things mentioned, like automatic taxes and preventing money laundering, seem… good?The more extreme authoritarian uses cases like financial “imprisonment” are certainly bad, but similarly can already basically be done. Look up what happens to those few people each year that are accidentally declared dead and can’t open lines of credit etc. The government can already ruin your life with the press of a button.I’m not sure I support CBDCs, but these seem like weak arguments. There are definitely benefits to taking away power from existing financial institutions."</p>
-							
-						
-							
-								<p class="story__comment_others">"It was amusing until this part:&gt; There’s a message from the Fed: “You have already spent more than the $400 maximum weekly limit on fossil fuels specified in the FedWallet User Agreement. Your remaining account balance cannot be used to purchase non-renewable energy resources.At that point, the conspiracy-theory vibe stopped seeming ironic.  If the government wanted to phase out gas-usage, wouldn&#39;t they just raise gas-tax?  Having cheap gas, but a sudden limit leaving motorists stranded, just seems a little too wacky, even for a thoughtless comedic argument."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=30632952">We’re the founders of Substack, we just launched an iOS app. AUA</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30632952">
-						
-							
-								<p class="story__comment_first line-clamp">"Firstly - love love love Substack. It&#39;s so simple but it&#39;s so rapidly become a place where I do so much reading. I have a few questions (mostly not about the app though, I&#39;ll have to wait for Android support to try that).1. How did you guys manage to attract writers? I know you have been signing fronting agreements. Superficially, Substack is a (fairly basic?) blogging platform + email + payment processing system. That doesn&#39;t feel particularly hard to put together, though maybe I totally underestimate that. So what&#39;s powering Substack&#39;s growth is that you were able to get guys like Greenwald, Taibbi, Scott Alexander etc on board. How much of your growth do you think is product vs business/dealmaking?2. You&#39;ve been strong defenders of free speech, especially in the last two years where there&#39;s been a ton of censorship. Really, it&#39;s helped a lot, I&#39;ve felt like Substack was one of the few places I could find rational and logical takes on things like lockdowns at a time when everyone else was losing their minds. Do you have some sort of strong philosophical take on this, or is it a sort of default because censorship takes specific effort and you&#39;re busy with growth?3. Related to that, the pattern of tech firms being open access and supporters of free speech for some years and then later losing that as they hire more and more people (especially, new grads) seems to be a recurring one. Given you&#39;re based in San Francisco, do you have a plan to actually keep Substack the way it is, in the face of hiring employees who might demand you constantly cancel the witch-du-jour?4. There&#39;s IMO a ton of potential for innovation with group discussions. To me, Slashdot was actually the peak of innovation in large scale anonymous forum discussions with many clever features, crowdsourced moderation, friends/foes, meta-mods etc. Do you plan to try new things with discussions, or stick to a conventional approach? Right now it&#39;s pretty basic."</p>
-							
-						
-							
-								<p class="story__comment_others">"A popular sentiment on HN is &#34;don&#39;t make an app when you can just have a web page&#34;. Reading articles is an an almost perfect fit for the web. What are your reasons for having an app?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Inevitably, the day will come when Apple will demand that you censor some content on your platform, or your app is banned from app store. This happened before [1], and will happen again.What will you do when this happens?[1] https://www.themoscowtimes.com/2021/09/18/telegram-messenger..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.heywhatsthat.com/">HeyWhatsThat – Calculate viewshed and panorama for any point on Earth</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30640846">
-						
-							
-								<p class="story__comment_first line-clamp">"If you thing this is cool, also check out CalTopo (my favorite mapping software for backpacking):- https://caltopo.com/map.html#ll=40.10094,-105.61557&amp;z=15&amp;b=m...- Right click and select &#34;Simulated View&#34;- Change to &#34;WireImagery&#34; in the upper right"</p>
-							
-						
-							
-								<p class="story__comment_others">"There is a widely spread myth that Mt. Diablo in Oakland has the second largest viewshed in the world after Mt. Kilimanjaro[1]. With this tool you can actually compare them directly, which is pretty cool:Mt. Diablo: https://www.heywhatsthat.com/?view=K1JW43D4Mt. Kilimanjaro: https://www.heywhatsthat.com/?view=ME9CTRPG1: Debunked here: https://www.kqed.org/news/11808501/does-mount-diablo-have-th..."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is very useful for vhf and uhf radio communications as well, which are normally* line of sight.In fact, the adsb-receiver[1] software package for setting up an aircraft tracking station includes a neat feature where you can use HeyWhatsThat to calculate maximum line of sight distances to aircraft at various altitudes and include these contours on your aircraft tracking map.* atmospheric phenomena such as density or humidity differences or reflections from other aircraft, the moon, or even meteors can enable reception over the horizon.[1] https://github.com/jprochazka/adsb-receiver/releases"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.theverge.com/2022/3/10/22971307/twitter-home-timeline-algorithmic-reverse-chronological-feed">Twitter makes it harder to choose the old reverse-chronological feed</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30635426">
-						
-							
-								<p class="story__comment_first line-clamp">"Just use Twitter&#39;s lists. I&#39;ve been using them for a long time.I added to one of my lists only the accounts that I really want to see on my feed (no old school friends, acquaintances, nor random people that some of the accounts I follow just started following: only sources with added value).The result? Open your list, and you&#39;ll see all the tweets sorted chronologically, only from the accounts you really care to follow.The quality of the time I spend on Twitter has dramatically increased since this change. No more time wasted scrolling through whatever irrelevant tweets the platform wants me to see. Twitter for me has basically become like an RSS feed aggregator with a curated list of sources to follow, reported in chronological order. And that&#39;s exactly what I wanted. Fck their algorithmic sht: I know better than them what I want to read."</p>
-							
-						
-							
-								<p class="story__comment_others">"They&#39;ve been battling the widespread preference for chronological timeline for ... well, forever.As the common belief goes, the &#34;algorithmic&#34; one is more profitable. I buy this, intuitively, because it seems natural that it&#39;d be harder to sneak in something jarring if you were viewing a more traditional timeline.But I can&#39;t fathom why seemingly no effort has gone into monetizing a chronological timeline. Why is it&#39;s foregone conclusion that it won&#39;t work with advertising the way the algorithmic was works?"</p>
-							
-						
-							
-								<p class="story__comment_others">"If you want &#34;Twitter&#34; without ads, algorithmic feed manipulated by marketing, actual moderation, and actual community, I suggest joining a Mastodon[0] instance (and you probably already know people who are on the platform, making it easier to choose which instance ;)).  It&#39;s kinda like using Twitter in 2007, but with way more features.  For example, selective permissions per-&#34;toot&#34; (&#34;followers only&#34;, or &#34;unlisted&#34; which makes it not show up on the public timeline, but still visible on your profile or to followers), content warning on toots (like a spoiler warning), full image description support, much longer posts...Personally I&#39;m closer every day to abandoning Twitter and just focusing solely on Mastodon.  Many in my social circle have already done so.Oh, while I&#39;m at it:  if you want to view Twitter posts without having a Twitter account (or just don&#39;t want to see ads and trending crap), check out Nitter[1].  Alternative front-end.  It also has minimal JS and is far more resource-efficient (viewing my profile loaded 1.56mb of resources on Nitter, compared to 9.2mb on Twitter)[0] https://joinmastodon.org/[1] https://nitter.net/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=30617118">Ask HN: Any weird tips for weight loss?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30617118">
-						
-							
-								<p class="story__comment_first line-clamp">"This is a weird tip I think I could only share with the hacker news crowd. Once I learned about gut bacteria I started thinking of my cravings as something external to me. Like instead of saying &#34;I&#39;m hungry and I&#39;m in the mood for something sweet&#34; I would realize &#34;the hormone ghrelin is sending hunger signals to my brain and the gut bacteria in my body is asking for something that&#39;s not actually in my best interest.&#34;  Being able to emotionally distance myself from my feelings let me make decisions that I knew were better for me.Just remember that it gets easier, I think a lot of people struggling with addiction to unhealthy food try to resist temptation for a day and go through hell. They think &#34;I can&#39;t live the rest of my life like this,&#34; but the thing they never make it far enough to learn is that it doesn&#39;t feel this hard all the time. Every night I go to bed resisting a sugar loaded soft drink I wake up stronger, and the sabotaging gut bacteria is one battle weaker than the healthy gut bacteria."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m shocked to see how many people are saying that exercise is the way to lose weight. Exercise is a great way to strengthen your lungs, heart, and other muscles, but it&#39;s not going to be the way you lose fat. Diet is the answer. I know this because I&#39;ve seen it time and time again, and because of recent research showing that a tribe who moves far more than we do burn about the same amount of calories as those who are sedentary. The calories just go to other things.A very simple solution that definitely works is Clean Simple Eats. They give you a weekly shopping list and the recipes you need to eat every day. I said simple, not easy. It takes will power to stop eating everything in sight. It takes will power to spend so much time in the kitchen.You don&#39;t need a weird tip. You need to do what is time-tested and true. Diet, sleep, and exercise. That&#39;s how you&#39;ll gain health and a better body composition.80% diet, 20% exercise"</p>
-							
-						
-							
-								<p class="story__comment_others">"I got one. I ended up accidentally losing 25lbs when I did this, but ymmv.Basically, about 6 years ago, I got into freediving while on vacation. Once I got back to the real world, I got obsessed with training to hold my breath for longer. So I started doing breathing exercises just after I woke up and just before I went to bed. Each session took 15-25 min and was done lying down to minimize the danger from passing out. I used an iOS app called Apnea Trainer (no affiliation besides satisfied user), but there should be a ton of apps available on both app stores if you search ‘apnea’. You can also read a ton of information (including safety tips) by googling ‘CO2 tables’ and/or ‘O2 tables’.After dropping the 25lbs in my first month of training, I started looking into why that might be and, from what I’ve found, training your body for longer breath holds can increase resting metabolic rate."</p>
 							
 						
 						</a>
