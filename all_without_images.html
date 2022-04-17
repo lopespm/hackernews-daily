@@ -36,6 +36,303 @@
 	</div>
 
 	
+	<div class="day__date">17 April 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://freakingrectangle.wordpress.com/2022/04/15/how-to-freaking-hire-great-developers/">When hiring developers, have the candidate read existing code</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31047409">
+						
+							
+								<p class="story__comment_first line-clamp">"I like this approach.Far to often I’ve interviewed at places and been grilled by the interviewer only to find out when you start the quality isn’t great, what you where grilled on you won’t be working on “as that’s to hard”  or “we don’t do that” despite being grilled on it and the level of skill not to great they just want senior people. It’s the bait and switch.At least being taken through existing code you know what you are getting yourself in to. Also looking at the current open pull requests and closed pull requests to see the standard and speed of delivery. Bonus points for no PR’s and trunk driven development as that shows a very mature team.My simpler interviews have often been with companies that have held a higher bar than the ones with tougher interviews. Those companies have often been sink or swim though and if you don’t make the grade you’ll be kicked out pretty quick. My last company had a reputation for new starts disappearing and not great that way, but the team was probably the strongest bunch of people I’ve ever worked with as only do good survived."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is exactly what I started doing at my company a few years back. You are presented with a complete app written in the stack we use. This app has some bugs we will solve to get it working (nothing that&#39;s a trick... actual, commonly encountered bugs that have all the error messaging you need to solve them). Once it is working you will walk me through a particular flow of the app, explaining what is going on and why we do it this way. There are optimization opportunities (purely optional, there for you to notice), areas we can dig into if we choose (or if I feel the need to). If you tear through it we can examine a different flow in the app. Perhaps we could discuss the database structure and how it might be improved or changed, maybe we dig into some CSS or into some GraphQL or any other aspect that we need to. I&#39;ve had people stumped and unable to continue but the vast majority of devs can make a good stab at it, even if they are not familiar with the specific stack. The best devs are barely slowed down by such unfamiliarity and can still reason, logically, about the code.So far I&#39;ve had really positive feedback from job candidates. A couple even described it as their favorite interview ever! I feel like it has worked well, given the people we have ended up hiring."</p>
+							
+						
+							
+								<p class="story__comment_others">"That&#39;s interesting, I&#39;ve never heard testing code skills by reading instead of writing.An example would have been nice though, as I&#39;m not sure how to find a piece of code that does something standalone that is too large to grasp in 20 minutes yet make a reasonable prediction at the output. That combination seems kind of weird.I wonder how well it would work to modify OP&#39;s idea and present a candidate with some code that has a bug in it (you reveal what the bug is to save time, they&#39;ll need to understand the code anyhow) and you ask them how they&#39;d fix it. First broadly, like what approach, then actually write part of it.To take my own advice and make the discussion more concrete, I should add an example. Random script from my github: https://github.com/lucb1e/randomdirectory/blob/master/random...To prepare for the interview, one could add an argument like -h to show usage (in the same style as -v is currently implemented), then tell the candidate that the bug is that passing -vh executes neither -v nor -h (one would commonly expect it to execute both). Fixing this requires a &#39;structural&#39; change to this little bit of code, but it&#39;s small enough to easily grasp and implement. The candidate might propose to loop over each character after a single hyphen to fix this, or they might propose to throw out this custom reinventing-the-wheel and use a proper arg parsing library. Either is fine, but they should be prepared to write the code (in any language, they can write just the changes in C, Python, JS, or whatever language they&#39;re comfortable with).Has anyone tried such an interview coding question?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/ziglang/zig/pull/11442">Zig self hosted compiler is now capable of building itself</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31052029">
+						
+							
+								<p class="story__comment_first line-clamp">"Hello HN! Here is some context to decorate this announcement:The Zig self-hosted compiler codebase consists of 197,549 lines of code.There are several different backends, each at varying levels of completion. Here is how many behavior tests are passing:       LLVM: 1101/1138 (97%)
+       WASM:  919/1138 (81%)
+          C:  740/1138 (65%)
+     x86_64:  725/1138 (64%)
+        arm:  490/1138 (43%)
+    aarch64:  411/1138 (36%)
+
+As you might guess, the one that this milestone is celebrating is the LLVM backend, which is now able to compile the compiler itself, despite 3% of the behavior tests not yet passing.The new compiler codebase, which is written in Zig instead of C++, uses significantly less memory, and represents a modest performance improvement. There are 5 more upcoming compiler milestones which will have a more significant impact on compilation speed. I talked about this in detail last weekend at the Zig meetup in Milan, Italy[1].There are 3 main things needed before we can ship this new compiler to everyone.1. bug fixes2. improved compile errors3. implement the remaining runtime safety checksIf you&#39;re looking forward to giving it a spin, subscribe to [this issue](https://github.com/ziglang/zig/issues/89) to be notified when it is landed in master branch.Edit: The talk recording about upcoming compiler milestones is uploaded now [1][1]: https://www.youtube.com/watch?v=AqDdWEiSwMM"</p>
+							
+						
+							
+								<p class="story__comment_others">"I think Zig’s compatibility with C is such a valuable feature.I also wish we could rewrite everything in a modern language, but the reality is that we can’t and that if we could, it would take a LONG time. The ability to start new projects, or extend existing ones, with a modern and more ergonomic language—Zig—and be able to seamlessly work with C is incredible.I look forward to the self-hosted compiler being complete, and hopefully a package manager in the future. I’d really like to start using Zig for more projects."</p>
+							
+						
+							
+								<p class="story__comment_others">"For reference:Tracking issue for overall progress on the self-hosted compiler: https://github.com/ziglang/zig/issues/89Zig&#39;s New Relationship with LLVM: https://kristoff.it/blog/zig-new-relationship-llvm/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/yishan/status/1514938507407421440">My take on Elon&#39;s offer for Twitter</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31044693">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt;My most immediate takeaway from this novella of a thread is that Twitter is way overdue for long form tweets! (Musk&#39;s response)this may very well be the first thing in my life I&#39;ve agreed with Musk on. By god scrolling through an entire essay chopped up with random replies and profile links thrown in because you have to click &#34;show more replies&#34; (which pops up twice?) over and over is awful. Just link to a Twitlonger.On yishan&#39;s actual points I agree though. Companies moderate haphazardly and improvise and they care about their bottom-line and to extinguish shitstorms. There&#39;s no coherent ideological bias on any sufficiently large social network, they just pivot to whatever is causing chaos on any given weekday.One important point stuck somewhere in the middle is his observation that in the physical world, no public square, or public debate looks like what&#39;s on display on internet social networks. All of them have rules, civility is a thing, if you&#39;re crazy someone&#39;s likely going to throw you out, there&#39;s identity instead of anonymity and so on. Maybe provocatively, &#34;cancel culture&#34; is simply culture. Culture is a bunch of rituals, rules, coercions, customs and traditions that predominantly tell us what not to so so we don&#39;t behave like a bunch of naked apes."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve sometimes wondered if the way American media and culture treat people like Musk, Bezos, Gates is that we have no royalty -- there&#39;s no hereditary monarchy and indeed the old money keeps a studiously low profile.Do human cultures just need kings and princes? Is there a special kind of celebrity niche that the billionaire businessman fills that occupies an ancient hierarchical part of our society?I read Yishan&#39;s post here as kind of like a duke commissioning an epic poem in the hopes it&#39;ll influence the king. Maybe it&#39;ll work -- he shot his shot, and he&#39;s a pro at putting in just the right Internet comments in just the right place. But I wonder why I&#39;m so fascinated about seeing this conversation between these two nobles. Is this how the English lower classes saw their royalty in the 17th century? Did they chatter about the king&#39;s foibles on the street while they were out costermongering?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This thread is an interesting perspective on social media &#34;censorship&#34; that you don&#39;t hear often.Of course everyone working at a social media company has an ideological bias, and that can come out in the product. But consider also that the latest censorship controversy creates negative PR, makes people leave the platform, attracts regulatory attention, and ultimately, hurts the company&#39;s profits. Content moderators are at least as worried about that as they are about making sure their ideological opponents aren&#39;t given a voice.Social media companies are in the unenviable position of playing referee in the culture war, and like referees in any sport, they&#39;re going to constantly be criticized for doing it, right or wrong. These companies are global and universal, and there&#39;s no way they can satisfy all parties. Sometimes, the values of left and right, or Iran and the US, or Israel and Palestine, are just irreconcilable. You&#39;re better off just trying to avoid as much trouble as possible, and avoiding negative media attention.Reddit is probably the most ham-fisted example of this approach. Their content moderation is pretty hands off, but as soon as any subreddit attracts negative attention, it&#39;s quarantined or banned, no matter if the controversy is justified or not. When Russia invaded Ukraine and Russia Is Bad Now, they just straight up banned /r/russia and any link to an .ru domain! That does nothing to address the conflict, but it does keep those NYT opinion pieces from showcasing Problematic Russian Bot Behavior on Reddit.I&#39;ll note that I don&#39;t think this model fully explains moderation policies at Twitter or other social media sites. I genuinely believe moderation leans left due to an ideological monoculture (I&#39;ve seen it first hand). But it&#39;s important to recognize the difficult situation social media sites are in."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://slowsocial.us/">Show HN: Slow Social, a social network built for friends, not influencers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31054029">
+						
+							
+								<p class="story__comment_first line-clamp">"Hey everyone, OP here.I, like many others tend to waffle between loving and hating social media, so this is my take on what I think a better solution looks like. This is something I&#39;ve been working on for the past couple of months and a concept that I think will be though provoking, if nothing else, to the HN community. If you want to read more on my thoughts and the story behind this, you can check out my blog post here: https://dev.to/duensing/introducing-slow-social-4a90Besides that, I&#39;m happy to answer questions and take criticism."</p>
+							
+						
+							
+								<p class="story__comment_others">"OP, you should charge users a small amount ($24-50 a year), after a trial period. Keep it simple, free of ads and keep the timeline algorithm free.I’m sure there are many who would love something like this and be willing to pay enough to cover costs and maybe generate a full time income for you. Good luck!!"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?Affiliates. We may share your information with our affiliates, in which case we will require those affiliates to honor this privacy notice. Affiliates include our parent company and any subsidiaries, joint venture partners, or other companies that we control or that are under common control with us.&#34;I would much prefer that this simply read: We do not share your information with anyone."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://status.heroku.com/incidents/2413">Heroku Security Notification</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31048646">
+						
+							
+								<p class="story__comment_first line-clamp">"This is a much bigger problem than Heroku.There are countless SaaS applications asking for full-repo  access to Github (all the source code, with write access).- Productboard- Bugsnag- Sentry- Skylight- Percy- CodeTree- DataboxThere are heaps of others, these are just some on top the of my mind. A ticking supply chain attack waiting to happen, since these companies make themselves into alluring hacking targets.Most of them need access only to issues (a few need read access to code or recent commits, almost none need write).Solution:- Let customers give granular access (only issues, only read to source code, etc) when the integration is setup. This is possible with Github&#39;s APIs.- Try to use push instead of pull where possible, i.e. provide a CLI tool to use with Github actions or use Github&#39;s webhooks."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Additionally, we recommend disconnecting Heroku from your GitHub repositories.I have respect for the Heroku/Salesforce Security team for willing to ask users to perform this action. Many companies would be too worried about losing customers or having users not reconnect it afterwards.My thoughts are with the team working on responding to this incident on Easter Friday."</p>
+							
+						
+							
+								<p class="story__comment_others">"Ughh here I was at 1:30AM after a hard week, checking the news one last time before going to bed, and see this. I hate this dang industry and regret ever becoming a tech lead. I know the Heroku engineers have it worse and all, but just venting."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.youtube.com/watch?v=PESa3Du3udY">Overengineered Japanese Mechanical Pencils [video]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31024600">
+						
+							
+								<p class="story__comment_first line-clamp">"It might feel &#34;overengineered&#34; to people outside the Japanese society, but it actually just solves common issues here and it&#39;s not overengineering.
+ The rotating mechanism is the easiest to see this.First, Kanji signs are more detailed than the alphabet and uneven lines can make it really ugly/hard to read. Same issue with breaking lead, causes ugliness.Second, traditionally handwriting in Japan have been seen as a way to measure one&#39;s upbringing; you can fake looks and style but if your handwriting is bad, that signals that your parents didn&#39;t raise you well. This was(and still is in some places) the reason resumes have to be handwritten.So tools that helps your handwriting had uses beyond just utility.(my handwriting is garbage and I&#39;m happy IT and tech jobs doesn&#39;t check this)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Cool! I just bought one of these (the shake one) and while checking out I accidentally didn&#39;t un-check the &#34;sign me up for your newsletter box&#34;. Instead of automatically starting to spam me– they actually sent me a confirmation email asking if I really wanted to sign up for their newsletter– how considerate! Bravo Jet Pens for avoiding that dark pattern."</p>
+							
+						
+							
+								<p class="story__comment_others">"JetPens’ marketing is amazing.  Their online storefront is very well put together, and above all their buyer team ensures they have mountains of imported variety in every category.It’s so nice to see someone doing something well.  Really well.I have no connection to them other than I spent $500 with them last Christmas on gifts for my entire family."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://economicsfromthetopdown.com/2022/04/08/the-dunning-kruger-effect-is-autocorrelation/">The Dunning-Kruger Effect Is Autocorrelation</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31036800">
+						
+							
+								<p class="story__comment_first line-clamp">"Very interesting article and statistical analysis, but I really don&#39;t see how it concludes that the DK effect is wrong based on the analysis. The fact that the DK effect emerges with _completely random data_ is not surprising at all - in this case the intuitive null hypothesis would be that people are good at estimating their skill, therefore there would be strong a correlation between their performance and self-evaluation of said performance. If the data weren&#39;t related, then this hypothesis isn&#39;t likely, which is exactly what DK means. And indeed if you look at the plots in the article (of the completely random data), they depict a world in which people are very bad at estimating their own skill, therefore, statistically, people with lower skills tend to overestimate their skills, and experts tend to underestimate it.Also wanted to point out that in general there is no issue with looking at y - x ~ x, this is called the residual plot, and is specifically used to compare an estimate of some value vs. the value itself.That being said, the author seems very confident in their conclusion, and from the comments seems to have read a lot of related analyses, so I might be missing something. ¯\_(ツ)_/¯"</p>
+							
+						
+							
+								<p class="story__comment_others">"Excerpt from a newer paper by Nuhfer (2017) adds more clarity:“… Our data show that peoples&#39; self-assessments of competence, in general, reflect a genuine competence that they can demonstrate. That finding contradicts the current consensus about the nature of self-assessment. Our results further confirm that experts are more proficient in self-assessing their abilities than novices and that women, in general, self-assess more accurately than men. The validity of interpretations of data depends strongly upon how carefully the researchers consider the numeracy that underlies graphical presentations and conclusions. Our results indicate that carefully measured self-assessments provide valid, measurable and valuable information about proficiency. …”https://www.researchgate.net/publication/312107583_How_Rando..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The article is correct.  The effect is statistical not psychological.  It emerges even from artificial data and occurs independently of the supposed psychological justifications even for data where those justifications are clearly removed.If you adjust the experiment design to avoid introducing the auto-correlation you get data that doesn&#39;t show the DK effect at all.  Some might take issue with the adjusted experiment as using seniority related categories like &#34;sophomore&#34; and &#34;junior&#34; as skill levels has its own issues. To show the DK effect is real you need to come up with a better adjusted experiment that avoids the autocorrelation while still generating data that generates the effect. It&#39;s unclear if that&#39;s possible."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.dshr.org/2022/04/ethereum-has-issues.html">Ethereum Has Issues</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31029504">
+						
+							
+								<p class="story__comment_first line-clamp">"Ha, Flash Boys 2.0 was from 2019. This blog post is literally &#34;I read a thing from three years ago and have lost faith in something that I never believed in in the first place&#34;.As someone who knows and has worked with all the people involved with the write-ups referenced in this blog post, I can pretty confidently say that the author is way way behind here. There have been some insane advancements in recent years that would blow his mind.MEV harvesting is actually an insanely fascinating field of study, and it comes down to consensus in a world where information can only move as fast as the speed of light.Front-running is a general problem where, if you can find out that someone wants to buy something, and can buy it first and sell it to the person who actually want it at a premium. This gets really interesting in the blockchain space, because Miners (Validators) decide the order of transactions, and in some cases validators can be incentivized/coerced to move around transactions in a way that might be beneficial for certain users. This is what is referred to as &#34;Miner Extractable Value&#34;.Yes it&#39;s a problem, yes there are mitigations, yes there are fun and weird ways around those mitigations, etc.This is what happens when people are incentivized to take a really good hard look at what global consensus really means. At a high level, most users don&#39;t really need to know or care about any of it, but it exists as a parasitic force constantly extracting value from the network. Still, IMO the parasites that feed off MEV are at a significant disadvantage compared with those who feed of legacy financial networks (for more on that, you can read the actual Flash Boys book https://www.amazon.com/Flash-Boys-Wall-Street-Revolt/dp/0393...)."</p>
+							
+						
+							
+								<p class="story__comment_others">"So Crypto Andys like to hand-wave about the risk of a 51% attack but consider this:&gt; This is in addition to the long-standing concentration of Ethereum mining power, with normally three and sometimes only two mining pools controlling over 50% of the mining power.There is further hand-waving about how Proof-of-Stake (over Proof-of-Waste) will magically fix these problems. But it&#39;s actually this PoW computing power that makes the network more resilient to hostile takeover.I&#39;ve heard it described that the attraction of Crypto is the essence of the American Dream: by getting rich by doing nothing while lauding how smart you are over other people. So much of Crytpo can be explained by Bitcoin FOMO. Everyone just jumps on the latest shitcoin or NFT because &#34;I&#39;m not missing out this time&#34;.Ultimately something has to create value or it will come crashing down. The only use case we really have is illegal activity. Some of that is justified on ethics grounds (eg bypassing capital controls in Venezuela). A lot of it is just shady.There&#39;s a ton of talk about the &#34;potential&#34;. So far the offshots (eg NFTs, Web3) are just ludicrous boondoggles in finding problems for a solution. I have doubts this will ever create value for the masses."</p>
+							
+						
+							
+								<p class="story__comment_others">"While many contracts within Ethereum have clear flaws, that doesn&#39;t mean Eth as a whole is broken.Time bandit attacks go away once proof of stake finality arrives. Also, trading ought to be done in Layer 2s. Does MEV work on L2s?Re: certain token drops wasting lots of gas, it&#39;s up to the token authors to use an implementation that avoids gas wars.Once you go into claiming equivalences with P = NP, you&#39;ve lost me. Theoretical optimums are an academic game, in reality you can get 95% of the way there with heuristics.&gt; Because Ethereum transactions are programs, the halting problem means that it isn&#39;t possible to accurately predict the resources needed to execute them.Ah, more appeals to theory. They&#39;re programs with a low ceiling on the number of steps and possible codepaths. They barely even have loops half the time. Estimating isn&#39;t that hard in practice."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://markets.businessinsider.com/news/currencies/crypto-expert-jailed-north-korea-blockchain-research-justice-department-2022-4">US sentences crypto expert to 5 years after North Korea blockchain presentation</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31015652">
+						
+							
+								<p class="story__comment_first line-clamp">"According to the original complaint, a few months after being interviewed by an FBI agent on returning from his trip to North Korea, Griffith had the following conversation over text messages:Griffith: I need to send 1 [REDACTED UNIT OF CRYPTOCURRENCY] between North and South Korea.
+Other Guy: &#34;Isn&#39;t that in violations of sanctions?&#34;
+Griffith: It is.A few day later, also in text messages to someone else:Someone: What interest does North Korea have in cryptocurrency?
+Griffith: Probably avoiding sanctions... who knows.&#34;It looks like it wasn&#39;t just speaking at a conference after being denied permission from the US that got him in trouble, it looks like both before and after the trip he was working on a variety of ways to get the North Korean government more onboard with cryptocurrency, including discussions about mining ventures, moving funds in and out of the country, and offering connections with other cryptocurrency people."</p>
+							
+						
+							
+								<p class="story__comment_others">"Mods: Better link: https://www.justice.gov/usao-sdny/pr/united-states-citizen-p...Better title: &#34;United States Citizen Pleads Guilty To Conspiring To Assist North Korea In Evading Sanctions&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"Reposting it from the previous thread:He is the creator of WikiScanner https://en.wikipedia.org/wiki/WikiScanner https://www.reuters.com/article/us-security-wikipedia-idUSN1...He also created Tor2web with Aaron Swartz and used to work for the tor team.Seems like an interesting guy. It&#39;s a shame that this happened.The situation is kinda similar to the one with Bobby Fischer https://en.wikipedia.org/wiki/Bobby_Fischer&#34;In 1992, he reemerged to win an unofficial rematch against Spassky. It was held in Yugoslavia, which was under a United Nations embargo at the time. His participation led to a conflict with the US government, which warned Fischer that his participation in the match would violate an executive order imposing US sanctions on Yugoslavia. The US government ultimately issued a warrant for his arrest. After that, Fischer lived as an émigré. In 2004, he was arrested in Japan and held for several months for using a passport that the US government had revoked. Eventually, he was granted an Icelandic passport and citizenship by a special act of the Icelandic Althing, allowing him to live there until his death in 2008.&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=31028795">Tell HN: Turned 44 today and I&#39;m lost</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31028795">
+						
+							
+								<p class="story__comment_first line-clamp">"A lot of comments have said &#34;stay in therapy&#34; or &#34;quit therapy&#34;, but my immediate reaction is that maybe you have the wrong (ineffective) therapist and need to switch.My spidey sense went up when you mentioned what &#34;you told your therapist&#34;, full stop. I was at least expecting &#34;what my therapist responded&#34; or &#34;what my therapist told me that didn&#39;t work&#34;. That really (spidey sense, no evidence really) implies that your therapist is having low impact.I&#39;ve had half a dozen therapists in my life. What I realized is there&#39;s a huge difference between most therapists and good ones. With a typical therapist, not much happens, you phone it in and they don&#39;t notice or call you on it. A good therapist somehow has a way of listening and then catching you properly off guard at least once or twice a session. They can stare into your soul and see through your bullshit, even when you don&#39;t notice the bullshit you&#39;re saying. If you don&#39;t feel that incisiveness, perhaps it&#39;s time to start shopping for a new therapist.Therapy really is a 100x profession."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m in my late 20s, but I noticed that people live as if they are forever.They spend half of their life working for survival, preparing and planning for their (!) future.Some people die in the process and never live to see that future, 
+but some people reach that point and become aware of the finite time that just elapsed.Having physical needs met is trivial in our society. 
+Everything beyond is self imposed suffering by comparing oneself to others.But for what purpose? Just to have more than someone else? Just to be better than someone else?Nobody truly cares. Nobody cares about how fancy the technology is that someone built to make people click more ads online - even if that someone thinks he is doing god&#39;s work.We came to this earth naked and we will leave naked. Just like my parents did. Any material possessions and people will be left behind. Most of us will be forgotten 2 generations ahead or end up as UTF-8 characters on wikipedia.I can at least walk joyfully in the present and not suffer my imagination about the future. I can also make a conscious choice to not indulge in activities that destroy the planet for others. I don&#39;t think the older generations see it the way I do."</p>
+							
+						
+							
+								<p class="story__comment_others">"Yes, you have reached the zenith of your career. Congratulations. You are self-sufficient and able to provide for the financial needs of your family. This is a true victory.Now, it is time to focus on people other than yourself. Most other advice on here is awful; it amounts to different directions to run on the hedonic treadmill.Instead, you have to give back now. What good is there to be done, that only you could do? What will be worse off if you don&#39;t lend a hand? This can range from finding better ways to support and mentor your children, to donating time to tutor students in programming, to building a well in Africa. Think hard about what you really care about, and then work hard to bring that into being."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">16 April 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -161,15 +458,15 @@
 						<a href="https://news.ycombinator.com/item?id=31043439">
 						
 							
-								<p class="story__comment_first line-clamp">"Some points from the All in Pod.1. The Twitter board of directors has become a status thing. It&#39;s like a country club. They don&#39;t have real skin in the game; they don&#39;t own much stock. They&#39;re not aligned with the shareholders. It&#39;s about status and cultural power.2. Why should we believe that the company will become more valuable when the stock price is where it was way back in December 2013? Compare to how the S&amp;P or Tesla did during this period. Twitter has languished for a long time.3. They should put it to shareholder vote.4. One AI engineer from Tesla could solve Twitter&#39;s bot and spam problem.5. The elites have somehow inverted history so they now believe that it is not censorship that is the favored tool of fascists and authoritarians, even though every fascist and despot in history used censorship to maintain power, but instead believe free speech, free discourse, and free thought are the instruments of repression."</p>
-							
-						
-							
-								<p class="story__comment_others">"Even before the poison pill was adopted, the evidence is the market wasn&#39;t taking Musk&#39;s offer seriously. That&#39;s because he was offering $54.20 per share (ha ha, 420), but the stock price never closed higher than $48.36. So almost $6/share was left on the table.Part of it is that Musk doesn&#39;t have $43B in cash, he&#39;d have to raise it or borrow it. He&#39;s worth more than that but it isn&#39;t liquid; as an officer of Tesla there are some restrictions on when he can trade. Another part is that many doubt whether Musk is serious or if he is playing games again, like the last time &#34;420&#34; appeared in a financial announcement from him."</p>
+								<p class="story__comment_first line-clamp">"Even before the poison pill was adopted, the evidence is the market wasn&#39;t taking Musk&#39;s offer seriously. That&#39;s because he was offering $54.20 per share (ha ha, 420), but the stock price never closed higher than $48.36. So almost $6/share was left on the table.Part of it is that Musk doesn&#39;t have $43B in cash, he&#39;d have to raise it or borrow it. He&#39;s worth more than that but it isn&#39;t liquid; as an officer of Tesla there are some restrictions on when he can trade. Another part is that many doubt whether Musk is serious or if he is playing games again, like the last time &#34;420&#34; appeared in a financial announcement from him."</p>
 							
 						
 							
 								<p class="story__comment_others">"So, I&#39;m not very corporate savvy and this might be a very stupid question. Is there a NON-culture/political reason for all the push back against Musk buying Twitter? From the read, this just seem to be opening the door for someone else to try and take majority control and pining away for the days of Dorsey (which, if looked at objectively, weren&#39;t great... just filling an opportunity)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don’t understand how any board can implement a “poison pill”, not just Twitter but Netflix and others, and not be found working against the interest of shareholders. Can anyone help me understand?You’re categorically changing the profile of the stock. This has a chilling effect on large investors, including but not limited just to Musk, right?Vanguard, for example, has just had its range of further investment limited arbitrarily. Isn’t that bad for all stockholders, to know that large stakeholders will not drive the price up if they somehow gain substantial belief in the company?The risk portfolio of Vanguard just went up considerably because in the case that they fully lose faith in the board, they no longer have the option of installing a friendly board, they must simply liquidate their holdings. This, in turn, makes them more skeptical of further smaller (non-takeover) investment because it’s more to liquidate and more risk.Who does this benefit besides the board? I guess I understand that the board is not beholden to the interests of all shareholders equally, and I’m not suggesting that this doesn’t benefit some shareholders, but where does the line start?"</p>
 							
 						
 						</a>
@@ -201,22 +498,13 @@ The shell will truncate myfile.txt before awk (or whatever command) has a chance
 							
 						
 							
-								<p class="story__comment_others">"&gt; errno: look up errno names and descriptionsI like this. Reminds me of a couple very useful things I&#39;ve done:1. Add a -man switch to command line programs. This causes a browser to be opened on the web page for the program. For example:    dmd -man
-
-opens https://dlang.org/dmd-windows.html in your default browser.2. Fix my text editor to recognize URLs, and when clicking on the URL, open a browser on it. This silly little thing is amazingly useful. I used to keep bookmarks in an html file which I would bring up in a browser and then click on the bookmarks. It&#39;s so much easier to just put them in a plain text file as plain text. I also use it for source code, for example the header for code files starts with:    /*
-     * Takes a token stream from the lexer, and parses it into an abstract syntax tree.
-     *
-     * Specification: $(LINK2 https://dlang.org/spec/grammar.html, D Grammar)
-     *
-     * Copyright:   Copyright (C) 1999-2020 by The D Language Foundation, All Rights Reserved
-     * Authors:     $(LINK2 http://www.digitalmars.com, Walter Bright)
-     * License:     $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
-     * Source:      $(LINK2 https://github.com/dlang/dmd/blob/master/src/dmd/parse.d, _parse.d)
-     * Documentation:  https://dlang.org/phobos/dmd_parse.html
-     * Coverage:    https://codecov.io/gh/dlang/dmd/src/master/src/dmd/parse.d
-     */
-
-and I&#39;ll also use URLs in the source code to reference the spec on what the code is implementing, and to refer to closed bug reports that the code fixes.Very, very handy!"</p>
+								<p class="story__comment_others">"My favorite is `ts`!
+It adds a timestamp at the beginning of each input line.I often use it with tee to save the log output of any command.  $ ping google.com | ts &#39;[%Y%m%d-%H:%M:%.S]&#39; | tee /tmp/ping.log
+  [20220416-21:57:20.837983] PING google.com (172.217.175.78): 56 data bytes
+  [20220416-21:57:20.838391] 64 bytes from 172.217.175.78: icmp_seq=0 ttl=53 time=6.028 ms
+  [20220416-21:57:21.817189] 64 bytes from 172.217.175.78: icmp_seq=1 ttl=53 time=9.621 ms
+  [20220416-21:57:22.818339] 64 bytes from 172.217.175.78: icmp_seq=2 ttl=53 time=9.443 ms
+  [20220416-21:57:23.823126] 64 bytes from 172.217.175.78: icmp_seq=3 ttl=53 time=8.921 ms"</p>
 							
 						
 						</a>
@@ -248,7 +536,7 @@ It would be great if YouTube updated their ToS to permit this because that could
 							
 						
 							
-								<p class="story__comment_others">"Cool project but I wonder if the name will catch flak from the lawyers. Trademarks and all that. At they very least a big &#34;This is not affiliated with Google/Youtube&#34; seems like a wise precaution."</p>
+								<p class="story__comment_others">"The reason I stopped integrating any API based system (FB, Twitter, etc...) into my code bases for services I don&#39;t pay for (or my customers) is because they all changed willy-nilly and broke on a regular basis.This is more likely to break (be broken by google) than an official API, and those are bad enough. (hard pass on even trying this out, especially if it&#39;s good/nice I&#39;ll want to use it and kick myself later for being an idiot.)"</p>
 							
 						
 						</a>
@@ -272,11 +560,11 @@ It would be great if YouTube updated their ToS to permit this because that could
 							
 						
 							
-								<p class="story__comment_others">"So basically simulating the environment of sitting in a university library all day until you have to submit a piece of work at midnight, while 100 other people all sit and do the same around you.Very good idea. Works like a charm."</p>
+								<p class="story__comment_others">"The coding cafe version.1. Upon entering you must write and demonstrate one failing test2. The manager asks you if you want someone to pair program with you3. You are not allowed to leave until the test is passing"</p>
 							
 						
 							
-								<p class="story__comment_others">"The coding cafe version.1. Upon entering you must write and demonstrate one failing test2. The manager asks you if you want someone to pair program with you3. You are not allowed to leave until the test is passing"</p>
+								<p class="story__comment_others">"So basically simulating the environment of sitting in a university library all day until you have to submit a piece of work at midnight, while 100 other people all sit and do the same around you.Very good idea. Works like a charm."</p>
 							
 						
 						</a>
@@ -365,7 +653,7 @@ to be supported by Facebook and doesn’t end up with the same fate."</p>
 							
 						
 							
-								<p class="story__comment_others">"Chris Anderson of TED asked Elon a lot of the questions and concerns being discussed here. Check it out if you want to understand his perspective and goals with twitter.“Having a public platform that is maximally trusted and broadly inclusive is extremely important to the future of civilization”To that end, he committed to transparency. For example, changes to tweets or users would be made visible and apparent so there&#39;s no more behind the scenes manipulation. The algorithm itself would be open sourced. Anyone could view it on Github and suggest changes or point out issues.https://youtu.be/cdZZpaB2kDM?t=666"</p>
+								<p class="story__comment_others">"Let&#39;s ignore personality and societal issues for a moment and look at the value proposition. The &#39;best and final offer&#39; of $54.20 per share is just too low to be acceptable for major investors.Just  over year ago, Twitter shares traded at about $70 per share. Musk&#39;s offer is about 25% lower than last years peak. There&#39;s no reason to assume Twitter shares can&#39;t reach the same levels ever again, nothing much has changed fundamentally over a year.Musk&#39;s offer is a cash only offer. $43 billion is a lot of cash. That&#39;s a lot of Tesla shares to sell, or massive loan. If Musk thinks Twitter is that valuable to take such risks,  current major  investors will probably want to unlock that value themselves.I think the takeover offer is just as believable as last week&#39;s announcement that Musk was joining the Twitter board."</p>
 							
 						
 						</a>
@@ -561,8 +849,7 @@ to be supported by Facebook and doesn’t end up with the same fate."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m a happy Mullvad user. But I have one concern.Recently, Instagram &#34;tagged&#34; my account as either based in Russia or using Russian currency. I&#39;m based in Western EU and set up the VPN to connect to the same country or neighboring ones.I&#39;m trying to figure out if some endpoints belonging to Mullvad have been shadowbanned by Meta/Instagram.  
-Is there someone else who uses Mullvad to surf on Meta products whose account has been impacted by sanctions directed at Russia?My first guess is that it&#39;s a mislabelling problem or bots going rogue for an unkown reason. And, IG support is taking too long to clarify what&#39;s the culprit. So, I&#39;m making all kind of hypotheses to reach a logical explanation before getting an official answer."</p>
+								<p class="story__comment_others">"I’m wondering how this compares to Apple’s iCloud Private Relay.Mullvad is trying to increase their transparency and make sure users can trust them which is great. But would there be a way for them to make it so that users do not have to trust them? What if the second server was hosted by another entity?"</p>
 							
 						
 						</a>
@@ -2709,291 +2996,6 @@ Note that these are non-exclusive; sites can be valid for multiple categories."<
 						
 							
 								<p class="story__comment_others">"I had a few interactions with employees at Worldcoin. At a high level they&#39;re trying to solve a worthy problem: proof of personhood for crypto.HN is very anti-crypto so I expect any conversation on this topic is an uphill battle. If you&#39;re generally sceptical of crypto, Worldcoin will seem outright useless to you. I tend to believe there are some great ideas embedded in the cryptocurrency world alongside a lot of noise and speculation. Eventually the &#34;signal&#34; and core ideas will rise through, perhaps after a long period of pain.There are a whole class of ideas in crypto that require one wallet/address to correspond to one single person. Like all powerful ideas, there are ways that this could bring great value to the world and unfortunately also ways that this could be horrifically abused. Proof of personhood for crypto could enable verifiable UBI for the world. It could also enable mass surveillance if widely adopted.Given the interesting potential of the idea, someone was going to eventually work on it. Worldcoin should have approached the problem slightly differently. First, testing the concept in lower-income countries has a &#34;colonial experimentation&#34; look to it. Since the idea is controversial, they would have gained more goodwill by initially launching in the EU/North America under the more strict legal frameworks. Second, make the orb look less dystopian. Third, launch with a non-economic use case. Worldcoin won&#39;t solve UBI or inequality in one shot, so why not launch with a lower stakes use case such as an online forum or community that requires proof of personhood to post?Sadly I think because of all the missteps, I can&#39;t see Worldcoin tackling the proof of personhood problem in the longterm. I hope another project comes along and makes an attempt more &#34;sensitively&#34;."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">06 April 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.nrk.no/osloogviken/xl/tiktok-doesn_t-show-the-war-in-ukraine-to-russian-users-1.15921522">One App – Two Worlds: This Is TikTok in Russia and Ukraine</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30917474">
-						
-							
-								<p class="story__comment_first line-clamp">"This article is well made and uncovers very interesting thing. I love how it was technically put together, browsing it on mobile was a great experience, chapeaux bas, i love how great new formats are available to publishers in the digital era outside of serving autoplaying ads.On thing that caught my attention was the supposed USCentric approach since it counted a distance in miles. I also wonder whether it was translated into russian so it can be shared with russian citizens that they’re being lied to by TikTok"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a great visual and concrete example of how easily a narrative can be controlled.This is but one example of a larger systemic issue with media in the 21st century, and an issue with how people consume that media.Virtually every platform is like this, not just TikTok. It&#39;s not like TikTok tries to present itself as a neutral, unbiased source. Their whole premise is delivering &#34;highly curated&#34; content to you as fast as possible. The problem is that people have accepted that as normal and it&#39;s doing horrible things to the world. There&#39;s a reason everyone feels like we&#39;re the most divided we&#39;ve ever been...and it starts with things like this.As far as the war in Ukraine is concerned, this is just like classic WW2 propaganda but turned up to 11 due to the nature of how fast and easy it is to spread [mis]information these days."</p>
-							
-						
-							
-								<p class="story__comment_others">"I love the execution of this!Not comparing but I did a similar project 8 years ago at the peak of Israel / Palestine conflict to compare tweets from Palestine vs tweets from Israel.Incredible difference when you see them side by side.It would be great if someone would execute such an idea for more areas of conflict to bring awareness."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.sec.gov/ix?doc=/Archives/edgar/data/0001418091/000119312522095651/d342257d8k.htm">Elon Musk to join Twitter’s board of directors</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30918534">
-						
-							
-								<p class="story__comment_first line-clamp">"I think people are really over-analyzing this move. I think it&#39;s motivated by prestige, not money, nor is free speech the heart of the matter.Twitter is a stagnant company. They have thousands of engineers that in the span of a decade don&#39;t seem to produce much at all, nothing visible or memorable anyway. Long-lasting Twitter problems (culture, spam, algorithm issues) never seem addressed. User growth is stagnating as Twitter fails to appeal to &#34;normies&#34; in a way Facebook and other networks can.A perfect target for Musk to come in, do a few sweeping changes, and get out. Thereby proving once again that he gets shit done where others can&#39;t. Case closed.It doesn&#39;t take much. People have been begging for an edit button for a decade. If he&#39;d get only that feature implemented, it will be remembered forever."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think Twitter&#39;s CEO summed it up well, and I agree:&gt; He’s both a passionate believer and intense critic of the service which is exactly what we need on @Twitter, and in the boardroom, to make us stronger in the long-term. Welcome Elon!https://twitter.com/paraga/status/1511320964813910017"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s either this or one of its competitors rises to take them on at some point and we get a bifurcated society where specific companies cater to specific politics. That may be unavoidable anyways.I think people outside the SV bubble (I grew up there, don&#39;t live there anymore) don&#39;t realize how hated and despised their censorship policies really are.  Musk has his pulse on that, so I&#39;m happy to see him step in and shake up the group think."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.warp.dev?ref=showhn">Show HN: Warp, a Rust-based terminal</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30921231">
-						
-							
-								<p class="story__comment_first line-clamp">"There are some legitimate concerns about Warp throughout these comments (telemetry, business model, etc.).But the one thing that really excites me is to have a full team working full-time on building the terminal that developers want to use. They&#39;re doing real user research, talking to developers, and taking feedback in forums like HN seriously - and using up millions of VC-dollars building a new version of this fundamentally important core utility. I&#39;d much rather have that VC money go toward an attempt at a better terminal than some ML or web3 startup.I think this doesn&#39;t usually happen? All the terminal emulators I&#39;ve used usually open-source projects developed in someone&#39;s free time. Don&#39;t get me wrong, projects like Alacritty, urxvt, xterm, Terminator etc. are amazing for the funding they have (I think mostly $0?), but I&#39;m super excited to see what a cohesive terminal based on real UX research can look like."</p>
-							
-						
-							
-								<p class="story__comment_others">"If you want to use a terminal that is actually open source and doesn&#39;t have telemetry, much less only available via signing in with GitHub, use Alacritty, also written in Rust and cross platform.https://github.com/alacritty/alacritty"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is perhaps slightly orthogonal to the main discussion here on this thread, but I have a question for Zach (and the various engineers posting on this thread):Did you guys talk to real-world users while building this and before this launch?This whole blow-up re: your telemetry / open sourcey&#39;ness seems like it could have been avoided.  I&#39;m curious if you actually floated these ideas with real world users and a) everyone else is cool with it but the HN crowd is super put off by it, b) everyone is super put off by it but you decided to launch anyway, or c) you didn&#39;t actually check with real-world users and hoped for the best.Sorry if that sounds snarky - it&#39;s not my intent.  I&#39;m genuinely curious here as a product person / entrepreneur / builder, etc."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://dkb.io/post/the-next-google">The next Google</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30921628">
-						
-							
-								<p class="story__comment_first line-clamp">"I think &#39;more customization&#39; which is a theme with a lot of these alternatives is a fundamental dead end. I don&#39;t know where this persistent myth comes from that people love choice and tinkering, because they clearly don&#39;t. There&#39;s a huge cost associated with having to make choices, and one feature of successful modern apps is that they&#39;re frictionless. That&#39;s why TikTok is so successful. There&#39;s no login, no user chosen social graph, everything&#39;s abstracted away.And that&#39;s by the way why Google is still successful as well. Because it literally still is a simple box where you put a question in and it gives you answers without needing to do anything else. The only way to beat that is to make it even better while not making it more complicated which is very hard to do."</p>
-							
-						
-							
-								<p class="story__comment_others">"I just went on a mini vacation to Vegas, and was thinking how nice it would be to just call up someone and ask for some simple advice.  I did a bunch of online research before I booked things, but man was it painful.  There are so many copy-cat blogs who just throw together a bunch of basic information with no real research done in order to get those clicks/adwords.For example: best hotel pool in vegas.  Seems simple enough.  Circus Circus actually has a waterslide, but if you dive deeper (read a hundred reviews manually) you find out parts are often shut down, and the hotel itself is quite trashy and smells bad and has bad service (explains the really cheap room rate).  But do you find that information on blogs?  No way, they just include all the hotels with pools and copy in the verbiage directly from the hotel websites or other blogs.There&#39;s probably an actual traveler blog out there that tells you all this and has great information, but it&#39;s hidden by all the SEO optimized trash blogs.And this example can be applied to so many things we do all the time.  Try to find a product you want on Amazon without spending half a day sorting through reviews and trash blogs.So, personally, I think the future will be actual human service.  I&#39;d pay a few bucks to call up a service to answer these questions definitively for me."</p>
-							
-						
-							
-								<p class="story__comment_others">"These solutions don&#39;t answer any of the fundamental problems with Google:- who pays for the service (ads? users pay? Average user will never use a paid service if a free one is available)- how to resist attacks against the algorithm (Google has been fighting spam for decades)- how to personalize without invading privacy, e.g. Google had an option to search through your email in Google search...it&#39;s gone now, I wonder why?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://jinyuz.dev/posts/tips-and-tricks/switching-from-pyenv,-rbenv,-goenv-and-nvm-to-asdf/">Switching from pyenv, rbenv, goenv and nvm to asdf</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30917354">
-						
-							
-								<p class="story__comment_first line-clamp">"If you are looking for a language agnostic version manager, the nix package manager [0] might be worth a try. In combination with lorri [1] you will be dropped into a shell with all required development dependencies available, when you enter the project directory. This does not only include the interpreter/compiler versions but also any other dependency you can think of, like specific libraries the project links against (well almost any, it has to be available as a nix expression, best case directly in upstream nixpkgs).For me, it has come so far that I don&#39;t have any interpreters or compilers in my main OS environment and even for one off REPL sessions, I&#39;ll use `nix shell nixpkgs#python3 -c python3`.[0]: https://nixos.org/[1]: https://github.com/nix-community/lorri/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I recently discovered Hermit[1], which is a really straightforward tool for managing versions of tools for a given project. From the FAQ[2]:&gt; Hermit is probably most similar to asdf, but their goals differ. Hermit&#39;s goal is to make isolated cross-platform tooling consistent, self-bootstrapping, and reproducible at the project level. asdf&#39;s primary goal is to allow developers to install and switch between multiple versions of languages and tooling.The downside for the author of this post, though, is that Hermit doesn&#39;t yet support Ruby because it&#39;s not static/relocatable.[1]: https://cashapp.github.io/hermit/
-[2]: https://cashapp.github.io/hermit/faq/#asdf"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Everything was fine until I kinda felt my config.fish file got bloated and somehow nvm was kinda slowing down my shell startup.I&#39;m quite happy with direnv to avoid this problem.https://direnv.net/Funny enough, it was submitted to HN most recently just yesterday:https://news.ycombinator.com/item?id=30908321direnv is complementary to the various language-version tools, so it obviates needing asdf:https://github.com/direnv/direnv/wiki#project-layoutsBut it seems some folks combine the two:https://blog.mikecordell.com/2021/12/18/better-project-envir..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/geohot/tinygrad">Tinygrad</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30909719">
-						
-							
-								<p class="story__comment_first line-clamp">"I find this related page more interesting: A Breakdown of AI Chip Companies  https://geohot.github.io/blog/jekyll/update/2021/06/13/a-bre...I especially like that he outlines an actual plan for an AI chip startup that he thinks will work, and has an update explaining why he was subsequently convinced that it wouldn&#39;t work."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is the guy that did some iOS jailbreaks, reverse engineered the PS3 and now runs a self driving car startup."</p>
-							
-						
-							
-								<p class="story__comment_others">"I watched a few of George&#39;s live streams, and I&#39;m pretty impressed with his coding skills and determination to solve a problem.In the spirit of learning, anyone else on his level do live streams or has a youtube channel?Here&#39;s his last 7 hour stream coding Tinygrad.https://www.youtube.com/watch?v=MeE4Y2862FY"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://sabukaru.online/articles/how-neuromancer-birthed-cyberpunk">The Influence of Neuromancer on Cyberpunk</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30918411">
-						
-							
-								<p class="story__comment_first line-clamp">"I’m constantly amazed at how Metaverse aficionados quote Snow Crash and and other 1990s works as cornerstones of cyberspace, when Gibson invented the term and Neuromancer was written in 1984. Gibson is the original. The passage where Case connects to the matrix (also a Gibson term) again for the first time once his nervous system is repaired is heartbreakingly beautiful. I relate to it as a young phone phreak growing up in South Africa in the 80s and 90s when I would bluebox the home country direct phone trunks to connect to BBSs in the USA. When I could not get through, usually because they were filtering my seize tones, I felt the same deprivation. And when I finally connected I felt the same elation Case feels in this scene…“Please, he prayed, now—A gray disk, the color of Chiba sky.Now—Disk beginning to rotate, faster, becoming a sphere of paler gray. Expanding—And flowed, flowered for him, fluid neon origami trick, the unfolding of his distanceless home, his country, transparent 3D chessboard extending to infinity. Inner eye opening to the stepped scarlet pyramid of the Eastern Seaboard Fission Authority burning beyond the green cubes of Mitsubishi Bank of America, and high and very far away he saw the spiral arms of military systems, forever beyond his reach.And somewhere he was laughing, in a white-painted loft, distant fingers caressing the deck, tears of release streaking his face.”"</p>
-							
-						
-							
-								<p class="story__comment_others">"One thing I read somewhere -- and it might have been an interview with Gibson or with someone else talking about his work -- is how much William Gibson despises derivatives of cyberpunk in the books, videogames and movies that followed.Specifically, he dislikes the focus on the aesthetic, neon lights, mirror shades, etc. I think Gibson really dislikes Cyberpunk 2077, for example. Gibson argued they are missing the point, staying shallow and forgetting the &#34;message&#34;, which was PUNK: a rebellion and a rejection of the mainstream state of affairs. Gibson was a punk writer, and his writing was a critique of Reaganomics and the direction the world was going back then.I think he means we need a different kind of critique now, not anchored to neon lights and vaguely Japanese inspired retrofuturistic aesthetics which look like what the 80s thought the future would be. And nothing can be more conformist and anti-punk than lazily copying a now classic aesthetic and doing nothing else with it.That said, I love that aesthetic myself, and have no problem being stuck in the past. But I see his point."</p>
-							
-						
-							
-								<p class="story__comment_others">"The Sprawl trilogy and its fashion/world is formed a lot by politics. Gibson himself says that Neuromancer is an exaggerated critique of Reaganomics and the problems it exasperated (or, at the very least, failed to address). The rampant drug abuse, sovereign corporations, the ever increasing gap of poverty and technology -- I think a lot of derivative media adopts these elements to look cool (without actually understanding their context or meaning)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://cdn.smoot.apple.com/static/autofill_tld_whitelist_url">Apple&#39;s whitelist of the 250k auto-completable domains in iOS</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30903246">
-						
-							
-								<p class="story__comment_first line-clamp">"This is an interesting little example of how &#34;systemic&#34; happens, or can happen.The list exists initially to support a feature, a utilitarian reason. Then, being in the list has SEO value or some such. The list becomes a legitimacy or authority test. It affects traffic, sales.Maybe other stuff piggybacks this list. Anyone who needs a list of important domain names uses it. Ordering search results, caching, testing, crawling... More dynamics  unrelated to Apple&#39;s original purpose.Meanwhile, Apple continues to treat the list as a relatively unimportant thing... Just a clunky little hack that enables autocomplete. At some point, willfully ignorant of a whole industry of professional services out there promising to get you on list."</p>
-							
-						
-							
-								<p class="story__comment_others">"My competitor is in this list and I&#39;m not, even though my site is more popular. There even are some small Dutch campings, municipalities and regional football clubs on this list. It&#39;s a strange list for sure."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m curious to see how this changes over time, so I threw together a quick repo with a GitHub action to watch the endpoint.https://github.com/b0o/apple-autofill-domains"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.dallasobserver.com/music/dallas-got-rick-rolled-with-a-giant-qr-code-on-april-fools-day-13716928">300 Drones Formed a QR Code That Rick Rolled Dallas on April Fools&#39; Day</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30922808">
-						
-							
-								<p class="story__comment_first line-clamp">"Anybody know if there are considerations or plans for things like:- Mandatory periodic ID transmit (via RF) by drones at specific altitudes or in specific areas- Standardized visual marking schemes for drones by class, for example municipal, commercial, federal, etc.Just wondering because for example my city announced that they&#39;ll be using drones for power pole checks, which will include a lot of backyard operation. I&#39;d like to be able to identify them if needed."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m amazed that 300 is enough - especially at distance and at questionable angle / conditions. Just shows how resilient QR codes are"</p>
-							
-						
-							
-								<p class="story__comment_others">"2018 CES - I was really impressed by the Intel drone light show over the Bellagio fountain pool area. Thought it was some weird kind of Vegas wire-pulling effect at first.There were no drone sounds, just strings of lights moving in increasingly strange and impressive ways.Kept trying to figure out how they were able to pull such impressive moves until I saw some guy wearing a shirt that said something like &#34;Intel drone team&#34; and the penny finally dropped.Some &#34;magic&#34; is fun once in a while.Edit: This is what it looked like:https://www.youtube.com/watch?v=n7HNQ1NBzgg"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://verdagon.dev/blog/yak-shave-language-engine-game">Accidentally making a language, for an engine, for a game</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30914148">
-						
-							
-								<p class="story__comment_first line-clamp">"I don&#39;t know what it is about game development that really brings out the yak shaving in people.One time, about 8 years ago, I backed a game called Nowhere[1] by a very talented programmer. The original premise was an alien life simulator.Well, it&#39;s been eight years, and development is still going strong!The developer is currently working on the String implementation for the programming language he invented[2], which he&#39;s using to write the other programming language he invented[3], which is eventually going to be used to write the game.[1] https://duangle.com/nowhere[2] https://hg.sr.ht/~duangle/scopes[3] https://hg.sr.ht/~duangle/tukan"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s interesting that this phenomenon is much more prevalent in game development, as opposed to (for example) web development: some people build their own web development frameworks, but it seems like every game dev tries to make an engine at some point.My theory why: good web frameworks consider developer experience to be of paramount importance, and invest heavily into examples, documentation, and API improvements. Unreal and Unity by comparison are unpleasant to work in. The UI is clunky, the examples cap out after a certain point of complexity, and community input is almost nothing when compared to the Django, Express, Rails, or language-specific ecosystems.Anyway, I can&#39;t say I&#39;ve ever made it far enough down the rabbit hole to want to make my own language... but I know for me, the desire to make my own engine* has punctuated every attempt over the years to get better at both Unity and Unreal*Acknowledgment that I might be partially disproving my own point, as I&#39;ve tried to build both my own web framework, AND my own game engine... but I spent a lot more time on the game engine (https://github.com/RobertTownley/gamehook)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Always a pleasant surprise to be scrolling through HN and seeing one of my articles on the front page!For anyone interested in how that code would get zero memory safety overhead without the classic borrow checker, a big part of it is because of the &#34;region borrow checker&#34; [0]. There are some other factors (iso regions, hybrid-generational-memory, etc.) but region borrow checking is the big one.[0] https://verdagon.dev/blog/zero-cost-refs-regions"</p>
 							
 						
 						</a>
