@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">20 April 2022</div>
+	<div class="day__date">21 April 2022</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://brave.com/privacy-updates/18-de-amp/">
+					<a href="https://danlark.org/2022/04/20/changing-stdsort-at-googles-scale-and-beyond/">
 						<picture>
-							<source srcset="default_31085051.webp" type="image/webp">
-							<source srcset="default_31085051.png" type="image/png">
-							<img src="default_31085051.png" alt="Preview of 'De-AMP: Cutting out Google and enhancing privacy'">
+							<source srcset="default_31098822.webp" type="image/webp">
+							<source srcset="default_31098822.png" type="image/png">
+							<img src="default_31098822.png" alt="Preview of 'Changing std:sort at Google’s scale and beyond'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://brave.com/privacy-updates/18-de-amp/">De-AMP: Cutting out Google and enhancing privacy</a></h3>
+					<h3><a href="https://danlark.org/2022/04/20/changing-stdsort-at-googles-scale-and-beyond/">Changing std:sort at Google’s scale and beyond</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31085051">
+						<a href="https://news.ycombinator.com/item?id=31098822">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; Second, AMP is bad for security. By design, AMP confuses users about what site they’re interacting with. Users think they’re interacting with the publisher, when in actuality the user is still within Google’s control. User-respecting browsers defend the site as the security and privacy boundary on the web, and systems like AMP intentionally confuse this boundary.They&#39;ve actually been pushing to confuse that boundary even more since 2019, with their Signed Exchanges specification[0][1]. In essence, when you (unintentionally) visit an AMP page from Google Search, the URL typically starts with google.com/amp/websiteyouwantedtogoto.com. Signed Exchanges is essentially a way to drop the &#34;google.com/amp/&#34; bit, as demonstrated by one of the animations on [0].Even Cloudflare supported this and rolled it out on their free tier[2].[0]: https://developers.google.com/search/blog/2019/04/instant-lo...[1]: https://www.theverge.com/2019/4/16/18402628/google-amp-url-p...[2]: https://blog.cloudflare.com/announcing-amp-real-url/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Kudos to Brave - they&#39;re a sometimes weird actor, but some of their initiatives are commendable, and they often do what Mozilla should have, but didn&#39;t.I rarely end up in AMP pages on my mobile, but when it happens I immediately feel like I stepped on a turd, and promptly backtrack / close the tab before it hijacks my back button, half the screen, standard controls (including doing something weird to scrolling) and other unpleasantries like banners whose &#34;x&#34; somehow overlaps my browser&#39;s bars, and are therefore out of reach (and said browser bars somehow do NOT autohide when scrolling, unlike on normal pages)Getting AMP results from Google search has been one of the drivers leading me to switch to DDG, so congrats Google, one less customer."</p>
+								<p class="story__comment_first line-clamp">"Hi all, I&#39;m the author of pdqsort that&#39;s credited in the post (to be clear: the authors acknowledged pdqsort at the bottom, I am not associated with the posted work directly). I recently held a talk at my institute on efficient in-memory sorting and the ideas in pdqsort, in case you&#39;re interested in hearing some of the theory behind it all: https://www.youtube.com/watch?v=jz-PBiWwNjcNext week I will hold another talk in the Dutch seminar on data systems design (https://dsdsd.da.cwi.nl/) on glidesort, a new stable sorting algorithm I&#39;ve been working on. It is a combination of adaptive quicksort (like pdqsort, fully adaptive for many equal elements) and an adaptive mergesort (like timsort, fully adaptive for long pre-sorted runs). It is the first practical implementation of an algorithm I&#39;m aware of that&#39;s fully adaptive for both. Like pdqsort it uses modern architecture aware branchless sorting, and it can use an arbitrary buffer size, becoming faster as you give it more memory (although if given a constant buffer size it will degrade to O(n (log n)^2) in theory, in practice for realistic workloads it&#39;s just a near-constant factor (c ~&lt;= 3-5) slower).The source code isn&#39;t publish-ready yet, I have to still do some extra correctness vetting and testing, and in particular exception-safety is still not yet fully implemented. This is important because I wrote it in Rust where we must always give back a valid initialized array, even if a comparison operator caused a panic. But I do have some performance numbers to quote, that won&#39;t significantly change.For sorting 2^24 randomly shuffled distinct u32s using a buffer of 2^23 elements (n/2), glidesort beats Rust&#39;s stdlib slice::sort (which is a classic timsort also using a buffer of n/2) by a factor of 3.5 times. When stably sorting the same numbers comparing only their least significant 4 bits, it beats stdlib slice::sort by 12.5 times using 6.5 times fewer comparisons, both numbers on my Apple M1 Macbook. All of this is just using single-threaded code with a generic comparison function. No SIMD, no threads, no type-specific optimizations.Finally, glidesort with a buffer size of &gt;= n/2 is faster than pdqsort."</p>
 							
 						
 							
-								<p class="story__comment_others">"Everything you need to know about AMP is in one very specific section of the spec:&#34;AMP HTML documents MUST...contain a &lt;script async src=&#34;https://cdn.ampproject.org/v0.js&#34;&gt;&lt;/script&gt; tag inside their head tag&#34; [1]Meaning, &#34;Your content must load and run some Google controlled javascript, that does who-knows-what to your content and end users&#34;.In the past, that&#39;s included injecting a big header that pushes your content down, hijacking swipe events on your page, an [X] button that looked like it would delete the AMP banner header, but instead navigated away from your page back to google, etc.[1] https://amp.dev/documentation/guides-and-tutorials/learn/spe..."</p>
+								<p class="story__comment_others">"Fun safety problems.Towards the end of this post, the author mentions a bunch of places where std::sort() blows up if your data or your sort rule doesn&#39;t exhibit strict weak ordering. In some cases you get a bad sort, which feels fair enough since you violated the rules the sort algorithm is relying on, but in others it literally has Undefined Behaviour in C++.Notably Rust&#39;s sort() and unstable_sort() do not have this problem, because of course these are safe Rust, and safe Rust doesn&#39;t have Undefined Behaviour. But why can this work?First up, one bullet which gets dodged is that Rust&#39;s floating point types (f32 and f64) are not Ord. Rust acknowledges that NaN != NaN and therefore we can&#39;t expect to go around sorting a slice of floating point values. In C++ that&#39;s on the programmer, in C++ the fact you can write a &lt; b means that type counts as ordered, even though it trivially isn&#39;t for several built-in types. So if you simply naively try to sort an [f32] Rust says you can&#39;t because it isn&#39;t Ord, you will need to write a lambda or whatever to Order these f32s and then if some of them are NaN your lambda is responsible for deciding what to do about that.But even if we insist on getting in harm&#39;s way, safe Rust promises to protect us anyway. For example if I make an array of a thousand misfortunate::OnewayGreater&lt;u8&gt;s they&#39;re only one byte each, yet they all insist they&#39;re Ordered greater than each other and even than themselves, Rust&#39;s sort() doesn&#39;t cause Undefined Behaviour on this input. It may never succeed, since all the elements to be &#34;sorted&#34; insist they&#39;re greater than each other, but it definitely won&#39;t segfault, trash unrelated memory or cause chaos."</p>
+							
+						
+							
+								<p class="story__comment_others">"Thanks, I&#39;m going to write all this out on a whiteboard the next time someone asks me to sort a linked list in a technical interview.Edit: just wanted to clarify that the point I&#39;m trying to make here is that if you want to ask someone if they&#39;ve memorized the answer to that question, go ahead and ask it in a technical interview, because the real well-considered answer looks like the linked article, and my honest non-smartass answer is that one should use the library function and not try to implement it themselves until they&#39;ve done sufficient research into the problem to prove to a reasonable degree that they indeed do need to re-implement sort() and that it&#39;s in the best interests of the business to fund such a project.Would love to read this over the phone to a recruiter and have them tell me that it&#39;s not what they have on their sheet."</p>
 							
 						
 						</a>
@@ -76,33 +76,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.axios.com/canada-foreign-home-buyers-ban-589fdf10-844f-4160-afe0-e8452df92fa8.html">
+					<a href="https://www.youtube.com/watch?v=t_rzYnXEQlE">
 						<picture>
-							<source srcset="default_31081417.webp" type="image/webp">
-							<source srcset="default_31081417.png" type="image/png">
-							<img src="default_31081417.png" alt="Preview of 'Canada bans foreign home buyers for two years'">
+							<source srcset="default_31075622.webp" type="image/webp">
+							<source srcset="default_31075622.png" type="image/png">
+							<img src="default_31075622.png" alt="Preview of 'Overhauling Mario 64&#39;s code to reach 30 FPS and render 6x faster on N64 [video]'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.axios.com/canada-foreign-home-buyers-ban-589fdf10-844f-4160-afe0-e8452df92fa8.html">Canada bans foreign home buyers for two years</a></h3>
+					<h3><a href="https://www.youtube.com/watch?v=t_rzYnXEQlE">Overhauling Mario 64&#39;s code to reach 30 FPS and render 6x faster on N64 [video]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31081417">
+						<a href="https://news.ycombinator.com/item?id=31075622">
 						
 							
-								<p class="story__comment_first line-clamp">"These are boogieman policies that have zero influence on the root cause.Foreign investors jump into the housing market because the current system ensures that the supply of housing is limited so it is an attractive way to park your wealth.But that is not the root cause.The root cause is the system that is geared to keep houses always appreciating via supply constraints: aggressive zoning, discretionary permitting, NIMBYism.Until we liberalize zoning, legalize building, and reject the idea that houses have to be appreciating assets, the issue will continue.As it is often the case, politicians go for the headline with the highest electoral ROI, rather than tackle the real issues."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m a homeowner in Toronto and I don&#39;t think this will help. They&#39;ve eliminated a small number of buyers from the market but have added other incentives like a first home buyers tax credit that will only fuel the fire - Australia tried this with tragic results.&gt;&gt; working with provinces and territories to develop and implement a Home Buyers’ Bill of Rights and bring forward a national plan to end blind bidding.Blind bidding is where multiple parties submit a sealed bid on a property. The realtor and seller review these bids behind close doors and then often request subsequent rounds of bids from the bidders *without telling them the current winning bid, or who&#39;s bid is winning*. Bidders end up out-bidding themselves.IMHO blind bidding is an unethical practice that should be outlawed regardless of its impact on housing prices."</p>
+								<p class="story__comment_first line-clamp">"This is a good lesson about the benefit of time when it comes to software development.  Mario 64 could have been a much much better game on the same hardware, but the time cost would have resulted in a release late enough that the entire game might have been considered irrelevant.Game consoles have had the benefit of the platform freezing for a few years allowing improvements to accumulate and later titles utilizing knowledge gained from the earlier titles.Much of the software we use every day could benefit from this level of scrutiny but the pressure to deliver on time means we won&#39;t get to see such benefits unless it becomes a crazy persons labour of love."</p>
 							
 						
 							
-								<p class="story__comment_others">"A quick look at the data suggests only about 2% of properties in Toronto and Vancouver are owned by overseas investors. Yes, housing is priced at the margin, but this won&#39;t do anything at all to prices over the long term.I&#39;m sure this will be wildly popular politically, because people LOVE the idea that some foreign boogieman is the reason their children can&#39;t afford homes anymore.It&#39;s much easier to outsource your problems to some outside &#34;other&#34; then deal with the much harder task of introspection over the poor housing policy that you and your neighbors have voted for over the last 60 years.Like all cities in areas with heavy-handed zoning regulations, abuse of historic preservation clauses, and filibuster-style city council meetings blocking new construction...the issue is one of supply.It&#39;s the same problem in literally every developed country on earth right now. The industrious, forward-looking people who originally built the cities during the major growth phase died...and then their kids grew up believing that the way things ended up was somehow divinely ordained. Never to be changed or built upon again."</p>
+								<p class="story__comment_others">"&#34;roll those loops back up and don&#39;t compile in debug mode to achieve significant performance gains&#34; is not the takeaway I thought I&#39;d have going in, heh."</p>
+							
+						
+							
+								<p class="story__comment_others">"Now that&#39;s a 10x programmer if I ever saw one. I&#39;m sure the compiler helped too. The generated code of C compilers from the 80&#39;s and 90&#39;s versus the generated code created by something like modern GCC -- it&#39;s like night and day. We&#39;re able to build faster tinier software than we ever have before, and it really helps to illuminate the impact modern tools have had when we apply that advantage to something old we already know."</p>
 							
 						
 						</a>
@@ -114,33 +114,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/FrameworkComputer/Mainboard">
+					<a href="https://projectionlab.com">
 						<picture>
-							<source srcset="default_31089677.webp" type="image/webp">
-							<source srcset="default_31089677.png" type="image/png">
-							<img src="default_31089677.png" alt="Preview of 'Framework Laptop Mainboard'">
+							<source srcset="default_31083093.webp" type="image/webp">
+							<source srcset="default_31083093.png" type="image/png">
+							<img src="default_31083093.png" alt="Preview of 'Show HN: I built a simulator for personal finance'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/FrameworkComputer/Mainboard">Framework Laptop Mainboard</a></h3>
+					<h3><a href="https://projectionlab.com">Show HN: I built a simulator for personal finance</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31089677">
+						<a href="https://news.ycombinator.com/item?id=31083093">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;m happy to answer any questions anyone has on this.  This is an initial set of documentation, and we&#39;ll prioritize writing/creating more based on what is most useful to enable Mainboard re-use."</p>
-							
-						
-							
-								<p class="story__comment_others">"The 3D printable, open-source, case that allows you to use the mainboard as a standalone computer is such a nice touch!  https://github.com/FrameworkComputer/Mainboard/tree/main/Mec..."</p>
+								<p class="story__comment_first line-clamp">"Great work! This might be unpopular among the HN crowd, but I think you can monetize this further by bundling this with an advising service.This idea of FIRE has been spreading beyond techies/Internet nerds and into other highly paid professionals like doctors. [0]. The main difference is that non-programmer professionals generally don&#39;t get a thrill out of min/max-ing financial projections.Such people might be willing to pay a few hundred dollars a year for someone to generate this kind of analysis with them and simply execute on it each year. Similar to how people pay for CPAs. My employer actually pays Goldman Sachs to provide a similar service for its employees (no commission, fiduciary advisors) but their tools suck compared to this.[0] For example https://www.whitecoatinvestor.com/, https://www.physicianonfire.com/"</p>
 							
 						
 							
-								<p class="story__comment_others">"My current laptop needs to be replaced really soon, I&#39;m hoping Framework will announce either a recent AMD Ryzen or Intel&#39;s Alder Lake. The difference between the 11th and 12th gen Intel is big enough I don&#39;t want to spend the next three years regretting it.Unfortunately Lenovo or Dell might get my budget if it looks like that&#39;s not going to happen for a while. This laptop has had a few too many drops off of my bike (which is why repairability would be great!)."</p>
+								<p class="story__comment_others">"This is great, I took some time to get a fairly in depth plan together. There are two things that stuck out:1. You&#39;ve got RSU&#39;s (at first it wasn&#39;t clear  to me where this would be addressed, but I think it made sense once I came across it) but I don&#39;t see a dedicated strategy for dealing with ISO/NSO&#39;s. That&#39;d be helpful for the tech community especially.2. I spent the 10-15 minutes working on a plan knowing that I&#39;d need to upgrade to pro for every feature, but it seems like I need to upgrade to save my plan. I ended up not paying because I don&#39;t have enough time right now to fully evaluate this, but I might look back later. It would have been great if I could have entered my email and saved my plan without paying, and then had to later pay to access it. This gives you the benefit of getting my email address, and then sending me an email to access my plan so that I&#39;ve got a second touchpoint to your product when I check my email in the future.Looking forward to using this more in depth in the future!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m so incredibly impressed with this tool. In addition to the slick interface, it has some killer features and niceties:- You can add a &#34;dependent expense&#34; (have a kid) at a certain age- You can run Monte Carlo simulations of your portfolio performance- Expenses can be configured to increase linearly, with inflation, up to an amount, or using a custom function that the user can input graphically- Adding a house purchase automatically cancels out your existing rent expense if you indicate that it will be your residence- Easily visualize all of your projected earnings from portfolio growth and losses due to inflation and taxesAs an avid YNAB-er, this is heaven."</p>
 							
 						
 						</a>
@@ -152,33 +152,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/sympy/sympy_doc">
+					<a href="https://retool.com/blog/how-we-upgraded-postgresql-database/">
 						<picture>
-							<source srcset="default_31087175.webp" type="image/webp">
-							<source srcset="default_31087175.png" type="image/png">
-							<img src="default_31087175.png" alt="Preview of 'HackerRank (YC S11) DMCA&#39;ed the SymPy Docs'">
+							<source srcset="default_31084147.webp" type="image/webp">
+							<source srcset="default_31084147.png" type="image/png">
+							<img src="default_31084147.png" alt="Preview of 'How we upgraded our 4TB Postgres database'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/sympy/sympy_doc">HackerRank (YC S11) DMCA&#39;ed the SymPy Docs</a></h3>
+					<h3><a href="https://retool.com/blog/how-we-upgraded-postgresql-database/">How we upgraded our 4TB Postgres database</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31087175">
+						<a href="https://news.ycombinator.com/item?id=31084147">
 						
 							
-								<p class="story__comment_first line-clamp">"Not the first time they&#39;ve taken down Github repos, some with a legal basis (partial problem text, though Fair Use might overrule that if the cases ever made it to court), others with no involvement at all (https://github.com/egfx/React-Leaderboard still hasn&#39;t been restored, for example)More information about previous DMCA abuse here: https://news.ycombinator.com/item?id=29239594Personally, I would not trust a company this unethical to certify anything. Their excuse seems to be &#34;we&#39;re using an external service&#34; but they chose that external service and are fully responsible for these takedowns in their name."</p>
-							
-						
-							
-								<p class="story__comment_others">"Hello again, Vivek, founder/CEO here. In the interest of moving swiftly, here are the actions we are going to take:(1) We have withdrawn the DMCA notice for sympy; Sent a note to senior leadership in Github to act on this quickly.(2) We have stopped the whole DMCA process for now and working on internal guidelines of what constitutes a real violation so that these kind of incidents don&#39;t happen. We are going to do this in-house(3) We are going to donate $25k to the sympy project.As a company we take a lot of pride in helping developers and it sucks to see this. I&#39;m extremely sorry for what happened here."</p>
+								<p class="story__comment_first line-clamp">"It is amazing how many large-scale applications run on a single or a few large RDBMS. It seems like a bad idea at first: surely a single point of failure must be bad for availability and scalability? But it turns out you can achieve excellent availability using simple replication and failover, and you can get huge database instances from the cloud providers. You can basically serve the entire world with a single supercomputer running Postgres and a small army of stateless app servers talking to it."</p>
 							
 						
 							
-								<p class="story__comment_others">"This same DMCA company (WorthIT Solutions) previously tried to DMCA the php docs range function page on behalf of HackerRank [0]. Pretty crazy.[0]: https://www.mail-archive.com/php-webmaster@lists.php.net/msg..."</p>
+								<p class="story__comment_others">"&gt; To resolve this, we ended up choosing to leave foreign key constraints unenforced on a few large tables.&gt; We reasoned this was likely safe, as Retool’s product logic performs its own consistency checks, and also doesn’t delete from the referenced tables, meaning it was unlikely we’d be left with a dangling reference.I was holding my breath here and I&#39;m glad these were eventually turned back on.Nobody should ever rely on their own product logic to ensure consistency of the database.The database has features (constraints, transactions, etc) for this purpose which are guaranteed to work correctly and atomically in all situations such as database initiated rollbacks that your application will never have control over."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hey folks—I wrote the post! This was my biggest Postgres project to date, and it proved quite tricky since I didn&#39;t rehearse with a test database of the same size. I learned a bunch about Postgres, not least the incredibly powerful NOT VALID option for safely and quickly adding constraints.Happy to stick around and answer any questions you have."</p>
 							
 						
 						</a>
@@ -190,33 +190,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://lookscanned.io">
+					<a href="https://www.solarpowerworldonline.com/2022/04/california-grid-set-record-with-97-percent-renewable-power-april-3/">
 						<picture>
-							<source srcset="default_31083432.webp" type="image/webp">
-							<source srcset="default_31083432.png" type="image/png">
-							<img src="default_31083432.png" alt="Preview of 'Show HN: Make your PDF look scanned in browser'">
+							<source srcset="default_31103275.webp" type="image/webp">
+							<source srcset="default_31103275.png" type="image/png">
+							<img src="default_31103275.png" alt="Preview of 'California grid set record of 97% renewable power on April 3'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://lookscanned.io">Show HN: Make your PDF look scanned in browser</a></h3>
+					<h3><a href="https://www.solarpowerworldonline.com/2022/04/california-grid-set-record-with-97-percent-renewable-power-april-3/">California grid set record of 97% renewable power on April 3</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31083432">
+						<a href="https://news.ycombinator.com/item?id=31103275">
 						
 							
-								<p class="story__comment_first line-clamp">"Interesting concept. However there are a few issues that surface quickly (this is all assuming a feed through scanner and not a flatbed).#1 - It rotates AND scales to fit. It&#39;s not obvious until you rotate a stupid amount, but pages don&#39;t shrink when scanned for real.#2 - The scanning rotation is way too uniform. Most scans twist a bit, typically near the top when more of the page is in the scanner to straighten it out.#3 - With #2 there should be some stretching/skewing that isn&#39;t uniform.#4 - The noise is way too uniform as well. It looks like static. Typical scanned documents have noise that is much more variable. You also get other scanning artifacts like streaks for dirt on the scan head.#5 - The page ends often aren&#39;t even and introduce artifacting as well.#6 - Needs an option for chewed up staple corner and/or holepunch."</p>
-							
-						
-							
-								<p class="story__comment_others">"Reminds me of patio11 talking about the phenomenon of having bureaucracy only accept wet signatures so services like this would help automate that.https://twitter.com/patio11/status/1249630998788108288"</p>
+								<p class="story__comment_first line-clamp">"Their math seems off.  I really don&#39;t see how you get to 97% renewable when the state was burning natural gas to generate 2.8 GW of non-renewable power and had about 1.1 GW of nuclear at the time.  There might be some funny math here where they assign all of the &#34;dirty&#34; power generated in the state to exports and can claim that that California is running on renewable power.Source:  https://www.caiso.com/TodaysOutlook/Pages/supply.html"</p>
 							
 						
 							
-								<p class="story__comment_others">"Very nice. On thing I would like to see a rotation range for multi page PDFs. A 10 page document won&#39;t all be identical rotation. One might be -0.2 and the next 0.3."</p>
+								<p class="story__comment_others">"This cool but not as great as you might think. I made a animated graph showing this moment and its implications here https://youtu.be/Sq9Uq1DqhU8To deeply decarbonize you need to meet current demand and also make enough to charge the energy storage systems...on a cloudy string of winter days.However we will see headlines like this for the next 20 years at least."</p>
+							
+						
+							
+								<p class="story__comment_others">"The grid operator cited is the California Independent System Operator.  How much of CA&#39;s electricity consumption is fed by that operator?In the article they mention 23GW from wind and solar.  A quick search says in 2018 CA&#39;s electrical generation capacity was 80GW (which I assume has only gone up).  So this 97% is a bit misleading, no?  It doesn&#39;t represent 97% of total CA electricity usage... it&#39;s less than 30%?"</p>
 							
 						
 						</a>
@@ -228,33 +228,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://birdnetpi.com/">
+					<a href="https://www.nytimes.com/2022/04/20/us/trevor-jacob-youtube-plane-crash.html">
 						<picture>
-							<source srcset="default_31072485.webp" type="image/webp">
-							<source srcset="default_31072485.png" type="image/png">
-							<img src="default_31072485.png" alt="Preview of 'BirdNET-Pi: Automated, locally run bird sound identification and tracking'">
+							<source srcset="default_31104691.webp" type="image/webp">
+							<source srcset="default_31104691.png" type="image/png">
+							<img src="default_31104691.png" alt="Preview of 'A YouTuber purposely crashed his plane in California, FAA says'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://birdnetpi.com/">BirdNET-Pi: Automated, locally run bird sound identification and tracking</a></h3>
+					<h3><a href="https://www.nytimes.com/2022/04/20/us/trevor-jacob-youtube-plane-crash.html">A YouTuber purposely crashed his plane in California, FAA says</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31072485">
+						<a href="https://news.ycombinator.com/item?id=31104691">
 						
 							
-								<p class="story__comment_first line-clamp">"Ooh! I have a mockingbird in my yard that I can try this on! I counted 20 different songs the other night, and it was probably a lot more, I just stopped being able to distinguish. They can have a repertoire of over 200! I  was actually wondering if something like this project existed, or maybe just an app really, but then hadn&#39;t thought about it since (I&#39;m just an insomniac, not a bird watcher). Very cool.If you don&#39;t know about the North American mockingbird, they fly up to a high perch at night and claim a yard sized area of territory by reciting all the songs it knows, as loud as it can. Over and over again, until it is exhausted. The little psychos. Thus impressing all the lady mockingbirds in the area. Apparently they do a little dance as well, but given it&#39;s usually the middle of the night when this happens, I haven&#39;t seen it.They used to drive me nuts until I read up on them. Now I try to count how many songs they know."</p>
-							
-						
-							
-								<p class="story__comment_others">"BirdNET and Pl@ntNet have to be my favorite uses of AI to date. A true use of technology for the greater good.I&#39;ve actually been thinking about automated bird recognition for a while now, I live underneath a flight corridor for migrating common cranes (near Berlin). I&#39;d love to be able to one day track their migration across the continent in real time using data from crowdsourced base stations.I wonder if migrating birds could be identified in flight using optical/radar/audio. If anybody else has had similar ideas I&#39;d really love to chat on this topic."</p>
+								<p class="story__comment_first line-clamp">"He totally thought he was going to get away with it too.There&#39;s really interesting observations made by the YouTube community - he had a fire extinguisher concealed under his pants right above his ankle.Great that he got his pilots license revoked. He obviously is not mature enough."</p>
 							
 						
 							
-								<p class="story__comment_others">"It would be very cool to have network of these listening to calls while birds are migrating at night. With a large enough network you&#39;d get an amazing way to visualise large scale movements which are generally completely invisible. Wiring up the eastern seaboard around Massachusetts, southern Spain, the vast steppes around the Caspian Sea or pretty much anywhere else would be incredible."</p>
+								<p class="story__comment_others">"Under U.S. law, are there circumstances in which it could be acceptable to deliberately crash a plane?In this case, it clearly wasn&#39;t (crashing on public lands with risk of starting a wildfire and polluting them), but if you wanted to crash a plane for a scene in a movie, could you do so? Maybe crashing on private property in a predetermined location with appropriate fire department support and prior notification to air traffic control about your intentions?Can manufacturers perform genuine crashes (from controlled flight) on private property for safety tests, the way car manufacturers perform tests with crash test dummies?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh good. As a PPL working on an instrument rating this gladdens my heart. The aviation community isn’t just pilots. Many folks contribute to safety including ATC, first responders, SAR, aerospace engineers, investigators and many more. If you’d like a sense of how invested some of these people are in flight safety, listen to ATC recordings of incidents where you can hear back chatter between control facilities.This guys actions show a lack of appreciation for the work these people do and the care they put into that work.There’s also the risk of forest fire.I think the cherry on top would be if the USFS got him for littering."</p>
 							
 						
 						</a>
@@ -266,34 +266,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://twitter.com/pmarca/status/1516463416885399554">
+					<a href="https://gist.github.com/Widdershin/98fd4f0e416e8eb2906d11fd1da62984">
 						<picture>
-							<source srcset="default_31086310.webp" type="image/webp">
-							<source srcset="default_31086310.png" type="image/png">
-							<img src="default_31086310.png" alt="Preview of 'Google Docs will “warn you away from inappropriate words”?'">
+							<source srcset="default_31087795.webp" type="image/webp">
+							<source srcset="default_31087795.png" type="image/png">
+							<img src="default_31087795.png" alt="Preview of 'The absurd complexity of server-side rendering'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://twitter.com/pmarca/status/1516463416885399554">Google Docs will “warn you away from inappropriate words”?</a></h3>
+					<h3><a href="https://gist.github.com/Widdershin/98fd4f0e416e8eb2906d11fd1da62984">The absurd complexity of server-side rendering</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31086310">
+						<a href="https://news.ycombinator.com/item?id=31087795">
 						
 							
-								<p class="story__comment_first line-clamp">"I think there&#39;s a valid concern with this; a concern which is not necessarily distilled down to &#34;big brother&#34; or &#34;corporate overlords&#34;.Google is so large that any stance they take, no matter how minuscule, has immense influence.Case in point, from this article:
-https://www.nytimes.com/2018/08/02/technology/google-maps-ne...&gt; For decades, the district south of downtown and alongside San Francisco Bay here was known as either Rincon Hill, South Beach or South of Market. This spring, it was suddenly rebranded on Google Maps to a name few had heard: the East Cut.&gt; The peculiar moniker immediately spread digitally, from hotel sites to dating apps to Uber, which all use Google’s map data. The name soon spilled over into the physical world, too. Real-estate listings beckoned prospective tenants to the East Cut. And news organizations referred to the vicinity by that term.My point is, it might seem like a small, inconspicuous change.  But at Google-scale, this actually has an impact on the real world, and personally I don&#39;t feel confident with Google deciding what words are the correct words."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here&#39;s the announcement from Google: https://workspaceupdates.googleblog.com/2022/03/more-assisti...You could think of it as Google wanting to police people, OR you could see it as Google seeing that a ton of people use Grammarly and clearly want this feature. (Remember, Google Docs is used for lots of formal docs. It&#39;s not a chat app or Twitter clone.)As it turns out, a lot of people choose to be inclusive and non-inflammatory."</p>
+								<p class="story__comment_first line-clamp">"There are cases when server-side rendering (without SPA) is easier and faster. For example: documentation sites, blog-like sites, internet stores, sites like Hacker News. In all these cases, you can save on development time by writing just one application instead of two (server and client), and improve performance (no need to load multimegabyte JS applications and make multiple AJAX requests to display a page).Of course, there are cases when SPA-style application is better, for example: (graphic/circuit/text) editors, IDEs, mobile newsfeed-based apps - everything that resembles an app rather than a page with text, menus and images. But in these cases you usually don&#39;t need server-side rendering. And sometimes you cannot even use it - for example, if your code needs to know browser windows size to arrange objects on the page.So I think that SSR (running JS on server) is rarely useful."</p>
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t really know how I feel about this, the headline is a bit jarring but I guess it is from their own documentation.But without more than the one &#34;landlord&#34; example, it is hard to really get a feel for what this may be doing. That is a strange example though... I have never seen anyone complain about the word &#34;landlord&#34;.Regardless, I don&#39;t like the idea of Google or any company having the power to dictate what is socially acceptable or not in what should be a private document.Especially when important context will likely be missed.To add. I am gay, I have certain use cases for the related &#34;F&#34; word. I can almost guarantee it will complain about it... but using it is also my right. And some people find &#34;Queer&#34; offenses and some do not, I have seen some heavy debates about it in the community. I would not want Google to take a stance on that.Edit: I was curious to test this theory for myself. It looks like this is only in a workspace document and not google docs as a whole right now. So... maybe someone else can confirm what happens?"</p>
+								<p class="story__comment_others">"I&#39;ve been using server-side rendering for many years now and I find it to be almost zero overhead at this point. Yes, I had to do some initial work to set things up, but these days I don&#39;t even remember it&#39;s there.Most people make an assumption that in order to have SSR you need to run JavaScript (e.g. Node most of the time) on your backend. That is not a valid assumption.I think the title of the article could benefit from adding &#34;using Node&#34;, because much of the complexity described is something I do not encounter at all. I&#39;m using Clojure and ClojureScript with Rum as a React interface. Much (if not most) of my code is in cljc files, which get compiled with Clojure (for JVM on the backend) or ClojureScript (for JavaScript on the frontend). And the ClojureScript advanced compilation takes care of only including what is strictly necessary in the frontend compiled JavaScript.I mean, sure, you need to be careful not to do stupid things like trying to read from files, but otherwise I just don&#39;t encounter much friction. And I reap the benefits of using a single language for both backend and frontend, with most of my data model (e.g. business logic) code written only once, with SSR being a nice cherry on top."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been saying it for years - the hard part is not &#34;server side&#34; vs &#34;client side&#34;, it&#39;s making sure the state stays consistent between those 2 buckets.If you want to remove the hell from your life, you need to be all in on one or the other.For us, we&#39;ve been keeping all state server-side using things like Blazor and hand-rolled js-over-websocket UI frameworks. We never have to worry about more than ~10k users, so this works out great for us.If we were webscale, we&#39;d have to consider client side options."</p>
 							
 						
 						</a>
@@ -305,34 +304,33 @@ https://www.nytimes.com/2018/08/02/technology/google-maps-ne...&gt; For decades,
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://joemorrison.substack.com/p/nobody-wants-your-fancy-algorithm">
+					<a href="https://www.npr.org/sections/goatsandsoda/2022/04/20/1093153651/a-4-year-old-can-run-errands-alone-and-not-just-on-reality-tv">
 						<picture>
-							<source srcset="default_31074177.webp" type="image/webp">
-							<source srcset="default_31074177.png" type="image/png">
-							<img src="default_31074177.png" alt="Preview of 'The satellite imagery industry still has no idea what customers want'">
+							<source srcset="default_31097578.webp" type="image/webp">
+							<source srcset="default_31097578.png" type="image/png">
+							<img src="default_31097578.png" alt="Preview of 'A 4-year-old can run errands alone and not just on reality TV'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://joemorrison.substack.com/p/nobody-wants-your-fancy-algorithm">The satellite imagery industry still has no idea what customers want</a></h3>
+					<h3><a href="https://www.npr.org/sections/goatsandsoda/2022/04/20/1093153651/a-4-year-old-can-run-errands-alone-and-not-just-on-reality-tv">A 4-year-old can run errands alone and not just on reality TV</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31074177">
+						<a href="https://news.ycombinator.com/item?id=31097578">
 						
 							
-								<p class="story__comment_first line-clamp">"Me: 20 years in the defense space business. Stating my own opinion.This is basically right. The problem with space imagery is that almost everyone who wants it has a niche use case, and those few organizations without a niche use case (the US Weather Service, various militaries, etc) generally want imagery that&#39;s so specialized to their own problem that they have to spec, buy, and operate their own orbital assets.Take Ukraine as an example. Leaving aside the moral question of whether a satellite imagery company should be profiting off the Ukrainian war, Ukraine appears to be using commercial orbital imagery providers to figure out Russian troop movements. That use case is not one any commercial provider anywhere is going to build an ML model for. But analysts working on behalf of Ukraine can absolutely either use raw pixels or develop their own ML algorithms that run on top of the raw pixels to find Russian tanks.And almost every other potential user is similar. They&#39;re all looking for something different. Oil companies want to pre-screen drilling locations. NGOs want to look at deforestation in Brazil or methane leaks in Saudi Arabia. You could even go all the way down to individuals -- at the right price, individual farms might want to look at relative growth rates of corn in their fields, or soil moisture levels, etc. Or they might want to count heads of cattle or sheep, or... or... or.The point being, outside of weather, which we already know how to get to end users without having them subscribe to an orbital imagery provider service, every customer is different, and what they want from the pixels is different. It&#39;s basically the long-tail problem. In order to be profitable you have to fill an enormous number of niche use cases."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Allow me to put it more succinctly: selling derived data as a subscription product does. not. work. I don’t care what it is. The juice is never worth the squeeze.¹ Count cars. Count airplanes. Count ships. Segment land cover. Track oil inventories. Estimate biofuels. Measure water levels. Etc. Etc. Etc.I see that he outlined a few exceptions at the footnote… I&#39;ll also add Plaid. I think this guy is making some huge generalizations that don&#39;t hold up beyond his industry.But that said, I recently downgraded two potential startups based on data feeds to personal projects because I realized that nobody really pays for data, and if there is any value then the providers will figure that out inevitably…Another recent example: I&#39;ve been using Deliveries for Mac and iOS for over fifteen years, a very simple, perfectly-designed, laser focused app. Both Amazon (not surprising) and Fed Ex (quite surprising) have decided that freely providing delivery dates to consumers is too valuable to leave to third parties, so the beloved app is shuttering sometime this year.
-https://junecloud.com/journal/iphone/the-future-of-deliverie..."</p>
+								<p class="story__comment_first line-clamp">"I don&#39;t have any kids, so I don&#39;t really feel comfortable telling folks how to raise theirs.But I will tell you my perspective.As someone who grew up in the &#34;be back home in time for supper&#34; 1970s, today&#39;s world seems completely foreign. When I started kindergarten, Mom walked me to school on the first day so that I&#39;d know the route. And after that I walked to school on my own until I learned to ride a bike.I rode to junior high, where there was parking for hundreds of bikes. Recently I drove by that school, and the bike racks were gone. This whole concept of waiting in traffic to pick up or drop off your kid wasn&#39;t even a thing.And I&#39;m so supremely grateful that I was raised that way. I&#39;m absolutely certain that early autonomy paid off later in life in countless ways.I&#39;d encourage you, if you&#39;re raising kids, to consider the upsides of so-called &#34;free range&#34;. Or, as we called it in the 70s, &#34;being a regular kid&#34;."</p>
 							
 						
 							
-								<p class="story__comment_others">"When I was an agronomist I used satellite imagery a lot for monitoring farm crops for our customers.  Started in the early eighties going up in a Cessna laying on my belly where the passenger seat was sticking a 35mm camera out a repair port.But that got old and started researching satellite options.  Problems was our company entire sales area was three West Michigan counties.  All the companies wanted to sell me, I forget the term but say a tract (scene?), that was half the state.I didn&#39;t have a problem with the price per acre but wanted to buy by the section or 640 acres.  It didn&#39;t make a lot of sense to buy the township but they wouldn&#39;t even sell me by the county.  At the time probably 5% of my customers wanted this service and only wanted to buy just part of their acreage.I asked all these vendors why they couldn&#39;t sell me by the township.  They routinely answered they&#39;d lose money because they couldn&#39;t sell the rest of the tract.  I said now you understand my problem, at a certain point you&#39;ve got to break up a tract or give up on the market.  Most of the company&#39;s ended up leaving ag.I eventually found a company that would sell by the section at a higher but still manageable price.  Course then I discovered that in four flyovers a season the majority had clouds over the field and you couldn&#39;t see anything ;&lt;(.  Such is the pain of being an early user in any field.FYI The military has satellites using radar to see through the clouds, but in thirty years that tech hasn&#39;t made it to the commercial operators.The answer I think is automated drones that fly a circuit.  The tech has been available for a few years but the government won&#39;t approve it for that use.  In fact the FAA won&#39;t even let a Detroit company demonstrate they could successfully evade objects, they ran out of funding and shut their doors ;&lt;(."</p>
+								<p class="story__comment_others">"Not in the US they can&#39;t.&#34;officials placed two brothers into foster care after one, 11, was found playing basketball alone in his own yard.&#34;He&#39;d gotten home early from school and his parents came 90 minutes later. He was in his own yard. The family lost their children to foster care. Ironically in foster care ACTUAL abuse rates are pretty darn high!&#34;When Cindy and Fred arrived home they were arrested for child neglect — then fingerprinted, strip searched, and held in jail overnight.Their kids, meanwhile, including their 4-year-old boy, were removed from the home and from their parents’ custody&#34;Mom worked in the school district ironically.&#34;We still do not have our children, we are fighting for our own freedom and due to the nature of my employment I am no longer employed,” she wrote. “My son was in his own yard playing basketball, not in the street or at the park. The authorities claim he had no access to water or shelter. We have an open shed in the back yard and 2 working sinks and 2 hoses. They said he had no food. He ate his snacks already. He had no bathroom, but the responding officer found our yard good enough to relieve himself in while our son sat in a police car alone.&#34;Being accused of child abuse / neglect is a career ender. The idea of my 4 year old being taken is beyond belief. What is so ironic is so many real / terrible things are happening (crime of all sorts / abuse in the traditional sense / financial fraud online) where nothing happens. But your kid shoots some hoops in their own yard, you lose custody. You are jailed and strip searched. You lose your job.I realize big government is here to protect us, I just wish they would focus on the harder problems."</p>
+							
+						
+							
+								<p class="story__comment_others">"As a parent, none of the risks are as profound as that of some other member of the public calling the police to inform on your “dangerous parenting”.I’ve deliberately chosen to live in a walkable part of the Bay Area in the hopes that my kids can be more independent when they get older, but I’m more worried about the social pushback than I am about their safety."</p>
 							
 						
 						</a>
@@ -344,33 +342,33 @@ https://junecloud.com/journal/iphone/the-future-of-deliverie..."</p>
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://ydb.tech">
+					<a href="https://github.com/bloomberg/memray">
 						<picture>
-							<source srcset="default_31081272.webp" type="image/webp">
-							<source srcset="default_31081272.png" type="image/png">
-							<img src="default_31081272.png" alt="Preview of 'YDB – An open-source Distributed SQL Database'">
+							<source srcset="default_31102089.webp" type="image/webp">
+							<source srcset="default_31102089.png" type="image/png">
+							<img src="default_31102089.png" alt="Preview of 'Memray: a memory profiler for Python'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://ydb.tech">YDB – An open-source Distributed SQL Database</a></h3>
+					<h3><a href="https://github.com/bloomberg/memray">Memray: a memory profiler for Python</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31081272">
+						<a href="https://news.ycombinator.com/item?id=31102089">
 						
 							
-								<p class="story__comment_first line-clamp">"Interesting, the separate compute and storage tiers is another system going that direction which I think is becoming almost the standard at this point, especially for &#34;cloud-native&#34; things designed to run on k8s. From what I can tell (it isn&#39;t very explicit on this point) they are avoiding a distributed consensus at the storage layer and instead relying on a single writer/multiple reader model with the single writer being enforced by assignment of the tablets in the compute tier, with the tablet being responsible for writing to multiple storage nodes for durability? (But I might be wrong)Assuming yes this approach, I think, is under utilized and is pretty similar to how Apache Pulsar works (my day job),but I am not sure how many distributed RDBMS have tried it out, will be cool to see how it evolves! It isn&#39;t clear how they ensure the assignment of a tablet to only a single compute node, but I think that is an easier problem relative to distributed consensus at the storage tier."</p>
-							
-						
-							
-								<p class="story__comment_others">"Although the doc talks about their own SQL dialect &#34;YQL&#34;, it seems to be supporting PG SQL as a compatible layer.https://github.com/ydb-platform/ydb/tree/main/ydb/library/yq...It&#39;s fascinating to see the PG&#39;s prevalence as the de-fact SQL standard."</p>
+								<p class="story__comment_first line-clamp">"A twitter thread with some screenshots and details - https://twitter.com/1st1/status/1516859294896906241"</p>
 							
 						
 							
-								<p class="story__comment_others">"It seems they are doing the same thing they did with ClickHouse in the OLAP space but this time in the OLTP space."</p>
+								<p class="story__comment_others">"I&#39;m excited to see more profiling tools for Python!This sounds like it does peak memory, which is critical for batch jobs, since that&#39;s the bottleneck. Memory is fundamentally different than performance in that it&#39;s a limited resource, instead of cumulative cost; making any part of the program faster almost always helps speed up the program (at least a little, or at least reduces CPU load), but optimizing non-peak memory has no impact. You have to be able to identify the peak in order to reduce memory usage.If you want peak memory profiling for Python that also runs on macOS, check out https://pythonspeed.com/fil/ (ARM support has some issues, but once I unpack my new Mac Mini I plan to fix it.)Ways memray is better than Fil:- Native callstacks.- More kinds of reports, and ability to do custom post-processing of data.- Much lower overhead (but not always, see reply).- Subprocess support.Fil I suspect has better flamegraphs: https://pythonspeed.com/articles/a-better-flamegraph/And if you&#39;re running Python batch jobs, and want both peak memory and performance profiling in production, check out Sciagraph: https://pythonspeed.com/sciagraph/(You can probably cobble together something like Sciagraph with py-spy + memray, but you won&#39;t e.g. get timeline reports designed with batch jobs in mind.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Want to chime in to say it&#39;s awesome that Bloomberg is releasing this product to the world. I don&#39;t think many financial organizations would even consider releasing anything as open source, even if it is as general purpose as this tool. My current one (HFT,MM) wouldn&#39;t go for it.It also shows good engineering practices. I&#39;d venture a guess that they are probably one of the better ones in the space.Makes me want to work there! Maybe one day..."</p>
 							
 						
 						</a>
@@ -382,34 +380,33 @@ https://junecloud.com/journal/iphone/the-future-of-deliverie..."</p>
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://citizenlab.ca/2022/04/catalangate-extensive-mercenary-spyware-operation-against-catalans-using-pegasus-candiru/">
+					<a href="https://old.reddit.com/r/Advice/comments/u3qipy/how_can_i_get_my_boyfriend_to_stop_digging_his/">
 						<picture>
-							<source srcset="default_31069422.webp" type="image/webp">
-							<source srcset="default_31069422.png" type="image/png">
-							<img src="default_31069422.png" alt="Preview of 'CatalanGate: Spyware operation against Catalans using Pegasus and Candiru'">
+							<source srcset="default_31096994.webp" type="image/webp">
+							<source srcset="default_31096994.png" type="image/png">
+							<img src="default_31096994.png" alt="Preview of 'How can I get my boyfriend to stop digging his tunnel?'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://citizenlab.ca/2022/04/catalangate-extensive-mercenary-spyware-operation-against-catalans-using-pegasus-candiru/">CatalanGate: Spyware operation against Catalans using Pegasus and Candiru</a></h3>
+					<h3><a href="https://old.reddit.com/r/Advice/comments/u3qipy/how_can_i_get_my_boyfriend_to_stop_digging_his/">How can I get my boyfriend to stop digging his tunnel?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31069422">
+						<a href="https://news.ycombinator.com/item?id=31096994">
 						
 							
-								<p class="story__comment_first line-clamp">"Seems random developers were targeted as well as European Parliament members (and more):&gt; Jordi Baylina is the technology lead at Polygon, a popular decentralised Ethereum scaling platform. He is also an advisor on projects related to digital voting and decentralisation, and has built a widely-used privacy toolkit. He was extensively targeted with Pegasus, receiving at least 26 infection attempts. Ultimately, he was infected at least eight times between October 2019 and July 2020.&gt; Baylina received a text message masquerading as a boarding pass link for a Swiss International Air Lines flight he had purchased. Targeting in this case indicates that the Pegasus operator may have had access to Baylina’s Passenger Name Record (PNR) or other information collected from the carrier.Scare stuff that not just random text messages can infect you (we knew this) but combined with harvesting other data (like PNR), they can time to exploit messages with other actions you do (like buying an flight ticket) and get you that way.I was scared of receiving random text messages already, but easy to just ignore them as they have nothing to do with me. But if I buy a flight ticket and receive a text message that looks relevant to me, I&#39;m not sure I&#39;d be able to guess it was actually malicious. Scary stuff.Edit: The more I read, the worse it gets:&gt; Another common mode of targeting was to masquerade as official notifications from Spanish government entities, including the Tax and Social Security authorities.The messages also used SMS Sender IDs to masquerade as official agency accounts.&gt; Notably, fake official messages were sometimes highly personalized. For example, a message sent to Jordi Baylina included a portion of his actual official tax identification number, suggesting that the Pegasus operator had access to this information.Seems clear at this point that the official Spanish government was behind these attacks, or the official registries got hacked (together with various delivery companies). Both are bad, but that signs are pointing to the earlier makes it even worse.It seems that the Spanish government can&#39;t help itself to give more fuel to the fire that is the fight for Catalan independence. Who&#39;d want to belong to a state that constantly suppresses and surveillance you?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Candiru is the name of an amazonian species of fish with a history of anecdotes of entering the human urethra sometimes requiring amputation of genitals."</p>
+								<p class="story__comment_first line-clamp">"Why is no one questioning whether this is real?Reddit is full of far-fetched stories like this that ultimately turn up to be completely fabricated (obviously for the purpose of internet points). While this one isn&#39;t ridiculously far-fetched, it&#39;s definitely borderline.Also, the first thing that came to my mind when reading this was the movie Vivarium [1], where one of the main characters does almost exactly this. It sounds like the author watched that movie, modified it slightly, and posted it to /r/advice.[1] https://www.imdb.com/title/tt8368406"</p>
 							
 						
 							
-								<p class="story__comment_others">"CEOs, executives, members of parliaments, journalists, researchers at industrial labs, those working in defense/military, etc are at elevated risk of being hacked by governments and hacking companies such as NSO.I wonder how these people protect their digital assets?
-Are there guidelines?For example, if I am Microsoft CEO, would it be okay if I use the closed source iPhone from a competing company? Or perhaps these people use special hardened devices?Because even Apple CEO uses iPhone, and Pegasus apparently could hack any iPhone with zero click. So what prevents acquisition of highly valuable inside information by NSO or its customers (sensitive data about the company, iOS source code, implanting malware by infecting Apple engineers for the next exploit, etc)?"</p>
+								<p class="story__comment_others">"What&#39;s interesting about this to me is the way it sort of causes you to examine why certain things are acceptable hobbies and other things aren&#39;t. This particular hobby has three notable attributes:1. It&#39;s risky.2. The end product doesn&#39;t seem particularly useful if we set aside the mental/physical benefits. i.e.: it&#39;s done for it&#39;s own sake.3. It&#39;s novel.I would argue that 1 and 2 are attributes that a great number of hobbies share. Skiing, Mountain biking, football, kayaking, woodworking, sitting in a chair and playing video games all weekend. All these things carry some very specific and often non trivial risks to health or bodily harm over time.Of course because these hobbies aren&#39;t novel, the benefits of the hobby are well understood. Our understanding of the risks and how to mitigate them are also quite a bit more understood.It seems to me that the real &#39;problem&#39; with this tunnel digging hobby is how novel it is. Which consequently leads to a lack of knowledge about what the risks and benefits may be.Of course it&#39;s possible the poor guy is just dealing with a mental illness."</p>
+							
+						
+							
+								<p class="story__comment_others">"Here&#39;s the same post in /r/BestofRedditorUpdates, which includes the update that was removed by modshttps://reddit.com/r/BestofRedditorUpdates/comments/u6a3qp/o..."</p>
 							
 						
 						</a>

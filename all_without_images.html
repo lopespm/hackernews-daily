@@ -36,6 +36,290 @@
 	</div>
 
 	
+	<div class="day__date">21 April 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://danlark.org/2022/04/20/changing-stdsort-at-googles-scale-and-beyond/">Changing std:sort at Google’s scale and beyond</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31098822">
+						
+							
+								<p class="story__comment_first line-clamp">"Hi all, I&#39;m the author of pdqsort that&#39;s credited in the post (to be clear: the authors acknowledged pdqsort at the bottom, I am not associated with the posted work directly). I recently held a talk at my institute on efficient in-memory sorting and the ideas in pdqsort, in case you&#39;re interested in hearing some of the theory behind it all: https://www.youtube.com/watch?v=jz-PBiWwNjcNext week I will hold another talk in the Dutch seminar on data systems design (https://dsdsd.da.cwi.nl/) on glidesort, a new stable sorting algorithm I&#39;ve been working on. It is a combination of adaptive quicksort (like pdqsort, fully adaptive for many equal elements) and an adaptive mergesort (like timsort, fully adaptive for long pre-sorted runs). It is the first practical implementation of an algorithm I&#39;m aware of that&#39;s fully adaptive for both. Like pdqsort it uses modern architecture aware branchless sorting, and it can use an arbitrary buffer size, becoming faster as you give it more memory (although if given a constant buffer size it will degrade to O(n (log n)^2) in theory, in practice for realistic workloads it&#39;s just a near-constant factor (c ~&lt;= 3-5) slower).The source code isn&#39;t publish-ready yet, I have to still do some extra correctness vetting and testing, and in particular exception-safety is still not yet fully implemented. This is important because I wrote it in Rust where we must always give back a valid initialized array, even if a comparison operator caused a panic. But I do have some performance numbers to quote, that won&#39;t significantly change.For sorting 2^24 randomly shuffled distinct u32s using a buffer of 2^23 elements (n/2), glidesort beats Rust&#39;s stdlib slice::sort (which is a classic timsort also using a buffer of n/2) by a factor of 3.5 times. When stably sorting the same numbers comparing only their least significant 4 bits, it beats stdlib slice::sort by 12.5 times using 6.5 times fewer comparisons, both numbers on my Apple M1 Macbook. All of this is just using single-threaded code with a generic comparison function. No SIMD, no threads, no type-specific optimizations.Finally, glidesort with a buffer size of &gt;= n/2 is faster than pdqsort."</p>
+							
+						
+							
+								<p class="story__comment_others">"Fun safety problems.Towards the end of this post, the author mentions a bunch of places where std::sort() blows up if your data or your sort rule doesn&#39;t exhibit strict weak ordering. In some cases you get a bad sort, which feels fair enough since you violated the rules the sort algorithm is relying on, but in others it literally has Undefined Behaviour in C++.Notably Rust&#39;s sort() and unstable_sort() do not have this problem, because of course these are safe Rust, and safe Rust doesn&#39;t have Undefined Behaviour. But why can this work?First up, one bullet which gets dodged is that Rust&#39;s floating point types (f32 and f64) are not Ord. Rust acknowledges that NaN != NaN and therefore we can&#39;t expect to go around sorting a slice of floating point values. In C++ that&#39;s on the programmer, in C++ the fact you can write a &lt; b means that type counts as ordered, even though it trivially isn&#39;t for several built-in types. So if you simply naively try to sort an [f32] Rust says you can&#39;t because it isn&#39;t Ord, you will need to write a lambda or whatever to Order these f32s and then if some of them are NaN your lambda is responsible for deciding what to do about that.But even if we insist on getting in harm&#39;s way, safe Rust promises to protect us anyway. For example if I make an array of a thousand misfortunate::OnewayGreater&lt;u8&gt;s they&#39;re only one byte each, yet they all insist they&#39;re Ordered greater than each other and even than themselves, Rust&#39;s sort() doesn&#39;t cause Undefined Behaviour on this input. It may never succeed, since all the elements to be &#34;sorted&#34; insist they&#39;re greater than each other, but it definitely won&#39;t segfault, trash unrelated memory or cause chaos."</p>
+							
+						
+							
+								<p class="story__comment_others">"Thanks, I&#39;m going to write all this out on a whiteboard the next time someone asks me to sort a linked list in a technical interview.Edit: just wanted to clarify that the point I&#39;m trying to make here is that if you want to ask someone if they&#39;ve memorized the answer to that question, go ahead and ask it in a technical interview, because the real well-considered answer looks like the linked article, and my honest non-smartass answer is that one should use the library function and not try to implement it themselves until they&#39;ve done sufficient research into the problem to prove to a reasonable degree that they indeed do need to re-implement sort() and that it&#39;s in the best interests of the business to fund such a project.Would love to read this over the phone to a recruiter and have them tell me that it&#39;s not what they have on their sheet."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.youtube.com/watch?v=t_rzYnXEQlE">Overhauling Mario 64&#39;s code to reach 30 FPS and render 6x faster on N64 [video]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31075622">
+						
+							
+								<p class="story__comment_first line-clamp">"This is a good lesson about the benefit of time when it comes to software development.  Mario 64 could have been a much much better game on the same hardware, but the time cost would have resulted in a release late enough that the entire game might have been considered irrelevant.Game consoles have had the benefit of the platform freezing for a few years allowing improvements to accumulate and later titles utilizing knowledge gained from the earlier titles.Much of the software we use every day could benefit from this level of scrutiny but the pressure to deliver on time means we won&#39;t get to see such benefits unless it becomes a crazy persons labour of love."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;roll those loops back up and don&#39;t compile in debug mode to achieve significant performance gains&#34; is not the takeaway I thought I&#39;d have going in, heh."</p>
+							
+						
+							
+								<p class="story__comment_others">"Now that&#39;s a 10x programmer if I ever saw one. I&#39;m sure the compiler helped too. The generated code of C compilers from the 80&#39;s and 90&#39;s versus the generated code created by something like modern GCC -- it&#39;s like night and day. We&#39;re able to build faster tinier software than we ever have before, and it really helps to illuminate the impact modern tools have had when we apply that advantage to something old we already know."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://projectionlab.com">Show HN: I built a simulator for personal finance</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31083093">
+						
+							
+								<p class="story__comment_first line-clamp">"Great work! This might be unpopular among the HN crowd, but I think you can monetize this further by bundling this with an advising service.This idea of FIRE has been spreading beyond techies/Internet nerds and into other highly paid professionals like doctors. [0]. The main difference is that non-programmer professionals generally don&#39;t get a thrill out of min/max-ing financial projections.Such people might be willing to pay a few hundred dollars a year for someone to generate this kind of analysis with them and simply execute on it each year. Similar to how people pay for CPAs. My employer actually pays Goldman Sachs to provide a similar service for its employees (no commission, fiduciary advisors) but their tools suck compared to this.[0] For example https://www.whitecoatinvestor.com/, https://www.physicianonfire.com/"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is great, I took some time to get a fairly in depth plan together. There are two things that stuck out:1. You&#39;ve got RSU&#39;s (at first it wasn&#39;t clear  to me where this would be addressed, but I think it made sense once I came across it) but I don&#39;t see a dedicated strategy for dealing with ISO/NSO&#39;s. That&#39;d be helpful for the tech community especially.2. I spent the 10-15 minutes working on a plan knowing that I&#39;d need to upgrade to pro for every feature, but it seems like I need to upgrade to save my plan. I ended up not paying because I don&#39;t have enough time right now to fully evaluate this, but I might look back later. It would have been great if I could have entered my email and saved my plan without paying, and then had to later pay to access it. This gives you the benefit of getting my email address, and then sending me an email to access my plan so that I&#39;ve got a second touchpoint to your product when I check my email in the future.Looking forward to using this more in depth in the future!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m so incredibly impressed with this tool. In addition to the slick interface, it has some killer features and niceties:- You can add a &#34;dependent expense&#34; (have a kid) at a certain age- You can run Monte Carlo simulations of your portfolio performance- Expenses can be configured to increase linearly, with inflation, up to an amount, or using a custom function that the user can input graphically- Adding a house purchase automatically cancels out your existing rent expense if you indicate that it will be your residence- Easily visualize all of your projected earnings from portfolio growth and losses due to inflation and taxesAs an avid YNAB-er, this is heaven."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://retool.com/blog/how-we-upgraded-postgresql-database/">How we upgraded our 4TB Postgres database</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31084147">
+						
+							
+								<p class="story__comment_first line-clamp">"It is amazing how many large-scale applications run on a single or a few large RDBMS. It seems like a bad idea at first: surely a single point of failure must be bad for availability and scalability? But it turns out you can achieve excellent availability using simple replication and failover, and you can get huge database instances from the cloud providers. You can basically serve the entire world with a single supercomputer running Postgres and a small army of stateless app servers talking to it."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; To resolve this, we ended up choosing to leave foreign key constraints unenforced on a few large tables.&gt; We reasoned this was likely safe, as Retool’s product logic performs its own consistency checks, and also doesn’t delete from the referenced tables, meaning it was unlikely we’d be left with a dangling reference.I was holding my breath here and I&#39;m glad these were eventually turned back on.Nobody should ever rely on their own product logic to ensure consistency of the database.The database has features (constraints, transactions, etc) for this purpose which are guaranteed to work correctly and atomically in all situations such as database initiated rollbacks that your application will never have control over."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hey folks—I wrote the post! This was my biggest Postgres project to date, and it proved quite tricky since I didn&#39;t rehearse with a test database of the same size. I learned a bunch about Postgres, not least the incredibly powerful NOT VALID option for safely and quickly adding constraints.Happy to stick around and answer any questions you have."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.solarpowerworldonline.com/2022/04/california-grid-set-record-with-97-percent-renewable-power-april-3/">California grid set record of 97% renewable power on April 3</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31103275">
+						
+							
+								<p class="story__comment_first line-clamp">"Their math seems off.  I really don&#39;t see how you get to 97% renewable when the state was burning natural gas to generate 2.8 GW of non-renewable power and had about 1.1 GW of nuclear at the time.  There might be some funny math here where they assign all of the &#34;dirty&#34; power generated in the state to exports and can claim that that California is running on renewable power.Source:  https://www.caiso.com/TodaysOutlook/Pages/supply.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"This cool but not as great as you might think. I made a animated graph showing this moment and its implications here https://youtu.be/Sq9Uq1DqhU8To deeply decarbonize you need to meet current demand and also make enough to charge the energy storage systems...on a cloudy string of winter days.However we will see headlines like this for the next 20 years at least."</p>
+							
+						
+							
+								<p class="story__comment_others">"The grid operator cited is the California Independent System Operator.  How much of CA&#39;s electricity consumption is fed by that operator?In the article they mention 23GW from wind and solar.  A quick search says in 2018 CA&#39;s electrical generation capacity was 80GW (which I assume has only gone up).  So this 97% is a bit misleading, no?  It doesn&#39;t represent 97% of total CA electricity usage... it&#39;s less than 30%?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.nytimes.com/2022/04/20/us/trevor-jacob-youtube-plane-crash.html">A YouTuber purposely crashed his plane in California, FAA says</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31104691">
+						
+							
+								<p class="story__comment_first line-clamp">"He totally thought he was going to get away with it too.There&#39;s really interesting observations made by the YouTube community - he had a fire extinguisher concealed under his pants right above his ankle.Great that he got his pilots license revoked. He obviously is not mature enough."</p>
+							
+						
+							
+								<p class="story__comment_others">"Under U.S. law, are there circumstances in which it could be acceptable to deliberately crash a plane?In this case, it clearly wasn&#39;t (crashing on public lands with risk of starting a wildfire and polluting them), but if you wanted to crash a plane for a scene in a movie, could you do so? Maybe crashing on private property in a predetermined location with appropriate fire department support and prior notification to air traffic control about your intentions?Can manufacturers perform genuine crashes (from controlled flight) on private property for safety tests, the way car manufacturers perform tests with crash test dummies?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh good. As a PPL working on an instrument rating this gladdens my heart. The aviation community isn’t just pilots. Many folks contribute to safety including ATC, first responders, SAR, aerospace engineers, investigators and many more. If you’d like a sense of how invested some of these people are in flight safety, listen to ATC recordings of incidents where you can hear back chatter between control facilities.This guys actions show a lack of appreciation for the work these people do and the care they put into that work.There’s also the risk of forest fire.I think the cherry on top would be if the USFS got him for littering."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://gist.github.com/Widdershin/98fd4f0e416e8eb2906d11fd1da62984">The absurd complexity of server-side rendering</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31087795">
+						
+							
+								<p class="story__comment_first line-clamp">"There are cases when server-side rendering (without SPA) is easier and faster. For example: documentation sites, blog-like sites, internet stores, sites like Hacker News. In all these cases, you can save on development time by writing just one application instead of two (server and client), and improve performance (no need to load multimegabyte JS applications and make multiple AJAX requests to display a page).Of course, there are cases when SPA-style application is better, for example: (graphic/circuit/text) editors, IDEs, mobile newsfeed-based apps - everything that resembles an app rather than a page with text, menus and images. But in these cases you usually don&#39;t need server-side rendering. And sometimes you cannot even use it - for example, if your code needs to know browser windows size to arrange objects on the page.So I think that SSR (running JS on server) is rarely useful."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been using server-side rendering for many years now and I find it to be almost zero overhead at this point. Yes, I had to do some initial work to set things up, but these days I don&#39;t even remember it&#39;s there.Most people make an assumption that in order to have SSR you need to run JavaScript (e.g. Node most of the time) on your backend. That is not a valid assumption.I think the title of the article could benefit from adding &#34;using Node&#34;, because much of the complexity described is something I do not encounter at all. I&#39;m using Clojure and ClojureScript with Rum as a React interface. Much (if not most) of my code is in cljc files, which get compiled with Clojure (for JVM on the backend) or ClojureScript (for JavaScript on the frontend). And the ClojureScript advanced compilation takes care of only including what is strictly necessary in the frontend compiled JavaScript.I mean, sure, you need to be careful not to do stupid things like trying to read from files, but otherwise I just don&#39;t encounter much friction. And I reap the benefits of using a single language for both backend and frontend, with most of my data model (e.g. business logic) code written only once, with SSR being a nice cherry on top."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been saying it for years - the hard part is not &#34;server side&#34; vs &#34;client side&#34;, it&#39;s making sure the state stays consistent between those 2 buckets.If you want to remove the hell from your life, you need to be all in on one or the other.For us, we&#39;ve been keeping all state server-side using things like Blazor and hand-rolled js-over-websocket UI frameworks. We never have to worry about more than ~10k users, so this works out great for us.If we were webscale, we&#39;d have to consider client side options."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.npr.org/sections/goatsandsoda/2022/04/20/1093153651/a-4-year-old-can-run-errands-alone-and-not-just-on-reality-tv">A 4-year-old can run errands alone and not just on reality TV</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31097578">
+						
+							
+								<p class="story__comment_first line-clamp">"I don&#39;t have any kids, so I don&#39;t really feel comfortable telling folks how to raise theirs.But I will tell you my perspective.As someone who grew up in the &#34;be back home in time for supper&#34; 1970s, today&#39;s world seems completely foreign. When I started kindergarten, Mom walked me to school on the first day so that I&#39;d know the route. And after that I walked to school on my own until I learned to ride a bike.I rode to junior high, where there was parking for hundreds of bikes. Recently I drove by that school, and the bike racks were gone. This whole concept of waiting in traffic to pick up or drop off your kid wasn&#39;t even a thing.And I&#39;m so supremely grateful that I was raised that way. I&#39;m absolutely certain that early autonomy paid off later in life in countless ways.I&#39;d encourage you, if you&#39;re raising kids, to consider the upsides of so-called &#34;free range&#34;. Or, as we called it in the 70s, &#34;being a regular kid&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"Not in the US they can&#39;t.&#34;officials placed two brothers into foster care after one, 11, was found playing basketball alone in his own yard.&#34;He&#39;d gotten home early from school and his parents came 90 minutes later. He was in his own yard. The family lost their children to foster care. Ironically in foster care ACTUAL abuse rates are pretty darn high!&#34;When Cindy and Fred arrived home they were arrested for child neglect — then fingerprinted, strip searched, and held in jail overnight.Their kids, meanwhile, including their 4-year-old boy, were removed from the home and from their parents’ custody&#34;Mom worked in the school district ironically.&#34;We still do not have our children, we are fighting for our own freedom and due to the nature of my employment I am no longer employed,” she wrote. “My son was in his own yard playing basketball, not in the street or at the park. The authorities claim he had no access to water or shelter. We have an open shed in the back yard and 2 working sinks and 2 hoses. They said he had no food. He ate his snacks already. He had no bathroom, but the responding officer found our yard good enough to relieve himself in while our son sat in a police car alone.&#34;Being accused of child abuse / neglect is a career ender. The idea of my 4 year old being taken is beyond belief. What is so ironic is so many real / terrible things are happening (crime of all sorts / abuse in the traditional sense / financial fraud online) where nothing happens. But your kid shoots some hoops in their own yard, you lose custody. You are jailed and strip searched. You lose your job.I realize big government is here to protect us, I just wish they would focus on the harder problems."</p>
+							
+						
+							
+								<p class="story__comment_others">"As a parent, none of the risks are as profound as that of some other member of the public calling the police to inform on your “dangerous parenting”.I’ve deliberately chosen to live in a walkable part of the Bay Area in the hopes that my kids can be more independent when they get older, but I’m more worried about the social pushback than I am about their safety."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/bloomberg/memray">Memray: a memory profiler for Python</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31102089">
+						
+							
+								<p class="story__comment_first line-clamp">"A twitter thread with some screenshots and details - https://twitter.com/1st1/status/1516859294896906241"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m excited to see more profiling tools for Python!This sounds like it does peak memory, which is critical for batch jobs, since that&#39;s the bottleneck. Memory is fundamentally different than performance in that it&#39;s a limited resource, instead of cumulative cost; making any part of the program faster almost always helps speed up the program (at least a little, or at least reduces CPU load), but optimizing non-peak memory has no impact. You have to be able to identify the peak in order to reduce memory usage.If you want peak memory profiling for Python that also runs on macOS, check out https://pythonspeed.com/fil/ (ARM support has some issues, but once I unpack my new Mac Mini I plan to fix it.)Ways memray is better than Fil:- Native callstacks.- More kinds of reports, and ability to do custom post-processing of data.- Much lower overhead (but not always, see reply).- Subprocess support.Fil I suspect has better flamegraphs: https://pythonspeed.com/articles/a-better-flamegraph/And if you&#39;re running Python batch jobs, and want both peak memory and performance profiling in production, check out Sciagraph: https://pythonspeed.com/sciagraph/(You can probably cobble together something like Sciagraph with py-spy + memray, but you won&#39;t e.g. get timeline reports designed with batch jobs in mind.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Want to chime in to say it&#39;s awesome that Bloomberg is releasing this product to the world. I don&#39;t think many financial organizations would even consider releasing anything as open source, even if it is as general purpose as this tool. My current one (HFT,MM) wouldn&#39;t go for it.It also shows good engineering practices. I&#39;d venture a guess that they are probably one of the better ones in the space.Makes me want to work there! Maybe one day..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://old.reddit.com/r/Advice/comments/u3qipy/how_can_i_get_my_boyfriend_to_stop_digging_his/">How can I get my boyfriend to stop digging his tunnel?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31096994">
+						
+							
+								<p class="story__comment_first line-clamp">"Why is no one questioning whether this is real?Reddit is full of far-fetched stories like this that ultimately turn up to be completely fabricated (obviously for the purpose of internet points). While this one isn&#39;t ridiculously far-fetched, it&#39;s definitely borderline.Also, the first thing that came to my mind when reading this was the movie Vivarium [1], where one of the main characters does almost exactly this. It sounds like the author watched that movie, modified it slightly, and posted it to /r/advice.[1] https://www.imdb.com/title/tt8368406"</p>
+							
+						
+							
+								<p class="story__comment_others">"What&#39;s interesting about this to me is the way it sort of causes you to examine why certain things are acceptable hobbies and other things aren&#39;t. This particular hobby has three notable attributes:1. It&#39;s risky.2. The end product doesn&#39;t seem particularly useful if we set aside the mental/physical benefits. i.e.: it&#39;s done for it&#39;s own sake.3. It&#39;s novel.I would argue that 1 and 2 are attributes that a great number of hobbies share. Skiing, Mountain biking, football, kayaking, woodworking, sitting in a chair and playing video games all weekend. All these things carry some very specific and often non trivial risks to health or bodily harm over time.Of course because these hobbies aren&#39;t novel, the benefits of the hobby are well understood. Our understanding of the risks and how to mitigate them are also quite a bit more understood.It seems to me that the real &#39;problem&#39; with this tunnel digging hobby is how novel it is. Which consequently leads to a lack of knowledge about what the risks and benefits may be.Of course it&#39;s possible the poor guy is just dealing with a mental illness."</p>
+							
+						
+							
+								<p class="story__comment_others">"Here&#39;s the same post in /r/BestofRedditorUpdates, which includes the update that was removed by modshttps://reddit.com/r/BestofRedditorUpdates/comments/u6a3qp/o..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">20 April 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -109,11 +393,11 @@
 							
 						
 							
-								<p class="story__comment_others">"The 3D printable, open-source, case that allows you to use the mainboard as a standalone computer is such a nice touch!  https://github.com/FrameworkComputer/Mainboard/tree/main/Mec..."</p>
+								<p class="story__comment_others">"My current laptop needs to be replaced really soon, I&#39;m hoping Framework will announce either a recent AMD Ryzen or Intel&#39;s Alder Lake. The difference between the 11th and 12th gen Intel is big enough I don&#39;t want to spend the next three years regretting it.Unfortunately Lenovo or Dell might get my budget if it looks like that&#39;s not going to happen for a while. This laptop has had a few too many drops off of my bike (which is why repairability would be great!)."</p>
 							
 						
 							
-								<p class="story__comment_others">"My current laptop needs to be replaced really soon, I&#39;m hoping Framework will announce either a recent AMD Ryzen or Intel&#39;s Alder Lake. The difference between the 11th and 12th gen Intel is big enough I don&#39;t want to spend the next three years regretting it.Unfortunately Lenovo or Dell might get my budget if it looks like that&#39;s not going to happen for a while. This laptop has had a few too many drops off of my bike (which is why repairability would be great!)."</p>
+								<p class="story__comment_others">"The 3D printable, open-source, case that allows you to use the mainboard as a standalone computer is such a nice touch!  https://github.com/FrameworkComputer/Mainboard/tree/main/Mec..."</p>
 							
 						
 						</a>
@@ -126,7 +410,7 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/sympy/sympy_doc">HackerRank (YC S11) DMCA&#39;ed the SymPy Docs</a></h3>
+					<h3><a href="https://github.com/sympy/sympy_doc">HackerRank (YC S11) DMCA&#39;ed the SymPy Docs [fixed]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
@@ -222,11 +506,11 @@ https://www.nytimes.com/2018/08/02/technology/google-maps-ne...&gt; For decades,
 							
 						
 							
-								<p class="story__comment_others">"Here&#39;s the announcement from Google: https://workspaceupdates.googleblog.com/2022/03/more-assisti...You could think of it as Google wanting to police people, OR you could see it as Google seeing that a ton of people use Grammarly and clearly want this feature. (Remember, Google Docs is used for lots of formal docs. It&#39;s not a chat app or Twitter clone.)As it turns out, a lot of people choose to be inclusive and non-inflammatory."</p>
+								<p class="story__comment_others">"&#34;war in Ukraine&#34;~~~~~~~~~~~~~~~~This expression may be offensive to people who prefer the expression &#34;special military operation&#34;. Also, you seem to be accessing Google Docs from a Russian IP, so you can potentially be locked up for 15 years. Please reconsider ... ============================================================================&#34;the country of Taiwan&#34;~~~~~~~~~~~~~~~~~~~~~~~We suggest &#34;Chinese Taipei&#34; instead.============================================================================&#34;terrorists&#34;~~~~~~~~~~~~This word is emotionally charged and could be substituted with &#34;militants&#34;.============================================================================&#34;have faith&#34;~~~~~~~~~~~~Could be offensive to atheists. &#34;be confident&#34; works as well.============================================================================&#34;Muhammad&#34;~~~~~~~~~~Do you mean the Prophet (PBUH)? Also, you cannot insert any images that resemble humans on this page, just in case."</p>
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t really know how I feel about this, the headline is a bit jarring but I guess it is from their own documentation.But without more than the one &#34;landlord&#34; example, it is hard to really get a feel for what this may be doing. That is a strange example though... I have never seen anyone complain about the word &#34;landlord&#34;.Regardless, I don&#39;t like the idea of Google or any company having the power to dictate what is socially acceptable or not in what should be a private document.Especially when important context will likely be missed.To add. I am gay, I have certain use cases for the related &#34;F&#34; word. I can almost guarantee it will complain about it... but using it is also my right. And some people find &#34;Queer&#34; offenses and some do not, I have seen some heavy debates about it in the community. I would not want Google to take a stance on that.Edit: I was curious to test this theory for myself. It looks like this is only in a workspace document and not google docs as a whole right now. So... maybe someone else can confirm what happens?"</p>
+								<p class="story__comment_others">"Here&#39;s the announcement from Google: https://workspaceupdates.googleblog.com/2022/03/more-assisti...You could think of it as Google wanting to police people, OR you could see it as Google seeing that a ton of people use Grammarly and clearly want this feature. (Remember, Google Docs is used for lots of formal docs. It&#39;s not a chat app or Twitter clone.)As it turns out, a lot of people choose to be inclusive and non-inflammatory."</p>
 							
 						
 						</a>
@@ -428,7 +712,10 @@ Are there guidelines?For example, if I am Microsoft CEO, would it be okay if I u
 							
 						
 							
-								<p class="story__comment_others">"There is a point being totally missed in this thread and that is the UK government basically ignore all security common sense and do absolutely incomprehensible things like discuss national security over WhatsApp and Zoom, as a British citizen, in my eyes this absolutely amounts to treason as they&#39;re knowingly potentially giving away state secrets, anyone else would be instantly jailed.UK government and any departments discussing sensitive matters (or everyone, really) should not be using a) off the shelf phones, and b) should not be using public communications networks full stop, nevermind foreign communication platforms."</p>
+								<p class="story__comment_others">"And what were GCHQ, MI6 and NCSC doing to protect our prime-minister
+at this time?We have a problem in democratic nations. I&#39;ve written about it here
+[1].  Bruce Schneier has also addressed it in his own way.Our lack of any framework for civic cybersecurity is a disgrace.
+People in future ages will look back on our time as a wild-west.A solution can only come from a ground-up awareness through education.[1] http://www.icicte.org/assets/icicte2019_5.4_farnell.pdf"</p>
 							
 						
 						</a>
@@ -986,11 +1273,11 @@ As you might guess, the one that this milestone is celebrating is the LLVM backe
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve sometimes wondered if the way American media and culture treat people like Musk, Bezos, Gates is that we have no royalty -- there&#39;s no hereditary monarchy and indeed the old money keeps a studiously low profile.Do human cultures just need kings and princes? Is there a special kind of celebrity niche that the billionaire businessman fills that occupies an ancient hierarchical part of our society?I read Yishan&#39;s post here as kind of like a duke commissioning an epic poem in the hopes it&#39;ll influence the king. Maybe it&#39;ll work -- he shot his shot, and he&#39;s a pro at putting in just the right Internet comments in just the right place. But I wonder why I&#39;m so fascinated about seeing this conversation between these two nobles. Is this how the English lower classes saw their royalty in the 17th century? Did they chatter about the king&#39;s foibles on the street while they were out costermongering?"</p>
+								<p class="story__comment_others">"This thread is an interesting perspective on social media &#34;censorship&#34; that you don&#39;t hear often.Of course everyone working at a social media company has an ideological bias, and that can come out in the product. But consider also that the latest censorship controversy creates negative PR, makes people leave the platform, attracts regulatory attention, and ultimately, hurts the company&#39;s profits. Content moderators are at least as worried about that as they are about making sure their ideological opponents aren&#39;t given a voice.Social media companies are in the unenviable position of playing referee in the culture war, and like referees in any sport, they&#39;re going to constantly be criticized for doing it, right or wrong. These companies are global and universal, and there&#39;s no way they can satisfy all parties. Sometimes, the values of left and right, or Iran and the US, or Israel and Palestine, are just irreconcilable. You&#39;re better off just trying to avoid as much trouble as possible, and avoiding negative media attention.Reddit is probably the most ham-fisted example of this approach. Their content moderation is pretty hands off, but as soon as any subreddit attracts negative attention, it&#39;s quarantined or banned, no matter if the controversy is justified or not. When Russia invaded Ukraine and Russia Is Bad Now, they just straight up banned /r/russia and any link to an .ru domain! That does nothing to address the conflict, but it does keep those NYT opinion pieces from showcasing Problematic Russian Bot Behavior on Reddit.I&#39;ll note that I don&#39;t think this model fully explains moderation policies at Twitter or other social media sites. I genuinely believe moderation leans left due to an ideological monoculture (I&#39;ve seen it first hand). But it&#39;s important to recognize the difficult situation social media sites are in."</p>
 							
 						
 							
-								<p class="story__comment_others">"This thread is an interesting perspective on social media &#34;censorship&#34; that you don&#39;t hear often.Of course everyone working at a social media company has an ideological bias, and that can come out in the product. But consider also that the latest censorship controversy creates negative PR, makes people leave the platform, attracts regulatory attention, and ultimately, hurts the company&#39;s profits. Content moderators are at least as worried about that as they are about making sure their ideological opponents aren&#39;t given a voice.Social media companies are in the unenviable position of playing referee in the culture war, and like referees in any sport, they&#39;re going to constantly be criticized for doing it, right or wrong. These companies are global and universal, and there&#39;s no way they can satisfy all parties. Sometimes, the values of left and right, or Iran and the US, or Israel and Palestine, are just irreconcilable. You&#39;re better off just trying to avoid as much trouble as possible, and avoiding negative media attention.Reddit is probably the most ham-fisted example of this approach. Their content moderation is pretty hands off, but as soon as any subreddit attracts negative attention, it&#39;s quarantined or banned, no matter if the controversy is justified or not. When Russia invaded Ukraine and Russia Is Bad Now, they just straight up banned /r/russia and any link to an .ru domain! That does nothing to address the conflict, but it does keep those NYT opinion pieces from showcasing Problematic Russian Bot Behavior on Reddit.I&#39;ll note that I don&#39;t think this model fully explains moderation policies at Twitter or other social media sites. I genuinely believe moderation leans left due to an ideological monoculture (I&#39;ve seen it first hand). But it&#39;s important to recognize the difficult situation social media sites are in."</p>
+								<p class="story__comment_others">"I&#39;ve sometimes wondered if the way American media and culture treat people like Musk, Bezos, Gates is that we have no royalty -- there&#39;s no hereditary monarchy and indeed the old money keeps a studiously low profile.Do human cultures just need kings and princes? Is there a special kind of celebrity niche that the billionaire businessman fills that occupies an ancient hierarchical part of our society?I read Yishan&#39;s post here as kind of like a duke commissioning an epic poem in the hopes it&#39;ll influence the king. Maybe it&#39;ll work -- he shot his shot, and he&#39;s a pro at putting in just the right Internet comments in just the right place. But I wonder why I&#39;m so fascinated about seeing this conversation between these two nobles. Is this how the English lower classes saw their royalty in the 17th century? Did they chatter about the king&#39;s foibles on the street while they were out costermongering?"</p>
 							
 						
 						</a>
@@ -1018,7 +1305,7 @@ As you might guess, the one that this milestone is celebrating is the LLVM backe
 							
 						
 							
-								<p class="story__comment_others">"The issue is you have built in a mechanism to prevent the site from gaining critical mass.In order for a user to check the site, there would need to be 50 posts from their friends that they can read through.For that to happen, they would need 500 friends for them to make 50 posts a week.In order to reach 500 friends, you would need 100 million users, before that the network would be empty with nothing happening.It’s better to limit the number of posts to 1 per day.This way, you would be able to have some stuff going with 50 friends in some areas and 3 million users.However, you need to get to 3 million users somehow with no value in your network, maybe you can get this through posts like this, but very difficult.You also need to let users upload their contact list otherwise you won’t be able to build your social graph."</p>
+								<p class="story__comment_others">"Respect the effort, but I think it&#39;s not going in quite the right direction. I don&#39;t think people need paternalistic restrictions on post frequency. People need to be liberated from engagement-optimizing algorithms and allowed to choose which activity is presented to them and in what order."</p>
 							
 						
 						</a>
@@ -2687,291 +2974,6 @@ https://ui.toast.com/tui-gridI&#39;ve been using it for over a year and it works
 						
 							
 								<p class="story__comment_others">"I&#39;ve actually done kind of the opposite recently.I&#39;ve used Linux a lot in the past, and especially on servers pretty much exclusively - but I&#39;ve always had a Windows PC for gaming and a Mac for everything else for personal use.In the last few months I put together a tiny low power AMD PC (the 35W 8 core 5750GE!) - and I am massively impressed by how well everything works.Proton/Wine and the OSS AMD graphics stack run older Windows games better than Windows 10 or 11 does. The DP MST setup I have just works (unlike on Windows + NVIDIA where it loves to break). Using KDE as a desktop is more consistent as a UI than Windows 11 is.It&#39;s come a long way, and the user experience (as someone who was expecting to dislike it) is seriously improved &amp; seriously impressive.edit: a lot of the niggles I used to hit have just gone away - I don&#39;t get tearing, multimonitor just worked. I haven&#39;t tried disparate DPIs and I expect that would be an issue, but even so... I&#39;m impressed."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">10 April 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://persepolis.getty.edu">Persepolis of ancient Persia rendered in WebGL</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30965352">
-						
-							
-								<p class="story__comment_first line-clamp">"This is really cool. Seeing these beautiful colors I realize how much how I imagine the ancient world is shaped by museum artifacts and photos in textbooks, which show raw and brown/grey/white stones, rusty tools and weapons. I&#39;ve grown thinking about pre-medieval times as a landscape of ruins. It would be like if future humans were picturing our current world as nothing but bombed cities.It&#39;s a really cool project. Now I want a VR game where I could simply walk around ancient cities and watch people go about their day."</p>
-							
-						
-							
-								<p class="story__comment_others">"Just explored it with my 4 year old son. He insisted on a second tour and on clicking all of the interactive exhibits. Amazing design and execution!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Horrible UI but would be cool otherwise. On an Android and the performance was fine but way too much finger swiping."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://thetech.com/2022/04/08/grad-students-unionize">MIT graduate students vote to unionize</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30967375">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m very curious to see what the long term effects of unionizing will be in Academia. I&#39;m hopeful and optimistic it will improve things in the long run. Yes there will be some unintended consequences but academic life is already very rough if you&#39;re not tenured.Academia likes to cast itself as a true meritocracy. If you work hard and publish good papers you&#39;ll do well. In practice it&#39;s more of a gerontocracy where senior members  can single handedly destroy a young investigators career. (It happened to me and I saw it happen to several people). There is little to no recourse against this.Arguments against unionization from already tenured faculty usually sound like: &#34;If you want to be the best in your field you have to work harder than everyone else. Forming a union won&#39;t change that fact and may even discourage students from working so hard. This might interfere with their career goals.&#34;However, the power structures in academia are heavily skewed and toxic. Individually graduate students have little recourse when they are wronged. Life in academia is hard. You have to work long days, the chance of success is very low. At every stage the probability of getting that next job is very low.A lot of the field agrees that something needs to change, but no one can agree exactly what needs to change or how to get there.  The people with the power are the tenured professors who &#34;won the lottery&#34; and are out of touch with the problems they are causing. They aren&#39;t going to be the mechanism of change even though they hold all the power."</p>
-							
-						
-							
-								<p class="story__comment_others">"I was a graduate student with a research assistantship position at the University of Washington in the mid 2000s, a few years after they unionized and got a contract with the UAW.By the time I was there, even though it was only a few years after the union struggle, I didn&#39;t hear much about the union, at least in my department.But what I knew it meant was: we had good health insurance, we had a guaranteed minimum stipend, we had the right to actually take vacation during university vacations, and a certain number of sick days. I knew from talking to oother students, that before the union contract, grad students with assistantships didn&#39;t necessarily have these things (it depended on department), and sometimes literally got no vacation or allowed sick leave at all.I was aware of no ways that the presence of a graduate student union harmed the grad students involved -- to the contrary of some suppositions in this thread. Grad student unions exist in dozens of universities, some for years now, so it&#39;s possible to look at actual experiences, not just forecasting supposition. I was also aware of no ways the union harmed research or academics at the university (beyond of course costing them more money to treat the grad students right).I wonder if a few years after I left, most grad students even realized what the union had won for them. The union was not very visible, once the fight for a contract was over."</p>
-							
-						
-							
-								<p class="story__comment_others">"For anyone not familiar with the world of academia, grad students actually have a good bit more power available to them by organising sensibly than you might think. The same is also true for early career postdoctoral research staff. This is because most of the work that actually matters is being done by these individuals, in a very pyramidical structure, but the money stops rolling in without the work that the base of the pyramid is delivering.Tenured professors and others win research grants, and are only as good as their last grant. If they stop running on the treadmill, they won&#39;t get any more grants, as their pitch becomes less compelling than others&#39;.They win a grant, but the actual research work is then done by postdoctoral researchers and grad students. They do the actual work, write it up, and pretty much everything else. Often they even win the grants in the first place. The exception is that when there&#39;s some credit to be gained for the work, the professor will reappear to take center stage and give interviews.If the grad students organise, the wheels could begin to fall off quickly - if projects are delayed, grant payments won&#39;t come through. If they are not teaching classes, someone else has to teach them. If the research isn&#39;t getting done, someone has to speak with funders on calls. Someone has to write reports. There&#39;s more to be done than the professor can do, and they will rapidly end up snowed under, unable to function, and unable to deliver papers on their grant. That will make it harder for them to get their next pet project funded.Unfortunately, many people go into academia believing it to be a bastion of meritocracy where their efforts and skill will be rewarded, and they spend some number of years believing this before they start to realise what is actually going on. Some will make it to be a professor, others become disillusioned and go elsewhere. In my view though, the model is quite broken, and too reliant on a professor claiming credit for others&#39; work without challenge, even though the work of their (hidden) team was the meaningful intellectual input, and some of them would probably be better as the professor."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://matrix.org/blog/2022/04/08/this-week-in-matrix-2022-04-08#thunderbird">Mozilla Thunderbird Beta now supports Matrix chat</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30963723">
-						
-							
-								<p class="story__comment_first line-clamp">"Is there a hidden feature in Thunderbird, or an add-on, that allows easily sending replies from the email address to which message was received? Without having to have those email addresses already added as accounts/identities.And also writing fresh emails from specific emails addresses maybe by easily editing the “from” field.i.e if I had used an email netflix@mydomain.tld to register on Netflix and I am replying to an email received on that then the reply should automatically bo sent from that email.Apple mail allows this by adding such email addresses in advance. I already have almost 20 in the from list. It’s a mess. Couldn’t find any other generic client (iPhone or Mac) that does it."</p>
-							
-						
-							
-								<p class="story__comment_others">"The crossover I never knew I wanted but am glad to seeDoes anyone know of any services that offer all the backing services for add-ons for thunderbird: WebDAV for filelink, CalDAV, CardDAV, (and now) Matrix?"</p>
-							
-						
-							
-								<p class="story__comment_others">"If anyone from the Thunderbird team is reading this can you please default the timezone in preferences to match the OS."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.sky.com/story/turning-back-the-clock-human-skin-cells-de-aged-by-30-years-in-trial-12584866">Turning back the clock: Human skin cells de-aged by 30 years in trial</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30960470">
-						
-							
-								<p class="story__comment_first line-clamp">"For anyone interested in learning more about partial reprogramming, I recently wrote a review article on the current state of the art: https://www.adanguyenx.com/blog/partial-reprogrammingIn short, we&#39;re still far away from using it in humans (10+ years). Currently, all companies working on this are in pre-clinical stage, with turn.bio as the closest, expecting to go into clinical trials late this year.This tech is exciting but there are still a lot of limitations:- Risk of cancer: this technology is based on the work of Yamanaka in 2006, who discovered 4 factors that can turn any cells into pluripotent stem cells. The work in the OP article basically used the same 4 factors, but only partially, so that the cells became &#34;younger&#34; without losing their identities (i.e. turning into stem cells). This requires understanding the right dosage for every cell type so we don&#39;t go overboard and turn them into dedifferentiated cells which could lead to cancer- Cell specificity, microenvironment, etc.: reprogramming is finicky and the right dosage is dependent on the cell type or the environment around the cells. This is important because you have to figure out the right dosage for each cell type so as to avoid cancer- Delivery: it&#39;s easy to deliver gene therapy to skin cells on a dish, not so much to other cell types or organs in the bodies -- that&#39;s why we have not seen very impressive results when this is used on live normal mice"</p>
-							
-						
-							
-								<p class="story__comment_others">"Must be lots of low-hanging fruit in biological treatments.See, I went camping with the Scouts on Isle Royale, at the end of the week we were comparing mosquito bites, averaging about 100 per. Then a young man Luke said offhand &#34;Mosquitoes don&#39;t bite me.&#34;And sure enough, his skin was totally clear. I said &#34;Luke, you bottle that, you&#39;re a millionaire.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"Damn I don’t want to die with the last thing in my ear being the news that they can now reverse aging .."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/alexandrosM/status/1510008990368878592">Drone footage of Tesla factory</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30961370">
-						
-							
-								<p class="story__comment_first line-clamp">"Original from Tesla YT channel https://www.youtube.com/watch?v=7-4yOx1CnXE"</p>
-							
-						
-							
-								<p class="story__comment_others">"Anyone know how this compares to other factories? It&#39;s a brand new factory by the highest valued car company in the world, so I expect it to be cutting edge. Is it far ahead of others, or just catching up? My uneducated opinion is that it&#39;s really cool."</p>
-							
-						
-							
-								<p class="story__comment_others">"I wish the footage wasn&#39;t sped up so much. I know they speed these videos up to make it more &#34;interesting&#34; but honestly it&#39;s so fast I lost interest because I couldn&#39;t focus on anything.It a cool to see the inside of the factory tho, hopefully we can get a more detailed look sometime."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://jaapgrolleman.com/shanghais-stunning-fall-from-grace/">An Account of the Shanghai Lockdown</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30966378">
-						
-							
-								<p class="story__comment_first line-clamp">"Based in Shanghai since 2014, I can share some details on why it feels so unbearable to be here right now.Firstly, the totalitarian government have never been good at communicating anything except propaganda. So on one hand we&#39;re inundated with &#34;Go Shanghai!&#34; and how brave volunteers distribute food, on the other hand, we&#39;re completely in the dark about what&#39;s going on. Goalposts are being moved daily, rumors proliferate, and things change every day, adding a lot of stress to an already suboptimal situation.Second, I can confirm that the food situation is extremely bad. We are a family of two, and always been kind of preppers, so we had many bags of rice, pasta, dehydrated veg, frozen meats in our large fridge. Chinese society, en masse, is much more used to just ordering food daily. Many people never cook. It&#39;s cheaper this way (though of course the quality varies). Bigger families with aunties who can cook just used to pop by the local wet market daily and get a bag of fresh produce. Many households might not even have a fridge at all, or have a small one.The government was saying that &#34;there will be no lockdown&#34;, and when the lockdown became imminent, people barely had two days to stock up. Queues, fights, empty shelves everywhere. More stress.A lot of people in our community do not have any food left, and we&#39;ve received two government issued &#34;rations&#34; so far (in 12 days of lockdown): one with 5 tomatoes, and one with 3 pounds of chicken drumsticks, 3 potatoes, 1 head of cauliflower, and a bunch of rotten lettuce. If we did not stock up, we would be starving right now. We donated quite a bit of food to our neighbors already, and many people are actually very close to having no food at all. Getting a delivery is almost impossible, group orders organized by compounds are often ridiculously overpriced, and not always work out. Scams are emerging.Thirdly, I understand the author&#39;s frustration with the guards (&#34;baoan&#34;). Those people never had any formal power, but now they &#34;run things&#34; and, for many, the newly obtained power went to their heads. Violence and abuse is abound. We have PCR tests every 1-2 days, sometimes at 6am, some compounds at 3am. People dragged from their beds and forced to stand in queues.How would you respond to all that?Yes, it has some potential to save lives, but if it was communicated better, if we had more time to prepare, and they could still run food deliveries, nobody would complain that much. It&#39;s terribly mismanaged, and even after we &#34;open up&#34;, I will strongly reconsider staying here. Omicron will return, and I do not want to be here for the next (and next, and next) lockdown."</p>
-							
-						
-							
-								<p class="story__comment_others">"As a Chinese, I can say that the situation is worse than it in the article. My brother is a student who lives in a flat and has not eaten for two days and no one has brought basic substances. He can&#39;t leave the flat, he turns to his tutor but his tutor is also forced to stay at home (eating instant noodles every day). We are worried about him but there is nothing we can do, if we criticise the government on chinese Twitter we will be arrested by the police. ಥ_ಥ"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; People are finding out that state media exists not for accurate news, but only to spin reality into a narrative that fits the powers higher up.Are people really finding that out only now? I thought that this was generally accepted knowledge even in China, despite the constant fear and propaganda they live with.What&#39;s happening now with the strict lockdowns and zero-Covid policy is inhumane. People are literally prisoners in their own homes and anyone in a position of power will abuse it to avoid hurting their social score. What a fucked up situation."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://digitalcorps.gsa.gov/about/">The United States Digital Corps</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30958919">
-						
-							
-								<p class="story__comment_first line-clamp">"Really happy to see this on the front page!One thing to keep in mind if you&#39;re interested in joining: the Digital Corps is for early career technologists, so if you have much experience in tech, you might want to apply to USDS (https://www.usds.gov) or 18F (https://18f.gsa.gov) instead."</p>
-							
-						
-							
-								<p class="story__comment_others">"Public sector IT was an extremely frustrating experience for me.- incompetent administration (org flow chart, constantly changing paradigms, misnomers (&#34;open source&#34; == we tape together stuff from public git-repositories, push nothing upstream, and outsource lots of core development))- administration&#39;s priorities change with every election (project funding as a flag in the wind depending on current political climate)- red tape everywhere- bureaucrats everywhere- the whole job-stack attracted incompetent people, the kind that values stability over deep understanding and progress. the kind where I thought &#34;man, good that they are working here in [$current_politically_opportune_project] so they can&#39;t do actual damage somewhere else&#34;. this applied for the business administrators, the project managers, the &#34;developers&#34;, the admins, even a large part of the contractors.- &#34;you&#39;re working too fast! haven&#39;t been here for long, eh?&#34;- compliance &gt; securityNever, ever ever ever again. Granted, this was in Europe, maybe the US sucks less in the public sector. I would bet a good amount of money that there is a large intersection of problem spaces among the regions though."</p>
-							
-						
-							
-								<p class="story__comment_others">"I like that the Digital Corps exists in theory. I applied many moons ago, I believe during the Obama administration. Service to our country is something I feel is important so I applied to at least see if there was a fit.When I got to the phone screen, I made a point to ask if recreational cannabis would disqualify you from joining and they confirmed that yes, even if it was recreationally used, a positive cannabis result on a drug test would disqualify you.Major bummer, but unsurprising. The entire reason I asked was due to how many posts on HN I’ve seen about government agencies having a hard time hiring tech folks for this reason. I have what I believe to be a decently desirable skillset and a lot of tangible experience working in startups AND enterprise companies, and if I had to guess, would have brought some good value to the team.I hope (but doubt) these policies have relaxed."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="http://www.supersimplestorageservice.com/">Super Simple Storage Service</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30972694">
-						
-							
-								<p class="story__comment_first line-clamp">"I believe they have overestimated the cost of using 3.5&#34; floppies, probably to make themselves look better by comparison.They give the cost as $211,172, but that&#39;s the cost to buy a 1 TiB pack of floppies. Their own storage cost is per-month, so to get the equivalent cost for floppies you need to also divide by the expected useful lifetime of a floppy disk. I did a web search for &#34;floppy disk lifetime&#34; and the internet [1] told me &#34;I’ve seen numbers saying the lifespan of floppy disks is three to five years. But I’ve also seen numbers that claim they can last ten to twenty years or even indefinitely.&#34;If you assume floppy disks have an expected lifetime of 5 years, you can amortise the cost across that time, bringing the cost per TiB-month down to a nice reasonable $3,520.[1] https://blog.storagecraft.com/data-storage-lifespan/"</p>
-							
-						
-							
-								<p class="story__comment_others">"A really nice touch is the case study they use, which shows a nonexistent MothersInLawPhotos . com 
-(http://www.supersimplestorageservice.com/MotherInLawPhotos.p...) with all the images broken"</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t know why I would purchase this service, it looks like it could be easily replicated using a bunch of shell scripts..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://heaps.io/index.html">Heaps: A free, open-source and cross-platform game engine</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30970934">
-						
-							
-								<p class="story__comment_first line-clamp">"You can remember that there was a vibrant community of Flash game developers before the demise of Flash (EOL December 2020, the date of its “demise” is debatable). There’s not really a replacement for Flash and the community kind of fragmented.That said, my impression is that a big chunk of talent from the Flash community went to work on HaXe. These are people who make games and want tools to make game development easier—as opposed to people who get excited about engines, architectural patterns, and programming languages. Just as a general impression, based on people I’ve recognized working with HaXe."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve written a couple side project games in Heaps and I&#39;m a big fan.If you&#39;re familiar with Pixi.js, Heaps and it&#39;s language, Haxe, will feel very similar. Haxe is a pretty cool language, it&#39;s similar to TypeScript but compiles to native binaries for almost all major game consoles.Heaps was apparently the framework behind Dead Cells if that says anything about the level of polish you can accomplish with this set of tools."</p>
-							
-						
-							
-								<p class="story__comment_others">"I really wish Haxe would just take off in the application development world, it had so much potential to be what Typescript has become with the benefit of transpiling to different languages. We theoretically could have had 1 single programming language for a full application with JS front end, Django server, C++ workers, the best of all worlds."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://css-tricks.com/send-an-http-request-on-page-exit/">Reliably Send an HTTP Request as a User Leaves a Page</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=30942555">
-						
-							
-								<p class="story__comment_first line-clamp">"Keep in mind that a substantial portion of users now use ad blockers such that a lot of URLs used for analytics like this are blocked.Consequently, you can&#39;t actually expect to capture 100% of these analytics events nor even expect the percentage captured to stay the same over time since the filter lists are very regularly updated and users enable/disable different ad blockers over time.More broadly speaking, once you have sent a webpage to the user, you should not expect anything from the user&#39;s browser. They may or may not allow whatever arbitrary JS you have on the page. They may even intentionally give you bad data (e.g. hijack the payload to give you intentionally malformed data).edit: even more broadly speaking, there&#39;s additional reasons why you can&#39;t expect to receive these kinds of callbacks: consider what happens if a user loses connectivity between loading the page and them navigating away (e.g. their phone loses service because they went into an elevator before navigating away)"</p>
-							
-						
-							
-								<p class="story__comment_others">"For those wondering --- despite the domain of the site seeming to imply so, this does not use CSS.On the other hand, the more I read about stuff like this, the more disenchanted I am with the &#34;modern web&#34;. When something as seemingly innocent as a link can &#34;stealthily&#34; do something else when it&#39;s clicked, but otherwise looks exactly the same as a benign one (and moreover, behaves entirely as expected with JS off), it really brings into question whose interests such features are designed to serve."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; I’ve needed to send off an HTTP request with some data to log when a user does something like navigate to a different page or submit a form.No need for that. Stop hoarding data!"</p>
 							
 						
 						</a>
