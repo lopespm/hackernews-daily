@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">21 April 2022</div>
+	<div class="day__date">22 April 2022</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://danlark.org/2022/04/20/changing-stdsort-at-googles-scale-and-beyond/">
+					<a href="https://column.com">
 						<picture>
-							<source srcset="default_31098822.webp" type="image/webp">
-							<source srcset="default_31098822.png" type="image/png">
-							<img src="default_31098822.png" alt="Preview of 'Changing std:sort at Google’s scale and beyond'">
+							<source srcset="default_31109170.webp" type="image/webp">
+							<source srcset="default_31109170.png" type="image/png">
+							<img src="default_31109170.png" alt="Preview of 'Column – a chartered bank for developers'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://danlark.org/2022/04/20/changing-stdsort-at-googles-scale-and-beyond/">Changing std:sort at Google’s scale and beyond</a></h3>
+					<h3><a href="https://column.com">Column – a chartered bank for developers</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31098822">
+						<a href="https://news.ycombinator.com/item?id=31109170">
 						
 							
-								<p class="story__comment_first line-clamp">"Hi all, I&#39;m the author of pdqsort that&#39;s credited in the post (to be clear: the authors acknowledged pdqsort at the bottom, I am not associated with the posted work directly). I recently held a talk at my institute on efficient in-memory sorting and the ideas in pdqsort, in case you&#39;re interested in hearing some of the theory behind it all: https://www.youtube.com/watch?v=jz-PBiWwNjcNext week I will hold another talk in the Dutch seminar on data systems design (https://dsdsd.da.cwi.nl/) on glidesort, a new stable sorting algorithm I&#39;ve been working on. It is a combination of adaptive quicksort (like pdqsort, fully adaptive for many equal elements) and an adaptive mergesort (like timsort, fully adaptive for long pre-sorted runs). It is the first practical implementation of an algorithm I&#39;m aware of that&#39;s fully adaptive for both. Like pdqsort it uses modern architecture aware branchless sorting, and it can use an arbitrary buffer size, becoming faster as you give it more memory (although if given a constant buffer size it will degrade to O(n (log n)^2) in theory, in practice for realistic workloads it&#39;s just a near-constant factor (c ~&lt;= 3-5) slower).The source code isn&#39;t publish-ready yet, I have to still do some extra correctness vetting and testing, and in particular exception-safety is still not yet fully implemented. This is important because I wrote it in Rust where we must always give back a valid initialized array, even if a comparison operator caused a panic. But I do have some performance numbers to quote, that won&#39;t significantly change.For sorting 2^24 randomly shuffled distinct u32s using a buffer of 2^23 elements (n/2), glidesort beats Rust&#39;s stdlib slice::sort (which is a classic timsort also using a buffer of n/2) by a factor of 3.5 times. When stably sorting the same numbers comparing only their least significant 4 bits, it beats stdlib slice::sort by 12.5 times using 6.5 times fewer comparisons, both numbers on my Apple M1 Macbook. All of this is just using single-threaded code with a generic comparison function. No SIMD, no threads, no type-specific optimizations.Finally, glidesort with a buffer size of &gt;= n/2 is faster than pdqsort."</p>
-							
-						
-							
-								<p class="story__comment_others">"Fun safety problems.Towards the end of this post, the author mentions a bunch of places where std::sort() blows up if your data or your sort rule doesn&#39;t exhibit strict weak ordering. In some cases you get a bad sort, which feels fair enough since you violated the rules the sort algorithm is relying on, but in others it literally has Undefined Behaviour in C++.Notably Rust&#39;s sort() and unstable_sort() do not have this problem, because of course these are safe Rust, and safe Rust doesn&#39;t have Undefined Behaviour. But why can this work?First up, one bullet which gets dodged is that Rust&#39;s floating point types (f32 and f64) are not Ord. Rust acknowledges that NaN != NaN and therefore we can&#39;t expect to go around sorting a slice of floating point values. In C++ that&#39;s on the programmer, in C++ the fact you can write a &lt; b means that type counts as ordered, even though it trivially isn&#39;t for several built-in types. So if you simply naively try to sort an [f32] Rust says you can&#39;t because it isn&#39;t Ord, you will need to write a lambda or whatever to Order these f32s and then if some of them are NaN your lambda is responsible for deciding what to do about that.But even if we insist on getting in harm&#39;s way, safe Rust promises to protect us anyway. For example if I make an array of a thousand misfortunate::OnewayGreater&lt;u8&gt;s they&#39;re only one byte each, yet they all insist they&#39;re Ordered greater than each other and even than themselves, Rust&#39;s sort() doesn&#39;t cause Undefined Behaviour on this input. It may never succeed, since all the elements to be &#34;sorted&#34; insist they&#39;re greater than each other, but it definitely won&#39;t segfault, trash unrelated memory or cause chaos."</p>
+								<p class="story__comment_first line-clamp">"Congratulations on the launch! I wonder if this kind of business model, where it looks like there is basically &#34;one really rich guy self-funding&#34; for a couple of years, is going to be more common.That is, just looking at the site, my guess is that building everything from the ground up (core banking stack, acquiring the chartered bank, then all the APIs and tech on top of that) must have taken many years and many, many millions of dollars. And kudos, because the first thing that struck out at me is the documentation looks excellent. Overall, it looks like something where the the team had all the luxury to &#34;do things right from the ground floor&#34;, instead of scrambling and making shortcuts before their runway ran out. I just think it would have been very hard to find a VC willing to be patient enough to wait that long with no revenue or customer feedback (&#34;where&#39;s your MVP???&#34;)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Thanks, I&#39;m going to write all this out on a whiteboard the next time someone asks me to sort a linked list in a technical interview.Edit: just wanted to clarify that the point I&#39;m trying to make here is that if you want to ask someone if they&#39;ve memorized the answer to that question, go ahead and ask it in a technical interview, because the real well-considered answer looks like the linked article, and my honest non-smartass answer is that one should use the library function and not try to implement it themselves until they&#39;ve done sufficient research into the problem to prove to a reasonable degree that they indeed do need to re-implement sort() and that it&#39;s in the best interests of the business to fund such a project.Would love to read this over the phone to a recruiter and have them tell me that it&#39;s not what they have on their sheet."</p>
+								<p class="story__comment_others">"&gt; Create account numbers that point to a single bank account and create specific permissions and limits for each one.I love that; there are so many places that give a 6% discount for using ACH but I don&#39;t want to give out my bank account details willy-nilly---If you have influence over it, I wouldn&#39;t recommend having https://status.column.com/uptime default to &#34;Sandbox&#34; since I doubt seriously that&#39;s what anyone would care about when going to an uptime page, and can also mislead a reader in a hurry if the Sandbox environment is having woes but Production is finenit: I would guess you meant &#34;sweep&#34; not &#34;sweet&#34; on https://column.com/bank-accounts&gt; We support FBO, sweet, clearing and custom account types — all FDIC insured."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hey founder (and OP) here. This has been a labor of love for the past few years and I&#39;m super stoked on what we shipped. Would love any and all feedback, thoughts and questions!"</p>
 							
 						
 						</a>
@@ -76,33 +76,35 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.youtube.com/watch?v=t_rzYnXEQlE">
+					<a href="https://webcolorisstillbroken.com/">
 						<picture>
-							<source srcset="default_31075622.webp" type="image/webp">
-							<source srcset="default_31075622.png" type="image/png">
-							<img src="default_31075622.png" alt="Preview of 'Overhauling Mario 64&#39;s code to reach 30 FPS and render 6x faster on N64 [video]'">
+							<source srcset="default_31107643.webp" type="image/webp">
+							<source srcset="default_31107643.png" type="image/png">
+							<img src="default_31107643.png" alt="Preview of 'Web color is still broken'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.youtube.com/watch?v=t_rzYnXEQlE">Overhauling Mario 64&#39;s code to reach 30 FPS and render 6x faster on N64 [video]</a></h3>
+					<h3><a href="https://webcolorisstillbroken.com/">Web color is still broken</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31075622">
+						<a href="https://news.ycombinator.com/item?id=31107643">
 						
 							
-								<p class="story__comment_first line-clamp">"This is a good lesson about the benefit of time when it comes to software development.  Mario 64 could have been a much much better game on the same hardware, but the time cost would have resulted in a release late enough that the entire game might have been considered irrelevant.Game consoles have had the benefit of the platform freezing for a few years allowing improvements to accumulate and later titles utilizing knowledge gained from the earlier titles.Much of the software we use every day could benefit from this level of scrutiny but the pressure to deliver on time means we won&#39;t get to see such benefits unless it becomes a crazy persons labour of love."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;roll those loops back up and don&#39;t compile in debug mode to achieve significant performance gains&#34; is not the takeaway I thought I&#39;d have going in, heh."</p>
+								<p class="story__comment_first line-clamp">"Having worked on this in Skia (and so Chrome, Android) for a good while, I can vouch this is an issue browser/phone developers would have liked to fix a long time ago, but have kept by default for compatibility with old expectations.  A lot (~all) of web/app design was and still is done with this broken interpolation in mind, which then all breaks when math is done in a way that more accurately models light.It’s a bit of a chicken and egg problem that we can really only fix by allowing content to explicitly opt-in to linear working color profiles.  And sadly that’s not going to solve everything either: while a linear profile is good for color interpolation, sRGB encoding is ideal for brightness interpolation.  You’re stuck choosing between ugly red-green interpolation and nice white-black (sRGB) or between nice red-green and ugly white-black (linear).  There are some more complex color spaces that do try to be the best of everything here, but I’m not aware of any browser or OS providing support for working with these perceptual color spaces.A similar problem comes up when trying to manage color gamut on screens and systems that are intentionally blown out to look vivid, vibrant, shiny… looking at you Samsung phones.  Any properly color-managed image there looks incredibly dull compared to the bright defaults you’ve grown accustomed to.  If we take 0xff red to mean “full sRGB red”, that’s much less bright these days than if we just assume it means “as red as the screen will go.”  It’s much like how TVs are (hopefully were?) set in the store in bright shiny mode to induce you to buy them, not set to reproduce colors accurately."</p>
 							
 						
 							
-								<p class="story__comment_others">"Now that&#39;s a 10x programmer if I ever saw one. I&#39;m sure the compiler helped too. The generated code of C compilers from the 80&#39;s and 90&#39;s versus the generated code created by something like modern GCC -- it&#39;s like night and day. We&#39;re able to build faster tinier software than we ever have before, and it really helps to illuminate the impact modern tools have had when we apply that advantage to something old we already know."</p>
+								<p class="story__comment_others">"Web color is somehow still a garbage fire.About a decade ago I was hearing that web-safe color was effectively obsolete. Today Firefox chokes on P3 color, and Chrome doesn&#39;t appear to care at all about display color profiles.I recently launched a website that had a fire-engine red background and was expected to have a rotating animation above the fold (https://worldparkinsonsday.com). Even once we got the animation synced perfectly between Chrome and Safari, it turned out that iOS Safari was rendering the video differently. Eventually I gave up and replaced a 128kb mp4 video with a 5mb transparent animated GIF. Shameful.And I had this lil&#39; fellah on my desk smiling at me the whole time
+https://100soft.shop/collections/dumpster-fire/products/dump..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The gradient mixing example is broken.&#34;Color gradients are supposed to be equally bright around the midpoint&#34;This is false. Nobody mandates this.There is no &#34;correct&#34; way to do it, every one of them is arbitrary (although some do look better than others and the suggested method is better than the default linear interpolation).It is completely analogous to smoothing curve in animation - it&#39;s about what sort of interpolation mechanism you use.If there would be a standard for specific perceptually pleasing gradient, then one could claim &#34;does not follow standard X&#34;.The point of the article is usually abslutely correct, though:
+&#34;The correct way to process sRGB data is to convert it to linear RGB values first, then process it, then convert it back to sRGB if required.&#34;"</p>
 							
 						
 						</a>
@@ -114,33 +116,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://projectionlab.com">
+					<a href="https://support.apple.com/en-us/HT208312">
 						<picture>
-							<source srcset="default_31083093.webp" type="image/webp">
-							<source srcset="default_31083093.png" type="image/png">
-							<img src="default_31083093.png" alt="Preview of 'Show HN: I built a simulator for personal finance'">
+							<source srcset="default_31112639.webp" type="image/webp">
+							<source srcset="default_31112639.png" type="image/png">
+							<img src="default_31112639.png" alt="Preview of 'Apple Discontinues macOS Server'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://projectionlab.com">Show HN: I built a simulator for personal finance</a></h3>
+					<h3><a href="https://support.apple.com/en-us/HT208312">Apple Discontinues macOS Server</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31083093">
+						<a href="https://news.ycombinator.com/item?id=31112639">
 						
 							
-								<p class="story__comment_first line-clamp">"Great work! This might be unpopular among the HN crowd, but I think you can monetize this further by bundling this with an advising service.This idea of FIRE has been spreading beyond techies/Internet nerds and into other highly paid professionals like doctors. [0]. The main difference is that non-programmer professionals generally don&#39;t get a thrill out of min/max-ing financial projections.Such people might be willing to pay a few hundred dollars a year for someone to generate this kind of analysis with them and simply execute on it each year. Similar to how people pay for CPAs. My employer actually pays Goldman Sachs to provide a similar service for its employees (no commission, fiduciary advisors) but their tools suck compared to this.[0] For example https://www.whitecoatinvestor.com/, https://www.physicianonfire.com/"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is great, I took some time to get a fairly in depth plan together. There are two things that stuck out:1. You&#39;ve got RSU&#39;s (at first it wasn&#39;t clear  to me where this would be addressed, but I think it made sense once I came across it) but I don&#39;t see a dedicated strategy for dealing with ISO/NSO&#39;s. That&#39;d be helpful for the tech community especially.2. I spent the 10-15 minutes working on a plan knowing that I&#39;d need to upgrade to pro for every feature, but it seems like I need to upgrade to save my plan. I ended up not paying because I don&#39;t have enough time right now to fully evaluate this, but I might look back later. It would have been great if I could have entered my email and saved my plan without paying, and then had to later pay to access it. This gives you the benefit of getting my email address, and then sending me an email to access my plan so that I&#39;ve got a second touchpoint to your product when I check my email in the future.Looking forward to using this more in depth in the future!"</p>
+								<p class="story__comment_first line-clamp">"It is hard to say one couldn&#39;t see this coming. Of the few features left in Server, the only one I remained interested in was Profile Manager, and that hasn&#39;t worked right for a bit now. I&#39;m fine with an Apple that wants to do hardware and operating systems more than software, but I wish they&#39;d make Profile Manager-like features more available for regular people, not just Education or Business users. It would be infinitely useful to have such features for iPhones of family members who aren&#39;t so good with tech and could use a heavier hand in making sure the device is up to date and findable when lost. But I digress. I&#39;m glad it&#39;s just ending, even if it&#39;s barely a surprise."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m so incredibly impressed with this tool. In addition to the slick interface, it has some killer features and niceties:- You can add a &#34;dependent expense&#34; (have a kid) at a certain age- You can run Monte Carlo simulations of your portfolio performance- Expenses can be configured to increase linearly, with inflation, up to an amount, or using a custom function that the user can input graphically- Adding a house purchase automatically cancels out your existing rent expense if you indicate that it will be your residence- Easily visualize all of your projected earnings from portfolio growth and losses due to inflation and taxesAs an avid YNAB-er, this is heaven."</p>
+								<p class="story__comment_others">"I worked at a company that used the phrase &#34;getting jamf&#39;d&#34; as a verb to describe when the management system broke things on your macbook.E.g., &#34;I&#39;ll be able to test that code change in a bit, I got Jamf&#39;d pretty hard this morning and now my build is broken...&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"In the mid 2000s, it looked like there was good hope that Apple would finally make inroads into corporate IT. In addition to their professional software suites (Shake, Final Cut Pro, Logic Pro, Aperture, Motion, etc.), they had already released XServe, which was really good by those days&#39; standards, as well as XSan -- these products solved many of the needs of small professional creative groups. Mac OS X server&#39;s abilities to handle small offices&#39; needs seemed like a prelude to larger things.Sadly, those hopes never really panned out. Apple is historically reticent to entering a market they aren&#39;t confident they have a good chance of dominating if they execute well, and their own growing internal use of Linux servers (and maybe other 3rd-party corporate domain/directory services, like Active Directory?) probably persuaded them to scale back their efforts around 2010."</p>
 							
 						
 						</a>
@@ -152,33 +154,35 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://retool.com/blog/how-we-upgraded-postgresql-database/">
+					<a href="https://www.sec.gov/Archives/edgar/data/1418091/000110465922048128/tm2213229d1_sc13da.htm">
 						<picture>
-							<source srcset="default_31084147.webp" type="image/webp">
-							<source srcset="default_31084147.png" type="image/png">
-							<img src="default_31084147.png" alt="Preview of 'How we upgraded our 4TB Postgres database'">
+							<source srcset="default_31109355.webp" type="image/webp">
+							<source srcset="default_31109355.png" type="image/png">
+							<img src="default_31109355.png" alt="Preview of 'Musk announces funding secured for Twitter buy'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://retool.com/blog/how-we-upgraded-postgresql-database/">How we upgraded our 4TB Postgres database</a></h3>
+					<h3><a href="https://www.sec.gov/Archives/edgar/data/1418091/000110465922048128/tm2213229d1_sc13da.htm">Musk announces funding secured for Twitter buy</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31084147">
+						<a href="https://news.ycombinator.com/item?id=31109355">
 						
 							
-								<p class="story__comment_first line-clamp">"It is amazing how many large-scale applications run on a single or a few large RDBMS. It seems like a bad idea at first: surely a single point of failure must be bad for availability and scalability? But it turns out you can achieve excellent availability using simple replication and failover, and you can get huge database instances from the cloud providers. You can basically serve the entire world with a single supercomputer running Postgres and a small army of stateless app servers talking to it."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; To resolve this, we ended up choosing to leave foreign key constraints unenforced on a few large tables.&gt; We reasoned this was likely safe, as Retool’s product logic performs its own consistency checks, and also doesn’t delete from the referenced tables, meaning it was unlikely we’d be left with a dangling reference.I was holding my breath here and I&#39;m glad these were eventually turned back on.Nobody should ever rely on their own product logic to ensure consistency of the database.The database has features (constraints, transactions, etc) for this purpose which are guaranteed to work correctly and atomically in all situations such as database initiated rollbacks that your application will never have control over."</p>
+								<p class="story__comment_first line-clamp">"Actually, if you know what you are talking about, this filing actually shows Elon is about 21 billion dollars short. This is because 21 billion dollars of the commitment is coming from him and not from any financial institution. He is a very rich man but almost his entire wealth is tied up in tesla shares which he cannot sell in such large amounts and ownership of spacex which is even harder to sell.If he tries to sell 21 billion dollars worth of tesla shares, the share price will collapse.So no, once again he does not have funding secured. And once again he is trying to bullshit his way around the issue, although this time the bullshitting is a little more sophisticated.It is still possible that he tries to sell a lot of tesla shares to get the cash to buy twitter, but it is unlikely."</p>
 							
 						
 							
-								<p class="story__comment_others">"Hey folks—I wrote the post! This was my biggest Postgres project to date, and it proved quite tricky since I didn&#39;t rehearse with a test database of the same size. I learned a bunch about Postgres, not least the incredibly powerful NOT VALID option for safely and quickly adding constraints.Happy to stick around and answer any questions you have."</p>
+								<p class="story__comment_others">"Personally, I think Musk is having a bit of a laugh. This will never happen. *Twitter operating income for 12 m/e 31 Dec 2021 was negative. For the q/e 31 Dec 2021 it was $0.167B. Why he thinks Twitter is worth $45b is beyond me. What would Warren Buffett do? Well, he wouldn&#39;t buy Twitter, that&#39;s for sure.* Time will tell, of course. I&#39;ve been wrong before. But the whole thing seems like madness to me."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can someone who understands finance ELI5 the section about the financing:  &gt; &#34;To finance the Proposed Transaction or a Potential Offer, entities related to the Reporting Person have received commitment letters committing to provide an aggregate of approximately $46.5 billion as follows:&#34;
+
+What follows seems like Elon is &#34;paying&#34; for Twitter with... imaginary money.&#34;A debt commitment letter&#34;&#34;A separate debt commitment letter&#34;&#34;An equity commitment letter&#34;Am I understanding it correctly that effectively $0 is coming out-of-pocket for purchasing Twitter?Why can&#39;t anyone do this? I&#39;ll promise you a bunch of debt and equity, too."</p>
 							
 						
 						</a>
@@ -190,33 +194,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.solarpowerworldonline.com/2022/04/california-grid-set-record-with-97-percent-renewable-power-april-3/">
+					<a href="https://github.com/golang/go/commit/72e77a7f41bbf45d466119444307fd3ae996e257">
 						<picture>
-							<source srcset="default_31103275.webp" type="image/webp">
-							<source srcset="default_31103275.png" type="image/png">
-							<img src="default_31103275.png" alt="Preview of 'California grid set record of 97% renewable power on April 3'">
+							<source srcset="default_31106157.webp" type="image/webp">
+							<source srcset="default_31106157.png" type="image/png">
+							<img src="default_31106157.png" alt="Preview of 'Go will use pdqsort in next release'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.solarpowerworldonline.com/2022/04/california-grid-set-record-with-97-percent-renewable-power-april-3/">California grid set record of 97% renewable power on April 3</a></h3>
+					<h3><a href="https://github.com/golang/go/commit/72e77a7f41bbf45d466119444307fd3ae996e257">Go will use pdqsort in next release</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31103275">
+						<a href="https://news.ycombinator.com/item?id=31106157">
 						
 							
-								<p class="story__comment_first line-clamp">"Their math seems off.  I really don&#39;t see how you get to 97% renewable when the state was burning natural gas to generate 2.8 GW of non-renewable power and had about 1.1 GW of nuclear at the time.  There might be some funny math here where they assign all of the &#34;dirty&#34; power generated in the state to exports and can claim that that California is running on renewable power.Source:  https://www.caiso.com/TodaysOutlook/Pages/supply.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"This cool but not as great as you might think. I made a animated graph showing this moment and its implications here https://youtu.be/Sq9Uq1DqhU8To deeply decarbonize you need to meet current demand and also make enough to charge the energy storage systems...on a cloudy string of winter days.However we will see headlines like this for the next 20 years at least."</p>
+								<p class="story__comment_first line-clamp">"Recent and related:Changing std:sort at Google’s scale and beyond - https://news.ycombinator.com/item?id=31098822 - April 2022 (144 comments)"</p>
 							
 						
 							
-								<p class="story__comment_others">"The grid operator cited is the California Independent System Operator.  How much of CA&#39;s electricity consumption is fed by that operator?In the article they mention 23GW from wind and solar.  A quick search says in 2018 CA&#39;s electrical generation capacity was 80GW (which I assume has only gone up).  So this 97% is a bit misleading, no?  It doesn&#39;t represent 97% of total CA electricity usage... it&#39;s less than 30%?"</p>
+								<p class="story__comment_others">"With how long we&#39;ve been studying sorting algorithms, I&#39;m amazed we&#39;re still coming up with optimizations that yield real-world improvements."</p>
+							
+						
+							
+								<p class="story__comment_others">"On a side note, this change&#39;s author is from ByteDance. It&#39;s great to see everyone working together on open source."</p>
 							
 						
 						</a>
@@ -228,33 +232,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.nytimes.com/2022/04/20/us/trevor-jacob-youtube-plane-crash.html">
+					<a href="https://teenage.engineering/products/tx-6">
 						<picture>
-							<source srcset="default_31104691.webp" type="image/webp">
-							<source srcset="default_31104691.png" type="image/png">
-							<img src="default_31104691.png" alt="Preview of 'A YouTuber purposely crashed his plane in California, FAA says'">
+							<source srcset="default_31109325.webp" type="image/webp">
+							<source srcset="default_31109325.png" type="image/png">
+							<img src="default_31109325.png" alt="Preview of 'TX-6 – Teenage Engineering'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.nytimes.com/2022/04/20/us/trevor-jacob-youtube-plane-crash.html">A YouTuber purposely crashed his plane in California, FAA says</a></h3>
+					<h3><a href="https://teenage.engineering/products/tx-6">TX-6 – Teenage Engineering</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31104691">
+						<a href="https://news.ycombinator.com/item?id=31109325">
 						
 							
-								<p class="story__comment_first line-clamp">"He totally thought he was going to get away with it too.There&#39;s really interesting observations made by the YouTube community - he had a fire extinguisher concealed under his pants right above his ankle.Great that he got his pilots license revoked. He obviously is not mature enough."</p>
-							
-						
-							
-								<p class="story__comment_others">"Under U.S. law, are there circumstances in which it could be acceptable to deliberately crash a plane?In this case, it clearly wasn&#39;t (crashing on public lands with risk of starting a wildfire and polluting them), but if you wanted to crash a plane for a scene in a movie, could you do so? Maybe crashing on private property in a predetermined location with appropriate fire department support and prior notification to air traffic control about your intentions?Can manufacturers perform genuine crashes (from controlled flight) on private property for safety tests, the way car manufacturers perform tests with crash test dummies?"</p>
+								<p class="story__comment_first line-clamp">"&#34;Why is it so expensive?&#34; - commentary from someone who does this for a living at SequentialSmall Volume - each unit is more expensive than a large volume product, you don&#39;t get price breaks on any components or tooling costsDesign focused - Who is the product for? It isn&#39;t for people who want to spend 250$ on a Behringer mixer. It is for people who want something that is high quality and doesn&#39;t break. Reliable. For people that rely on their tools to be creative or appreciate design. You are paying a premium. See Apple for lots of examples. This is also one of the biggest strengths of the company, if you want something cheap you&#39;re looking in the wrong place.Complex - the amount of balance of various components here adds a lot to the design and development costs. Battery is an unusual feature but puts it in a different product category. Balancing that with the audio quality and reliability is not a trivial problem. Add in wireless, audio drivers (not trivial at ALL), Complexity increases development time and adds risk to the long term stability of the product, that is added into the cost.Most of the small features feel like somebody there thought it would be fun and/or easy to put in. It&#39;s a good way to iterate through design ideas, you have to see it in reality. That type of prototyping isn&#39;t easy. Most people don&#39;t use 90% of the features but when you are in a creative industry the 1% that does absolutely LOVES it and uses it in ways you never expected. It&#39;s difficult to balance the amount of development you put into fun things vs. business cases.If you are trying to figure out why you&#39;d pay for this you aren&#39;t their target market. It&#39;s far more interesting (to me) to think about why some people WOULD pay for this and what a market looks like that you are not a part of"</p>
 							
 						
 							
-								<p class="story__comment_others">"Oh good. As a PPL working on an instrument rating this gladdens my heart. The aviation community isn’t just pilots. Many folks contribute to safety including ATC, first responders, SAR, aerospace engineers, investigators and many more. If you’d like a sense of how invested some of these people are in flight safety, listen to ATC recordings of incidents where you can hear back chatter between control facilities.This guys actions show a lack of appreciation for the work these people do and the care they put into that work.There’s also the risk of forest fire.I think the cherry on top would be if the USFS got him for littering."</p>
+								<p class="story__comment_others">"I absolutely love their design language. I&#39;ll never have a need to own any of their products but I wish I could buy the gadgets I do need/want with this kind of design/style."</p>
+							
+						
+							
+								<p class="story__comment_others">"Like most Teenage Engineering products, it&#39;s an absolutely amazing-looking, well-engineered product with a ton of functionality that does a thing I don&#39;t actually need for far more money than I can justify spending on it."</p>
 							
 						
 						</a>
@@ -266,33 +270,39 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://gist.github.com/Widdershin/98fd4f0e416e8eb2906d11fd1da62984">
+					<a href="https://areyoutheasshole.com/">
 						<picture>
-							<source srcset="default_31087795.webp" type="image/webp">
-							<source srcset="default_31087795.png" type="image/png">
-							<img src="default_31087795.png" alt="Preview of 'The absurd complexity of server-side rendering'">
+							<source srcset="default_31099655.webp" type="image/webp">
+							<source srcset="default_31099655.png" type="image/png">
+							<img src="default_31099655.png" alt="Preview of 'Are you the asshole? – AI powered answer bot'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://gist.github.com/Widdershin/98fd4f0e416e8eb2906d11fd1da62984">The absurd complexity of server-side rendering</a></h3>
+					<h3><a href="https://areyoutheasshole.com/">Are you the asshole? – AI powered answer bot</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31087795">
+						<a href="https://news.ycombinator.com/item?id=31099655">
 						
 							
-								<p class="story__comment_first line-clamp">"There are cases when server-side rendering (without SPA) is easier and faster. For example: documentation sites, blog-like sites, internet stores, sites like Hacker News. In all these cases, you can save on development time by writing just one application instead of two (server and client), and improve performance (no need to load multimegabyte JS applications and make multiple AJAX requests to display a page).Of course, there are cases when SPA-style application is better, for example: (graphic/circuit/text) editors, IDEs, mobile newsfeed-based apps - everything that resembles an app rather than a page with text, menus and images. But in these cases you usually don&#39;t need server-side rendering. And sometimes you cannot even use it - for example, if your code needs to know browser windows size to arrange objects on the page.So I think that SSR (running JS on server) is rarely useful."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve been using server-side rendering for many years now and I find it to be almost zero overhead at this point. Yes, I had to do some initial work to set things up, but these days I don&#39;t even remember it&#39;s there.Most people make an assumption that in order to have SSR you need to run JavaScript (e.g. Node most of the time) on your backend. That is not a valid assumption.I think the title of the article could benefit from adding &#34;using Node&#34;, because much of the complexity described is something I do not encounter at all. I&#39;m using Clojure and ClojureScript with Rum as a React interface. Much (if not most) of my code is in cljc files, which get compiled with Clojure (for JVM on the backend) or ClojureScript (for JavaScript on the frontend). And the ClojureScript advanced compilation takes care of only including what is strictly necessary in the frontend compiled JavaScript.I mean, sure, you need to be careful not to do stupid things like trying to read from files, but otherwise I just don&#39;t encounter much friction. And I reap the benefits of using a single language for both backend and frontend, with most of my data model (e.g. business logic) code written only once, with SSR being a nice cherry on top."</p>
+								<p class="story__comment_first line-clamp">"I asked: I&#39;m a woman and did a thing my boyfriend did not like.I got&gt;NTA. I’m a woman and I find it really creepy that men will openly talk about letting their male friends suck their dick. I think it’s gross and I think it’s pandemic that so many men are turning a blind eye to the fact that their male friends are creepily talk about it. It’s just gross, icky, and creepy. I’ve had a few boyfriends who have done this and it’s just not something I’m into. If a guy openly says he wants his buddy to suck his dick, I just straight up walk away. I don’t care if it’s a joke, I don’t want to be around thatThe training data must be wild lol. Because I don&#39;t think this happens very often!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve been saying it for years - the hard part is not &#34;server side&#34; vs &#34;client side&#34;, it&#39;s making sure the state stays consistent between those 2 buckets.If you want to remove the hell from your life, you need to be all in on one or the other.For us, we&#39;ve been keeping all state server-side using things like Blazor and hand-rolled js-over-websocket UI frameworks. We never have to worry about more than ~10k users, so this works out great for us.If we were webscale, we&#39;d have to consider client side options."</p>
+								<p class="story__comment_others">"I entered: &#34;I (50M) bought up 9% of shares in a publicly traded company without disclosing it, in clear violation of SEC rules. Because I am the world&#39;s richest man, I feel like the rules shouldn&#39;t apply to me. AITA?&#34;Responses:1. &#34;NTA - you committed fraud. You should be held accountable.
+EDIT - you are the world&#39;s second richest man, tied with Bill Gates. Gates has a much higher net worth than you due to Microsoft stock, which is why you are second and he is first.&#34;
+2. &#34;YTA. I would never have invested in a company without knowing who was behind it, and there are plenty of other opportunities out there for you to continue gaming the system.&#34;
+3. &#34;YTA, but not for the reason you think. The reason the rules apply to you is because you are the one who broke the rules. You can&#39;t change the past and what you did was wrong. At best you can do is disclose your holdings on your next filings which you are doing. 
+You are a criminal and should be ashamed of your actions.
+Edit: I can&#39;t believe you are complaining about the length of this post when you are the subject of this post.&#34;lmao"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt;I think Go is the best programming language by far. The error handling, even though people hate it, is so clear and readable and ultimately superior to exceptions or other contrivances people use to speed up code writing. Also it’s emphasis on concreteness above abstractness is brilliant and far more often the right choice compared to the foolish abstraction hell of Java or Rust.Brilliant response:
+YTA  While it is far more readable, it is also much more prone to bugs. The bugs will not be easy to find, because the errors won&#39;t give you much information about where to look. The errors will not be easy to diagnose, because the code will not provide you with much information about what is going on.  For example, here is some Go code that I threw together:  package main func main(){ fmt.Println(&#34;Hello, world!&#34;) }  And then I tried to run it:  $ go run Example.go hello, world! $  And I got:  $ go run Example.go hello, world! hello, world!  And I don&#39;t know what the hell is going on, and I don&#39;t know where to look to figure it out. And this is just one of many examples.  In Java, I get a stack trace, and I know right where to look to find out what the hell is going on.  In Go, I have no idea. I have to go look at the compiler output to see that the compiler got confused and ran my program multiple times in succession, jumped back and forth between"</p>
 							
 						
 						</a>
@@ -304,33 +314,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.npr.org/sections/goatsandsoda/2022/04/20/1093153651/a-4-year-old-can-run-errands-alone-and-not-just-on-reality-tv">
+					<a href="https://tylercipriani.com/blog/2022/04/20/the-unreasonable-fight-for-municipal-broadband/">
 						<picture>
-							<source srcset="default_31097578.webp" type="image/webp">
-							<source srcset="default_31097578.png" type="image/png">
-							<img src="default_31097578.png" alt="Preview of 'A 4-year-old can run errands alone and not just on reality TV'">
+							<source srcset="default_31103133.webp" type="image/webp">
+							<source srcset="default_31103133.png" type="image/png">
+							<img src="default_31103133.png" alt="Preview of 'The unreasonable fight for municipal broadband'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.npr.org/sections/goatsandsoda/2022/04/20/1093153651/a-4-year-old-can-run-errands-alone-and-not-just-on-reality-tv">A 4-year-old can run errands alone and not just on reality TV</a></h3>
+					<h3><a href="https://tylercipriani.com/blog/2022/04/20/the-unreasonable-fight-for-municipal-broadband/">The unreasonable fight for municipal broadband</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31097578">
+						<a href="https://news.ycombinator.com/item?id=31103133">
 						
 							
-								<p class="story__comment_first line-clamp">"I don&#39;t have any kids, so I don&#39;t really feel comfortable telling folks how to raise theirs.But I will tell you my perspective.As someone who grew up in the &#34;be back home in time for supper&#34; 1970s, today&#39;s world seems completely foreign. When I started kindergarten, Mom walked me to school on the first day so that I&#39;d know the route. And after that I walked to school on my own until I learned to ride a bike.I rode to junior high, where there was parking for hundreds of bikes. Recently I drove by that school, and the bike racks were gone. This whole concept of waiting in traffic to pick up or drop off your kid wasn&#39;t even a thing.And I&#39;m so supremely grateful that I was raised that way. I&#39;m absolutely certain that early autonomy paid off later in life in countless ways.I&#39;d encourage you, if you&#39;re raising kids, to consider the upsides of so-called &#34;free range&#34;. Or, as we called it in the 70s, &#34;being a regular kid&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"Not in the US they can&#39;t.&#34;officials placed two brothers into foster care after one, 11, was found playing basketball alone in his own yard.&#34;He&#39;d gotten home early from school and his parents came 90 minutes later. He was in his own yard. The family lost their children to foster care. Ironically in foster care ACTUAL abuse rates are pretty darn high!&#34;When Cindy and Fred arrived home they were arrested for child neglect — then fingerprinted, strip searched, and held in jail overnight.Their kids, meanwhile, including their 4-year-old boy, were removed from the home and from their parents’ custody&#34;Mom worked in the school district ironically.&#34;We still do not have our children, we are fighting for our own freedom and due to the nature of my employment I am no longer employed,” she wrote. “My son was in his own yard playing basketball, not in the street or at the park. The authorities claim he had no access to water or shelter. We have an open shed in the back yard and 2 working sinks and 2 hoses. They said he had no food. He ate his snacks already. He had no bathroom, but the responding officer found our yard good enough to relieve himself in while our son sat in a police car alone.&#34;Being accused of child abuse / neglect is a career ender. The idea of my 4 year old being taken is beyond belief. What is so ironic is so many real / terrible things are happening (crime of all sorts / abuse in the traditional sense / financial fraud online) where nothing happens. But your kid shoots some hoops in their own yard, you lose custody. You are jailed and strip searched. You lose your job.I realize big government is here to protect us, I just wish they would focus on the harder problems."</p>
+								<p class="story__comment_first line-clamp">"Hopefully this piece gets a lot more views, because this is an issue that pretty much any rational technoligist should get involved with. Here in NC, our state legislature also caved to cableco and telecom pressure to make it nearly impossible for muni broadband to spread. That was after a single city&#39;s service succeeded so spectacularly that the incumbents had visions of Armageddon.That&#39;s because they knew that even in this relatively center-right leaning state, people will know a good deal when they see it: so job 1 was to make sure they never do. So far their efforts at blocking competition have been successful. Except for a few very limited areas where Google Fiber was able to pry its way in, there has been no competition to the incumbents from muni or private parties.At this point our best hope may be that changing demographics and the undeniable drift away from traditional programming will result in their financial collapse, finally allowing communities to serve themselves.The other option is for people to get out and pressure their political reps to make muni or community broadband easier to deploy, maybe even run for office themselves and replace those who have sold out. Broadband access isn&#39;t as important as homelessness or healthcare, but it is important. Maybe it&#39;s a good place to start reversing the crappification of everything many here have lived through their whole lives."</p>
 							
 						
 							
-								<p class="story__comment_others">"As a parent, none of the risks are as profound as that of some other member of the public calling the police to inform on your “dangerous parenting”.I’ve deliberately chosen to live in a walkable part of the Bay Area in the hopes that my kids can be more independent when they get older, but I’m more worried about the social pushback than I am about their safety."</p>
+								<p class="story__comment_others">"We’ve had gigabit municipal internet here in Chattanooga for 12 years now. It’s better than Comcast in every possible way—speed, price, reliability, customer service, install time, install windows, availability (within the state limited geographical area) etc…There was a question on a local Facebook group the other day from a person who just moved here asking which ISP she should use.The replies were nothing but pages and pages of EPB, EPB, EPB… (EPB is the name of the municipal power company and ISP). Along with glowing reviews about how better their customer service is than Comcast.EPB is so much better, I’d have a really hard time moving somewhere else that didn’t have something similar."</p>
+							
+						
+							
+								<p class="story__comment_others">"I live in one of the few Canadian cities who were progressive enough to install city-managed fiber in most areas zoned for high-rise buildings.  Actual internet service is provided by ISPs, but they deliberately excluded the large telcos.Similar to the author, I also get 1Gbps symmetric, no outages, no data caps and I pay only $32 (Canadian) a month.  The telcos charge four times as much for the same service (but less reliable) in the residential areas not covered by the city network."</p>
 							
 						
 						</a>
@@ -342,33 +352,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/bloomberg/memray">
+					<a href="https://news.ycombinator.com/item?id=31094361">
 						<picture>
-							<source srcset="default_31102089.webp" type="image/webp">
-							<source srcset="default_31102089.png" type="image/png">
-							<img src="default_31102089.png" alt="Preview of 'Memray: a memory profiler for Python'">
+							<source srcset="default_31094361.webp" type="image/webp">
+							<source srcset="default_31094361.png" type="image/png">
+							<img src="default_31094361.png" alt="Preview of 'Ask HN: What’s a good laptop for software development at around $2k?'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/bloomberg/memray">Memray: a memory profiler for Python</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=31094361">Ask HN: What’s a good laptop for software development at around $2k?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31102089">
+						<a href="https://news.ycombinator.com/item?id=31094361">
 						
 							
-								<p class="story__comment_first line-clamp">"A twitter thread with some screenshots and details - https://twitter.com/1st1/status/1516859294896906241"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m excited to see more profiling tools for Python!This sounds like it does peak memory, which is critical for batch jobs, since that&#39;s the bottleneck. Memory is fundamentally different than performance in that it&#39;s a limited resource, instead of cumulative cost; making any part of the program faster almost always helps speed up the program (at least a little, or at least reduces CPU load), but optimizing non-peak memory has no impact. You have to be able to identify the peak in order to reduce memory usage.If you want peak memory profiling for Python that also runs on macOS, check out https://pythonspeed.com/fil/ (ARM support has some issues, but once I unpack my new Mac Mini I plan to fix it.)Ways memray is better than Fil:- Native callstacks.- More kinds of reports, and ability to do custom post-processing of data.- Much lower overhead (but not always, see reply).- Subprocess support.Fil I suspect has better flamegraphs: https://pythonspeed.com/articles/a-better-flamegraph/And if you&#39;re running Python batch jobs, and want both peak memory and performance profiling in production, check out Sciagraph: https://pythonspeed.com/sciagraph/(You can probably cobble together something like Sciagraph with py-spy + memray, but you won&#39;t e.g. get timeline reports designed with batch jobs in mind.)"</p>
+								<p class="story__comment_first line-clamp">"** &#34;I don&#39;t want to use a Mac&#34; **&#34;I&#39;ve had these problems with Mac&#34;Reasonable response: Cool, use what works for you. EDIT&gt; Here are some suggestions that match your constraints.Annoying response 1: You should reconsider because Mac works great for me.Annoying response 2: Your problems aren&#39;t real problems.Annoying response 3: Let&#39;s live debug your problems in this thread to see if they&#39;re real problems.Guys. I mean. Seriously."</p>
 							
 						
 							
-								<p class="story__comment_others">"Want to chime in to say it&#39;s awesome that Bloomberg is releasing this product to the world. I don&#39;t think many financial organizations would even consider releasing anything as open source, even if it is as general purpose as this tool. My current one (HFT,MM) wouldn&#39;t go for it.It also shows good engineering practices. I&#39;d venture a guess that they are probably one of the better ones in the space.Makes me want to work there! Maybe one day..."</p>
+								<p class="story__comment_others">"I can vouch for the Framework. It doesn&#39;t feel beta at all. I&#39;m running Xubuntu 21.10 on it an it rocks. Someone created a repo with salt scripts which works all the kinks of the laptop under Ubuntu. The only thing I needed it for was to fix the touchpad issue after resume from sleep (it would be at max acceleration) and to enable hibernate (just note that you must disable secure boot first). https://github.com/lightrush/framework-laptop-formula"</p>
+							
+						
+							
+								<p class="story__comment_others">"Lenovo has some pretty good sales on thinkpad X1s (at least they do in Canada - didn&#39;t check the US site).  But, if you&#39;re in Canada, I just bought this: https://www.newegg.ca/p/N82E16834233446?Description=gigabyte...It&#39;s got a gorgeous 4K OLED screen, a quite decent CPU and GPU, and it&#39;s currently $350 off + a $300 mail in rebate (there was an additional $350 off over the easter weekend, too).  The track pad is not my favorite, but it&#39;s good enough, and the keyboard is very decent.  I haven&#39;t had it very long and mostly it&#39;s plugged in so I can&#39;t comment too much about battery life.My biggest complaint is that the screen is too good.  When I&#39;m done with the laptop and come up to my desktop, my IPS screens look washed out and sad.  :PEdit: I didn&#39;t buy the X1, I bought a Gigabyte Aero 15."</p>
 							
 						
 						</a>
@@ -380,33 +390,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://old.reddit.com/r/Advice/comments/u3qipy/how_can_i_get_my_boyfriend_to_stop_digging_his/">
+					<a href="https://software.rajivprab.com/2020/08/18/if-founders-treated-their-investors-the-same-way-they-treated-their-employees/">
 						<picture>
-							<source srcset="default_31096994.webp" type="image/webp">
-							<source srcset="default_31096994.png" type="image/png">
-							<img src="default_31096994.png" alt="Preview of 'How can I get my boyfriend to stop digging his tunnel?'">
+							<source srcset="default_31099791.webp" type="image/webp">
+							<source srcset="default_31099791.png" type="image/png">
+							<img src="default_31099791.png" alt="Preview of 'If founders treated investors the way they treat employees'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://old.reddit.com/r/Advice/comments/u3qipy/how_can_i_get_my_boyfriend_to_stop_digging_his/">How can I get my boyfriend to stop digging his tunnel?</a></h3>
+					<h3><a href="https://software.rajivprab.com/2020/08/18/if-founders-treated-their-investors-the-same-way-they-treated-their-employees/">If founders treated investors the way they treat employees</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31096994">
+						<a href="https://news.ycombinator.com/item?id=31099791">
 						
 							
-								<p class="story__comment_first line-clamp">"Why is no one questioning whether this is real?Reddit is full of far-fetched stories like this that ultimately turn up to be completely fabricated (obviously for the purpose of internet points). While this one isn&#39;t ridiculously far-fetched, it&#39;s definitely borderline.Also, the first thing that came to my mind when reading this was the movie Vivarium [1], where one of the main characters does almost exactly this. It sounds like the author watched that movie, modified it slightly, and posted it to /r/advice.[1] https://www.imdb.com/title/tt8368406"</p>
-							
-						
-							
-								<p class="story__comment_others">"What&#39;s interesting about this to me is the way it sort of causes you to examine why certain things are acceptable hobbies and other things aren&#39;t. This particular hobby has three notable attributes:1. It&#39;s risky.2. The end product doesn&#39;t seem particularly useful if we set aside the mental/physical benefits. i.e.: it&#39;s done for it&#39;s own sake.3. It&#39;s novel.I would argue that 1 and 2 are attributes that a great number of hobbies share. Skiing, Mountain biking, football, kayaking, woodworking, sitting in a chair and playing video games all weekend. All these things carry some very specific and often non trivial risks to health or bodily harm over time.Of course because these hobbies aren&#39;t novel, the benefits of the hobby are well understood. Our understanding of the risks and how to mitigate them are also quite a bit more understood.It seems to me that the real &#39;problem&#39; with this tunnel digging hobby is how novel it is. Which consequently leads to a lack of knowledge about what the risks and benefits may be.Of course it&#39;s possible the poor guy is just dealing with a mental illness."</p>
+								<p class="story__comment_first line-clamp">"Every time one of these is written, it comes off as if the 90-day window is something startups came up with to try and screw employees.A reminder that the 90-day window is a requirement by law in order for options to qualify as Incentive Stock Options, and receive favorable tax treatment for employees [1].If you want to do 10-yr exercise, that&#39;s fine, but until the law is changed those will be NSOs and not receive that special tax treatment and will be taxed on exercise instead of on sale.[1] https://www.cooleygo.com/isos-v-nsos-whats-the-difference/"</p>
 							
 						
 							
-								<p class="story__comment_others">"Here&#39;s the same post in /r/BestofRedditorUpdates, which includes the update that was removed by modshttps://reddit.com/r/BestofRedditorUpdates/comments/u6a3qp/o..."</p>
+								<p class="story__comment_others">"Ha!  Really close to a conversation I had with a recruiter back when I was looking.  They were promising a ton of equity, and when I asked to see just a high level picture of the finances to make sure basics like the amount of runway were reasonably long I was met with an awkward pause.  It&#39;s really strange that companies not only expect you to take a massive risk on the &#34;upside potential&#34; and then won&#39;t even let you inspect the current state.So yeah: I&#39;ll just go with Google I guess /shrug"</p>
+							
+						
+							
+								<p class="story__comment_others">"Gotta love the satire. Another thing investors have is access to the full cap table and what people are paid across their entire portfolio.Employees have hearsay and scraps of info that friends are willing to share. Limited information = easy exploitFound this database of startup comp that sorta evens the playing field: https://topstartups.io/startup-salary-equity-database/Anything else out there?"</p>
 							
 						
 						</a>
