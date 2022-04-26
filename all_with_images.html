@@ -36,6 +36,393 @@
 	</div>
 
 	
+	<div class="day__date">26 April 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.reuters.com/technology/exclusive-twitter-set-accept-musks-best-final-offer-sources-2022-04-25/">
+						<picture>
+							<source srcset="default_31153277.webp" type="image/webp">
+							<source srcset="default_31153277.png" type="image/png">
+							<img src="default_31153277.png" alt="Preview of 'Twitter set to accept Musk&#39;s $43B offer – sources'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/technology/exclusive-twitter-set-accept-musks-best-final-offer-sources-2022-04-25/">Twitter set to accept Musk&#39;s $43B offer – sources</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31153277">
+						
+							
+								<p class="story__comment_first line-clamp">"Ways I think Twitter could immediately improve, from the perspective of users:- Optional verification check marks for anyone who wants them. Throw out the Blue Check status symbol. Offer &#34;real person&#34; twitter filter.- Transparent and consistent moderation policies. Bans are inconsistently applied for reasons that are often hard to figure out.- Return to a reverse chronological time and/or down selection of rage-bait content."</p>
+							
+						
+							
+								<p class="story__comment_others">"He&#39;s already said that he&#39;d follow all local laws so it would be interesting to see if he can find the elusive path of maintaining free speech, following the law and not having Twitter being a toxic cesspool used mainly to shout down those not our your &#34;side&#34;.Personally my reservations are because I think running a social media site is a lot about understanding people and defining a healthy culture for your elusive market place of ideas. Musk has admitted he doesn&#39;t understand people, is a self-confessed troll &amp; edgelord and and Tesla&#39;s culture seems less than ideal. So lacks any of the qualifications I see as being needed to run something like Twitter. Maybe there&#39;s some other Musk magic that will do what so many others have failed to do."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s telling that no one is worried about being censored by Elon. They&#39;re worried about Elon not censoring others."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=31152490">
+						<picture>
+							<source srcset="default_31152490.webp" type="image/webp">
+							<source srcset="default_31152490.png" type="image/png">
+							<img src="default_31152490.png" alt="Preview of 'Ask HN: Have you used SQLite as a primary database?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=31152490">Ask HN: Have you used SQLite as a primary database?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31152490">
+						
+							
+								<p class="story__comment_first line-clamp">"Here&#39;s an all-time great post about why you might consider SQLite in production with data about performance: https://blog.wesleyac.com/posts/consider-sqliteI use SQLite in production for my SaaS[1]. It&#39;s really great — saves me money, required basically no setup/configuration/management, and has had no scaling issues whatsoever with a few million hits a month. SQLite is really blazing fast for typical SaaS workloads. And will be easy to scale by vertically scaling the vm it&#39;s hosted on.Litestream was the final piece of the missing puzzle that helped me use it in production — continuous backups for SQLite like other database servers have: https://litestream.io/ With Litestream, I pay literally $0 to back up customer data and have confidence nothing will be lost. And it took like 5 minutes to set up.I&#39;m so on-board the SQLite train you guys.[1] https://extensionpay.com — Lets developers take payments in their browser extensions."</p>
+							
+						
+							
+								<p class="story__comment_others">"One of my previous employers was using SQLite as a large distributed database - they had their own custom sharding strategy, but essentially the idea was to shard A accounts * B tables * C num_of_days with a .db file for every shard.When I first came and saw it, it...did not sound right. But I didn&#39;t want to be the guy who comes in and says &#34;you are doing it wrong&#34; month 1. So I went along with it.Of course, eventually problems started to pop up. I distinctly remember that the ingestion (happening via a lot of Kafka consumers) throughput was high enough that SQLite started to crumble and even saw WAL overruns, data loss etc. Fortunately, it wasn&#39;t &#34;real&#34; production yet.I suggested we move to Postgres and was eventually able to convince everyone from engineers to leadership. We moved to a custom sharded Postgres (9.6 at the time). This was in 2016. I spoke to people at the place last month, and it&#39;s still humming along nicely.This isn&#39;t to illustrate anything bad about SQLite, to be clear! I like it for what it does. Just to show at least 1 use case where it was a bad fit.SQLite was a tempting first answer, but what solved it was Postgres, and we eventually offloaded a lot of aggregation tables to Clickhouse and turned the whole thing into a warehouse where the events got logged."</p>
+							
+						
+							
+								<p class="story__comment_others">"The sqlite docs page has a nice article [1] on when to use an embedded database such as sqlite and when to go with a client/server model (postgres, mysql or others)When not to use sqlite:- Is the data separated from the application by a network?- Many concurrent writers?- Data size &gt; 280 TBFor device-local storage with low writer concurrency and less than a terabyte of content, SQLite is almost always better.[1] https://www.sqlite.org/whentouse.html"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://acjay.com/2022/03/11/11-principles-of-engineering-management/">
+						<picture>
+							<source srcset="default_31154738.webp" type="image/webp">
+							<source srcset="default_31154738.png" type="image/png">
+							<img src="default_31154738.png" alt="Preview of 'Principles of Engineering Management'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://acjay.com/2022/03/11/11-principles-of-engineering-management/">Principles of Engineering Management</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31154738">
+						
+							
+								<p class="story__comment_first line-clamp">"I consumed a lot of blog posts like this before becoming a manager. It feels satisfying to read vague principles like this:&gt; Facilitate wellbeing&gt; Personal safety, dignity, and wellbeing of every team member are paramount. Team success is only success if team members feel good about it.But then you become an actual manager and realize that these are largely just feel-good aphorisms that don&#39;t really help navigate the hard work of being a manager.Don&#39;t get me wrong: I think &#34;facilitate wellbeing&#34; and similar tidbits are valid advice. Likewise, a manager who chooses to not facilitate wellbeing would clearly be in the wrong. But when you get into management you realize that the hard work isn&#39;t waking up and deciding to facilitate wellbeing. The hard work often involves making unpopular decisions, or telling someone &#34;no&#34; when their pet request wouldn&#39;t be in the best interests of the team, or defusing interpersonal conflict among two team members who have been feuding for months.These feel-good blog posts seem rather vacuous after being in the trenches of management for several years. Again, not because the advice is bad or wrong, but because it&#39;s just a lot of text around the basics of being a decent human being. Learning how to do the hard things about management or how to make unpopular but necessary decisions is something that you won&#39;t learn from the average blog post or LinkedIn post, largely because these function more as personal branding pieces than actual advice.In my experience, the best management advice comes from talking to the best managers you know personally. Online, the most practical management advice comes on smaller forums where people are either anonymous (and therefore less interested in personal brand building) or older and accomplished (and therefore not worried about blowback impacting their career). The type of feel-good blog posts or LinkedIn blurbs that people associate with their personal brand don&#39;t really add much value after you&#39;ve read 5-10 articles saying the exact same aphorisms."</p>
+							
+						
+							
+								<p class="story__comment_others">"Lot of misconceptions here that cause teams to underperform.1. Managing comes first. (Nope, as a manager your are primarily responsible for ensuring a good outcome. As your title goes from manager, senior, higher to VP etc this becomes more important. Lower job titles you get paid to &#34;do the work&#34;, higher titles are about &#34;achieve outcome&#34;.) In the current market you&#39;ll often run into team members that don&#39;t perform. I see this so often where leads think that they have to &#34;manage&#34; and not do the work and the result is them and their team failing
+2. Facilitate wellbeing. That&#39;s nice. But your primary responsibility is to A. Achieve the goal. B. hold people accountable to an acceptable level of performanceGive credit, take blame: That&#39;s a good one.This post is just full of vague language that doesn&#39;t hold anyone accountable. Sucks to be an IC on that team, thinking everything is going well and eventually end up having whole teams being fired since your manager didn&#39;t set the right pace."</p>
+							
+						
+							
+								<p class="story__comment_others">"This sounds pretty good, all these are qualities anyone would want in their manager if they had a job doing &#39;the critical path of execution&#39;.  There&#39;s few things more frustrating than continually having to halt in the middle of one task to jump over to another task because someone&#39;s pants are on fire.  Sure it happens, but it should be the exception not the norm.However, there&#39;s another side to the manager&#39;s job that doesn&#39;t seem to be addressed - interfacing upwards with whatever layers link to owners, founders, the board, shareholders, etc.  How does that exactly work out in practice?  Let&#39;s say leadership makes what you think are really stupid decisions with disastrous longterm consequences (ex: Boeing 737 MAX design process, Google signing up with China to build Dragonfly, etc.).  What do you do? Pour gasoline on yourself and set yourself on fire in protest, or roll your eyes in despair and proceed to assign your team to the task?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/twitter/the-algorithm">
+						<picture>
+							<source srcset="default_31160546.webp" type="image/webp">
+							<source srcset="default_31160546.png" type="image/png">
+							<img src="default_31160546.png" alt="Preview of 'twitter/the-algorithm'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/twitter/the-algorithm">twitter/the-algorithm</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31160546">
+						
+							
+								<p class="story__comment_first line-clamp">"Will Norris who works on OSS at Twitter posted this[0]: &#34;watch this space https://github.com/twitter/the-algorithm&#34;[0]: https://twitter.com/willnorris/status/1518694675909013504"</p>
+							
+						
+							
+								<p class="story__comment_others">"Many people have commented that it is empty. However what they do not realize is that there has never actually been an algorithm and that is why it is empty."</p>
+							
+						
+							
+								<p class="story__comment_others">"I know the algorithm i use, it ends with ORDER BY date DESC."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://matklad.github.io//2022/04/25/why-lsp.html">
+						<picture>
+							<source srcset="default_31151048.webp" type="image/webp">
+							<source srcset="default_31151048.png" type="image/png">
+							<img src="default_31151048.png" alt="Preview of 'Why LSP?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://matklad.github.io//2022/04/25/why-lsp.html">Why LSP?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31151048">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Contrast this with Emacs and Vim. They just don’t have proper completion as an editor’s extension point. Rather, they expose low-level cursor and screen manipulation API, and then people implement competing completion frameworks on top of that!This is just wrong, https://vimhelp.org/insert.txt.html#compl-omniThe first occurrence of &#34;omni&#34; I can find in the git log is this commit from 2012:https://github.com/vim/vim/commit/5d3a8038b6a59e6f1b219f27ec...which means it&#39;s even older"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; To get a decent IDE support, you either used a language supported by JetBrains (IntelliJ or ReSharper) or.VS, Eclipse, Netbeans, Delphi, C++ Builder, KDevelop, QtCreator,...&gt; Notably, the two-sided market problem was solved by Microsoft, who were a vendor of both languages (C# and TypeScript) and editors (VS Code and Visual Studio), and who were generally loosing in the IDE space to a competitor (JetBrains)Nope, the IDE space on Windows has always been owned by Microsoft since Borland dropped the ball with their management crisis where to go next.VSCode and LSP were created out of Monaco and Erich Gamma&#39;s stewardship, yep one of the four on the patterns book, and original Eclipse team.&#34;VS Code an Overnight Success… 10 years in the making&#34;https://www.youtube.com/watch?v=hilznKQij7A"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Dart, despite being a from-scratch, relatively modern language, ended up with three implementations (host AOT compiler, host IDE compiler (dart-analyzer), on-device JIT compiler).We also had an earlier analyzer written in Java that was mostly discarded and rewritten as well as two compilers to JavaScript that share less code than you would expect.Some of the redundancy is because, as the author correctly states, the needs of an IDE are quite different from the needs of a batch compiler. Likewise, an ahead-of-time whole program compiler has different constraints from a JIT compiler running a program from source.But a lot of the redundancy in Dart&#39;s case is incidental. We have a fairly large, distributed team with a lot of autonomy and sometimes that led to people doing their own thing instead of putting in the effort into coordinating and sharing more code.Also, the language changed radically from Dart 1.0 to 2.0. 1.0 was a dynamically typed scripting language designed to be run from source in a native VM directly embedded in a browser with a separate optional type system mostly used at dev time. Dart 2.0 is a fully statically-typed language with a more typical compilation process.That monumental change led to some duplication and technical debt that we are slowly paying down by sharing more and more of the front end over time.The path I see most new languages take is:1. Start with a command-line batch mode compiler.2. Eventually get popular enough that users clamor for real IDE support.3. Cobble together an IDE plug-in based on the batch-mode compiler&#39;s front end.4. Discover that the latency is horrific and slowly and painfully realize you need to write a new front end architected for IDE use.5. Now you have two front ends.I believe the throughput loss of a front-end designed for interactive IDE use is less than people realize. So I suspect that a more efficient path for any new language is to design your front end for interactive IDE use from day one."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://crypto.stackexchange.com/questions/99767/how-easy-is-it-in-2022-to-find-a-sha1-collision">
+						<picture>
+							<source srcset="default_31148839.webp" type="image/webp">
+							<source srcset="default_31148839.png" type="image/png">
+							<img src="default_31148839.png" alt="Preview of 'How easy is it in 2022 to find a SHA1 collision?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://crypto.stackexchange.com/questions/99767/how-easy-is-it-in-2022-to-find-a-sha1-collision">How easy is it in 2022 to find a SHA1 collision?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31148839">
+						
+							
+								<p class="story__comment_first line-clamp">"This was fun, but my gut reaction to the title was “it doesn’t have to be easy, just possible” and that holds. Unless, I guess, you want to collide a sha1 for some reason.I found the AWS vs GPU cost comparison to be fun. 10x the cost of the hardware to run the collisions in the same time window. Crazy."</p>
+							
+						
+							
+								<p class="story__comment_others">"Question is a bit ambiguous whether it refers to a &#39;second-preimage attack&#39; or a &#39;collision attack&#39;.&#39;Second-preimage attack&#39;: You are given a message, and your goal is find another message that hashes to the value as the given message.&#39;Collision attack&#39;: Your goal is to construct two messages (of your choosing) that hash to the same value."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can someone ELI5 why collisions are so serious?
+As far as I understand what a collision is, it means you have two source files that produce the same hash output, but why is this so bad? How do you have any control over what the contents of those two files are?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://thehustle.co/the-surprising-afterlife-of-used-hotel-soap/">
+						<picture>
+							<source srcset="default_31142959.webp" type="image/webp">
+							<source srcset="default_31142959.png" type="image/png">
+							<img src="default_31142959.png" alt="Preview of 'The afterlife of used hotel soap'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://thehustle.co/the-surprising-afterlife-of-used-hotel-soap/">The afterlife of used hotel soap</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31142959">
+						
+							
+								<p class="story__comment_first line-clamp">"Recycling partially used soap is a good idea. Making sure everyone around the world has access to soap is certainly super important.There&#39;s really no reason US recycled soap needs to be the soap that is sent to (eg) Africa, shipped over oceans. Doesn&#39;t (eg) Africa have it&#39;s own soap production facilities? But I guess American consumers would be unwilling to use recycled soap?  Or just the neat connection between the soap collected in one place and delivered to those poor unfortunates overseas is what&#39;s necessary to get funding and other support? Nobody wants to fund just paying for soap in (say) Africa or just recycling soap in the US, I guess.Causing &#34;60%+ reduction in the number of children who die from diarrheal diseases each year&#34; -- is a pretty stunning claim.  Looking closer... I guess they&#39;re simply saying that children ding of such diseases had dropped by 60% from 1990 to 2020, not that they alone are responsible for that? Just that they&#39;ve &#34;helped&#34; to some unknown extent?  I bet most readers didn&#39;t catch that. That seems a bit dishonest actually. Still, even the 60% reduction in such deaths over 20 years alone is pretty great and I hadn&#39;t known about it! (I believe this is one of the leading causes of death in man parts of the world -- or used to be?).  I suspect this particular effort had a pretty minimal contribution to those numbers."</p>
+							
+						
+							
+								<p class="story__comment_others">"Those tiny hotel soaps are just the peak of the iceberg.My SO used to work seasonally in a hostel in Venice. People leave a lot of half-used shower gel bottles, soaps, makeup products etc.It got to a point where the staff just put all the products which were safe to use(laundry detergent, shower gels, spray deodorant, shaving foam) in an unoccupied room referred to as &#34;the Rossmann&#34; (popular drugstore chain in some European countries) from which everyone in the know was at liberty to take as much as they wished.A fraction of the goods were originally found unopened."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a poor use of resources. Sending anything but money to places in need is just wasteful. This soap effort is not efficient. The expense of collecting the soap, refining it in a garage (including cost of the equipment), and delivering it to the recipients is almost certainly vastly more than if they&#39;d just sent cash and bought brand new soap local to the recipients. And that&#39;s not even factoring in the labor of the people doing it. This is another feel-good measure that is economically stupid, and whose primary purpose is to make the volunteers feel good about themselves. That&#39;s fine, if that&#39;s what they want to do with their time and money. But no one should help them by donating. It&#39;s far better to donate your cash to people that make efficient use of it."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.wired.com/story/drones-have-transformed-blood-delivery-in-rwanda/">
+						<picture>
+							<source srcset="default_31146299.webp" type="image/webp">
+							<source srcset="default_31146299.png" type="image/png">
+							<img src="default_31146299.png" alt="Preview of 'Drones have transformed blood delivery in Rwanda'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.wired.com/story/drones-have-transformed-blood-delivery-in-rwanda/">Drones have transformed blood delivery in Rwanda</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31146299">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s neat to see this on hacker news. Good to hear that folk are noticing that our system works! I&#39;ve been working on embedded systems at Zipline for 6 years, and oddly haven&#39;t made it out to Rwanda yet. Everyone there seems to know my name, though, because of all the weird problems I&#39;ve helped remotely debug over the years. I think Zipline&#39;s flight operators deserve the lion&#39;s share of credit for our success in Rwanda."</p>
+							
+						
+							
+								<p class="story__comment_others">"In the United States and the United Kingdom, 80 percent of the population clusters around urban hubs with high-traffic hospitals and blood banks. In African nations like Libya, Djibouti, and Gabon, about 80 to 90 percent of the populations live in cities, too. But in Rwanda, that number flips: 83 percent of Rwandans live in rural areas.DON’T BE FOOLED by Rwanda’s rural demographics; the country has a reputation for leaning into health tech innovations. Rwanda’s universal health care system reaches over 90 percent of the population. In 2009, the government piloted a phone-based program, called RapidSMS, to track and reduce maternal and child mortality. By 2013, RapidSMS connected 15,000 villages to the country’s wider network of doctors, hospitals, and ambulances.This is inspiring."</p>
+							
+						
+							
+								<p class="story__comment_others">"There&#39;s this new podcast What&#39;s your problem? from Pushkin Industries, about the big problems entrepreneurs face and try to tackle, and one of their first episodes was about Zipline:https://www.pushkin.fm/episode/launching-drone-delivery/https://www.pushkin.fm/show/whats-your-problem/The big challenge they talk about is bringing the service (which already works in Rwanda) to the US, where aviation regulation is very different.(Cautionary Tales with Tim Harford, about &#34;awful human error, tragic catastrophes, daring heists and hilarious fiascos&#34; and what one can learn from them is also entertaining and informative.)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.kalzumeus.com/2018/10/19/japanese-hometown-tax/">
+						<picture>
+							<source srcset="default_31152365.webp" type="image/webp">
+							<source srcset="default_31152365.png" type="image/png">
+							<img src="default_31152365.png" alt="Preview of 'Japan&#39;s Hometown Tax (2018)'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.kalzumeus.com/2018/10/19/japanese-hometown-tax/">Japan&#39;s Hometown Tax (2018)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31152365">
+						
+							
+								<p class="story__comment_first line-clamp">"Disclaimer: IANAL, IANATA, this isn&#39;t tax advice, etcForeigners residing in Japan are eligible to participate in furusato nouzei, but Americans might want to note the following clause in the section &#34;Tax Must Be the Legal and Actual Foreign Tax Liability&#34; in Publication 514 Foreign Tax Credit for Individuals[1], which states:&gt;Subsidy received. Tax payments a foreign country returns to you in the form of a subsidy do not qualify for the foreign tax credit.&gt;The term “subsidy” includes any type of benefit. Some ways of providing a subsidy are refunds, credits, deductions, payments, or discharges of obligations.Whether or not furusato nouzei falls under this clause seems to be up for some debate, and AFAIK the IRS hasn&#39;t made a public determination on it either way. I don&#39;t risk it, but I am under the impression there are some that do.Alternatively, the furusato nouzei portion could be not included in the tax credit? But would it be worthwhile...? Sounds like it depends on the situation and frankly seems like a lot of work to get a few gift baskets.[1]: https://www.irs.gov/publications/p514#idm139978451112272"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; This counsels that a young person born and educated in e.g. Gifu move to Tokyo after graduation to earn a living.
+&gt; Many, many do. While Japan’s overall population is declining, Tokyo’s increases by about 100,000 people per year.Notably this differs from America in that rent acts as a natural counterbalance here. It’s not common knowledge that a university graduate should move to New York or San Francisco, in fact if you aren’t in a top paying field it’s probably common knowledge that one should not move to these cities.I wonder how much different the population landscape of the United States would look like if NYC, the Bay Area, LA etc had ever figured out how to plan for urban growth in the same way Tokyo did (context: you can afford a small single family home on a middle class income in Tokyo, I think prices there are around 30% over other Japanese cities)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Omoshiroi! This is a really nice write up. Education is indeed very expensive and the towns outside of Tokyo have difficulties surviving, with only older people remaining there. Those towns have to be very creative to attract money and people. You can get a house for free, if you will live there, similar to some Italian towns.In the Netherlands we have similar issue of towns fighting for survival in more rural parts (Limburg). They try to combine schools of several towns to reduce the cost of teachers, and similar combining police stations.Lowering the friction for such &#39;gift tax&#39; is interesting, Japanese are big into all kind of little gifts: if you go on holiday you bring something small, an Omiage. If you attend a birthday party, not only you bring a present (which is usual everywhere) but the guest also get a little gift in return, an Okaeshi."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.plover.com/law/contracts-3.html">
+						<picture>
+							<source srcset="default_31147785.webp" type="image/webp">
+							<source srcset="default_31147785.png" type="image/png">
+							<img src="default_31147785.png" alt="Preview of 'Pushing back against contract demands is scary but please try anyway'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.plover.com/law/contracts-3.html">Pushing back against contract demands is scary but please try anyway</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31147785">
+						
+							
+								<p class="story__comment_first line-clamp">"There are a couple of techniques that I have used in the past that have worked well.First, don&#39;t edit the proposed contract itself. Instead, add a rider that specifically overrides the provisions you don&#39;t like. Something like &#34;Intellectual Property. Work produced by employee shall be considered work-for-hire. &#39;Work&#34; is defined as...&#34; Then add a line to the bottom of the rider that says &#34;If any portion of this rider is in conflict with the main contract, the terms of the rider will override the terms of the contract.&#34; The benefit of this approach is that you avoid the back-and-forth niggling over particular words in the main contract, and you often overcome the other party&#39;s resistance to changing the language their lawyers said had to be there. It&#39;s stupid, but it works.The second technique is simply to say, &#34;this contract isn&#39;t large enough to justify these provisions. If you would like to bump the contract, we can talk. Otherwise, no.&#34; This has worked for me in negotiating software licenses. I haven&#39;t tried it in an employment situation. It works because it forces the other side to acknowledge that their demands have costs, and they can have what they want only if they pay for it. They never do.I am not a lawyer. Heed this advice at your own risk."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’m not certain my experience is relevant in this context, but I’ve been fighting contract language for over 30 years. I’m a pro photographer and producer in the biz for many years. I produce unique content that is quite challenging to recreate.So many contracts contain what I call “rights grabs”. They are attempting to transfer my IP to them for maximum profit. I’ve fought this trend with success for decades.I simply cross out the offending language in the contract and make the license contingent on the agreement proceeding as I describe. I’m happy to abandon a contract if it does not go my way (a luxury not everyone has).My largest checks in the past two years have been from lawsuits brought against copyright infringement. In every case my contract revisions have withstood legal challenge and the defenders/offenders have folded when they proceeded as if the original contract language (before I altered, after they signed) stood.There are lawyers who have pursued this niche to great success and I have lawyer team ready to pursue infringement on a contingency basis. It is quite amazing.More than once now, my lawyers have fought for years when the infringers had deep pockets and a terror of precedent. They paid so many thousands to their legal team but lost. I have prevailed in every case.I recognize this is bragging. But so many of my colleagues have just signed for a short term check while losing in the long run. I might be an obstinate  fool, but so far it’s paid off.We in the photo biz have had to survive a huge paradigm shift in the biz model in the last 18 years. But so many people fold for Pennie’s. “I need this $250 right now to make rent”. But my settlement checks are in the $25,000 range typically (25% after my lawyers and agent get their cut).Last I looked, the average income for a photographer in the U.S, was around $7500 a year. Yes, $7500 (no missing zeros). I make six figures consistently and I’m damn proud of this fact.Most of the conversations on this forum are above my skill set, but you folks are generally paid for deep knowledge and rare skills. Don’t let anyone steal this from you."</p>
+							
+						
+							
+								<p class="story__comment_others">"Let&#39;s talk about &#34;unlimited PTO&#34; -- I&#39;m seeing more of this in my half-hearted job search and I&#39;m really wary about it. I&#39;d like to get my prospective employer to agree in writing to a certain number of days that would be considered normal/acceptable PTO, so I don&#39;t a) feel guilty for taking that amount and b) get shafted in performance assessments for taking a normal amount.Has anybody had any luck getting a prospective employer who advertises &#34;unlimited PTO&#34; to do this in contract negotiation phase? Basically I don&#39;t want to just rely on the goodwill of said new employer to treat me respectfully for taking a good chunk of said PTO, and I want to define what is reasonable expectations up-front."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">25 April 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -173,11 +560,11 @@
 						<a href="https://news.ycombinator.com/item?id=31145709">
 						
 							
-								<p class="story__comment_first line-clamp">"It feels like Google’s attention span, leadership longevity, and product development patience is roughly 3 years.  Any product that survives longer than that probably has transcended beyond being a “pet project/toy” into a PR-problem or revenue-stream significant enough that it takes on a life of it’s own.  As management turns over, that lease on life is renewed…https://killedbygoogle.com/While this fosters new ideas and opportunities, that conversion into long-term direction and execution can be pretty rough."</p>
+								<p class="story__comment_first line-clamp">"Just give us a web filesystem already. Stop with these shitty infantilized GUIs with no hierarchical organization and an overreliance on search to find things. I have literally hundreds of thousands to millions of files on my local machines and have no trouble remembering where I put things. Drive can&#39;t seem to scale past a few dozen before it&#39;s confusing, useless, and apparently lossy. Remember when web servers would serve up the contents of a directory as a list with hyperlinks on the file names? That actually worked ffs. I cannot understand how we could be moving backwards so quickly."</p>
 							
 						
 							
-								<p class="story__comment_others">"Just give us a web filesystem already. Stop with these shitty infantilized GUIs with no hierarchical organization and an overreliance on search to find things. I have literally hundreds of thousands to millions of files on my local machines and have no trouble remembering where I put things. Drive can&#39;t seem to scale past a few dozen before it&#39;s confusing, useless, and apparently lossy. Remember when web servers would serve up the contents of a directory as a list with hyperlinks on the file names? That actually worked ffs. I cannot understand how we could be moving backwards so quickly."</p>
+								<p class="story__comment_others">"It feels like Google’s attention span, leadership longevity, and product development patience is roughly 3 years.  Any product that survives longer than that probably has transcended beyond being a “pet project/toy” into a PR-problem or revenue-stream significant enough that it takes on a life of it’s own.  As management turns over, that lease on life is renewed…https://killedbygoogle.com/While this fosters new ideas and opportunities, that conversion into long-term direction and execution can be pretty rough."</p>
 							
 						
 							
@@ -335,7 +722,7 @@ But I&#39;m not sure I want to see CLI applications continue going down this pat
 							
 						
 							
-								<p class="story__comment_others">"The video has some really interesting / creative examples. Using this for path planning by treating paths as curves through space-time was particularly impressive."</p>
+								<p class="story__comment_others">"Keenan Crane&#39;s [1] lab has been putting out some top notch research in recent years.In particular, their work on discrete differential geometry [2] is really worth diving into (and Mr Crane is a really good pedagogue).[1] https://www.cs.cmu.edu/~kmcrane/[2] https://www.youtube.com/watch?v=mas-PUA3OvA&amp;list=PL9_jI1bdZm..."</p>
 							
 						
 						</a>
@@ -1078,7 +1465,7 @@ I know I’ve taken this far too personally. I have no illusions that everything
 							
 						
 							
-								<p class="story__comment_others">"I&#39;d love an audiobook version!"</p>
+								<p class="story__comment_others">"It&#39;s also the textbook from Stanford course AA228/CS238. Haven&#39;t taken it but definitely looks interesting.https://web.stanford.edu/class/aa228/cgi-bin/wp/"</p>
 							
 						
 						</a>
@@ -1308,11 +1695,11 @@ https://100soft.shop/collections/dumpster-fire/products/dump..."</p>
 							
 						
 							
-								<p class="story__comment_others">"In the mid 2000s, it looked like there was good hope that Apple would finally make inroads into corporate IT. In addition to their professional software suites (Shake, Final Cut Pro, Logic Pro, Aperture, Motion, etc.), they had already released XServe, which was really good by those days&#39; standards, as well as XSan -- these products solved many of the needs of small professional creative groups. Mac OS X server&#39;s abilities to handle small offices&#39; needs seemed like a prelude to larger things.Sadly, those hopes never really panned out. Apple is historically reticent to entering a market they aren&#39;t confident they have a good chance of dominating if they execute well, and their own growing internal use of Linux servers (and maybe other 3rd-party corporate domain/directory services, like Active Directory?) probably persuaded them to scale back their efforts around 2010."</p>
+								<p class="story__comment_others">"I worked at a company that used the phrase &#34;getting jamf&#39;d&#34; as a verb to describe when the management system broke things on your macbook.E.g., &#34;I&#39;ll be able to test that code change in a bit, I got Jamf&#39;d pretty hard this morning and now my build is broken...&#34;"</p>
 							
 						
 							
-								<p class="story__comment_others">"I worked at a company that used the phrase &#34;getting jamf&#39;d&#34; as a verb to describe when the management system broke things on your macbook.E.g., &#34;I&#39;ll be able to test that code change in a bit, I got Jamf&#39;d pretty hard this morning and now my build is broken...&#34;"</p>
+								<p class="story__comment_others">"In the mid 2000s, it looked like there was good hope that Apple would finally make inroads into corporate IT. In addition to their professional software suites (Shake, Final Cut Pro, Logic Pro, Aperture, Motion, etc.), they had already released XServe, which was really good by those days&#39; standards, as well as XSan -- these products solved many of the needs of small professional creative groups. Mac OS X server&#39;s abilities to handle small offices&#39; needs seemed like a prelude to larger things.Sadly, those hopes never really panned out. Apple is historically reticent to entering a market they aren&#39;t confident they have a good chance of dominating if they execute well, and their own growing internal use of Linux servers (and maybe other 3rd-party corporate domain/directory services, like Active Directory?) probably persuaded them to scale back their efforts around 2010."</p>
 							
 						
 						</a>
@@ -3541,414 +3928,6 @@ Everything beyond is self imposed suffering by comparing oneself to others.But f
 						
 							
 								<p class="story__comment_others">"Yes, you have reached the zenith of your career. Congratulations. You are self-sufficient and able to provide for the financial needs of your family. This is a true victory.Now, it is time to focus on people other than yourself. Most other advice on here is awful; it amounts to different directions to run on the hedonic treadmill.Instead, you have to give back now. What good is there to be done, that only you could do? What will be worse off if you don&#39;t lend a hand? This can range from finding better ways to support and mentor your children, to donating time to tutor students in programming, to building a well in Africa. Think hard about what you really care about, and then work hard to bring that into being."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">16 April 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://torrentfreak.com/duckduckgo-removes-pirate-sites-and-youtube-dl-from-its-search-results-220415/">
-						<picture>
-							<source srcset="default_31044587.webp" type="image/webp">
-							<source srcset="default_31044587.png" type="image/png">
-							<img src="default_31044587.png" alt="Preview of 'DuckDuckGo Removes Pirate Sites and YouTube-DL from Its Search Results'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://torrentfreak.com/duckduckgo-removes-pirate-sites-and-youtube-dl-from-its-search-results-220415/">DuckDuckGo Removes Pirate Sites and YouTube-DL from Its Search Results</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31044587">
-						
-							
-								<p class="story__comment_first line-clamp">"Question: does anyone actually know what DDG does with user data? Like they market themselves as a &#34;privacy respecting&#34; search engine, but how much of this is truth?I&#39;d imagine there&#39;s good money in convincing people they have privacy because then they&#39;ll provide more interesting data.Has the company ever been audited? Why should they be trusted to not compromise user privacy? Imo at least Google is honest: you know when you use their products as intended you have no privacy, and they don&#39;t try to hide thisEdit: since DDG isn&#39;t open source like searx, how do we know there is ANY truth to their marketing claims?Edit: Just for accuracy, the browser extensions are open source. But as far as I know, the actual search engine isn&#39;tEdit: They made over 100 million in 2020. They clearly can (and should) get an independent audit. It&#39;s shocking that they haven&#39;t had a single audit. Even startpage has"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s amazing how much collateral damage is caused by our horrible copyright laws. Mostly just so the MPA/RIAA can protect their roles as gatekeepers of what we&#39;re allowed to see and hear.They can put enormous pressure on even the wealthiest and most powerful companies to act as copyright police on their behalf. Even Google is afraid of them. ISPs are forced to spend huge amounts of time and money working for them. Now duckduckgo is being strong armed into doing a bunch of free work for them too? Maintaining lists of websites and domains to block and removing links to even non-infringing material like youtube-dl just to keep from being sued into the ground.I don&#39;t know what it&#39;ll take to rein in these guys, but I doubt the courts will be the ones to do it. So far courts seem fine with the idea that ISPs must permanently ban users from their service over nothing but repeated unsubstantiated claims of infringements which is an insane amount of power to give any industry.Has any US politician ever run on a platform that includes copyright reform?"</p>
-							
-						
-							
-								<p class="story__comment_others">"As for the YouTube-DL part specifically, I&#39;m pretty sure that&#39;s a side-effect of them being dependent upon Bing for the actual index: https://www.bing.com/search?q=site%3Ayoutube-dl.orgAlso, _come on_; if someone gives up after one search term, which also includes advanced site-restricting syntax, there&#39;s no way they&#39;d be able to operate youtube-dl anyway: https://duckduckgo.com/?q=youtube-dl&amp;ia=web"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://starlabs.systems/pages/starbook">
-						<picture>
-							<source srcset="default_31034024.webp" type="image/webp">
-							<source srcset="default_31034024.png" type="image/png">
-							<img src="default_31034024.png" alt="Preview of 'StarBook 14-inch'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://starlabs.systems/pages/starbook">StarBook 14-inch</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31034024">
-						
-							
-								<p class="story__comment_first line-clamp">"This is like the Framework laptop but it&#39;s a UK-based company that has been around for years, and with an explicit focus on Linux compatibility to boot. I&#39;m surprised I haven&#39;t come across them before as I&#39;ve been looking for Linux-compatible laptops for years.They do some things better than Framework such as supporting Ryzen processors, and seem a bit cheaper overall. The battery life seems like it would be better. They have a spare parts store as well and a full disassembly guide as well as an &#34;open warranty&#34;. I was never a fan of Framework&#39;s swappable ports.The biggest disadvantage seems to be that the screen is bog-standard 16:9.I&#39;m curious on the quality of the speakers, webcam, keyboard, and trackpad. I have a feeling they will not be great - in comparison to a Macbook at any rate.From reviews it looks like the trackpad is poor because it is not whole-trackpad clickable, and the keyboard is also poor due to the short key travel.Are there any other decent alternatives available in the UK?"</p>
-							
-						
-							
-								<p class="story__comment_others">"I got one of these in December 2021 and frankly love it. Got fed up with being pretty much the only person on earth who had a shitty experience with Apple Silicon, so jumped back to Linux after 17 years away. I don’t use it as a portable, or at least haven’t yet - it’s my daily driver for work and permanently plugged in to a monitor (which also is a USB hub). I opted for Manjaro and enjoy using it way more than I did the M1 macbook pro it replaced.I really like that they provide a detailed pictorial complete disassembly guide: https://support.starlabs.systems/kb/guides/starbook-mk-v-com..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Tangantially related, I remember reading the Asahi Linux wiki [0], and was shocked by this statement about Apple Silicon machines. It&#39;s fascinating that Apple has a reputation for being anti-libre, yet the hardware they built is arguably very libre-friendly.&gt; This puts them somewhere between x86 PCs and a libre-first system like the Talos II in terms of freedom to replace firmware and boot components; while a number of blobs are required in order to boot the system, none of those have the ability to take over the OS or compromise it post-boot (unlike, say, Intel ME and AMD PSP on recent systems, or the DMA-capable chips on the LPC bus running opaque blobs that exist on even old ThinkPads).&gt; From a security perspective, these machines may possibly qualify as the most secure general purpose computers available to the public which support third-party OSes, in terms of resistance to attack by non-owners.[0]: https://github.com/AsahiLinux/docs/wiki/Introduction-to-Appl..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.colorado.edu/today/2021/06/29/5-minute-breathing-workout-lowers-blood-pressure-much-exercise-drugs">
-						<picture>
-							<source srcset="default_31034740.webp" type="image/webp">
-							<source srcset="default_31034740.png" type="image/png">
-							<img src="default_31034740.png" alt="Preview of '5-min breathing workout lowers blood pressure as much as exercise, drugs (2021)'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.colorado.edu/today/2021/06/29/5-minute-breathing-workout-lowers-blood-pressure-much-exercise-drugs">5-min breathing workout lowers blood pressure as much as exercise, drugs (2021)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31034740">
-						
-							
-								<p class="story__comment_first line-clamp">"After reading Wim Hof and James Nestor a couple years ago during the pandemic, I used their techniques in full while battling long Covid.I had a blood pressure monitor and pulse oximeter on my bedside table that I would experiment with doing these various techniques and seeing my heart rate go down, my blood pressure go down, my anxiety would disappear, lung/chest inflammation would settle, and even oxygen levels increase up to 5%.I did this primarily because Covid reduced my average running mile time by around 20%. I was hopeful that I could make a full recovery which I did and then some.This new tool I believe saved my life, and I’m excited to use it for the rest of it."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; not necessarily meant to replace exerciseI&#39;m hoping someone can answer a question to which I&#39;ve never heard a really satisfactory answer:  Why does human health benefit from exercise whereas any kind of simple machine wears out with exercise? For example, doing a hundred stretches per day improves my health whereas stretching an elastic band 100 times per day will cause it to lose elasticity and soon destroy it. So what&#39;s the low-level mechanism by which exercise improves health in people but not in simple machines?"</p>
-							
-						
-							
-								<p class="story__comment_others">"If you want to learn more about breathing I recommend checking out the book The Oxygen Advantage by Patrick Mckeown. It&#39;s got a bunch of different breathing exercises and ways to measure progress. It basically reteaches you how to breath too, which is fascinating on its own.  Worth checking out for sure.https://www.amazon.com/Oxygen-Advantage-Scientifically-Breat..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.mit.edu/2022/frequency-therapeutics-hearing-regeneration-0329">
-						<picture>
-							<source srcset="default_31039242.webp" type="image/webp">
-							<source srcset="default_31039242.png" type="image/png">
-							<img src="default_31039242.png" alt="Preview of 'Reversing hearing loss with regenerative therapy'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.mit.edu/2022/frequency-therapeutics-hearing-regeneration-0329">Reversing hearing loss with regenerative therapy</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31039242">
-						
-							
-								<p class="story__comment_first line-clamp">"Disclosure: I own FREQ stock.The failure of the prior trial was suspected, and I believe it, due to a refractory response by overdosing the inner ear with too frequent administrations of the drug, and then testing for effect too soon. I bet even those candidates of the phase IIa trial though would, if checked on now, show some improvement.Animal research has shown that natural cochlear hair cell regeneration and resultant hearing restoration is very real, we mammals just don&#39;t have the natural cellular signaling to redifferentiate those base cells - small molecule drugs like FX322 do exactly that. I am optimistic they&#39;ll eventually find the right dosing regimen to see reliable and optimal clinical effect, and it will be a seismic advance in medicine."</p>
-							
-						
-							
-								<p class="story__comment_others">"The article says the treatment focuses on increased speech intelligibility. Speech, depending on how you define it, can occupy a fairly narrow range of the audio spectrum that humans can perceive.My hearing loss is mostly on the high end (10-12K and above) and impedes my ability to hear speech in noisy environments. More troubling has been the inability to enjoy music/sound in those upper ranges, resulting in the music lacking a certain sparkle and brilliance.I hope this therapy regenerates hair cells across the entire spectrum."</p>
-							
-						
-							
-								<p class="story__comment_others">"For anybody suffering with tinnitus I highly recommend the protocol William Shatner went through. You can train your brain so it’s not noticeable any more. Like wearing pants, it fades into the background."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.cnbc.com/2022/04/15/twitter-board-adopts-poison-pill-after-musks-43-billion-offer-to-buy-company.html">
-						<picture>
-							<source srcset="default_31043439.webp" type="image/webp">
-							<source srcset="default_31043439.png" type="image/png">
-							<img src="default_31043439.png" alt="Preview of 'Twitter board adopts poison pill after Musk’s $43B bid to buy company'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.cnbc.com/2022/04/15/twitter-board-adopts-poison-pill-after-musks-43-billion-offer-to-buy-company.html">Twitter board adopts poison pill after Musk’s $43B bid to buy company</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31043439">
-						
-							
-								<p class="story__comment_first line-clamp">"Even before the poison pill was adopted, the evidence is the market wasn&#39;t taking Musk&#39;s offer seriously. That&#39;s because he was offering $54.20 per share (ha ha, 420), but the stock price never closed higher than $48.36. So almost $6/share was left on the table.Part of it is that Musk doesn&#39;t have $43B in cash, he&#39;d have to raise it or borrow it. He&#39;s worth more than that but it isn&#39;t liquid; as an officer of Tesla there are some restrictions on when he can trade. Another part is that many doubt whether Musk is serious or if he is playing games again, like the last time &#34;420&#34; appeared in a financial announcement from him."</p>
-							
-						
-							
-								<p class="story__comment_others">"So, I&#39;m not very corporate savvy and this might be a very stupid question. Is there a NON-culture/political reason for all the push back against Musk buying Twitter? From the read, this just seem to be opening the door for someone else to try and take majority control and pining away for the days of Dorsey (which, if looked at objectively, weren&#39;t great... just filling an opportunity)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don’t understand how any board can implement a “poison pill”, not just Twitter but Netflix and others, and not be found working against the interest of shareholders. Can anyone help me understand?You’re categorically changing the profile of the stock. This has a chilling effect on large investors, including but not limited just to Musk, right?Vanguard, for example, has just had its range of further investment limited arbitrarily. Isn’t that bad for all stockholders, to know that large stakeholders will not drive the price up if they somehow gain substantial belief in the company?The risk portfolio of Vanguard just went up considerably because in the case that they fully lose faith in the board, they no longer have the option of installing a friendly board, they must simply liquidate their holdings. This, in turn, makes them more skeptical of further smaller (non-takeover) investment because it’s more to liquidate and more risk.Who does this benefit besides the board? I guess I understand that the board is not beholden to the interests of all shareholders equally, and I’m not suggesting that this doesn’t benefit some shareholders, but where does the line start?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://joeyh.name/code/moreutils/">
-						<picture>
-							<source srcset="default_31043655.webp" type="image/webp">
-							<source srcset="default_31043655.png" type="image/png">
-							<img src="default_31043655.png" alt="Preview of 'Moreutils: A collection of Unix tools that nobody thought to write long ago'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://joeyh.name/code/moreutils/">Moreutils: A collection of Unix tools that nobody thought to write long ago</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31043655">
-						
-							
-								<p class="story__comment_first line-clamp">"I find sponge really useful. Have you ever wanted to process a file through a pipeline and write the output back to the file? If you do it the naive way, it won’t work, and you’ll end up losing the contents of your file:    awk &#39;{do_stuff()}&#39; myfile.txt | sort -u | column --table &gt; myfile.txt
-
-The shell will truncate myfile.txt before awk (or whatever command) has a chance to read it. So you can use sponge instead, which waits until it reads EOF to truncate/write the file.    awk &#39;{do_stuff()}&#39; myfile.txt | sort -u | column --table | sponge myfile.txt"</p>
-							
-						
-							
-								<p class="story__comment_others">"The one I use the most is `vipe`.&gt; vipe: insert a text editor into a pipeIt&#39;s useful when you want to edit some input text before passing it to a different function. For example, if I want to delete many of my git branches (but not all my git branches):  $ git branch | vipe | xargs git branch -D
-
-`vipe` will let me remove some of the branch names from the list, before they get passed to the delete command."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; errno: look up errno names and descriptionsI like this. Reminds me of a couple very useful things I&#39;ve done:1. Add a -man switch to command line programs. This causes a browser to be opened on the web page for the program. For example:    dmd -man
-
-opens https://dlang.org/dmd-windows.html in your default browser.2. Fix my text editor to recognize URLs, and when clicking on the URL, open a browser on it. This silly little thing is amazingly useful. I used to keep bookmarks in an html file which I would bring up in a browser and then click on the bookmarks. It&#39;s so much easier to just put them in a plain text file as plain text. I also use it for source code, for example the header for code files starts with:    /*
-     * Takes a token stream from the lexer, and parses it into an abstract syntax tree.
-     *
-     * Specification: $(LINK2 https://dlang.org/spec/grammar.html, D Grammar)
-     *
-     * Copyright:   Copyright (C) 1999-2020 by The D Language Foundation, All Rights Reserved
-     * Authors:     $(LINK2 http://www.digitalmars.com, Walter Bright)
-     * License:     $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
-     * Source:      $(LINK2 https://github.com/dlang/dmd/blob/master/src/dmd/parse.d, _parse.d)
-     * Documentation:  https://dlang.org/phobos/dmd_parse.html
-     * Coverage:    https://codecov.io/gh/dlang/dmd/src/master/src/dmd/parse.d
-     */
-
-and I&#39;ll also use URLs in the source code to reference the spec on what the code is implementing, and to refer to closed bug reports that the code fixes.Very, very handy!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/LuanRT/YouTube.js">
-						<picture>
-							<source srcset="default_31021611.webp" type="image/webp">
-							<source srcset="default_31021611.png" type="image/png">
-							<img src="default_31021611.png" alt="Preview of 'Youtube.js – full-featured wrapper around YouTube&#39;s private API'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/LuanRT/YouTube.js">Youtube.js – full-featured wrapper around YouTube&#39;s private API</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31021611">
-						
-							
-								<p class="story__comment_first line-clamp">"This is really cool, but maybe the README&#39;s disclaimer should also warn that using YouTube&#39;s private APIs is against their Terms of Service[0], specifically this section:  The following restrictions apply to your use of the Service. You are not allowed to:
-  (...)
-  3. access the Service using any automated means (such as robots, botnets or scrapers) except (a) in the case of public search engines, in accordance with YouTube’s robots.txt file; or (b) with YouTube’s prior written permission; 
-
-It would be great if YouTube updated their ToS to permit this because that could unlock some really interesting innovation. Until then, devs should at least be aware that building a product with these APIs is risky.[0]: https://www.youtube.com/static?template=terms"</p>
-							
-						
-							
-								<p class="story__comment_others">"Awesome!! A custom client for YouTube that bypasses all their front end code. I wish there was something like this for every single web site!"</p>
-							
-						
-							
-								<p class="story__comment_others">"The reason I stopped integrating any API based system (FB, Twitter, etc...) into my code bases for services I don&#39;t pay for (or my customers) is because they all changed willy-nilly and broke on a regular basis.This is more likely to break (be broken by google) than an official API, and those are bad enough. (hard pass on even trying this out, especially if it&#39;s good/nice I&#39;ll want to use it and kick myself later for being an idiot.)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://grapee.jp/en/199026">
-						<picture>
-							<source srcset="default_31012685.webp" type="image/webp">
-							<source srcset="default_31012685.png" type="image/png">
-							<img src="default_31012685.png" alt="Preview of 'Tokyo’s Manuscript Writing Cafe won&#39;t let writers leave until they are finished'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://grapee.jp/en/199026">Tokyo’s Manuscript Writing Cafe won&#39;t let writers leave until they are finished</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31012685">
-						
-							
-								<p class="story__comment_first line-clamp">" &gt; 1. Upon entering the store, write down at the reception desk how many words and by what time you are going to write your manuscript.&gt; 2. The manager asks you every hour how your manuscript is coming along.&gt; 3. You are not allowed to leave the store until you have finished writing your manuscript or writing project.Sounds like a cute idea. I wonder what would happen if you decided you wanted to leave before finishing. Do they berate you? Do you lose a deposit? I imagine you can&#39;t hold customers hostage or trap them in your cafe if they actually want to go."</p>
-							
-						
-							
-								<p class="story__comment_others">"The coding cafe version.1. Upon entering you must write and demonstrate one failing test2. The manager asks you if you want someone to pair program with you3. You are not allowed to leave until the test is passing"</p>
-							
-						
-							
-								<p class="story__comment_others">"So basically simulating the environment of sitting in a university library all day until you have to submit a piece of work at midnight, while 100 other people all sit and do the same around you.Very good idea. Works like a charm."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.eatmy.art/">
-						<picture>
-							<source srcset="default_31012269.webp" type="image/webp">
-							<source srcset="default_31012269.png" type="image/png">
-							<img src="default_31012269.png" alt="Preview of 'Create hand-drawn GIFs on paper'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.eatmy.art/">Create hand-drawn GIFs on paper</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31012269">
-						
-							
-								<p class="story__comment_first line-clamp">"I think this is really cute and wonderful. I think there&#39;s some room to improve here, e.g. an AR ghost overlay of previous frames as well as ML extracted frames from pure paper without having to print a template (both of which I believe are feasible). But overall I love that people are experimenting with this stuff (and wouldn&#39;t want to react negatively here in any way to discourage this type of work).Some might argue moving from digital to pen and paper is a step down but I&#39;d argue the opposite. I&#39;d love and look forward to a possible future where we move digital advancements into the analog world in this way. As Theil says you can barely tell the difference between this world and the 80s if you remove cell phones and computers, but things like this are a cool way to hopefully get us closer to computers aiding more natural forms of interaction."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is really, really cool! The kids are going to love this!I&#39;m no artist, but it is super easy! - https://imgur.com/a/hbCSkiYOnly thing is that the image didn&#39;t seem to work taking a photo directly on my phone - had to move it to the computer to upload"</p>
-							
-						
-							
-								<p class="story__comment_others">"Nice work. It inspired me to interrupt work and create thishttps://imgur.com/a/MBIx7jJ"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://lexical.dev/">
-						<picture>
-							<source srcset="default_31019778.webp" type="image/webp">
-							<source srcset="default_31019778.png" type="image/png">
-							<img src="default_31019778.png" alt="Preview of 'Facebook open sources Lexical, an extensible text editor library'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://lexical.dev/">Facebook open sources Lexical, an extensible text editor library</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31019778">
-						
-							
-								<p class="story__comment_first line-clamp">"Hi Dominic, thanks for open sourcing the library. I have quite a few questions though:1. Marijn has built an awesome open source richtext library (https://prosemirror.net/) which has a huge plugin ecosystem and bindings with a bunch of front-end frameworks (including React). Is there any specific motivation behind building one from scratch?2. How is this different from Facebook&#39;s own DraftJS lib?3. What&#39;s the story of realtime collaboration support with OT/CRDT? Prosemirror had this in mind when designing its state model and delta model, so it comes with out of the box support for realtime collaborations. Can we expect the same with Lexical?4. What&#39;s the cross platform strategy for Lexical? If I store the editor&#39;s state as JSON on the server, how will I render it on devices and native desktop apps?We&#39;ve built our own library on top of Prosemirror to power the comments and feedback sections of Zoho Writer - https://writer.zoho.comI&#39;m always looking out for better approaches/alternatives in this space and I&#39;m curious how different Lexical is. Thanks!"</p>
-							
-						
-							
-								<p class="story__comment_others">"One of the big frustrations with DraftJS is that Facebook moved on (which is understandable), but the core repo wasn’t given control to the community, so patches and updates couldn’t be pulled in. Obviously it’s open source and could be hard forked, but that’s not ideal.I’d be curious if there are plans internally to make sure Lexical continues
-to be supported by Facebook and doesn’t end up with the same fate."</p>
-							
-						
-							
-								<p class="story__comment_others">"The examples shown on the site are code editing. Which puts it in direct competition with the more established Monaco from Microsoft [1].Competition is welcome, but the description sounds like this is more of a library than a finished product (which Monaco isn&#39;t), and if so, some examples showing how to take advantage of that would have been helpful.[1] https://microsoft.github.io/monaco-editor/"</p>
 							
 						
 						</a>
