@@ -36,6 +36,290 @@
 	</div>
 
 	
+	<div class="day__date">17 May 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.searchmysite.net/posts/almost-all-searches-on-my-independent-search-engine-are-now-from-seo-spam-bots/">Almost all searches on my independent search engine are now from SEO spam bots</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31395231">
+						
+							
+								<p class="story__comment_first line-clamp">"So spammers have latched onto your search engine because they are getting useful results.  They are able to systematically discover websites built on certain platforms that allow users to post content containing links, which they can target for link spam.  It is very difficult to fight this on a technical level because there is an entire industry built around blackhat SEO, with all kinds of softwares and services dedicated to thwarting your defensive efforts.  Even Google struggles to keep up with this.However, they are also systematically feeding you their footprint lists.  I imagine you could put together a footprint blacklist pretty quickly, and just stop returning results for any obvious spam queries like those containing &#34;powered by wordpress&#34;.It&#39;s not a very elegant solution I&#39;ll admit.  It won&#39;t stop the bots from trying, and you may have to circle back periodically to add new footprints as they surface.  But it&#39;s a potentially quick and easy way to stop rewarding their efforts, and the blackhat world is pretty used to burning out their resources so hopefully they will figure out it&#39;s a dead end and move on."</p>
+							
+						
+							
+								<p class="story__comment_others">"Since everyone in this thread wants to jump down OP&#39;s throat about the quality of his web site, another interesting search engine is millionshort.com, which allows you to filter out the top N web sites from the results of your search. It&#39;s a great tool for looking past sites with good SEO; all you have to do is fiddle with the value of N.For example, searching for &#34;electronic music box&#34; as /u/ajnin suggested, with the top 100K web sites removed from the results, filters out the following:&gt; These 23 sites were removed from your results:&gt;     alibaba.com (1 result removed)&gt;     aliexpress.com (1 result removed)&gt;     allaboutcircuits.com (1 result removed)&gt;     amazon.com (2 result removed)&gt;     apple.com (1 result removed)&gt;     bestreviews.com (1 result removed)&gt;     ebay.com (1 result removed)&gt;     etsy.com (2 result removed)&gt;     facebook.com (1 result removed)&gt;     instructables.com (2 result removed)&gt;     lightinthebox.com (2 result removed)&gt;     lumberjocks.com (1 result removed)&gt;     mapquest.com (1 result removed)&gt;     reverb.com (1 result removed)&gt;     twitter.com (1 result removed)&gt;     wikipedia.org (1 result removed)&gt;     yelp.com (1 result removed)&gt;     youtube.com (2 result removed)And the top result ends up being https://midiguy.com/."</p>
+							
+						
+							
+								<p class="story__comment_others">"This made me curious to try that search engine so I typed &#34;electronic music box&#34; (first thing that came to mind). As far as I can tell none or the 10+ pages of results include all those 3 words. I mean, you might not have any relevant sites in your database (likely if there are only 1000 sites or so as another of your blog posts imply), and I understand you want to show some result to the user, but if I want irrelevant links I might as well go to google.com..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://yuri.is/not-julia/">Correctness and composability bugs in the Julia ecosystem</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31396861">
+						
+							
+								<p class="story__comment_first line-clamp">"So this one is a tough one for me, because Yuri has certainly spent significant time with Julia and I think he&#39;s a very competent programmer, so his criticism is certainly to be taken seriously and I&#39;m sad to hear he ended up with a sour opinion.There&#39;s a lot of different issues mentioned in the post, so I&#39;m not really sure what angle to best go at it from, but let me give it a shot anyway. I think there&#39;s a couple of different threads of complaints here. There&#39;s certainly one category of issues that are &#34;just bugs&#34; (I&#39;m thinking of things like the HTTP, JSON, etc. issues mentioned). I guess the claim is that this happens more in Julia than in other systems. I don&#39;t really know how to judge this. Not that I think that the julia ecosystem has few bugs, just that in my experience, I basically see 2-3 critical issues whenever I try a new piece of software independent of what language it&#39;s written in.I think the other thread is &#34;It&#39;s hard to know what&#39;s expected to work&#34;. I think that&#39;s a fair criticism and I agree with Yuri that there&#39;s some fundamental design decisions that are contributing here. Basically, Julia tries very hard to make composability work, even if the authors of the packages that you&#39;re composing don&#39;t know anything about each other. That&#39;s a critical feature that makes Julia as powerful as it is, but of course you can easily end up with situations where one or the other package is making implicit assumptions that are not documented (because the author didn&#39;t think the assumptions were important in the context of their own package) and you end up with correctness issues. This one is a bit of a tricky design problem. Certainly adding more language support for interfaces and verification thereof could be helpful, but not all implicit assumptions are easily capturable in interfaces. Perhaps there needs to be more explicit documentation around what combinations of packages are &#34;supported&#34;. Usually the best way to tell right now is to see what downstream tests are done on CI and if there are any integration tests for the two packages. If there are, they&#39;re probably supposed to work together.To be honest, I&#39;m a bit pained by the list of issues in the blog post. I think the bugs linked here will get fixed relatively quickly by the broader community (posts like this tend to have that effect), but as I said I do agree with Yuri that we should be thinking about some more fundamental improvements to the language to help out. Unfortunately, I can&#39;t really say that that is high priority at the moment. The way that most Julia development has worked for the two-ish years is that there are a number of &#34;flagship&#34; applications that are really pushing the boundary of what Julia can do, but at the same time also need a disproportionate amount of attention. I think it&#39;s overall a good development, because these applications are justifying many people&#39;s full time attention on improving Julia, but at the same time, the issues that these applications face (e.g. - &#34;LLVM is too slow&#34;, better observability tooling, GC latency issues) are quite different from the issues that your average open source julia developer encounters. Pre 1.0 (i.e. in 2018) there was a good 1-2 year period where all we did was think through and overhaul the generic interfaces in the language. I think we could use another one of those efforts now, but at least that this precise moment, I don&#39;t think we have the bandwidth for it. Hopefully in the future, once things settle down a bit, we&#39;ll be able to do that, which would presumably be what becomes Julia 2.0.Lastly, some nitpicking on the HN editorialization of the title. Only of the issues linked (https://github.com/JuliaLang/julia/issues/41096) is actually a bug in the language - the rest are various ecosystem issues. Now, I don&#39;t want to disclaim responsibility there, because a lot of those packages are also co-maintained by core julia developers and we certainly feel responsibility to make those work well, but if you&#39;re gonna call my baby ugly, at least point at the right baby ;)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Everything has correctness issues somewhere. Julia ships an entire patched version of LLVM to fix correctness bugs in numerical methods. It has its own implementations of things like software-side FMA because the FMA implementation of Windows is incorrect: https://github.com/JuliaLang/julia/pull/43530 . Core Julia devs are now the maintainers of things like libuv because of how much had to be fixed there. So from those three points, that clearly points out tons of cases where Python, R, etc. code is all incorrect where Julia isn&#39;t.I think what&#39;s interesting about Julia is that because the code is all Julia, it&#39;s really easy to dig in there and find potential bugs. The standard library functions can be accessed with @edit sum(1:5) and there you go, hack away. The easier it is to look at the code, the easier it is to find issues with it. This is why Julia has such a higher developer to user ratio. That has its pros and cons of course. It democratizes the development process, but it means that people who don&#39;t have a ton of development experience (plus Fortran or C knowledge) are not excluded from contributing. Is that good or bad? Personally I believe it&#39;s good in the long run, but can have its bumps.As an aside, the author highlights &#34;for i in 1:length(A)&#34;. I agree, code should never do that. It should be `eachindex(A)`. In general things should use iterators which are designed for arbitrary indexing based on iterators. This is true in any language, though you&#39;ll always have some newcomers write code (and documentation) with this. Even experienced people who don&#39;t tend to use arrays beyond Array tend to do this. It&#39;s an interesting issue because coding style issues perpetuate themselves: explicitly using 1-base wasn&#39;t an issue before GPUs and OffsetArrays, but then loop code like that trains the next generation, and so more people use it. In the end the people who really know to handle these cases are the people who tend to use these cases, just like how people who write in styles that are ARM-safe tend to be people who use ARM. Someone should just run a bot that opens a PR for every occurrence of this (especially in Base), as that would then change the source that everyone learns from and completely flip the style."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am a long-time member of the Julia community and had a discussion with the author about these issues a long time ago – but did not give feedback on the post. Let me first state that Yuri is a great person and was a valuable member of the community. He pushed the boundaries of the language and produced some very nice packages in his time. His concerns are genuine and should be respected and discussed in that context.Also, let me say that encountering these kinds of bugs is not something I have had experience with. But, I tend to be very conservative with my usage of libraries and fancy composition.If I had more experience with programming language theory and implementation, perhaps I would have a better name to describe the source of the issues described. My attempt is to call it “type anarchy”. The way I see it, there is not a clear way to assign responsibility for correctness. In the case of the array used in the post, is it the fault of the implementer of the `sum` function (without a type signature, as it should be) or implementer of the data structure? I am honestly not sure. But as Julia breaks news ground with its type system and multiple dispatch, this could very much be an open question."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://javascript.info/">Modern JavaScript Tutorial</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31390742">
+						
+							
+								<p class="story__comment_first line-clamp">"In almost 10 years of professional development with Javascript/Typescript, I have never encountered a colleague using the call/bind/apply keywords (or &#34;this&#34; outside of classes). I&#39;d say almost all professionals deliberately avoid 80%+ of the language in practice."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is excellent. I think https://www.internetingishard.com/html-and-css/ complements it well as an introductory tutorial to HTML/CSS."</p>
+							
+						
+							
+								<p class="story__comment_others">"As far as Javascript books goes this looks pretty replete, kudos to the author!I will add it to my bookmarks to recommend to new developers alongside the excellent Eloquent Javascript [1], which for all I know probably is missing some things between when it was written and now which this modern javascript tutorial seems to cover. Very cool![1] https://eloquentjavascript.net/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://sparktoro.com/blog/sparktoro-followerwonk-joint-twitter-analysis-19-42-of-active-accounts-are-fake-or-spam/">Nearly 20% of active Twitter accounts likely to be fake or spam</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31397137">
+						
+							
+								<p class="story__comment_first line-clamp">"Parag apparently lost his patience with superficial and misleading claims about Twitter spam (like this analysis) and posted about it today.You can see it here (https://twitter.com/paraga/status/1526237578843672576).Noteworthy highlights:* Twitter estimates its &lt;5% number from human analysis of multi-thousand user random samplings of mDAU* Twitter allows that number to remain so high to avoid introducing friction like captcha into real users&#39; experiences* Twitter uses all sorts of internal private data in its analysis* Parag says you cannot get a reliable indication of bot/not bot without this internal private dataHaving just finished building a Twitter analysis tool, I agree with Parag that the Twitter API doesn&#39;t provide sufficient clarity to make decisions about spam. This article&#39;s analysis doesn&#39;t hold up - just because you can name several features you&#39;re going to use to generate a spam confidence score about an account does not mean that spam confidence score will have any precision."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t think this post means as much as people are acting like it does.The indicators of being a spambot they have in their post seem VERY iffy to me. &#34;Not tweeting in the past 120 days&#34;, &#34;Location set to a non resolving location&#34;, &#34;Small number of followers&#34;, &#34;default profile image&#34;, &#34;No URL in bio or non-resolving URL in bio&#34;, &#34;Not on many lists&#34;, &#34;tweets in a different language than the person they&#39;re following&#34; - Those all seem like extremely weak signals to me. My profile matches 6 of those, and I&#39;m a human. I would like to see them hand-verify a subset of their results and see if their algorithm matches reality.Also note that they define &#34;active&#34; differently than Twitter. They define &#34;active&#34; as having tweeted recently. Twitter gives spambot numbers as a percent of monetizable daily active users. I wonder if Twitter&#39;s given bot numbers are low because bots don&#39;t typically lurk or load ads. I can believe that the total bot count as a percentage of users or as a percentage of recently-tweeting-users is higher than 5%, but that only 5% of daily visitors seeing ads are bots."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;We undercount active users whose accounts are protected, accounts that view tweets but don’t send any, and accounts that log in and engage in other ways beyond tweeting (like favoriting or adding profiles to lists).&#34;My markup. If I understand correctly, not having a public tweet is a marker for being a spam account. Isn&#39;t that kind of a lot of people? I know from other forums that there&#39;s a large ratio between lurkers and active posters.Given that you need an account to customise your timeline, and, these days, pretty much for just reading a tweet, there may be loads of real reader accounts that never post and never bother customizing their profile."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://netfuture.ch/2022/05/web3-is-just-expensive-p2p/">Web3 is expensive P2P</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31396329">
+						
+							
+								<p class="story__comment_first line-clamp">"Nothing wrong with p2p. But often it&#39;s simply overkill. Skype started out as a p2p thing. But ultimately, video calls became a commodity where orchestrating them centrally proved to be good enough. I can make video calls with meets, facebook, whatsapp, signal, slack, etc. Not a big deal. I even still have Skype somewhere and it still works even though they ripped out the p2p bits ages ago.I&#39;m not sure what web3 is other than a label that people started slapping on the collective efforts of people vaguely doing anything with or depending on some kind of block chain thingy. IMHO it has very little to do with the web and little or no relevance to end users.From a technical point of view, I don&#39;t see anything wrong with having a distributed store of ownership of stuff. There are all sorts of useful and valid uses for that. The problem is all the hyena&#39;s with dollar signs in their eyes floating around any companies active in this space. It&#39;s hard to see the forest for the trees because of this. Doing anything with a blockchain almost automatically buckets you with the fraudsters, utopians, and other people plaguing this space.Most of the companies in this space are a combination of naive, fraudulent, or misguided. With a few notable exceptions where you might squint and see some potential of some actual economic value. But most of them are obvious duds. I actually briefly used Stellar for some actual applications. Great tech. Mostly works as advertised. Not that expensive to use. Etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ll just leave this here [0]I don&#39;t disagree that the concentration of web architecture into the hands of a small number of big corps is a bad thing. I just don&#39;t see the solution being a purely technical one. There are market forces and reasons for that consolidation: efficiency in terms of power; production, acquisition, and deployment of expensive equipment; high-availability of services, operations and staff, etc. I don&#39;t like that a third of the Internet goes down with aws-east-1 like anyone else but the factors that enabled this situation are no conspiracy.We need economic incentives to enable smaller players to build on widely deployed infrastructure, fair competition laws, etc.We could use more edge-computing power with low-power equipment. Make it easy to deploy small-time data-centres on low-power, off-the-shelf hardware. Incentives that align with the economic value they bring so that they&#39;re not fighting on the margins left by large monopolies.Instead we&#39;re supposed to switch over to a &#34;P2P&#34; system built on funny machines evaluating user code. As many chains have tried to formally verify their smart contracts it&#39;s becoming increasing clear that the proofs, when they can be achieved, are so complex that the underlying system probably has more errors in it than we can count. Probably great for departing folks from their money but the folks running this stuff often don&#39;t even understand programming let alone proofs and verification.And then the stuff that actually gets built with it... slow, terrible UX, that it is... is just garbage anyways. Axie? I don&#39;t think anyone in web3 actually plays the game. It looks boring as all hell. And it&#39;s incredibly expensive to get started in it. They literally pay people to play it for them and they just watch spreadsheets for number to go up.And none of this &#34;distributed web&#34; works without the Internet as it exists today anyway. I&#39;m not interested in promises of potential. We don&#39;t drive on potential bridges.Maybe some part of the community is built by idealists but their dreams are poisoned. The world we live in right now is already pretty terrible in some parts. We could be fixing those instead of building another dystopia.[0] https://web3isgoinggreat.com/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Where is Web3 P2P? Decentraland is centralized. The Sandbox is centralized. OpenSea is centralized. Metamask is centralized. Bitcoin and Etherium mining depend on big server farms that are more centralized than Akamai."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/brickbots/framedeck">Framedeck: A Cyberdeck built with the framework mainboard</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31391137">
+						
+							
+								<p class="story__comment_first line-clamp">"I think Framework really has something going here with their à la carte approach to laptop sales. People want to tinker and build their own ideas and there is a dearth of options for portable motherboards which are truly modular, versus doing something like gutting a laptop.They may have stumbled into a nice niche that is all their own. I Hope they lean into it."</p>
+							
+						
+							
+								<p class="story__comment_others">"For those who like me did not know what&#39;s a cyberdeck, here are a couple links I&#39;ve found:What is a cyberdeck? https://cyberdeck.cafe/mix/what-is-a-cyberdeckSome examples https://www.makeuseof.com/best-raspberry-pi-cyberdecks/Reddit community https://libredd.it/r/cyberDeck/Even though I wasn&#39;t familiar with the term, this is actually something I always wanted (a self-built portable device, that I can customise in the same way I can customise a desktop computer)."</p>
+							
+						
+							
+								<p class="story__comment_others">"System76 and Framework both exist. Nvidia just released their drivers as open source. What a time to be alive."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://liou28335.medium.com/many-software-companies-are-a-joke-9f4b10378c7a">Many software companies are a joke</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31394604">
+						
+							
+								<p class="story__comment_first line-clamp">"I was reading https://danluu.com/sounds-easy again today, and when reading this article I was reminded of a particular section:&#34;Everything we&#39;ve looked at so far is a technical problem. Compared to organizational problems, technical problems are straightforward. Distributed systems are considered hard because real systems might drop something like 0.1% of messages, corrupt an even smaller percentage of messages, and see latencies in the microsecond to millisecond range. When I talk to higher-ups and compare what they think they&#39;re saying to what my coworkers think they&#39;re saying, I find that the rate of lost messages is well over 50%, every message gets corrupted, and latency can be months or years&#34;Dan goes on to say: &#34;When people imagine how long it should take to build something, they&#39;re often imagining a team that works perfectly and spends 100% of its time coding. But that&#39;s impossible to scale up. The question isn&#39;t whether or not there will inefficiencies, but how much inefficiency. A company that could eliminate organizational inefficiency would be a larger innovation than any tech startup, ever.&#34;Communication scales extremely poorly compared to code and large organizations require a very different skillset than small companies. The author seems like someone who just loves writing code as opposed to wanting to deliver maximum business value (As defined by the company), so it makes sense he dislikes big companies.There are also good and bad big and small companies. A well run big company is still going to have a large amount of communication overhead vs a small company."</p>
+							
+						
+							
+								<p class="story__comment_others">"All these meetings, reports, plans and apparently useless things, provide insurance to the different stakeholders of the project. Projects fail in many ways, and you need everyone to feel safe. That&#39;s why you need to document things a lot, in order to say “this was explained in section 3.2.1 of the manual” when the other team doesn&#39;t correctly  use your tools. And this is true for everyone, the finance guys, the product guys, the programmers, the marketers, everyone. Providing insurance to everyone is very expensive, but it makes the large organization stable. If everyone worked like cowboys in an small company, then the large company would disappear in a large fire of infighting.I never worked in a large company, but I work in academia, and we academics are also working on insurance a lot. The funding bodies want us to detail all expenses and justify all the changes in the plan, because they don&#39;t want people to say that the public funds are mismanaged. This is just an example. We also write tons of useless papers, to justify that we are productive with this money. This makes research very difficult. If you really want to do science, you should become rich and do it from home, like Nassim Taleb does, but in Academia we must work on all this insurance stuff, like in corporate world.That&#39;s how things are."</p>
+							
+						
+							
+								<p class="story__comment_others">"The issue the author is talking about, in my view, is caused by the natural lifespan of corps tending towards bloating middle-management. (Very hard process to fight).At the start the founder group are rutheless productivity-chasers. Then the corp expands to include the its-just-a-job group. Everything ticks along well, and at some point, the rutheless can&#39;t manage the group. So they hire followers to listen to their orders and thereby manage others. In this sense middle management is really &#34;corporate following&#34;.Now you have the its-just-ajobs, rutheless-productives, rutheless-leaders, and leader-followers.When the corp grows too far the balance in these populations is thrown way off (by, often, the shortsightedness of the real leadership in balloning middle-management to cover for them).At this point all the meaningful decisions are still held by the exec, but middle management are now so large they have to &#34;find something useful to do&#34;, which is regulate all the meaningless decisions.At this point most of the ruthelessly-productive leave, and you&#39;re left with the justajobs, leader-followers and the few clueless productives who&#39;ll destroy their mental health trying to grapple with it all."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.cnbc.com/2022/05/16/what-happened-to-the-bitcoin-reserve-behind-terras-ust-stablecoin.html">$3B in Bitcoin was sold in a last-ditch attempt to save UST from collapse</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31398261">
+						
+							
+								<p class="story__comment_first line-clamp">"&#34;Sold&#34;It&#39;s hard to show that they really sold these coins. Certainly, the LFG transferred the coins to some different exchanges. But did they truly sell them?If I was running a dodgy ponzi scheme and saw it collapsing catastrophically, I don&#39;t think I&#39;d be throwing good money after bad trying to futilely patch it up. Much better to stash the remaining assets away somewhere and personally cash out later on.Also, “In a sense, the market is going to take that as kind of bullish.” - a.k.a. the standard &#39;this is good for bitcoin&#39; quote, applicable whatever the news is!"</p>
+							
+						
+							
+								<p class="story__comment_others">"“Analysis from the company shows that 52,189 bitcoins were moved to a single account at crypto exchange Gemini”Oh yeah sure they saw their coin going to s*%t and thought “yeah let’s just throw away a couple billion dollars just so people won’t think we are scammers”. Sure. The Vatican has started a process to canonize these saints."</p>
+							
+						
+							
+								<p class="story__comment_others">"I mean that was the expected outcome and now people are like “proof of the expected outcome!?!”Following months of outcry about the unsustainable nature of Terra Luna, Do Kwon through his foundation tried to partially collateralize the stablecoin with bitcoin, with a goal of buying up to $10bn of bitcoin. He got $3-5bn (at the time, price changed a lot), and this prolonged the confidence system for one additional month.And then it imploded and sold the collateral, of course it was partial collateral so it failed to do anything in a bank run.So it doesnt matter whether we get records from exchanges or not. Nothing different would happen. People want to see Do Kwon have more reasons to have charges against him, but there’s no need to attribute it to malice, everything can be explained by incompetence already."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://corporate.mcdonalds.com/corpmcd/en-us/our-stories/article/ourstories.mcd-exit-russia.html">McDonald’s to Exit from Russia</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31395765">
+						
+							
+								<p class="story__comment_first line-clamp">"Can you sell the Russian business without violating the sanctions?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a surprisingly well-written, engaging corporate statement. Most statements are pretty bland and purely to the point but after reading this I thought I was reading news coverage of their exit not their own statement."</p>
+							
+						
+							
+								<p class="story__comment_others">"It seems that McDonald&#39;s closed stores that operated directly under their control. As a result, only stores in westert part of Russia were closed (in Moscow, Saint-Petersburg). The stores in Siberia (i.e. Novosibirsk) and in Moscow airports continued operating as usual, as they are working under franchaising. Even the mobile app continued functioning.So not much is going to change, I think. Hell, McDonalds is even open in DNR/LNR &#34;republics&#34; under the name &#34;DonMac&#34;."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.nature.com/articles/s41598-022-10261-5">Cats learn the names of their friend cats in their daily lives</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31396198">
+						
+							
+								<p class="story__comment_first line-clamp">"I have tried to train my two cats with just these words:1. &#34;Let&#39;s go&#34; - morning meal2. &#34;Upstairs&#34; - I am going to bed3. &#34;Dinner&#34; (plus clink bowls together) - evening meal4. &#34;Lie Down&#34;and their names.Emerald, who prefers being upstairs, definitely responds to &#34;Upstairs&#34;: she charges upstairs when I say it. Jade remains enigmatic and skeptical: that seems to be her nature. But if she is in the mood for a tummy rub, she will respond to &#34;Lie Down&#34;.For me, the great charm of cats is that it is impossible to tell the difference between &#34;No, I don&#39;t understand you.&#34; and &#34;I understand you perfectly well, but I plan to ignore you completely until I feel like responding&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have two cats, a young male (perhaps not coincidentally, a colony rescue?) and a very elderly female. When I let them outside, if I call them to come in, the younger will find the older and herd her to the door. He then vigorously resists coming inside himself. He&#39;s also very vocal, and his tone of voice will change depending on whether he&#39;s happy to see me and wanting pets or if I&#39;m ruining his stalking and spying or he doesn&#39;t want to come inside (the other just ignores me and does whatever she wants)."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Analysis:One cat completed only the first trial before escaping from the room and climbing out of reach.&#34;I quite enjoyed this bit."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">16 May 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -57,7 +341,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Reminder that the KDE Connect app also works with the Gnome Shell version GSConnect https://extensions.gnome.org/extension/1319/gsconnect/"</p>
+								<p class="story__comment_others">"I don&#39;t have much use for KDE Connect currently but I&#39;ve used it in the past. It can be quite handy. It was very useful for replying to text messages when my phone wasn&#39;t around, for example.I do like to see KDE software propagating outside of the KDE world (KHTML is a great example of that)."</p>
 							
 						
 						</a>
@@ -85,9 +369,7 @@
 							
 						
 							
-								<p class="story__comment_others">"I could relate to the comment on Redis.  The only things I can see missing are automated Redis hosting by the platform.
-
-There have been so many times I wanted some simple key value store which I do not have to bother about setting up and taking care of. Something like &#34;ambient Redis&#34;. It&#39;s OK not to have crazy scaling promises. You just enable an API (maybe for a small fee) and just use it.If and when you get big enough you switch to a setup you bother about setting up and taking care of.Am I making sense to anyone?"</p>
+								<p class="story__comment_others">"After all the chatter this week, I&#39;ve come to the conclusion that Heroku froze at the perfect time for my 4 person company. All of these so called &#34;features&#34; are exactly what we don&#39;t want or need.1. Multi-region deployment only work if your database is globally distributed too. However, making your database globally distributed creates a set of new problems, most of which take time away from your core business.2. File persistence is fine but not typically necessary. S3 works just fine.It&#39;s easy to forget that most companies are a handful of people or just solo devs. At the same time, most money comes from the enterprise, so products that reach sufficient traction tend to shift their focus to serving the needs of these larger clients.I&#39;m really glad Heroku froze when it did. Markets always demand growth at all costs, and I find it incredibly refreshing that Heroku ended up staying in its lane. IMO it was and remains the best PaaS for indie devs and small teams."</p>
 							
 						
 						</a>
@@ -143,7 +425,7 @@ There have been so many times I wanted some simple key value store which I do no
 							
 						
 							
-								<p class="story__comment_others">"&gt; Disclosure: I hold short positions in companies mentioned in this article. This is not financial advice.Hmm. Well, on the one hand, he is putting his money where his mouth is. On the other hand, this could be prime evidence of motivated reasoning. The author has also submitted his own article to HN it seems. Reading the analysis, it makes sense, but I&#39;m not experienced in analysing company financials. Other people I respect/trust who have a good track record don&#39;t feel this way about the companies in question.I think, in general, shorting volatile assets is a pretty fraught undertaking. There could be a Gamestop style short squeeze fueled by Crypto bros for example. There could be a purchase announcement that could spike the price. ARK could decide to buy a large stake. All these things could lose you a lot of money for &#39;no good reason&#39;."</p>
+								<p class="story__comment_others">"Yeah publicly traded bitcoin mining companies are a very new phenomenom, and investors are undiscerning and being taken advantage of.Its fine though, as long as those investors find new investors who only care about revenues. The actual company is a conduit, the revenues still occur but nobody had been asking what happens to the actual money. Lucrative game.Good article, calls for nothing except FYI to investors."</p>
 							
 						
 						</a>
@@ -312,9 +594,7 @@ if you have benzo neurodamage, take magnesium lthreonate which is a very potent 
 						<a href="https://news.ycombinator.com/item?id=31377904">
 						
 							
-								<p class="story__comment_first line-clamp">"I am only at the first page, but already I must recommend this work  https://0xax.gitbooks.io/linux-insides/content/
-
-as unmissable, and &#34;I should have read this as a child&#34; - that is, for those who feel a lack of solid ground until they know exactly what makes the machine work."</p>
+								<p class="story__comment_first line-clamp">"I am only at the first page, but already I must recommend this workhttps://0xax.gitbooks.io/linux-insides/content/as unmissable, and &#34;I should have read this as a child&#34; - that is, for those who feel a lack of solid ground until they know exactly what makes the machine work."</p>
 							
 						
 							
@@ -1340,7 +1620,7 @@ And that is a totally different kind of beast than coding something.But on the f
 							
 						
 							
-								<p class="story__comment_others">"Wow, this looks potentially very interesting. Since this is sort of fresh in my mind from the recent Fly post about it:* How exactly is the read replication implemented? Is it using litestream behind the scenes to stream the WAL somewhere? How do the readers keep up? Last I saw you just had to poll it, but that could be computationally expensive depending on the size of the data (since I thought you had to download the whole DB), and could potentially introduce a bit of latency in propagation. Any idea what the metrics are for latency in propagation?* How are writes handled? Does it do the Fly thing about sending all requests to one worker?I don&#39;t quite know what a &#34;worker&#34; is but I&#39;m assuming it&#39;s kind of like a Lambda? If you have it replicated around the world, is that one worker all running the same code, and Cloudflare somehow manages the SQL replicating and write forwarding? Or would those all be separate workers?"</p>
+								<p class="story__comment_others">"BTW R2 is open beta now: https://blog.cloudflare.com/r2-open-beta/"</p>
 							
 						
 						</a>
@@ -2522,10 +2802,7 @@ In the second and preferred form, option flags may be given in any order and are
 							
 						
 							
-								<p class="story__comment_others">"In the &#34;USB-A/B&#34; section, they&#39;re all labelled &#34;Type-A&#34;, the 3rd and 4th should be labelled &#34;Type B&#34;.It&#39;s also missing
- - mini-b 4 wire (older phones, etc)
- - micro-b 4 wire (most electronics prior to type c)
- - micro-b 8 wire (mostly seen only found on external 2.5&#34; HDDs)There were also a bunch of other connectors (mini-a, mini-a/b, etc) but they are very rare."</p>
+								<p class="story__comment_others">"&gt; May 05, 2025The article is dated May 5, 2025. I&#39;ve long been wondering about the future of USB."</p>
 							
 						
 						</a>
@@ -2670,294 +2947,6 @@ In the second and preferred form, option flags may be given in any order and are
 						
 							
 								<p class="story__comment_others">"Really cool work. My impression after reading the article is that it’s significantly inspired by SwiftUI, but without the magic annotations (@State, @Binding, @EnvironmentObject, @StateObject, etc.). It will be interesting to see how Rust handles the fully-statically-typed view tree, which has been really pushing the limits of the Swift compiler.Question for the author: perhaps I missed it, but how do you plan to handle view trees that change based on state (ie SwiftUI’s IfElseView + viewbuilder)?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">07 May 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://zan.bearblog.dev/why-i-waste-time/">Why do you waste so much time on the internet?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31285969">
-						
-							
-								<p class="story__comment_first line-clamp">"Loneliness. We don&#39;t have meaningful social connections anymore like our parents or their parents geeration had. We are so scattered, that I am unsure how many of my friends are actually friends and how many are just professional contacts. Everytime I switch job, almost 70% of my friends suddenly fall out of contact. Heck, I don&#39;t even know the people who live in next apartments both left, right, up and down on the same building. Socializing with my friends mean, setting up an appointment weeks ahead to see if we can align on a free-slot and this often involves all of us commuting to somewhere and disbanding by 22:00 hours because family, work next morning, chores to do, doctor appointment and other human things.Interestingly, in this rat race, a lot of people suddenly inherited significant wealth and managed to use those wisely to have enough return to maintain a minimal lifestyle without working a primary 9-5. Some of us also achieved significant wealth by our early youth that we can afford to chase our hobbies for long time without worrying about the rents and bills and other responsibilities. Add social network to this, and these people cumulatively pursue things like world travelling, elaborate vacations, own businesses, YOLO etc.. , an endless stream of &#34;other people doing YOLO&#34; while us being worried what did I achieve so far?So, yeah, we feel lonely, go to social sites(which is appearently the whole &#34;internet&#34; to non tech-savvy groups) to see how others are having it good. Then suddenly we realize we wasted a lot of time on watching others having fun and decide that, we need to get better hobbies and stop this. But the loneliness never goes away as hobbies are extra toppings when we have a complete social life, so we are again pulled back to the cesspool, because at least there we can get some connection in forms of comment, likes and we can post our opinions as well or get into hours of comment-wars(which counts as social connection too)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I am addicted to twitter and reddit. Especially reddit. It often takes the place of reading, hobbies, quiet moments, improving my home, talking with my spouse, and playing with my baby.When reddit records a click or an upvote, it thinks it has been a Good Product, and created Engagement. Reddit then takes those feedback loops and tunes the algorithm and feedback loops to create further engagement.But in reality, there&#39;s almost no positive relationship between my engagement with social media and my personal human flourishing. I think these products are mostly poison for my soul."</p>
-							
-						
-							
-								<p class="story__comment_others">"Because we humans have a lot of idle time.We feel like we&#39;re wasting it, and we feel we should instead spend time archiving goals, to better ourselves, to do something more meaningful.  
-But that is not how life works. You are just unnecessarily burden yourself with guilt. Thinking you should be doing something else. There are so many things to learn about, so many things to experience, right? We fear on missing out on life, chasing something, but what exactly we don&#39;t really know.But maybe you just don&#39;t need to? Most of us are exactly fine with where we are. Of course you should always strive to improve, but truth is &#34;killing time&#34; is a big part of life. Especially for top of the food chain animals like humans. Watch some livestreams of lions on youtube, what do they do? 99% of the time they just sit under a tree doing absolutely nothing, and I bet they don&#39;t feel guilty about it. People used to walk labyrinths for hours and hours, just to kill time.This whole notion that you need to make the most out of every moment, live life to the fullest, see all the places, chase the uncomfortable! - I don&#39;t think it&#39;s necessarily the best advice, the happiest people I&#39;ve met tend to have very simple boring routines."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/cmuratori/status/1522468481135902725">When I tell the Windows Terminal team something is simple, I am &#34;misguided&#34;</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31284419">
-						
-							
-								<p class="story__comment_first line-clamp">"Issue: Feeling bad after interaction with OSS developer at &lt;BIG COMPANY&gt;.Steps to reproduce:1) Report a bug.2) Get called dumb by developers at &lt;BIG COMPANY&gt;.3) Demonstrate that it is, in fact, a bug with examples, test cases, and offer a potential fix/PR.4) Hear that it’s being “handled internally”.5) Wait for the blog post re-iterating what they called dumb, talking about how great the team is that fixed it, and see your demonstration code or test cases in the linked commit.6) Why are you still here? No, you’re not going to be credited, this is going in my promotion packet.I’ve lost count of the times I’ve seen this over the past 20 years. Whenever I’m about to report a bug in a &lt;BIG COMPANY&gt; project I smile to my girlfriend and say “OK, I’m going to go get called dumb.”"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is worse than it looks, since the person who wrote the blog post is the same person who insulted the dev, and is the same person who joined that dev&#39;s related discord under a pseudonym. [1][1] https://twitter.com/cmuratori/status/1522471966929653761"</p>
-							
-						
-							
-								<p class="story__comment_others">"I’m against ganging up but I think adding a relevant comment to this thread won’t count as such.Something the Microsoft API team did irked me slightly. One day the Microsoft 360 API (used for email) seemingly stopped working. After a whole week of troubleshooting and discussion with other devs around the planet I fixed the issue.  New headers had to be included. It was a one line fix that stole a week of my life.  The API had changed.  I could have been ok with this but when I made a post on the repo explaining the fix and that I had no idea why it had even changed, instead of a thank you- a Microsoft API dev chimed in to say it was a trivial change and didn’t see what everyone was so upset about.  Knowing no documentation had been updated and every system around the planet had been broken for probably a week that depended on it. No apology no gratitude. I can handle that. But an insult to say I was being impertinent and overblowing the importance.Well I never forgot it, and eventually this stuff comes out. I hazard to say there are toxic dangerous people in every major company I just don’t understand why these people aren’t cautioned as soon as these public incidents happen it’s as if no one is really watching the behaviour in the irc channels or repos but are instead focusing on internal metrics which in my opinion don’t measure the devastation cause by these bad apples - who should atleast be checked up on."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hbswk.hbs.edu/item/when-negotiating-a-price-never-bid-with-a-round-number">When negotiating a price, never bid with a round number (2016)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31283026">
-						
-							
-								<p class="story__comment_first line-clamp">"The idea is that the bidder&#39;s precision signals confidence, and that low confidence signals amenability to negotiation, and that negotiation leads to poorer outcomes for the bidder. The HBS paper they cite on M&amp;A [0] is most interesting, to my view, in the sense that both players in the M&amp;A &#34;game&#34; are presumably quantitative. One would think a social psychology effect would be less so in a game between quants, but their interviews suggest perceived confidence does matter. The precision signals that the bidder is confident pricing and negotiating analytically.The thing I am curious about in [0] is that they report the bid price per share, and not (unless I missed it) the asking price. I don&#39;t know how M&amp;A &#34;works&#34;. If you and I are both estimating the value of a good, if our estimates are close it&#39;s one thing and if they are far apart it&#39;s another. Are rounders losing because their estimates are less accurate, relative their counterparty&#39;s?[0] https://www.hbs.edu/ris/Publication%20Files/16-058_27d73983-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Another extremely successful tactic I stumbled upon by accident: electing a 3rd party decision maker that the other negotiator can&#39;t communicate with. Without the communication channel, the other negotiator is forced to &#34;sweeten the deal&#34; instead of using conversational skills.I received a job offer while my wife was traveling. The number was right for me and the job/company was right. But I told the hiring manager that I needed to talk it through with my wife first and that I&#39;d need a few days (no context about why I needed the time or which direction I expected it to go).She got home 3 days later. We sat down, talked it through for 10 minutes, and we were ready to accept.In the time between the initial offer and accepting the offer, I received 3 updated offers with increasing compensation. The final offer I accepted was $75k higher than the initial offer.After experiencing that, I&#39;ve noticed companies use this tactic frequently. When you call into a help center, often times the phone operator &#34;will need to talk to their manager&#34; who is authorized to make the actual decision. You aren&#39;t allowed to talk to the manager - all communication goes through the intermediary. I suspect they are aware that this is an effective negotiating tactic."</p>
-							
-						
-							
-								<p class="story__comment_others">"Surely this has something to do with the anchoring effect:- If you offer £210,000, it&#39;s a signal that you&#39;re looking at increments of £10,000.- If you offer £211,000 it&#39;s a signal that you&#39;re looking at increments of £1,000.- If you offer £211,000.01 then it signals that you&#39;re taking the piss.I&#39;m sure there&#39;s something about confidence and accuracy in there too, but I would expect anchoring effects to be stronger in those contexts."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://unpaywall.org/">Unpaywall: An open database of 31,903,705 free scholarly articles</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31271101">
-						
-							
-								<p class="story__comment_first line-clamp">"https://oa.mg/ is another initiative that indexes over 200 million papers and lets you know if a paper is open or not. They tend to have download links to a rather large amount of papers."</p>
-							
-						
-							
-								<p class="story__comment_others">"All scholarly papers funded by public money should be made freely available. All of these paid for publications need to stop being the Intuit of their fields and stop making people pay for something tax payers already paid for."</p>
-							
-						
-							
-								<p class="story__comment_others">"RIP Aaron Swartz.https://www.youtube.com/watch?v=M85UvH0TRPc"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://fidoalliance.org/apple-google-and-microsoft-commit-to-expanded-support-for-fido-standard-to-accelerate-availability-of-passwordless-sign-ins/">Apple, Google and Microsoft Commit to Expanded Support for FIDO Standard</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31272867">
-						
-							
-								<p class="story__comment_first line-clamp">"This is huge! It sounds like they&#39;re finally going implement cross-device synced credentials; a move I&#39;ve been advocating now for the last two and a half years[1].Widespread support for this feature is, in my opinion, the last thing needed to make WebAuthn viable as a complete replacement for passwords on the web.The white paper is here: https://media.fidoalliance.org/wp-content/uploads/2022/03/Ho... Seems like they announced this back in March and I missed it somehow.[1]: https://hn.algolia.com/?query=ajedi32%20webauthn&amp;type=commen..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Are there any FIDO security keys that explicitly support backing up and restoring their master secrets? I would love to move from Username + Password + TOTP but my current workflow requires that I am able to regain access to my digital accounts using nothing but a few page paper backup including core service passwords &amp; exported TOTP secrets."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve resisted switching to a hardware key because I know that I&#39;m going to break it, and that seems like a huge pain in the ass. I really want to be able to make a couple of backup keys, or maybe put another way, I want to be able to put the private key on the device myself, I don&#39;t necessarily care that the key is generated on the device and never leaves the device. I don&#39;t care if that slightly reduces my security - I&#39;m not protecting nuclear weapons, my threat model is not state actors trying to attack me, my threat model is me leaving my key in my pants pocket before putting it in the washing machine."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.cbsnews.com/news/home-prices-mortgage-rates-moodys-mark-zandi/">Homes in 97% of U.S. cities are overvalued, Moody&#39;s says</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31279809">
-						
-							
-								<p class="story__comment_first line-clamp">"The sooner we collectively decide that housing shouldn&#39;t be a market, the better. We all need it, and we should figure out mechanisms to make it available to all.Practically that means paying to build and maintain housing stocks, changing tax incentives so developers are incentivized to build more housing and less luxury housing, charging a premium for unused land in desirable areas (parking lots don&#39;t house people), abolish mandatory minimum parking, and upzone neighborhoods (eliminating the &#34;single family home&#34; neighborhoods as a zoning type.)I&#39;m also of the much more radical opinion that we should protect tenants over landlords in nearly every case, that we should protect the rights of people to live where they&#39;ve historically lived (eg, one shouldn&#39;t be &#34;priced out&#34; of the home they&#39;ve lived in for 20 years), and we should offer extensive public housing (built as many geographically distributed small apartment buildings and 5 over 1s, not giant tenements or projects.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Isn&#39;t this one of those &#34;If everyone is crazy, you&#39;re crazy&#34; situations? If every house is overvalued by some metric, then maybe the metric is wrong. People&#39;s perceptions of value are a large part of the actual value(meaning what someone would really pay) for things like housing that should depreciate over time."</p>
-							
-						
-							
-								<p class="story__comment_others">"Moody&#39;s who quite famously engaged in what should be criminal conspiracy regarding the rating of MBS [1] leading up to 2008 that cost pension funds, mutual funds and investors billions of dollars makes further statements about the housing market.Sorry but I don&#39;t put a lot of stock in what Moody&#39;s says about anything.There&#39;s pretty strong evidence that the rise in house values is structural not speculative. This is essentially the constraint of supply. There are multiple causes of this including:1. The US building very few new homes 2010-2020. There are lots of reasons for this. A big problem is the type of housing being built, particularly in urban center where like NYC where the vast bulk of new housing units are ultra-luxury condos;2. Permissive policies allowing the rich to park money in real estate. This particularly includes foreign nationals from places like China, India and Russia; and3. An increase in people owning multiple properties. These include second homes, vacation homes and short-term rentals (most notably for AirBnB). There&#39;s strong evidence that AirBnB in particular has huge negative impacts on a lot of metropolitan areas.A lot of tempted to blame Blackrock and other instituationl investors as constraining suply. this is completely overblown. These account for less than 1% of US homes.[1]: https://www.ft.com/content/6457f28a-d9fa-11e6-944b-e7eb37a6a..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.keycloak.org/">Keycloak: Open-Source Identity and Access Management</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31258469">
-						
-							
-								<p class="story__comment_first line-clamp">"In Keycloak nothing made sense to me until I got myself familiar with OAuth 2.0 and OpenID Connect.Keycloaks documentation seems vast, but isn&#39;t. There is also no way to search inside their documentation. It&#39;s a pity.A better documentation is contained in the administration web ui itself. There are so many &#34;hints&#34; and tooltips for almost every option there is. It really helped me a lot.Keycloak is good software. It never failed for me. Even upgrading from 7.x.x to 16.x.x somehow just worked.Yes, their docker image is fat, but it&#39;s also very flexible. Now that they are basing Keycloak on Quarkus instead on Wildfly, the docker image should shrink in size.    quay.io/keycloak/keycloak   18.0.0                      a6bd0f949af0   15 hours ago   562MB
-    quay.io/keycloak/keycloak   18.0.0-legacy               421e95f49589   46 hours ago   753MB
-
-ok, still big :).Beware: they aren&#39;t using Docker Hub anymore. Newer versions are on Quay only (https://quay.io/repository/keycloak/keycloak).I&#39;m happy with Keycloak. Also nice folks around Keycloak."</p>
-							
-						
-							
-								<p class="story__comment_others">"My company used Keycloak for a long time (I&#39;m not there any more) and I agree with everyone here, it works great, but it&#39;s hard to understand unless you already know oauth/oidc, and it is a huge binary.While Keycloak is a great out-of-the-box solution, my #1 complaint at the time was how heavyweight it was, which was a burden for development, followed closely by its packaging as a J2EE app and bundling with Wildfly (at the time).This meant we needed to know not only about Keycloak itself, but also about Wildfly&#39;s special quirks, the clustering system (Infinispan??), Java and Docker.Now it&#39;s packaged with Quarkus, which is another dependency to learn about, and to be honest despite the quality of the finished product, all those dependencies have become pretty off-putting.So while I can recommend Keycloak&#39;s functionality, if you&#39;re not already deploying Java apps as part of your job, I suspect it will present a pretty serious administrative burden to deploy into serious production."</p>
-							
-						
-							
-								<p class="story__comment_others">"We tried using keycloak in a startup where I worked. It needed a loooooooot of memory and was very slow to start. It probably needed some JVM tuning, but we were just deploying as a stateful set (for the postgres). The docker images were also huge.We had to use another FOSS project called Gatekeeper as an authentication software along with keycloak, which got obsoleted and replaced with a different project (lukedo proxy or some such).The community support was also relatively not that active like other FOSS project that we used (for other areas of the stack). Overall, the experience was not so great that we decided to ditch both keycloak and gatekeeper. This was about a couple of years back. Not sure what the current status is.Some other alternatives that we wanted to try were from the Ory project (Kratos etc.) But we just went with some proprietary AUTH solution in our startup."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31281919">Ask HN: Why can&#39;t I learn anymore?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31281919">
-						
-							
-								<p class="story__comment_first line-clamp">"This sounds like burnout to me. I am in my mid-40s and used to have spells like this, but no more. I needed some kind of large change, back then, to get myself sorted out, but this could be pretty destructive because if I waited too long, the change I&#39;d need wouldn&#39;t really be conducive to staying on whatever project I was on.The key to not having to deal with this problem anymore, for me, was starting to proactively switch things around to break the routine of consecutive work-weeks. One of my tricks was to do some kind of mini-vacation every 6-8 weeks, go somewhere new, leave work behind for 3-4 days. Even smaller things like regular social events can work wonders - anything that breaks the weekly routine.Back when I&#39;d get myself into burnout periods the most effective way to recover enthusiasm was to pick up a new skill, work-related or not. I was in my mid-30s in the late aughts and not entirely sure I wanted to keep coding - so I signed myself up for an 18 month &#34;executive MBA&#34; program to find out if I might want to do something else, and instead came out of that with a whole new outlook on how and why to write code.Then around 5 years later I started writing code on the side, for myself, to gradually improve over the long term, and this can be absolutely therapeutic.Try to switch things around a little bit, do something new, see if that helps?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Your problem is very simple: you are working on bullshit.Across your entire description of your situation you never once mentioned what it is you are actually working on but called out the income you hit and frameworks you are playing with. I humbly submit that your problem is that you have lost the plot.Hate to break it to you chief but the libraries and frameworks and techniques you use to work are not the point. Creating stuff that people want to use is all that matters. Doing it with finesse and craftsmanship is how you go from good to great but if nobody gives a shit you will always feel empty.Switching projects and doing something &#34;harder&#34; isn&#39;t going to fill that void.Build something people want. I promise your drive and all the rest will follow behind once you are making them happy and get hooked on solving their problems and improving their lives.That is what this game is all about."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll pile on to the burnout suggestion with my own personal solution to how I fixed that problem.I&#39;m early 40s, started coding around 13 or so, so it&#39;s been 30 years of software for me.  About ten years ago after living in the web programming world for a few years I got kind of the same feeling you have.  I missed my forms and windows app development, so I went to another company doing what I remembered enjoying.You can guess what happened next.  I hated it.  I remembered all the things that annoyed me about windows app development, and realized I was just tired of coding every day.  Coding has never been what I like about coding, it&#39;s building things that do things.  I started focusing more on the building side, this time with the team around me, and also just some non coding fun projects like learning auto mechanics, etc.  I drifted into a management role by accident and found a ton of fulfillment in coaching and mentoring.  After a while I started to miss the coding side, so I went into an architecture role where I still got to do coding but it was mostly exploratory POC stuff to decide on new technologies or not.  I took a role after that as a principal engineer, and while these are all mostly just title changes, it gave me enough variety to be exciting again.Today I tell prospective employers that I am someone that drifts between IC and leadership roles.  I believe experience in both helps both.  My drive waxes and wanes but I think that&#39;s totally normal for humans.  I just came to terms with it and stopped worrying about it, and now I&#39;m very satisfied in my career."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://what-if.xkcd.com/158/">How many radioactive bananas would you need to power a house?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31280350">
-						
-							
-								<p class="story__comment_first line-clamp">"Energy densities of various substances and/or reactions is pretty fascinating concept.Some of the most interesting energy analysis I&#39;ve come across (Vaclav Smil and David MacKay especially) describe energy in terms of area:  what are the comparable land areas which would have to be dedicated to specific sources or forms of energy or fuels, and how do those compare?  One of Smil&#39;s descriptions of petroleum wells is &#34;punctiform&#34;, which I love.  A hole in the ground, only about 20 cm in diameter, can provide years to millennia of human energy output, per day.1 litre of oil is equivalent to about 3 days of human energy output (at 3,000 kilocalories/day).1 gallon of oil is eqivalent to about 11 days of human energy.One of the oldest oil wells in production (the First Oil Well of Bahrain) produced 80,000 barrels of oil per day initially.  That&#39;s over 1,000 years of human energy equivalent.By comparison, the yeild of current biomass production is far, far less.  The difference, of course, is that oil is biomass, accumulated, converted, and concentrated over hundreds of millions of years.  We&#39;re consuming it at &gt; 5 million times its rate of formation.  (See Jeffrey S. Dukes, &#34;Burning Buried Sunshine&#34; (2003).)In terms of radioactivity, the net metabolic rate of the Sun&#39;s core is lower than that of a human, measured in energy/mass.  Solar metabolism is closer to that of reptiles, about 1/5 of mamallian metabolic rates.Chemical energy is less productive than the most effective nuclear transitions, but its shear abundance and ease of utilisation tends to weigh in its favour."</p>
-							
-						
-							
-								<p class="story__comment_others">"Potassium-40 decay is also one of the largest sources of geothermal heat [0]. The cumulative energy released is within two orders of magnitude of the Earth&#39;s gravitational binding energy.[0] https://en.wikipedia.org/wiki/Earth&#39;s_internal_heat_budget#R..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; 15 decays per second from one banana work out to a couple of picowatts of power, roughly the power consumption of a single human cell. Even if you captured that decay energy with perfect efficiency, powering a house would require about 300 quadrillion[6] bananas&gt; [6] Fine, I looked it up this time.I think that&#39;s out by a factor of 1000.Potassium-40 decays 89.28% of the time to calcium-40, releasing 1.31 MeV, and 10.72% of the time to argon-40 releasing 1.46 MeV [1].  That&#39;s .8928*1.31+.1072*1.46 = 1.32608 MeV per decay on average, which is about 2.1246e-13 Joules [2] per decay on average.  15 decays per second is 15*2.1246e-13 ≈ 3.1869e-12 Watts = 3.1869 picowatts per banana.  I think Randall is using 1000 Watts as the average power usage of a house.  1000/3.1869e-12 ≈ 3.1378e14 ≈ 300,000,000,000,000 = 300 trillion bananas.  Maybe he looked it up wrong?Can anyone confirm this?I can&#39;t find the packing density of bananas, but if it was 1000 kg/m^3, a medium banana is ~118 g [3], so 1000/.118 ≈ 8475 bananas / cubic metre, so 300e14/8475 ≈ 3.54e12 cubic metres of bananas.  The New York metro area is about 12000 km^2 = 12e9 m^2 [4], so the depth of the banana pile is on average 3.54e12/12e9 ≈ 295 metres, which is indeed taller than most of the buildings, so that bit seems right.It&#39;s half past midnight here, so I&#39;m well into &#34;Someone is wrong on the internet&#34; [5] territory....[1] https://en.wikipedia.org/wiki/Potassium-40[2] https://www.unitjuggler.com/convert-energy-from-MeV-to-J.htm...[3] https://www.healthline.com/nutrition/bananas-calories-carbs[4] https://en.wikipedia.org/wiki/New_York_metropolitan_area[5] https://xkcd.com/386/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases">Ultorg: A user interface for relational databases [video]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31219324">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;ve been using Hasura and TablePlus a lot lately, and actually wished for something that combines them.Hasura is great at understanding relations and making joins feel effortless and TablePlus is so good at making table editing feel as fast as excel.This looks like it&#39;s the thing, with some extra power thrown on top (formulas and nested layouts are nice!).The UI looks drab, but maybe that&#39;s ok? It means the functionality needs to be so strong it doesn&#39;t matter. It also looks super snappy which matters most.Something that Airtable has over relational database GUIs is lightweight enums and arrays of them. Sure you can model all that in SQL, but it&#39;s super useful to have it right inline. I hope this tool can pick up on a pattern like enum tables (like hasura) and provide UI that makes them look like tag list/select fields."</p>
-							
-						
-							
-								<p class="story__comment_others">"Related: I&#39;m enjoying the format of the HYTRADBOI (have you tried rubbing a database on it?) videos. It doesn&#39;t have that live-presentation feel of an in-person conference talk, but as I&#39;m behind a screen anyway I don&#39;t really care about that. Give me the information succinctly, so I can watch it during a coffee break or whatever.The organiser of the conference had an interesting (and likeiwse pleasantly succinct!) post-mortem write up of the event, if anyone is interestedhttps://www.scattered-thoughts.net/writing/hytradboi-2022-po..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here’s some more information on Ultorg:&gt; Ultorg creates general-purpose software that helps organizations manage their data. Based on a new method for interactive data visualization, our product combines ease-of-use with expressive power to allow end-users to query, display, and edit relational data, without resorting to custom programming. This fills a long-standing gap between spreadsheets and tailor-made database applications. [0]I find it inspiring that it has such readable and space-efficient interface, compared to current trends in many web apps.[0] https://ultorg.com"</p>
 							
 						
 						</a>
