@@ -36,6 +36,399 @@
 	</div>
 
 	
+	<div class="day__date">27 May 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://kenkantzer.com/learnings-from-5-years-of-tech-startup-code-audits/">
+						<picture>
+							<source srcset="default_31506319.webp" type="image/webp">
+							<source srcset="default_31506319.png" type="image/png">
+							<img src="default_31506319.png" alt="Preview of 'Learnings from 5 years of tech startup code audits'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://kenkantzer.com/learnings-from-5-years-of-tech-startup-code-audits/">Learnings from 5 years of tech startup code audits</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31506319">
+						
+							
+								<p class="story__comment_first line-clamp">"That&#39;s a very interesting set of findings. What is important to realize when reading this that it is a case of survivorship bias. The startups that were audited were obviously still alive, and any that suffered from such flaws that they were fatal had most likely already left the pool.In 15 years of doing technical due diligence (200+ jobs) I have yet to come across a company where the tech was what eventually killed them. But business case problems, for instance being unaware of the true cost of fielding a product and losing money on every transaction are extremely common. Improper cost allocation, product market mismatch, wishful thinking, founder conflicts, founder-investor conflicts, relying on non-existent technology while faking it for the time being and so on have all killed quite a few companies.Tech can be fixed, and if everything else is working fine there will be budget to do so. These other issues usually can&#39;t be fixed, no matter what the budget."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Simple Outperformed Smart. As a self-admitted elitist, it pains me to say this, but it’s true: the startups we audited that are now doing the best usually had an almost brazenly ‘Keep It Simple’ approach to engineering.I wrote about this before that as an industry, we have made writing software complex for complexity&#39;s sake.&gt; imagine, in a world where there wasn&#39;t a concept of clean code but to write code as simply as possible. not having thousands of classes with indirection.what if your code logic was simple functions and a bunch of if statements. not clever right, but it would work.what if your hiring process was not optimizing for algorithm efficiency but that something simply works reliably.imagine a world where the tooling used by software engineers wasn&#39;t fragile but simple to use and learn. oh the world would be a wonderful place, but the thing is most people don&#39;t know how to craft software. but here we&#39;re building software on a house of cards [0]:[0] - https://news.ycombinator.com/item?id=30166677"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve seen most of the architectural problems in consulting - it&#39;s amazing how a team of clever engineers can take a simple thing and make it sooo convoluted.Microservices, craptons of cloud-only dependencies, no way to easily create environments, ORMs and tooling that wraps databases creating crazy schemas... The list goes on and on; if you&#39;re early, you could do a lot worse than create a sensible monolith in a monorepo that uses just postgres, redis, and nginx and deploys using &#39;git pull&#39; ..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://sqlite.org/fiddle/">
+						<picture>
+							<source srcset="default_31518618.webp" type="image/webp">
+							<source srcset="default_31518618.png" type="image/png">
+							<img src="default_31518618.png" alt="Preview of 'SQLite 3 Fiddle'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://sqlite.org/fiddle/">SQLite 3 Fiddle</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31518618">
+						
+							
+								<p class="story__comment_first line-clamp">"898 KB even without compression. Pretty good for what it is. Properly compressed, it’d be well under half that on the wire.(The server seems to be serving with only extremely mild compression, and none on the biggest part, the WASM. Feeding it all through `gzip -9` cuts it to 408 KB, of which 374 KB is the WASM. `brotli` cuts it to 352 KB, of which 323 KB is the WASM. The HTML, CSS and JavaScript are also largely unminified, and even a simple conservative pass roughly halves their gzipped size. No idea of the state of the WASM, I’m not going prodding inside it just now. I know that I’m never impressed with the JavaScript side of the bindings produced by Empscripten, Rust’s wasm-bindgen and any other such tools I’ve seen—with a little manual effort, I’ve very easily reduced 50 KB files—minified!—to under 5 KB. Optimising such things and immediately discarding the results is a strange hobby of mine.)For comparison, the similar parts of https://sql.js.org/examples/GUI/index.html are a bit under 1.2 MB uncompressed (most notably excluding CodeMirror), around 450 KB on the wire."</p>
+							
+						
+							
+								<p class="story__comment_others">"Richard Hipp, of sqlite fame, just announced the project&#39;s new WASM-based &#34;fiddle&#34; app in the sqlite forum (https://sqlite.org/forum/forumpost/5cfd681451), providing a way for users to run a slightly-hacked build of the sqlite3 shell app in their browsers (with no server-side backend).(Edit: this was my first-ever HN post and i _thought_ that this comment was going to &#34;stick&#34; up top with the link to serve as an introduction/explanation. Didn&#39;t realize that it would be &#34;just another comment.&#34;)"</p>
+							
+						
+							
+								<p class="story__comment_others">"If you find this useful, you may also benefit from the fact that Python compiled to WASM (by Pyodide) also includes a working build of SQLite in the sqlite3 standard library module.You can try that out in a REPL here: https://pyodide.org/en/stable/console.html    import sqlite3
+    db = sqlite3.connect(&#34;:memory:&#34;)
+    db.execute(&#34;select 4 * 5&#34;).fetchall()
+
+Or in a full client-side WASM Jupyter notebook interface using https://jupyterlite.readthedocs.io/en/latest/try/labI also used Pyodide to get my Datasette SQLite Python web application running entirely in the browser at https://lite.datasette.io - more details on how that works here: https://simonwillison.net/2022/May/4/datasette-lite/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.falstad.com/pong/">
+						<picture>
+							<source srcset="default_31511719.webp" type="image/webp">
+							<source srcset="default_31511719.png" type="image/png">
+							<img src="default_31511719.png" alt="Preview of 'Original Pong did not have any code or even a microprocessor'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.falstad.com/pong/">Original Pong did not have any code or even a microprocessor</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31511719">
+						
+							
+								<p class="story__comment_first line-clamp">"In the year 1974, Practical Wireless, a UK magazine, published a design for a pong game that connects to a television, called PW Tele Tennis.It uses sixty four NAND gates, twelve NE555 timers, two dozen diodes and some analog parts.It&#39;s about the most basic version of the game. They later published a sound effects board and an on-screen scoring board that uses a couple of dozen more chips.http://searle.x10host.com/TeleTennis/PWTennis.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"I implemented Conways Game of Life in TTL and oscilloscope for my 1975 MIT digital circuits lab. The clock was 6 nanoseconds or 166 MHz. The limiting chip was one kilobit RAM which was in tight supply and expensive. I think we used two for alternating generations. There are similarities to the pong circuit."</p>
+							
+						
+							
+								<p class="story__comment_others">"This helps to explain what was going on in this &#34;That&#39;s 70s Show&#34; episode where Red and Kelso modify a pong game to have smaller paddles.(short clip when they had finished)https://www.youtube.com/watch?v=9Td0P9Mqu68A recreation of that modification:https://www.aussiearcade.com/topic/86532-smaller-paddles-big..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.reuters.com/markets/us/chipmaker-broadcom-buy-vmware-61-bln-deal-2022-05-26/">
+						<picture>
+							<source srcset="default_31517184.webp" type="image/webp">
+							<source srcset="default_31517184.png" type="image/png">
+							<img src="default_31517184.png" alt="Preview of 'Broadcom to acquire VMware for $61B'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/markets/us/chipmaker-broadcom-buy-vmware-61-bln-deal-2022-05-26/">Broadcom to acquire VMware for $61B</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31517184">
+						
+							
+								<p class="story__comment_first line-clamp">"For anyone who doesn&#39;t know, VMware has doubled down in open source in the past 3 years, especially Kubernetes. I don&#39;t think Broadcom really understands how investment in open source works or for that matter cares.Half of my org of ~500 engineers works on upstream projects.Disclaimer: Current employee of VMware"</p>
+							
+						
+							
+								<p class="story__comment_others">"Michael Dell will get $24bn! from this acquisition...It&#39;s fascinating how he turned around a struggling PC company (Dell Inc) into a financial engineering machine that made him tens of billions.https://www.forbes.com/sites/antoinegara/2021/04/18/how-wall..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh no https://www.reddit.com/r/cybersecurity/comments/uxucz4/if_vm..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://vertigo.ai/focus/">
+						<picture>
+							<source srcset="default_31516108.webp" type="image/webp">
+							<source srcset="default_31516108.png" type="image/png">
+							<img src="default_31516108.png" alt="Preview of 'Show HN: I turned my face rec system into a video codec'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://vertigo.ai/focus/">Show HN: I turned my face rec system into a video codec</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31516108">
+						
+							
+								<p class="story__comment_first line-clamp">"Well done for putting it out there!We&#39;ve worked on this about 3 years ago, plus background removal (realtime alpha-matting still not really done well by anyone), portrait re-lighting (G-Meet is now doing this) and even eye-contact (adjusting eye position to create the illusion of looking directly into the camera).Some findings:- Competing with dedicated H264/5 chips is very hard, especially when it comes to energy efficiency, which is something that mobile users ultimately care a lot about.  Super-resolution on H264 is probably the way to go.- It&#39;s hard to turn this into a business (corporates that pay for Zoom don&#39;t seem to care much).PS Also a big fan of super-tiny AI models (binarized NNs, frequency-domain NNs, etc) for edge applications.  Happy to chat!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Awesome!A thought: now that neural compression is becoming widespread, it could be a good idea to put some kind of indicator or watermark stating the compression is neural (learned/function approximation in general). I think this would avoid liabilities and criticism around the fact that some weird things may appear (incorrect detail generation), maybe giving a wrong semantic idea. It may also be a good idea to put a mean squared error term in your objective function to help preserve general meaning."</p>
+							
+						
+							
+								<p class="story__comment_others">"You lost me at &#34;patent pending&#34;. This idea has been obvious and in progress for a while now with lots of prior work. The issue is more the standards. Please don&#39;t sell this to a patent troll who will harass the industry for 20 years."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://wilwheaton.net/2022/05/yes-i-was-forced-to-be-a-child-star-it-was-never-my-dream-or-my-idea/">
+						<picture>
+							<source srcset="default_31513829.webp" type="image/webp">
+							<source srcset="default_31513829.png" type="image/png">
+							<img src="default_31513829.png" alt="Preview of 'I was forced to be a child star. It was never my dream or my idea'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://wilwheaton.net/2022/05/yes-i-was-forced-to-be-a-child-star-it-was-never-my-dream-or-my-idea/">I was forced to be a child star. It was never my dream or my idea</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31513829">
+						
+							
+								<p class="story__comment_first line-clamp">"Wow Will was such a part of my childhood watching Star Trek. Obviously, he didn&#39;t appear often but he was memorable simply because there were so few people as young as him on the show.Sad to hear this all around. This also brought back memories of me being required to play piano growing up. I hated piano, performing (recitals), playing in general. I was terrrribbleee (still am) and was put up in lessons for 12 years. I fought tooth and nail as I got older and eventually was so bad my parents stopped at 16.Music is a very &#34;asian&#34; or &#34;chinese&#34; thing to put your child through. As well as being good academically. This part of my life was a sore spot, but not even close Will&#39;s situation.As I have young children of my own today, I&#39;m faced with these questions. What is a healthy amount of pushing vs too much? I don&#39;t need my kid to be the best at anything - I just don&#39;t want them to be lost/dead-in-the-water or unable to fend for themselves."</p>
+							
+						
+							
+								<p class="story__comment_others">"Now think how many children suffered the same fate, but we’ll never hear about it because they did not become famous.Reminds me of “dance moms” or “cheer moms”, “football dads”, etc.If you’re a parent, remember not to live your unfulfilled dreams through your children."</p>
+							
+						
+							
+								<p class="story__comment_others">"One of my friend&#39;s daughters really, really enjoyed dancing, singing, acting, auditioning for commercials.  Her aunt had won Survivor, or American Race, or Big Brother, or whatever (they&#39;re all the same to me, I can&#39;t remember which it was) and she wanted to be just like her!   Until the day at seven years old that she had to go to an audition, she sat herself down in the middle of the driveway and said, &#34;No, no, no, no, I hate this, I hate this, please never, please,&#34; and wouldn&#39;t budge.  My friend was forced to realize finally it had been all her, and not her daughter.  Thankfully, she did get the message, was self-reflective enough to listen.What a strong little girl, I thought.  I remember years of &#34;loving&#34; horseback riding lessons and shows as a kid because I wasn&#39;t strong enough to tell my mother I hated every minute of it.  As a father myself now, I try very hard to listen and support what my kid is interested in, and not manufacture what I want him to be, and wonder if I still screw it up."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://dinosaurpictures.org/ancient-earth#260">
+						<picture>
+							<source srcset="default_31520483.webp" type="image/webp">
+							<source srcset="default_31520483.png" type="image/png">
+							<img src="default_31520483.png" alt="Preview of 'What did Earth look like X million years ago?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://dinosaurpictures.org/ancient-earth#260">What did Earth look like X million years ago?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31520483">
+						
+							
+								<p class="story__comment_first line-clamp">"Hi HN, I built this.  It&#39;s been posted several times before, so I can answer some common questions:How does this work?
+I adapted GPlates [1], an academic project that creates desktop software for geologists to investigate plate tectonic data.Is the geocoding accurate?
+Even though plate tectonic models return precise results, you should consider the plots approximate within ~100km. In my tests I found that model results can vary significantly. I chose this model because it is widely cited and covers the greatest length of time.How should I interpret the maps/colors?
+The graphics that wrap the globe are provided by Dr. Christopher Scotese, a geologist who runs the PALEOMAP project.  You can learn more about the project and the creation of the rasters here [2].  You might also notice some old national borders.  I just work with what I can get!Why can&#39;t it look up my location?
+Your location probably didn&#39;t exist at the time, geologically speaking.  Try switching to closer to present day (e.g. 66 Mya)Where are all the dinosaurs?
+Despite the title of this post, the visualization isn&#39;t really meant to show an exhaustive list of dinosaurs or fossils (the list doesn&#39;t even show on mobile).  If you want to dig into data on fossils near you, check out the Paleobiology Database Navigator [3].[1] https://www.gplates.org[2] https://drive.google.com/file/d/1-q0WIa7ofISFHyBe4UxvN8DIPs8...[3] https://paleobiodb.org/navigator/"</p>
+							
+						
+							
+								<p class="story__comment_others">"One of the neat bits from this is going to 340 Mya and look at where the Appalachian mountain range runs.You can hike part of the Appalachian trail in Spain https://www.geologiadesegovia.info/the-international-appalac... and Ireland https://iatulsterireland.comhttps://en.wikipedia.org/wiki/International_Appalachian_Trai..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Dang, wish this title was updated to be less misleading. I spent way too long looking for functionality that didn&#39;t exist. The author (not same person as poster) posted in the comments:&gt; Where are all the dinosaurs? Despite the title of this post, the visualization isn&#39;t really meant to show an exhaustive list of dinosaurs or fossils (the list doesn&#39;t even show on mobile).That said, this is a really cool visualization of how the water fill and plates evolved over time. Love it!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.bolt.com/blog/message-from-bolt-ceo">
+						<picture>
+							<source srcset="default_31507599.webp" type="image/webp">
+							<source srcset="default_31507599.png" type="image/png">
+							<img src="default_31507599.png" alt="Preview of 'Bolt announces layoffs'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.bolt.com/blog/message-from-bolt-ceo">Bolt announces layoffs</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31507599">
+						
+							
+								<p class="story__comment_first line-clamp">"Rumors going around on blind (posted by bolt employees) that over the course of a few rounds of layoffs it will be 30-50% of the total workforce. A lot of the initial layoff are software engineers. Apparently they only have 12-18 months of runway, and need to effectively double that. Current revenue is 40M.I guess this is the beginning of the tech washout. clings to large tech company jobEDIT: 33% layoff today"</p>
+							
+						
+							
+								<p class="story__comment_others">"The founder also encouraged employees to take on what was effectively personal debt at an ~11B valuation when they only did $5.2M in Q1…"</p>
+							
+						
+							
+								<p class="story__comment_others">"Bolt Financial, the finops company, not Bolt the car sharing service which seems to be doing fine:&gt; In January 2022, Bolt raised €628 million from investors led by Sequoia Capital and Fidelity Management and Research Co, taking the company&#39;s valuation to €7.4 billion"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/lucidrains/imagen-pytorch">
+						<picture>
+							<source srcset="default_31513919.webp" type="image/webp">
+							<source srcset="default_31513919.png" type="image/png">
+							<img src="default_31513919.png" alt="Preview of 'Implementation of Imagen, Google&#39;s text-to-image neural network, in PyTorch'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/lucidrains/imagen-pytorch">Implementation of Imagen, Google&#39;s text-to-image neural network, in PyTorch</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31513919">
+						
+							
+								<p class="story__comment_first line-clamp">"Good to see LucidRains get the love he (rightly) deserves. He&#39;s a beast!As a thank you to him -- he also does for work for commission/etc, check hus GitHub page for more info. I&#39;m not fiscally or currently otherwise directly linked to him too closely, I&#39;ve just hung around a while and think he deserves far more credit than he gets. This is literally the smallest piece of the pie of what the man does across several subdisciplines, send him a thank-you please, if possible!"</p>
+							
+						
+							
+								<p class="story__comment_others">"What is the reason Google published their research details about Imagen?Why don&#39;t they just keep their findings to themselfes and build products on top of them?Public companies can&#39;t do stuff just for the fun of it, right? So there must be some commercial reasoning behind it?"</p>
+							
+						
+							
+								<p class="story__comment_others">"How much would it cost to train something like this? Is there even a good dataset for it?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://a13xp0p0v.github.io/2022/05/24/pwn-fuchsia.html">
+						<picture>
+							<source srcset="default_31497827.webp" type="image/webp">
+							<source srcset="default_31497827.png" type="image/png">
+							<img src="default_31497827.png" alt="Preview of 'A Kernel Hacker Meets Fuchsia OS'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://a13xp0p0v.github.io/2022/05/24/pwn-fuchsia.html">A Kernel Hacker Meets Fuchsia OS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31497827">
+						
+							
+								<p class="story__comment_first line-clamp">"My takeaway from the article is that Fuchsia exposes a capability-based interface externally, but uses the old kind of privilege-checking inside the kernel. Once a single sloppy check was found, the game was over: a privilege escalation and planting of arbitrary code into the kernel followed.Did I miss anything?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Something that I haven&#39;t seen brought up yet is the &#34;weird C++ vtable layout.&#34; This is actually the &#34;relative vtable layout&#34; that&#39;s first described here: https://bugs.llvm.org/show_bug.cgi?id=26723, and is usable in clang via the -fexperimental-relative-c++-abi-vtables option.The basic idea is that you don&#39;t need to waste a whole 64 bits for vtable entry, especially since you can usually assume that code within the same DSO will be within 32 bits of each other. So, instead, you do a 32-bit offset from a known address (the vtable&#39;s address) to get the function pointer, and in the rare case you need a cross-DSO entry, just emit a thunk for the symbol that&#39;s in the same DSO to get an address within 32 bits."</p>
+							
+						
+							
+								<p class="story__comment_others">"Disclaimer: I made some contributions to Fuchsia and I am clearly biased.I am not sure why there&#39;s so much negativity around Fuchsia. From a technical point of view it&#39;s finally a serious attempt to do something new in the OS space. It might not be the right and perfect answer, but it might introduce new paradigms and maybe some fork of the project might be able to provide additional benefits for end users down the road. I know that there are lots of hobby/research projects trying out new stuff, but i think Fuchsia stands out because it might be able to land the innovation and make it accessible for a larger user base."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">26 May 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -59,11 +452,11 @@
 						<a href="https://news.ycombinator.com/item?id=31510865">
 						
 							
-								<p class="story__comment_first line-clamp">"This is an interesting part to me: &#34;[T]he new order[0] adds more provisions to protect consumers in the future: ... Twitter must provide multi-factor authentication options that don’t require people to provide a phone number.&#34;I would like to see this be a more broad-based rule.  No, I am not moved by &#34;SMS is easy&#34; or &#34;getting a number that can receive SMS is harder for scammers to do in bulk.&#34;  If you must, give users the choice but not the obligation to hand over a mobile number.0 - https://www.ftc.gov/legal-library/browse/cases-proceedings/2..."</p>
+								<p class="story__comment_first line-clamp">"I don&#39;t have the most optimistic outlook for this having any impact, but I really hope this sets a precedent for limiting the use of dark patterns with which companies try to tie your identity to a phone number. I think the total sum for this fine is rather myopic: it ignores the long tail of possible future data leaks and the impact it might have on the people behind the affected accounts.I created my current Twitter account a few years ago and it remained dormant for a while. It was flagged as &#34;in violation of our policies&#34; despite having not made any tweets or using a handle or nickname that would cause offense to anyone. In order to resolve this, I had to enter my phone number to &#34;secure&#34; my account. I don&#39;t know what process triggered this review, but I&#39;ll be damned if it didn&#39;t smell like an easy way to associate an existing marketing profile with my Twitter account. Of course, it&#39;s vitally important to profile a service I used to keep up with industry news and post about Goban puzzles.I&#39;ve also run into similar patterns on Discord and similar platforms; &#34;Oops! Something suspicious is happening with the account [you literally just created]. Please add a phone number to your profile to proceed.&#34;Although I follow a reasonable set of practices around identity/password management, I usually architect my risk profile with a &#34;I don&#39;t care if I lose this account&#34; approach. If that statement isn&#39;t true, then I will happily apply all of the security measures available. However, it seems like the idea of creating &#34;I don&#39;t care&#34; accounts is becoming increasingly difficult as we continue to invest in user marketing analytics and lower the barrier of entry to these types of technologies that do not have the consumer&#39;s best interests in mind."</p>
 							
 						
 							
-								<p class="story__comment_others">"I don&#39;t have the most optimistic outlook for this having any impact, but I really hope this sets a precedent for limiting the use of dark patterns with which companies try to tie your identity to a phone number. I think the total sum for this fine is rather myopic: it ignores the long tail of possible future data leaks and the impact it might have on the people behind the affected accounts.I created my current Twitter account a few years ago and it remained dormant for a while. It was flagged as &#34;in violation of our policies&#34; despite having not made any tweets or using a handle or nickname that would cause offense to anyone. In order to resolve this, I had to enter my phone number to &#34;secure&#34; my account. I don&#39;t know what process triggered this review, but I&#39;ll be damned if it didn&#39;t smell like an easy way to associate an existing marketing profile with my Twitter account. Of course, it&#39;s vitally important to profile a service I used to keep up with industry news and post about Goban puzzles.I&#39;ve also run into similar patterns on Discord and similar platforms; &#34;Oops! Something suspicious is happening with the account [you literally just created]. Please add a phone number to your profile to proceed.&#34;Although I follow a reasonable set of practices around identity/password management, I usually architect my risk profile with a &#34;I don&#39;t care if I lose this account&#34; approach. If that statement isn&#39;t true, then I will happily apply all of the security measures available. However, it seems like the idea of creating &#34;I don&#39;t care&#34; accounts is becoming increasingly difficult as we continue to invest in user marketing analytics and lower the barrier of entry to these types of technologies that do not have the consumer&#39;s best interests in mind."</p>
+								<p class="story__comment_others">"This is an interesting part to me: &#34;[T]he new order[0] adds more provisions to protect consumers in the future: ... Twitter must provide multi-factor authentication options that don’t require people to provide a phone number.&#34;I would like to see this be a more broad-based rule.  No, I am not moved by &#34;SMS is easy&#34; or &#34;getting a number that can receive SMS is harder for scammers to do in bulk.&#34;  If you must, give users the choice but not the obligation to hand over a mobile number.0 - https://www.ftc.gov/legal-library/browse/cases-proceedings/2..."</p>
 							
 						
 							
@@ -253,7 +646,7 @@
 							
 						
 							
-								<p class="story__comment_others">"&gt; I was banned from the Go issue tracker for mysterious reasons, so I cannot continue to nag them for a fix.¹ I can’t blackhole their IP addresses, because that would make all Go modules hosted on git.sr.ht stop working for default Go configurations (i.e. without GOPROXY=direct). I tried to advocate for Linux distros to patch out GOPROXY by default, citing privacy reasons, but I was unsuccessful. I have no further recourse but to tolerate having our little-fish service DoS’d by a 1.38 trillion dollar company. But I will say that if I was in their position, and my service was mistakenly sending an excessive amount of traffic to someone else, I would make it my first priority to fix it. But I suppose no one will get promoted for prioritizing that at Google.&gt; [1]: In violation of Go’s own Code of Conduct, by the way, which requires that participants are notified moderator actions against them and given the opportunity to appeal. I happen to be well versed in Go’s CoC given that I was banned once before without notice — a ban which was later overturned on the grounds that the moderator was wrong in the first place. Great community, guys."</p>
+								<p class="story__comment_others">"Regardless of whether or not Drew is abrasive (I&#39;ve never dealt with him so have no opinion), this is on Google.If a single service (Go&#39;s module crawler) is doing this to multiple third parties (and it is, by design) then requiring Drew to implement a workaround is the same thing as relying on every (relevant to the issue) third party to do the same thing.  Which is bad design.This should be fixed at source or switched off.As for the workaround itself it&#39;s true that going on a crawler exclusion list will not stop SourceHut being usable, only make it a little stale, but that doesn&#39;t matter.  The problem is not at Drew&#39;s end.  And once again for this workaround to be an effective solution every (relevant to the issue) third party needs to do the same thing.  Which is bad design.As a general rule, with excessive polling the system doing the polling is the one at fault.  And as a general rule if one system impacts many fix at the originator.  If Google devs don&#39;t know this, then why on earth are they getting the salaries they do?"</p>
 							
 						
 							
@@ -325,12 +718,12 @@
 						<a href="https://news.ycombinator.com/item?id=31488910">
 						
 							
-								<p class="story__comment_first line-clamp">"Minor usability suggestion that literally no one will likely care about but I notice it all the time:If you&#39;re writing a blog post about your service then chances are you&#39;re interested in driving people to the main website about that service?So...make it easy for those potential users to get there. At the top of your blog have a prominent &#34;what is [service]&#34; link to the marketing home / about page or a call out box.This guy does it as a CTA after the post which is a start but many, many people don&#39;t. That then leaves me and other potential users to have to figure out how to get to the homepage. I&#39;ll do it but you&#39;ll lose many others."</p>
+								<p class="story__comment_first line-clamp">"I never realized that Healthchecks.io was a one man show.
+I&#39;m almost ashamed to say that i&#39;ve been using the free tier for years. I moved from self hosted to the free tier when i killed off all of self hosted services, and i don&#39;t have much legitimate use for it, having it attached to a backup of a Raspberry Pi running HomeBridge in my summerhouse :)I do use it for a purpose it probably was not designed for :) In my summerhouse, one of the circuit breakers trips every now and then (1-2 times per year) for no apparent reason, and since the fridge is connected to that breaker, i very much fear arriving at a summer house where the fridge has been unpowered for a couple of weeks.The solution to that of course, was to setup a systemd timer on a Raspberry Pi (that also runs HomeBridge), which pings Healthchecks.io every 15 minutes. If it misses 2 pings it raises an alert.So far i&#39;ve had 2 notifications in the 2+ years it&#39;s been running, and both have been internet connection related, so monitoring the situation has apparently changed something :)"</p>
 							
 						
 							
-								<p class="story__comment_others">"I never realized that Healthchecks.io was a one man show.
-I&#39;m almost ashamed to say that i&#39;ve been using the free tier for years. I moved from self hosted to the free tier when i killed off all of self hosted services, and i don&#39;t have much legitimate use for it, having it attached to a backup of a Raspberry Pi running HomeBridge in my summerhouse :)I do use it for a purpose it probably was not designed for :) In my summerhouse, one of the circuit breakers trips every now and then (1-2 times per year) for no apparent reason, and since the fridge is connected to that breaker, i very much fear arriving at a summer house where the fridge has been unpowered for a couple of weeks.The solution to that of course, was to setup a systemd timer on a Raspberry Pi (that also runs HomeBridge), which pings Healthchecks.io every 15 minutes. If it misses 2 pings it raises an alert.So far i&#39;ve had 2 notifications in the 2+ years it&#39;s been running, and both have been internet connection related, so monitoring the situation has apparently changed something :)"</p>
+								<p class="story__comment_others">"Minor usability suggestion that literally no one will likely care about but I notice it all the time:If you&#39;re writing a blog post about your service then chances are you&#39;re interested in driving people to the main website about that service?So...make it easy for those potential users to get there. At the top of your blog have a prominent &#34;what is [service]&#34; link to the marketing home / about page or a call out box.This guy does it as a CTA after the post which is a start but many, many people don&#39;t. That then leaves me and other potential users to have to figure out how to get to the homepage. I&#39;ll do it but you&#39;ll lose many others."</p>
 							
 						
 							
@@ -955,7 +1348,7 @@ When I go on vacation, I like to enjoy the drive.&#34;&gt; In Christian churches
 							
 						
 							
-								<p class="story__comment_others">"If the Greens in England and Wales dropped their opposition to nuclear and also binned off a few of their more anti-egalitarian positions (I cannot in good faith support criminal sentencing where a man goes to jail but a woman doesn&#39;t for the same crime for example) and I&#39;d probably vote for them at this point. They&#39;ve only recently been seen as a &#39;serious&#39; party with mainstream appeal but climate change doesn&#39;t really care for our political sensibilities."</p>
+								<p class="story__comment_others">"Funding for the source is interesting:&gt; &#34;The Alliance for Science is a global communications initiative based at the Boyce Thompson Institute, an independent nonprofit research institute affiliated with Cornell University. Our primary source of support is the Bill &amp; Melinda Gates Foundation.&#34;The article does gloss over where Finland would source its uranium from.  A GW-scale nuclear power plant burns through ~200 tons of fuel rods per year, and Finland&#39;s supplier seems to have been the Russian state-owned uranium outfit Rosatom:https://www.reuters.com/business/energy/rosatoms-unit-seeks-...Finland does have plans to start mining and refining uranium ore, but it looks like they&#39;ll produce only enough for one reactor:&gt; &#34;Last year, 35% of Finnish electricity production came from the country’s four nuclear reactors, whose owners Fortum and TVO buy their nuclear fuel from other countries including Russia, France and Canada.&#34;Anyone holding ownership in Canada&#39;s high-grade uranium ores is likely going to do well by this move.  About that...https://www.cnbc.com/2021/02/25/bill-gates-nuclear-power-wil...Regardless, countries like Finland which are solar-limited for much of the year are the obvious place for nuclear.  Whether they can make their domestic uranium mining operations &#39;clean and fossil-fuel free&#39;, and secure reasonably priced contracts for importing the rest of their required reactor fuel, remains to be seen."</p>
 							
 						
 						</a>
@@ -3623,390 +4016,6 @@ In my experience, when you want to clear a dynamic array but keep the allocated 
 						
 							
 								<p class="story__comment_others">"Good stuff. I may make use of the .ini parser as my current one doesn&#39;t handle sections.There are a growing number of stand alone support modules in my projects that I need to publish as a collection some day.  Here&#39;s a couple links to some of them:- https://github.com/WickedSmoke/faun/tree/master/support- https://github.com/xu4-engine/u4/tree/master/src/supportThese include more exotic stuff like a grid based field-of-view calculation and a version of the sfxr synthesizer."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">17 May 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://blog.searchmysite.net/posts/almost-all-searches-on-my-independent-search-engine-are-now-from-seo-spam-bots/">
-						<picture>
-							<source srcset="default_31395231.webp" type="image/webp">
-							<source srcset="default_31395231.png" type="image/png">
-							<img src="default_31395231.png" alt="Preview of 'Almost all searches on my independent search engine are now from SEO spam bots'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://blog.searchmysite.net/posts/almost-all-searches-on-my-independent-search-engine-are-now-from-seo-spam-bots/">Almost all searches on my independent search engine are now from SEO spam bots</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31395231">
-						
-							
-								<p class="story__comment_first line-clamp">"So spammers have latched onto your search engine because they are getting useful results.  They are able to systematically discover websites built on certain platforms that allow users to post content containing links, which they can target for link spam.  It is very difficult to fight this on a technical level because there is an entire industry built around blackhat SEO, with all kinds of softwares and services dedicated to thwarting your defensive efforts.  Even Google struggles to keep up with this.However, they are also systematically feeding you their footprint lists.  I imagine you could put together a footprint blacklist pretty quickly, and just stop returning results for any obvious spam queries like those containing &#34;powered by wordpress&#34;.It&#39;s not a very elegant solution I&#39;ll admit.  It won&#39;t stop the bots from trying, and you may have to circle back periodically to add new footprints as they surface.  But it&#39;s a potentially quick and easy way to stop rewarding their efforts, and the blackhat world is pretty used to burning out their resources so hopefully they will figure out it&#39;s a dead end and move on."</p>
-							
-						
-							
-								<p class="story__comment_others">"Since everyone in this thread wants to jump down OP&#39;s throat about the quality of his web site, another interesting search engine is millionshort.com, which allows you to filter out the top N web sites from the results of your search. It&#39;s a great tool for looking past sites with good SEO; all you have to do is fiddle with the value of N.For example, searching for &#34;electronic music box&#34; as /u/ajnin suggested, with the top 100K web sites removed from the results, filters out the following:&gt; These 23 sites were removed from your results:&gt;     alibaba.com (1 result removed)&gt;     aliexpress.com (1 result removed)&gt;     allaboutcircuits.com (1 result removed)&gt;     amazon.com (2 result removed)&gt;     apple.com (1 result removed)&gt;     bestreviews.com (1 result removed)&gt;     ebay.com (1 result removed)&gt;     etsy.com (2 result removed)&gt;     facebook.com (1 result removed)&gt;     instructables.com (2 result removed)&gt;     lightinthebox.com (2 result removed)&gt;     lumberjocks.com (1 result removed)&gt;     mapquest.com (1 result removed)&gt;     reverb.com (1 result removed)&gt;     twitter.com (1 result removed)&gt;     wikipedia.org (1 result removed)&gt;     yelp.com (1 result removed)&gt;     youtube.com (2 result removed)And the top result ends up being https://midiguy.com/."</p>
-							
-						
-							
-								<p class="story__comment_others">"This made me curious to try that search engine so I typed &#34;electronic music box&#34; (first thing that came to mind). As far as I can tell none or the 10+ pages of results include all those 3 words. I mean, you might not have any relevant sites in your database (likely if there are only 1000 sites or so as another of your blog posts imply), and I understand you want to show some result to the user, but if I want irrelevant links I might as well go to google.com..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://yuri.is/not-julia/">
-						<picture>
-							<source srcset="default_31396861.webp" type="image/webp">
-							<source srcset="default_31396861.png" type="image/png">
-							<img src="default_31396861.png" alt="Preview of 'Correctness and composability bugs in the Julia ecosystem'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://yuri.is/not-julia/">Correctness and composability bugs in the Julia ecosystem</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31396861">
-						
-							
-								<p class="story__comment_first line-clamp">"So this one is a tough one for me, because Yuri has certainly spent significant time with Julia and I think he&#39;s a very competent programmer, so his criticism is certainly to be taken seriously and I&#39;m sad to hear he ended up with a sour opinion.There&#39;s a lot of different issues mentioned in the post, so I&#39;m not really sure what angle to best go at it from, but let me give it a shot anyway. I think there&#39;s a couple of different threads of complaints here. There&#39;s certainly one category of issues that are &#34;just bugs&#34; (I&#39;m thinking of things like the HTTP, JSON, etc. issues mentioned). I guess the claim is that this happens more in Julia than in other systems. I don&#39;t really know how to judge this. Not that I think that the julia ecosystem has few bugs, just that in my experience, I basically see 2-3 critical issues whenever I try a new piece of software independent of what language it&#39;s written in.I think the other thread is &#34;It&#39;s hard to know what&#39;s expected to work&#34;. I think that&#39;s a fair criticism and I agree with Yuri that there&#39;s some fundamental design decisions that are contributing here. Basically, Julia tries very hard to make composability work, even if the authors of the packages that you&#39;re composing don&#39;t know anything about each other. That&#39;s a critical feature that makes Julia as powerful as it is, but of course you can easily end up with situations where one or the other package is making implicit assumptions that are not documented (because the author didn&#39;t think the assumptions were important in the context of their own package) and you end up with correctness issues. This one is a bit of a tricky design problem. Certainly adding more language support for interfaces and verification thereof could be helpful, but not all implicit assumptions are easily capturable in interfaces. Perhaps there needs to be more explicit documentation around what combinations of packages are &#34;supported&#34;. Usually the best way to tell right now is to see what downstream tests are done on CI and if there are any integration tests for the two packages. If there are, they&#39;re probably supposed to work together.To be honest, I&#39;m a bit pained by the list of issues in the blog post. I think the bugs linked here will get fixed relatively quickly by the broader community (posts like this tend to have that effect), but as I said I do agree with Yuri that we should be thinking about some more fundamental improvements to the language to help out. Unfortunately, I can&#39;t really say that that is high priority at the moment. The way that most Julia development has worked for the two-ish years is that there are a number of &#34;flagship&#34; applications that are really pushing the boundary of what Julia can do, but at the same time also need a disproportionate amount of attention. I think it&#39;s overall a good development, because these applications are justifying many people&#39;s full time attention on improving Julia, but at the same time, the issues that these applications face (e.g. - &#34;LLVM is too slow&#34;, better observability tooling, GC latency issues) are quite different from the issues that your average open source julia developer encounters. Pre 1.0 (i.e. in 2018) there was a good 1-2 year period where all we did was think through and overhaul the generic interfaces in the language. I think we could use another one of those efforts now, but at least that this precise moment, I don&#39;t think we have the bandwidth for it. Hopefully in the future, once things settle down a bit, we&#39;ll be able to do that, which would presumably be what becomes Julia 2.0.Lastly, some nitpicking on the HN editorialization of the title. Only of the issues linked (https://github.com/JuliaLang/julia/issues/41096) is actually a bug in the language - the rest are various ecosystem issues. Now, I don&#39;t want to disclaim responsibility there, because a lot of those packages are also co-maintained by core julia developers and we certainly feel responsibility to make those work well, but if you&#39;re gonna call my baby ugly, at least point at the right baby ;)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Everything has correctness issues somewhere. Julia ships an entire patched version of LLVM to fix correctness bugs in numerical methods. It has its own implementations of things like software-side FMA because the FMA implementation of Windows is incorrect: https://github.com/JuliaLang/julia/pull/43530 . Core Julia devs are now the maintainers of things like libuv because of how much had to be fixed there. So from those three points, that clearly points out tons of cases where Python, R, etc. code is all incorrect where Julia isn&#39;t.I think what&#39;s interesting about Julia is that because the code is all Julia, it&#39;s really easy to dig in there and find potential bugs. The standard library functions can be accessed with @edit sum(1:5) and there you go, hack away. The easier it is to look at the code, the easier it is to find issues with it. This is why Julia has such a higher developer to user ratio. That has its pros and cons of course. It democratizes the development process, but it means that people who don&#39;t have a ton of development experience (plus Fortran or C knowledge) are not excluded from contributing. Is that good or bad? Personally I believe it&#39;s good in the long run, but can have its bumps.As an aside, the author highlights &#34;for i in 1:length(A)&#34;. I agree, code should never do that. It should be `eachindex(A)`. In general things should use iterators which are designed for arbitrary indexing based on iterators. This is true in any language, though you&#39;ll always have some newcomers write code (and documentation) with this. Even experienced people who don&#39;t tend to use arrays beyond Array tend to do this. It&#39;s an interesting issue because coding style issues perpetuate themselves: explicitly using 1-base wasn&#39;t an issue before GPUs and OffsetArrays, but then loop code like that trains the next generation, and so more people use it. In the end the people who really know to handle these cases are the people who tend to use these cases, just like how people who write in styles that are ARM-safe tend to be people who use ARM. Someone should just run a bot that opens a PR for every occurrence of this (especially in Base), as that would then change the source that everyone learns from and completely flip the style."</p>
-							
-						
-							
-								<p class="story__comment_others">"I am a long-time member of the Julia community and had a discussion with the author about these issues a long time ago – but did not give feedback on the post. Let me first state that Yuri is a great person and was a valuable member of the community. He pushed the boundaries of the language and produced some very nice packages in his time. His concerns are genuine and should be respected and discussed in that context.Also, let me say that encountering these kinds of bugs is not something I have had experience with. But, I tend to be very conservative with my usage of libraries and fancy composition.If I had more experience with programming language theory and implementation, perhaps I would have a better name to describe the source of the issues described. My attempt is to call it “type anarchy”. The way I see it, there is not a clear way to assign responsibility for correctness. In the case of the array used in the post, is it the fault of the implementer of the `sum` function (without a type signature, as it should be) or implementer of the data structure? I am honestly not sure. But as Julia breaks news ground with its type system and multiple dispatch, this could very much be an open question."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://javascript.info/">
-						<picture>
-							<source srcset="default_31390742.webp" type="image/webp">
-							<source srcset="default_31390742.png" type="image/png">
-							<img src="default_31390742.png" alt="Preview of 'Modern JavaScript Tutorial'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://javascript.info/">Modern JavaScript Tutorial</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31390742">
-						
-							
-								<p class="story__comment_first line-clamp">"In almost 10 years of professional development with Javascript/Typescript, I have never encountered a colleague using the call/bind/apply keywords (or &#34;this&#34; outside of classes). I&#39;d say almost all professionals deliberately avoid 80%+ of the language in practice."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is excellent. I think https://www.internetingishard.com/html-and-css/ complements it well as an introductory tutorial to HTML/CSS."</p>
-							
-						
-							
-								<p class="story__comment_others">"As far as Javascript books goes this looks pretty replete, kudos to the author!I will add it to my bookmarks to recommend to new developers alongside the excellent Eloquent Javascript [1], which for all I know probably is missing some things between when it was written and now which this modern javascript tutorial seems to cover. Very cool![1] https://eloquentjavascript.net/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://sparktoro.com/blog/sparktoro-followerwonk-joint-twitter-analysis-19-42-of-active-accounts-are-fake-or-spam/">
-						<picture>
-							<source srcset="default_31397137.webp" type="image/webp">
-							<source srcset="default_31397137.png" type="image/png">
-							<img src="default_31397137.png" alt="Preview of 'Nearly 20% of active Twitter accounts likely to be fake or spam'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://sparktoro.com/blog/sparktoro-followerwonk-joint-twitter-analysis-19-42-of-active-accounts-are-fake-or-spam/">Nearly 20% of active Twitter accounts likely to be fake or spam</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31397137">
-						
-							
-								<p class="story__comment_first line-clamp">"Parag apparently lost his patience with superficial and misleading claims about Twitter spam (like this analysis) and posted about it today.You can see it here (https://twitter.com/paraga/status/1526237578843672576).Noteworthy highlights:* Twitter estimates its &lt;5% number from human analysis of multi-thousand user random samplings of mDAU* Twitter allows that number to remain so high to avoid introducing friction like captcha into real users&#39; experiences* Twitter uses all sorts of internal private data in its analysis* Parag says you cannot get a reliable indication of bot/not bot without this internal private dataHaving just finished building a Twitter analysis tool, I agree with Parag that the Twitter API doesn&#39;t provide sufficient clarity to make decisions about spam. This article&#39;s analysis doesn&#39;t hold up - just because you can name several features you&#39;re going to use to generate a spam confidence score about an account does not mean that spam confidence score will have any precision."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t think this post means as much as people are acting like it does.The indicators of being a spambot they have in their post seem VERY iffy to me. &#34;Not tweeting in the past 120 days&#34;, &#34;Location set to a non resolving location&#34;, &#34;Small number of followers&#34;, &#34;default profile image&#34;, &#34;No URL in bio or non-resolving URL in bio&#34;, &#34;Not on many lists&#34;, &#34;tweets in a different language than the person they&#39;re following&#34; - Those all seem like extremely weak signals to me. My profile matches 6 of those, and I&#39;m a human. I would like to see them hand-verify a subset of their results and see if their algorithm matches reality.Also note that they define &#34;active&#34; differently than Twitter. They define &#34;active&#34; as having tweeted recently. Twitter gives spambot numbers as a percent of monetizable daily active users. I wonder if Twitter&#39;s given bot numbers are low because bots don&#39;t typically lurk or load ads. I can believe that the total bot count as a percentage of users or as a percentage of recently-tweeting-users is higher than 5%, but that only 5% of daily visitors seeing ads are bots."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;We undercount active users whose accounts are protected, accounts that view tweets but don’t send any, and accounts that log in and engage in other ways beyond tweeting (like favoriting or adding profiles to lists).&#34;My markup. If I understand correctly, not having a public tweet is a marker for being a spam account. Isn&#39;t that kind of a lot of people? I know from other forums that there&#39;s a large ratio between lurkers and active posters.Given that you need an account to customise your timeline, and, these days, pretty much for just reading a tweet, there may be loads of real reader accounts that never post and never bother customizing their profile."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://netfuture.ch/2022/05/web3-is-just-expensive-p2p/">
-						<picture>
-							<source srcset="default_31396329.webp" type="image/webp">
-							<source srcset="default_31396329.png" type="image/png">
-							<img src="default_31396329.png" alt="Preview of 'Web3 is expensive P2P'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://netfuture.ch/2022/05/web3-is-just-expensive-p2p/">Web3 is expensive P2P</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31396329">
-						
-							
-								<p class="story__comment_first line-clamp">"Nothing wrong with p2p. But often it&#39;s simply overkill. Skype started out as a p2p thing. But ultimately, video calls became a commodity where orchestrating them centrally proved to be good enough. I can make video calls with meets, facebook, whatsapp, signal, slack, etc. Not a big deal. I even still have Skype somewhere and it still works even though they ripped out the p2p bits ages ago.I&#39;m not sure what web3 is other than a label that people started slapping on the collective efforts of people vaguely doing anything with or depending on some kind of block chain thingy. IMHO it has very little to do with the web and little or no relevance to end users.From a technical point of view, I don&#39;t see anything wrong with having a distributed store of ownership of stuff. There are all sorts of useful and valid uses for that. The problem is all the hyena&#39;s with dollar signs in their eyes floating around any companies active in this space. It&#39;s hard to see the forest for the trees because of this. Doing anything with a blockchain almost automatically buckets you with the fraudsters, utopians, and other people plaguing this space.Most of the companies in this space are a combination of naive, fraudulent, or misguided. With a few notable exceptions where you might squint and see some potential of some actual economic value. But most of them are obvious duds. I actually briefly used Stellar for some actual applications. Great tech. Mostly works as advertised. Not that expensive to use. Etc."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll just leave this here [0]I don&#39;t disagree that the concentration of web architecture into the hands of a small number of big corps is a bad thing. I just don&#39;t see the solution being a purely technical one. There are market forces and reasons for that consolidation: efficiency in terms of power; production, acquisition, and deployment of expensive equipment; high-availability of services, operations and staff, etc. I don&#39;t like that a third of the Internet goes down with aws-east-1 like anyone else but the factors that enabled this situation are no conspiracy.We need economic incentives to enable smaller players to build on widely deployed infrastructure, fair competition laws, etc.We could use more edge-computing power with low-power equipment. Make it easy to deploy small-time data-centres on low-power, off-the-shelf hardware. Incentives that align with the economic value they bring so that they&#39;re not fighting on the margins left by large monopolies.Instead we&#39;re supposed to switch over to a &#34;P2P&#34; system built on funny machines evaluating user code. As many chains have tried to formally verify their smart contracts it&#39;s becoming increasing clear that the proofs, when they can be achieved, are so complex that the underlying system probably has more errors in it than we can count. Probably great for departing folks from their money but the folks running this stuff often don&#39;t even understand programming let alone proofs and verification.And then the stuff that actually gets built with it... slow, terrible UX, that it is... is just garbage anyways. Axie? I don&#39;t think anyone in web3 actually plays the game. It looks boring as all hell. And it&#39;s incredibly expensive to get started in it. They literally pay people to play it for them and they just watch spreadsheets for number to go up.And none of this &#34;distributed web&#34; works without the Internet as it exists today anyway. I&#39;m not interested in promises of potential. We don&#39;t drive on potential bridges.Maybe some part of the community is built by idealists but their dreams are poisoned. The world we live in right now is already pretty terrible in some parts. We could be fixing those instead of building another dystopia.[0] https://web3isgoinggreat.com/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Sort of agree. My initial understanding was that web3 was essentially a P2P solution with IPFS, Federated social graphs, decentralized p2p messaging and RTC stuff, and awaiting decentralized DNS. My current understanding or impression is that it&#39;s a coin wallet in my ~browser and I have to mine shit coins via storing and computing stuff on what will certainly be FAANGs behalf."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/brickbots/framedeck">
-						<picture>
-							<source srcset="default_31391137.webp" type="image/webp">
-							<source srcset="default_31391137.png" type="image/png">
-							<img src="default_31391137.png" alt="Preview of 'Framedeck: A Cyberdeck built with the framework mainboard'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/brickbots/framedeck">Framedeck: A Cyberdeck built with the framework mainboard</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31391137">
-						
-							
-								<p class="story__comment_first line-clamp">"I think Framework really has something going here with their à la carte approach to laptop sales. People want to tinker and build their own ideas and there is a dearth of options for portable motherboards which are truly modular, versus doing something like gutting a laptop.They may have stumbled into a nice niche that is all their own. I Hope they lean into it."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those who like me did not know what&#39;s a cyberdeck, here are a couple links I&#39;ve found:What is a cyberdeck? https://cyberdeck.cafe/mix/what-is-a-cyberdeckSome examples https://www.makeuseof.com/best-raspberry-pi-cyberdecks/Reddit community https://libredd.it/r/cyberDeck/Even though I wasn&#39;t familiar with the term, this is actually something I always wanted (a self-built portable device, that I can customise in the same way I can customise a desktop computer)."</p>
-							
-						
-							
-								<p class="story__comment_others">"System76 and Framework both exist. Nvidia just released their drivers as open source. What a time to be alive."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://liou28335.medium.com/many-software-companies-are-a-joke-9f4b10378c7a">
-						<picture>
-							<source srcset="default_31394604.webp" type="image/webp">
-							<source srcset="default_31394604.png" type="image/png">
-							<img src="default_31394604.png" alt="Preview of 'Many software companies are a joke'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://liou28335.medium.com/many-software-companies-are-a-joke-9f4b10378c7a">Many software companies are a joke</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31394604">
-						
-							
-								<p class="story__comment_first line-clamp">"I was reading https://danluu.com/sounds-easy again today, and when reading this article I was reminded of a particular section:&#34;Everything we&#39;ve looked at so far is a technical problem. Compared to organizational problems, technical problems are straightforward. Distributed systems are considered hard because real systems might drop something like 0.1% of messages, corrupt an even smaller percentage of messages, and see latencies in the microsecond to millisecond range. When I talk to higher-ups and compare what they think they&#39;re saying to what my coworkers think they&#39;re saying, I find that the rate of lost messages is well over 50%, every message gets corrupted, and latency can be months or years&#34;Dan goes on to say: &#34;When people imagine how long it should take to build something, they&#39;re often imagining a team that works perfectly and spends 100% of its time coding. But that&#39;s impossible to scale up. The question isn&#39;t whether or not there will inefficiencies, but how much inefficiency. A company that could eliminate organizational inefficiency would be a larger innovation than any tech startup, ever.&#34;Communication scales extremely poorly compared to code and large organizations require a very different skillset than small companies. The author seems like someone who just loves writing code as opposed to wanting to deliver maximum business value (As defined by the company), so it makes sense he dislikes big companies.There are also good and bad big and small companies. A well run big company is still going to have a large amount of communication overhead vs a small company."</p>
-							
-						
-							
-								<p class="story__comment_others">"All these meetings, reports, plans and apparently useless things, provide insurance to the different stakeholders of the project. Projects fail in many ways, and you need everyone to feel safe. That&#39;s why you need to document things a lot, in order to say “this was explained in section 3.2.1 of the manual” when the other team doesn&#39;t correctly  use your tools. And this is true for everyone, the finance guys, the product guys, the programmers, the marketers, everyone. Providing insurance to everyone is very expensive, but it makes the large organization stable. If everyone worked like cowboys in an small company, then the large company would disappear in a large fire of infighting.I never worked in a large company, but I work in academia, and we academics are also working on insurance a lot. The funding bodies want us to detail all expenses and justify all the changes in the plan, because they don&#39;t want people to say that the public funds are mismanaged. This is just an example. We also write tons of useless papers, to justify that we are productive with this money. This makes research very difficult. If you really want to do science, you should become rich and do it from home, like Nassim Taleb does, but in Academia we must work on all this insurance stuff, like in corporate world.That&#39;s how things are."</p>
-							
-						
-							
-								<p class="story__comment_others">"The issue the author is talking about, in my view, is caused by the natural lifespan of corps tending towards bloating middle-management. (Very hard process to fight).At the start the founder group are rutheless productivity-chasers. Then the corp expands to include the its-just-a-job group. Everything ticks along well, and at some point, the rutheless can&#39;t manage the group. So they hire followers to listen to their orders and thereby manage others. In this sense middle management is really &#34;corporate following&#34;.Now you have the its-just-ajobs, rutheless-productives, rutheless-leaders, and leader-followers.When the corp grows too far the balance in these populations is thrown way off (by, often, the shortsightedness of the real leadership in balloning middle-management to cover for them).At this point all the meaningful decisions are still held by the exec, but middle management are now so large they have to &#34;find something useful to do&#34;, which is regulate all the meaningless decisions.At this point most of the ruthelessly-productive leave, and you&#39;re left with the justajobs, leader-followers and the few clueless productives who&#39;ll destroy their mental health trying to grapple with it all."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.cnbc.com/2022/05/16/what-happened-to-the-bitcoin-reserve-behind-terras-ust-stablecoin.html">
-						<picture>
-							<source srcset="default_31398261.webp" type="image/webp">
-							<source srcset="default_31398261.png" type="image/png">
-							<img src="default_31398261.png" alt="Preview of '$3B in Bitcoin was sold in a last-ditch attempt to save UST from collapse'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.cnbc.com/2022/05/16/what-happened-to-the-bitcoin-reserve-behind-terras-ust-stablecoin.html">$3B in Bitcoin was sold in a last-ditch attempt to save UST from collapse</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31398261">
-						
-							
-								<p class="story__comment_first line-clamp">"&#34;Sold&#34;It&#39;s hard to show that they really sold these coins. Certainly, the LFG transferred the coins to some different exchanges. But did they truly sell them?If I was running a dodgy ponzi scheme and saw it collapsing catastrophically, I don&#39;t think I&#39;d be throwing good money after bad trying to futilely patch it up. Much better to stash the remaining assets away somewhere and personally cash out later on.Also, “In a sense, the market is going to take that as kind of bullish.” - a.k.a. the standard &#39;this is good for bitcoin&#39; quote, applicable whatever the news is!"</p>
-							
-						
-							
-								<p class="story__comment_others">"“Analysis from the company shows that 52,189 bitcoins were moved to a single account at crypto exchange Gemini”Oh yeah sure they saw their coin going to s*%t and thought “yeah let’s just throw away a couple billion dollars just so people won’t think we are scammers”. Sure. The Vatican has started a process to canonize these saints."</p>
-							
-						
-							
-								<p class="story__comment_others">"I mean that was the expected outcome and now people are like “proof of the expected outcome!?!”Following months of outcry about the unsustainable nature of Terra Luna, Do Kwon through his foundation tried to partially collateralize the stablecoin with bitcoin, with a goal of buying up to $10bn of bitcoin. He got $3-5bn (at the time, price changed a lot), and this prolonged the confidence system for one additional month.And then it imploded and sold the collateral, of course it was partial collateral so it failed to do anything in a bank run.So it doesnt matter whether we get records from exchanges or not. Nothing different would happen. People want to see Do Kwon have more reasons to have charges against him, but there’s no need to attribute it to malice, everything can be explained by incompetence already."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://corporate.mcdonalds.com/corpmcd/en-us/our-stories/article/ourstories.mcd-exit-russia.html">
-						<picture>
-							<source srcset="default_31395765.webp" type="image/webp">
-							<source srcset="default_31395765.png" type="image/png">
-							<img src="default_31395765.png" alt="Preview of 'McDonald’s to Exit from Russia'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://corporate.mcdonalds.com/corpmcd/en-us/our-stories/article/ourstories.mcd-exit-russia.html">McDonald’s to Exit from Russia</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31395765">
-						
-							
-								<p class="story__comment_first line-clamp">"Can you sell the Russian business without violating the sanctions?"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a surprisingly well-written, engaging corporate statement. Most statements are pretty bland and purely to the point but after reading this I thought I was reading news coverage of their exit not their own statement."</p>
-							
-						
-							
-								<p class="story__comment_others">"It seems that McDonald&#39;s closed stores that operated directly under their control. As a result, only stores in westert part of Russia were closed (in Moscow, Saint-Petersburg). The stores in Siberia (i.e. Novosibirsk) and in Moscow airports continued operating as usual, as they are working under franchaising. Even the mobile app continued functioning.So not much is going to change, I think. Hell, McDonalds is even open in DNR/LNR &#34;republics&#34; under the name &#34;DonMac&#34;."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.nature.com/articles/s41598-022-10261-5">
-						<picture>
-							<source srcset="default_31396198.webp" type="image/webp">
-							<source srcset="default_31396198.png" type="image/png">
-							<img src="default_31396198.png" alt="Preview of 'Cats learn the names of their friend cats in their daily lives'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.nature.com/articles/s41598-022-10261-5">Cats learn the names of their friend cats in their daily lives</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31396198">
-						
-							
-								<p class="story__comment_first line-clamp">"I have tried to train my two cats with just these words:1. &#34;Let&#39;s go&#34; - morning meal2. &#34;Upstairs&#34; - I am going to bed3. &#34;Dinner&#34; (plus clink bowls together) - evening meal4. &#34;Lie Down&#34;and their names.Emerald, who prefers being upstairs, definitely responds to &#34;Upstairs&#34;: she charges upstairs when I say it. Jade remains enigmatic and skeptical: that seems to be her nature. But if she is in the mood for a tummy rub, she will respond to &#34;Lie Down&#34;.For me, the great charm of cats is that it is impossible to tell the difference between &#34;No, I don&#39;t understand you.&#34; and &#34;I understand you perfectly well, but I plan to ignore you completely until I feel like responding&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have two cats, a young male (perhaps not coincidentally, a colony rescue?) and a very elderly female. When I let them outside, if I call them to come in, the younger will find the older and herd her to the door. He then vigorously resists coming inside himself. He&#39;s also very vocal, and his tone of voice will change depending on whether he&#39;s happy to see me and wanting pets or if I&#39;m ruining his stalking and spying or he doesn&#39;t want to come inside (the other just ignores me and does whatever she wants)."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Analysis:One cat completed only the first trial before escaping from the room and climbing out of reach.&#34;I quite enjoyed this bit."</p>
 							
 						
 						</a>
