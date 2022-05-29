@@ -36,6 +36,314 @@
 	</div>
 
 	
+	<div class="day__date">29 May 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://crumplab.com/articles/blog/post_994_5_26_22_cheating/index.html">My students cheated... a lot</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31544634">
+						
+							
+								<p class="story__comment_first line-clamp">"It makes me sad that so many engineers seem to think cheating is a just and or good solution. Cheating is objectively bad system design (for society, we&#39;re designing our society with daily actions every day), as it rewards people without integrity who want the easy way out. Sure, you can blame the system for encouraging incentives that reward cheating, and there are benefits to thinking like a cheater to identify gaps and problems in design, but we only have one life, and one go at growing the society we want to live in.By cheating, you&#39;re voting for a society of scammers, and you think you deserve more than the honest student because you&#39;re willing to eat honor instead of preserving it and growing it for future generations."</p>
+							
+						
+							
+								<p class="story__comment_others">"This happened to me in undergrad with an autograded class. I remember soloing the class and thinking that the assignments were super hard. They would post grade averages for assignments and I was doing worse than usual.I remember a TA posting about cheating being an issue. They even released a graph of anonymized student repositories with edges indicating a detected instance of cheatingTurned out that a HUGE cohort of people were cheating (I think maybe over half the class).The scariest thing about cheating is that whenever a bunch of people do it (and aren&#39;t caught), it screws up the class curve so much that people who don&#39;t cheat will be forced to put in way more time studying, which will then take time away from other classes. It also screws up metrics that the professors and TAs use to understand how well they&#39;re teaching material, which assignments to drop, etcimo this is why people shouldn&#39;t cheat. If nobody cheats, the grades might on average be lower but once the class is curved or assignments are dropped it will be a fair indicator of where everyone is at. If people cheat, it screws up the fairness and can encourage others to start cheating. If everyone (or most) are cheating, you have people who aren&#39;t getting anything out of the class, getting credits as prerequisite that they shouldn&#39;t be getting, moving on to future classes and continuing the cycle"</p>
+							
+						
+							
+								<p class="story__comment_others">"I recently took a CS class at Stanford with an interesting policy on cheating. While cheating almost certainly happened during the course, at the end of the quarter the course staff made a public post allowing any student who cheated to make a private message to the staff admitting they&#39;ve done so.If a student admitted to cheating, while they would face academic disciplinary action (i.e. receiving a failing or low grade), they would not be brought up to the administrative office that deals with issues of academic integrity, and therefore would not face consequences like expulsion or being on official academic probation.However if a cheating student decided to risk it and not admit their guilt, they were at risk of a potentially even greater degree punishment. The course staff would run all students code through a piece of software to detect similarities between each other, as well as online solutions. Students who were flagged by this software would then have their code hand-checked by at least one course staff, who would make a judgement call as to whether it seemed like cheating.I found this policy quite interesting. As a former high school teacher, I&#39;ve certain encountered teaching in my own classes, and have historically oscillated between taking a very harsh stance, or perhaps an overly permissive one.The one taken by the lecturers of this course offered a &#34;second chance&#34; to cheaters in a way I hadn&#39;t seen before."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://neon.tech">Neon – Serverless Postgres</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31536827">
+						
+							
+								<p class="story__comment_first line-clamp">"This is the missing piece on cloud for masses  * we already have compute scale-to-zero (cloudrun, lambda, fly.io).
+
+  * Network is default pay for use. Storage (S3) is default pay for use.
+
+  * The only piece in the stack that was always-on was the database (only serverless db thus far was firestore, or something like sqlite+litestream)
+
+With something like this we get a solid RDBMS engineered to be scale-to-zero, and with good developer experience.This opens up a world of try-out mini applications that cost cents to host. serverless db (postgres) + serverless compute (cloud-run) + use as you go storage+network. This is a paradigm-shift stack. Exciting days ahead."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Neon allows to instantly branch your Postgres database to support a modern development workflow. You can create a branch for your test environments for every code deployment in your CI/CD pipeline.&gt; Branches are virtually free and implemented using the &#34;copy on write&#34; technique.Unless I missed that everyone supports this, this here could be a killer feature and should be advertised higher."</p>
+							
+						
+							
+								<p class="story__comment_others">"Just yesterday I was comparing managed serverless postgres offers and was sad to temporarily end my investigation with a compromise of using managed aws RDS for development, hoping that a fully serverless postgres with a nice free tier would pop up before going to production, and here we are!Congrats to the team for what feels like an amazing product. Signed up for the early access, can&#39;t wait to get my hands on this!For anyone interested, these ere the DB offers I looked into:* DO managed postgres, no free tier but price scaling was not too aggressive, the issue is that it&#39;s not natively serverless and we&#39;re gonna get 100s of ephemeral connections.* Cockroach, was the best option for our use case but it doesn&#39;t support triggers and stored procedures, so we can&#39;t use it right now (closely following https://github.com/cockroachdb/cockroach/issues/28296)* Fly.io price scaling is too aggressive 6$ -&gt; 33 -&gt; 154 -&gt; 1000s a month and no free tier that I could find.* Aurora serverless v2  is only for aws internal access and we are using gcp.* Aurora v1 was what we were gonna go with, but a lot of people online have showed their negative opinion around slow scaling. I didn&#39;t investigate enough but I&#39;m thinking we&#39;d need to setup RDS proxy for it handle all our connections, which would&#39;ve bumped up the price by a good amount. Also no free tier.* Alloydb looked promising but also no free tier and starting price is a bit much for our current phase of development, but it was definitely something we&#39;d look into in the future.And now Neon, natively serverless with a (hopefully) good free tier to test things out and some hints about cross region data replication, amazing stuff!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.pcworld.com/article/704687/8-reasons-to-ditch-chrome-and-switch-to-firefox.html">Reasons to ditch Chrome and use Firefox</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31538482">
+						
+							
+								<p class="story__comment_first line-clamp">"One unique Firefox feature I love that I don&#39;t see talked about often is how awesome Firefox&#39;s address bar suggestions are. I can type just a snippet of a URL or a web page title and it&#39;ll instantly show me all matching URLs I&#39;ve visited, whether on my desktop or on my phone. It&#39;s become my primary second brain for finding Google docs, or articles I&#39;ve read, or GitHub issues. It&#39;s usually only a few characters before it finds exactly what I want.Eg I type in &#34;Ed&#34;? It shows the URL to my &#34;editions in solr&#34; GitHub issues I&#39;ve been working on recently. I vaguely recall an article I read months ago on CSS grid? I type &#34;grid guide&#34; and bam it&#39;s the first suggestion. The spreadsheet I made about user languages? &#34;sheets lang&#34;. That vague API I can never remember the parameters to? Just type &#34;/query.json?&#34; And I get all my previous requests as examples!I find Chrome&#39;s address bar has been way less reliable and much more frequently just gives me Google autocomplete suggestions -- even when I know that I visited a URL recently that should match!"</p>
+							
+						
+							
+								<p class="story__comment_others">"FireFox Containers are a killer feature for me. It allows you to run sandboxed sessions. So you can ostensibly make every site a private tab by default but have a small few sites persistent.Eg I’ll have a work group with GitHub, Okta, etc in it so I only need to log in once a day. But random websites cannot track me between sites.Couple that with DNS blocking of trackers and ads, and the web is actually a lot more pleasant to use.Unfortunately you cannot fix everything locally though."</p>
+							
+						
+							
+								<p class="story__comment_others">"I honestly want to ditch Firefox and try a Chromium browser for a minute [1], but I&#39;m stuck on Firefox because it&#39;s the only one with a killer feature: send a tab to/from iOS and my Linux desktop.I skip Chrome and Edge for privacy reasons, Brave have a crappy and buggy sync feature that I don&#39;t know what OSes it supports, but not my combination. Can&#39;t send tabs with them. Vivaldi doesn&#39;t have an iOS port. Impossible to do with Chromium.Firefox can send tabs to all my machines, and I use that feature multiple times daily, such as finding a cool article while I&#39;m sitting on the couch and sending it to my desktop so I can read it later. Mr. Eich, if you&#39;re around here, please please fix syncing tabs in your browser, it&#39;s the only thing stopping me from switching honestly.--1: I quite like Firefox, but it&#39;s in a dying spiral, and I&#39;m starting to see broken sites. The Web is such a complicated nightmare &#34;protesting&#34; won&#39;t change anything, and forking neither, because it&#39;s too bloody complex. Chromium has won. Our only hope is Mozilla takes their head out of their arse and start working on their browser instead of faffing about and making small, meaningless changes every release, but I don&#39;t see that happening any time soon."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bejarano.io/terraform-stateless/">Terraform should have remained stateless</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31537319">
+						
+							
+								<p class="story__comment_first line-clamp">"The article misses a key bit of information TF needs when making a plan:   4. The previous Terraform configuration
+
+This is effectively stored by state.We need this because if a resource is removed from the new config then Terraform needs to be able to delete the existing resource from the world. If we don’t have the state then Terraform must either:    1. Not delete it from the world
+
+    2. Or risk deleting something not managed by Terraform
+
+If everything were managed by Terraform then perhaps we would not need state, but this is not realistic in my view."</p>
+							
+						
+							
+								<p class="story__comment_others">"I respectfully disagree. If TF was stateless, you&#39;d have to manage situations by hand that involve changing the idempotency key, such as the name of a VM. You&#39;d also have to manage situations by hand where a resource is removed from the config.The whole point of TF is that it has state and doesn&#39;t require workarounds for these scenarios. Yes, you have to maintain state, but the state problems usually come from buggy providers, not Terraform itself. For example, try and use the GitHub provider to create a repo with GitHub Pages enabled from the gh-pages branch. It won&#39;t work because the authors didn&#39;t respect a fundamental rule of writing a provider: one state-changing API call = one resource. If you don&#39;t respect that, you have to do state handling yourself and you&#39;re almost certain to have state-related bugs."</p>
+							
+						
+							
+								<p class="story__comment_others">"Having worked with both Terraform and Ansible code that created AWS resources - and operates very similarly to the model described here [0, see `filters` arg] - I generally disagree.For example, if you changed an ID in your stateless Terraform, you&#39;d have to insert some kind of code to destroy (or rename, if possible) the old resource. Or modify the Terraform DSL to include that kind of information, I suppose, and keep a historical record in the code perhaps. Then there&#39;s the question of what happens if someone modifies the physical resource out from under you -- could end up creating brand new resources rather than tracking the existing ones.Also, it&#39;s nice to know that your Terraform instance is what created a thing -- if you ran a stateless `terraform destroy`, it&#39;s possible you could be deleting resources that someone else created that happened to match what your Terraform code defined. More of an edge case, I admit, but at scale these things have a way of happening...That said, resources that don&#39;t have &#34;physical&#34; IDs work similarly to the stateless model by necessity. For example, VPC route table rules: [1, see the &#34;Import&#34; section].Refactoring Terraform code is super annoying because of state, though, I&#39;ll give you that.[0]: https://docs.ansible.com/ansible/latest/collections/amazon/a...
+[1]: https://registry.terraform.io/providers/hashicorp/aws/latest..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://memex.marginalia.nu/log/58-marginalia-open-source.gmi">Marginalia Goes Open Source</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31536626">
+						
+							
+								<p class="story__comment_first line-clamp">"Well done and thank you. Not just for the work, but for the attitude
+and courage of your convictions that come across clearly in your
+comments here on HN.Search is presently a neighbourhood of technology that&#39;s fallen into a
+downtrodden ghetto. Maybe you&#39;ve sowed some seeds that can grow
+between the cracks. But I think there are gangs and pushers roaming
+the streets that would be happy for it remain derelict.Thinking about the dynamics of open source, with respect to the many
+different interpretations of search that create tension within such a
+project: It occurs to me that whenever a somewhat mature project
+enters the ecosystem a robust strategy is to immediately clone-fork
+multiple identical copies of a project. This is like a &#34;backup
+strategy&#34;. From there, form several loosely coordinated project groups
+that can spread risk, share threat intelligence, but each work with
+different models of crawling, filtering, funding, presentation and so
+on. Keep the original as an upstream parent. One of the children may
+survive."</p>
+							
+						
+							
+								<p class="story__comment_others">"The search engine discussed on HN:https://news.ycombinator.com/item?id=28550764 (September 2021,  725 comments)"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; I&#39;m currently looking for hosting for a large term frequency data file that is necessary for several of the search engine&#39;s core functions. I really don&#39;t have the bandwidth to serve it myself. It&#39;s only a couple of hundred megabytes so it&#39;ll probably be solvable somehow.I have a bit of (rented) space available. Most of it on Uberspace.What are the expected traffic requirements?Contact me if you like. Will update info in profile immediately."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://architecturenotes.co/datasette-simon-willison/">Architecture Notes: Datasette</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31530690">
+						
+							
+								<p class="story__comment_first line-clamp">"Hello creator of the project. This entire project was motivated by another HN post where someone was asking where we can get information about architectures and system designs across our industry. Seeing there wasn&#39;t anything available, I decided to start it; glad to see its resonated with the community.I hope to create high quality posts from engineers that work on these systems and the challenges they are trying to solve. Really dig into the problems and the technologies and strategies they used to solve it.What they have learned? Where they have failed?I also plan to write up deep technical dives on technologies we all rely on and use everyday.If there is any feedback to improve or you have something you want to write up with me please reach out."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is the first issue of the new Architecture Notes publication (website and newsletter) run by Mahdi Yusuf.Mahdi interviewed me about the architecture of https://datasette.io/ - topics we covered include:- Building a modern Python app using ASGI- Benefits of SQLite- Designing plugin hooks- Safely allowing SQL injection- Using SQLite from asyncio- The Baked Data architectural pattern- Bundling a Python web application in Electron- Packaging a Python for WebAssembly"</p>
+							
+						
+							
+								<p class="story__comment_others">"Here is the sketch note of the entire post as well.https://architecturenotes.co/content/images/size/w1600/2022/..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=31534988">Tell HN: My early access eBook over iOS made $120k in 1 year</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31534988">
+						
+							
+								<p class="story__comment_first line-clamp">"This is interesting in that it also demonstrates a strong market for really solid, up-to-date iOS developer documentation. The TOC indicates a really deep, modern approach, which I would appreciate if I were in the market. And leading with accessibility is a striking choice."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve scrolled through the site wondering who the author was, I have completely abandoned the iOS/Swift world now, and wondering how you could still make money with iOS books/tutorials considering the huge number of options (where popularity usually inversely correlate with quality) you have.Then I saw &#34;jordanmorgan10&#34; :). For those who don&#39;t know, Jordan has been very active in this space for years, I remember him from the early days of Swift, it has not been an overnight success."</p>
+							
+						
+							
+								<p class="story__comment_others">"You mention opportunity costs so I’m curious. This seems to have made $100k on release and  maybe 24k per year, recurring, assuming no drop off, which is an iffy assumption.Is this actually competitive with your earnings as a dev? Your post implies it’s more than you may usually have access to.The answer doesn’t have to be yes for this to be a noteworthy success"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://helgeklein.com/blog/windows-os-services-apps-network-connection-target-hosts/">Windows OS, Services and Apps: Network Connection Target Hosts (2021)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31527621">
+						
+							
+								<p class="story__comment_first line-clamp">"I read a lot of comments here wanting to block the connections, but wouldn’t be easier/better to switch to an OS that doesn’t spy you? The answers possibly is no, because they might use X or Y that requires them to use Windows, so a better question is, what holds you back to switch to Linux? (macOS also talks to a lot of servers and collect telemetry as Windows, maybe in a different scale, so isn’t an alternative if you are worried about your data being collected).I personally prefer Linux, but what’s holding me are the streaming services (netflix, amazon, etc), I can only watch SD content if I’m on Linux, so my second opinion is macOS, I can watch at least in a decent resolution and also their notebooks are the best ones out there (the air is amazing between price, performance and battery life) for my use case, that’s also work."</p>
+							
+						
+							
+								<p class="story__comment_others">"There seems to be some degree of overcounting in the reported figures: the number of “hosts” is the number of unique hostnames in the table, but the number of “IPs” is a straightforward sum of IP address counts that the table segregates by service, and I refuse to believe that (e.g.) the IP address of login.live.com as resolved by OneDrive is always different from same as resolved by Skype.  $ curl -fsSL &#39;https://helgeklein.com/blog/windows-os-services-apps-network-connection-target-hosts/&#39; | pup &#39;td:nth-child(5)&#39; text{} | sed &#39;s/:.*$//&#39; | sort -u | wc -l
+  291
+  $ curl -fsSL &#39;https://helgeklein.com/blog/windows-os-services-apps-network-connection-target-hosts/&#39; | pup &#39;td:nth-child(4)&#39; text{} | awk &#39;{ s += $1 } END { print s }&#39;
+  2764
+
+There’s also a fair amount of infrastructural stuff such as DigiCert’s OCSP service, and every shard(?) in the Windows Update, OneDrive, etc. CDNs is counted as a separate hostname.Not that I’m happy about of any of these connections, but the report looks much less interesting than the totals alone suggest."</p>
+							
+						
+							
+								<p class="story__comment_others">"I recently helped a friend de-cruft their slow as molasses laptop, and as ever was struck how Windows is always freaking DOING shit. It&#39;s sitting there seemingly idle, but the start bar takes 5 seconds to open. You open task manager and it&#39;s grinding away at network, grinding away at CPU, grinding away at disc, all via opaquely named processes. The bloody thing is relentless."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://a13xp0p0v.github.io/2022/05/24/pwn-fuchsia.html">A Kernel Hacker Meets Fuchsia OS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31502257">
+						
+							
+								<p class="story__comment_first line-clamp">"Very recent discussion: https://news.ycombinator.com/item?id=31497827"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4318286/">Mental illness, mass shootings, and the politics of American firearms (2015)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31511274">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s time we start legislating based on empirical evidence instead of lofty ideals. Yes, if everyone was responsible perhaps it would be OK for all of us to own firearms. But so many people are utterly irresponsible, and guns make that irresponsibility lethal.People should safely store their fire-arms, but they don&#39;t and guns get stolen and sold illegally, or used by their teenage child.People shouldn&#39;t point a gun at someone unless their life is in danger and they&#39;re prepared to take a life, but they do and people get shot by accident, or road rage turns deadly.Not to mention the suicides. If you own a gun ideation can turn into action in less than 30 seconds and it can seem like a painless, easy way to go.And when everyone is armed everyone wants to be armed. Cops pull their guns quickly out of fear of armed criminals. Regular people want to own a gun because they feel like everyone else does, and they&#39;re now less safe unless they also get one.Growing up outside the US I never saw any guns. I don&#39;t know of anyone who had a gun. I don&#39;t know of anyone who knew anyone who had a gun. I remember seeing military members in parades carrying guns because it was one of the few times I&#39;d actually seen one. Cops didn&#39;t walk around armed. There are other ways to kill people but guns are an especially effective, intuitive, and easy way to do so."</p>
+							
+						
+							
+								<p class="story__comment_others">"As a foreigner, I do not see it as productive to seek any explanation or expect any reaction when yet another news story like this comes along.It&#39;s clear that this is the way Americans wish to live, and it is their perogative to do so."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think a good first step everyone can agree on to stop gun violence is: stop it&#39;s gamification.Almost every mass shooting in the last decade was someone looking for media attention and  high score. And yet, every shooting is followed by detailed biography and a tally of bodies.Something as simple as a one month moratorium on information for anyone outside the community would probably work wonders, as the public eye will have moved on by then."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">28 May 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -49,11 +357,11 @@
 						<a href="https://news.ycombinator.com/item?id=31527446">
 						
 							
-								<p class="story__comment_first line-clamp">"We similarly did this at a hackathon.&gt; Droplock is a tool to help you when your laptop is stolen... The thief is prompted with an option to donate to charity (through JustGiving, another BattleHack sponsor) or pay the laptop owner directly via Braintree. If they fail to take one of these options, the laptop gets locked down until payment is made.https://dropbox.tech/developers/droplock-a-dropbox-hack-wins..."</p>
+								<p class="story__comment_first line-clamp">"I was expecting them to want you to make a donation and send the receipt, but they want you to actually round up less fortunate kids and take them out for pizza. Bizarre."</p>
 							
 						
 							
-								<p class="story__comment_others">"I was expecting them to want you to make a donation and send the receipt, but they want you to actually round up less fortunate kids and take them out for pizza. Bizarre."</p>
+								<p class="story__comment_others">"We similarly did this at a hackathon.&gt; Droplock is a tool to help you when your laptop is stolen... The thief is prompted with an option to donate to charity (through JustGiving, another BattleHack sponsor) or pay the laptop owner directly via Braintree. If they fail to take one of these options, the laptop gets locked down until payment is made.https://dropbox.tech/developers/droplock-a-dropbox-hack-wins..."</p>
 							
 						
 							
@@ -81,10 +389,6 @@
 							
 						
 							
-								<p class="story__comment_others">"My favorite knot is the Zeppelin Bend: [1]It&#39;s used to tie the ends of two ropes together.It&#39;s super easy to tie, super easy to untie (when you want to), and will not untie accidentally.[1] - https://www.animatedknots.com/zeppelin-bend-knot"</p>
-							
-						
-							
 								<p class="story__comment_others">"I like Knots3D, but there are some alternatives that made it easier for me:1. The Klutz Book of Knots (it&#39;s a book with holes around the pages so you can practice the knots next to their instructions). I think it&#39;s supposed to be a kid&#39;s book, but I bought for myself few years ago and was probably the resource I used the most.2. I find it _much_ easier to learn how to tie a knot by watching someone&#39;s hands while they explain what they&#39;re doing. KnottingKnots on Youtube is incredible at that:
 https://www.youtube.com/c/KnottingKnots/I think the knots I use the most, both in everyday life as well as for hiking are (from most used to least used):  - Trucker Hitch
   - Bowline knot
@@ -94,6 +398,10 @@ https://www.youtube.com/c/KnottingKnots/I think the knots I use the most, both i
   - Prusik knot
   - Square knot
   - Taut line hitch"</p>
+							
+						
+							
+								<p class="story__comment_others">"My favorite knot is the Zeppelin Bend: [1]It&#39;s used to tie the ends of two ropes together.It&#39;s super easy to tie, super easy to untie (when you want to), and will not untie accidentally.[1] - https://www.animatedknots.com/zeppelin-bend-knot"</p>
 							
 						
 						</a>
@@ -128,11 +436,11 @@ In order to change the fill one just needs to manipulate the offset attribute of
 							
 						
 							
-								<p class="story__comment_others">"These are great! I found out recently that GitHub supports SVGs in your profile README so couldn&#39;t resist setting up a huge animation on mine[1], you can&#39;t run JavaScript in SVGs unless they are inlined with the HTML but maybe it would be possible to setup a GitHub action to automatically generate it periodically.https://github.com/jnordberg"</p>
+								<p class="story__comment_others">"Sarah Drasner&#39;s epic preso blew my mind 5 years ago, still relevant and eye-opening today:https://slides.com/sdrasner/svg-can-do-that"</p>
 							
 						
 							
-								<p class="story__comment_others">"Sarah Drasner&#39;s epic preso blew my mind 5 years ago, still relevant and eye-opening today:https://slides.com/sdrasner/svg-can-do-that"</p>
+								<p class="story__comment_others">"These are great! I found out recently that GitHub supports SVGs in your profile README so couldn&#39;t resist setting up a huge animation on mine[1], you can&#39;t run JavaScript in SVGs unless they are inlined with the HTML but maybe it would be possible to setup a GitHub action to automatically generate it periodically.https://github.com/jnordberg"</p>
 							
 						
 						</a>
@@ -271,11 +579,11 @@ GAN [1] happens to be a machine learning construct. 250 W of electrical output w
 							
 						
 							
-								<p class="story__comment_others">"I think remote work is often understated in reasons people move away. When you go into the office every day, it&#39;s pretty obvious that you have to live in whatever city you live in. But with remote work, the question becomes &#34;if I don&#39;t have to live here, do I want to keep living here&#34;. For many (including myself), the answer was a definitive NO.Sure many headlines and news segments make it seem that it&#39;s the crime, the high rent, and all these super visible indicators and while I&#39;m sure that factored into the decisions of some, for many it was that they just wanted a change and got the golden opportunity to do so.EDIT: It&#39;s not even that one may even &#34;want a change&#34;, it&#39;s when you&#39;re presented with the opportunity to make a change, the gears in your head start turning as to what options you have at your disposal. I would imagine many people that moved had previously no intention to but just got the opportunity and decided to take it while it lasted."</p>
+								<p class="story__comment_others">"If you compare rent trends of SF vs NYC or LAhttps://www.zumper.com/rent-research/san-francisco-cahttps://www.zumper.com/rent-research/new-york-nyhttps://www.zumper.com/rent-research/los-angeles-caYou&#39;ll notice a huge difference between in SF and the other cities. Rent prices still hasn&#39;t gone back to pre pandemic level."</p>
 							
 						
 							
-								<p class="story__comment_others">"If you compare rent trends of SF vs NYC or LAhttps://www.zumper.com/rent-research/san-francisco-cahttps://www.zumper.com/rent-research/new-york-nyhttps://www.zumper.com/rent-research/los-angeles-caYou&#39;ll notice a huge difference between in SF and the other cities. Rent prices still hasn&#39;t gone back to pre pandemic level."</p>
+								<p class="story__comment_others">"I think remote work is often understated in reasons people move away. When you go into the office every day, it&#39;s pretty obvious that you have to live in whatever city you live in. But with remote work, the question becomes &#34;if I don&#39;t have to live here, do I want to keep living here&#34;. For many (including myself), the answer was a definitive NO.Sure many headlines and news segments make it seem that it&#39;s the crime, the high rent, and all these super visible indicators and while I&#39;m sure that factored into the decisions of some, for many it was that they just wanted a change and got the golden opportunity to do so.EDIT: It&#39;s not even that one may even &#34;want a change&#34;, it&#39;s when you&#39;re presented with the opportunity to make a change, the gears in your head start turning as to what options you have at your disposal. I would imagine many people that moved had previously no intention to but just got the opportunity and decided to take it while it lasted."</p>
 							
 						
 						</a>
@@ -564,11 +872,11 @@ Despite the title of this post, the visualization isn&#39;t really meant to show
 							
 						
 							
-								<p class="story__comment_others">"Bolt Financial, the finops company, not Bolt the car sharing service which seems to be doing fine:&gt; In January 2022, Bolt raised €628 million from investors led by Sequoia Capital and Fidelity Management and Research Co, taking the company&#39;s valuation to €7.4 billion"</p>
+								<p class="story__comment_others">"The founder also encouraged employees to take on what was effectively personal debt at an ~11B valuation when they only did $5.2M in Q1…"</p>
 							
 						
 							
-								<p class="story__comment_others">"The founder also encouraged employees to take on what was effectively personal debt at an ~11B valuation when they only did $5.2M in Q1…"</p>
+								<p class="story__comment_others">"Bolt Financial, the finops company, not Bolt the car sharing service which seems to be doing fine:&gt; In January 2022, Bolt raised €628 million from investors led by Sequoia Capital and Fidelity Management and Research Co, taking the company&#39;s valuation to €7.4 billion"</p>
 							
 						
 						</a>
@@ -596,7 +904,7 @@ Despite the title of this post, the visualization isn&#39;t really meant to show
 							
 						
 							
-								<p class="story__comment_others">"Jesus! Most of us have their Github contributions map look like Midwest cornfields. LucidRain&#39;s looks like downtown Manhattanhttps://skyline.github.com/lucidrains/2021"</p>
+								<p class="story__comment_others">"Recent and related:DALL-E 2 open source implementation - https://news.ycombinator.com/item?id=31228710 - May 2022 (152 comments)Also:X-Transformers: A fully-featured transformer with experimental features - https://news.ycombinator.com/item?id=27089208 - May 2021 (37 comments)Text to Image Generation - https://news.ycombinator.com/item?id=26615791 - March 2021 (88 comments)"</p>
 							
 						
 						</a>
@@ -656,7 +964,7 @@ Despite the title of this post, the visualization isn&#39;t really meant to show
 							
 						
 							
-								<p class="story__comment_others">"Twitter doesn&#39;t let me DM people who don&#39;t follow me because I haven&#39;t provided a cell phone number. I refuse to give it, mostly on principle. I send messages very rarely and am clearly not a bot. When did demanding a phone number become OK to access basic elements of a service? This happens even when I try to DM people whose DMs are open."</p>
+								<p class="story__comment_others">"I hate all the different ways companies target people.I recently booked flight on American Airlines for my 80+ year-old father. I requested the golf cart to take him between gates.Immediately I got a call from &#34;American Airlines Health Alert.&#34;They made it sound like there was an issue with the booking... &#34;An important health alert related to your flight.&#34; And there was a &#34;Press 1, if you&#39;re over 50&#34; option.Anyway long story short it was some shady marketing company selling me a panic button in case of falls.The lady was like&#34;these are very expensive devices&#34;... &#34;we&#39;ll give you the device... but you pay a small fee for monitoring every month.&#34;Clearly she&#39;d given the pitch 1,000 times. Didn&#39;t give me any time to talk. Finally, I was like, &#34;Hey is there a problem with my Dad&#39;s flight, or are you just trying to sell me something?&#34; And she hung up on me.Fuck American Airlines. Fuck all the airlines really, but it should be illegal to target the elderly just because they asked for help with connection flights."</p>
 							
 						
 						</a>
@@ -796,7 +1104,7 @@ Despite the title of this post, the visualization isn&#39;t really meant to show
 							
 						
 							
-								<p class="story__comment_others">"Regardless of whether or not Drew is abrasive (I&#39;ve never dealt with him so have no opinion), this is on Google.If a single service (Go&#39;s module crawler) is doing this to multiple third parties (and it is, by design) then requiring Drew to implement a workaround is the same thing as relying on every (relevant to the issue) third party to do the same thing.  Which is bad design.This should be fixed at source or switched off.As for the workaround itself it&#39;s true that going on a crawler exclusion list will not stop SourceHut being usable, only make it a little stale, but that doesn&#39;t matter.  The problem is not at Drew&#39;s end.  And once again for this workaround to be an effective solution every (relevant to the issue) third party needs to do the same thing.  Which is bad design.As a general rule, with excessive polling the system doing the polling is the one at fault.  And as a general rule if one system impacts many fix at the originator.  If Google devs don&#39;t know this, then why on earth are they getting the salaries they do?"</p>
+								<p class="story__comment_others">"&gt; I was banned from the Go issue tracker for mysterious reasons, so I cannot continue to nag them for a fix.¹ I can’t blackhole their IP addresses, because that would make all Go modules hosted on git.sr.ht stop working for default Go configurations (i.e. without GOPROXY=direct). I tried to advocate for Linux distros to patch out GOPROXY by default, citing privacy reasons, but I was unsuccessful. I have no further recourse but to tolerate having our little-fish service DoS’d by a 1.38 trillion dollar company. But I will say that if I was in their position, and my service was mistakenly sending an excessive amount of traffic to someone else, I would make it my first priority to fix it. But I suppose no one will get promoted for prioritizing that at Google.&gt; [1]: In violation of Go’s own Code of Conduct, by the way, which requires that participants are notified moderator actions against them and given the opportunity to appeal. I happen to be well versed in Go’s CoC given that I was banned once before without notice — a ban which was later overturned on the grounds that the moderator was wrong in the first place. Great community, guys."</p>
 							
 						
 						</a>
@@ -1533,14 +1841,11 @@ More in the tread starting here:https://twitter.com/OMGerdts/status/151437620608
 							
 						
 							
-								<p class="story__comment_others">"The graphical style is very cute :) I wish the internet was more like this (geocities like)
-BTW more websites should propose embedded music...edit DAMN THIS WEBSITE IT GETTING IT RIGHT!!
-we live in an absurd world where we have so many websites where people create or categorize content, and yet we can&#39;t live what other people live.. Most social networks are now tragically private by default (youtube playlists, etc) and we can&#39;t observe the feed of other users, not even super-users, only our shitty algo biased one. 
-Yet here I can easily browse user contents and this is just much more useful than anything I could have came up myself, we users of the interweb are so deprived of authentic user content, I discovered in a few minutes of user&#39;s content browsing unique concepts, such as a mapping of the musical taste of someone, and so many other relatable, under-represented and heartwarming content!The world might not realize it, but this is what everyone needs.[0] https://kinopio.club/my-music-taste-4Z-ImVfoQ46poNtyLJSrQ"</p>
+								<p class="story__comment_others">"This is so cool. I love the aesthetic and UX. The only thing is, I really wish I could self-host this. This seems like just the kind of thing I&#39;d use for personal journaling brainstorms, and I&#39;d really love to be able to just have that kind of data locally or self-hosted in my own location of choice."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is so cool. I love the aesthetic and UX. The only thing is, I really wish I could self-host this. This seems like just the kind of thing I&#39;d use for personal journaling brainstorms, and I&#39;d really love to be able to just have that kind of data locally or self-hosted in my own location of choice."</p>
+								<p class="story__comment_others">"Infinite canvas apps are such a great way to brainstorm.Kinopio has a little more... personality, but I use an infinite canvas app called Concepts when brainstorming for work or play.https://concepts.app/"</p>
 							
 						
 						</a>
@@ -2678,7 +2983,7 @@ I mean, I kind of agree to the criticism, specially when it comes to macros and 
 							
 						
 							
-								<p class="story__comment_others">"As a Greek I find the &#34;@&#34; notation very serendipitous, since for some obscure reason, the name used for this symbol in Greek is &#34;παπάκι&#34; (papaki), which means &#34;duckling&#34;."</p>
+								<p class="story__comment_others">"This seems like a pretty simple addition but that probably has profound effects on end-games. Also the fact that it&#39;s a duck is pretty adorable."</p>
 							
 						
 						</a>
@@ -2714,306 +3019,6 @@ And use it like this:    import { dqsA } from &#39;lib/dqs.js&#39;;
     for (const rabbit of dqsA(&#39;#rabbits .green&#39;)) {
         ... do something with all green rabbits ...
     }"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">19 May 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://tinyprojects.dev/posts/i_spent_two_years_launching_tiny_projects">I spent two years launching tiny projects</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31421364">
-						
-							
-								<p class="story__comment_first line-clamp">"I started my professional life ~25y ago with a side project that by 2022 led to roughly 50 more side projects — The vast majority failed, some turned into 200 employee businesses, some others got acquired. In essence, I make a living out of side projects. Side projects are life."</p>
-							
-						
-							
-								<p class="story__comment_others">"That was actually a pleasant read. I especially like the conclusion to which I can relate.&gt; If you&#39;re stuck for ideas, I recommend just building something; anything; even if it&#39;s terrible, and I guarantee a better idea will pop into your brain shortly after.I have been working on a long project for a few years now and it will not be finished before another few years and I envy the speed at which the author gets feedback after he launches his products."</p>
-							
-						
-							
-								<p class="story__comment_others">"I also do the same as the author, but I only build websites with a clear monetization model. Every project I&#39;ve done after my first successful one as been  in an adjacent audience.Doing roughly $700k revenue yearly right now over the 2 main projects. Hopefully with a 3rd coming this summer.https://siliconvict.com/projects"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://rubenerd.com/git-ignores-gitignore-with-gitignore-in-gitignore/">Git ignores .gitignore with .gitignore in .gitignore</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31420268">
-						
-							
-								<p class="story__comment_first line-clamp">"This is my favourite feature of gitignores.
-Everytime I need &#34;drafts&#34;, sample code, etc, in a repo, I create a folder in that repo, but then I have to remember to not add it to commits, and I don&#39;t want to add it to the .gitignore that is versioned, so I do &#34;mkdir drafts &amp;&amp; echo &#39;*&#39; &gt; ./drafts/.gitignore&#34;, and it ignores my drafts without having to add a new ignored dir in the versioned .gitignores.And obviously, it also &#34;ignores&#34; the .gitignore itself because it matches &#34;*&#34;, while still taking it into account, which is what I need."</p>
-							
-						
-							
-								<p class="story__comment_others">"There&#39;s a misunderstanding: &#34;ignoring&#34; means &#34;not tracking as part of version control&#34;. But the author overloads the term &#34;ignore&#34; with &#34;not look at it as a .gitignore configuration file&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a recipe for disaster. Especially if somebody else commits a gitignore in your repository.If you want an untracked list of files to not track, use .git/info/exclude, it&#39;s literally made for this. This is not a hidden feature, it is documented https://git-scm.com/docs/gitignore"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.getlago.com/blog/why-billing-systems-are-a-nightmare-for-engineers">Billing systems are a nightmare for engineers</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31424450">
-						
-							
-								<p class="story__comment_first line-clamp">"Wait until you get into the complexities of taxation.If you think you know them, pay attention to https://twitter.com/aotearoa_ben/status/1526786701750050817.That&#39;s a law that changes the tax rate if1. The purchase happens in Texas.
-2. The payment cleared in a specific 2 day period.
-3. The item cost &lt; $100.  The cost of shipping has to be included in the item&#39;s cost.
-4. The item falls into specific categories that almost certainly don&#39;t match whatever categorization system you are attempting to use.Seriously, calling out just one example, https://comptroller.texas.gov/taxes/publications/98-490/scho... points out that a kit containing school supplies qualifies as long as the cost of the qualifying school supply items in it exceeds the cost of the non-qualifying items. I guarantee that you don&#39;t have a category for that in your accounting system..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I was working on a billing system for utility company and it was a nightmare but not for the reasons from the article.Dates are no problem, everything is billed at the end of month, quarter or year.Upgrades are downgrades are simplified, customer can legally change tariff only on predefined dates/events.Usage - yes, but exampled in the article do not even scratch the complexity of thisIdempotency is not really needed, the billing process is not continuous, it is a batch job.Cash collection is out of scope of billing software.Taxing was clear. Yes, there were multiple billable items with different tax rates, but not too complex. All customers were local.The nightmare part was:- customers can have multiple consumption locations, location can have multiple meters and customer can request to split the bill on multiple invoices or combine multiple bills to single invoice as they please- meters can be replaced at any time- meter readings are available on dates totally independent from billing cycle. Most of consumption data are mere forecasts.- when the actual consumption data is available, everything must be recalculated AND compensated (on a correction invoice showing the difference)- actual consumption data can be wrong and may be corrected at a later date, even multiple times- consumption points can be added or removed or moved to different customer at any time, but this information is only available after the fact- the prices can change mid-billing cycle for some customers but the consumption data is not available with that granularity- customer legal information (company name, address) can change mid-cycle"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve worked at two companies in their payment systems. This post does a good job of mentioning many of the billing system challenges. I think it understates how difficult and important idempotency is to maintain at scale with multiple teams though.Additionally, it didn&#39;t mention financial regulation changes. India had changes sometime in the last few years which required whole new systems built that were specific to India customers. One example of complexity is this: does the system apply to customers who are in India or does it apply to businesses who are in India (the owners might not be)?He also did not mention fraud, which is basically uncollected spend that results in charge backs typically. If you get too many chargebacks, you&#39;ll get fined. If you get even more chargebacks, you&#39;ll get kicked off the card network and will no longer be able to accept cards within that network.Post pay (customer gets the product and pays afterwards) models are subject to more fraud, uncollected charges, etc.There&#39;s also the fun of dealing with downstream payment processors. I haven&#39;t worked with a processor or bank yet that was very reliable. Sometimes they&#39;d return 500 http codes and then process a payment, requiring manual intervention. Sometimes that happens with files of payments because most banks deal with files for transactions."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://ixns.github.io//lifehacks/computers/internet/2022/05/17/avoid-google-bloatware.html">Why Google is so unbearable, and how to fix it</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31421815">
-						
-							
-								<p class="story__comment_first line-clamp">"Well whether you add “site:.edu” or not, Google still does the thing where they just spit out a pile of extra “matches” that don’t contain your search phrase AT ALL.  Just thrown into the list, as if they have any business being there (oh wait, they do have business: Google’s business).Frankly, if it’s not reliable as a tool, it has no real value and I can’t believe it has come to this.  Imagine if every time you ran `ls` in a shell with a glob pattern, it just decided to sort of “add in” a few other files loosely based on your query (or heck, files that aren’t based on it at all)?  Oh, now imagine if `rm` did that.Sadly this happens with lots of search tools now.  Why the heck is the default state on a new Mac to funnel what you type to everything, e.g. I searched for “Chrome” and hit Return and the FIRST thing it did was throw me into the App Store and call up some not-even-a-web-browser scam app with Chrome in its name, instead of selecting the Chrome already installed on my computer and opening it?  More and more it seems that you have to turn off all kinds of poor defaults to put tools into a useful state, or there is simply no way to get them there at all."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is nitpicky but the tire changing page doesn&#39;t actually fit your rational for choosing .edu pages&gt;Professors are paid generous salaries to share knowledge with the paying customers of the University (students). So, let’s find some paid unpaid University knowledge on how to change a tire by using our new trick!But the bottom of the page says&gt;Prepared by: [students] For Dr. Bruce Magee&#39;s English 303 (Technical Writing) Class, Winter 1997-1998.The professor is actually an English professor and the page was written by students as an assignment. I looked into this because I was wondering, &#34;what would a professor be teaching that he&#39;s writing notes on tire changing?&#34;. There&#39;s probably some professor out there that does that in an academic context, but there&#39;s probably a lot of things that no professor actually gets paid to write about. Maybe they would write about something miscellaneous like that anyway and put it online, but they would be doing so out of the culture of web savvy professors having personal pages where they upload stuff they think is helpful."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s not a Google problem, it&#39;s a web problem.Everything is based around SEO spam. If someone has a website, and they&#39;re producing content, their point is to monetize the browsing of the website itself, or promote their main product via the website.This incentivizes a certain kind of content, which is marketing content.These days I&#39;m back to searching social networks like Reddit or Hacker News for (at least somewhat) unbiased information.Google is a fuzzy-search address bar at this point for me."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://pytorch.org/blog/introducing-accelerated-pytorch-training-on-mac/">Accelerated PyTorch Training on M1 Mac</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31424048">
-						
-							
-								<p class="story__comment_first line-clamp">"Curiously neither PyTorch nor Tensorflow currently use M1&#39;s Neural Engine. Is too limited? Too hard to interact with? Not worth the effort?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Since it&#39;s tangentially relevant, if you have an M1 Mac I&#39;ve created some boilerplate for working with the latest Tensorflow with GPU acceleration as well: https://github.com/alexfromapex/tensorexperiments . I&#39;m thinking of adding a branch for PyTorch now."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is really cool for a number of reasons:1.) Apple Silicon currently can&#39;t compete with Nvidia GPUs in terms of raw compute power, but they&#39;re already way ahead on energy efficiency. Training a small deep learning model on battery power on a laptop could actually be a thing now.Edit: I&#39;ve been informed that for matrix math, Apple Silicon isn&#39;t actually ahead in efficiency2.) Apple Silicon probably will compete directly with Nvidia GPUs in the near future in terms of raw compute power in future generations of products like the Mac Studio and Mac Pro, which is very exciting. Competition in this space is incredibly good for consumers.3.) At $4800, an M1 Ultra Mac Studio appears to be far and away the cheapest machine you can buy with 128GB of GPU memory. With proper PyTorch support, we&#39;ll actually be able to use this memory for training big models or using big batch sizes. For the kind of DL work I do where dataloading is much more of a bottleneck than actual raw compute power, Mac Studio is now looking very enticing."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://tangledweb.xyz/please-stop-using-grey-text-3d3e71acfca8">Please Stop Using Grey Text</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31420938">
-						
-							
-								<p class="story__comment_first line-clamp">"This problem is so much bigger than low-contrast pages.  Almost all technology of any kind selects in favor of aesthetics over equal access.I have moderate amblyopia and severe astigmatism.  For a frame of reference, I only barely pass the driver’s license vision test when I renew my license (don’t worry I don’t actually drive).My vision has good days and bad days.  My ophthalmologist thinks that I frequently have eye strain from looking at screens which further (temporarily) degrades my vision.Examples that I’ve run into _in the last 24 hours_.  - Why can’t I choose the colors of web sites and applications?
-
-  - Why can’t I choose (and override) the default typefaces on mobile browsers?
-
-  - Why can’t I change the default system font for my iPhone or my Mac?
-
-  - Why can’t I change the font size in modern video games?
-
-  - Why do most desktop applications fall of the edge of the screen below 1080p?
-
-I rely on hacky tools to get by — e.g. momentarily dropping HIDPI or jail breaking devices.  No one would want to use technology the way I have to.  It sucks and it’s constantly getting worse."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; And before we continue, let’s make it absolutely clear that we have no control of the color of the text in this very article, as it is hosted through Medium.com, which features poor visual accessibility of their site design. Further, Medium prevents their users from selecting black text as a choice. While Medium’s “Fischer-Price-simple” content creation is easy to use, it is also extremely limited, and fails in accessibility in areas beyond color. Perhaps this article can serve as a wake up call regarding this issue.So - why on EARTH are you publishing there? And for what it&#39;s worth, the areas that fail WCAG AA for colour contrast on this page are areas entirely within the control of the publication."</p>
-							
-						
-							
-								<p class="story__comment_others">"please stop forcing dark themes, reading white text on dark background is less readable so at least default to the user global preference cf https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pref...
-I&#39;d be nice to see stats on the level of user engagement on black vs white texts, I assume the user probability to stop reading earlier when white is much higher, for me it is often a no go. Any scientific study out there?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="http://xn--rpa.cc/irl/term.html">Everything you ever wanted to know about terminals</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31415937">
-						
-							
-								<p class="story__comment_first line-clamp">"I can tell you why people still use ncurses: if you’re actually interested in accounting for all the nuanced eldritch madness that is terminal emulation implementation and history it’s a monumental effort, at least imo.Sure, if all you care about is coloring text on recent terminals, I do think just using ansi codes is fine.However, I completely disagree with the assertion that hardcoding ansi codes is somehow “more readable” than using a well-named API call that abstracts such detail away from the user. Maybe I’m alone in this, but I really don’t want to waste brain space memorizing ansi codes. Yeah I can write my own library or little macros to do this but…why? If I’m doing anything more involved than coloring text why wouldn’t I just pull in the lib I need? There’s no way in hell I want to maintain a custom implementation of terminal cursor movement for kicks. I’d much rather reach for a battle tested library that scores of other devs have already used and improved upon, whether it’s ncurses or one of the more modern TUI libs.Also, it’s become cool recently to hate ncurses for some reason. Are there things ncurses should do differently from today’s perspective? Sure. Is it’s api awkward to use in the face of modern programming features and paradigms that we’re now used to? Sure. But on the whole it’s design is really solid and it has plentiful documentation. Whenever I see rants like this I get the impression the author is a person that lacks an appreciation for history and the way technical development proceeds in general and imagines they are our technical savior, come down from the heavens to enlighten all us blindered fools about how terrible X is.If you want to educate people about ansi codes, great. A really inefficient way to do that is to wrap your advice in an obnoxious rant."</p>
-							
-						
-							
-								<p class="story__comment_others">"I built a cross platform app to print &#39;pretty formatted&#39; source code [1]. I didn&#39;t want to re-invent the wheel on formatting source code, so looked at all the existing libraries. Originally I figured formatting to HTML, and then building a print-friendly HTML render would work. But this proved super challenging. I tried a dozen HTML engines (including Chromium) but none gave me enough control to render just a single page of the original source file.Then I noticed Pygments, a Python-based library for pretty formatting source code, has an option to output an ANSI formatted file. I quickly found a bunch of libraries that could render ANSI formatted text to a print canvas.In the end, I put the original source code file through &#39;pygmentize -16m -o tempfile.an` (`16m` is the 16M color terminal ANSI formatter) and pipe the `tempfile.an` through a print-optimized renderer to actually print the source code.ANSI escapes FTW![1] WinPrint - https://github.com/tig/winprint
-[2] https://pygments.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"The author seems not to be aware of the recent TUI rennaisance[1]. There are libraries like termbox and blessings (python) that are a middle-ground between full ncurses and adding your own ansi codes. There are a lot of modern TUI frameworks like tui-go or tui-rs that bring common GUI conventions back to the TUI (heck there are TUI programming libraries that are designed to be similar to react) - these too tend to be a lot nicer than working with ncurses.Definitely worth checking out the full landscape these days if you&#39;re going to dive into making your console programs prettier.[1] My words, I just coined that name (although I wouldn&#39;t be surprised if others had said it too). I mean that in the last ~decade there has been a lot of TUI work in the background, with lots of new programs and some pretty stunning results. I blame unicode - once the web folks realized they could use something like font-awesome instead of sprite-sheets (or maybe as a pre-build sprite sheet?), and the &#34;icons in a font&#34; movement took hold, terminal programs got a lot prettier too. It makes sense, its the same font/font renderer provided by the system no matter if the app is a browser or terminal emulator."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://speechresearch.github.io/naturalspeech/">NaturalSpeech: End-to-end text to speech synthesis with human-level quality</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31416098">
-						
-							
-								<p class="story__comment_first line-clamp">"Wowsers. This is a step change in quality compared to SOTA. I suspect that without evaluating samples as a correlated group, distinguishing between the generated samples and those recorded from a human will be little better than a coin toss.And even when evaluating these samples as a group, I may be imagining the distinctions I am drawing from a relatively small selection that might be cherry-picked. Nevertheless:The generated samples are more consistent as a group, and more even in quality, with few instances of emphasis that seem (however slightly) out of place.The recorded human samples vary more between samples (by which I mean the sample as a whole may be emphasized with a bit of extra stress or a small raising or lowering of tone compared to the other samples), and within the sample there is a bit more emphasis on a word or two or slight variance in the length of pauses, mostly appropriate in context (as in, it is similar to what I, a non-professional[0], would have emphasized if I were being asked to record these).In general for a non-dramatic voiceover you want to maintain consistency between passages (especially if they may be heard out of order) without completely flattening the in-passage variation, but tastes vary.Conclusion: For many types of voice work, these generated samples are comparable in quality or slightly superior to recordings of an average professional. For semi-dramatic contexts (eg. audiobooks) the generated samples are firmly in the &#34;more than good enough&#34; zone, more or less comparable to a typical narrator who doesn&#39;t &#34;act&#34; as part of their reading.[0] Decades ago in Los Angeles I tried my hand at voiceover and voice acting work, but gave up when it quickly became clear that being even slightly prone to stuffy noses, tonsillitis and sore throats was going to pose a major obstacle to being considered reliable unless I was willing to regularly use decongestants, expectorants, and the like."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s interesting that TTS is getting better and better while consumer access to it is more and more restricted. A decade ago there were a half dozen totally separate TTS engines I could install on my phone and my Kindle came with its own that worked on any book."</p>
-							
-						
-							
-								<p class="story__comment_others">"See also the recently published Tortoise TTS, which IMO sounds even better: https://github.com/neonbjb/tortoise-tts"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="http://www.pmail.com/newsflash.htm">Oauth2 support for GMail</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31420433">
-						
-							
-								<p class="story__comment_first line-clamp">"I’ve gone through this process for my email client Kanmail [1]. The third party audit is not required for email clients that run on end users computers and store credentials locally.By the looks of it Pegasus falls into this category and should not have any issues getting approved (still need the YT video and such but the Google team are surprisingly responsive and helpful in my experience).[1] https://kanmail.io"</p>
-							
-						
-							
-								<p class="story__comment_others">"Moves like this from Big Tech deeply disturb me. I wonder how long it will be until everything you do with them will require their approval. We&#39;re already seeing this in the form of &#34;supported browsers&#34; (i.e. Chrome) and their efforts at painting everything else as &#34;less secure&#34; or &#34;insecure&#34;. It&#39;s time we started pushing more for freedom over &#34;security&#34;, before things become even more dystopian..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; and has the ability to access data from or through a third party serverSo Pegasus Mail accesses your email from their servers? For reference, they have an entire flow designed so that the auth credentials never touch the app developer&#39;s server for desktop and mobile apps - https://developers.google.com/identity/protocols/oauth2/nati..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31408431">Ask HN: How to break anxiety/fear-avoidance cycle?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31408431">
-						
-							
-								<p class="story__comment_first line-clamp">"The best solution to getting past the anxiety/fear-avoidance cycle is to take small, manageable actions while accepting the feelings that go along with those actions.Start with the smallest steps possible. Maybe that means opening the assignment and saving it to your computer. Then put it down and walk away. Come back in a little while and take another small step, such as reading over the assignment or making an outline of what you need to do to get it done. Often once you&#39;ve done something you will often start to feel a lot different than if you&#39;ve done nothing.Keep track of how you&#39;re feeling. It&#39;s okay to feel more anxiety at first because you&#39;re doing something instead of nothing. Those feelings tend to subside over time as you take action, but the point is not to reduce your anxiety, the point is that you are making a commitment to do something in your life, to live your life, rather than to remain paralyzed in fear. Your goal is not to get rid of the anxiety but to live the kind of life you want to live.This is the model for Acceptance and Commitment Therapy. A great book on this is &#34;Get Out of Your Mind and into Your Life.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"This was a slow process, but:1. Regular written self-reflection, i.e., keeping a journal and2. Re-framing &#34;failures&#34; as learning experiences; forgive yourselfhelped me a lot.The written part was important to me because it forced me to revisit my previous thoughts and reevaluate them in light of what had happened since last time I wrote.(2) also helped me do things with the mind-set that &#34;failure&#34; wasn&#39;t actually failure.  The goal was to try and learn from it.I didn&#39;t get around to doing this until after school, but I wish I had.  In your situation, I&#39;d try to get myself to do the assignment with a quick pass early on leaving notes for things I wasn&#39;t sure about.  Take a break, then revisit and revise.  Afterwards, write in your journal what worked well and what didn&#39;t.  Write about what you want to try next time differently if some things come to mind.Hope you find a solution that works for you.  E-mail is in my profile if you want to talk more about what&#39;s worked for me."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve been through the same cycle for many years (I can even say decades). My recommendation is to seek help from a psychiatrist. You probably have generalized anxiety disorder and it often goes hand in hand with depression. A psychiatrist will be able to diagnose those and give you medication if you need it. She could also recommend therapy, but you need to be diagnosed first.Unfortunately, it is very difficult to find a good mental health professional. You&#39;ll have to try many before finding a good one. Plus you will procrastinate of course. But you need to persist and make this task your priority. I know the pain you&#39;re going through, and nothing should be more important than ending the suffering right now. Once you get better you&#39;ll wish you had sought help sooner.From my research and my experience, there are two effective treatments for anxiety and depression backed by scientific evidence: antidepressants and Cognitive Behavioral Therapy.The other comments are well intentionned but most of them are basically asking you to change your mindset and just do it. Obviously, if it was that easy you would have done it already. Anxiety and depression don&#39;t allow you to think clearly, that&#39;s why it is extremely difficult to get out of it on your own."</p>
 							
 						
 						</a>
