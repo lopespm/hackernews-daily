@@ -36,6 +36,393 @@
 	</div>
 
 	
+	<div class="day__date">31 May 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/dragonflydb/dragonfly">
+						<picture>
+							<source srcset="default_31560547.webp" type="image/webp">
+							<source srcset="default_31560547.png" type="image/png">
+							<img src="default_31560547.png" alt="Preview of 'Dragonflydb – A modern replacement for Redis and Memcached'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/dragonflydb/dragonfly">Dragonflydb – A modern replacement for Redis and Memcached</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31560547">
+						
+							
+								<p class="story__comment_first line-clamp">"Guys, I am the author of the project. Would love to answer any questions you have. Meanwhile will try to do it by replying comments below."</p>
+							
+						
+							
+								<p class="story__comment_others">"FoundationDB should have been included in their perf comparison. It’s ACID compliant and a distributed Value/Key store.For SSD based storage, it’s getting 50k reads/sec PER core and scales linearly with # of cores you have in your cluster. (They achieved 8MM reads/sec with 384 cores)https://apple.github.io/foundationdb/performance.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m no longer involved in Redis, but I would love if people receive a clear information: from what the author of Dragonflydb is saying here, that is, memcached and Draonflydb have similar performance, I imagine that the numbers provided in the comparison with Redis are obtain with Redis on a single core, and Draonflydb running on all the cores of the machine. Now, it is true that Redis uses a core per instance, but it is true that this is comparing apple-to-motorbikes. Multi-key operations are possible even with multiple instances (via key tags), so the author should compare N Redis instances (one per core), and report the numbers. Then they should say: &#34;but our advantage is that you can run a single instance with this and that good thing&#34;. Moreover I believe it would be fair to memcached to clearly state they have the same performance.EDIT: another quick note: copy-on-write implementations on the user space, algorithmically, are cool in certain situations, but it must be checked what happens in the worst case. Because the good thing of kernel copy-on-write is that, it is what it is, but is easy to predict. Imagine an instance composed of just very large sorted sets: snapshotting starts, but there are a lot of writes, and all the sorted sets end being duplicated in the process. When instead the sorted sets are able to remember their version because the data structure itself is versioned, you get two things: 1. more memory usage, 2. a lot more complexity in the implementation. I don&#39;t know what dragonflydb is using as algorithmic copy-on-write, but I would make sure to understand what the failure modes are with those algorithm, because it&#39;s a bit a matter of physics: if you want to capture a snapshot at a given Time T0 of a database, somehow changes must be accumulated. Either at page level or at some other level.EDIT 2: fun fact, I didn&#39;t comment something about Redis for two years!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/dekuNukem/bob_cassette_rewinder/blob/master/README.md">
+						<picture>
+							<source srcset="default_31558525.webp" type="image/webp">
+							<source srcset="default_31558525.png" type="image/png">
+							<img src="default_31558525.png" alt="Preview of 'Bob Cassette Rewinder: Hacking Detergent DRM'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/dekuNukem/bob_cassette_rewinder/blob/master/README.md">Bob Cassette Rewinder: Hacking Detergent DRM</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31558525">
+						
+							
+								<p class="story__comment_first line-clamp">"Am I the only one who looks at these projects with a combination of awe and apathy and jealousy? I do software, not hardware, and I like knowing how things work. When an expert in a different field glances at a PCB and identifies components, their purpose, by sight, and then rummages around a loose parts bin to go deeper, it dawns on me: this is someone&#39;s life. The same way I&#39;ve been swimming in (application) software, and could do similar things with a repo, or even running processes, this person can do in hardware, and it&#39;s a set of interlocking skills that took an entire life to grow."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am, more and more, deliberately choosing boring technology. Knobs in the car and on appliances. No screen interfaces. Low-tech where possible.We just replaced our &#34;high tech&#34; Maytag dryer and its &#34;advanced&#34; feature set for a low tech SpeedQueen, the same dryers you find in most Laundromats. Why? Repairability. While we could _technically_ replace the burnt out fuse in the Maytag, it would take at least two hours for a skilled technician (translated to several days for me and my spouse spread across a few weeks) and frankly we want to repair and get back to life. After a few days of looking into the issue and considering the option, we bit the bullet and bought a new one. The old one just had too many fault modes to consider even if we did successfully repair it.I take the same neo-Luddite view on a lot of recent &#34;technology&#34; improvements. The BoringTechnology.club website has the right idea."</p>
+							
+						
+							
+								<p class="story__comment_others">"Great project and writeup; just one more example why we should always be cautious about &#34;smart&#34; devices, for that smartness nearly always aimed at eliminating customers choices.I wonder what does the device electronics do beyond checking for the original cassette and its eeprom; it doesnt seem it would have to do anything more complex than opening water, and detergent valves/pumps for a certain time while keeping the right temperature; nothing that even the simplest uC and couldn&#39;t do; a further development could involve probing all signals at sensors and actuators during normal operation, then getting rid of the old electronic to allow the device taking detergents directly from the tanks, so resetting the cassette eeprom wouldn&#39;t be needed anymore because there would be no need to insert one.
+This of course would invalidate the warranty, but for some of us that is a plus point:)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://eattherich.club/@swaggboi/108382897807037127">
+						<picture>
+							<source srcset="default_31555629.webp" type="image/webp">
+							<source srcset="default_31555629.png" type="image/png">
+							<img src="default_31555629.png" alt="Preview of 'I disabled WiFi on the new Samsung fridge'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://eattherich.club/@swaggboi/108382897807037127">I disabled WiFi on the new Samsung fridge</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31555629">
+						
+							
+								<p class="story__comment_first line-clamp">"Has anyone worked on fighting back this kind of telemetry/spyware of essential consumer appliances?I&#39;m thinking something similar to what https://adnauseam.io/ does, but but amplified:1. Someone reverse engineer what does the device send to which address.
+2. Block the particular device to access internet (and make it easy for others too).
+3. Constantly send bogus data to the manufacturer so the personal data they get overall loses value or is unusable. Make it easy for a lot of people to do it as well, or even just rent a bot farm.There&#39;s too many legit and good services that end up being turned down due to abuse and DDos, and they don&#39;t even bring anything good to the attackers. Why not using these techniques for something actually good to consumers privacy?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Just wait until device manufacturers start integrating always-on LTE modems with their own SIM cards and billing so they can pull device analytics, sell you new advertising, and sell your usage patterns to 3rd parties whether or not you ever connect the things to your home wifi.At which point you&#39;ll have to disassemble the damned thing and physically rip out the LTE modem, possibly resulting in the device bricking itself when it can&#39;t phone home after a while.I bet if you&#39;re a device manufacturer right now and go to t-mobile enterprise sales and tell them you want 200MB of data per month per IMEI and you&#39;re going to have 50,000 units, you&#39;ll get a very attractive monthly price per unit.Mark my words, it&#39;ll be commonplace in another 8-10 years.https://me.me/i/tech-enthusiasts-everything-in-my-house-is-w...https://arstechnica.com/gaming/2020/01/unauthorized-bread-a-..."</p>
+							
+						
+							
+								<p class="story__comment_others">"It should be legally required for these products to allow for people to turn &#39;smart&#39; features off if they want to. Unfortunately, it probably won&#39;t be any time soon."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://calpirg.org/news/cap/california-right-repair-bill-dies-senate-committee">
+						<picture>
+							<source srcset="default_31558875.webp" type="image/webp">
+							<source srcset="default_31558875.png" type="image/png">
+							<img src="default_31558875.png" alt="Preview of 'California Right to Repair Bill Dies in Senate Committee'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://calpirg.org/news/cap/california-right-repair-bill-dies-senate-committee">California Right to Repair Bill Dies in Senate Committee</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31558875">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s sad, but not only because it means people are forced to buy new too often or because of the atrocious increasing e-waste associated with it.It&#39;s sad because folks will be less and less interested in fixing their things or simply opening their devices to understand how they work. It&#39;ll be general knowledge that it&#39;s &#34;dangerous&#34; to attempt a repair, and they&#39;re impossible to fix anyway.Attempting a repair is one of those sparks that nurture curiosity. It&#39;s the same spark that ultimately gave us Apple and many other great businesses. Why are we indirectly undermining ingenuity and inventiveness? Is it a false perception? Or maybe Hanlon&#39;s razor?On the other side, China has relatively affordable access to parts (low-level components included), schematics, extensive tooling and a growing hacker/maker culture.Sometimes, I feel we (occidentals) are going into reverse."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can anyone familiar with the process, explain exactly how these industry lobbyists win these cases? With a 75% of Californians being pro-right to repair, and with bipartisan support - you&#39;d think this would be an easy case to argue.Do the lobbyists have some incredibly legitimate insider information they share with the senators? Do they just throw cash/donations at them?"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The policy had broad, bipartisan support, with 75% of Californians and majorities of both parties supporting Right to Repair.&gt; “Sadly, the powerful tech manufacturers won out over the everyday Californians and small businesses that would benefit from Right to Repair...&#34;Can someone elaborate specifically on how something like this failed with, apparently, so much support?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://billmei.net/blog/friendship">
+						<picture>
+							<source srcset="default_31562478.webp" type="image/webp">
+							<source srcset="default_31562478.png" type="image/png">
+							<img src="default_31562478.png" alt="Preview of 'Friendships form via shared context, not shared activities'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://billmei.net/blog/friendship">Friendships form via shared context, not shared activities</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31562478">
+						
+							
+								<p class="story__comment_first line-clamp">"If you&#39;ve been exposed to both Western and Eastern cultures, this is probably something you&#39;ve seen both sides of.I grew up in Egypt. Family was family, including extended family. You don&#39;t choose them, and you can&#39;t really distance yourself from them (you&#39;d be crazy to try). You can to some extent choose your friends in school, but that is mostly &#34;shared context&#34;—they are people who probably are from your neighborhood or from the same &#34;social class&#34; (yes, Egypt was/is very class-ist).I live in the US. Everything is very individualistic, and even for those with families, it&#39;s very nuclear-family-oriented. Boundaries are well-respected. I&#39;d say when friendships are formed, they&#39;re usually more around shared activities, regardless of where someone might be originally from, what their background is, etc.Very different worlds, with pros and cons in each."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think this phenomenon is part of the reason it&#39;s difficult to form friendships as adults. The shared context that the article mentions requires a lot of time around your circle of people, just &#34;hanging out&#34;. It&#39;s tough to make that time as an adult with a career, family, etc.This may be why college friendships can be so strong – often a lot of time is spent living and working around friends by default, without needing to schedule it."</p>
+							
+						
+							
+								<p class="story__comment_others">"The NYTimes has an article &#34;Why it is hard to make friends over 30&#34; that gets reposted almost every year [1]. There&#39;s a quote about friendship conditions:&#34;As external conditions change, it becomes tougher to meet the three conditions that sociologists since the 1950s have considered crucial to making close friends: proximity; repeated, unplanned interactions; and a setting that encourages people to let their guard down and confide in each other, said Rebecca G. Adams, a professor of sociology and gerontology at the University of North Carolina at Greensboro. This is why so many people meet their lifelong friends in college, she added.&#34;But it&#39;s worthwhile noting that these conditions are simply that: conditions. Their existence do not inexorably lead to friendships. They are necessary but insufficient conditions.I&#39;ve been in many situations where all 3 were present but I didn&#39;t feel a simpatico with the other person. I&#39;ve taken weekend trips with people whom I never wanted to interact with again because I did not like what I saw on the trip (vulnerability can backfire -- if someone is vulnerable about how evil they are, I&#39;m not likely to appreciate that). I don&#39;t really keep in touch with most college friends either.On the other hand, there&#39;s something that does lead to fast and lasting friendships for me: it&#39;s that indescribable feeling when someone is on the same &#34;wavelength&#34;. It&#39;s a collocation of a bunch of things: the way they view the world (even if they are of a different political stripe), a shared sense of humor, and something you admire about them.Shared context definitely creates the conditions under which such people can be identified, but mere shared context itself cannot create resonant frequencies that are not there.[1] https://www.nytimes.com/2012/07/15/fashion/the-challenge-of-..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://evanhahn.com/a-decade-of-dotfiles/">
+						<picture>
+							<source srcset="default_31557430.webp" type="image/webp">
+							<source srcset="default_31557430.png" type="image/png">
+							<img src="default_31557430.png" alt="Preview of 'A decade of dotfiles'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://evanhahn.com/a-decade-of-dotfiles/">A decade of dotfiles</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31557430">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Saying that I’ve been maintaining my dotfiles for a decade is like saying that I’ve been decorating my home for a decade.I think it&#39;s more like decorating your home for the first time (which is a lot of work), but then in the proceeding years you keep tweaking a few bits to your liking as you learn more about &#34;decoration&#34;.The true benefits of the analogy break down a little, for instance one big advantage is persistence, stability and control - that some large corporation doesn&#39;t keep rudely breaking into your home every month and forcefully redecorate everything with the latest trend, or keep moving the furniture and light switches around while you are asleep, and inserting annoying store fronts into critical appliances like the fridge, or your toothpaste... The other benefit being that you can fairly effortlessly take your decorations with you to your next home!"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a good one, I hope I&#39;ll have mine for that long (started 2019).Personally, I stopped worrying about dotfiles and GNU stow after joining the cult of Nix. While I gave honest attempt to everything else, Nix made it stick. Now I only have one single repo, where In write config for (almost) all of my applications in Nix, deploy them with Nix, rollback with Nix etc. Compared to hodgepodge of INI/YAML/TOML/XML/JSON/WHATHAVEYOU it is nice to to only have single tool to worry about.I wished Guix had the momentum and size of Nixpkgs. I&#39;d much prefer a Lisp than the language contraption of Nix."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s always cool to see what the real lived experience of using a totally different workflow is like.I don&#39;t have any dotfile management at all(Aside from my regular incremental backups), and the only time I provision a new machines is if i get a new laptop or reinstall.I prefer to stay extremely hands off with VMs or servers. Ideally anything I do via SSH should be declarative and repeatable with Ansible.But recently there seems to be more and more important tools that can&#39;t be installed from a package manager and usually require manually editing PATH for some reason(I have no idea why they can&#39;t just use ~/.local/bin, or why there&#39;s no standard path management tool).It might be time to start putting things like that in a provisioning script. Or not, because they might not have a stable install process, and it&#39;s only a few minutes to do each one manually every few years."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://astralcodexten.substack.com/p/a-guide-to-asking-robots-to-design">
+						<picture>
+							<source srcset="default_31564152.webp" type="image/webp">
+							<source srcset="default_31564152.png" type="image/png">
+							<img src="default_31564152.png" alt="Preview of 'Asking robots to design stained glass windows'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://astralcodexten.substack.com/p/a-guide-to-asking-robots-to-design">Asking robots to design stained glass windows</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31564152">
+						
+							
+								<p class="story__comment_first line-clamp">"Unfortunately some of these designs aren&#39;t feasible because the cuts won&#39;t work. It isn&#39;t possible to cut &#39;into&#39; a piece of glass (imagine the &#39;mouth&#39; of pacman). You can see something like this in the first image where the flowers overlap the blue pane in the middle of the image. That blue pane is an example of an &#39;impossible&#39; shape. At least this is according to an uncle of mine that has decades of professional experience designing, creating, and repairing stained glass and leadlights."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt;some of the pictures could only be described as “disastrous”I dunno, I think a stained glass window of a finch with Charles Darwin&#39;s head is pretty great, personally"</p>
+							
+						
+							
+								<p class="story__comment_others">"Amazing images, but Tycho Brahe was famous for not using telescopes!https://en.wikipedia.org/wiki/Tycho_Brahe#Career:_observing_..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://xeiaso.net/blog/yubikey-ssh-key-storage">
+						<picture>
+							<source srcset="default_31556130.webp" type="image/webp">
+							<source srcset="default_31556130.png" type="image/png">
+							<img src="default_31556130.png" alt="Preview of 'How to Store an SSH Key on a Yubikey'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://xeiaso.net/blog/yubikey-ssh-key-storage">How to Store an SSH Key on a Yubikey</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31556130">
+						
+							
+								<p class="story__comment_first line-clamp">"I know Yubikeys are pretty old hat by now, but I still feel weirded out by relying something like this into a USB stick. I just know I would lose the key at some point locking me out from everything. Of course the solution is to have two keys, but don&#39;t really know where I would feel comfortable storing the extra key (also how often do you check that it still works?)I&#39;m probably just over thinking this and overly paranoid."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; As of OpenSSH 8.2 (Feburary 14, 2020) you are able to store an SSH private key on a yubikey! Here&#39;s how to do it.Many systems still don&#39;t have OpenSSH 8.2 (Windows 11, older debian stable, etc). For those, another solution is to use the PGP applet of the YubiKey, which exposes a regular RSA key.This guide has worked well for me: https://github.com/drduh/YubiKey-GuideYou can jump to the SSH sections if that&#39;s all you&#39;re after.There&#39;s a missing piece for Windows, since the agent coming with WinGPG won&#39;t be reachable by SSH. Some guy on GitHub put out a workaround, but I can&#39;t find it right now.--edit: The workaround for Windows is this one: https://github.com/rupor-github/win-gpg-agent"</p>
+							
+						
+							
+								<p class="story__comment_others">"You can use a GPG key stored on a YubiKey with openssh, but with some caveats:1. gpg-agent must act as your ssh-agent (which means ssh-agent should be disabled and replaced by gpg-agent).2. If using `pinentry-curses` (YubiKey usually permits access to the contained GPG key via the use of a pin), you must have `export GPG_TTY=$(tty)` (or your shell&#39;s equivalent of setting the GPG_TTY environment value to the output of `tty`).3. You can fetch the public key of your GPG key with `ssh-add -L` (gpg-agent must be acting as your ssh-agent, and the YubiKey with the GPG key has to be plugged in).4. You must have the line `enable-ssh-support` in your `$GNUPGHOME/gpg-agent.conf`.I used a guide[1] to set up a GPG key on to a YubiKey, and for those who don&#39;t want to use GPG, the guide also has a section[2] about just using an SSH key as well.[1]: https://github.com/drduh/YubiKey-Guide[2]: https://github.com/drduh/YubiKey-Guide#ssh"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=31565514">
+						<picture>
+							<source srcset="default_31565514.webp" type="image/webp">
+							<source srcset="default_31565514.png" type="image/png">
+							<img src="default_31565514.png" alt="Preview of 'I&#39;m a loser, burnt-out, directionless but want to turn it around'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=31565514">I&#39;m a loser, burnt-out, directionless but want to turn it around</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31565514">
+						
+							
+								<p class="story__comment_first line-clamp">"1. Take time off, like a month or more. [1]  Use it to do anything other than coding.  Hone a hobby, travel, volunteer, etc.  No-one will care about a month or two gap on your resume.2. You are worth more than you currently think you are.  Internalize this, know this, that is key.  &#34;I am a sole developer for Mobile and Web platforms at this startup in a very small team&#34; --&gt; is a desirable skill in and of itself.3. Stop working 80 hour weeks, stop working weekends.  When the only thing you do has little/no reward, that is what causes burnout.4. Fill your time with something else that you prioritize above work.  Make it hard to find time to work.  This both prevents slipping back to 80 hr weeks, and forces your brain to prioritize important things within your work life (like executing and finishing projects).5. Networking is key.  I don&#39;t have good advice here as this is a challenge for me also.  But -- switch jobs often (every couple years), and be friendly and helpful (within reason) to your co-workers.  They&#39;re now your network.My background -- coding since I was 6, now 36 -- but I&#39;ve shared many of the same feelings.[1] I am assuming you have the basic financial stability to support this.  My apologies if not."</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of stuff going on here.1. You&#39;re clearly NOT incompetent. If you were, you couldn&#39;t possibly hold the web and mobile platform together entirely on your own for that long AND handle every on call incident.2. The thing that surprised me most about burnout was the physical symptoms. You&#39;ve got them. It only gets worse from here if you keep doing what you&#39;re doing.3. It makes perfect sense to me that you don&#39;t feel like you&#39;re getting better in that environment. The rockstar developer is a myth, but the band is not. You get better by practicing with other talented people.4. You already know this, but you&#39;re being taken advantage of.So given all that...1. Everyone telling you to take a break is correct. Go outside and look at trees, read a book somewhere scenic, shut off your phone. If you need to take sick time to do this, so be it. It&#39;s not going to make you feel normal, but it will give your wildly overworked brain some relief.2. Hit up recruiters, hit up whatever network you have (including old acquaintances). Your story is incredibly straightforward: you held the line on these systems by yourself for years on end, including all their on-call needs, it&#39;s enough work for a 4-person team, and no help is coming. You&#39;re looking to work on an actual team where people actually learn from each other.3. If possible, take some time off between the old job and the new job just to take care of yourself.Good luck."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s not hard to explain why you feel terrible working those hours considering what you get out of it.What is more interesting/worrying is how you describe yourself as a loser, despite doing very, very demanding work and actually still succeeding at it. (At least by the standards of your company, else they would&#39;ve let you go 3 years back)Your own standards, however, seem to be so high that it&#39;s clearly harming you psychologically. I know some people will scoff at the suggestion, but in my experience that almost always comes from childhood.Grab yourself the book &#34;The Tao of Feeling Fully&#34; by Pete Walker and see if you resonate with it. Even if your first instinct is &#34;No way, my childhood was great&#34;, I would still (maybe especially) suggest you give it a read. If it&#39;s not for you that&#39;s 15 bucks gone, if it hits the nail it might literally save your life.I wish you all the best."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://matduggan.com/programming-in-the/">
+						<picture>
+							<source srcset="default_31559920.webp" type="image/webp">
+							<source srcset="default_31559920.png" type="image/png">
+							<img src="default_31559920.png" alt="Preview of 'Programming in the Apocalypse'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://matduggan.com/programming-in-the/">Programming in the Apocalypse</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31559920">
+						
+							
+								<p class="story__comment_first line-clamp">"The pandemic taught me a lot about apocalypse. While people are a lot slower to buy into collective action and changing their way of life than I thought, society is far more robust than I expected. Covid looked nothing like a pandemic film, thank god.With that in mind, I have some ideas on what programming will look like in 30 years:1. New frameworks and abstractions for making apps even more disposable while maintaining privacy will come along. New languages will happen. Corporations that just finished moving to the cloud will now be moving to even greater abstractions like Airtable or whatever comes next.2. Programmer pay will decrease compared to other industries. This is a hunch and I’m only 60% confident of it happening.3. Satellite internet will be more of a norm for no better reason than it’s the most efficient way to manage infrastructure. More rural communities will need it, and remote trends will continue. The cost of launches are going down and there’s a lot of land.4. Everything will get more energy efficient, and most intense activity will be pushed to compute farms.5. VR will once again come around as the next big revolution in computing, but will be ultimately disappointing and won’t see mass adoption.Beyond these ideas, I think too much plays into our personal optimism or pessimism. I think things will change, but we’re a scrappy species that will fight to preserve its way of life. It will look a lot like our global pandemic response…warts and all. There’s a lot there to be disappointed about, but it’s actually incredible it wasn’t worse.When these predictions hit I’ll be 70. I hope I’ll live to see it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I agree that we need to plan for climate adaptation (preparing for predictable problems) and resilience (preparing for unpredictable problems), but I have a few kneejerk responses:- Although it&#39;s looking increasingly unlikely that we can avert climate disaster, we can never give up. For example, 8 degrees of warming would be much worse than 4 degrees of warming, and could mean the difference between human extinction and the mere collapse of our civilization. The lives of billions hang in the balance, and even if some will inevitably suffer and die, we can&#39;t just throw up our hands and let everyone die. Climate change mitigation, cutting emissions as quickly and thoroughly as we can, must remain a priority for the rest of our lives, even if we can no longer reach the best/safest scenarios. Every little bit of avoided global heating matters.- This post, as dire as its predictions are, may underestimate the difficulty of computing in 2050, given current trends. If you are/were living in Ukraine recently, programming is not most people&#39;s top priority, they have other problems. Famines, extreme weather events, and resource wars will affect programmers who live in comfortable locations today. It&#39;s not just your users/audience who might be computing from a shitty mobile phone in a refugee camp, it could be you. Don&#39;t forget that we&#39;re not only dealing with climate change, but with the reaction of other people to climate change: they might want to kill you for your water. And heatwaves are predictable in India/Pakistan, but look at the freak heatwaves in Canada recently, nowhere on Earth is safe, the climate crisis is a global problem.- Why are we programming what we&#39;re programming? Shouldn&#39;t our activities and their purposes change given the dramatic change in circumstances? Isn&#39;t there something wrong with the system that produced this result, the impending destruction of the biosphere that supports us? Fighting valiantly to preserve the functionality that is killing the world may not be a wise or ethical use of your time. (And if you&#39;re programming something for a fossil fuel company, now is a good time to reconsider.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I have fear that the cathartic pessimism we sometimes enjoy ironically is turning into a chronic fatalism. It&#39;s like a habit that has become an addiction. I think the author was in a discussion that started as a fun catharsis for all involved and then devolved into an addictive argument that the author felt they needed to win.There is a cliché which goes: &#34;Expect the best. Prepare for the worst&#34;. Articles like this only seem to get the second half of that while clearly violating the first half. A well balanced response to crisis is benefited by both.I think the author is not actively aware of the importance of expecting the best, both of the world and of their colleagues. I feel their arguments are weak due to this imbalance."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">30 May 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -183,7 +570,7 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 							
 						
 							
-								<p class="story__comment_others">"The part about data dependencies across loop iterations is fascinating to me, becuase it&#39;s mostly invisible even when you look at the generated assembly. There&#39;s a related optimization that comes up in implementations of ChaCha/BLAKE, where we permute columns around in a kind of weird order, because it breaks a data dependency for an operation that&#39;s about to happen: https://github.com/sneves/blake2-avx2/pull/4#issuecomment-50..."</p>
+								<p class="story__comment_others">"I think it&#39;s worth pointing out that the reason why these two examples execute at different speed is due to how compiler translated code AND because CPU was able to parallelize work. Compilers take knowledge about target platform (e.g. instruction set) and code and translate it into executable code. Compiler CAN (but doesn&#39;t have to) rewrite code only if it ALWAYS produces the same result as input code.I feel like last 110-15 years (majority of) people have stopped thinking about specific CPU and only think about ISA. That works for a lot of workloads but in recent years I have observed that there is more and more interest in how specific CPU can execute code as efficiently as possible.If you&#39;re interested in the kind of optimizations performed in the example you should check out polyhedral compilation (https://polyhedral.info/) and halide (https://halide-lang.org/). Both can be used to speed up certain workloads significantly."</p>
 							
 						
 						</a>
@@ -217,11 +604,11 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 							
 						
 							
-								<p class="story__comment_others">"I disagree with much of these stacks. I would scrap at least Avenir Next, Avenir, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Arial, Apple Garamond, Times New Roman, Droid Serif, Times, Source Serif Pro, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Monaco, Liberation Mono and Lucida Console, and probably a couple more, for one of three reasons: that the family is superfluous, for an obsolete platform, or inferior.—⁂—But as a consumer of the web, I personally don’t actually need to worry about these things any more, because I have my browser set to use my chosen sans-serif, serif and monospace faces (Equity, Concourse, Triplicate), and you can too! ① Use Firefox. Other browsers may have something similar; dunno; but Firefox is good anyway. ② Settings (about:preferences) → Fonts → Advanced → untick “Allow pages to choose their own fonts, instead of your selections above”.I started doing this a few months back as a week-long experiment, and found it so significantly improved the web that I’m not going back. (It did feel a little strange for a few days, as Concourse is a somewhat narrower sans-serif than the likes of Arial, but that’s about the specific fonts that I chose. Now it’s just perfectly natural.)I have experienced a very few icon-font related breakages, about which I wrote yesterday at https://news.ycombinator.com/item?id=31540234, but it’s surprisingly few given how popular the technique was for a few years. I also get a fair bit of bonus unintended serif from people that have neglected to add a generic font family fallback, or misspelled it (e.g. sans or &#34;sans-serif&#34; (quoted) instead of sans-serif), so that it falls back to the global default, which I have left as a serif."</p>
+								<p class="story__comment_others">"I&#39;m kind of confused as to why they don&#39;t have a demo showing all the fonts. I&#39;m not just going to blindly pick from system fonts, I want to choose which I prefer first. Yeah I could look them all up, but just seems like they missed showing off the core thing..."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m kind of confused as to why they don&#39;t have a demo showing all the fonts. I&#39;m not just going to blindly pick from system fonts, I want to choose which I prefer first. Yeah I could look them all up, but just seems like they missed showing off the core thing..."</p>
+								<p class="story__comment_others">"I disagree with much of these stacks. I would scrap at least Avenir Next, Avenir, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Arial, Apple Garamond, Times New Roman, Droid Serif, Times, Source Serif Pro, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Monaco, Liberation Mono and Lucida Console, and probably a couple more, for one of three reasons: that the family is superfluous, for an obsolete platform, or inferior.—⁂—But as a consumer of the web, I personally don’t actually need to worry about these things any more, because I have my browser set to use my chosen sans-serif, serif and monospace faces (Equity, Concourse, Triplicate), and you can too! ① Use Firefox. Other browsers may have something similar; dunno; but Firefox is good anyway. ② Settings (about:preferences) → Fonts → Advanced → untick “Allow pages to choose their own fonts, instead of your selections above”.I started doing this a few months back as a week-long experiment, and found it so significantly improved the web that I’m not going back. (It did feel a little strange for a few days, as Concourse is a somewhat narrower sans-serif than the likes of Arial, but that’s about the specific fonts that I chose. Now it’s just perfectly natural.)I have experienced a very few icon-font related breakages, about which I wrote yesterday at https://news.ycombinator.com/item?id=31540234, but it’s surprisingly few given how popular the technique was for a few years. I also get a fair bit of bonus unintended serif from people that have neglected to add a generic font family fallback, or misspelled it (e.g. sans or &#34;sans-serif&#34; (quoted) instead of sans-serif), so that it falls back to the global default, which I have left as a serif."</p>
 							
 						
 						</a>
@@ -259,7 +646,7 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 							
 						
 							
-								<p class="story__comment_others">"Obviously, people whose products rely on those ads and telemetry, won&#39;t be happy and will try to retaliate, for example, by refusing you service. This frequently happens because of my usage of VPNs and ublock. In that case I have an option to quickly turn vpn/ublock off for that specific web site or service. In your case it&#39;s not so easy."</p>
+								<p class="story__comment_others">"Won&#39;t be long now until IoT and other crap-ware devices catch on to this trend and start hard-coding DNS servers in code, or worse, using DNS encryption to avoid this sort of routine blocking by end-users. I wonder how people are thinking about solving this problem."</p>
 							
 						
 						</a>
@@ -293,11 +680,11 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 							
 						
 							
-								<p class="story__comment_others">"&gt; And if you’re dumb like me, and you’ve used a Synology-proprietary storage format, you can’t access your data without another Synology systemI wonder what he means by this. If he&#39;s referring to SHR, then it&#39;s just standard mdraid and Synology themselves have instructions on how to mount the volume in Ubuntu https://kb.synology.com/en-us/DSM/tutorial/How_can_I_recover...edit: He later mentions encrypted volumes but those are also just using standard encryptfs https://www.impedancemismatch.io/posts/decrypt-synology-back...This is one of the reasons I feel comfortable recommending Synology devices - there&#39;s not a lot of lock-in"</p>
+								<p class="story__comment_others">"Author here.I consider myself an intermediate homelabber and a TrueNAS beginner. I just built my first NAS server, so wrote this to capture everything I wish I&#39;d known at the start. I hope it&#39;s helpful for anyone else thinking about building their first NAS server.Any questions or feedback about the post are more than welcome."</p>
 							
 						
 							
-								<p class="story__comment_others">"Author here.I consider myself an intermediate homelabber and a TrueNAS beginner. I just built my first NAS server, so wrote this to capture everything I wish I&#39;d known at the start. I hope it&#39;s helpful for anyone else thinking about building their first NAS server.Any questions or feedback about the post are more than welcome."</p>
+								<p class="story__comment_others">"&gt; And if you’re dumb like me, and you’ve used a Synology-proprietary storage format, you can’t access your data without another Synology systemI wonder what he means by this. If he&#39;s referring to SHR, then it&#39;s just standard mdraid and Synology themselves have instructions on how to mount the volume in Ubuntu https://kb.synology.com/en-us/DSM/tutorial/How_can_I_recover...edit: He later mentions encrypted volumes but those are also just using standard encryptfs https://www.impedancemismatch.io/posts/decrypt-synology-back...This is one of the reasons I feel comfortable recommending Synology devices - there&#39;s not a lot of lock-in"</p>
 							
 						
 						</a>
@@ -497,7 +884,7 @@ With something like this we get a solid RDBMS engineered to be scale-to-zero, an
 							
 						
 							
-								<p class="story__comment_others">"Just yesterday I was comparing managed serverless postgres offers and was sad to temporarily end my investigation with a compromise of using managed aws RDS for development, hoping that a fully serverless postgres with a nice free tier would pop up before going to production, and here we are!Congrats to the team for what feels like an amazing product. Signed up for the early access, can&#39;t wait to get my hands on this!For anyone interested, these ere the DB offers I looked into:* DO managed postgres, no free tier but price scaling was not too aggressive, the issue is that it&#39;s not natively serverless and we&#39;re gonna get 100s of ephemeral connections.* Cockroach, was the best option for our use case but it doesn&#39;t support triggers and stored procedures, so we can&#39;t use it right now (closely following https://github.com/cockroachdb/cockroach/issues/28296)* Fly.io price scaling is too aggressive 6$ -&gt; 33 -&gt; 154 -&gt; 1000s a month and no free tier that I could find.* Aurora serverless v2  is only for aws internal access and we are using gcp.* Aurora v1 was what we were gonna go with, but a lot of people online have showed their negative opinion around slow scaling. I didn&#39;t investigate enough but I&#39;m thinking we&#39;d need to setup RDS proxy for it handle all our connections, which would&#39;ve bumped up the price by a good amount. Also no free tier.* Alloydb looked promising but also no free tier and starting price is a bit much for our current phase of development, but it was definitely something we&#39;d look into in the future.And now Neon, natively serverless with a (hopefully) good free tier to test things out and some hints about cross region data replication, amazing stuff!"</p>
+								<p class="story__comment_others">"Really interesting. I&#39;ve seen so much disagregated database work, and so so so much of that exposes postgres interfaces. But all the good stuff has been closed source!I&#39;m very very excited to hear about a team taking this effort to postgres itself, in an open source fashion! From the Architecture[1] section of the README:&gt; A Neon installation consists of compute nodes and Neon storage engine.&gt; Compute nodes are stateless PostgreSQL nodes, backed by Neon storage engine.&gt; *Neon storage engine consists of two major components: A) Pageserver. Scalable storage backend for compute nodes. B) WAL service. The service that receives WAL from compute node and ensures that it is stored durably.Sounds like a very reasonable disaggregation strategy. Really hope to hear about this wonderful effort for many more years. Ticks the boxes: open-source with a great service offering: nice. Rust: nice."</p>
 							
 						
 						</a>
@@ -1846,11 +2233,11 @@ Despite the title of this post, the visualization isn&#39;t really meant to show
 							
 						
 							
-								<p class="story__comment_others">"This is still occurring? I remember the original incident and just assumed that Google had sorted it out with Drew/Sourcehut.This is absolutely shocking behaviour, and I’m mortified at the precedent that it sets."</p>
+								<p class="story__comment_others">"Regardless of whether or not Drew is abrasive (I&#39;ve never dealt with him so have no opinion), this is on Google.If a single service (Go&#39;s module crawler) is doing this to multiple third parties (and it is, by design) then requiring Drew to implement a workaround is the same thing as relying on every (relevant to the issue) third party to do the same thing.  Which is bad design.This should be fixed at source or switched off.As for the workaround itself it&#39;s true that going on a crawler exclusion list will not stop SourceHut being usable, only make it a little stale, but that doesn&#39;t matter.  The problem is not at Drew&#39;s end.  And once again for this workaround to be an effective solution every (relevant to the issue) third party needs to do the same thing.  Which is bad design.As a general rule, with excessive polling the system doing the polling is the one at fault.  And as a general rule if one system impacts many fix at the originator.  If Google devs don&#39;t know this, then why on earth are they getting the salaries they do?"</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; I was banned from the Go issue tracker for mysterious reasons, so I cannot continue to nag them for a fix.¹ I can’t blackhole their IP addresses, because that would make all Go modules hosted on git.sr.ht stop working for default Go configurations (i.e. without GOPROXY=direct). I tried to advocate for Linux distros to patch out GOPROXY by default, citing privacy reasons, but I was unsuccessful. I have no further recourse but to tolerate having our little-fish service DoS’d by a 1.38 trillion dollar company. But I will say that if I was in their position, and my service was mistakenly sending an excessive amount of traffic to someone else, I would make it my first priority to fix it. But I suppose no one will get promoted for prioritizing that at Google.&gt; [1]: In violation of Go’s own Code of Conduct, by the way, which requires that participants are notified moderator actions against them and given the opportunity to appeal. I happen to be well versed in Go’s CoC given that I was banned once before without notice — a ban which was later overturned on the grounds that the moderator was wrong in the first place. Great community, guys."</p>
+								<p class="story__comment_others">"This is still occurring? I remember the original incident and just assumed that Google had sorted it out with Drew/Sourcehut.This is absolutely shocking behaviour, and I’m mortified at the precedent that it sets."</p>
 							
 						
 						</a>
@@ -3146,7 +3533,7 @@ especially with something like biology. So place your bets: do you want possibly
 							
 						
 							
-								<p class="story__comment_others">"Though I had almost zero ways I would actually use the learning from this course (and indeed really never did any ML after and have probably forgotten it all) it was still a really fun brain exercise to revisit some math and then see how ML thinking worked! I have recommended it quite a few times."</p>
+								<p class="story__comment_others">"Announcing that he updated his course certainly gained more attention than saying it will be available in Junehttps://news.ycombinator.com/item?id=31204055I certainly was excited when I saw this headline. Thought maybe it was early"</p>
 							
 						
 						</a>
@@ -3582,422 +3969,6 @@ So much for innocent until proven guilty."</p>
 						
 							
 								<p class="story__comment_others">"Author of Elder.js (mentioned in the article) and avid lover of both MPA and SPA.Daily I am writing MPAs for SEO assets and SPAs for internal dashboards used to manage the huge amount if data collection our teams do.It really boils down to what you are building.Google is decidedly terrible about indexing JS for sites with a low crawl budget. Why make your life harder. That is why I wrote Elder.js. Statically generate everything, sprinkle in interactivity where needed.But for internal dashboards I developed a internal framework to spit out crud apps based on nothing more than a couple graphql queries and a couple yupjs validations. It is a breeze and adding new data collection fields takes minutes so I and my team can focus on stuff that drives business value… instead of crud.As with everything picking the right tool for the job makes the job a lot easier. Don’t give into the hype one way or another."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">21 May 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://howardchen.substack.com/p/this-amateur-programmer-fought-cancer">
-						<picture>
-							<source srcset="default_31449147.webp" type="image/webp">
-							<source srcset="default_31449147.png" type="image/png">
-							<img src="default_31449147.png" alt="Preview of '“Amateur” programmer fought cancer with 50 Nvidia Geforce 1080Ti'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://howardchen.substack.com/p/this-amateur-programmer-fought-cancer">“Amateur” programmer fought cancer with 50 Nvidia Geforce 1080Ti</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31449147">
-						
-							
-								<p class="story__comment_first line-clamp">"Recently a Chinese media interviewed me and I talked about a few side projects I have done in the past. I talked about the Neuralrad Mammo Screening project and Neuralrad multiple brain mets SRS platform. More awareness on radiation therapy to the general public will greatly help the community and we believe Stereotactic Radiosurgery (SRS) will eventually replace majority of the whole brain radiation therapy (WBRT) in the next five years.Here is the link to the original article:
-https://www.toutiao.com/article/7094940100450107935/"</p>
-							
-						
-							
-								<p class="story__comment_others">"In the UK the NHS don&#39;t do screening for breast cancer for under 50s because it&#39;s believed that it would do more harm than good by leading to unnecessary treatment for cancers that would never have actually caused any harm, and even where no treatment is carried out it causes great distress. Though there are arguments that the age cut off is too high, and should be set at 40.The above is with regard to a well-funded and regulated screening program that presumably has much better precision/recall than this website. I wonder what the cut off age is for this website before the diagnoses cause more harm than good? 60? 70?This is getting lots of upvotes because it&#39;s confirmation bias for the large segment of HN readers who believe that problems would easily be solved by a small number of brilliant technologists, if only it weren&#39;t for governments and big organisations with all their rules and regulations."</p>
-							
-						
-							
-								<p class="story__comment_others">"1) I just downloaded the &#34;The Mammographic Image Analysis Society database of digital mammograms&#34; [0] and ran it against the tool [1] image by image. Results below, code here [2]:  true_pos 36
-  true_neg 207
-  false_pos 63
-  false_neg 16
-  total 322
-
-2) How is it true when the site [1] says  &#34;We will not store your data on our server. Please don&#39;t worry about any privacy issues.&#34; when you can find all analyzed mammograms under the &#34;static&#34; directory?http://mammo.neuralrad.com:5300/static/mamo.jpghttp://mammo.neuralrad.com:5300/static/mammo.jpg(trying file names at random)[0] https://www.repository.cam.ac.uk/handle/1810/250394[1] http://mammo.neuralrad.com:5300/upload[2] https://github.com/gregsadetsky/mias-check"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.bahn.com/en/offers/regional/9-euro-ticket-en">
-						<picture>
-							<source srcset="default_31445822.webp" type="image/webp">
-							<source srcset="default_31445822.png" type="image/png">
-							<img src="default_31445822.png" alt="Preview of '9-Euro-Ticket'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.bahn.com/en/offers/regional/9-euro-ticket-en">9-Euro-Ticket</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31445822">
-						
-							
-								<p class="story__comment_first line-clamp">"Very important caveat for all of you who are thinking, “woo hoo, no need to buy that EuRail pass! Or to buy an expensive ICE ticket!”These tickets are good for all “Nah- und Regionalverkehr,” explicitly excluding ICE, IC, EC (international) and long-distance busses (like the one between Munich and Zürich)If the train number begins with RE or RB, you’re good, but of course, those are the slow ones that stop in every village along the way.This is for the benefit of people who live here and are struggling with 2 EUR/liter fuel, not the kind of people who blithely paid 60 EUR to take the ICE. There does not appear to be any residency requirement, but remember, you’re not the target market for this (unless you live here and are struggling with fuel prices…)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I would argue making it free and keeping it free would have been a cool move.
-- Less/no expensive accounting
-- Less/no personnel for checking tickets
-- Less/no personnel for prosecuting people who don&#39;t have tickets
-- Less/no ticket vending machines (and all the maintenance that comes with it)
-- Less traffic on the roads since you can&#39;t beat &#34;free&#34; and hence less emissions (at least in hamburg trains operate on green energy) and less wear on the roads (might be offset by the wear on trains and busses)
-- Fully non-discriminant with respect to incomeI have no idea if that would work for inter-city transport but for inner-city transport the HVV for example (the public transportation network responsible for hamburg and surrounding areas) sells 30 million tickets a year and I wonder how much it truly costs them to do that with all the relevant factors mentioned above."</p>
-							
-						
-							
-								<p class="story__comment_others">"Some context is given here: https://www.dw.com/en/germany-introduces-9-ticket-to-offset-...The ticket is part of a support package signed off by the German parliament. The will pay approximately €2.5 billion for the ticket offer, as a response to rising energy prices and the resulting high costs of individual mobility."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.blog/changelog/2022-05-19-render-mathematical-expressions-in-markdown/">
-						<picture>
-							<source srcset="default_31438864.webp" type="image/webp">
-							<source srcset="default_31438864.png" type="image/png">
-							<img src="default_31438864.png" alt="Preview of 'Render mathematical expressions in Markdown On GitHub'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.blog/changelog/2022-05-19-render-mathematical-expressions-in-markdown/">Render mathematical expressions in Markdown On GitHub</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31438864">
-						
-							
-								<p class="story__comment_first line-clamp">"Nice! A welcome addition!Too bad they&#39;re not using KaTeX [0] instead.It renders the maths server-side, so there&#39;s no runtime needed.An additional bonus is that the resulting math is copy-pasteable, which in the case of disply math might not be that useful (since most equations are to complex to be meaningfully copy-pasted with unicode), but it helps from inline math dissappearing when copy pasting texts.But, that being said, I&#39;m sure they had their reasons to do so. For one, MathJax seems more well-known by quite a bit so maybe it&#39;s the safer option.1: https://katex.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I didn&#39;t know that you could also write diagrams, including maps and 3D models: https://docs.github.com/en/get-started/writing-on-github/wor..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Funny thing is, this feature (with MathJax) used to be available in 2010ish, but got removed back then as they did not want to have &#34;unvetted&#34; large libraries as a dependency."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.pbsspacetime.com">
-						<picture>
-							<source srcset="default_31444573.webp" type="image/webp">
-							<source srcset="default_31444573.png" type="image/png">
-							<img src="default_31444573.png" alt="Preview of 'PBS SpaceTime'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.pbsspacetime.com">PBS SpaceTime</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31444573">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s really sad that PBS ended their sister series on math, Infinite Series[1]. Those videos were just as deep, informative, and accessible as PBS Spacetime. Some of my favorites are the one on the mathematical &#34;hydra&#34;[2] and the ones on voting systems [3][4][1]: https://www.youtube.com/channel/UCs4aHmggTfFrpkPcWSaBN9g[2]: https://www.youtube.com/watch?v=uWwUpEY4c8o[3]: https://www.youtube.com/watch?v=HoAnYQZrNrQ[4]: https://www.youtube.com/watch?v=AhVR7gFMKNg"</p>
-							
-						
-							
-								<p class="story__comment_others">"A channel worth subscribing. Matt (and team?) manages successfully to walk the fine line between managing the complexity of the topics they discuss (which are sometimes extremely dense), making it consumable for the population that&#39;s interested in science and physics, but doesn&#39;t pursue it on a daily basis. At the same time, they don&#39;t fall for the trap of dumbing it down to the point where the audience develops misconceptions and starts believing in pseudo scientific claims.There are some series they sometimes do, which are entertaining to follow. I also enjoy things like Journal club, where they pick a paper and deep dive into it. The audience also participates, in a way, where they pick the questions/comments from the previous video and answer them.However, it&#39;s not all academic either. There are some running jokes etc, which keep the content entertaining, while being informative, a format that I see common in some of the best Youtube channels."</p>
-							
-						
-							
-								<p class="story__comment_others">"If you like PBS Space Time, you&#39;ll likely also enjoy &#34;Science Asylum&#34;:https://www.youtube.com/c/ScienceasylumThis channel covers the same subjects of physics and space, but does so with some incredible insight that I&#39;ve seen no other channels dig into, and thoughtful animated diagrams that really help in comprehending the subject.Here are some great episodes:&#34;What is Quantum Spin?&#34;: https://www.youtube.com/watch?v=sB1EPGmpzyg&#34;Quantum Superposition, Explained Without Woo Woo&#34;: https://www.youtube.com/watch?v=ZUipVyVOm-Y&#34;Capacitors Are Gaps! How Does That Work?!&#34;: https://www.youtube.com/watch?v=zYRx6Zub3cA"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.spectator.co.uk/article/does-an-unknown-extraordinarily-ancient-civilisation-lie-buried-under-eastern-turkey-">
-						<picture>
-							<source srcset="default_31452449.webp" type="image/webp">
-							<source srcset="default_31452449.png" type="image/png">
-							<img src="default_31452449.png" alt="Preview of 'Ancient civilisation under eastern Turkey estimated to be 11k-13k years old'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.spectator.co.uk/article/does-an-unknown-extraordinarily-ancient-civilisation-lie-buried-under-eastern-turkey-">Ancient civilisation under eastern Turkey estimated to be 11k-13k years old</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31452449">
-						
-							
-								<p class="story__comment_first line-clamp">"https://archive.ph/ER5d9"</p>
-							
-						
-							
-								<p class="story__comment_others">"A lot hinges on the dating of this site. How was it done?According to this article[1] (which has a nice wide-angle view of t-pillars in context), it was radiocarbon dating[1]. You find bits of stuff at the site and the isotopic composition of the carbon-containing material tells you the age based on known rates of carbon-14 decay.The actual isotopic analysis seems pretty solid.The problem is that this isn&#39;t any ordinary site. The article notes that the site appears to have been deliberately buried. This raises the question of where the samples that were dated actually came from.This critical review suggests major problems with the older-than-everything-else hypothesis for the site.[2] It notes that at least some of the samples were dated from &#34;fill,&#34; or the stuff that was used by someone at some point to bury the site. And that stuff could have itself come from sites much older than Gobeklitepe:&gt; We already discussed the problem with dating “fills” as opposed to dating “structures”. A fill’s date (no matter how confident we may fill about its actual date) in no way dates structures, as it simply can be coming from soil deposits that are either older or younger than the structure itself. You can fill your home with dirt from your yard, which could be from various geologic strata, some containing fossils from the Pleistocene. This will not make your home a Pleistocene Epoch home. Or you can currently fill a 4th century BC Temple with soil from riverbanks containing live exoskeletons; this will not render the Temple a 2000 AD structure.Even if the site wasn&#39;t deliberately buried, everything hinges on where the fill came from. The base assumption of radiocarbon dating is that no foreign material was brought in. The shakier that assumption, the shakier the claim to the ages being quoted.[1] https://www.asahi.com/ajw/articles/14487942[2] https://www.researchgate.net/publication/317433791_Dating_Go..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Related: I recently watched the amazing Turkish Netflix series Atiye (2019-21), in which Göbekli Tepe features centrally. The main character, Atiye, is a painter who&#39;s painted the same symbol all her life, and one day sees it in a news story about Göbekli Tepe, and feels compelled to travel there immediately. The epic story involves time travel, alternate realities, spirituality/mythology, archaeologists, academics, history, family, love etc. Also you get to see a lot of the Turkish countryside. I and the SO thought it really wonderful, highly recommended. (Warning: Season 3 is a kind of new story and loses the addictive watchableness of the first 2, but is not terrible.)https://www.imdb.com/title/tt10075318/https://en.wikipedia.org/wiki/The_Gift_(Turkish_TV_series)p.s. Bir Başkadir (aka Ethos, 2020-) and Fatma (2021-) are another two excellent Turkish Netflix series.https://www.imdb.com/title/tt11301642/https://www.imdb.com/title/tt11961378/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.thecity.nyc/2022/2/24/22949795/new-york-rolling-out-noise-law-listening-tech-for-souped-up-speedsters">
-						<picture>
-							<source srcset="default_31442367.webp" type="image/webp">
-							<source srcset="default_31442367.png" type="image/png">
-							<img src="default_31442367.png" alt="Preview of 'New York rolling out noise law, listening tech for souped-up speedsters'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.thecity.nyc/2022/2/24/22949795/new-york-rolling-out-noise-law-listening-tech-for-souped-up-speedsters">New York rolling out noise law, listening tech for souped-up speedsters</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31442367">
-						
-							
-								<p class="story__comment_first line-clamp">"City noise pollution is a factor in all-cause mortality due to
-long-term, barely perceptible stress effects on the cardiovascular
-system. Unfortunately, one of the most disturbing and frequency sources
-of city noise pollution is from emergency vehicle sirens.I gave a presentation at the Audio Engineering Society titled
-&#34;Iatrogenic Sound&#34;, on the tragic irony of how sirens may causally
-contribute to the heart attacks and strokes that ambulances are
-rushing to treat.We were exploring the acoustics of urban design and the sound-design
-of sirens. The sweeping &#34;wailer&#34; siren is in fact one of the worst
-possible designs imaginable - all the wrong characteristics for
-locatability of source, annoyance versus attention ratio, penetration
-of dwellings etc. Add to that the design of modern &#34;luxury&#34; cars which
-are soundproofed, fitted with anti-noise and blaring ICE systems to
-block the world out.There isn&#39;t an easy solution. Most laws give police, fire and
-ambulance crews &#34;discretion&#34; in the use of sirens. In the UK that&#39;s
-Article 99. But here, the removal of crown immunity and insurance
-pressures mean the crew now always deploy, even at times of night
-when it would have previously been illegal under other laws. I expect
-the same complex spheres of interest clash in NYC too."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have lived in nyc for a long time both in manhattan and Brooklyn. I have never understood how these cars and bikes are allowed to roam the streets like they do openly all day and all night while police used to be so quick to arrest youngsters who jumped turnstiles or smoked weed. The asshole in the article that is quoted even has the courage to say things like they need that sound for safety of themselves and cars and pedestrians. It&#39;s 2022, ban these cars and loud bikes from city streets. Heck ban all the unnecessary cars in city centers and just use electric vehicles. The city belongs to pedestrians, not some &#34;tuff&#34; redneck gang who think they can do whatever they want."</p>
-							
-						
-							
-								<p class="story__comment_others">"I’m really excited about this. I live in the NYC area and I think noise pollution from vehicles is an under-appreciated problem. I think the worst impact from street noise is on sleep; even a bit of noise noticeably hurts my sleep quality."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://forum.xda-developers.com/t/closed-app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/page-1087#post-86909853">
-						<picture>
-							<source srcset="default_31432334.webp" type="image/webp">
-							<source srcset="default_31432334.png" type="image/png">
-							<img src="default_31432334.png" alt="Preview of 'FairEmail stopping development after Google falsely flags app as spyware'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://forum.xda-developers.com/t/closed-app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/page-1087#post-86909853">FairEmail stopping development after Google falsely flags app as spyware</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31432334">
-						
-							
-								<p class="story__comment_first line-clamp">"I guess I&#39;ll take the contrarian view here: the developer violated a reasonable Play Store policy, refused to fix the problem, and received an expected outcome.If you read the details of the Play Store complaint, you will see that they say the app was uploading information from the user&#39;s contact list without properly disclosing to the user that this was happening [1]. This is a violation of Play Store policy (a disclosure is required). It&#39;s not an unreasonable policy.You can see in the app&#39;s source code where some of this happens [2]. In short, the contact list is read off the device, email addresses associated with each contact are parsed out, and the app does HTTP requests to remote servers to get the favicon associated with each email contact domain. Note that this is the sending of information off each user&#39;s contact list (the email address domains) to those remote servers. As such, it requires a disclosure to the user.The developer&#39;s response is that he refuses to add a disclosure to the app because he is not uploading &#34;contact info&#34;. [3]. Ok... not a great response. Certainly I would expect apps to disclose whether or not they are using any information on my contact list to reach out to third-party servers, even if only domain names. In any case, it&#39;s Play Store policy.In the end, he finally removed the favicon feature. And Play agreed to allow the app back into the store. [4] But he has not yet backed down on shutting down the whole project because he&#39;s still upset.Sources[1] https://forum.xda-developers.com/t/app-5-0-fairemail-fully-f...[2] https://github.com/M66B/FairEmail/blob/master/app/src/main/j...[3] https://forum.xda-developers.com/t/app-5-0-fairemail-fully-f...[4] https://forum.xda-developers.com/t/app-5-0-fairemail-fully-f..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Looks like he&#39;s also shutdown Netguard, another Android app from the same developer: https://netguard.me/ / https://play.google.com/store/apps/details?id=eu.faircode.ne.... I&#39;d never heard of FairEmail, but I&#39;ve definitely heard of Netguard! It was comfortably the best Android firewall &amp; had 5 million installs or so via Google Play. Ouch."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s difficult not to assume some kind of hidden &#34;anti-privacy apps&#34; agenda when seeing things like this.Even more difficult to test this given Google continues to violate their obligation for transparency."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://dl.acm.org/">
-						<picture>
-							<source srcset="default_31447465.webp" type="image/webp">
-							<source srcset="default_31447465.png" type="image/png">
-							<img src="default_31447465.png" alt="Preview of 'ACM Digital Library Archive is Open Access with 50 Years of Published Records'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://dl.acm.org/">ACM Digital Library Archive is Open Access with 50 Years of Published Records</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31447465">
-						
-							
-								<p class="story__comment_first line-clamp">"Announcement: https://associationsnow.com/2022/05/the-way-things-were-why-......as a part of its landmark campaign for its 75th anniversary celebrations, ACM is opening up a large portion of its archives, making the first 50 years of its published records—more than 117,500 documents dating from 1951 to 2000—accessible to the public without a login.* A paper from the inaugural issue of ACM Transactions on Mathematical Software in 1975: https://dl.acm.org/doi/pdf/10.1145/355626.355636* The UNIX time-sharing system by Ritchie &amp; Thompson. https://dl.acm.org/doi/10.1145/800009.808045* A Conversation with Steve Jobs. https://dl.acm.org/doi/pdf/10.1145/63334.63336Edit: More info -In January 2020, ACM launched an ambitious five-year plan to transition the Association into an Open Access Publisher. The foundation of that plan is a new model called ACM Open, which asks research institutions around the world to underwrite the costs of publication for their affiliated authors. Over the past two years, nearly 200 research institutions have already signed on to ACM Open and ACM is fast approaching the first major milestone for the transition, when approximately 20% of ACM&#39;s newly published articles are Open Access upon publication in the ACM Digital Library.Source: https://cacm.acm.org/magazines/2022/5/260362-thanks-for-the-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Nice - this means the May 1988 issue of CACM is freely available.  That&#39;s notable because the cover article is Cliff Stoll&#39;s &#34;Stalking the Wily Hacker&#34; [1], with the material that later became his book &#34;The Cuckoo&#39;s Egg&#34;.  But I&#39;ve still got the dead-tree version of that issue around somewhere in storage because of another article, by Andrew Appel and Guy Jacobson, &#34;The World&#39;s Fastest Scrabble Algorithm&#34; [2].  I coded that up back then, in Pascal IIRC, and had a blast doing so.[1] https://dl.acm.org/doi/10.1145/42411.42412[2] https://dl.acm.org/doi/10.1145/42411.42420"</p>
-							
-						
-							
-								<p class="story__comment_others">"So some people already posted now-accessible papers that worth a look.
-Here is my random pick: &#34;A relational model of data for large shared data banks&#34; [1]It&#39;s a defining paper for RDB data model. I think it&#39;s not a exaggeration to say 
- all the RDB history starts here. (The history itself is covered not by acm but by ieee [2]).[1] https://dl.acm.org/doi/10.1145/362384.362685[2] https://scholar.google.com/scholar?cluster=16074372884446179..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://http.cat/">
-						<picture>
-							<source srcset="default_31438989.webp" type="image/webp">
-							<source srcset="default_31438989.png" type="image/png">
-							<img src="default_31438989.png" alt="Preview of 'HTTP Cats'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://http.cat/">HTTP Cats</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31438989">
-						
-							
-								<p class="story__comment_first line-clamp">"Slightly superior version: https://http.dog/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I don’t know what is says about me as a software engineer, but that site is the first place I visit to look up more obscure statuses."</p>
-							
-						
-							
-								<p class="story__comment_others">"Reminds me of my most customer-visible screwup.- Implement rate limiting on a site to deal with scrapers- Include the https://http.cat/429 in the template for 429 responses.- Time passes- Implement API for displaying an information widget in customer company’s own website (big pharma regent suppliers), content get injected as an iframe loaded from our site.- Customer employees all visit their own website from behind a reverse proxy with the same IP, trigger the (poorly configured) rate limiting- Panicky customer contact: “Why is your widget displaying cat pictures on our website and could you please stop it right now”This now forms a key foundation in my “no whimsy in code” rule along with one or two near misses with dummy data/content."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.justice.gov/opa/pr/department-justice-announces-new-policy-charging-cases-under-computer-fraud-and-abuse-act">
-						<picture>
-							<source srcset="default_31435945.webp" type="image/webp">
-							<source srcset="default_31435945.png" type="image/png">
-							<img src="default_31435945.png" alt="Preview of 'Department of Justice announces new policy for charging cases under the CFAA'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.justice.gov/opa/pr/department-justice-announces-new-policy-charging-cases-under-computer-fraud-and-abuse-act">Department of Justice announces new policy for charging cases under the CFAA</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31435945">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt;The policy for the first time directs that good-faith security research should not be charged. Good faith security research means accessing a computer solely for purposes of good-faith testing, investigation, and/or correction of a security flaw or vulnerability, where such activity is carried out in a manner designed to avoid any harm to individuals or the public, and where the information derived from the activity is used primarily to promote the security or safety of the class of devices, machines, or online services to which the accessed computer belongs, or those who use such devices, machines, or online services.Seems pretty reasonable.  There will be arguments over what exactly qualifies but it provides a clear guideline / reasons where someone at the DOJ can not charge someone with good reason.It hopefully side steps some of the &#34;what even is hacking / a security breach / dude just opened browser dev tools ...&#34; type questions where they can look and say &#34;He notified them of the issue, I don&#39;t think this was in bad faith.&#34;  Now you&#39;re all out of those other weeds.If anything hopefully this provides a good example to trickle down to other law enforcement agencies."</p>
-							
-						
-							
-								<p class="story__comment_others">"True, unless the person with the insecure internet service has lots of money or power. Then it doesn&#39;t matter. Rock the boat, even legally, and you get a not so friendly 6am visit from the FBI and they steal all your possessions, all your flatemate&#39;s posessions, and ruin your life despite no laws being broken or even an indictment.Only to return the stolen goods 10 years later by shipping them unprotected in cardboard boxes so badly packaged they arrive with parts sliding around freely and a video card sticking, literally, out the side of the cardboard box where it punched though.Basically, don&#39;t believe the Justice Dept. They&#39;re a bunch of lying assholes. And the FBI is made up of crooks."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Embellishing an online dating profile contrary to the terms of service of the dating website; creating fictional accounts on hiring, housing, or rental websites; using a pseudonym on a social networking site that prohibits them; checking sports scores at work; paying bills at work; or violating an access restriction contained in a term of service are not themselves sufficient to warrant federal criminal charges.&#34;"</p>
 							
 						
 						</a>

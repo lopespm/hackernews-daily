@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">30 May 2022</div>
+	<div class="day__date">31 May 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://coliniuliano.ca/projects/catan-tiles/">Electronic Catan LCD Tiles</a></h3>
+					<h3><a href="https://github.com/dragonflydb/dragonfly">Dragonflydb – A modern replacement for Redis and Memcached</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31548268">
+						<a href="https://news.ycombinator.com/item?id=31560547">
 						
 							
-								<p class="story__comment_first line-clamp">"Haha. Literally just finished a game with my family and was thinking &#34;you know I should laser cut and engrave/mill some metal pieces because these move too much&#34;.For this project I would&#39;ve had each board host an analog switch (neighbour selection) and use SPI and/or I2C rather than onewire. This would allow cheap flash memory (unique ID per tile + local storage/configuration) with SPI/I2C passthru. That way the host could determine topology easily and deduplicate redundant routes. A dumb read-only MCU could populate the local RGB from flash if required. With the spare cycles thus obtained you could even implement animation.So... who&#39;s got wood for my sheep? https://youtu.be/VBmRCclzCVU?t=33"</p>
-							
-						
-							
-								<p class="story__comment_others">"Love it but:&gt;There is no schematic for this project since there were very few components and it was easy enough to just draw a PCB.You should really draw one. As someone who works in hardware engineering, the amount of times this has come back to bite someone in the butt is immense."</p>
+								<p class="story__comment_first line-clamp">"Guys, I am the author of the project. Would love to answer any questions you have. Meanwhile will try to do it by replying comments below."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m always jealous of people who can polish and finish a complex project like this. Amazing work."</p>
+								<p class="story__comment_others">"FoundationDB should have been included in their perf comparison. It’s ACID compliant and a distributed Value/Key store.For SSD based storage, it’s getting 50k reads/sec PER core and scales linearly with # of cores you have in your cluster. (They achieved 8MM reads/sec with 384 cores)https://apple.github.io/foundationdb/performance.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m no longer involved in Redis, but I would love if people receive a clear information: from what the author of Dragonflydb is saying here, that is, memcached and Draonflydb have similar performance, I imagine that the numbers provided in the comparison with Redis are obtain with Redis on a single core, and Draonflydb running on all the cores of the machine. Now, it is true that Redis uses a core per instance, but it is true that this is comparing apple-to-motorbikes. Multi-key operations are possible even with multiple instances (via key tags), so the author should compare N Redis instances (one per core), and report the numbers. Then they should say: &#34;but our advantage is that you can run a single instance with this and that good thing&#34;. Moreover I believe it would be fair to memcached to clearly state they have the same performance.EDIT: another quick note: copy-on-write implementations on the user space, algorithmically, are cool in certain situations, but it must be checked what happens in the worst case. Because the good thing of kernel copy-on-write is that, it is what it is, but is easy to predict. Imagine an instance composed of just very large sorted sets: snapshotting starts, but there are a lot of writes, and all the sorted sets end being duplicated in the process. When instead the sorted sets are able to remember their version because the data structure itself is versioned, you get two things: 1. more memory usage, 2. a lot more complexity in the implementation. I don&#39;t know what dragonflydb is using as algorithmic copy-on-write, but I would make sure to understand what the failure modes are with those algorithm, because it&#39;s a bit a matter of physics: if you want to capture a snapshot at a given Time T0 of a database, somehow changes must be accumulated. Either at page level or at some other level.EDIT 2: fun fact, I didn&#39;t comment something about Redis for two years!"</p>
 							
 						
 						</a>
@@ -67,22 +67,23 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31539549">Ask HN: How to learn math from zero for adults?</a></h3>
+					<h3><a href="https://github.com/dekuNukem/bob_cassette_rewinder/blob/master/README.md">Bob Cassette Rewinder: Hacking Detergent DRM</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31539549">
+						<a href="https://news.ycombinator.com/item?id=31558525">
 						
 							
-								<p class="story__comment_first line-clamp">"I was a C student in high school. I never took a math class beyond basic algebra. I started from Khan Academy&#39;s first exercise when I was 33 years old. It seems silly looking back that I was solving problems on the number line as an adult.At that time, around 10 years ago, Khan Academy had excellent coverage through trigonometry and single variable calculus. Once I reached that point I went to my local community college and took all of their math classes. I transferred to University of Illinois at Urbana-Champaign and continued onward to get a BS CS, BS EE, and MS EE. I finished at 41 years old and landed a dream job that I would have never thought possible when I started.I guess my advice is to start from the beginning and see where it takes you."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m in my 40s and I started a machine learning degree in Nov 2020, so it&#39;s been about 1.5 years for me till now. I am a slow learner and my recommendations may reflect the same.1) Maths (precalculus and calculus) - I started with Khan Academy 10th grade onwards. I finished till grade 12 in a week. By this time I had gone through content elsewhere, so 1 week may (not) be enough. Regardless, Khan Academy app comes highly recommended.I did realise that there were a few gaps (more basic in nature), I covered those with Eddie Woo on YouTube (e.g. why is zero factorial 1). For others I just looked up relevant searches online.2) Maths (calculus) - MITs videos on YouTube. That is the pace of content I really love. Lots of overlap with Khan academy calculus, but do go through both. Also 3blue1brown &#34;essence of calculus&#34; playlist.3) Maths (Basic Linear Algebra) - although if someone were to say Gilbert Strang&#39;s MIT videos, they would be bang on perfect, I had to start slower. Bingewatch (with popcorn and beer) 3blue1browns &#34;Essence of linear algebra&#34; on YouTube. Then move ahead to the channel &#34;Math the beautiful&#34; which has a slower pace. You would also wish to visit their website www.lem.ma where they have exercises. Then of course come back and start Prof Strang&#39;s lectures (you&#39;re delving into heavier stuff midway through his course).4) Statistics - hands down professor Leonard on YouTube, he is the statistics equivalent of Eddie Woo. Slow, smart, funny and he has biceps too ;-) After this Prof Tsitsikilis (MIT) on YouTube.It goes without saying that you&#39;ll need to practice problems (ironical, coming from me). You can download question sets of your country from online.5) When you&#39;ve done the above, your search for &#34;linear algebra&#34; and &#34;calculus&#34; on HN will yield a lot of lovely results. Hidden gems will be there in comments too. Check those books, interactive books, websites, etc out. Your pace will be good by this time, but you will occassionally come across something which you have not come across before.If there&#39;s anything else, feel free to ask."</p>
+								<p class="story__comment_first line-clamp">"Am I the only one who looks at these projects with a combination of awe and apathy and jealousy? I do software, not hardware, and I like knowing how things work. When an expert in a different field glances at a PCB and identifies components, their purpose, by sight, and then rummages around a loose parts bin to go deeper, it dawns on me: this is someone&#39;s life. The same way I&#39;ve been swimming in (application) software, and could do similar things with a repo, or even running processes, this person can do in hardware, and it&#39;s a set of interlocking skills that took an entire life to grow."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve done this and would echo the good advice you&#39;ve already gotten about Khan Academy but I think the comments in this thread are skipping over the most important part: pace. Work slowly. Don&#39;t move on until you really &#34;get&#34; the concept you&#39;re working with. Some topics might &#34;click&#34; right away and others might take weeks of bashing your head against the wall until your brain makes sense of it. That&#39;s okay. It can definitely be tedious at times (so be kind to yourself!) but a lot of learning happens when you&#39;re struggling to make sense of something so it&#39;s worthwhile to lean into the trouble you&#39;re having and figure out what it is that you&#39;re struggling to understand.The downside of formal education is that the teacher has a timeline that needs to be kept and the class will move on without you. It might not seem like a big deal in the moment but in math the foundation is so important because the concepts build on one another. Sometimes in really subtle ways. If you have the motivation (and it sounds like you do!) then the huge upside to self-paced learning is that you can build a really strong foundation and the more complicated advanced topics will be so much easier to master. Khan Academy is really good at breaking subjects down into tiny bites and then slowly building on what you&#39;ve learned but if you don&#39;t quite understand a lesson or if you haven&#39;t properly paid attention don&#39;t be afraid to do it again. If you guessed the right answer but don&#39;t understand why your answer was right, don&#39;t be afraid to go back and do it again.So just because one person here could do all of the Khan Academy 9th grade algebra in a week that doesn&#39;t mean you should set that timeline for yourself. Everyone is starting from a different place. So maybe it&#39;ll take you a day, or a week, or a month, or even months. But however long it takes is how long it takes."</p>
+								<p class="story__comment_others">"I am, more and more, deliberately choosing boring technology. Knobs in the car and on appliances. No screen interfaces. Low-tech where possible.We just replaced our &#34;high tech&#34; Maytag dryer and its &#34;advanced&#34; feature set for a low tech SpeedQueen, the same dryers you find in most Laundromats. Why? Repairability. While we could _technically_ replace the burnt out fuse in the Maytag, it would take at least two hours for a skilled technician (translated to several days for me and my spouse spread across a few weeks) and frankly we want to repair and get back to life. After a few days of looking into the issue and considering the option, we bit the bullet and bought a new one. The old one just had too many fault modes to consider even if we did successfully repair it.I take the same neo-Luddite view on a lot of recent &#34;technology&#34; improvements. The BoringTechnology.club website has the right idea."</p>
+							
+						
+							
+								<p class="story__comment_others">"Great project and writeup; just one more example why we should always be cautious about &#34;smart&#34; devices, for that smartness nearly always aimed at eliminating customers choices.I wonder what does the device electronics do beyond checking for the original cassette and its eeprom; it doesnt seem it would have to do anything more complex than opening water, and detergent valves/pumps for a certain time while keeping the right temperature; nothing that even the simplest uC and couldn&#39;t do; a further development could involve probing all signals at sensors and actuators during normal operation, then getting rid of the old electronic to allow the device taking detergents directly from the tanks, so resetting the cassette eeprom wouldn&#39;t be needed anymore because there would be no need to insert one.
+This of course would invalidate the warranty, but for some of us that is a plus point:)"</p>
 							
 						
 						</a>
@@ -95,24 +96,24 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/BrixtonHatter/status/1493299809574342659">In praise of the humble Sheffield stand</a></h3>
+					<h3><a href="https://eattherich.club/@swaggboi/108382897807037127">I disabled WiFi on the new Samsung fridge</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31551854">
+						<a href="https://news.ycombinator.com/item?id=31555629">
 						
 							
-								<p class="story__comment_first line-clamp">"In my car-centric city (southeast USA, population ~125k) when I visit private property with no bicycle parking, I try to find the owner and offer to install one of these just for the cost of materials. The idea being, they can put in another one when they see more than one customer on a bicycle at the same time. It&#39;s very cheap, less than 100 bucks typically as I have the requisite tools in my garage to make them from scratch out of metal tubing. There&#39;s a variety of materials, finishing, and mounting options the property owner can choose from. I&#39;ve done about a dozen of them, it makes biking around my city much more pleasant and my day is brighter when I see someone else using one."</p>
-							
-						
-							
-								<p class="story__comment_others">"In general, the author is right, and the simple design is by far the best. But the classic Sheffield stand with a circular cross section can be easily cut with a pipe cutter. Contrary to an angle grinder, a pipe cutter doesn&#39;t make any noise.
-Thus, the design has been improved by making it solid instead of hollow and giving it a rectangular cross section, like [1].
-I used to hate the improved design because it&#39;s obviously less friendly to a nice bike&#39;s paint job until I learned the reasoning behind it.[1] https://www.thieme-stadtmobiliar.com/de/produkte/fahrradstae..."</p>
+								<p class="story__comment_first line-clamp">"Has anyone worked on fighting back this kind of telemetry/spyware of essential consumer appliances?I&#39;m thinking something similar to what https://adnauseam.io/ does, but but amplified:1. Someone reverse engineer what does the device send to which address.
+2. Block the particular device to access internet (and make it easy for others too).
+3. Constantly send bogus data to the manufacturer so the personal data they get overall loses value or is unusable. Make it easy for a lot of people to do it as well, or even just rent a bot farm.There&#39;s too many legit and good services that end up being turned down due to abuse and DDos, and they don&#39;t even bring anything good to the attackers. Why not using these techniques for something actually good to consumers privacy?"</p>
 							
 						
 							
-								<p class="story__comment_others">"For most bike &#34;racks&#34; here in NL it seems like the primary purpose is not security, but just having somewhere to lean bikes against and give people a sensible place to park their bikes (as opposed to &#34;in a huge pile&#34;)Most people don&#39;t bother physically locking their regular city bikes to anything (only using a ring lock on the bike itself), primarily cheap beater bikes but also there&#39;s a guy in my street with a €2000 Van Moof e-bike that I think is just leaning against his front wall."</p>
+								<p class="story__comment_others">"Just wait until device manufacturers start integrating always-on LTE modems with their own SIM cards and billing so they can pull device analytics, sell you new advertising, and sell your usage patterns to 3rd parties whether or not you ever connect the things to your home wifi.At which point you&#39;ll have to disassemble the damned thing and physically rip out the LTE modem, possibly resulting in the device bricking itself when it can&#39;t phone home after a while.I bet if you&#39;re a device manufacturer right now and go to t-mobile enterprise sales and tell them you want 200MB of data per month per IMEI and you&#39;re going to have 50,000 units, you&#39;ll get a very attractive monthly price per unit.Mark my words, it&#39;ll be commonplace in another 8-10 years.https://me.me/i/tech-enthusiasts-everything-in-my-house-is-w...https://arstechnica.com/gaming/2020/01/unauthorized-bread-a-..."</p>
+							
+						
+							
+								<p class="story__comment_others">"It should be legally required for these products to allow for people to turn &#39;smart&#39; features off if they want to. Unfortunately, it probably won&#39;t be any time soon."</p>
 							
 						
 						</a>
@@ -125,22 +126,22 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://stackoverflow.com/questions/72306573/why-does-this-code-execute-more-slowly-after-strength-reducing-multiplications-t">Why does this code execute more slowly after strength-reducing multiplications?</a></h3>
+					<h3><a href="https://calpirg.org/news/cap/california-right-repair-bill-dies-senate-committee">California Right to Repair Bill Dies in Senate Committee</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31549050">
+						<a href="https://news.ycombinator.com/item?id=31558875">
 						
 							
-								<p class="story__comment_first line-clamp">"In the post, multiplications and 2 additions are not faster than 2 additions.The post compares (1) loop code that can be vectorized, as loop rounds are independent and do not depend on the result from the previous round, and (2) an &#34;optimization&#34; that makes calculations shorter, but also makes each loop round depend on the result of the previous round, so this cannot be vectorized."</p>
-							
-						
-							
-								<p class="story__comment_others">"Tldr: autovectorizer transforms the first code into SIMD instructions, but the second into 64 bit instructions.SIMD is very powerful, and modern compilers can sometimes simd-ify your code automatically.-------The second code can probably become SIMD as well, but it&#39;s beyond GCC&#39;s ability to autovectorizer it in that form. I kinda want to give it a go myself but don&#39;t have time today...Autovectorizers are mysterious, often harder to see and use than explicitly SIMD code (like OpenCL or CUDA)."</p>
+								<p class="story__comment_first line-clamp">"It&#39;s sad, but not only because it means people are forced to buy new too often or because of the atrocious increasing e-waste associated with it.It&#39;s sad because folks will be less and less interested in fixing their things or simply opening their devices to understand how they work. It&#39;ll be general knowledge that it&#39;s &#34;dangerous&#34; to attempt a repair, and they&#39;re impossible to fix anyway.Attempting a repair is one of those sparks that nurture curiosity. It&#39;s the same spark that ultimately gave us Apple and many other great businesses. Why are we indirectly undermining ingenuity and inventiveness? Is it a false perception? Or maybe Hanlon&#39;s razor?On the other side, China has relatively affordable access to parts (low-level components included), schematics, extensive tooling and a growing hacker/maker culture.Sometimes, I feel we (occidentals) are going into reverse."</p>
 							
 						
 							
-								<p class="story__comment_others">"The part about data dependencies across loop iterations is fascinating to me, becuase it&#39;s mostly invisible even when you look at the generated assembly. There&#39;s a related optimization that comes up in implementations of ChaCha/BLAKE, where we permute columns around in a kind of weird order, because it breaks a data dependency for an operation that&#39;s about to happen: https://github.com/sneves/blake2-avx2/pull/4#issuecomment-50..."</p>
+								<p class="story__comment_others">"Can anyone familiar with the process, explain exactly how these industry lobbyists win these cases? With a 75% of Californians being pro-right to repair, and with bipartisan support - you&#39;d think this would be an easy case to argue.Do the lobbyists have some incredibly legitimate insider information they share with the senators? Do they just throw cash/donations at them?"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The policy had broad, bipartisan support, with 75% of Californians and majorities of both parties supporting Right to Repair.&gt; “Sadly, the powerful tech manufacturers won out over the everyday Californians and small businesses that would benefit from Right to Repair...&#34;Can someone elaborate specifically on how something like this failed with, apparently, so much support?"</p>
 							
 						
 						</a>
@@ -153,22 +154,22 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://systemfontstack.com">System Font Stack</a></h3>
+					<h3><a href="https://billmei.net/blog/friendship">Friendships form via shared context, not shared activities</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31543054">
+						<a href="https://news.ycombinator.com/item?id=31562478">
 						
 							
-								<p class="story__comment_first line-clamp">"I collect these things for fun and one of my big discoveries is that there&#39;s no &#34;standard&#34; system font stacks - here are my list of system font stacks and their sources: https://github.com/sw-yx/spark-joy/blob/master/README.md#fon...some of them even come with annotations as to why they make the choices they make.Github&#39;s font stack isfont-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, Roboto, Helvetica, Arial, sans-serif, &#34;Apple Color Emoji&#34;, &#34;Noto Color Emoji&#34;, &#34;Segoe UI Emoji&#34;, &#34;Segoe UI Symbol&#34;;VS Code:font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Open Sans&#39;, &#39;Helvetica Neue&#39;, sans-serifprobably more &#34;native&#34; on mobile:font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Roboto&#34;, &#34;Oxygen&#34;, &#34;Ubuntu&#34;, &#34;Helvetica Neue&#34;, Arial, sans-serif;apparently all modern browsers have this new shortcut that make it as simple as:font-family: ‘system-ui’, sans-serif;https://chromestatus.com/feature/5640395337760768"</p>
-							
-						
-							
-								<p class="story__comment_others">"I disagree with much of these stacks. I would scrap at least Avenir Next, Avenir, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Arial, Apple Garamond, Times New Roman, Droid Serif, Times, Source Serif Pro, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Monaco, Liberation Mono and Lucida Console, and probably a couple more, for one of three reasons: that the family is superfluous, for an obsolete platform, or inferior.—⁂—But as a consumer of the web, I personally don’t actually need to worry about these things any more, because I have my browser set to use my chosen sans-serif, serif and monospace faces (Equity, Concourse, Triplicate), and you can too! ① Use Firefox. Other browsers may have something similar; dunno; but Firefox is good anyway. ② Settings (about:preferences) → Fonts → Advanced → untick “Allow pages to choose their own fonts, instead of your selections above”.I started doing this a few months back as a week-long experiment, and found it so significantly improved the web that I’m not going back. (It did feel a little strange for a few days, as Concourse is a somewhat narrower sans-serif than the likes of Arial, but that’s about the specific fonts that I chose. Now it’s just perfectly natural.)I have experienced a very few icon-font related breakages, about which I wrote yesterday at https://news.ycombinator.com/item?id=31540234, but it’s surprisingly few given how popular the technique was for a few years. I also get a fair bit of bonus unintended serif from people that have neglected to add a generic font family fallback, or misspelled it (e.g. sans or &#34;sans-serif&#34; (quoted) instead of sans-serif), so that it falls back to the global default, which I have left as a serif."</p>
+								<p class="story__comment_first line-clamp">"If you&#39;ve been exposed to both Western and Eastern cultures, this is probably something you&#39;ve seen both sides of.I grew up in Egypt. Family was family, including extended family. You don&#39;t choose them, and you can&#39;t really distance yourself from them (you&#39;d be crazy to try). You can to some extent choose your friends in school, but that is mostly &#34;shared context&#34;—they are people who probably are from your neighborhood or from the same &#34;social class&#34; (yes, Egypt was/is very class-ist).I live in the US. Everything is very individualistic, and even for those with families, it&#39;s very nuclear-family-oriented. Boundaries are well-respected. I&#39;d say when friendships are formed, they&#39;re usually more around shared activities, regardless of where someone might be originally from, what their background is, etc.Very different worlds, with pros and cons in each."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m kind of confused as to why they don&#39;t have a demo showing all the fonts. I&#39;m not just going to blindly pick from system fonts, I want to choose which I prefer first. Yeah I could look them all up, but just seems like they missed showing off the core thing..."</p>
+								<p class="story__comment_others">"I think this phenomenon is part of the reason it&#39;s difficult to form friendships as adults. The shared context that the article mentions requires a lot of time around your circle of people, just &#34;hanging out&#34;. It&#39;s tough to make that time as an adult with a career, family, etc.This may be why college friendships can be so strong – often a lot of time is spent living and working around friends by default, without needing to schedule it."</p>
+							
+						
+							
+								<p class="story__comment_others">"The NYTimes has an article &#34;Why it is hard to make friends over 30&#34; that gets reposted almost every year [1]. There&#39;s a quote about friendship conditions:&#34;As external conditions change, it becomes tougher to meet the three conditions that sociologists since the 1950s have considered crucial to making close friends: proximity; repeated, unplanned interactions; and a setting that encourages people to let their guard down and confide in each other, said Rebecca G. Adams, a professor of sociology and gerontology at the University of North Carolina at Greensboro. This is why so many people meet their lifelong friends in college, she added.&#34;But it&#39;s worthwhile noting that these conditions are simply that: conditions. Their existence do not inexorably lead to friendships. They are necessary but insufficient conditions.I&#39;ve been in many situations where all 3 were present but I didn&#39;t feel a simpatico with the other person. I&#39;ve taken weekend trips with people whom I never wanted to interact with again because I did not like what I saw on the trip (vulnerability can backfire -- if someone is vulnerable about how evil they are, I&#39;m not likely to appreciate that). I don&#39;t really keep in touch with most college friends either.On the other hand, there&#39;s something that does lead to fast and lasting friendships for me: it&#39;s that indescribable feeling when someone is on the same &#34;wavelength&#34;. It&#39;s a collocation of a bunch of things: the way they view the world (even if they are of a different political stripe), a shared sense of humor, and something you admire about them.Shared context definitely creates the conditions under which such people can be identified, but mere shared context itself cannot create resonant frequencies that are not there.[1] https://www.nytimes.com/2012/07/15/fashion/the-challenge-of-..."</p>
 							
 						
 						</a>
@@ -181,22 +182,22 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://brianchristner.io/how-a-single-raspberry-pi-made-my-home-network-faster/">Setting up a Pi Hole made my home network faster</a></h3>
+					<h3><a href="https://evanhahn.com/a-decade-of-dotfiles/">A decade of dotfiles</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31549238">
+						<a href="https://news.ycombinator.com/item?id=31557430">
 						
 							
-								<p class="story__comment_first line-clamp">"I know some folks are anti Ubiquiti Unifi on here, but you can run pihole (along with a bunch of other stuff) right on a UDM/UDM-Pro. IMO it makes the most sense to run this on the router, and you can run it in a docker container. If you&#39;re looking for a fun hour or two project, check out:https://github.com/boostchicken-dev/udm-utilities/tree/maste..."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those not wanting the overhead of running a service on your network, NextDNS sells what is basically managed pihole.  I’ve used it for about a year and have been very happy.  It also lets you use it on mobile devices for when you aren’t on your home network."</p>
+								<p class="story__comment_first line-clamp">"&gt; Saying that I’ve been maintaining my dotfiles for a decade is like saying that I’ve been decorating my home for a decade.I think it&#39;s more like decorating your home for the first time (which is a lot of work), but then in the proceeding years you keep tweaking a few bits to your liking as you learn more about &#34;decoration&#34;.The true benefits of the analogy break down a little, for instance one big advantage is persistence, stability and control - that some large corporation doesn&#39;t keep rudely breaking into your home every month and forcefully redecorate everything with the latest trend, or keep moving the furniture and light switches around while you are asleep, and inserting annoying store fronts into critical appliances like the fridge, or your toothpaste... The other benefit being that you can fairly effortlessly take your decorations with you to your next home!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Obviously, people whose products rely on those ads and telemetry, won&#39;t be happy and will try to retaliate, for example, by refusing you service. This frequently happens because of my usage of VPNs and ublock. In that case I have an option to quickly turn vpn/ublock off for that specific web site or service. In your case it&#39;s not so easy."</p>
+								<p class="story__comment_others">"This is a good one, I hope I&#39;ll have mine for that long (started 2019).Personally, I stopped worrying about dotfiles and GNU stow after joining the cult of Nix. While I gave honest attempt to everything else, Nix made it stick. Now I only have one single repo, where In write config for (almost) all of my applications in Nix, deploy them with Nix, rollback with Nix etc. Compared to hodgepodge of INI/YAML/TOML/XML/JSON/WHATHAVEYOU it is nice to to only have single tool to worry about.I wished Guix had the momentum and size of Nixpkgs. I&#39;d much prefer a Lisp than the language contraption of Nix."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s always cool to see what the real lived experience of using a totally different workflow is like.I don&#39;t have any dotfile management at all(Aside from my regular incremental backups), and the only time I provision a new machines is if i get a new laptop or reinstall.I prefer to stay extremely hands off with VMs or servers. Ideally anything I do via SSH should be declarative and repeatable with Ansible.But recently there seems to be more and more important tools that can&#39;t be installed from a package manager and usually require manually editing PATH for some reason(I have no idea why they can&#39;t just use ~/.local/bin, or why there&#39;s no standard path management tool).It might be time to start putting things like that in a provisioning script. Or not, because they might not have a stable install process, and it&#39;s only a few minutes to do each one manually every few years."</p>
 							
 						
 						</a>
@@ -209,22 +210,22 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://mtlynch.io/budget-nas/">Building a Budget Homelab NAS Server</a></h3>
+					<h3><a href="https://astralcodexten.substack.com/p/a-guide-to-asking-robots-to-design">Asking robots to design stained glass windows</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31548829">
+						<a href="https://news.ycombinator.com/item?id=31564152">
 						
 							
-								<p class="story__comment_first line-clamp">"This article seems right up my alley, so here are some thoughts:- ZFS is pretty amazing in it&#39;s abilities, with it ushering in the age of software RAID over hardware RAID- ZFS shouldn&#39;t be limited to FreeBSD. The Linux port has come quite a long way. I&#39;d advise you to use PPA over repo though, as many key features are missing from the version on repos.- TrueNAS is more targeted towards enterprise applications. If you want good utility as a home user then give Proxmox or the like a look. Then you can make it into more than just a NAS (if you&#39;re open to it).- If you want to make things even more simple then consider something like UnRAID.- ZFS&#39; snapshotting can really shine on a virtualization server application, with the ability to revert KVM VMs to a previous state in a matter of seconds. Lookup Jim Salter&#39;s (great dude) Sanoid project to see a prime example.- I don&#39;t recall why, but I&#39;ve heard that RAIDZ should be avoided, in favor of stripped mirrors."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; And if you’re dumb like me, and you’ve used a Synology-proprietary storage format, you can’t access your data without another Synology systemI wonder what he means by this. If he&#39;s referring to SHR, then it&#39;s just standard mdraid and Synology themselves have instructions on how to mount the volume in Ubuntu https://kb.synology.com/en-us/DSM/tutorial/How_can_I_recover...edit: He later mentions encrypted volumes but those are also just using standard encryptfs https://www.impedancemismatch.io/posts/decrypt-synology-back...This is one of the reasons I feel comfortable recommending Synology devices - there&#39;s not a lot of lock-in"</p>
+								<p class="story__comment_first line-clamp">"Unfortunately some of these designs aren&#39;t feasible because the cuts won&#39;t work. It isn&#39;t possible to cut &#39;into&#39; a piece of glass (imagine the &#39;mouth&#39; of pacman). You can see something like this in the first image where the flowers overlap the blue pane in the middle of the image. That blue pane is an example of an &#39;impossible&#39; shape. At least this is according to an uncle of mine that has decades of professional experience designing, creating, and repairing stained glass and leadlights."</p>
 							
 						
 							
-								<p class="story__comment_others">"Author here.I consider myself an intermediate homelabber and a TrueNAS beginner. I just built my first NAS server, so wrote this to capture everything I wish I&#39;d known at the start. I hope it&#39;s helpful for anyone else thinking about building their first NAS server.Any questions or feedback about the post are more than welcome."</p>
+								<p class="story__comment_others">"&gt;some of the pictures could only be described as “disastrous”I dunno, I think a stained glass window of a finch with Charles Darwin&#39;s head is pretty great, personally"</p>
+							
+						
+							
+								<p class="story__comment_others">"Amazing images, but Tycho Brahe was famous for not using telescopes!https://en.wikipedia.org/wiki/Tycho_Brahe#Career:_observing_..."</p>
 							
 						
 						</a>
@@ -237,22 +238,22 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.theregister.com/2022/05/27/big_tech_privacy/">Study claims Amazon, Apple, Google, Meta, Microsoft work to derail data rules</a></h3>
+					<h3><a href="https://xeiaso.net/blog/yubikey-ssh-key-storage">How to Store an SSH Key on a Yubikey</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31549237">
+						<a href="https://news.ycombinator.com/item?id=31556130">
 						
 							
-								<p class="story__comment_first line-clamp">"Privacy regulations can make it very difficult for competitors to gain traction for incumbents, so there is active lobbying to get regulatory barriers to competition in play. At the same time, far too much money is being made to allow laws and regulations  to kill revenues... so it gets complicated. The easy way is to just say you are all for privacy, and then oppose it at every turn.Another issue is this: breaking some of these privacy laws both in force and proposed, is really quite easy to do - as easy as a misconfigured logger or a developer including the wrong field in a query."</p>
-							
-						
-							
-								<p class="story__comment_others">"Data regulation laws: introducing engineering constraints that only the big 5 have the engineering army to design &amp; deal with :)"</p>
+								<p class="story__comment_first line-clamp">"I know Yubikeys are pretty old hat by now, but I still feel weirded out by relying something like this into a USB stick. I just know I would lose the key at some point locking me out from everything. Of course the solution is to have two keys, but don&#39;t really know where I would feel comfortable storing the extra key (also how often do you check that it still works?)I&#39;m probably just over thinking this and overly paranoid."</p>
 							
 						
 							
-								<p class="story__comment_others">"Does anyone know why I can&#39;t find the English version of this[1] Wikipedia page? Seems relevant.[1] https://de.m.wikipedia.org/wiki/Bummer"</p>
+								<p class="story__comment_others">"&gt; As of OpenSSH 8.2 (Feburary 14, 2020) you are able to store an SSH private key on a yubikey! Here&#39;s how to do it.Many systems still don&#39;t have OpenSSH 8.2 (Windows 11, older debian stable, etc). For those, another solution is to use the PGP applet of the YubiKey, which exposes a regular RSA key.This guide has worked well for me: https://github.com/drduh/YubiKey-GuideYou can jump to the SSH sections if that&#39;s all you&#39;re after.There&#39;s a missing piece for Windows, since the agent coming with WinGPG won&#39;t be reachable by SSH. Some guy on GitHub put out a workaround, but I can&#39;t find it right now.--edit: The workaround for Windows is this one: https://github.com/rupor-github/win-gpg-agent"</p>
+							
+						
+							
+								<p class="story__comment_others">"You can use a GPG key stored on a YubiKey with openssh, but with some caveats:1. gpg-agent must act as your ssh-agent (which means ssh-agent should be disabled and replaced by gpg-agent).2. If using `pinentry-curses` (YubiKey usually permits access to the contained GPG key via the use of a pin), you must have `export GPG_TTY=$(tty)` (or your shell&#39;s equivalent of setting the GPG_TTY environment value to the output of `tty`).3. You can fetch the public key of your GPG key with `ssh-add -L` (gpg-agent must be acting as your ssh-agent, and the YubiKey with the GPG key has to be plugged in).4. You must have the line `enable-ssh-support` in your `$GNUPGHOME/gpg-agent.conf`.I used a guide[1] to set up a GPG key on to a YubiKey, and for those who don&#39;t want to use GPG, the guide also has a section[2] about just using an SSH key as well.[1]: https://github.com/drduh/YubiKey-Guide[2]: https://github.com/drduh/YubiKey-Guide#ssh"</p>
 							
 						
 						</a>
@@ -265,22 +266,22 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.blog/2022-05-26-npm-security-update-oauth-tokens/">NPM security update: Attack campaign using stolen OAuth tokens</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=31565514">I&#39;m a loser, burnt-out, directionless but want to turn it around</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31526044">
+						<a href="https://news.ycombinator.com/item?id=31565514">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; Using their initial foothold of OAuth user tokens for GitHub.com, the actor was able to exfiltrate a set of private npm repositories, some of which included secrets such as AWS access keys.&gt; Using one of these AWS access keys, the actor was able to gain access to npm’s AWS infrastructure.How many individual best practices were not followed to result in this nightmare? Sigh."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Using their initial foothold of OAuth user tokens for GitHub.com, the actor was able to exfiltrate a set of private npm repositories, some of which included secrets such as AWS access keys.Keep those keys out of source control, folks.  There are a lot of options for secrets management these days, and making it harder for attackers to totally own you if they only manage to crack one piece of your infrastructure is key to limiting damage from this sort of attack."</p>
+								<p class="story__comment_first line-clamp">"1. Take time off, like a month or more. [1]  Use it to do anything other than coding.  Hone a hobby, travel, volunteer, etc.  No-one will care about a month or two gap on your resume.2. You are worth more than you currently think you are.  Internalize this, know this, that is key.  &#34;I am a sole developer for Mobile and Web platforms at this startup in a very small team&#34; --&gt; is a desirable skill in and of itself.3. Stop working 80 hour weeks, stop working weekends.  When the only thing you do has little/no reward, that is what causes burnout.4. Fill your time with something else that you prioritize above work.  Make it hard to find time to work.  This both prevents slipping back to 80 hr weeks, and forces your brain to prioritize important things within your work life (like executing and finishing projects).5. Networking is key.  I don&#39;t have good advice here as this is a challenge for me also.  But -- switch jobs often (every couple years), and be friendly and helpful (within reason) to your co-workers.  They&#39;re now your network.My background -- coding since I was 6, now 36 -- but I&#39;ve shared many of the same feelings.[1] I am assuming you have the basic financial stability to support this.  My apologies if not."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is probably a good time to remind people to check their authorized OAuth applications on Github[1] and make sure that any unused apps have their access revoked.[1]: https://github.com/settings/applications"</p>
+								<p class="story__comment_others">"A lot of stuff going on here.1. You&#39;re clearly NOT incompetent. If you were, you couldn&#39;t possibly hold the web and mobile platform together entirely on your own for that long AND handle every on call incident.2. The thing that surprised me most about burnout was the physical symptoms. You&#39;ve got them. It only gets worse from here if you keep doing what you&#39;re doing.3. It makes perfect sense to me that you don&#39;t feel like you&#39;re getting better in that environment. The rockstar developer is a myth, but the band is not. You get better by practicing with other talented people.4. You already know this, but you&#39;re being taken advantage of.So given all that...1. Everyone telling you to take a break is correct. Go outside and look at trees, read a book somewhere scenic, shut off your phone. If you need to take sick time to do this, so be it. It&#39;s not going to make you feel normal, but it will give your wildly overworked brain some relief.2. Hit up recruiters, hit up whatever network you have (including old acquaintances). Your story is incredibly straightforward: you held the line on these systems by yourself for years on end, including all their on-call needs, it&#39;s enough work for a 4-person team, and no help is coming. You&#39;re looking to work on an actual team where people actually learn from each other.3. If possible, take some time off between the old job and the new job just to take care of yourself.Good luck."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s not hard to explain why you feel terrible working those hours considering what you get out of it.What is more interesting/worrying is how you describe yourself as a loser, despite doing very, very demanding work and actually still succeeding at it. (At least by the standards of your company, else they would&#39;ve let you go 3 years back)Your own standards, however, seem to be so high that it&#39;s clearly harming you psychologically. I know some people will scoff at the suggestion, but in my experience that almost always comes from childhood.Grab yourself the book &#34;The Tao of Feeling Fully&#34; by Pete Walker and see if you resonate with it. Even if your first instinct is &#34;No way, my childhood was great&#34;, I would still (maybe especially) suggest you give it a read. If it&#39;s not for you that&#39;s 15 bucks gone, if it hits the nail it might literally save your life.I wish you all the best."</p>
 							
 						
 						</a>
@@ -293,22 +294,22 @@ I used to hate the improved design because it&#39;s obviously less friendly to a
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.bramadams.dev/projects/invest-in-lights">Investing in lighting did great things for my mental and physical health</a></h3>
+					<h3><a href="https://matduggan.com/programming-in-the/">Programming in the Apocalypse</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31536414">
+						<a href="https://news.ycombinator.com/item?id=31559920">
 						
 							
-								<p class="story__comment_first line-clamp">"I have worked at home my whole career. It was life changing when I discovered I could aim several LED shop lights at my ceilings (90,000 lumens total, in a vaulted living room) to create a summer day indoors, even on the dimmest cloudiest winter day.When I remodeled my new home, I put 3 dimmable LED light strips around each ceiling, hidden above molding, so every ceiling is effectively a diffuse but high lumen light.Then I use smart bulbs in accent lamps and other lighting, to add color for variety and mood."</p>
-							
-						
-							
-								<p class="story__comment_others">"That&#39;s an article? A rehash of a handful of common ideas with no relation to the title and no further exposition, let alone some support for the ideas? How does something so empty get upvoted so quickly? Did brightness and dark mode become some kind of belief system?"</p>
+								<p class="story__comment_first line-clamp">"The pandemic taught me a lot about apocalypse. While people are a lot slower to buy into collective action and changing their way of life than I thought, society is far more robust than I expected. Covid looked nothing like a pandemic film, thank god.With that in mind, I have some ideas on what programming will look like in 30 years:1. New frameworks and abstractions for making apps even more disposable while maintaining privacy will come along. New languages will happen. Corporations that just finished moving to the cloud will now be moving to even greater abstractions like Airtable or whatever comes next.2. Programmer pay will decrease compared to other industries. This is a hunch and I’m only 60% confident of it happening.3. Satellite internet will be more of a norm for no better reason than it’s the most efficient way to manage infrastructure. More rural communities will need it, and remote trends will continue. The cost of launches are going down and there’s a lot of land.4. Everything will get more energy efficient, and most intense activity will be pushed to compute farms.5. VR will once again come around as the next big revolution in computing, but will be ultimately disappointing and won’t see mass adoption.Beyond these ideas, I think too much plays into our personal optimism or pessimism. I think things will change, but we’re a scrappy species that will fight to preserve its way of life. It will look a lot like our global pandemic response…warts and all. There’s a lot there to be disappointed about, but it’s actually incredible it wasn’t worse.When these predictions hit I’ll be 70. I hope I’ll live to see it."</p>
 							
 						
 							
-								<p class="story__comment_others">"Phillips Hue lights are something you think is a luxury until you get them.The ability to have light change colour temperature or dim depending on the time is so calming.Whenever I revert back to the non—colour-temperature-adjusted light, I feel like I’m in an operating room.The only thing I would note is that they are dimmer than regular lights. Having dim lights in the middle of the day really makes me sleepy."</p>
+								<p class="story__comment_others">"I agree that we need to plan for climate adaptation (preparing for predictable problems) and resilience (preparing for unpredictable problems), but I have a few kneejerk responses:- Although it&#39;s looking increasingly unlikely that we can avert climate disaster, we can never give up. For example, 8 degrees of warming would be much worse than 4 degrees of warming, and could mean the difference between human extinction and the mere collapse of our civilization. The lives of billions hang in the balance, and even if some will inevitably suffer and die, we can&#39;t just throw up our hands and let everyone die. Climate change mitigation, cutting emissions as quickly and thoroughly as we can, must remain a priority for the rest of our lives, even if we can no longer reach the best/safest scenarios. Every little bit of avoided global heating matters.- This post, as dire as its predictions are, may underestimate the difficulty of computing in 2050, given current trends. If you are/were living in Ukraine recently, programming is not most people&#39;s top priority, they have other problems. Famines, extreme weather events, and resource wars will affect programmers who live in comfortable locations today. It&#39;s not just your users/audience who might be computing from a shitty mobile phone in a refugee camp, it could be you. Don&#39;t forget that we&#39;re not only dealing with climate change, but with the reaction of other people to climate change: they might want to kill you for your water. And heatwaves are predictable in India/Pakistan, but look at the freak heatwaves in Canada recently, nowhere on Earth is safe, the climate crisis is a global problem.- Why are we programming what we&#39;re programming? Shouldn&#39;t our activities and their purposes change given the dramatic change in circumstances? Isn&#39;t there something wrong with the system that produced this result, the impending destruction of the biosphere that supports us? Fighting valiantly to preserve the functionality that is killing the world may not be a wise or ethical use of your time. (And if you&#39;re programming something for a fossil fuel company, now is a good time to reconsider.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I have fear that the cathartic pessimism we sometimes enjoy ironically is turning into a chronic fatalism. It&#39;s like a habit that has become an addiction. I think the author was in a discussion that started as a fun catharsis for all involved and then devolved into an addictive argument that the author felt they needed to win.There is a cliché which goes: &#34;Expect the best. Prepare for the worst&#34;. Articles like this only seem to get the second half of that while clearly violating the first half. A well balanced response to crisis is benefited by both.I think the author is not actively aware of the importance of expecting the best, both of the world and of their colleagues. I feel their arguments are weak due to this imbalance."</p>
 							
 						
 						</a>
