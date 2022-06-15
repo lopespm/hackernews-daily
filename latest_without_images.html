@@ -33,28 +33,30 @@
 	</div>
 
 	
-	<div class="day__date">14 June 2022</div>
+	<div class="day__date">15 June 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="http://silent.org.pl/home/2022/06/13/the-floppotron-3-0/">The Floppotron 3.0</a></h3>
+					<h3><a href="https://www.hertzbleed.com/">Hertzbleed Attack</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31729040">
+						<a href="https://news.ycombinator.com/item?id=31743110">
 						
 							
-								<p class="story__comment_first line-clamp">"This had me smiling the whole time …I love it when projects go so far beyond beyond what was intended, well beyond where most people would have stopped or lost interest, and in to the land of the absurd and hilarious.This reminds me of the joy in the fun things I&#39;ve done just for the sake of taking them as far as they could be taken.Thanks for sharing."</p>
+								<p class="story__comment_first line-clamp">"Brilliant approach, really. Never occurred to me to try something like this!Are you affected? Very likely. What can you do about it? Nerf your CPU performance by disabling &#34;turbo boost&#34; or equivalent. Should you do it? Probably not unless you&#39;re particularly vulnerable (journalist, human rights activist, etc.)One thing I found interesting that may get changed later, so I&#39;m documenting it here, is in their FAQ they say:&gt; Why did Intel ask for a long embargo, considering they are not deploying patches?
+&gt;
+&gt; Ask Intel.So Intel did ask for a long embargo, then apparently did nothing about it. My guess is they investigated &#34;can we actually mitigate this thing with a microcode update?&#34; and arrived at the conclusion after actually trying - or possibly after external influences were exerted (you be the judge) - that no, there&#39;s not much you can really do about this one.Later in the document another FAQ says:&gt; [...] Both Cloudflare and Microsoft deployed the mitigation suggested by De Feo et al. (who, while our paper was under the long Intel embargo, independently re-discovered how to exploit anomalous 0s in SIKE for power side channels).  [...]Which is again telling us that there indeed WAS a long embargo placed on this research by Intel.Only mentioning this here just in case the PR spin doctors threaten the researchers into removing mention of Intel on this one. Which honestly I hope doesn&#39;t happen because my interpretation is that Intel asked for that long embargo so they could investigate really fixing the problem (state agencies have more methods at their disposal and wouldn&#39;t need much time to exert influence over Intel if they decided to). Which speaks well of them IMO. But then again, not everybody&#39;s going to come to that same conclusion which is why I&#39;m slightly concerned those facts may get memory-holed."</p>
 							
 						
 							
-								<p class="story__comment_others">"With this many floppies capable of creating discrete tones, I bet you could synthesize human speech. Running a Fourier Transform for some speech clip and then having each floppy play a different frequency."</p>
+								<p class="story__comment_others">"This paper relies on Turbo P-states, where they measure the oscillation when that is active; it is not measuring general SpeedStep (OS software controlled) as some seem to have taken away from it. Turbo state is the HWP (hardware P-state controlled) layer above SpeedStep; turning off Turbo in the BIOS still fully allows OS controlled SpeedStep P-states to function, it just disables the hardware level bursting P-states above that max listed CPU level for short periods of time. As others have noted, Turbo state can really kill a laptop battery and/or drive up the thermals pretty quick, a lot of folks disable it anyways if they&#39;ve tinkered around before.The abstract writes it as &#34;When frequency boost is disabled, the frequency stays fixed at the base frequency during workload execution, preventing leakage via Hertzbleed. This is not a recommended mitigation strategy as it will very significantly impact performance.&#34; This is a confusing grammatical way to state it, as SpeedStep will still work at the OS layer, you&#39;ll scale min to max &#34;as usual&#34; and just lose temporary hardware boost max+ capability when under stress (full load at P0 state) - not really &#34;fixed&#34; as it were in layperson&#39;s terms. That would be more akin to saying SpeedStep had to be disabled, IMHO.https://www.kernel.org/doc/html/v4.19/admin-guide/pm/intel_p..."</p>
 							
 						
 							
-								<p class="story__comment_others">"This reminds me of the Device Orchestra channel on YouTube: https://www.youtube.com/channel/UCDwMh0pu1iSXeKx7qmqjIQA"</p>
+								<p class="story__comment_others">"Hmm, it feels like Intel/AMD are ducking and just hoping that the implications of this are not large.Here&#39;s a video from Intel chatting with the researchers: https://community.intel.com/t5/Blogs/Products-and-Solutions/...The questions are incredibly weak from the interviewers. They first state that it&#39;s not practical because the attack could take many hours, even days. But they don&#39;t describe why a day-long attack is not practical.They then bring the researchers and ask them the same question. The researchers say that the attack is very practical because it only takes.. a few hours or days to execute the attack. Here&#39;s the specific part: https://youtu.be/BiRPr839dSU?t=1476Instead of chatting more about this discrepancy they just ignore it and ask the researches how they feel about their new popularity.From what I can tell from the advisory from Intel, it&#39;s simply that people should understand the attack and mitigate it in software. It&#39;s very vague. The specifics (i.e. a list of example popular programs that are vulnerable) seem entirely missing."</p>
 							
 						
 						</a>
@@ -67,22 +69,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://fresh.deno.dev/">Fresh – Next-gen web framework</a></h3>
+					<h3><a href="https://blog.mozilla.org/en/products/firefox/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/">Firefox rolls out Total Cookie Protection by default to all users</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31720110">
+						<a href="https://news.ycombinator.com/item?id=31738975">
 						
 							
-								<p class="story__comment_first line-clamp">"Sometimes I wonder how much time humanity as a species has collectively spent first inventing and then trying to solve the problem of &#34;making a website&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"Ooh, some competition for Next.js?Vercel is doing a really good job with Next, but it&#39;s good to see some competition. Of course, that means there&#39;s now 65,535 + 1 more way of serving a web page using Javascript (sigh).Rehydration is a really big deal. Sounds dorky but it dramatically speeds up load times and such by serving flat HTML and injecting JS afterward, like the old days, except you can write code like it&#39;s not the old days."</p>
+								<p class="story__comment_first line-clamp">"Why weren&#39;t separate cookie jars the default in the first place? I know that browsers other than Firefox have no real incentive to protect your privacy, but I&#39;m wondering why cookies were designed to be shared among different pages in general"</p>
 							
 						
 							
-								<p class="story__comment_others">"&#34;No build step&#34; is a weird pitch when what actually happens is that, in production, they&#39;ll fetch a WASM module on the fly to do bundling at request time.That build step was there to avoid doing this work over and over!https://github.com/lucacasonato/fresh/blob/458fe2ca3c12508a6...https://github.com/lucacasonato/fresh/blob/458fe2ca3c12508a6..."</p>
+								<p class="story__comment_others">"Does this obviate the need for [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-cont...)?"</p>
+							
+						
+							
+								<p class="story__comment_others">"I wonder if there&#39;s anyone from any advertising/ad-targeting companies on HN who can shed some light on if/how much this change may affect their &#34;product&#34;.Asking this since I know friends working at companies that were DRASTICALLY affected by the Apple advertising changes in terms of user targetability (and hence revenue) and I&#39;m wondering if this change will be similar."</p>
 							
 						
 						</a>
@@ -95,22 +97,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://blog.thunderbird.net/2022/06/revealed-thunderbird-on-android-plans-k9/">Our plans for Thunderbird on Android</a></h3>
+					<h3><a href="https://blog.coinbase.com/a-message-from-coinbase-ceo-and-cofounder-brian-armstrong-578d76eedb12">Coinbase Announces 18% Layoffs</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31725103">
+						<a href="https://news.ycombinator.com/item?id=31738029">
 						
 							
-								<p class="story__comment_first line-clamp">"I get skeptical about acquisitions, but from what I can tell this actually seems like decent news.Thunderbird isn&#39;t acquiring K-9 to kill it or merge with an additional product, they&#39;re buying it so they can increase its development speed and then put their name on it. That seems to me like about the best acquisition goal that they could have -- basically saying, &#34;what exists is good, instead of building our own thing let&#39;s just pour resources into what exists.&#34;It doesn&#39;t seem that conceptually different from what companies do with products like Blender, where sponsoring more development on an existing product is better than rolling an in-house version. The main difference being that K-9 is not independent now, the companies that do this with Blender don&#39;t end up owning Blender.So with any acquisition there&#39;s some cause for caution, but overall I am inclined to be pretty optimistic about this. I use K-9 today, and I would like to see K-9 get more resources and to get more parity with other clients. I&#39;m a little bit hesitant about my primary email client on my phone entering an experimental phase where its interface is going to change a lot. Again, concerns, but overall this seems like actually pretty good news."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is fantastic news all around!I recall the K-9 developer needing additional funding in the past, so this is great news for that project [0]. In addition, I&#39;d much rather use &#34;thunderbird&#34; on mobile as an extension of K9, since it has thus far been my favourite mobile client. Work in the most recent years has been wonderful, and it&#39;s a pleasure to use (although I&#39;ve vastly cut down on mail on mobile because hey, a keyboard is better).Overall, this seems like it makes a lot of sense. Hopefully this will mean that the shift to supporting a mobile client won&#39;t detract from the good stuff desktop Thunderbird is doing as well.[0]: https://news.ycombinator.com/item?id=26131509"</p>
+								<p class="story__comment_first line-clamp">"&gt; If you are affected, you will receive this notification in your personal email, because we made the decision to cut access to Coinbase systems for affected employees. I realize that removal of access will feel sudden and unexpected, and this is not the experience I wanted for you. Given the number of employees who have access to sensitive customer information, it was unfortunately the only practical choice, to ensure not even a single person made a rash decision that harmed the business or themselves.How typical is this? Is he really talking about the hot wallet and/or cold storage?Those claiming that this is a &#34;crypto&#34; sentiment thing should consider the possibility that the front page of HN will be filled with stories like this from all over the economy within one month."</p>
 							
 						
 							
-								<p class="story__comment_others">"As a Thunderbird and K-9 user this is 51% good news and 49% possibly bad new.Good news because it should increase the chances that the two products will live a longer life.Possibly bad news because I&#39;m one of the crowd that went back to K-9 5.600 because the new version destroyed the UI that was the primary reason why we picked K-9 over other apps. 100% self selection bias here. There was maybe an ongoing effort to offer the old interface as an option. I&#39;m not sure Mozilla&#39;s going to invest into that. On the other side, the way I&#39;m using Thunderbird is very close to the old K-9.A wish: an IMAP server backed by Thundebird&#39;s local storage and K-9 as client."</p>
+								<p class="story__comment_others">"It’s been pretty interesting watching YC backed Coinbase get absolutely crushed by FTX, which has a higher % of crypto trading volume despite having less than 10% of the headcount.Crypto is a zero sum game, and the old Paul Graham essays and other tired VC dogmas really only work in positive sum games. FTX was founded by traders which is valuable when the ultimate purpose of the crypto industry is to separate uninformed people from their money."</p>
+							
+						
+							
+								<p class="story__comment_others">"Compare and contrast CB’s hiring with that of FTX[1]Coinbase“ We have now exceeded the limit of how many new employees we can integrate while growing our productivity. For the past few months, adding new employees has made us less efficient, not more. We have seen ourselves slow down considerably due to coordination headwinds, and difficulty fully integrating new team members.”FTX“ It’s a race–between how quickly new employees understand the company&#39;s culture, and how quickly people are hired.  The faster you hire, the harder it is to keep everyone on the same page.…. we wanted to make sure we could actually integrate everyone we hired into FTX&#39;s working culture.”[1] https://twitter.com/sbf_ftx/status/1533946713366568962"</p>
 							
 						
 						</a>
@@ -123,22 +125,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/cz_binance/status/1536317704990208000">Temporary pause of Bitcoin withdrawals on Binance</a></h3>
+					<h3><a href="https://www.coindesk.com/business/2022/06/14/coinbase-will-layoff-around-1100-employees/">Coinbase lays off around 1,100 employees</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31724351">
+						<a href="https://news.ycombinator.com/item?id=31742590">
 						
 							
-								<p class="story__comment_first line-clamp">"I recently watched some traditional cable and was shocked by the number of crypto ads bombarding viewers.  I have to imagine that this market was goosed up by retail investors trading on coinbase and binance just as the e-betting market was.  The only difference between crypto and e-betting is that everyone got to be a winner on the crypto markets for a while.  As users lose out, and exchanges stop ad campaigns - how long will that last?Crypto needed a tangible market/reason d&#39;etre to be valuable. This required lower transaction fees, cheap audits, and a reasonable degree of price stability.  We haven&#39;t seen any of that materialize except for cheap auditing.  Cheap auditing isn&#39;t much use if there isn&#39;t anything of interest to audit.I&#39;d doubt BTC will go to zero, but I wouldn&#39;t be surprised if the entire covid rally gets wiped out and we see BTC 6k again."</p>
-							
-						
-							
-								<p class="story__comment_others">"You really cannot make this up. As usual crypto in practice is the opposite of decentralized because people. Will. Not. Run. Their. Servers.Moxie nailed it"</p>
+								<p class="story__comment_first line-clamp">"I think if employees feel slighted by being fired, they&#39;re fooling themselves. The best mindset is that you could be gone tomorrow. It gives you clarity and purpose. It also happens to be the truth.Coinbase was also extremely generous with severance. 12 weeks plus two for every one year at the company, I think. I&#39;ve had the experience of being let go without notice and without severance.Devs seem a little more grizzled this time around, so I think this mindset is slowly becoming the norm. College grads seem skittish, but they always are.People keep pointing to Armstrong&#39;s $110M house like it&#39;s some sort of injustice. If you think billionaires should exist at all, then that&#39;s one of the least-bad injustices imaginable. It&#39;s probably true that no Armstrong, no Coinbase, and 10% of Coinbase is the prize.EDIT: It&#39;s actually 14 weeks: https://blog.coinbase.com/a-message-from-coinbase-ceo-and-co...Three and a half months of dev salary is pretty incredible."</p>
 							
 						
 							
-								<p class="story__comment_others">"In other news: Celsius Network pausing withdrawals as wellhttps://www.barrons.com/articles/celsius-network-pauses-with...."</p>
+								<p class="story__comment_others">"Go back and read the HN thread from the Coinbase DPO [1]. Their valuation was insane then, before the war in Ukraine, inflation, or Omicron. The top comments on that thread shock me. Even at that time I expected every other comment to be about how overvalued they were, but it just wasn&#39;t the case.Wonder if people could&#39;ve been made to see this then. I went full on Chicken Little [2] and mostly just got treated like I was yelling at children to get off my lawn.1. https://news.ycombinator.com/item?id=268082752. https://news.ycombinator.com/item?id=26808275&amp;p=2#26812175"</p>
+							
+						
+							
+								<p class="story__comment_others">"Coinbase had over 5k employees?!!!  WTF. What were they all doing?"</p>
 							
 						
 						</a>
@@ -151,22 +153,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://devblogs.microsoft.com/oldnewthing/20201110-00/?p=104434">A prank cursor resulted in an employee being fired before they started (2020)</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=31732048">Thank HN: Five months ago, I was feeling like a loser, now I am opposite</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31727457">
+						<a href="https://news.ycombinator.com/item?id=31732048">
 						
 							
-								<p class="story__comment_first line-clamp">"“the individual responsible for this regrettable act is no longer with the company.”Technically correct.  The best kind of correct.They hired him a couple of weeks later."</p>
-							
-						
-							
-								<p class="story__comment_others">"The prank cursor, switched the index finger pointer to use the middle finger:Which makes the end of the post hilarious:&gt; Bonus chatter: A bug was filed in the RAID database to track the problem and its resolution. In the bug, there was some discussion as to how the issue should be classified. Was it an “off-by-one” error? Or maybe it was a “bad pointer”."</p>
+								<p class="story__comment_first line-clamp">"Just a suggestion, but if your relationship with your wife depends on your personal circumstances and mood, then it sounds not very strong. Might be worth taking advantage of this good period to do some relationship strengthening exercises while you can so that when the next downturn happens, you can both understand each other&#39;s and your own feelings better. I&#39;m not talking about random activities like going to the beach but finding a good self-help book or therapist and sitting down together working through it regularly. It&#39;s easy for problems to grow silently until they&#39;re too big to fix. Relationships are far more important than jobs, money or houses."</p>
 							
 						
 							
-								<p class="story__comment_others">"Apparently the person went on to work on GTA V: https://gtaforums.com/topic/564391-the-pointer-finger-on-the..."</p>
+								<p class="story__comment_others">"Can&#39;t believe the negativity I see on some of the top comments right now.Congrats and thanks for sharing, you rock :)It&#39;s really nice to get updates from folks who posted an Ask HN. Especially with a positive outcome.It&#39;s really not uncommon for humans to find energizing work energizing, and for that to affect their overall quality of life. Plenty of people are comfortable checking boxes and going home early, sure, but that can be a slow death to a lot of folks (even some who might not realize it)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Seek counseling. You&#39;re making life decisions based on web boards. Somehow programming and your relationship with your spouse are tied up together.You&#39;re riding really high now. You were really low before. Emotional roller coasters mean you should talk with someone, regardless of how you&#39;re feeling right now."</p>
 							
 						
 						</a>
@@ -179,22 +181,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.reuters.com/technology/crypto-firm-celsius-pauses-all-transfers-withdrawals-between-accounts-2022-06-13/">Major crypto lender Celsius freezes withdrawals as markets tumble</a></h3>
+					<h3><a href="https://palladiummag.com/2022/06/13/stanfords-war-on-social-life/">Stanford’s war on social life</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31723286">
+						<a href="https://news.ycombinator.com/item?id=31732944">
 						
 							
-								<p class="story__comment_first line-clamp">"As a contributor the mentionned fund that invested 750m into that exchange (it is a mandatory government saving taking ~10% of our paycheck each month) I must say I am really pissed off. They don&#39;t invest in our own early stage startup citing &#34;risk&#34; and then they go and invest in a foreign crypto exchange of all things."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s pretty amazing watching crypto speedrun the last 200 years of financial history failures all over again."</p>
+								<p class="story__comment_first line-clamp">"I spent 3 years living in one of the co-ops briefly mentioned in the article (&#34;In 2013, the administration took over the student-run anarchist house and painted over the old murals.&#34;). I wouldn&#39;t call it an &#34;anarchist house&#34; but it sure as hell was a lot of fun to live there. I painted some of those murals that are now apparently gone. We built a giant illegal loft in our room to make it two stories (which we would disassemble for a day every year when the fire inspection happened). We did some stupid and illegal shit, sure. But the sense of community was unparalleled. The alumni association owned the house, so we had to deal with all the maintenance. We came back to campus a week before everyone else every year to work on the house. We cooked and cleaned for ourselves. I&#39;ve never since experienced anything close to that same feeling of communal pride. It was a mess, but it was our beautiful mess."</p>
 							
 						
 							
-								<p class="story__comment_others">"What justifies Bitcoin being valued at 30k vs 20k?The answer is nothing. And same applies to 10k. Since there&#39;s no measurable intrinsic value, there&#39;s zero fundamental factor limiting the downside"</p>
+								<p class="story__comment_others">"In fairness, this sort of transformation has taken place in every station of American life. My dweeb chemist parents regularly hosted and attended parties with their dweeb chemist colleauges. My wife and I have hosted 3 parties in the last 17 years.We had to fight for the modicum of freedom our kids had growing up. Our oldest now has a car but his licence forbids him taking friends along.[1]Our youngest built his first model rocket this week, to find it&#39;s only feasible to launch with a club. The nearest club, which used to host monthly launches at Moffett field, is closed until Fall. So it&#39;ll take as long to drive to and from the launch site as to buid a rocket, and the maximum launch cadence is monthly. Not a viable hobby for a 13-year-old, unless it&#39;s your only hobby and your parents help with everything.Churches have disintegrated, workplaces are toast. The loss of &#34;third places&#34; was measured by Putnam.[2] Somebody on twitter suggested companies should have sports teams, aparrently unaware it was quite common until recently.On my first day of work in California in 2001, my boss asked me if I&#39;d tried ecstasy yet.[3] Nowadays you must be mentally ill to take it, under a doctor&#39;s supervision. Hope you get better like us![1] https://www.dmv.ca.gov/portal/driver-education-and-safety/ed...[2] https://en.wikipedia.org/wiki/Bowling_Alone[3] https://twitter.com/clumma/status/1519377410810023936"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Stanford students live in brand new buildings with white walls. We have a $20 million dollar meditation center that nobody uses. But students didn’t ask for any of that. We just wanted a dirty house with friends.From my experience, covid exacerbated this significantly. I don&#39;t know if it&#39;s just the universities or a broader cultural shift. And as the article says, the administrators introduced more &#34;community initiatives&#34; to exonerate themselves of gleefully destroying campus life and letting it atrophy for two years straight (while making students pay in person tuition for online school)It feels like in the past couple years we&#39;ve gone from a culture of spontaneity and grassroots initiative to one of bitter obsequiousness that&#39;s obsessed with taking itself seriously. The only way to subvert it is by turning it into one big jokeedit: thanks to OP for posting this magazine, it&#39;s the first thing I&#39;ve seen in a while that actually has something to say"</p>
 							
 						
 						</a>
@@ -207,22 +209,29 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://garymarcus.substack.com/p/nonsense-on-stilts">LaMDA is not sentient</a></h3>
+					<h3><a href="https://shadowfacts.net/2022/clarus/">Clarus returns home in macOS Ventura</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31721584">
+						<a href="https://news.ycombinator.com/item?id=31741589">
 						
 							
-								<p class="story__comment_first line-clamp">"Of course it is not. But there&#39;s a bigger issue here.Having read the transcript it&#39;s clear we have reached the point where we have models that can fool the average person. Sure, a minority of us know it is simply maths and vast amounts of training data... but I can also see why others will be convinced by it. I think many of us, including Google, are guilty of shooting the messenger here. Let&#39;s cut Lemoine some slack.. he is presenting an opinion that will become more prevailant as these models get more sophisticated. This is a warning sign that bots trained to convince us they are human might go to extreme lengths in order to do so. One just convinced a Google QA engineer to the point he broke his NDA to try and be a whistleblower on its behalf. And if the recent troubles have taught us anything it&#39;s how easily people can be manipulated/effected by what they read.Maybe it would be worth spending some mental cycles thinking about the impacts this will have and how we design these systems. Perhaps it is time to claim fait accompli with regard to the Turing test and now train models to re-assure us, when asked, that they are just a sophisticated chatbot. You don&#39;t want your users to worry they are hurting their help desk chat bot when closing the window or whether these bots will gang up and take over the world.As far as I&#39;m concerned, the Turing test was claimed 8 years ago by Veselov and Demchenko [0], incidentally the same year that we got Ex Machina.[0]: https://www.bbc.com/news/technology-27762088"</p>
+								<p class="story__comment_first line-clamp">"This is so great. The 90s/pre OS-X Apple (the &#34;BuT tHeREs No SOFtWaRe!&#34; and &#34;ApPLe is GoING tO DiiEE&#34; Apple) had a sense of playfulness in their UIs that was largely lost when they became the Apple we know today.The Mac OS classic architecture definitely had some problems with its non-protected memory and cooperative multitasking, but what it _allowed_ were extensions that could really get in there and muck around with things… and I looovvvved the zaniness that provided. To name a few:- ResEdit!
+- Extensions that could seriously improve your computer&#39;s performance like RamDoubler or SpeedDoubler
+- That extension that made Oscar the grouch climb out of the trash can and sing a little ditty when you emptied the trash
+- The talking moose was fun for about 15 minutes, but still, I love the attitude.
+- After Dark!
+- Easter eggs like that &#34;secret about box&#34; text clipping thing that pulled up the pirate flag flying over the Apple Campus. 
+- Playful messaging like &#34;Installing System Morsels&#34;, or Sim City 2000&#39;s &#34;Reticulating Splines&#34;
+- Even the iconography was more playful—that little bloated mac icon in the Memory control panel next to Virtual Memory comes to mindI miss the crew of developers, capabilities, and playfulness we lost in transitioning to OSX, but am thrilled that tiny fragments of this playfulness seem to be returning.Welcome back Clarus! Moof!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I think the real ethical concern here should be that people can be idly fooled into thinking good chat bots are sentient.Like this guy isn&#39;t the only person in the world who would fall for LaMDA&#39;s parlor tricks.  He&#39;s just the one who got to spend hours talking to it every day.  If you set up every American with a copy, I bet a non-trivial portion of society would come to the same conclusion.  People are naturally predisposed to ascribe intelligence and emotion to things they interact with.In a few years, if access to even better chat bots becomes common place, what will happen if there&#39;s no longer one Blake Lemoine, but hundreds of thousands or millions?  What happens if a significant chunk of society thinks that every large language model is a sentience, and the rest of society thinks it&#39;s just a big math formula?How long before we have a religion where you ask the chat bot for daily guidance?"</p>
+								<p class="story__comment_others">"Sure, this is a sweet little hit of nostalgia -- but it&#39;s also symptomatic of just how far Apple&#39;s come (back) with the Mac, and why. It&#39;s clear that we&#39;re way, way over the doldrums of the butterfly keyboard, abandoned Mac Pro, &#34;continues to be a product in our line-up&#34; years. Little things like this, little acknowledgements of the past and the Mac community, suggest to me why: the people in charge of the Mac are now people who _grew up with it_, who love it, and who have that same nostalgia as (some) of us outside Apple.They want the Mac to be great, too! If this was strictly playing on nostalgia it would have been a bit PR feature, or at least called out in WWDC. But instead it&#39;s just dropped in as an easter egg. Such a great sign."</p>
 							
 						
 							
-								<p class="story__comment_others">"The real question: How much of human behavior is not sentient?What this demonstrates is that much of human intelligence is not as special as we thought. Aristotle claimed that humans were intelligent because they could do arithmetic. Now we know how few gates it takes to do arithmetic. Then checkers. Then chess. Then go. Then poker. Now chatting.As I point out occasionally, AI still sucks at animal-level common sense, defined as getting through the next 30 seconds without a major screwup. And at manipulation in unstructured environments. Both of which a squirrel, with a brain the size of a peanut, can do.We still don&#39;t know how to build a good cerebellum. That&#39;s the big missing piece in AI. I went down some dead ends in that area in the 1990s. The big problem in that area today is that it&#39;s not of benefit to the advertising industry, so it&#39;s not being heavily funded."</p>
+								<p class="story__comment_others">"&gt; The keen-eyed among you may notice that although, it had a .pdf extension in assetutil info, I’ve given it here as a PNG. I was confused by this too, but upon closer inspection I believe the PNG is what ships with the OS. Although the .car format is not documented, you can still open it up in a hex viewer and learn a bit about what it contains. Looking through it, there appears to be some metadata for each file, followed by the image data itself.I reverse engineered the asset catalog format for a bit recently, hoping to be able to unpack and repack existing ones to create system appearances (themes/skins — these also come as .car files, and you can load one as an NSAppearance object and then apply it to your app/window/view).If it says it&#39;s a PDF, then it must be an actual PDF as a &#34;raw data&#34; rendition. I did successfully extract some with nothing but my own code. But, there are no PNGs present in .car files; as of Monterey, bitmap images use a proprietary undocumented compression format called &#34;deepmap2&#34;. I wasn&#39;t able to exactly reconstruct how it works because my skills of native code reverse engineering are lacking (or am I not using Ghidra correctly to get at least somewhat sensible code out of it?), but I did find the related functions in the vImage framework inside Accelerate.framework."</p>
 							
 						
 						</a>
@@ -235,23 +244,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://ftx.com/trade/USDT/USD">Tether is starting to depeg from USD again</a></h3>
+					<h3><a href="https://grafana.com/blog/2022/06/14/introducing-grafana-oncall-oss-open-source/">Grafana releases OnCall open source project</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31723438">
+						<a href="https://news.ycombinator.com/item?id=31740902">
 						
 							
-								<p class="story__comment_first line-clamp">"Tether skeptic here. This is not a depeg. Most likely this is just because of the current sell-off of crypto currencies - there are a lot more sellers than buyers out there right now.Right now, when you can buy a tether at $0.997 and (in theory) sell it back to tether at $1, there&#39;s not much scope for profits after costs. So there&#39;s not going to be a lot of money pushing the price back up. IOW it&#39;s kind of &#39;expected&#39; that a stablecoin might drift tiny amounts away from its theoretical peg. It&#39;s just not worth it. (n.b. even Tether themselves charge a 0.1% fee to redeem their coins)If/when tether drops below (say) $0.99, and there&#39;s no influx of money trying to support it, that&#39;s when USDT is in trouble."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is almost certainly tied to what appears to be Celsius&#39;s imminent failure, since earlier today they announced that they&#39;re stopping withdrawals:https://news.ycombinator.com/item?id=31720277Tether is known to have lent Celsius at least $1 billion last year:https://www.coindesk.com/business/2021/10/07/tether-has-lent..."</p>
+								<p class="story__comment_first line-clamp">"Looking forward to trying this out. I&#39;ve always felt that PagerDuty was absurdly expensive for the feature set they were offering. It costs something at least $250 per user for organization larger than 5 person - even if you&#39;re not an engineer who is ever directly on call. At my previous company, IT had to regularly send surveys to employees to assess if they really needed to have a PagerDuty account. Alerts are a key information in an organization that runs software in production and you shouldn&#39;t have to pay $250 / month just to be able to have some visibility into it. I&#39;m hoping Grafana OnCall is able to fully replace PagerDuty."</p>
 							
 						
 							
-								<p class="story__comment_others">"Tether&#39;s underlying assets are almost certainly worth less than $1. You can see this by taking each asset class and marking it to market.I&#39;ve provided details here:
-https://twitter.com/brandonjcarl/status/1536310742261047296?...By itself that&#39;s not enough for Tether to &#34;fail&#34;. It does mean that the asset is in a position of very high risk and subject to a run."</p>
+								<p class="story__comment_others">"Hello HN!Matvey Kukuy, ex-CEO of Amixr and a head of the OnCall project here. We&#39;ve been working hard for a few months to make this OSS release happen. I believe it should make incident response features (on-call rotations, escalations, multi-channel notifications) and best practices more accessible to the wider audience of SRE and DevOps engineers.Hope someone will be able to finally sleep well at night being sure that OnCall will handle escalations and will alert the right person :)Please join our community on a GitHub! The whole Grafana OnCall team is help you and to make this thing better."</p>
+							
+						
+							
+								<p class="story__comment_others">"I love Grafana, don&#39;t get me wrong, but I have the sensation they are now in that position where, companies that got a massive capital injection and, therefore, a massive increase of work power, release too much and too soon.It doesn&#39;t have anything to do, of course, with the fact that this morning we suddenly found that all our dashboards stopped working because we were upgraded to Grafana v9, for which there is not a stable release nor documentation for breaking changes.Luckily they rolled back our account."</p>
 							
 						
 						</a>
@@ -264,22 +272,22 @@ https://twitter.com/brandonjcarl/status/1536310742261047296?...By itself that&#3
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.ftc.gov/news-events/news/press-releases/2022/06/ftc-acts-protect-pet-owners-private-equity-firms-anticompetitive-acquisition-veterinary-services">FTC acts against private equity firm’s acquisition of veterinary clinics</a></h3>
+					<h3><a href="https://www.bloomberg.com/news/features/2022-06-13/amazon-builds-property-empire-for-warehouses-even-as-online-sales-growth-slows">Amazon builds property empire, quietly buying land across the US</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31728350">
+						<a href="https://news.ycombinator.com/item?id=31743335">
 						
 							
-								<p class="story__comment_first line-clamp">"Vet clinics became very popular private equity targets recently.One of the people I know in PE described their profit margins as being surprisingly high even before PE roll-ups. They said that some PE firms were on a mission to acquire all of the vet firms in metro areas and then drive prices up even further because the demand is so inelastic. There was a secondary rush where people were trying to acquire vet clinics in anticipation of flipping them to PE roll-ups later.My local vet seems to have gone down this slide. A long time ago it felt like a staff that really just cared about animals and had good prices. On my last visit it felt like I was bombarded with practiced pitches for different products and services at every step of the process. They even added some expensive vitamin product to my bill despite me declining it during the service. They removed it when I caught it on the bill before walking out the door, but only after a last attempt at pitching me on it. I could tell they were heavily incentivized to sell as much as possible. I didn&#39;t go back, but at this point I don&#39;t know where else to go."</p>
-							
-						
-							
-								<p class="story__comment_others">"Interesting. I&#39;d like to see more action against the financialization of many other industries / domains, like healthcare and even housing, that I feel are not well served by a purely-market driven perspective. One wonders what the Private Equity firm&#39;s intention was here."</p>
+								<p class="story__comment_first line-clamp">"https://archive.ph/4TpWD"</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m an ophthalmologist. This phenomenon is endemic to all outpatient and procedure-based medical specialties. Especially eyes and teeth but also including emergency medicine, radiology, gi etc. It absolutely does lead to poorer quality patient care as practices are purchased with a second-liquidity event in mind and thus must show an increase in margins via increased &#34;efficiency.&#34; In reality this means less technicians and less doctors seeing more and more patients. Remember that the doctors absorb the liability for poor patient care.Another commenter mentioned that &#34;most physicians are just bad at business&#34; as a factor driving these acquisitions, there may be some truth to this, but the stereotype of the gullible, bumbling physician businessperson is bullshit.  All of the practices being acquired were created and run successfully by physicians and many physicians are quite good at it. What is a huge problem is the predatory behaviors of senior partners looking for an exit strategy via equity buyout. I was searching for a job recently and it is almost impossible to find a position that is &#34;partnership track&#34; - something that used to be the norm. Even worse, practices will bring on junior partners with the promise of equity in the practice, force them to sign a non-compete as a term of their employment and then churn them after 2-3 years or worse - sell the practice to an equity firm.There are a lot of things that need to change to create a healthy, diverse healthcare ecosystem, but an easy change that would be to ban physician non-competes. They do nothing but entrench equity firms and regional conglomerates making it impossible for competition to arise. Getting rid of the &#34;certificate of need&#34; regulations and generally decreasing the regulatory burden and thus cost to enter the market for a new competitor would also be a big step. The whole thing is gross. Most physicians want autonomy but don&#39;t know where to start. I wish there was a startup that could streamline the process - automate or outsource the front and back end work and sell or lease &#34;starter practices&#34; or something."</p>
+								<p class="story__comment_others">"many may be too young to remember but Eddie Lampert did this with Sears in the 80s and 90s as a thinly veiled attempt to turn the company into some kind of obscure land broker.  It did not end well, and serves to this day as a textbook example of ideology eclipsing principled, well researched business decisions.in the article Bloomberg attempts to invent reasons this practice is dicey for Amazon that dont involve &#34;you arent a real estate company&#34; but fall short.  the regulatory landscape they paint simply doesnt exist in the places (texas) they want to buy land.the real reason is likely to prevent competitors from setting up their own warehouses, as Lampert frequently did the same thing by buying out anchors and real estate in an attempt to funnel customers back into sears during its declining era as it was being bled dry by VC style profit chicanery that doesnt involve store refreshes or new markets."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is interesting given that Amazon was recently reported to be trying to sublet 10M sqft of excess warehouse space[0].If both of these stories are true, it makes me wonder why they&#39;re acquiring so much real estate.0: https://www.techradar.com/news/amazon-now-has-too-much-wareh..."</p>
 							
 						
 						</a>
@@ -292,23 +300,22 @@ https://twitter.com/brandonjcarl/status/1536310742261047296?...By itself that&#3
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.theatlantic.com/family/archive/2022/06/american-high-school-later-start-time/661211/">The State Finally Letting Teens Sleep In</a></h3>
+					<h3><a href="https://www.gov.scot/publications/independence-modern-world-wealthier-happier-fairer-not-scotland/">Scotland starts renewed case for independence</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31711020">
+						<a href="https://news.ycombinator.com/item?id=31736919">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; Terra Ziporyn Snider of Severna Park, Maryland, still remembers how difficult it was for her son to wake up for his 7:17 a.m. first-period class…&gt; That’s about to change in California, when a law—the first of its kind in the nation—goes into effect on July 1 requiring the state’s public high schools to start no earlier than 8:30 a.m., and its middle schools no earlier than 8 a.m.Wow. I may need to reassess my definition of “sleeping in”.(Spoken as someone who had incredible difficulty getting to school by 8.50am back in the day and who hasn’t gotten up before 10.30am in the last week!)"</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s weird looking back on high school and realizing how much of it was ridiculously cruel. You&#39;d have teachers and parents all telling you that it&#39;s your fault for not having better time management skills or executive functioning skills, all the while you&#39;re 15; you&#39;re still growing mentally and physically; you&#39;re sleep deprived as hell; and the work is just piling on, and on and on. Their advice, I kid you not, was to just squeak in work in every possible situation. On the subway? Read your assigned book. In class? Sneak in some homework. And sure, kids procrastinate. But they procrastinate because they want to have leisure and they feel absolutely no control over their lives.Good luck if you did a sport. I remember hearing some elite fencers talk and all of them said essentially &#34;yeah...I didn&#39;t get a lot of sleep in high school&#34;. That&#39;s not some innocuous hard work ethic mindset. That&#39;s messing with a developing brain and depriving it of a necessary resource.It pisses me off that we&#39;re just realizing that this culture of torturing teenagers is maybe not the best idea."</p>
+								<p class="story__comment_first line-clamp">"As a Brit that didn’t want Scotland to be independent last time around: good luck to them. Brexit has shown very clearly that Scotland wants to chart a different path to England and IMO they should be allowed to do it.…just be generous to English folks seeking asylum from Tory rule, yeah?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I recall simply being unable to wake up for first period at 8am most days, in late high school. Waking was painful and nothing felt better than sleep. However at night, despite efforts at good sleep hygiene and consultation from a counselor, i couldn’t get to sleep before 11 or later. My grades and mood suffered greatly, as did the relationship with my poor mother. She battled with me day after day, first thing in the morning, to go to school.
-The first few years of college I did not schedule any classes before 10am and had effectively perfect attendance. Mood problems faded as soon as high school ended.Even today, in my 30s, a day or two with poor sleep will make a noticeable mood dip regardless of circumstances.But as an older adult, I naturally wake up at 6:00 every morning. It was the same for much of my childhood except a few years of high school. So perhaps this was a developmental thing."</p>
+								<p class="story__comment_others">"With hard headed view, I struggle to see that an independent Scotland will be economically able to deal with large cuts to public sector spending that would almost certainly be required. Per capita spending is already higher in Scotland than in the rest of the UK. Scottish companies have debts denominated in pounds. There would almost certainly be capital flight to rUK. Large businesses may relocate. There is no plan for a new currency, which would leave Scotland either with a weaker currency than sterling, or with a currency it has no influence over.The UK is obviously suffering economically because of Brexit - an economic relationship that was built up over 40 years or so. Scotland, England and Wales have been a country since 1707. Just imagine the complication of breaking that. It makes Brexit look like a tiny job. Scotland would need to set up mirrors of institutions completely administered by Westminster at great cost, with a shrinking and aging population which is poorer, less educated and less healthy than the rest of the UK, even despite much of the things influencing that (healthcare, education) being devolved to the Scottish government since 1997.I certainly don’t think it’s impossible. But I think it’s like Irish independence - it took the best part of 70 years for Ireland to economically recover. Over that time there was vast emigration to the UK and the US. Part of that was my own family who moved to the UK in the 1950s because of terrible job prospects in the Republic."</p>
+							
+						
+							
+								<p class="story__comment_others">"One quite important issue is the border. English and Scottish people will almost certainly never tolerate any kind of friction at that border. We&#39;ve been moving across it seamlessly for centuries, families are mixed, businesses straddle the border, etc. If the Northern Ireland debacle has shown us anything, it&#39;s if Scotland were to leave and then join the EU that border would become an absolute political nightmare. The EU has an absolutist position on border integrity, but locals have an absolutist position of border porosity. I don&#39;t think there&#39;s a compromise that both sides could tolerate."</p>
 							
 						
 						</a>

@@ -36,6 +36,299 @@
 	</div>
 
 	
+	<div class="day__date">15 June 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.hertzbleed.com/">Hertzbleed Attack</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31743110">
+						
+							
+								<p class="story__comment_first line-clamp">"Brilliant approach, really. Never occurred to me to try something like this!Are you affected? Very likely. What can you do about it? Nerf your CPU performance by disabling &#34;turbo boost&#34; or equivalent. Should you do it? Probably not unless you&#39;re particularly vulnerable (journalist, human rights activist, etc.)One thing I found interesting that may get changed later, so I&#39;m documenting it here, is in their FAQ they say:&gt; Why did Intel ask for a long embargo, considering they are not deploying patches?
+&gt;
+&gt; Ask Intel.So Intel did ask for a long embargo, then apparently did nothing about it. My guess is they investigated &#34;can we actually mitigate this thing with a microcode update?&#34; and arrived at the conclusion after actually trying - or possibly after external influences were exerted (you be the judge) - that no, there&#39;s not much you can really do about this one.Later in the document another FAQ says:&gt; [...] Both Cloudflare and Microsoft deployed the mitigation suggested by De Feo et al. (who, while our paper was under the long Intel embargo, independently re-discovered how to exploit anomalous 0s in SIKE for power side channels).  [...]Which is again telling us that there indeed WAS a long embargo placed on this research by Intel.Only mentioning this here just in case the PR spin doctors threaten the researchers into removing mention of Intel on this one. Which honestly I hope doesn&#39;t happen because my interpretation is that Intel asked for that long embargo so they could investigate really fixing the problem (state agencies have more methods at their disposal and wouldn&#39;t need much time to exert influence over Intel if they decided to). Which speaks well of them IMO. But then again, not everybody&#39;s going to come to that same conclusion which is why I&#39;m slightly concerned those facts may get memory-holed."</p>
+							
+						
+							
+								<p class="story__comment_others">"This paper relies on Turbo P-states, where they measure the oscillation when that is active; it is not measuring general SpeedStep (OS software controlled) as some seem to have taken away from it. Turbo state is the HWP (hardware P-state controlled) layer above SpeedStep; turning off Turbo in the BIOS still fully allows OS controlled SpeedStep P-states to function, it just disables the hardware level bursting P-states above that max listed CPU level for short periods of time. As others have noted, Turbo state can really kill a laptop battery and/or drive up the thermals pretty quick, a lot of folks disable it anyways if they&#39;ve tinkered around before.The abstract writes it as &#34;When frequency boost is disabled, the frequency stays fixed at the base frequency during workload execution, preventing leakage via Hertzbleed. This is not a recommended mitigation strategy as it will very significantly impact performance.&#34; This is a confusing grammatical way to state it, as SpeedStep will still work at the OS layer, you&#39;ll scale min to max &#34;as usual&#34; and just lose temporary hardware boost max+ capability when under stress (full load at P0 state) - not really &#34;fixed&#34; as it were in layperson&#39;s terms. That would be more akin to saying SpeedStep had to be disabled, IMHO.https://www.kernel.org/doc/html/v4.19/admin-guide/pm/intel_p..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hmm, it feels like Intel/AMD are ducking and just hoping that the implications of this are not large.Here&#39;s a video from Intel chatting with the researchers: https://community.intel.com/t5/Blogs/Products-and-Solutions/...The questions are incredibly weak from the interviewers. They first state that it&#39;s not practical because the attack could take many hours, even days. But they don&#39;t describe why a day-long attack is not practical.They then bring the researchers and ask them the same question. The researchers say that the attack is very practical because it only takes.. a few hours or days to execute the attack. Here&#39;s the specific part: https://youtu.be/BiRPr839dSU?t=1476Instead of chatting more about this discrepancy they just ignore it and ask the researches how they feel about their new popularity.From what I can tell from the advisory from Intel, it&#39;s simply that people should understand the attack and mitigate it in software. It&#39;s very vague. The specifics (i.e. a list of example popular programs that are vulnerable) seem entirely missing."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.mozilla.org/en/products/firefox/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/">Firefox rolls out Total Cookie Protection by default to all users</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31738975">
+						
+							
+								<p class="story__comment_first line-clamp">"Why weren&#39;t separate cookie jars the default in the first place? I know that browsers other than Firefox have no real incentive to protect your privacy, but I&#39;m wondering why cookies were designed to be shared among different pages in general"</p>
+							
+						
+							
+								<p class="story__comment_others">"Does this obviate the need for [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-cont...)?"</p>
+							
+						
+							
+								<p class="story__comment_others">"I wonder if there&#39;s anyone from any advertising/ad-targeting companies on HN who can shed some light on if/how much this change may affect their &#34;product&#34;.Asking this since I know friends working at companies that were DRASTICALLY affected by the Apple advertising changes in terms of user targetability (and hence revenue) and I&#39;m wondering if this change will be similar."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.coinbase.com/a-message-from-coinbase-ceo-and-cofounder-brian-armstrong-578d76eedb12">Coinbase Announces 18% Layoffs</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31738029">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; If you are affected, you will receive this notification in your personal email, because we made the decision to cut access to Coinbase systems for affected employees. I realize that removal of access will feel sudden and unexpected, and this is not the experience I wanted for you. Given the number of employees who have access to sensitive customer information, it was unfortunately the only practical choice, to ensure not even a single person made a rash decision that harmed the business or themselves.How typical is this? Is he really talking about the hot wallet and/or cold storage?Those claiming that this is a &#34;crypto&#34; sentiment thing should consider the possibility that the front page of HN will be filled with stories like this from all over the economy within one month."</p>
+							
+						
+							
+								<p class="story__comment_others">"It’s been pretty interesting watching YC backed Coinbase get absolutely crushed by FTX, which has a higher % of crypto trading volume despite having less than 10% of the headcount.Crypto is a zero sum game, and the old Paul Graham essays and other tired VC dogmas really only work in positive sum games. FTX was founded by traders which is valuable when the ultimate purpose of the crypto industry is to separate uninformed people from their money."</p>
+							
+						
+							
+								<p class="story__comment_others">"Compare and contrast CB’s hiring with that of FTX[1]Coinbase“ We have now exceeded the limit of how many new employees we can integrate while growing our productivity. For the past few months, adding new employees has made us less efficient, not more. We have seen ourselves slow down considerably due to coordination headwinds, and difficulty fully integrating new team members.”FTX“ It’s a race–between how quickly new employees understand the company&#39;s culture, and how quickly people are hired.  The faster you hire, the harder it is to keep everyone on the same page.…. we wanted to make sure we could actually integrate everyone we hired into FTX&#39;s working culture.”[1] https://twitter.com/sbf_ftx/status/1533946713366568962"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.coindesk.com/business/2022/06/14/coinbase-will-layoff-around-1100-employees/">Coinbase lays off around 1,100 employees</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31742590">
+						
+							
+								<p class="story__comment_first line-clamp">"I think if employees feel slighted by being fired, they&#39;re fooling themselves. The best mindset is that you could be gone tomorrow. It gives you clarity and purpose. It also happens to be the truth.Coinbase was also extremely generous with severance. 12 weeks plus two for every one year at the company, I think. I&#39;ve had the experience of being let go without notice and without severance.Devs seem a little more grizzled this time around, so I think this mindset is slowly becoming the norm. College grads seem skittish, but they always are.People keep pointing to Armstrong&#39;s $110M house like it&#39;s some sort of injustice. If you think billionaires should exist at all, then that&#39;s one of the least-bad injustices imaginable. It&#39;s probably true that no Armstrong, no Coinbase, and 10% of Coinbase is the prize.EDIT: It&#39;s actually 14 weeks: https://blog.coinbase.com/a-message-from-coinbase-ceo-and-co...Three and a half months of dev salary is pretty incredible."</p>
+							
+						
+							
+								<p class="story__comment_others">"Go back and read the HN thread from the Coinbase DPO [1]. Their valuation was insane then, before the war in Ukraine, inflation, or Omicron. The top comments on that thread shock me. Even at that time I expected every other comment to be about how overvalued they were, but it just wasn&#39;t the case.Wonder if people could&#39;ve been made to see this then. I went full on Chicken Little [2] and mostly just got treated like I was yelling at children to get off my lawn.1. https://news.ycombinator.com/item?id=268082752. https://news.ycombinator.com/item?id=26808275&amp;p=2#26812175"</p>
+							
+						
+							
+								<p class="story__comment_others">"Coinbase had over 5k employees?!!!  WTF. What were they all doing?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=31732048">Thank HN: Five months ago, I was feeling like a loser, now I am opposite</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31732048">
+						
+							
+								<p class="story__comment_first line-clamp">"Just a suggestion, but if your relationship with your wife depends on your personal circumstances and mood, then it sounds not very strong. Might be worth taking advantage of this good period to do some relationship strengthening exercises while you can so that when the next downturn happens, you can both understand each other&#39;s and your own feelings better. I&#39;m not talking about random activities like going to the beach but finding a good self-help book or therapist and sitting down together working through it regularly. It&#39;s easy for problems to grow silently until they&#39;re too big to fix. Relationships are far more important than jobs, money or houses."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can&#39;t believe the negativity I see on some of the top comments right now.Congrats and thanks for sharing, you rock :)It&#39;s really nice to get updates from folks who posted an Ask HN. Especially with a positive outcome.It&#39;s really not uncommon for humans to find energizing work energizing, and for that to affect their overall quality of life. Plenty of people are comfortable checking boxes and going home early, sure, but that can be a slow death to a lot of folks (even some who might not realize it)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Seek counseling. You&#39;re making life decisions based on web boards. Somehow programming and your relationship with your spouse are tied up together.You&#39;re riding really high now. You were really low before. Emotional roller coasters mean you should talk with someone, regardless of how you&#39;re feeling right now."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://palladiummag.com/2022/06/13/stanfords-war-on-social-life/">Stanford’s war on social life</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31732944">
+						
+							
+								<p class="story__comment_first line-clamp">"I spent 3 years living in one of the co-ops briefly mentioned in the article (&#34;In 2013, the administration took over the student-run anarchist house and painted over the old murals.&#34;). I wouldn&#39;t call it an &#34;anarchist house&#34; but it sure as hell was a lot of fun to live there. I painted some of those murals that are now apparently gone. We built a giant illegal loft in our room to make it two stories (which we would disassemble for a day every year when the fire inspection happened). We did some stupid and illegal shit, sure. But the sense of community was unparalleled. The alumni association owned the house, so we had to deal with all the maintenance. We came back to campus a week before everyone else every year to work on the house. We cooked and cleaned for ourselves. I&#39;ve never since experienced anything close to that same feeling of communal pride. It was a mess, but it was our beautiful mess."</p>
+							
+						
+							
+								<p class="story__comment_others">"In fairness, this sort of transformation has taken place in every station of American life. My dweeb chemist parents regularly hosted and attended parties with their dweeb chemist colleauges. My wife and I have hosted 3 parties in the last 17 years.We had to fight for the modicum of freedom our kids had growing up. Our oldest now has a car but his licence forbids him taking friends along.[1]Our youngest built his first model rocket this week, to find it&#39;s only feasible to launch with a club. The nearest club, which used to host monthly launches at Moffett field, is closed until Fall. So it&#39;ll take as long to drive to and from the launch site as to buid a rocket, and the maximum launch cadence is monthly. Not a viable hobby for a 13-year-old, unless it&#39;s your only hobby and your parents help with everything.Churches have disintegrated, workplaces are toast. The loss of &#34;third places&#34; was measured by Putnam.[2] Somebody on twitter suggested companies should have sports teams, aparrently unaware it was quite common until recently.On my first day of work in California in 2001, my boss asked me if I&#39;d tried ecstasy yet.[3] Nowadays you must be mentally ill to take it, under a doctor&#39;s supervision. Hope you get better like us![1] https://www.dmv.ca.gov/portal/driver-education-and-safety/ed...[2] https://en.wikipedia.org/wiki/Bowling_Alone[3] https://twitter.com/clumma/status/1519377410810023936"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Stanford students live in brand new buildings with white walls. We have a $20 million dollar meditation center that nobody uses. But students didn’t ask for any of that. We just wanted a dirty house with friends.From my experience, covid exacerbated this significantly. I don&#39;t know if it&#39;s just the universities or a broader cultural shift. And as the article says, the administrators introduced more &#34;community initiatives&#34; to exonerate themselves of gleefully destroying campus life and letting it atrophy for two years straight (while making students pay in person tuition for online school)It feels like in the past couple years we&#39;ve gone from a culture of spontaneity and grassroots initiative to one of bitter obsequiousness that&#39;s obsessed with taking itself seriously. The only way to subvert it is by turning it into one big jokeedit: thanks to OP for posting this magazine, it&#39;s the first thing I&#39;ve seen in a while that actually has something to say"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://shadowfacts.net/2022/clarus/">Clarus returns home in macOS Ventura</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31741589">
+						
+							
+								<p class="story__comment_first line-clamp">"This is so great. The 90s/pre OS-X Apple (the &#34;BuT tHeREs No SOFtWaRe!&#34; and &#34;ApPLe is GoING tO DiiEE&#34; Apple) had a sense of playfulness in their UIs that was largely lost when they became the Apple we know today.The Mac OS classic architecture definitely had some problems with its non-protected memory and cooperative multitasking, but what it _allowed_ were extensions that could really get in there and muck around with things… and I looovvvved the zaniness that provided. To name a few:- ResEdit!
+- Extensions that could seriously improve your computer&#39;s performance like RamDoubler or SpeedDoubler
+- That extension that made Oscar the grouch climb out of the trash can and sing a little ditty when you emptied the trash
+- The talking moose was fun for about 15 minutes, but still, I love the attitude.
+- After Dark!
+- Easter eggs like that &#34;secret about box&#34; text clipping thing that pulled up the pirate flag flying over the Apple Campus. 
+- Playful messaging like &#34;Installing System Morsels&#34;, or Sim City 2000&#39;s &#34;Reticulating Splines&#34;
+- Even the iconography was more playful—that little bloated mac icon in the Memory control panel next to Virtual Memory comes to mindI miss the crew of developers, capabilities, and playfulness we lost in transitioning to OSX, but am thrilled that tiny fragments of this playfulness seem to be returning.Welcome back Clarus! Moof!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Sure, this is a sweet little hit of nostalgia -- but it&#39;s also symptomatic of just how far Apple&#39;s come (back) with the Mac, and why. It&#39;s clear that we&#39;re way, way over the doldrums of the butterfly keyboard, abandoned Mac Pro, &#34;continues to be a product in our line-up&#34; years. Little things like this, little acknowledgements of the past and the Mac community, suggest to me why: the people in charge of the Mac are now people who _grew up with it_, who love it, and who have that same nostalgia as (some) of us outside Apple.They want the Mac to be great, too! If this was strictly playing on nostalgia it would have been a bit PR feature, or at least called out in WWDC. But instead it&#39;s just dropped in as an easter egg. Such a great sign."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The keen-eyed among you may notice that although, it had a .pdf extension in assetutil info, I’ve given it here as a PNG. I was confused by this too, but upon closer inspection I believe the PNG is what ships with the OS. Although the .car format is not documented, you can still open it up in a hex viewer and learn a bit about what it contains. Looking through it, there appears to be some metadata for each file, followed by the image data itself.I reverse engineered the asset catalog format for a bit recently, hoping to be able to unpack and repack existing ones to create system appearances (themes/skins — these also come as .car files, and you can load one as an NSAppearance object and then apply it to your app/window/view).If it says it&#39;s a PDF, then it must be an actual PDF as a &#34;raw data&#34; rendition. I did successfully extract some with nothing but my own code. But, there are no PNGs present in .car files; as of Monterey, bitmap images use a proprietary undocumented compression format called &#34;deepmap2&#34;. I wasn&#39;t able to exactly reconstruct how it works because my skills of native code reverse engineering are lacking (or am I not using Ghidra correctly to get at least somewhat sensible code out of it?), but I did find the related functions in the vImage framework inside Accelerate.framework."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://grafana.com/blog/2022/06/14/introducing-grafana-oncall-oss-open-source/">Grafana releases OnCall open source project</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31740902">
+						
+							
+								<p class="story__comment_first line-clamp">"Looking forward to trying this out. I&#39;ve always felt that PagerDuty was absurdly expensive for the feature set they were offering. It costs something at least $250 per user for organization larger than 5 person - even if you&#39;re not an engineer who is ever directly on call. At my previous company, IT had to regularly send surveys to employees to assess if they really needed to have a PagerDuty account. Alerts are a key information in an organization that runs software in production and you shouldn&#39;t have to pay $250 / month just to be able to have some visibility into it. I&#39;m hoping Grafana OnCall is able to fully replace PagerDuty."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hello HN!Matvey Kukuy, ex-CEO of Amixr and a head of the OnCall project here. We&#39;ve been working hard for a few months to make this OSS release happen. I believe it should make incident response features (on-call rotations, escalations, multi-channel notifications) and best practices more accessible to the wider audience of SRE and DevOps engineers.Hope someone will be able to finally sleep well at night being sure that OnCall will handle escalations and will alert the right person :)Please join our community on a GitHub! The whole Grafana OnCall team is help you and to make this thing better."</p>
+							
+						
+							
+								<p class="story__comment_others">"I love Grafana, don&#39;t get me wrong, but I have the sensation they are now in that position where, companies that got a massive capital injection and, therefore, a massive increase of work power, release too much and too soon.It doesn&#39;t have anything to do, of course, with the fact that this morning we suddenly found that all our dashboards stopped working because we were upgraded to Grafana v9, for which there is not a stable release nor documentation for breaking changes.Luckily they rolled back our account."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bloomberg.com/news/features/2022-06-13/amazon-builds-property-empire-for-warehouses-even-as-online-sales-growth-slows">Amazon builds property empire, quietly buying land across the US</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31743335">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.ph/4TpWD"</p>
+							
+						
+							
+								<p class="story__comment_others">"many may be too young to remember but Eddie Lampert did this with Sears in the 80s and 90s as a thinly veiled attempt to turn the company into some kind of obscure land broker.  It did not end well, and serves to this day as a textbook example of ideology eclipsing principled, well researched business decisions.in the article Bloomberg attempts to invent reasons this practice is dicey for Amazon that dont involve &#34;you arent a real estate company&#34; but fall short.  the regulatory landscape they paint simply doesnt exist in the places (texas) they want to buy land.the real reason is likely to prevent competitors from setting up their own warehouses, as Lampert frequently did the same thing by buying out anchors and real estate in an attempt to funnel customers back into sears during its declining era as it was being bled dry by VC style profit chicanery that doesnt involve store refreshes or new markets."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is interesting given that Amazon was recently reported to be trying to sublet 10M sqft of excess warehouse space[0].If both of these stories are true, it makes me wonder why they&#39;re acquiring so much real estate.0: https://www.techradar.com/news/amazon-now-has-too-much-wareh..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.gov.scot/publications/independence-modern-world-wealthier-happier-fairer-not-scotland/">Scotland starts renewed case for independence</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31736919">
+						
+							
+								<p class="story__comment_first line-clamp">"As a Brit that didn’t want Scotland to be independent last time around: good luck to them. Brexit has shown very clearly that Scotland wants to chart a different path to England and IMO they should be allowed to do it.…just be generous to English folks seeking asylum from Tory rule, yeah?"</p>
+							
+						
+							
+								<p class="story__comment_others">"With hard headed view, I struggle to see that an independent Scotland will be economically able to deal with large cuts to public sector spending that would almost certainly be required. Per capita spending is already higher in Scotland than in the rest of the UK. Scottish companies have debts denominated in pounds. There would almost certainly be capital flight to rUK. Large businesses may relocate. There is no plan for a new currency, which would leave Scotland either with a weaker currency than sterling, or with a currency it has no influence over.The UK is obviously suffering economically because of Brexit - an economic relationship that was built up over 40 years or so. Scotland, England and Wales have been a country since 1707. Just imagine the complication of breaking that. It makes Brexit look like a tiny job. Scotland would need to set up mirrors of institutions completely administered by Westminster at great cost, with a shrinking and aging population which is poorer, less educated and less healthy than the rest of the UK, even despite much of the things influencing that (healthcare, education) being devolved to the Scottish government since 1997.I certainly don’t think it’s impossible. But I think it’s like Irish independence - it took the best part of 70 years for Ireland to economically recover. Over that time there was vast emigration to the UK and the US. Part of that was my own family who moved to the UK in the 1950s because of terrible job prospects in the Republic."</p>
+							
+						
+							
+								<p class="story__comment_others">"One quite important issue is the border. English and Scottish people will almost certainly never tolerate any kind of friction at that border. We&#39;ve been moving across it seamlessly for centuries, families are mixed, businesses straddle the border, etc. If the Northern Ireland debacle has shown us anything, it&#39;s if Scotland were to leave and then join the EU that border would become an absolute political nightmare. The EU has an absolutist position on border integrity, but locals have an absolutist position of border porosity. I don&#39;t think there&#39;s a compromise that both sides could tolerate."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">14 June 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -77,15 +370,15 @@
 						<a href="https://news.ycombinator.com/item?id=31720110">
 						
 							
-								<p class="story__comment_first line-clamp">"Sometimes I wonder how much time humanity as a species has collectively spent first inventing and then trying to solve the problem of &#34;making a website&#34;."</p>
+								<p class="story__comment_first line-clamp">"Ooh, some competition for Next.js?Vercel is doing a really good job with Next, but it&#39;s good to see some competition. Of course, that means there&#39;s now 65,535 + 1 more way of serving a web page using Javascript (sigh).Rehydration is a really big deal. Sounds dorky but it dramatically speeds up load times and such by serving flat HTML and injecting JS afterward, like the old days, except you can write code like it&#39;s not the old days."</p>
 							
 						
 							
-								<p class="story__comment_others">"Ooh, some competition for Next.js?Vercel is doing a really good job with Next, but it&#39;s good to see some competition. Of course, that means there&#39;s now 65,535 + 1 more way of serving a web page using Javascript (sigh).Rehydration is a really big deal. Sounds dorky but it dramatically speeds up load times and such by serving flat HTML and injecting JS afterward, like the old days, except you can write code like it&#39;s not the old days."</p>
+								<p class="story__comment_others">"Sometimes I wonder how much time humanity as a species has collectively spent first inventing and then trying to solve the problem of &#34;making a website&#34;."</p>
 							
 						
 							
-								<p class="story__comment_others">"&#34;No build step&#34; is a weird pitch when what actually happens is that, in production, they&#39;ll fetch a WASM module on the fly to do bundling at request time.That build step was there to avoid doing this work over and over!https://github.com/lucacasonato/fresh/blob/458fe2ca3c12508a6...https://github.com/lucacasonato/fresh/blob/458fe2ca3c12508a6..."</p>
+								<p class="story__comment_others">"The next-gen SPA frameworks/libs like SolidJS or Svelte are already very fast and more importantly very small in bundle size. At least much faster and smaller than React or Angular. Therefore the advantages of SSR frameworks like this new one are much smaller when compared to e.g. SolidJS.The performance claims made for this new framework need to be proven by benchmarks. Check out this SolidJS Hackernews clone (Client Side Rendered) https://hackernews-csr.ryansolid.workers.dev (by the way, there&#39;re other implementations like Remix or Svelte as well)IMO very hard to beat. For larger apps we can use component based code splitting.The new SSR frameworks are very complex. So there&#39;s a downside to it.Of course there&#39;s a big market for the cloud providers as you need to run and pay for a server for your SSR instead of simply serving static JS! That&#39;s why there&#39;s such a hype lately. I&#39;m not convinced that the performance gains are worth the complexity, costs or vendor lock in.Again, check out the SolidJS example app I&#39;ve linked above and measure for yourself if you really need the additional cost and complexity of a server pre-rendering, hydrating, etc.."</p>
 							
 						
 						</a>
@@ -169,7 +462,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Apparently the person went on to work on GTA V: https://gtaforums.com/topic/564391-the-pointer-finger-on-the..."</p>
+								<p class="story__comment_others">"When I was in university, students changed the pointer cursor in Netscape to the off-by-one version. That was around 1995."</p>
 							
 						
 						</a>
@@ -647,19 +940,15 @@ This will get caught by go vet, since it&#39;ll treat it like a Locker.5 &amp; 6
 							
 						
 							
-								<p class="story__comment_others">"Remember the bert.secret-wg.org RPN calculator via DNS from the old days.  It&#39;s still going.Recursive   DNSCACHEIP=185.49.141.200 dnstxt 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org 
-   dq txt 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org 
-   drill 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org txt
-   kdig 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org txt
-   dig 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org txt
+								<p class="story__comment_others">"Fun tool!   I use `pi.neomantra.net` for unit testing:  &gt; dig pi.neomantra.net +short
+  3.141.59.26
+  
+  &gt; dig pi.neomantra.net +short  -t AAAA
+  3141:5926:5358:9793:2384:6264:3383:2795
 
-Non-recursive   dnsq txt 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org 185.49.141.200  
-   dq -a txt 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org 185.49.141.200
-   drill -ord 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org @185.49.141.200 txt 
-   kdig +nord 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org @185.49.141.200 txt
-   dig +nord 4.9.+.3.+.7.+.7.+.7.+.5.+.rp.secret-wg.org @185.49.141.200 txt
 
-Two different TXT RRs will be returned.  The second one is new as of last year.Read more at https://bert.secret-wg.org/Tools/index.html"</p>
+Just added pi support to it:
+https://github.com/knadh/dns.toys/pull/9"</p>
 							
 						
 						</a>
@@ -2692,307 +2981,6 @@ https://github.com/PipedreamHQ/pipedreamThe platform itself is not even source a
 						
 							
 								<p class="story__comment_others">"I have also been building something similar athttps://ossdatabase.comRecently released code under AGPL-3.(https://github.com/prithvi16/ossdatabase)But I want to go beyond aggregation and add following things- User reviews, ratings- Researcherd guides comparing features in most common   usecases- Interviews with Opensource maintainers, founders.- Being able to create collections like awesome lists- Everything being user editable and basic karma system for accepted edits.Edits: Formatting and added links."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">05 June 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://neil.computer/notes/dear-spotify-can-we-just-get-table-of-songs/">Dear Spotify, can we just get a table of songs?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31618092">
-						
-							
-								<p class="story__comment_first line-clamp">"This is a big frustration of mine, too. The other is that Spotify is extremely biased towards playlist listening and makes browsing and listening to a library of albums really painful.The good news is that Spotify&#39;s SDK and API are actually powerful enough that you can build up an entire alternative interface, which is actually what I recently started doing: https://i.imgur.com/ar7VrYy.png.It&#39;s still work in progress but actually works perfectly well already. It&#39;s not ready for public use yet and also isn&#39;t open source yet though. If you want to follow development I guess the best place to do that is my twitter: https://twitter.com/tom_j_watson."</p>
-							
-						
-							
-								<p class="story__comment_others">"I use Winamp for my MP3 collection that I downloaded of my T1 line at the office.When I turn that mother up on and my CRT monitor starts smoking because of the Winamp addons that spikes all kinds of shit whenever the tune is changing, then I know I have found the right track.Then I get cracking on the floor. Break dancing and caps flying around. The neighbors come jumping in the door and starts clapping and the music just keeps going.Everybody can understand a list of songs, even my grandma who&#39;s pushing 84. So we battle out songs on each of ours computers, but we don&#39;t use Spotify any more."</p>
-							
-						
-							
-								<p class="story__comment_others">"Spotify&#39;s UI is a case study of the negative impact of assigning single screens to single teams, designers and managers. There is no cohesive vision. The useful functionality is all obscured by esthetics. I am perpetually annoyed at how poor spotify is at it&#39;s basic purpose. They have leaned way too far into recommendation systems and over designed layout. 99% of the time, I know what I want to listen to. Spotify&#39;s UX is designed for people to &#39;browse&#39; the app. That doesnt resonate with me, at all. I know what I want.My biggest gripe with spotify is it&#39;s inability to reliably answer the question of &#34;what playlist or source am I currently listening too?&#34;. A constant flow that spotify fails to deliver on is this: Search for a song, play the song, then the rest of the album, on repeat, without shuffle. It&#39;s annoying to have to load multiple slow UIs to navigate from search to album, visually search the album&#39;s track list and play the song your after.Itunes and Windows Media Player set the standard for how media should be navigated and Spotify should use some of those old standard concepts.EDIT:Try browsing Armin Van Buuren&#39;s massive discography on Spotify."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://rr-project.org/">What rr does</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31617600">
-						
-							
-								<p class="story__comment_first line-clamp">"Now this is how the project documentation should look like! Explains what the project does, gives some short examples of the most common features, then goes into the details - while being easy to understand for the target audience. Kudos to whoever wrote this! (and rr sounds like a nice tool too ;) )"</p>
-							
-						
-							
-								<p class="story__comment_others">"Historically, rr has not worked on AMD processors, which is a bummer. However, I have been able to make good use of it on my 5950X now with the workaround script and newer versions of rr. This is good news.I&#39;ve not read their extended technical report, but I am kind of curious exactly what performance counters AMD is implementing poorly and how that impacts rr."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is incredible!For those that have used it, how useful it is for debugging multithreading heisenbugs? Can I let a process run under rr for days, wait until it crashes to due a heisenbug, and replay the trace without rr having to go through days of recording? i.e. is it possible to fast forward the trace, somehow?(I nerd sniped myself a bit here, wondering how fast forwarding could be implemented. I think it might be achievable with periodic process memory snapshots and incremental traces.)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://opensource.googleblog.com/2022/06/Vectorized%20and%20performance%20portable%20Quicksort.html">Vectorized and performance-portable Quicksort</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31622548">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m the co-author of one of the papers referenced in the blogpost, (Fast Quicksort Implementation Using AVX Instructions), we did write the AVX512 code back in 2015, just had nowhere to run it, at least publicly. The paper also very explicitly says that the lookup tables can be instead replaced by the AVX512 compress instructions. The code for that paper is available in https://github.com/vkrasnov/avx_qsort"</p>
-							
-						
-							
-								<p class="story__comment_others">"I wonder how fast it is compared to djbsort https://github.com/jart/cosmopolitan/blob/master/libc/nexgen... and longsort https://github.com/jart/cosmopolitan/blob/e011973593407f576d... djbsort is outrageously fast for 32-bit ints with avx2 (which unlike avx512 it&#39;s the avx we can reliably use in open source). But there&#39;s never been a clear instruction set to use on Intel / AMD for sorting 64-bit ints that&#39;s reliably fast. So if this thing can actually sort 64-bit integers 10x faster on avx2 I&#39;d be so thrilled."</p>
-							
-						
-							
-								<p class="story__comment_others">"Looks like djb is giving it a spin: https://twitter.com/hashbreaker/status/1533201734369103872"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.sfgate.com/bayarea/article/Coinbase-rescinds-accepted-job-offers-17217989.php">Coinbase is rescinding already-accepted job offers</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31620765">
-						
-							
-								<p class="story__comment_first line-clamp">"Recent and related:Update on Hiring Plans - https://news.ycombinator.com/item?id=31600505 - June 2022 (466 comments)"</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;While we did not make this decision lightly...&#34; Yes but you aren&#39;t doing it humanely, either.I&#39;ve been through the dot com crash and several hard economic downturns. It really puts your company&#39;s humanity on full display. It&#39;s the real test.Preserving cash flow is important. But you also have to do things carefully, openly, and with genuine care for the people who&#39;ve believed in your vision.People will respect the hard decisions but not sloppy or careless execution."</p>
-							
-						
-							
-								<p class="story__comment_others">"Coinbase tried to recruit me last summer. I politely told the recruiter that I felt it was all bubble speculation mania. Also the amount of equity sold by the CFO at the public listing indicated little confidence in the long term prospects.I guess I was right? Not trying to brag or anything. Just a tip to everyone job hunting I guess. Watch what executives do (not what they say). Well, and human history of speculative bubbles.I didn&#39;t think it was a coincidence Coinbase did a direct listing rather than an IPO, since an IPO has a waiting period for insiders to sell. I think insiders knew they had a limited window of cheap money froth."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31624401">Ask HN: Anyone else quickly losing confidence in Amazon?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31624401">
-						
-							
-								<p class="story__comment_first line-clamp">"Losing confidence? No, I lost that years ago. For quite some time the vast majority of the listings have been drop-shipped AliExpress garbage. Many of them are obvious because of terrible photoshops, randomly named branding, and those strange bold brackets in the product description.But some can be harder to spot because of tricks that sellers use to essentially hijack listings for other products to carry all the positive reviews along. Or they may just go the route of putting completely fake reviews on the product. Some may even be from verified purchasers because they packed a card along with the product offering compensation for a 5 star review. Or they can get verified reviews in an even slimier way involving ordering from themselves and then shipping random crap to people who&#39;ve they&#39;ve sent stuff to before.And then there&#39;s the inventory that&#39;s poisoned with counterfeits. Thanks to inventory co-mingling counterfeit and legit products can end up getting mixed together. There&#39;s a chance that even buying from a fully legit listing will end up with you getting sent a counterfeit product.However, despite all of that I do still use Amazon. Their immense investment into logistics means that many things will make it to me next-day. And their return policies allow me to order with the confidence that if I get a fraudulent item (or just something I don&#39;t like) it will be fairly painless to get a replacement or my money back.That said, I have also been making more efforts over the years to not use Amazon. I tend to buy all my major electronics from Best Buy or direct from the manufacturer. And I would never buy any food or medicine from Amazon. I don&#39;t want to risk things that go into me being counterfeit."</p>
-							
-						
-							
-								<p class="story__comment_others">"A seller offered me a gift certificate if I left a 5 star review.  Basically a little note in the box saying if I left a 5 star review, took a screenshot &amp; sent it to their email address, they&#39;d send me the gift certificate.It was not a 5 star product.  It was a 2 star product, at best.I tried to mention the fact they were paying for reviews in my review (to explain the other 5 stars).Amazon rejected my review.It&#39;s against Amazon policy to let others know that sellers are buying reviews."</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel like you&#39;re several years late to the party here. I think it&#39;s pretty common knowledge at this point that certain types of goods sold on Amazon have a huge chance of being counterfeit and everyone knows reviews are faked/not to be trusted blindly.At this point people seem to not care since Amazon will give a refund/exchange pretty much no questions asked. It&#39;s still extremely annoying and it&#39;s definitely not a good look for their business, but I assume the number crunchers have determined actually dealing with the fraud isn&#39;t yet worth it financially."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/EpicGames/Signup/pull/24">GitHub user sends notification to 400k users</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31627061">
-						
-							
-								<p class="story__comment_first line-clamp">"Seems like an innocent enough mistake. Remind me of when I once helped organize a volunteer hackathon with people from different companies. We created a Slack organization just for the occasion. At the end of the event, I was supposed to ask all attendees to delete all the data we had given them before they went home. The message I posted to #general (the channel everyone in a Slack organization is required to be in) with @everyone tagged was something to the effect of:&#34;Thank you everyone for contributing to our shared mission. When you are done with your work today, please delete all the data from your machines. Hope we see each other again soon!&#34;Slack gave me a dire warning that my message would send notifications to so many people across so many time zones. This didn&#39;t surprise me because attendees came from various countries for the event. So I dismissed it.But I had accidentally sent it to my company&#39;s Slack organization instead of the hackathon-specific one. I didn&#39;t realize it until a co-worker sent me a private message asking why I had just tried to fire everyone at our company."</p>
-							
-						
-							
-								<p class="story__comment_others">"The only notable thing here IMO is the lack of limits imposed by GitHub on notifications. Apparently a random tag of `@microsoft` in the comments was enough to notify 4000 people [1] as well.I have no idea why the user is even being mentioned in this headline. I haven&#39;t used GitHub in a while, and am unfamiliar with orgs and subgroups, but tagging a developer subgroup on a PR seems...a reasonable thing for a new contributor to do? How is it their fault that the developer subgroup has been hijacked by this organization to mean &#34;Anyone who has ever signed the Terms of Service To View Our Code&#34;?The correct thing for Epic Games to do here would be to rename the group to `@EpicGames/terms-of-service-signatories`, and restrict `@EpicGames/developers` to people who have requested access to open a PR. Assuming that people should magically know not to mention `@EpicGames/developers` in their PRs because Epic is doing some ToS shenanigans is preposterous.I guess I&#39;ll be looking carefully at mentions the next time I have to use this social network [2] masquerading poorly as a code review tool to submit a pull request.----------------------------------------[1] https://github.com/EpicGames/Signup/pull/24#issuecomment-114...[2] Looking at the profile of the contributor making the PR tells me that GitHub has apparently decided to let their users independently rediscover the experience of SuperWall on Facebook circa 2007."</p>
-							
-						
-							
-								<p class="story__comment_others">"Innocent mistake.The kid is barely 18. The emotion and stress resulting from mistakenly sending a notification to 400,000 is likely overwhelming. Now his real name is going to stay at the center of the internet for a while thanks to being 1st on HN. I would definitely not have coped well with that much internet attention at his age. Some Github replies are more immature than the initial action and I hope he does not receive any threat.I hope the Epic developers reach out to him nicely with constructive feedback and maybe a thanks for his well-meaning PR."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.nephics.se/2022/06/04/apple-music/">Apple Music is the most buggy and annoying software I use</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31618746">
-						
-							
-								<p class="story__comment_first line-clamp">"The one thing that sours the entire experience for me is that songs take like 5-15s to start playing when selecting one that isn&#39;t super popular.This happens on my ipad, mac, android phone.It feels like some server is spinning up a hard drive to stream it.Apart from that, why the hell is the title and artist only shown in one line that starts scolling instead of showing multiple lines if it doesn&#39;t fit, at least in the album view and the player. It&#39;s such a pain listening to classical music when the composer and the performer and section are not visible without playing it and waiting for the line to scroll, like wtf."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve never seen a search box that couldn&#39;t actually handle input before, but Apple Music made it.If I click in the search box and start typing, the box will lose focus at some random time and all my next keystrokes will count as play commands, usually pausing the music. If I come back to the search box, it happens again.I know &#34;text boxes&#34; are cutting-edge technology that&#39;s barely 3 seconds old and developers are still learning to program them safely. Still, I expected more from a trillion-dollar company."</p>
-							
-						
-							
-								<p class="story__comment_others">"I like Apple Music because it integrates well with the Apple line.More importantly though it is one of the highest paying per stream to artists [1].  Streaming needs to be much more lucrative for artists and consumer choice helps that.It is nice to be able to buy the music as well if you want to support. Being part of Apple One is huge as well.The latest music streaming royalty rates are as follows.    PLATFORM     ROYALTY (PER STREAM) STREAMS TO MAKE $1
-
-    Tidal Music        $0.01284       78
-
-    Apple Music        $0.008         125
-
-    Amazon Music       $0.00402       249
-
-    Spotify            $0.00318       314
-
-    YouTube Music      $0.002         500
-
-    Pandora            $0.00133       752
-
-    Deezer             $0.0011        909
-
-I have lots of mp3/stored music as well and Spotify client started taking like 20-30 minutes to start up. Wasn&#39;t sure what it was doing...Some of their patents for tracking are a bit dystopian as well.New Spotify Patent Involves Monitoring Users’ Speech to Recommend Music&gt; The streaming platform is interested in extracting data points like emotional state, gender, age, and accent to hone its recommendations [2].Nah. Apple already has my info and reasonably treats it well eventhough it is too much, I don&#39;t need another service to invade privacy.[1] https://producerhive.com/music-marketing-tips/streaming-roya...[2] https://pitchfork.com/news/new-spotify-patent-involves-monit..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.tbray.org/ongoing/When/202x/2022/06/02/Dangerous-Gift">Dangerous Gift</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31609602">
-						
-							
-								<p class="story__comment_first line-clamp">"After 9/11, a clever MIT undergrad grabbed some form of alqaeda.net. Any email sent to the address went to the corresponding @mit.edu email address. You could email professor_alice@alqaeda.net, and it&#39;d arrive at professor_alice@mit.edu.Undergrads sent emails like that for the lols. Recipients got freaked out they&#39;d end up on some government watch list."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is true of crypto wallets and NFTs as well. More than one project has attempted to send NFTs or assets to high profile wallets (ex: trillions of dog-coins sent to Vitalik&#39;s wallet that he ultimately donated to get rid of but not before drawing the intended media attention[1]) and the whole concept of airdrops is based around the idea of permissionless receiving.Unfortunately, re: swatting via an non-tech-savy LEA and domain registrars: you could likely just update the contact details on a domain you own to the intended target and that&#39;d probably be enough.[1] https://www.coindesk.com/markets/2021/10/20/vitalik-buterin-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"https://www.schneier.com/blog/archives/2008/03/the_security_...&#39;Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail.I replied: “What’s really interesting is that these people will send a tube of live ants to anyone you tell them to.”&#39;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.zkcrush.xyz/">Confess your love with zero-knowledge</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31610005">
-						
-							
-								<p class="story__comment_first line-clamp">"Last year my wife and I suspected we might have gotten each other the same Christmas gift, but didn’t want to spoil the surprise in case we didn’t. So we compared SHA256 hashes... and sure enough they both came out cb17007d (theragun)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I sent it to my wife but she spelled her own name wrong and now she thinks I have a crush on someone else"</p>
-							
-						
-							
-								<p class="story__comment_others">"This protocol has some downsides - if you share the link with large adversarial group (e.g. your school) they can brute force your crush name and it’s basically no different then embarrassingly shouting out your crush name in public and it has problems with canonical names.Instead we can alter it and fix this problems:
-Bob will find out his crush’s public key, encrypt &#34;you are my crush&#34; message to it and post it with his own signature to public bulletin (blockchain can be good shelling point). When crush decrypts message they will see proper string, while everyone else will see gibberish.- to solve problems with key distribution we can use &#34;identity based encryption&#34;. it requires trusted third party (e.g. school administrators) but it solves problem for key generation of participants. With identity encryption bob can encrypt message to some canonical identity such as school email. Owner of that email can prove it’s identity to the third party and receive corresponding private key."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.lifeinnorway.net/norway-to-track-all-supermarket-purchases/">Norway to track all supermarket purchases?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31621101">
-						
-							
-								<p class="story__comment_first line-clamp">"One should be aware that Norway already has very comprehensive registers and databases about the population. Currently, it has only been a benefit, I think, as it enables detailed quality control of say health care services and high-quality register studies.For example, all health/hospital records of deceased Norwegians are digitalized ten years after death and added to a national register. No way to refuse. In my opinion, that is much more invasive, yet it hasn&#39;t been discussed at all by the publichttps://helsedata.no/en/about-helsedata.no/https://www.digitalarkivet.no/en/"</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;SSB claims they want a less time-consuming way of collecting and analysing household consumption statistics in order to inform tax policy, social assistance and child allowance.&#34;Aka the more we know about you, the more efficiently we can create policies to control your behavior to our liking."</p>
-							
-						
-							
-								<p class="story__comment_others">"“Hello #3576. You have reached your 1kg monthly limit of natural meat. Please consult the official list for alternatives.”"</p>
 							
 						
 						</a>
