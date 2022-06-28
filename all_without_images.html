@@ -36,6 +36,312 @@
 	</div>
 
 	
+	<div class="day__date">28 June 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://architecturenotes.co/things-you-should-know-about-databases/">Things to know about databases</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31895623">
+						
+							
+								<p class="story__comment_first line-clamp">"This article is informative.  I have found that databases in general tend to be less sexy than the front-end apps...especially with the recent cohort of devs. As an old bastard,  I would pass on one thing:  Realize that any reasonably used database will likely outlast the applications leveraging it. This is especially true the bigger it gets, and the longer it stays in production.  That said, if you are influencing the design of a database, imagine years later what someone looking at it might want to know if having to rip all the data out into some other store.  Having migrated many legacy systems, I tend to sleep better when I know the data is well-structured and easy to normalize.  In those cases, I really don&#39;t care so much about the apps.  If I can sort out (haha) the data, I worry less about the new apps I need to design.  I have been known to bury documentation into for-purpose tables...that way I know that info won&#39;t be lost.  Export the schema regularly, version it, check it in somewhere.  And, if you can, please, limit the use of anything that can hold a NULL. Not every RDBMS handles NULL the same way.   Big old databases live a looooong time."</p>
+							
+						
+							
+								<p class="story__comment_others">"#1 thing you should know, RDBMS can solve pretty much every data storage/retrieval problem you have.If you&#39;re choosing something other than an RDBMS - you should rethink why.Because unless you&#39;re at massive scale (which still doesn&#39;t justify it), choosing something else is rarely the right decision."</p>
+							
+						
+							
+								<p class="story__comment_others">"Great post. Also highly recommend Designing Data-Intensive Applications
+by Martin Kleppmann (https://www.amazon.com/Designing-Data-Intensive-Applications...). The sections on &#34;Storage and Retrieval&#34;, &#34;Replication&#34;, &#34;Partitioning&#34; and &#34;Transactions&#34; really opened up my eyes!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://medium.com/@ryanbadger/magic-links-can-end-up-in-bing-search-results-rendering-them-useless-37def0fae994">“Magic links” can end up in Bing search results, rendering them useless</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31892299">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve had to deal with this with e-mail verification links and Auth0. 
+The user clicked the link after getting it in their mailbox but then Auth0 throws up an error page because the e-mail address has already been verified (by Outlook scanning). 
+The problem becomes worse if for some reason the mail ends up in the junk mail folder so the user thinks they&#39;ve never received the mail but when you check it looks like the e-mail address was verified successfully.
+That has caused a lot of annoying back and forth trying to figure out what the hell is going on. We ended up adding a custom page to handle e-mail validation so we could handle the situation where the user lands on the page and the address has already been verified. Super annoying."</p>
+							
+						
+							
+								<p class="story__comment_others">"Microsoft does this because they&#39;re security scanning / checking all links in every Outlook email for known phishing and malware attacks. If Bing has not seen the web page  before and it&#39;s not in the Bing dangerous web page index it first needs to check it to make a determination of if it&#39;s a phishing/malware page by scanning/indexing  it before returning that outcome back to Outlook to flag the email as dangerous."</p>
+							
+						
+							
+								<p class="story__comment_others">"Outlook will only send GET requests, which are idempotent unless you&#39;re ignoring the spec. A message saying &#34;this code has already been used&#34; after sending a GET request is a bug.I don&#39;t see the problem here, all services need to do is add a page that&#39;s says &#34;welcome back, $Username, click here to log in!&#34; that sends a POST request to do any serious confirmation without breaking any specifications.Microsoft claims the visiting not is BingBot but it&#39;s probably just SmartScreen system checking for malicious links/downloads/etc. like many cloud integrated security products do these days.I can set my browser to pretend I&#39;m BingBot, you can&#39;t derive anything meaningful from the user agent. Unless you find your secret URLs in Bing&#39;s search results, your secret links aren&#39;t actually being monitored by a search engine."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/OpenWebAdvocacy/status/1541318055636369409">Apple&#39;s claim is that it bans other browsers for security</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31894690">
+						
+							
+								<p class="story__comment_first line-clamp">"I’m going to ignore the security angle and post my big fear.Chrome has dominance similar to IE at the height of its popularity.Whatever you think of their decisions, Apple is the only thing stopping a 90%+ Chrome web. (Note: not why they’re doing it, just a side effect)People keep arguing Apple is being anti-competitive. But no one seems to recon with the possible consequences of what they’re asking for. And I fear we may get a pyrrhic victory if these groups/governments keep pushing.No, I don’t know a good solution. But I don’t think letting Chrome totally own the web is a good outcome."</p>
+							
+						
+							
+								<p class="story__comment_others">"Comparing CVE counts is a bit nonsensical. For instance, Chrome and Firefox don&#39;t individually assign CVEs for internally reported vulnerabilities.For instance, in these patch notes Chrome lists &#34;Various fixes from internal audits, fuzzing and other initiatives&#34; and doesn&#39;t even look to have a CVE:https://chromereleases.googleblog.com/2022/05/stable-channel...Or for Firefox, there&#39;s a dozen or so bundled together in a single CVE under &#34;Memory safety bugs fixed in Firefox 101&#34;:https://www.mozilla.org/en-US/security/advisories/mfsa2022-2..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Apple claiming security as a reason for monopoly, how classic.The EU&#39;s digital markets act bans the only Safari lock on IOS, so this is gone whether apple likes it or not. (1 - sorry couldn&#39;t find a better source)Safari is the new IE, there is a difference between a monopoly while still being able to use a competing product (like chrome in other platfroms), and forcing Safari(WebKit) while hindering the web because of Apples interests.(2-3)1. https://www.fudzilla.com/news/54763-apple-loses-out-in-the-d...2.https://www.theregister.com/2022/05/23/opinion_column/3.https://www.theregister.com/2022/06/14/telegram_safari/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://palladiummag.com/2022/06/09/why-america-cant-build/">Why America can’t build</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31890048">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s not just in megaprojects either. In my large, fairly dense US city, basic, easy-to-build, local infrastructure like adding a 1-mile bike lane to a straight street is impossible because a handful of NIMBYs are constantly taken seriously by local politicians.My city has many bike lanes that are popular and well-used, as well as a bike-share program that is extremely popular. It also has a large number of cyclist deaths - including children! - due to the spottiness of existing bike infrastructure and overall lack of protected bike lanes. It seems like improving that infrastructure would be both easy, cheap, and popular, given the popularity of cycling and its existing infra, and the cheapness of plopping a concrete barrier onto a street. But no - the second anyone mentions protected bike lanes, a handful of NIMBYs write in with &#34;but muh cars&#34; and the politicians throw up their hands and surrender.I don&#39;t understand why NIMBYs have been taken so seriously in the US in the past 50 years. It seems like at any point in history, any local project will be opposed by somebody, no matter who they are or what the project is. But previous generations seemed to be able to get over that in favor of building. For today&#39;s generation it seems like doing nothing has become better than doing something. If this were the 1900s, government would have told the NIMBYs to get bent, we&#39;re building Thing X because it&#39;s good for society and if you don&#39;t like it, tough. That&#39;s what living in city means sometimes!"</p>
+							
+						
+							
+								<p class="story__comment_others">"One of the things I love about Palladium (and closely related, Samo Burja&#39;s newsletter) is the depth of research.Like the detail that one of the most egregious episodes from California HSR involved a Spanish company that performed excellently on rail projects in Spain. Overall, this piece makes a strong case that the problem is specifically NIMBYism and loss of government institutional capacity.I think the million dollar question is how government organizations can hire and retain better. The current situation looks dire. Obviously a charismatic leader with a broad anti-NIMBY mandate would go a ways at getting competent people to want to work in government. You saw that succeed on a small scale with orgs like US Digital Service.The elephant, after that, is merit-based pay and promotion. Someone needs to sell this to the public. RN literally random cops and plumbers make mid six figures thru overtime while the directors of $100b mega-project are low-energy lifers making less than that. That&#39;s not gonna work."</p>
+							
+						
+							
+								<p class="story__comment_others">"A friend has worked in construction project management for almost 40 years, mostly in Texas. A few years ago, he moved to San Francisco to work on the Van Ness project, which was approved in 2003, began construction in 2017 (!), went $40 million over budget, and finally completed this year. The project essentially added a median and some bus lanes to a two mile stretch of road through San Francisco and took 19 years.During his time in SF, no construction took place—so he told me he would essentially go into the office and do nothing while waiting for various city hearings to happen. After 8 months, he quit in frustration and moved back to Texas."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.cnbc.com/2022/06/27/three-arrows-capital-crypto-hedge-fund-defaults-on-voyager-loan.html">Three Arrows Capital has defaulted on a loan worth more than $670M</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31895820">
+						
+							
+								<p class="story__comment_first line-clamp">"I always have mixed feelings when someone is warned about the riskiness / foolishness / stupidity of a course of action, and then suffers for it.On the one hand, there&#39;s a certain satisfaction or Schadenfreude in the sense of vindication. And it&#39;s pleasant to feel like my own wisdom or self-control has been validated.OTOH, I know that everyone has limited wisdom / self-control / intelligence, including me.  So it seems hypocritical to mock someone who trips, knowing that I&#39;m just lucky to sometimes avoid the hazards that would trip me up.In the end, about the only conclusions I&#39;m really confident in is that trouble besets us all, and usually it&#39;s good to default to kindness and sympathy.EDIT FOR CLARIFICATION: I&#39;m not saying that I want swindlers to succeed.  I want such predation crushed into dust.  My comment is about the people who don&#39;t intend harm to others."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Prominent crypto hedge fund Three Arrows Capital has defaulted on a loan worth more than $670 million. Digital asset brokerage Voyager Digital issued a notice on Monday morning, stating that the fund failed to repay a loan of $350 million in the U.S. dollar-pegged stablecoin, USDC, and 15,250 bitcoin, worth about $323 million at today’s prices.In other words, the $670 million that 3AC defaulted on was ~50:50 USDC and bitcoin.Then later:&gt; Zhu [3AC founder] is known for his incredibly bullish view of bitcoin. He said last year the world’s largest cryptocurrency could be worth $2.5 million per coin. But in May this year, as the crypto market began its meltdown, Zhu said on Twitter that his “supercycle price thesis was regrettably wrong.”This seems odd. How does a person convinced that bitcoin exchange is headed to $2.5 million take out a loan of 15K bitcoin if he actually thinks he&#39;ll be paying back it back at a higher exchange rate? Either the founder was bullish in principle but bearish in practice, or didn&#39;t have the first clue about what he was doing."</p>
+							
+						
+							
+								<p class="story__comment_others">"I really don’t understand the business model of making massive fiat loans to “firms” to buy bitcoin. If crypto goes up, you get a small amount of interest. If crypto goes down, you lose everything. What? Lol. Just spend a fraction of the sum on bitcoin and do something safe with the rest. What was the plan?Edit: I guess when someone has “20 billion dollars” a 700mm loan doesn’t seem like a big risk."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/prql/prql">Show HN: PRQL 0.2 – a better SQL</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31897430">
+						
+							
+								<p class="story__comment_first line-clamp">"Previous discussion: PRQL – A proposal for a better SQL
+https://news.ycombinator.com/item?id=30060784"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m surprised that none of the examples on Github or the website deals with join. I eventually found some in the &#34;book&#34; here: https://prql-lang.org/book/transforms/join.html    from employees
+    join side:left positions [id==employee_id]
+
+turns into    SELECT
+      employees.*,
+      positions.*
+    FROM
+      employees
+      LEFT JOIN positions ON id = employee_id
+
+I would love to see joins worked into the main learning examples. Without join, the examples lack a bit of the &#34;relation&#34; part; we could just as easily be compiling a DSL to a chain of `array.filter`, `array.reduce`, `array.map` calls. Joins are what makes relational modeling interesting!I would love to see Datalog/SPARQL-style implicit joins to make graph traversals like &#34;which users have edited documents I own?&#34; less verbose."</p>
+							
+						
+							
+								<p class="story__comment_others">"For those interested in database query languages, it is worth knowing about Datalog, the query language behind Datomic, XTDB and Datahike: http://www.learndatalogtoday.org/E.g. a parameterised aggregate query that retrieves the name and average rating of a film starring cast members whose names match the input names:    [:find ?name (avg ?rating)
+     :in $ [?name ...] [[?title ?rating]]
+     :where
+     [?p :person/name ?name]
+     [?m :movie/cast ?p]
+     [?m :movie/title ?title]]
+
+To reveal the answer, click on tab labelled &#34;3&#34; and then &#34;I give up!&#34;: http://www.learndatalogtoday.org/chapter/7"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://manybutfinite.com/post/what-does-an-idle-cpu-do/">What does an idle CPU do? (2014)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31887202">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; if the CPU is consistently busy for a normal userIt&#39;s probably Windows Store going bonkers with some insane backlog of periodic tasks, because you didn&#39;t open your laptop for a few months, that it absolutely at all costs must process for some reason, especially during a power outage when you&#39;re running on battery and need to use your laptop for once."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a good overview, but even by 2014 we weren&#39;t calling hlt - there&#39;s a few problems there. Imagine the situation where you fork() a process on one CPU, and you have another CPU that recently called hlt. Ideally you&#39;d schedule it immediately instead of waiting for the next scheduler interrupt, but sending interrupts from one CPU to another (to break it out of hlt) is kind of expensive. The replacement is an instruction called mwait, which will (like hlt) wake the CPU up on interrupts, but will also wake up the CPU on a write to a specific memory address. If you want to wake up an idle CPU, the working CPU can just do that memory write and then the idle CPU will wake up back into the scheduler and figure out it has work to do.(Edit: there are still actually some circumstances in which hlt is called rather than mwait, but this is very CPU dependent and is based on vendor recommendations. Also, before mwait showed up, switching to deep CPU power saving states tended to involve performing magic IO port accesses rather than calling hlt, and yes the world was worse back then)"</p>
+							
+						
+							
+								<p class="story__comment_others">"In the days before MMU&#39;s and fancy DRAM controllers and newer DRAM chips the CPU had to do memory refresh during &#34;idle&#34; time."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://sabukaru.online/articles/the-watch-for-which-james-bond-gave-up-his-rolex-the-seiko-tv-watch">The Seiko TV watch</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31874318">
+						
+							
+								<p class="story__comment_first line-clamp">"Try this exercise:Hold your arm so a watch strapped on top of your wrist would be facing toward your eyes for easy viewing of its display.If you have a smartwatch, or any kind of watch, you do this many times a day.Now hold your arm in that position for 30 or 60 minutes to watch an entire TV show. You can take a break during the commercials.Enjoying that? Probably not.With a [smart]watch, you only glance at it a bit here and there. You don&#39;t try to view it continuously.It is interesting to see a very clever product idea that completely ignores human anatomy."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t get it. If I still have to carry around a walkman-like thing, why bother with the watch? Why not put the screen on the walkman-like thing, and eliminate the wire through my sleeve?"</p>
+							
+						
+							
+								<p class="story__comment_others">"My dad was a huge fan of Sony’s Watchman series of portable TVs. He had 2 or 3 different models. In the 1990s, I would steal them when I’d go on school trips in elementary school so I wouldn’t miss my TV shows. The limitation of antenna stuff made it less than ideal in a moving vehicle, but being able to watch Melrose Place on a bus in third grade instead of Homeward Bound or The Sandlot was pretty dope.Which is all to say, very young filmgirl would have loved this shit."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://deepsource.io/blog/python-3-11-whats-new/">What&#39;s New in Python 3.11?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31888624">
+						
+							
+								<p class="story__comment_first line-clamp">"I’ll just say. Since about 3.6/3.8 the language has been growing huge. Like C++ huge.I liked f-strings. Asyncio has its place but is waaay overused. Typing was a cool idea, but so awkward in practice.All of it has really turned me off, personally. It’s getting to where reading libraries is just painful.  The simplicity of the language was really beautiful and when I wanted type safety, etc. I’d use something else.  I can still write simple Python, but it’s more all the other code I need to grok.I find myself going to Go more and more for stuff I used to use Python for. It’s easier to set up a dev environment for other people, easier to distribute code, and gives me type safety and concurrency as first class citizens while being a very small language.I miss dictionary comprehensions and other shortcuts from time to time. But it actually feels more ergonomic now.All personal opinion. I’m fine shifting languages.  I still write C from time to time to bang bits.  I play with various LISPs to exercise my brain.  I never used Python for performance critical code.  I guess ML is changing that need.But I know others that want Java to have functional features and Python to have this stuff.I’m not saying I’m “right”, just uncomfortable in a place I used to love to hang out in."</p>
+							
+						
+							
+								<p class="story__comment_others">"Crickey:&gt; Python 3.11 is up to 10-60% faster than Python 3.10. On average, we measured a 1.25x speedup on the standard benchmark suite. See Faster CPython for details.* https://docs.python.org/3.11/whatsnew/3.11.html* https://docs.python.org/3.11/whatsnew/3.11.html#faster-cpyth..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Better error messages is something that literally every single language/framework/library should prioritize. It improves users lives by more than almost everything else besides correctness. It’s been great to see the improvements in python."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://dys2p.com/en/2021-12-tamper-evident-protection.html">Detecting unauthorized physical access with beans, lentils and colored rice</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31897530">
+						
+							
+								<p class="story__comment_first line-clamp">"Lovely work.  Here&#39;s a similar project where I showed that randomly-placed multicolored candy particles (nonpareils) can be used to confirm the authenticity of pharmaceuticals:  https://www.nature.com/articles/s41598-022-11234-4"</p>
+							
+						
+							
+								<p class="story__comment_others">"If I were actually going to use a method like this in real life especially for international shipping etc, I’d probably avoid using rice or beans or other plant material to avoid unnecessary inspections at customs. I feel like this would definitely get stopped and inspected, where a block of multicoloured plastic or resin might not be."</p>
+							
+						
+							
+								<p class="story__comment_others">"My wife (shameless plug: https://messyplaykits.com) recommends liquid water colors instead of food coloring (cheaper and better color).Colorations brand from discount school supply or amazon works well for her and she makes a lot of colorful rice!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">27 June 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -116,11 +422,11 @@ https://youtu.be/Ecy1FBdCRbQ"</p>
 							
 						
 							
-								<p class="story__comment_others">"Don&#39;t like most &#34;progress people,&#34; don&#39;t like most philosophy, don&#39;t like most self help.If you have &#34;it&#34; figured out, why is that not enough? All I can see are ulterior motives: a desperate need to feel seen or remembered or virtuous or important, something to sell, an attempt to elevate one&#39;s status, etc."</p>
+								<p class="story__comment_others">"&gt; You should organize each day as if it were your lastI never understood this. If you live every day as your last, surely you would only engage in short term pleasures instead of pursuing longer term hobbies/goals?"</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; You should organize each day as if it were your lastI never understood this. If you live every day as your last, surely you would only engage in short term pleasures instead of pursuing longer term hobbies/goals?"</p>
+								<p class="story__comment_others">"&gt; You should organize each day as if it were your last, so that you neither need to long for nor fear the next day.I&#39;ve come to find this &#34;live each day like it&#39;s your last&#34; advice to be pretty unhelpful. My favorite quote about it is, &#34;all that goes to show you is some people would spend their last day giving you stupid advice&#34;.The problem is that if it actually was your last day, most people would give the finger to all of their responsibilities and go party, eat cake, see friends, familiy, lovers, etc. Which is simply not an actual way to live your life. It&#39;s a way to exit your life.An alternative framing that I&#39;ve come to find more helpful is to take your life expectancy, and cut it by 2/3. Now what do you do? For example, if you&#39;re 20 years old and your life expectancy is 80 (ie. 60 more years), pretend that you only have 20 more, so you&#39;ll only live until you&#39;re 40. It&#39;s nice cause it naturally adjusts as you get older. You&#39;ll have smaller windows to work with.This approach strikes a nice balance. It gives you enough time to be able to really do something and change directions if you want. But not so much time that you can really waste any. It forces you to ask the hard questions about whether your day to day is truly connecting with your dreams, and whether you&#39;re on a path to get there.Of course, Seneca didn&#39;t have life expectancy tables to work with. But I think he would have approved. :)"</p>
 							
 						
 						</a>
@@ -843,13 +1149,13 @@ https://twitter.com/Ayjchan/status/15397457368076165133. Can scientists manipula
 							
 						
 							
-								<p class="story__comment_others">"Previous discussions:- Dolt is Git for Data: a SQL database that you can fork, clone, branch, merge (2021) - 177 comments
-https://news.ycombinator.com/item?id=26370572- Dolt is Git for data (2020) - 191 comments
-https://news.ycombinator.com/item?id=22731928"</p>
+								<p class="story__comment_others">"That looks awesome. One of the listed use-cases is &#39;time-travel&#39;: https://dolthub.com/blog/2021-03-09-dolt-use-cases-in-the-wi...I wish we could use this at work. We&#39;re trying to predict time-series stuff. However, there&#39;s a lot of infrastructure complexity which is there to ensure that when we&#39;re training on data from years ago, that we&#39;re not using data that would be in the future from this point (future data leaking into the past).Using Dolt, as far as I understand it, we could simply set the DB to a point in the past where the &#39;future&#39; data wasn&#39;t available. Very cool"</p>
 							
 						
 							
-								<p class="story__comment_others">"That looks awesome. One of the listed use-cases is &#39;time-travel&#39;: https://dolthub.com/blog/2021-03-09-dolt-use-cases-in-the-wi...I wish we could use this at work. We&#39;re trying to predict time-series stuff. However, there&#39;s a lot of infrastructure complexity which is there to ensure that when we&#39;re training on data from years ago, that we&#39;re not using data that would be in the future from this point (future data leaking into the past).Using Dolt, as far as I understand it, we could simply set the DB to a point in the past where the &#39;future&#39; data wasn&#39;t available. Very cool"</p>
+								<p class="story__comment_others">"Previous discussions:- Dolt is Git for Data: a SQL database that you can fork, clone, branch, merge (2021) - 177 comments
+https://news.ycombinator.com/item?id=26370572- Dolt is Git for data (2020) - 191 comments
+https://news.ycombinator.com/item?id=22731928"</p>
 							
 						
 						</a>
@@ -2639,291 +2945,6 @@ to stumble through the telnet interface.&gt; Voyager(no semicolon–othewise it&
 						
 							
 								<p class="story__comment_others">"Hi! I’m the author of Creusot, Sarek did some amazing work on CreuSAT, he also had to teach himself formal verification and SAT solving along the way.If you have any questions about CreuSAT or Creusot, I’d be happy to answer"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">18 June 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.vox.com/recode/23170900/leaked-amazon-memo-warehouses-hiring-shortage">Leaked Amazon memo warns the company is running out of people to hire</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31778909">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; Amazon founder and former CEO Jeff Bezos saw his warehouse workforce as necessary but replaceable, and feared that workers who remained at the company too long would turn complacent or, worse, disgruntled, according to reporting by the New York Times.Wow.  Think about what this is really saying: Amazon adopts the explicit policy of not wanting their workers to stay on long enough to figure out that they are getting a bad deal.So it&#39;s not that they are running out of people to hire, it&#39;s that they are running out of people who have not yet figured out that working for Amazon is a bad deal.Now I understand why I&#39;ve been seeing so many commercials lately about how great it is to work for Amazon."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think this article might bury the lede a bit:&gt;Walmart is offering some workers with past warehouse experience as much as $25 an hour. An Amazon executive told Reuters in late 2021 that the company was bumping the average starting wage for new hires in the US to more than $18 an hour, attributing the decision to intense competition among employers.People used to work for Amazon warehouses in the 2010s because $15/hr was a much better wage than they could find elsewhere in their geographic location.After the pandemic and ongoing inflation, it&#39;s not difficult to find easier work which pays better. Amazon responded with a token raise that doesn&#39;t even cover CoL adjustments, but history shows that they need to pay well above market rates to hire the quantity of people that they need.It&#39;s funny to see this dynamic at a time when the federal minimum wage is still stuck at $7.25/hr."</p>
-							
-						
-							
-								<p class="story__comment_others">"The Fed is about to induce 3 years worth of rising unemployment by their own estimates, so the days of workers not needing to take crap jobs out of desperation will soon be at an end.https://qz.com/2178359/the-fed-predicts-3-years-of-rising-un..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.nytimes.com/2022/06/17/technology/spacex-employees-fired-musk-letter.html">SpaceX said to fire employees involved in letter rebuking Elon Musk</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31774890">
-						
-							
-								<p class="story__comment_first line-clamp">"https://archive.ph/BfDFrWSJ https://archive.ph/RSlmu"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a very predictable consequence of criticizing your employer via a public letter. Criticize internally all you want, and influence the changes that you want to see happen. Employment is a two-way relationship. If you don&#39;t like your employer, you are free to leave. If they don&#39;t like you, they are free to fire you (within legal bounds). Publishing an openly critical letter and signing it is a quick way to get your employer to not like you."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here&#39;s my unpopular opinion - good riddance. It&#39;s not a free speech issue because SpaceX isn&#39;t a public square. It&#39;s a company, and companies are top down. If these employees are at Musk&#39;s company, then they had better be prepared to play by Musk&#39;s rules, and they did the exact opposite, essentially leading a mutiny against the boss and sowing discord within the company in the process. SpaceX isn&#39;t an activist organization and has no obligation to kowtow to the demands of internal activists. Not all companies are like this, but again, you should know what you&#39;re signing up for when you join a Musk company.And I&#39;d also be willing to bet cash that all these employees were very low level, likely new hires out of college, and are all of the political activist type. Because for all his bluster, Musk really hasn&#39;t done anything THAT objectionable besides openly shit on Democrats. (No, I don&#39;t believe the bogus sexual assault allegation from an anonymous friend of a friend, there&#39;s no evidence)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.andy.works/words/the-most-satisfying-checkbox">The most satisfying checkbox</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31781110">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m a sucker for good little microinteractions. The author&#39;s checkbox may not be one of those, as it seems a bit overdone, but I&#39;d have to try it to be sure. It&#39;s easy to go too far.But, some other examples that I love:• https://www.joshwcomeau.com/animation/3d-button The red &#34;push me&#34; button is great, but also check out the sun/moon icon near the top right!• https://www.jam3.com/#contact The hover states on the buttons.• https://citymapper.com The top-left hamburger icon.(I also happen to be quite proud of the hover states on my own site: https://jonathanalland.com/)Making this type of stuff is definitely what I miss most about working in web design."</p>
-							
-						
-							
-								<p class="story__comment_others">"The animations on things like this can be cute and fun the first time, but man they can get annoying if they&#39;re constant and can&#39;t be skipped. Hearthstone is an example of this; there&#39;s tons of cute animations for the various cards, but they can take way too long.Hiding &#34;no animations&#34; for power users under accessibility is a great way to go."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s pretty cool! As experiments I really love andy.works&#39; work. I appreciate what he&#39;s trying to accomplish. And I think he&#39;s on to something with the idea. But the execution is always a little off to me.I just don&#39;t find this checkbox all that satisfying. Why? The thing I find satisfying about checkboxes is the same as any switch – the click. On/off. It&#39;s snappy. I don&#39;t think about it. Click... click... click click!So this grandiose check animation is taking something inherently snappy and prolonging it to its own defeat. Even the sound effect is like an ethereal chime or something, rather than a snap. The scale is super big for the actual space of the phone. The animation too long. I also don&#39;t like the angle of the 3D checkmark itself. It&#39;s not really oblique, not really at any sort of satisfying geometric angle? I can live with that though.Anyway really cool work. Wish it were more satisfying."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/citusdata/citus/commit/184c7c0bce6b7bca61d25b828855fac5fba64816">Make enterprise features open source</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31770348">
-						
-							
-								<p class="story__comment_first line-clamp">"Related announcement: https://www.citusdata.com/blog/2022/06/17/citus-11-goes-full..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Really nice seeing this commit, that I pushed this morning to Github, on the frontpage of HN a few hours later :) It&#39;s awesome that other people are just as excited about open-sourcing as we are. But if you like this definitely keep an eye on our blog[1] and/or twitter[2] for the upcoming &#34;official&#34; announcements. They will have a lot more info on this and all the other cool changes things that are part of Citus 11.[1]: https://www.citusdata.com/blog/[2]: https://twitter.com/citusdata"</p>
-							
-						
-							
-								<p class="story__comment_others">"Is it possible to easily configure Postgres/Citus such that you can replicate your database across a managed offering such that if your database load is sufficiently high then you start using the managed offering, otherwise you use your managed offering?Being able to combine the cheap compute of something like Hetzner with the high availability of a managed offering would be nice."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://antelang.org/">Ante: A low-level functional language</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31775216">
-						
-							
-								<p class="story__comment_first line-clamp">"Hello, author here! As the website says, the compiler itself is still in a very early state where basic things like functions, types, traits, inference, monomorphisation, and codegen are implemented. The fun stuff of algebraic effects, lifetime inference, and refinement types are not however. Though I can elaborate on implementation strategies of these for anyone curious. For example, algebraic effects in existing languages can be quite slow at runtime due to the use of continuations, the translation to a monad stack, and/or dynamically finding handlers at runtime. It is my plan to monomorphise them away and inline all these cases as in the following paper (1). With this, handlers are inlined into functions, continuations are normal closures, and continuations that aren&#39;t called multiple times are inlined.(1) Zero-cost Effect Handlers by Staging:
-http://ps.informatik.uni-tuebingen.de/publications/schuster1..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I avidly follow descendants of Scheme and Haskell (I figured out for example how to build Idris native on an M1 Mac), and I plan to follow Ante. I just spent $5k of lunch money on an M1 Ultra Mac Studio, to use as a math compute server. How do I keep it busy? Haskell. My &#34;Hello world&#34; parallel benchmark, using reverse search to enumerate the 66,960,965,307 atomic lattices on six atoms, took 14 hours in 2009. It now takes four minutes.I&#39;d love to start again with a new, small language. I love Haskell, but it&#39;s decades old, and one struggles to work with it without being torn apart by the gravitational tides of the black hole at the center of its galaxy. All jokes aside, Haskell really does reward a PhD in category theory, or the self-taught equivalent later.Functional languages make parallelism easier, and Haskell has put particular effort into this: Adding a dozen lines to a program can keep the 16 performance cores of my Mac Studio running full tilt. I have yet to read any account of how someone else&#39;s favorite language makes parallelism easy, that is aware of the comparison with Haskell. If I thought there was a reasonable alternative, I&#39;d jump at trying it.Rust appeals because it replaces GC with modern control of allocation lifetimes. I love how Ante will also explore this. I use cyclic data structures; how one handles this functionally, and how one handles this using reference counting, is exactly the same problem.Parallelism should be the first consideration, designing any new language in 2022. Parallelism is the reason I keep using Haskell, despite newer alternatives. Any language that runs on a single core is a toy. This is a plea!"</p>
-							
-						
-							
-								<p class="story__comment_others">"The syntax looks a little funky to me but it&#39;s still quite interesting. Is there a reason why you would make fn(1) and fn 1 equivalent? For me personally it makes readability worse and looks strange when chaining functions like in their last example on their landing page.On mobile horizontal scrolling through the code snippets will trigger switching to the next snippet on my phone."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://benoitessiambre.com/macro.html">Show HN: A central bank simulator game with a realistic economic model</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31785199">
-						
-							
-								<p class="story__comment_first line-clamp">"I made this game in order to try to wrap my head around central banks, inflation and macroeconomics, in order to get a better understanding of the aftermath of the global financial crisis and the current period of high inflation.Here is a blog post that goes into further details: https://benoitessiambre.com/simcb.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"After a rather dismal first couple of runs I read the blog post for some hints. The best I found was to try to raise rates during the good times so there is wiggle room during downturns. I was able to get 443,904 by raising to over 10% during the initial prosperity period and was able to cut rates in half as soon as there was a crash. Ultimately I stabilized at around 3.5%. As of the time of this post I think that is the highest or close to highest score, only slightly higher than those that did a constant -0.5%.I’ve always been apprehensive of how low interest rates dropped around 9/11 and nobody had the political courage to raise them after that, leaving little room for leverage. What I have learned from racing games is that in order to win, it’s not all about holding down the gas pedal the hardest. Its about keeping on the track first, which requires lower speeds to navigate complexity, and only using max speed in straightaways.Or to quote the eminent Charlie Sheen, right after his infamous ’banging 7 gram rocks’ he said, “I only have one speed, I only have one gear: GO.” History tells how well that worked out.That may work on a straightaway, but in this world, there’s people and there’s pandemics and wars and politics. Had rates been at a higher level they could have been slashed at the start of the pandemic, but there was no room to drop at that point."</p>
-							
-						
-							
-								<p class="story__comment_others">"This game needs a &#34;gold standard&#34; mode to see what happens to the toy economy with no central bank!EDIT: It would also be nice if the game paused around major events to give you more time to think &amp; adjust. I found that the economy went off the rails if you don&#39;t react right away."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://jayfax.neocities.org/mediocrity/gnome-has-no-thumbnails-in-the-file-picker.html">Gnome has no thumbnails in the file picker and my toilets are blocked (2021)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31778490">
-						
-							
-								<p class="story__comment_first line-clamp">"The biggest problem with GNOME right now is Gtk3 and gtkfilechooserwidget.c. It is so spaghetti and so many things rely on it that no one at GNOME is willing to work on it for fear of breaking something. And for the same reason they won&#39;t accept drive-by patches. It is, effectively, frozen broken, and has been for many years. This applies to any attempt to add thumbnails to the file chooser but there are far worse, actual bugs, beyond the lack of thumbnails.As of right now if you File-&gt;Open in any program using modern Gtk3 and try to paste a file path in you&#39;ll get an error instead of pasting your filepath in a text field to open, &#34;The folder contents could not be displayed\nOperation not supported&#34; http://erewhon.superkuh.com/gtkfilechooserwidget-paste-fail....It&#39;s unfixable behavior because the GNOME devs stopped respecting their own gsettings, org.gtk.Settings.FileChooser location-mode, to FORCE the path-bar experience on everyone. Because no one needs to type file paths, apparently. So why bother respecting the settings for path-bar or filename-entry? Their demographic doesn&#39;t care. Unfortunately gtk3 is used by far more than GNOME&#39;s demographic.They have fixed this bug in gtk4, for all the good that does."</p>
-							
-						
-							
-								<p class="story__comment_others">"My top gtk3/gnome 30 wtfs:- the (all too well-known) file picker issue where when you type something it interprets it as file  name filter rather than, you know, the file name you want to save under- missing top menu (but a bar is still there wasting space for a ... clock wtf)- general window positioning; like, if you open an app, rather than just opening a window as new top window, gnome opens it behind others and pushes a notification &#34;FF is ready&#34; wtf- mainstream desktop apps not ported to dark mode, so those icons look even more puzzlingI could go on, but I&#39;m definitely leaving gnome/gtk apps behind. I&#39;ve eyed KDE Plasma which could give me everything I ever wanted from a DE, but I was using Ubuntu/gnome because it was mainstream enough that everything just works OOTB. I&#39;m also totally not looking forward to wayland, containerize-all-the-things such that basic file workflows stop working, and other attitudes, all the while the apps I&#39;m using are exactly the same I&#39;ve used 15 or 20 years ago, without new ones coming.I think I&#39;m going back to Mac."</p>
-							
-						
-							
-								<p class="story__comment_others">"Gnome people basically looked as how Apple managed to be firm about design and though they can be even tougher since they do it for free.Such reasonable / obvious requests linger for decades and after a while the system has been rewritten and bugs are auto-closed.I no longer report any bugs nor care."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://curves.ulfheim.net/">The animated elliptic curve</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31769059">
-						
-							
-								<p class="story__comment_first line-clamp">"In the past 5 years I&#39;ve seen maybe a dozen &#34;how elliptic curves work&#34;, but this is the first to actually illustrate how they work on a small field. I think that&#39;s key to understanding, seeing it in a small enough field that you can literally see all of the points. Nicely done.If you want to keep going, as an advanced beginner I&#39;d like to see:Arbitrary bigint math - how do you do Exp/Sqrt with arbitrary sized ints? (I&#39;m familiar with two crypto libs that do this, and MPIs &amp; branches confuse me).Second: why is C25519 faster than SecP256R1 or BrainPool? maybe some insight there? (Isn&#39;t Ed25519 the signature name? and X25519 the ECDH name?)Greedy of me, but thanks!"</p>
-							
-						
-							
-								<p class="story__comment_others">"My broken record take on this stuff is that whatever value there is in visualizing elliptic curves, there&#39;s more intuition to build just by playing with the curve formulae directly (it&#39;s pretty basic math) and seeing how the operations work in code. I don&#39;t have the math background to back this up but my understanding of the group rules is that they&#39;re --- at least for the application we&#39;re using them in --- a little arbitrary."</p>
-							
-						
-							
-								<p class="story__comment_others">"Author here, let me know if there are any questions or comments!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.brex.com/support/why-am-i-no-longer-qualified-to-be-a-brex-customer/">Why am I no longer qualified to be a Brex customer?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31772211">
-						
-							
-								<p class="story__comment_first line-clamp">"Brex founder here.We&#39;ve made the difficult decision to no longer offer services to the small business market.Back in April we launched Empower, and we decided to put the full weight of Brex towards building the best global payments platform for tech startups and larger companies. With that, we realized we couldn&#39;t do a great job serving the small business community at the same time. This has been an incredibly difficult decision for me and the team, but we believe small businesses deserve a partner that is entirely focused on them.We know how changes in financial services can be disruptive – especially in a moment like now. We&#39;re doing all we can, and working with other financial service providers to make this transition as smooth as possible."</p>
-							
-						
-							
-								<p class="story__comment_others">"Why Brex is no longer qualified to be our bank:We’ve put $millions through Brex cash/cards and will almost certainly leave after reading this. This doesn’t affect us (I think?) but that they’d do something like this in this way is a breach of trust that signals bigger problems down the line. What is “Empower” and why would I believe they won’t sunset the current Brex offering to push some upmarket sales nonsense on us as it that new thing becomes the focus?We had kind of outgrown Brex anyway, but this is sad to see. What really irks me here is that I know my first company, a bootstrapped e-commerce thing that was a healthy “small business” would have been axed by this, but the current one is big enough that they wouldn’t want to lose us. Just doesn’t sit right with me.I appreciate how tough this decision probably was, but I hope they properly modeled who else they’d lose via loss of faith, like us."</p>
-							
-						
-							
-								<p class="story__comment_others">"Not surprised by any of this. Feels like it comes from the top, culturally.I had a terrible experience &#34;onboarding&#34; with Brex last year. They actually &#34;approved&#34; my bootstrapped startup and sent me a physical card only to rescind it a shortly thereafter, because--even though we met the funding minimum--it wasn&#39;t &#34;professionally invested&#34; on further review. Bootstrapping apparently required a $1MM minimum.Here&#39;s what they told me:&#34;While being professionally invested is not a requirement for the Brex card with monthly payments, without professional investment, the minimum cash balance requirement shown in connected accounts is $1mm. If you&#39;re able to provide proof of XXXXX&#39;s professional investment, the minimum cash balance requirement shown in connected accounts is $50k.&#34;Left a really bitter taste in my mouth. Won&#39;t ever use them.Currently banking with Mercury and love it BTW."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://webdevlaw.uk/2022/06/17/data-reform-bill-cookie-popups/">The bait-and-switch hidden in today’s cookie announcement</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31776895">
-						
-							
-								<p class="story__comment_first line-clamp">"The announcement says it wants to &#34;protect consumers&#34;, but it changes user tracking from opt-in to opt-out... How about ensuring that companies stop tracking people unnecessarily?I see so many websites – even club websites or private blogs – that have a cookie consent banner, but which wouldn&#39;t actually need one if they&#39;d just turn off Google Analytics. I just don&#39;t get it."</p>
-							
-						
-							
-								<p class="story__comment_others">"From what I understand the way this is currently shaking out, is that it largely won&#39;t impact marketplace sites as credit cards can be used as a form of age verification. You might have to create an account and associate a credit card before you&#39;re able to browse which would be an awful user experience...For other sites though, if the this passes into law I suspect it will have a much more intense cooling effect on the availability and access to sites. For the unpaid service sites I run, I&#39;m certainly not going to pay for identity verification or allow that garbage on my sites. I&#39;m much more likely to hide or disable any user generated content, or just serve a static page to users in the UK saying the site isn&#39;t available in your region.They&#39;re really doubling down on removing themselves from the world community..."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s a bit of a shame that self-labelling by web sites never seemed to really take off:* https://www.w3.org/TR/powder-use-cases/#cpA* https://www.w3.org/2007/powder/* https://en.wikipedia.org/wiki/Protocol_for_Web_Description_R...It could be much easier if the major web browsers (at this point Chrome, Safari (mobile), Firefox) were able to read the metadata and if parents (or corporate IT departments) wanted to filter content they could using &#39;built-in&#39; technology rather every web site having to potentially re-invent the wheel."</p>
 							
 						
 						</a>

@@ -33,83 +33,250 @@
 	</div>
 
 	
-	<div class="day__date">27 June 2022</div>
+	<div class="day__date">28 June 2022</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=31883373">
+					<a href="https://architecturenotes.co/things-you-should-know-about-databases/">
 						<picture>
-							<source srcset="default_31883373.webp" type="image/webp">
-							<source srcset="default_31883373.png" type="image/png">
-							<img src="default_31883373.png" alt="Preview of 'Ask HN: GPT-3 reveals my full name – can I do anything?'">
+							<source srcset="default_31895623.webp" type="image/webp">
+							<source srcset="default_31895623.png" type="image/png">
+							<img src="default_31895623.png" alt="Preview of 'Things to know about databases'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31883373">Ask HN: GPT-3 reveals my full name – can I do anything?</a></h3>
+					<h3><a href="https://architecturenotes.co/things-you-should-know-about-databases/">Things to know about databases</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31883373">
+						<a href="https://news.ycombinator.com/item?id=31895623">
 						
 							
-								<p class="story__comment_first line-clamp">"  &gt; I try to hide my real name whenever possible, out of an
-  &gt; abundance of caution. You can still find it if you search
-  &gt; carefully, but in today&#39;s hostile internet I see this kind
-  &gt; of soft pseudonymity as my digital personal space, and expect
-  &gt; to have it respected.
+								<p class="story__comment_first line-clamp">"This article is informative.  I have found that databases in general tend to be less sexy than the front-end apps...especially with the recent cohort of devs. As an old bastard,  I would pass on one thing:  Realize that any reasonably used database will likely outlast the applications leveraging it. This is especially true the bigger it gets, and the longer it stays in production.  That said, if you are influencing the design of a database, imagine years later what someone looking at it might want to know if having to rip all the data out into some other store.  Having migrated many legacy systems, I tend to sleep better when I know the data is well-structured and easy to normalize.  In those cases, I really don&#39;t care so much about the apps.  If I can sort out (haha) the data, I worry less about the new apps I need to design.  I have been known to bury documentation into for-purpose tables...that way I know that info won&#39;t be lost.  Export the schema regularly, version it, check it in somewhere.  And, if you can, please, limit the use of anything that can hold a NULL. Not every RDBMS handles NULL the same way.   Big old databases live a looooong time."</p>
+							
+						
+							
+								<p class="story__comment_others">"#1 thing you should know, RDBMS can solve pretty much every data storage/retrieval problem you have.If you&#39;re choosing something other than an RDBMS - you should rethink why.Because unless you&#39;re at massive scale (which still doesn&#39;t justify it), choosing something else is rarely the right decision."</p>
+							
+						
+							
+								<p class="story__comment_others">"Great post. Also highly recommend Designing Data-Intensive Applications
+by Martin Kleppmann (https://www.amazon.com/Designing-Data-Intensive-Applications...). The sections on &#34;Storage and Retrieval&#34;, &#34;Replication&#34;, &#34;Partitioning&#34; and &#34;Transactions&#34; really opened up my eyes!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://medium.com/@ryanbadger/magic-links-can-end-up-in-bing-search-results-rendering-them-useless-37def0fae994">
+						<picture>
+							<source srcset="default_31892299.webp" type="image/webp">
+							<source srcset="default_31892299.png" type="image/png">
+							<img src="default_31892299.png" alt="Preview of '“Magic links” can end up in Bing search results, rendering them useless'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://medium.com/@ryanbadger/magic-links-can-end-up-in-bing-search-results-rendering-them-useless-37def0fae994">“Magic links” can end up in Bing search results, rendering them useless</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31892299">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve had to deal with this with e-mail verification links and Auth0. 
+The user clicked the link after getting it in their mailbox but then Auth0 throws up an error page because the e-mail address has already been verified (by Outlook scanning). 
+The problem becomes worse if for some reason the mail ends up in the junk mail folder so the user thinks they&#39;ve never received the mail but when you check it looks like the e-mail address was verified successfully.
+That has caused a lot of annoying back and forth trying to figure out what the hell is going on. We ended up adding a custom page to handle e-mail validation so we could handle the situation where the user lands on the page and the address has already been verified. Super annoying."</p>
+							
+						
+							
+								<p class="story__comment_others">"Microsoft does this because they&#39;re security scanning / checking all links in every Outlook email for known phishing and malware attacks. If Bing has not seen the web page  before and it&#39;s not in the Bing dangerous web page index it first needs to check it to make a determination of if it&#39;s a phishing/malware page by scanning/indexing  it before returning that outcome back to Outlook to flag the email as dangerous."</p>
+							
+						
+							
+								<p class="story__comment_others">"Outlook will only send GET requests, which are idempotent unless you&#39;re ignoring the spec. A message saying &#34;this code has already been used&#34; after sending a GET request is a bug.I don&#39;t see the problem here, all services need to do is add a page that&#39;s says &#34;welcome back, $Username, click here to log in!&#34; that sends a POST request to do any serious confirmation without breaking any specifications.Microsoft claims the visiting not is BingBot but it&#39;s probably just SmartScreen system checking for malicious links/downloads/etc. like many cloud integrated security products do these days.I can set my browser to pretend I&#39;m BingBot, you can&#39;t derive anything meaningful from the user agent. Unless you find your secret URLs in Bing&#39;s search results, your secret links aren&#39;t actually being monitored by a search engine."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/OpenWebAdvocacy/status/1541318055636369409">
+						<picture>
+							<source srcset="default_31894690.webp" type="image/webp">
+							<source srcset="default_31894690.png" type="image/png">
+							<img src="default_31894690.png" alt="Preview of 'Apple&#39;s claim is that it bans other browsers for security'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/OpenWebAdvocacy/status/1541318055636369409">Apple&#39;s claim is that it bans other browsers for security</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31894690">
+						
+							
+								<p class="story__comment_first line-clamp">"I’m going to ignore the security angle and post my big fear.Chrome has dominance similar to IE at the height of its popularity.Whatever you think of their decisions, Apple is the only thing stopping a 90%+ Chrome web. (Note: not why they’re doing it, just a side effect)People keep arguing Apple is being anti-competitive. But no one seems to recon with the possible consequences of what they’re asking for. And I fear we may get a pyrrhic victory if these groups/governments keep pushing.No, I don’t know a good solution. But I don’t think letting Chrome totally own the web is a good outcome."</p>
+							
+						
+							
+								<p class="story__comment_others">"Comparing CVE counts is a bit nonsensical. For instance, Chrome and Firefox don&#39;t individually assign CVEs for internally reported vulnerabilities.For instance, in these patch notes Chrome lists &#34;Various fixes from internal audits, fuzzing and other initiatives&#34; and doesn&#39;t even look to have a CVE:https://chromereleases.googleblog.com/2022/05/stable-channel...Or for Firefox, there&#39;s a dozen or so bundled together in a single CVE under &#34;Memory safety bugs fixed in Firefox 101&#34;:https://www.mozilla.org/en-US/security/advisories/mfsa2022-2..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Apple claiming security as a reason for monopoly, how classic.The EU&#39;s digital markets act bans the only Safari lock on IOS, so this is gone whether apple likes it or not. (1 - sorry couldn&#39;t find a better source)Safari is the new IE, there is a difference between a monopoly while still being able to use a competing product (like chrome in other platfroms), and forcing Safari(WebKit) while hindering the web because of Apples interests.(2-3)1. https://www.fudzilla.com/news/54763-apple-loses-out-in-the-d...2.https://www.theregister.com/2022/05/23/opinion_column/3.https://www.theregister.com/2022/06/14/telegram_safari/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://palladiummag.com/2022/06/09/why-america-cant-build/">
+						<picture>
+							<source srcset="default_31890048.webp" type="image/webp">
+							<source srcset="default_31890048.png" type="image/png">
+							<img src="default_31890048.png" alt="Preview of 'Why America can’t build'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://palladiummag.com/2022/06/09/why-america-cant-build/">Why America can’t build</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31890048">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s not just in megaprojects either. In my large, fairly dense US city, basic, easy-to-build, local infrastructure like adding a 1-mile bike lane to a straight street is impossible because a handful of NIMBYs are constantly taken seriously by local politicians.My city has many bike lanes that are popular and well-used, as well as a bike-share program that is extremely popular. It also has a large number of cyclist deaths - including children! - due to the spottiness of existing bike infrastructure and overall lack of protected bike lanes. It seems like improving that infrastructure would be both easy, cheap, and popular, given the popularity of cycling and its existing infra, and the cheapness of plopping a concrete barrier onto a street. But no - the second anyone mentions protected bike lanes, a handful of NIMBYs write in with &#34;but muh cars&#34; and the politicians throw up their hands and surrender.I don&#39;t understand why NIMBYs have been taken so seriously in the US in the past 50 years. It seems like at any point in history, any local project will be opposed by somebody, no matter who they are or what the project is. But previous generations seemed to be able to get over that in favor of building. For today&#39;s generation it seems like doing nothing has become better than doing something. If this were the 1900s, government would have told the NIMBYs to get bent, we&#39;re building Thing X because it&#39;s good for society and if you don&#39;t like it, tough. That&#39;s what living in city means sometimes!"</p>
+							
+						
+							
+								<p class="story__comment_others">"One of the things I love about Palladium (and closely related, Samo Burja&#39;s newsletter) is the depth of research.Like the detail that one of the most egregious episodes from California HSR involved a Spanish company that performed excellently on rail projects in Spain. Overall, this piece makes a strong case that the problem is specifically NIMBYism and loss of government institutional capacity.I think the million dollar question is how government organizations can hire and retain better. The current situation looks dire. Obviously a charismatic leader with a broad anti-NIMBY mandate would go a ways at getting competent people to want to work in government. You saw that succeed on a small scale with orgs like US Digital Service.The elephant, after that, is merit-based pay and promotion. Someone needs to sell this to the public. RN literally random cops and plumbers make mid six figures thru overtime while the directors of $100b mega-project are low-energy lifers making less than that. That&#39;s not gonna work."</p>
+							
+						
+							
+								<p class="story__comment_others">"A friend has worked in construction project management for almost 40 years, mostly in Texas. A few years ago, he moved to San Francisco to work on the Van Ness project, which was approved in 2003, began construction in 2017 (!), went $40 million over budget, and finally completed this year. The project essentially added a median and some bus lanes to a two mile stretch of road through San Francisco and took 19 years.During his time in SF, no construction took place—so he told me he would essentially go into the office and do nothing while waiting for various city hearings to happen. After 8 months, he quit in frustration and moved back to Texas."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.cnbc.com/2022/06/27/three-arrows-capital-crypto-hedge-fund-defaults-on-voyager-loan.html">
+						<picture>
+							<source srcset="default_31895820.webp" type="image/webp">
+							<source srcset="default_31895820.png" type="image/png">
+							<img src="default_31895820.png" alt="Preview of 'Three Arrows Capital has defaulted on a loan worth more than $670M'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.cnbc.com/2022/06/27/three-arrows-capital-crypto-hedge-fund-defaults-on-voyager-loan.html">Three Arrows Capital has defaulted on a loan worth more than $670M</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31895820">
+						
+							
+								<p class="story__comment_first line-clamp">"I always have mixed feelings when someone is warned about the riskiness / foolishness / stupidity of a course of action, and then suffers for it.On the one hand, there&#39;s a certain satisfaction or Schadenfreude in the sense of vindication. And it&#39;s pleasant to feel like my own wisdom or self-control has been validated.OTOH, I know that everyone has limited wisdom / self-control / intelligence, including me.  So it seems hypocritical to mock someone who trips, knowing that I&#39;m just lucky to sometimes avoid the hazards that would trip me up.In the end, about the only conclusions I&#39;m really confident in is that trouble besets us all, and usually it&#39;s good to default to kindness and sympathy.EDIT FOR CLARIFICATION: I&#39;m not saying that I want swindlers to succeed.  I want such predation crushed into dust.  My comment is about the people who don&#39;t intend harm to others."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Prominent crypto hedge fund Three Arrows Capital has defaulted on a loan worth more than $670 million. Digital asset brokerage Voyager Digital issued a notice on Monday morning, stating that the fund failed to repay a loan of $350 million in the U.S. dollar-pegged stablecoin, USDC, and 15,250 bitcoin, worth about $323 million at today’s prices.In other words, the $670 million that 3AC defaulted on was ~50:50 USDC and bitcoin.Then later:&gt; Zhu [3AC founder] is known for his incredibly bullish view of bitcoin. He said last year the world’s largest cryptocurrency could be worth $2.5 million per coin. But in May this year, as the crypto market began its meltdown, Zhu said on Twitter that his “supercycle price thesis was regrettably wrong.”This seems odd. How does a person convinced that bitcoin exchange is headed to $2.5 million take out a loan of 15K bitcoin if he actually thinks he&#39;ll be paying back it back at a higher exchange rate? Either the founder was bullish in principle but bearish in practice, or didn&#39;t have the first clue about what he was doing."</p>
+							
+						
+							
+								<p class="story__comment_others">"I really don’t understand the business model of making massive fiat loans to “firms” to buy bitcoin. If crypto goes up, you get a small amount of interest. If crypto goes down, you lose everything. What? Lol. Just spend a fraction of the sum on bitcoin and do something safe with the rest. What was the plan?Edit: I guess when someone has “20 billion dollars” a 700mm loan doesn’t seem like a big risk."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/prql/prql">
+						<picture>
+							<source srcset="default_31897430.webp" type="image/webp">
+							<source srcset="default_31897430.png" type="image/png">
+							<img src="default_31897430.png" alt="Preview of 'Show HN: PRQL 0.2 – a better SQL'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/prql/prql">Show HN: PRQL 0.2 – a better SQL</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31897430">
+						
+							
+								<p class="story__comment_first line-clamp">"Previous discussion: PRQL – A proposal for a better SQL
+https://news.ycombinator.com/item?id=30060784"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m surprised that none of the examples on Github or the website deals with join. I eventually found some in the &#34;book&#34; here: https://prql-lang.org/book/transforms/join.html    from employees
+    join side:left positions [id==employee_id]
 
-Without judging whether the goal is good or not, I will gently point out that your current approach doesn&#39;t seem to be effective. A Google search for &#34;BoppreH&#34; turned up several results on the first page with what appears to be your full name, along with other results linking to various emails that have been associated with that name. Results include Github commits, mailing list archives, and third-party code that cited your Github account as &#34;work by $NAME&#34;.As a purely practical matter -- again, not going into whether this is how things should be, merely how they do be -- it is futile to want the internet as a whole to have a concept of privacy, or to respect the concept of a &#34;digital personal space&#34;. If your phone number or other PII has ever been associated with your identity, that association will be in place indefinitely and is probably available on multiple data broker sites.The best way to be anonymous on the internet is to be anonymous, which means posting without any name or identifier at all. If that isn&#39;t practical, then using a non-meaningful pseudonym and not posting anything personally identifiable is recommended."</p>
+turns into    SELECT
+      employees.*,
+      positions.*
+    FROM
+      employees
+      LEFT JOIN positions ON id = employee_id
+
+I would love to see joins worked into the main learning examples. Without join, the examples lack a bit of the &#34;relation&#34; part; we could just as easily be compiling a DSL to a chain of `array.filter`, `array.reduce`, `array.map` calls. Joins are what makes relational modeling interesting!I would love to see Datalog/SPARQL-style implicit joins to make graph traversals like &#34;which users have edited documents I own?&#34; less verbose."</p>
 							
 						
 							
-								<p class="story__comment_others">"Interesting how everyone says „But I can google you“ instead of thinking about the issue.Companies are building and selling GPT-3 with 6 billion parameters and one of those „parameters“ seems to be OP‘s username and his „strange“ two word last name.If models grow bigger, they will potentially contain personal information about everyone of us.If you can get yourself removed from search indices, shouldn’t there be a way for AI models, too?Another thought: do we need new licenses (GPL, MIT, etc.) which disallow the use for (for-profit) AI training?"</p>
-							
-						
-							
-								<p class="story__comment_others">"There is a legitimate question here. A lot of comments are trashing this post because his/her name is already all over the internet. But European laws have the &#39;right to be forgotten&#39;. Aka you can write to Google and have your personal information removed, should you so wish. How might we address this with a GPT3 like model?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://ominoushum.com/lock/">
-						<picture>
-							<source srcset="default_31880108.webp" type="image/webp">
-							<source srcset="default_31880108.png" type="image/png">
-							<img src="default_31880108.png" alt="Preview of 'Enclave: An Unpickable Lock'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://ominoushum.com/lock/">Enclave: An Unpickable Lock</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31880108">
-						
-							
-								<p class="story__comment_first line-clamp">"Interesting design. I made a lock a couple years ago that is  quite similar in principle (though this design is different and has a couple nice improvements).https://youtu.be/_7vPNcnYWQ4One of my main goals is to be an inspiration, though if it was based by my design I wish they’d credit it.  Especially since they’re patenting it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I am a reasonably capable lockpicker and lock collector with hundreds of locks of every mechanism I can get my hands on... and as LPL often demonstrates, the vast majority of them, particularly the move clever seeming designs, are actually easy to pick.I have one of the Enclave lock prototypes on my desk and can confirm the machining is brilliant and I have no idea how one could approach picking this. No feedback at all for correct vs incorrect.I plan on taking it to my local SF Toool meetup to see if any of the true experts there can come up with anything."</p>
-							
-						
-							
-								<p class="story__comment_others">"This looks very similar to the design[0] by Stuff Made Here (and collaborative hardening [1] suggestions by Lock Picking Lawyer)…an excellent set of videos.https://youtu.be/2A2NY29iQdI
-https://youtu.be/Ecy1FBdCRbQ"</p>
+								<p class="story__comment_others">"For those interested in database query languages, it is worth knowing about Datalog, the query language behind Datomic, XTDB and Datahike: http://www.learndatalogtoday.org/E.g. a parameterised aggregate query that retrieves the name and average rating of a film starring cast members whose names match the input names:    [:find ?name (avg ?rating)
+     :in $ [?name ...] [[?title ?rating]]
+     :where
+     [?p :person/name ?name]
+     [?m :movie/cast ?p]
+     [?m :movie/title ?title]]
+
+To reveal the answer, click on tab labelled &#34;3&#34; and then &#34;I give up!&#34;: http://www.learndatalogtoday.org/chapter/7"</p>
 							
 						
 						</a>
@@ -121,33 +288,33 @@ https://youtu.be/Ecy1FBdCRbQ"</p>
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://dkb.show/post/life-is-not-short">
+					<a href="https://manybutfinite.com/post/what-does-an-idle-cpu-do/">
 						<picture>
-							<source srcset="default_31885137.webp" type="image/webp">
-							<source srcset="default_31885137.png" type="image/png">
-							<img src="default_31885137.png" alt="Preview of 'Life is not short'">
+							<source srcset="default_31887202.webp" type="image/webp">
+							<source srcset="default_31887202.png" type="image/png">
+							<img src="default_31887202.png" alt="Preview of 'What does an idle CPU do? (2014)'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://dkb.show/post/life-is-not-short">Life is not short</a></h3>
+					<h3><a href="https://manybutfinite.com/post/what-does-an-idle-cpu-do/">What does an idle CPU do? (2014)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31885137">
+						<a href="https://news.ycombinator.com/item?id=31887202">
 						
 							
-								<p class="story__comment_first line-clamp">"At 35 I decided to fuck the &#34;normal life&#34; and just go RVing with my wife. We saw the country (US). Fast forward 7 years and we are now building our own house paycheck to paycheck. It&#39;s a beautiful property. I know there are people on here that have much, much more and could afford to buy an already existing house. But my dreams are to have a different kind of life, so in that sense I am definitely living that. Yes there are mornings I wish I can wake up and NOT want to install my own well pump, install mini splits in 105 degree weather, install siding, dig foundations, run 40 80-pound bags of cement in a mixer, 2 at a time. etc etc etc...But my alternative life would have been spending the last 7 years playing new versions of Call of Duty and kinda pissing time away."</p>
-							
-						
-							
-								<p class="story__comment_others">"Don&#39;t like most &#34;progress people,&#34; don&#39;t like most philosophy, don&#39;t like most self help.If you have &#34;it&#34; figured out, why is that not enough? All I can see are ulterior motives: a desperate need to feel seen or remembered or virtuous or important, something to sell, an attempt to elevate one&#39;s status, etc."</p>
+								<p class="story__comment_first line-clamp">"&gt; if the CPU is consistently busy for a normal userIt&#39;s probably Windows Store going bonkers with some insane backlog of periodic tasks, because you didn&#39;t open your laptop for a few months, that it absolutely at all costs must process for some reason, especially during a power outage when you&#39;re running on battery and need to use your laptop for once."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; You should organize each day as if it were your lastI never understood this. If you live every day as your last, surely you would only engage in short term pleasures instead of pursuing longer term hobbies/goals?"</p>
+								<p class="story__comment_others">"This is a good overview, but even by 2014 we weren&#39;t calling hlt - there&#39;s a few problems there. Imagine the situation where you fork() a process on one CPU, and you have another CPU that recently called hlt. Ideally you&#39;d schedule it immediately instead of waiting for the next scheduler interrupt, but sending interrupts from one CPU to another (to break it out of hlt) is kind of expensive. The replacement is an instruction called mwait, which will (like hlt) wake the CPU up on interrupts, but will also wake up the CPU on a write to a specific memory address. If you want to wake up an idle CPU, the working CPU can just do that memory write and then the idle CPU will wake up back into the scheduler and figure out it has work to do.(Edit: there are still actually some circumstances in which hlt is called rather than mwait, but this is very CPU dependent and is based on vendor recommendations. Also, before mwait showed up, switching to deep CPU power saving states tended to involve performing magic IO port accesses rather than calling hlt, and yes the world was worse back then)"</p>
+							
+						
+							
+								<p class="story__comment_others">"In the days before MMU&#39;s and fancy DRAM controllers and newer DRAM chips the CPU had to do memory refresh during &#34;idle&#34; time."</p>
 							
 						
 						</a>
@@ -159,33 +326,33 @@ https://youtu.be/Ecy1FBdCRbQ"</p>
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="http://backreaction.blogspot.com/2022/06/whatever-happened-to-bee-apocalypse.html">
+					<a href="https://sabukaru.online/articles/the-watch-for-which-james-bond-gave-up-his-rolex-the-seiko-tv-watch">
 						<picture>
-							<source srcset="default_31875002.webp" type="image/webp">
-							<source srcset="default_31875002.png" type="image/png">
-							<img src="default_31875002.png" alt="Preview of 'Whatever happened to the bee apocalypse?'">
+							<source srcset="default_31874318.webp" type="image/webp">
+							<source srcset="default_31874318.png" type="image/png">
+							<img src="default_31874318.png" alt="Preview of 'The Seiko TV watch'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="http://backreaction.blogspot.com/2022/06/whatever-happened-to-bee-apocalypse.html">Whatever happened to the bee apocalypse?</a></h3>
+					<h3><a href="https://sabukaru.online/articles/the-watch-for-which-james-bond-gave-up-his-rolex-the-seiko-tv-watch">The Seiko TV watch</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31875002">
+						<a href="https://news.ycombinator.com/item?id=31874318">
 						
 							
-								<p class="story__comment_first line-clamp">"This article buries its lede, which is about how honey bees get all the attention but are at less risk than wild bees:&gt; And that brings us to the actual problem. The honey bee (Apis mellifera) is only one of about 20 thousand different bee species. The non-honey bees are usually referred to as wild bees, and each location has its native species. According to an estimate from researchers at Cornell University in 2006, wild bees contribute to the pollination of 85 percent of crops in agriculture.&#34;&gt; [...]&gt; But last year the magazine Cell published the results of a study with a global estimate for the situation of wild bees. The authors looked at the numbers of bee species that were collected or observed over time using data publicly available at the Global Biodiversity Information Facility. They found that even though the number of records has been increasing, the number of different species in the records has been sharply decreasing in the past decades.&gt; The decline rates differ between the continents, but the species numbers are dropping steeply everywhere except for Oceania. The researchers say there’s a number of factors in play here, such as the expansion of monocultures, loss of native habitat, pesticides, climate change, and bee trade that also trades around pathogens.&gt; So the problems that wild bees face are similar to those of honey bees, but they have an additional problem which is… honeybees. Honey bees compete with wild bees for food and habitat and they also pass on viruses. Now, a big honey bee colony can deal with viruses by throwing out the infected bees. But this doesn’t work for wild bees because they don’t live in large colonies. And worse, when honey bees and wild bees fight for food they seem to both lose out."</p>
-							
-						
-							
-								<p class="story__comment_others">"(1) Stop using neonicotinoid pesticides. There are plenty of alternatives for protecting food crops from insect infestations, such as neem oil applied as a foliar spray or a soil soak in response to infestations.  Neonictoninoides are based on the tobacco nicotine molecule structure, but are typically chlorinated and modified to make them more persistent and toxic to insects relative to animals.  There&#39;s a good argument for banning the entire class due to their persistent ecological effects on beneficial native insect populations.https://organic-center.org/research/neonicotinoid-pesticides...(2) Have undisturbed habitat set aside for wild bee populations.  This can be something as simple as maintaining undisturbed hedgerows on the sides of agricultural fields, but in general means maintaining a fair amount of undisturbed native habitat.https://www.planetbee.org/planet-bee-blog//native-bee-series..."</p>
+								<p class="story__comment_first line-clamp">"Try this exercise:Hold your arm so a watch strapped on top of your wrist would be facing toward your eyes for easy viewing of its display.If you have a smartwatch, or any kind of watch, you do this many times a day.Now hold your arm in that position for 30 or 60 minutes to watch an entire TV show. You can take a break during the commercials.Enjoying that? Probably not.With a [smart]watch, you only glance at it a bit here and there. You don&#39;t try to view it continuously.It is interesting to see a very clever product idea that completely ignores human anatomy."</p>
 							
 						
 							
-								<p class="story__comment_others">"I appreciate that she draws the link between monoculture crops, land use, and the health of ecosystems upon which agriculture depends.Organics are important not because GMOs are the enemy but rather because the land use change is inherently bad for all life in that area. GMOs don&#39;t have to lead to monoculture crops that span acres or rampant neonicotinoid insecticides, but they often do, and it&#39;s precisely at that point we can see drastic changes in a biome&#39;s stability and therefore the health of bees among many other pollinators. That&#39;s why we need to be talking about insect numbers at large and not only bees.The study of biodiversity has an extremely difficult time modeling these kinds of changes, and that&#39;s probably why many scientists won&#39;t go to bat against this kind of land use change. A self-respecting scientist won&#39;t say that converting croplands to monocultures ready for insecticide use lead to biodiversity die-off because it&#39;s hard to actually track the fluctuations between species. It takes so much time to collect data to analyze before we even get an inkling of the interplay. We understand so little about the microscale interactions and how it fits into our larger understanding of agriculture and land development.For those who think this is all overblown and alarmist, go sit on the grass -- if you can find a patch -- and stare at a spot until it comes alive. Things are moving around and teeming with a multitude of species of plants and insects. The reality you see escapes unnoticed until you stop to think about the ecological systems that underpin our fragile existence. Our health depends on a functional biosphere. If we cannot figure out how to share the earth with its other inhabitants, what the fuck are we doing going to Mars?"</p>
+								<p class="story__comment_others">"I don&#39;t get it. If I still have to carry around a walkman-like thing, why bother with the watch? Why not put the screen on the walkman-like thing, and eliminate the wire through my sleeve?"</p>
+							
+						
+							
+								<p class="story__comment_others">"My dad was a huge fan of Sony’s Watchman series of portable TVs. He had 2 or 3 different models. In the 1990s, I would steal them when I’d go on school trips in elementary school so I wouldn’t miss my TV shows. The limitation of antenna stuff made it less than ideal in a moving vehicle, but being able to watch Melrose Place on a bus in third grade instead of Homeward Bound or The Sandlot was pretty dope.Which is all to say, very young filmgirl would have loved this shit."</p>
 							
 						
 						</a>
@@ -197,33 +364,33 @@ https://youtu.be/Ecy1FBdCRbQ"</p>
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.esquire.com/uk/culture/a40351034/blade-runner-at-40/">
+					<a href="https://deepsource.io/blog/python-3-11-whats-new/">
 						<picture>
-							<source srcset="default_31887748.webp" type="image/webp">
-							<source srcset="default_31887748.png" type="image/png">
-							<img src="default_31887748.png" alt="Preview of '‘Blade Runner’ at 40'">
+							<source srcset="default_31888624.webp" type="image/webp">
+							<source srcset="default_31888624.png" type="image/png">
+							<img src="default_31888624.png" alt="Preview of 'What&#39;s New in Python 3.11?'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.esquire.com/uk/culture/a40351034/blade-runner-at-40/">‘Blade Runner’ at 40</a></h3>
+					<h3><a href="https://deepsource.io/blog/python-3-11-whats-new/">What&#39;s New in Python 3.11?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31887748">
+						<a href="https://news.ycombinator.com/item?id=31888624">
 						
 							
-								<p class="story__comment_first line-clamp">"The visual language Bladerunner invented has virtually defined SciFi for the past 40 years.If you enjoy it&#39;s worth digging into the work Syd Mead - the film&#39;s concept artist - created:https://www.flickr.com/photos/x-ray_delta_one/5642443624/in/...https://www.flickr.com/photos/x-ray_delta_one/5642443252/in/...https://www.flickr.com/photos/x-ray_delta_one/5641873923/in/...https://www.flickr.com/photos/x-ray_delta_one/5642441904/in/...Syd&#39;s work in general is worth a deeper investigation if interested -&gt;https://sydmead.com/https://www.flickr.com/photos/40143737@N02/albums/7215762290...https://www.iamag.co/the-art-of-syd-mead/"</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;The main difference between what Ridley views this all in terms of and what I view it all in terms of is as follows. To me, the replicants (or androids, if you will) are deplorable because [inaudible] they are cold, they are selfish, they are heartless, they are completely self-centered, they have no empathy, they don&#39;t care about what happens to other creatures, and to me this is essentially a less-than-human entity for that reason. Now, Ridley said that he regarded them as supermen who couldn&#39;t fly. He said they are smarter than humans, they are stronger than humans, and they have faster reflexes than humans. Well, then I said &#39;well, gee Ridley, I mean, holy smokes, uh, golly,&#39; and that was about all I could think of to say, you know. That&#39;s rather a great divergence, you see: we&#39;ve gone from somebody who is a simulation of the authentic human to somebody who is literally superior to the authentic human. So we&#39;ve now flipped all the cards on the table, you see, when we do that: in other words, all the cards that were up are now down and all the ones that were down are now up. And I was at a loss at that point, you know, to respond, I mean. I said, &#39;okay, now the theme of the book is that Rick Deckard is dehumanized in his job of tracking down the replicants and killing them, that in other words he winds up essentially like they are.&#39; And Ridley said that he regarded that as an intellectual idea and he was not interested in making an esoteric film.&#34;-- Philip K. Dick, interview with Paul M. Sammon (https://invidious.snopyta.org/watch?v=3d7XMnmPgUk starting at 19:10)"</p>
+								<p class="story__comment_first line-clamp">"I’ll just say. Since about 3.6/3.8 the language has been growing huge. Like C++ huge.I liked f-strings. Asyncio has its place but is waaay overused. Typing was a cool idea, but so awkward in practice.All of it has really turned me off, personally. It’s getting to where reading libraries is just painful.  The simplicity of the language was really beautiful and when I wanted type safety, etc. I’d use something else.  I can still write simple Python, but it’s more all the other code I need to grok.I find myself going to Go more and more for stuff I used to use Python for. It’s easier to set up a dev environment for other people, easier to distribute code, and gives me type safety and concurrency as first class citizens while being a very small language.I miss dictionary comprehensions and other shortcuts from time to time. But it actually feels more ergonomic now.All personal opinion. I’m fine shifting languages.  I still write C from time to time to bang bits.  I play with various LISPs to exercise my brain.  I never used Python for performance critical code.  I guess ML is changing that need.But I know others that want Java to have functional features and Python to have this stuff.I’m not saying I’m “right”, just uncomfortable in a place I used to love to hang out in."</p>
 							
 						
 							
-								<p class="story__comment_others">"I hated that movie the first to I saw it.  I was bored with it.Now I love it.  I really enjoy how much time they spend establishing the atmosphere and characters.    It all feels very real and has depth.I loath the speedy sci fi that tries to touch on atmosphere and then hurries along with their paper characters and so on.  So much sci fi I encounter now feels little more than a long trailer with no idea how to end."</p>
+								<p class="story__comment_others">"Crickey:&gt; Python 3.11 is up to 10-60% faster than Python 3.10. On average, we measured a 1.25x speedup on the standard benchmark suite. See Faster CPython for details.* https://docs.python.org/3.11/whatsnew/3.11.html* https://docs.python.org/3.11/whatsnew/3.11.html#faster-cpyth..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Better error messages is something that literally every single language/framework/library should prioritize. It improves users lives by more than almost everything else besides correctness. It’s been great to see the improvements in python."</p>
 							
 						
 						</a>
@@ -235,185 +402,33 @@ https://youtu.be/Ecy1FBdCRbQ"</p>
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=31859040">
+					<a href="https://dys2p.com/en/2021-12-tamper-evident-protection.html">
 						<picture>
-							<source srcset="default_31859040.webp" type="image/webp">
-							<source srcset="default_31859040.png" type="image/png">
-							<img src="default_31859040.png" alt="Preview of 'Ask HN: How to level up your technical writing?'">
+							<source srcset="default_31897530.webp" type="image/webp">
+							<source srcset="default_31897530.png" type="image/png">
+							<img src="default_31897530.png" alt="Preview of 'Detecting unauthorized physical access with beans, lentils and colored rice'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31859040">Ask HN: How to level up your technical writing?</a></h3>
+					<h3><a href="https://dys2p.com/en/2021-12-tamper-evident-protection.html">Detecting unauthorized physical access with beans, lentils and colored rice</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31859040">
+						<a href="https://news.ycombinator.com/item?id=31897530">
 						
 							
-								<p class="story__comment_first line-clamp">"Tech writer here.The absolute, invariable first rule in tech writing is to know your audience.Understand not just their technical problems but take the time to empathize with why they have these problems in the first place.Tech writing isn&#39;t about documenting, it&#39;s about finding the best way to explain something to people so they can solve their problems.Oh, and use an editor (the human kind, not the digital kind.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Lots of great advice here. One piece of advice I got from my publisher when authoring a technical book was to first break down what I was going write into headings and subheadings, and if possible, into sub-subheadings. Then review that to see if your flow is coherent and whether there are sections that are missing, or could be extracted into another text.Personally, my process after this is to express my thoughts in bullet points, followed by inserting any placeholders and captions for any graphics (e.g. charts or diagrams), and then finally I start rewriting my bullet points into proper sentences, expanding my examples, and adding any interstitial text necessary to make things flow.Also, I see some comments on keeping things short and to the point. In general, I agree with this, but depending on the medium, sometimes it doesn’t hurt to inject a bit of personality into your writing. Technical writing can be dry at times, and this can deter engagement. Try to use concrete examples whenever possible or refer to other supporting texts."</p>
+								<p class="story__comment_first line-clamp">"Lovely work.  Here&#39;s a similar project where I showed that randomly-placed multicolored candy particles (nonpareils) can be used to confirm the authenticity of pharmaceuticals:  https://www.nature.com/articles/s41598-022-11234-4"</p>
 							
 						
 							
-								<p class="story__comment_others">"Two things I recommend: the Google tech writing courses: https://developers.google.com/tech-writingAnd &#34;Bugs in Writing&#34;, which I&#39;ve been pressing into people&#39;s hands for twenty years now. https://www.amazon.com/BUGS-Writing-Revised-Guide-Debugging/..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/timvisee/ffsend">
-						<picture>
-							<source srcset="default_31867800.webp" type="image/webp">
-							<source srcset="default_31867800.png" type="image/png">
-							<img src="default_31867800.png" alt="Preview of 'ffsend: A fully featured Firefox Send command line client'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/timvisee/ffsend">ffsend: A fully featured Firefox Send command line client</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31867800">
-						
-							
-								<p class="story__comment_first line-clamp">"If anyone is interested, after firefox send shutdown, i wrote https://www.relaysecret.com, its footprint is extremely small (1 lambda function that does all signing for s3 upload/download, simple frontend code that does encryption in browser using web crypto api with no 3rd party Js, no 3rd party css, no tracking. Anchor tag is used for additional random key material (so it wont leave ya browser and files will always be encrypted regardless).You can roll your own too with the terraform code in it. It costs me barely anything (never go over free tier limit) to run it because files never live more than 10 days (there is a catchall lifecycle rule on the bucket) and when users select durations, i also put them in bucket prefix that has lifecycle rule place on objects under them for that duration. Note that we can&#39;t rely on lifecycle rule all the time so i also make sure when lambda is called to access the object, it checks the time-stamp, the duration and if it is meant to expire and not yet cleaned up by s3 - lambda function deletes it.I learnt a ton of cool things about s3 after this neat little project and really dig the API, the lifecycle rule, signing url etc...Ps: for these type of tool, you should definitely mitm it to see if plaintext file or password ever leave the browser... Relaysecret does leave one item unencrypted and that is the file name. You can change it upon upload but i like to leave it there so people know what they are downloading. I have simple idea of encrypting that with just the anchor key but haven&#39;t gotten around to put that in yet."</p>
+								<p class="story__comment_others">"If I were actually going to use a method like this in real life especially for international shipping etc, I’d probably avoid using rice or beans or other plant material to avoid unnecessary inspections at customs. I feel like this would definitely get stopped and inspected, where a block of multicoloured plastic or resin might not be."</p>
 							
 						
 							
-								<p class="story__comment_others">"Did Mozilla bring this back?  Last I heard, Firefox Send was shut down due to malware/etc moderation issues.https://support.mozilla.org/en-US/kb/what-happened-firefox-s...&gt; Firefox Send has been discontinued as of September 17th, 2020. You will no longer be able to upload or receive files. We’d like to thank all of you who tried Firefox Send.&gt; We started Firefox Send as a way for you to share files safely and easily from any browser. Unfortunately, some abusive users were beginning to use Firefox Send to ship malware and conduct phishing attacks. When this problem was reported, we stopped the service. Please see the Mozilla Blog for more details on why this service was discontinued."</p>
-							
-						
-							
-								<p class="story__comment_others">"send is nice but my favorite tool by far in this category is magic wormholehttps://magic-wormhole.readthedocs.io/en/latest/welcome.htmlit only relies on a third party for a handshake rather than storing files online, so there&#39;s no limit to what you can send and it&#39;s probably less likely to go away."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.mnot.net/blog/2022/06/22/chromium-only">
-						<picture>
-							<source srcset="default_31833561.webp" type="image/webp">
-							<source srcset="default_31833561.png" type="image/png">
-							<img src="default_31833561.png" alt="Preview of 'What will a Chromium-only Web look like?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.mnot.net/blog/2022/06/22/chromium-only">What will a Chromium-only Web look like?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31833561">
-						
-							
-								<p class="story__comment_first line-clamp">"Even if Google was an absolute saint without a trillion-dollar ad business, there&#39;s still a problem of &#34;bug-compatibility&#34;.Without a second browser engine to test pages in, it&#39;s really hard to know what is a bug and what is intentional. Devs don&#39;t know all the specs by heart. They write whatever happens to work for them, but sometimes they accidentally depend on obscure edge cases in the implementation that were never meant to exist.In the long term it&#39;s paralysing for the engine maintainers, because any change in implementation could be changing some subtle behavior that breaks some pages. W3C requires two independent implementations, so that they&#39;ll share intentional behaviors, but hopefully their bugs will differ.The single-engine Web will be as fun to maintain as Windows: Windows 11 Explorer has a shiny new context menu with an option to reopen it as an older, uglier context menu, because Microsoft couldn&#39;t touch a line of code of the old context menu without breaking apps."</p>
-							
-						
-							
-								<p class="story__comment_others">"The chromium-only web is not google’s fault. It is a symptom of a body of web standards that has grown wild to the point of being all but unimplementable.Building a browser for the modern standards-based web is effectively impossible, because it costs too much, takes too long, and requires a standing army to keep up with.We are at an impasse. The standards cannot be deprecated because they are used all over the web, and because they are used all over the web a new browser maker has little choice except forking chromium or firefox. Even microsoft couldn’t afford to keep adding all the standards to their browser engine. Normally the solution for a messy overgrown implementation is a grand reboot. But we can’t do a grand reboot of the web because we cannot get rid of the legacy. The only viable strategy I see to have real browser engine diversity without giving up on compatibility is moving as much of the standards implementation as possible into JS modules, so new browser makers can start with a small engine that loads the publicly hosted  standards modules."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Hi, you seem to be browsing without being signed into Google with your government verified identity. Please do so to continue seeing the ads, I mean the internet&#34;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/mattermost/mattermost-server">
-						<picture>
-							<source srcset="default_31858829.webp" type="image/webp">
-							<source srcset="default_31858829.png" type="image/png">
-							<img src="default_31858829.png" alt="Preview of 'Mattermost – open-source platform for secure collaboration'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/mattermost/mattermost-server">Mattermost – open-source platform for secure collaboration</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31858829">
-						
-							
-								<p class="story__comment_first line-clamp">"They decided to up their price per user by a significant amount not too long ago... our self-hosted instance suddenly became more expensive than Slack but with an obviously not nearly as polished product as Slack. So we moved over to Zulip because at least they do their own thing, we haven&#39;t had any regrets over the switch to Zulip."</p>
-							
-						
-							
-								<p class="story__comment_others">"Almost four years ago someone raised the issue of multiple mattermost servers in the mobile applications (https://mattermost.atlassian.net/browse/MM-11067).Two years ago someone on the mattermost team promised the new mobile application would be there by the end of 2021.Yet in June 2022... you get the gist. Not a fan."</p>
-							
-						
-							
-								<p class="story__comment_others">"I wished my Organization would adopt Mattermost. Using it for years as a Chat to stay in touch with my friends.My Org uses MS Teams (because it is already bundled with MS 365). What Mattermost is missing is a Videochat / Videoconferencing option - there is a plugin but I didn´t tried it yet: https://mattermost.com/marketplace/microsoft-teams-meetings/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://infrequently.org/2022/06/apple-is-not-defending-browser-engine-choice/">
-						<picture>
-							<source srcset="default_31858413.webp" type="image/webp">
-							<source srcset="default_31858413.png" type="image/png">
-							<img src="default_31858413.png" alt="Preview of 'Apple is not defending browser engine choice'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://infrequently.org/2022/06/apple-is-not-defending-browser-engine-choice/">Apple is not defending browser engine choice</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31858413">
-						
-							
-								<p class="story__comment_first line-clamp">"The article does an incredible job as painting Apple as a dystopian corporation that is strangling the web with forced WebKit, but spends so little time actually refuting the statement &#34;if WebKit weren&#39;t mandated, Chromium would take over&#34;. It pretty much comes down to &#34;if Apple were forced to open their platform, they would spend money improving Safari, and user&#39;s wouldn&#39;t switch because Apple has a gorillian dollars&#34;. The author seems to ignore that Google also has a gorillian dollars, plus the added inertia of Chromium itself, plus the pervasive network of Search and YouTube that would shove ads for Chrome down the throats of users. Money alone, even billions, cannot create a competitive browser engine. Microsoft tried. I&#39;m not sure that, if you actually cared about browser diversity, that forcing Apple to open up iOS and then hoping they don&#39;t mismanage Safari trying to compete with Chrome is a losing bet."</p>
-							
-						
-							
-								<p class="story__comment_others">"To me, I felt this take was so disconnected from my reality as a user that I didn&#39;t even know where to start.Looking at the author bio, I can see he&#39;s very invested in the Blink project so it&#39;s difficult to shake the feeling that by arguing for &#34;browser diversity&#34;, he&#39;s simply pushing for increased Blink dominance.If one truly wanted to get more diversity in the Browser space, the number one objective should be getting Google to divest from the Chrome project. This would finally create space for other players to come in and have real influence over the future of the web.As it is today, everything Web-related gravitates around what Google wants. Apple is not playing ball, and so Google is getting the community to push regulators to intervene and make them kneel.Well, that&#39;s my view at least, maybe I&#39;m too cynical."</p>
-							
-						
-							
-								<p class="story__comment_others">"It’s not just WebKit. Devs can’t extent WebKit very much. Orion is trying but they’ve barely gotten anything done on the iOS extension side. There are limitations on what you can do by linking into the iOS web browser API, it seems.I recently switched to Mac with  great success. So I decided to try out the iPhone. I hadn’t used one for years and I was sick of Android.I’m still no great fan of Android. And so many little things are better on iOS.However, the SINGLE BIGGEST THING is absolutely broken. Browsing on iOS is unusable if you’re used to uBlock Origin. I can run that on Fennec/Firefox. I cannot do so on iOS. I was hoping the content blockers and extensions might come close. They do not in any way.I don’t even REALLY like FF and I don’t like Android but those are the options if I want browsing that doesn’t suck.Or maybe I’m missing something and someone can enlighten me before I return the iPhone."</p>
+								<p class="story__comment_others">"My wife (shameless plug: https://messyplaykits.com) recommends liquid water colors instead of food coloring (cheaper and better color).Colorations brand from discount school supply or amazon works well for her and she makes a lot of colorful rice!"</p>
 							
 						
 						</a>
