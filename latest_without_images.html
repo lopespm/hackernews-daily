@@ -33,29 +33,43 @@
 	</div>
 
 	
-	<div class="day__date">28 June 2022</div>
+	<div class="day__date">29 June 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://architecturenotes.co/things-you-should-know-about-databases/">Things to know about databases</a></h3>
+					<h3><a href="https://github.com/kuprel/min-dalle">Show HN: I stripped DALL·E Mini to its bare essentials and converted it to Torch</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31895623">
+						<a href="https://news.ycombinator.com/item?id=31903076">
 						
 							
-								<p class="story__comment_first line-clamp">"This article is informative.  I have found that databases in general tend to be less sexy than the front-end apps...especially with the recent cohort of devs. As an old bastard,  I would pass on one thing:  Realize that any reasonably used database will likely outlast the applications leveraging it. This is especially true the bigger it gets, and the longer it stays in production.  That said, if you are influencing the design of a database, imagine years later what someone looking at it might want to know if having to rip all the data out into some other store.  Having migrated many legacy systems, I tend to sleep better when I know the data is well-structured and easy to normalize.  In those cases, I really don&#39;t care so much about the apps.  If I can sort out (haha) the data, I worry less about the new apps I need to design.  I have been known to bury documentation into for-purpose tables...that way I know that info won&#39;t be lost.  Export the schema regularly, version it, check it in somewhere.  And, if you can, please, limit the use of anything that can hold a NULL. Not every RDBMS handles NULL the same way.   Big old databases live a looooong time."</p>
-							
-						
-							
-								<p class="story__comment_others">"#1 thing you should know, RDBMS can solve pretty much every data storage/retrieval problem you have.If you&#39;re choosing something other than an RDBMS - you should rethink why.Because unless you&#39;re at massive scale (which still doesn&#39;t justify it), choosing something else is rarely the right decision."</p>
+								<p class="story__comment_first line-clamp">"If people just want to run text to image models locally by far the easiest way I&#39;ve found on Windows is to install Visions of Chaos.It was originally a fractal image generation app but it&#39;s expanded over time and now has a fairly foolproof installer for all the models you&#39;re likely to have heard of (those that have been released anyway).https://softology.pro/tutorials/tensorflow/tensorflow.htm"</p>
 							
 						
 							
-								<p class="story__comment_others">"Great post. Also highly recommend Designing Data-Intensive Applications
-by Martin Kleppmann (https://www.amazon.com/Designing-Data-Intensive-Applications...). The sections on &#34;Storage and Retrieval&#34;, &#34;Replication&#34;, &#34;Partitioning&#34; and &#34;Transactions&#34; really opened up my eyes!"</p>
+								<p class="story__comment_others">"I guess we will have text-to-image startups in the next batch of YC."</p>
+							
+						
+							
+								<p class="story__comment_others">"I spun up an aws ubuntu ec2 with 2 Tesla M60. When I run
+python3 image_from_text.py --text=&#39;alien life&#39; --seed=7I get this error
+detokenizing image
+Traceback (most recent call last):
+  File &#34;/home/ubuntu/work/min-dalle/image_from_text.py&#34;, line 44, in &lt;module&gt;
+    image = generate_image_from_text(
+  File &#34;/home/ubuntu/work/min-dalle/min_dalle/generate_image.py&#34;, line 74, in generate_image_from_text
+    image = detokenize_torch(image_tokens)
+  File &#34;/home/ubuntu/work/min-dalle/min_dalle/min_dalle_torch.py&#34;, line 107, in detokenize_torch
+    params = load_vqgan_torch_params(model_path)
+  File &#34;/home/ubuntu/work/min-dalle/min_dalle/load_params.py&#34;, line 11, in load_vqgan_torch_params
+    params: Dict[str, numpy.ndarray] = serialization.msgpack_restore(f.read())
+  File &#34;/usr/local/lib/python3.10/dist-packages/flax/serialization.py&#34;, line 350, in msgpack_restore
+    state_dict = msgpack.unpackb(
+  File &#34;msgpack/_unpacker.pyx&#34;, line 201, in msgpack._cmsgpack.unpackb
+msgpack.exceptions.ExtraData: unpack(b) received extra data."</p>
 							
 						
 						</a>
@@ -68,25 +82,22 @@ by Martin Kleppmann (https://www.amazon.com/Designing-Data-Intensive-Application
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://medium.com/@ryanbadger/magic-links-can-end-up-in-bing-search-results-rendering-them-useless-37def0fae994">“Magic links” can end up in Bing search results, rendering them useless</a></h3>
+					<h3><a href="https://github.com/hackclub/some-assembly-required">Some Assembly Required: An approachable introduction to assembly</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31892299">
+						<a href="https://news.ycombinator.com/item?id=31909183">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;ve had to deal with this with e-mail verification links and Auth0. 
-The user clicked the link after getting it in their mailbox but then Auth0 throws up an error page because the e-mail address has already been verified (by Outlook scanning). 
-The problem becomes worse if for some reason the mail ends up in the junk mail folder so the user thinks they&#39;ve never received the mail but when you check it looks like the e-mail address was verified successfully.
-That has caused a lot of annoying back and forth trying to figure out what the hell is going on. We ended up adding a custom page to handle e-mail validation so we could handle the situation where the user lands on the page and the address has already been verified. Super annoying."</p>
+								<p class="story__comment_first line-clamp">"It was so fun working with Hack Clubbers on this project!Hack Club is a group of teenagers from all over the world, and we decided to learn assembly together from scratch and see what happened.We ended up making this guide as we learned, since a lot of the resources we were working with weren&#39;t the easiest to parse.Happy to answer any questions :)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Microsoft does this because they&#39;re security scanning / checking all links in every Outlook email for known phishing and malware attacks. If Bing has not seen the web page  before and it&#39;s not in the Bing dangerous web page index it first needs to check it to make a determination of if it&#39;s a phishing/malware page by scanning/indexing  it before returning that outcome back to Outlook to flag the email as dangerous."</p>
+								<p class="story__comment_others">"My favorite part is the heavily commented code examples. Those are much more useful for increasing my understanding than most other resources. To me, that level of information density just works better for my brain than articles or sites that try to explain things.Something about being _in the code_ while stepping through lines one by one with explanations is just so much easier to follow. I wish more learning resources took this approach."</p>
 							
 						
 							
-								<p class="story__comment_others">"Outlook will only send GET requests, which are idempotent unless you&#39;re ignoring the spec. A message saying &#34;this code has already been used&#34; after sending a GET request is a bug.I don&#39;t see the problem here, all services need to do is add a page that&#39;s says &#34;welcome back, $Username, click here to log in!&#34; that sends a POST request to do any serious confirmation without breaking any specifications.Microsoft claims the visiting not is BingBot but it&#39;s probably just SmartScreen system checking for malicious links/downloads/etc. like many cloud integrated security products do these days.I can set my browser to pretend I&#39;m BingBot, you can&#39;t derive anything meaningful from the user agent. Unless you find your secret URLs in Bing&#39;s search results, your secret links aren&#39;t actually being monitored by a search engine."</p>
+								<p class="story__comment_others">"I basically learned C++ and assembly programmer at the same time when I was 16 by just watching the output of gcc.godbolt.org (yes ok zoomer)"</p>
 							
 						
 						</a>
@@ -99,22 +110,22 @@ That has caused a lot of annoying back and forth trying to figure out what the h
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/OpenWebAdvocacy/status/1541318055636369409">Apple&#39;s claim is that it bans other browsers for security</a></h3>
+					<h3><a href="https://posthog.com/blog/what-to-ask-in-interviews">Job interview questions engineers should ask, but don&#39;t</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31894690">
+						<a href="https://news.ycombinator.com/item?id=31906933">
 						
 							
-								<p class="story__comment_first line-clamp">"I’m going to ignore the security angle and post my big fear.Chrome has dominance similar to IE at the height of its popularity.Whatever you think of their decisions, Apple is the only thing stopping a 90%+ Chrome web. (Note: not why they’re doing it, just a side effect)People keep arguing Apple is being anti-competitive. But no one seems to recon with the possible consequences of what they’re asking for. And I fear we may get a pyrrhic victory if these groups/governments keep pushing.No, I don’t know a good solution. But I don’t think letting Chrome totally own the web is a good outcome."</p>
-							
-						
-							
-								<p class="story__comment_others">"Comparing CVE counts is a bit nonsensical. For instance, Chrome and Firefox don&#39;t individually assign CVEs for internally reported vulnerabilities.For instance, in these patch notes Chrome lists &#34;Various fixes from internal audits, fuzzing and other initiatives&#34; and doesn&#39;t even look to have a CVE:https://chromereleases.googleblog.com/2022/05/stable-channel...Or for Firefox, there&#39;s a dozen or so bundled together in a single CVE under &#34;Memory safety bugs fixed in Firefox 101&#34;:https://www.mozilla.org/en-US/security/advisories/mfsa2022-2..."</p>
+								<p class="story__comment_first line-clamp">"A lot of this can be simplified to three questions:1. What problem is your company solving?If you don&#39;t get an answer, beware. If the answer sounds vague, beware. If the answer makes no sense, beware. If the answer is multifaceted, beware. This suggests that the company will not even begin the process of becoming profitable.2. Who has this problem?You should get a clear picture of an actual person. If not, beware. If that person has no money, beware. If that person has no pull within an organization, beware. If that person is high maintenance or fickle, beware. This suggests that the company will never find the revenue they seek.3. What&#39;s your solution?If the solution doesn&#39;t actually address the problem, beware. If the solution is too expensive for the customer, beware. If the solution can&#39;t be differentiated from its competitors, beware. If the solution has no competitors, beware. If there are a dozen solutions, beware. This suggests that no matter how amazing the technology or technical team, the company will not be able to execute on its business plan."</p>
 							
 						
 							
-								<p class="story__comment_others">"Apple claiming security as a reason for monopoly, how classic.The EU&#39;s digital markets act bans the only Safari lock on IOS, so this is gone whether apple likes it or not. (1 - sorry couldn&#39;t find a better source)Safari is the new IE, there is a difference between a monopoly while still being able to use a competing product (like chrome in other platfroms), and forcing Safari(WebKit) while hindering the web because of Apples interests.(2-3)1. https://www.fudzilla.com/news/54763-apple-loses-out-in-the-d...2.https://www.theregister.com/2022/05/23/opinion_column/3.https://www.theregister.com/2022/06/14/telegram_safari/"</p>
+								<p class="story__comment_others">"For a large list of not-startup-oriented questions, I maintain a collection here: https://github.com/viraptor/reverse-interview/"</p>
+							
+						
+							
+								<p class="story__comment_others">"One question I always ask, that seems to always get good results:&#34;Are you happy here?&#34;Have you ever watched an interviewer change from upbeat to depressed in moments? Have you ever seen a person turn a shade of grey? Have you ever watched your interviewers start to argue about what the meaning of true happiness might be, before conceding that neither of them were happy?My all time favorite, from a gentleman at TD Waterhouse, nearly 20 years ago:&#34;Is anyone really ever happy at work?&#34;They made an offer, I didn&#39;t accept. Nearly everyone in Corporate America looks visibly depressed. Doubly so in our new COVID world.Someone remind me what the point of all this is again? Because I&#39;m not really sure I get it anymore."</p>
 							
 						
 						</a>
@@ -127,22 +138,22 @@ That has caused a lot of annoying back and forth trying to figure out what the h
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://palladiummag.com/2022/06/09/why-america-cant-build/">Why America can’t build</a></h3>
+					<h3><a href="https://deno.com/blog/fresh-is-stable">Fresh is a new full stack web framework for Deno</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31890048">
+						<a href="https://news.ycombinator.com/item?id=31908170">
 						
 							
-								<p class="story__comment_first line-clamp">"It&#39;s not just in megaprojects either. In my large, fairly dense US city, basic, easy-to-build, local infrastructure like adding a 1-mile bike lane to a straight street is impossible because a handful of NIMBYs are constantly taken seriously by local politicians.My city has many bike lanes that are popular and well-used, as well as a bike-share program that is extremely popular. It also has a large number of cyclist deaths - including children! - due to the spottiness of existing bike infrastructure and overall lack of protected bike lanes. It seems like improving that infrastructure would be both easy, cheap, and popular, given the popularity of cycling and its existing infra, and the cheapness of plopping a concrete barrier onto a street. But no - the second anyone mentions protected bike lanes, a handful of NIMBYs write in with &#34;but muh cars&#34; and the politicians throw up their hands and surrender.I don&#39;t understand why NIMBYs have been taken so seriously in the US in the past 50 years. It seems like at any point in history, any local project will be opposed by somebody, no matter who they are or what the project is. But previous generations seemed to be able to get over that in favor of building. For today&#39;s generation it seems like doing nothing has become better than doing something. If this were the 1900s, government would have told the NIMBYs to get bent, we&#39;re building Thing X because it&#39;s good for society and if you don&#39;t like it, tough. That&#39;s what living in city means sometimes!"</p>
-							
-						
-							
-								<p class="story__comment_others">"One of the things I love about Palladium (and closely related, Samo Burja&#39;s newsletter) is the depth of research.Like the detail that one of the most egregious episodes from California HSR involved a Spanish company that performed excellently on rail projects in Spain. Overall, this piece makes a strong case that the problem is specifically NIMBYism and loss of government institutional capacity.I think the million dollar question is how government organizations can hire and retain better. The current situation looks dire. Obviously a charismatic leader with a broad anti-NIMBY mandate would go a ways at getting competent people to want to work in government. You saw that succeed on a small scale with orgs like US Digital Service.The elephant, after that, is merit-based pay and promotion. Someone needs to sell this to the public. RN literally random cops and plumbers make mid six figures thru overtime while the directors of $100b mega-project are low-energy lifers making less than that. That&#39;s not gonna work."</p>
+								<p class="story__comment_first line-clamp">"Previous discussion on Fresh: https://news.ycombinator.com/item?id=31720110"</p>
 							
 						
 							
-								<p class="story__comment_others">"A friend has worked in construction project management for almost 40 years, mostly in Texas. A few years ago, he moved to San Francisco to work on the Van Ness project, which was approved in 2003, began construction in 2017 (!), went $40 million over budget, and finally completed this year. The project essentially added a median and some bus lanes to a two mile stretch of road through San Francisco and took 19 years.During his time in SF, no construction took place—so he told me he would essentially go into the office and do nothing while waiting for various city hearings to happen. After 8 months, he quit in frustration and moved back to Texas."</p>
+								<p class="story__comment_others">"This can be the killer app that Deno needs. As of now there is no specific reason for most of the people to try Deno as Node with its plethora of frameworks works and every one can choose their stack as per their taste. But if they can make Fresh sufficiently better (more cohesive and/or performant on both client and server side) and more feature rich on the backend (ORM + Workers/Queuing) with instant deploy then more people might consider switching."</p>
+							
+						
+							
+								<p class="story__comment_others">"In 2007 I was writing websites that were mostly rendered on a server, with JavaScript used selectively in some places for interactivityI remember writing at the time that moving everything to the client was solving one problem (poor encapsulation of JavaScript-powered front-end components) with another (needlessly rendering everything on the client)The industry moved toward CSR anyway, and I had to learn it to continue having a job. And now, here we are.Why do we do this to ourselves as an industry?"</p>
 							
 						
 						</a>
@@ -155,22 +166,22 @@ That has caused a lot of annoying back and forth trying to figure out what the h
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.cnbc.com/2022/06/27/three-arrows-capital-crypto-hedge-fund-defaults-on-voyager-loan.html">Three Arrows Capital has defaulted on a loan worth more than $670M</a></h3>
+					<h3><a href="https://www.ft.com/content/cff23e36-b507-4717-8830-8b06741c8fd5">Mastercard and visa are the de facto regulators of porn</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31895820">
+						<a href="https://news.ycombinator.com/item?id=31912763">
 						
 							
-								<p class="story__comment_first line-clamp">"I always have mixed feelings when someone is warned about the riskiness / foolishness / stupidity of a course of action, and then suffers for it.On the one hand, there&#39;s a certain satisfaction or Schadenfreude in the sense of vindication. And it&#39;s pleasant to feel like my own wisdom or self-control has been validated.OTOH, I know that everyone has limited wisdom / self-control / intelligence, including me.  So it seems hypocritical to mock someone who trips, knowing that I&#39;m just lucky to sometimes avoid the hazards that would trip me up.In the end, about the only conclusions I&#39;m really confident in is that trouble besets us all, and usually it&#39;s good to default to kindness and sympathy.EDIT FOR CLARIFICATION: I&#39;m not saying that I want swindlers to succeed.  I want such predation crushed into dust.  My comment is about the people who don&#39;t intend harm to others."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Prominent crypto hedge fund Three Arrows Capital has defaulted on a loan worth more than $670 million. Digital asset brokerage Voyager Digital issued a notice on Monday morning, stating that the fund failed to repay a loan of $350 million in the U.S. dollar-pegged stablecoin, USDC, and 15,250 bitcoin, worth about $323 million at today’s prices.In other words, the $670 million that 3AC defaulted on was ~50:50 USDC and bitcoin.Then later:&gt; Zhu [3AC founder] is known for his incredibly bullish view of bitcoin. He said last year the world’s largest cryptocurrency could be worth $2.5 million per coin. But in May this year, as the crypto market began its meltdown, Zhu said on Twitter that his “supercycle price thesis was regrettably wrong.”This seems odd. How does a person convinced that bitcoin exchange is headed to $2.5 million take out a loan of 15K bitcoin if he actually thinks he&#39;ll be paying back it back at a higher exchange rate? Either the founder was bullish in principle but bearish in practice, or didn&#39;t have the first clue about what he was doing."</p>
+								<p class="story__comment_first line-clamp">"https://archive.ph/zXKuD"</p>
 							
 						
 							
-								<p class="story__comment_others">"I really don’t understand the business model of making massive fiat loans to “firms” to buy bitcoin. If crypto goes up, you get a small amount of interest. If crypto goes down, you lose everything. What? Lol. Just spend a fraction of the sum on bitcoin and do something safe with the rest. What was the plan?Edit: I guess when someone has “20 billion dollars” a 700mm loan doesn’t seem like a big risk."</p>
+								<p class="story__comment_others">"Personally I think they should not be able to decide such things. A payment provider should be forced to accept all legitimate customers. It is absolutely unwanted for a private business (in an unrelated category no less) to be playing the role of legislator.The problem is once a majority of payment providers (especially in this category where there&#39;s only really 2 major ones) starts blocking things, it becomes really difficult for fringe groups that are in fact perfectly legal. I understand that porn payments are a bit more risky but the providers can simply have a policy to deny chargebacks for this category and shift the risk to the customer. Similar to the way returns of sex toys are not accepted for hygiene reasons.Recently there was a lot of news in the Netherlands about prostitutes not being able to open bank account because all banks refused them. Think of prostitution what you will but over there it&#39;s legal work and they pay their taxes. But not being able to get a bank account gets them into very difficult situations and pushes them to shady people (which was exactly what the legalisation was avoiding).Also other platforms like fetlife have recently been forced to validate their users, leading to potentially serious consequences if this data ever becomes compromised. Many people there don&#39;t even show their face so the result is that they have to give a lot more personal info now than they would have wanted to."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; A section on furries, an online subculture interested in anthropomorphic animal characters with human personalities, reads “content that depicts furries and humans engaged in sexual acts are not permitted across the board. Content that depicts furry engaged in sexual acts with another furry is acceptable across the board.” Lest that leave any room for misinterpretation: “Please note, per Visa ­regulations a furry that contains human-like characteristics is not permitted.” So, no half-man, half-furry.Oh, what I would give to be a fly on the wall in that meeting"</p>
 							
 						
 						</a>
@@ -183,40 +194,26 @@ That has caused a lot of annoying back and forth trying to figure out what the h
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/prql/prql">Show HN: PRQL 0.2 – a better SQL</a></h3>
+					<h3><a href="https://tuxphones.com/mnt-pocketreform-open-hardware-linux-pda-keyboard-arm/">The PocketReform is a made-in-Berlin Linux handheld</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31897430">
+						<a href="https://news.ycombinator.com/item?id=31903480">
 						
 							
-								<p class="story__comment_first line-clamp">"Previous discussion: PRQL – A proposal for a better SQL
-https://news.ycombinator.com/item?id=30060784"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m surprised that none of the examples on Github or the website deals with join. I eventually found some in the &#34;book&#34; here: https://prql-lang.org/book/transforms/join.html    from employees
-    join side:left positions [id==employee_id]
-
-turns into    SELECT
-      employees.*,
-      positions.*
-    FROM
-      employees
-      LEFT JOIN positions ON id = employee_id
-
-I would love to see joins worked into the main learning examples. Without join, the examples lack a bit of the &#34;relation&#34; part; we could just as easily be compiling a DSL to a chain of `array.filter`, `array.reduce`, `array.map` calls. Joins are what makes relational modeling interesting!I would love to see Datalog/SPARQL-style implicit joins to make graph traversals like &#34;which users have edited documents I own?&#34; less verbose."</p>
+								<p class="story__comment_first line-clamp">"As an author of pinephone keyboard firmware, I spent a bit of time thinking and trying to use keyboard like this. I can say that what hinders portability/serious use of all of these layout designs that try to emulate regular big keyboard is that they try to emulate big keyboard layout. That layout is made with an asumption that you have many fingers available, and that they can easily reach anywhere if you like.If you have only two thumbs available for typing, that can only reach about half the keyboard each (quite a hard limit!), you realize how asumptions this layout makes suddenly don&#39;t hold, and normal things like ctrl+a or alt+shift+1, or alt+shift+any arrow are almost impossible.Yes, you can modify the shortcuts in i3wm,screen,... (not Firefox, which is quite resistant to modifying keyboard shortcuts by design) specially for your &#34;PDA&#34;. But  if you just want a portable device you can painlessly migrate your tasks to for a few days a year, spending a lot of time designing shortcuts for your DE, or terminal multiplexer, is not that appealing.It would be probably more useful if key layout was designed from the start to allow various modifier combos to be invoked by dedicated keys, or layout designed so that more modifiers were symetricaly placed (or something even less traditional, and have all letter/number keys on the right and all modifier/modifier combos/special keys on the left), instead of wasting space on big enter key, or big spacebar (for which you may spend several HW iterations just to make those right and reactive on their whole surface), etc. Due to size, it&#39;s usually uncomfortable to press 3 key combos even with the keyboard laying on the table.Also comfortable position for the most comonly used keys (usually modifiers) is not on the edge of the keyboard. That&#39;s really pretty bad for your thumbs.The layout of these things just needs a lot more thought.Sad thing is, that if someone would spend a ton of research and thinking on making something usable and comfortable, most people would completely poopoo it as a freaky unusable layout, just because it would look unfamiliar, lol."</p>
 							
 						
 							
-								<p class="story__comment_others">"For those interested in database query languages, it is worth knowing about Datalog, the query language behind Datomic, XTDB and Datahike: http://www.learndatalogtoday.org/E.g. a parameterised aggregate query that retrieves the name and average rating of a film starring cast members whose names match the input names:    [:find ?name (avg ?rating)
-     :in $ [?name ...] [[?title ?rating]]
-     :where
-     [?p :person/name ?name]
-     [?m :movie/cast ?p]
-     [?m :movie/title ?title]]
-
-To reveal the answer, click on tab labelled &#34;3&#34; and then &#34;I give up!&#34;: http://www.learndatalogtoday.org/chapter/7"</p>
+								<p class="story__comment_others">"Ugh, every time I see a device like this (and even the larger Reform) I&#39;m so tempted. But I learned my lesson form-factor wise with the GPD Win Max: even as a travel laptop it&#39;s painfully small after about a day or two of use. And the sad reality is that the performance-freedom tradeoff is still immense. If we assume the best system module is faster than say a Raspberry Pi 4 (which seems optimistic), it&#39;d still get absolutely walked by an 11-year old i5 (e.g., Tx20 generation Thinkpad which are coreboot-able these days).Any kind of performance-critical stuff is clearly not the point, but it&#39;s hard to not think that smartphones have killed off this form-factor/performance tier for good reason. Makes a lot of sense as a Raspberry Pi with a screen and keyboard, but not really as a &#34;laptop.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m fascinated, ongoingly by a Linux phone. I spent effort making many versions of the Sharp Zaurus cellular(ish) back in the day, even going as far as writing a sync tool for Evolution back in 2003. I&#39;d love a Linux cellphone.  My needs are very simple, and I&#39;d love to know the state of anything that can (and with stability).1. Be a decent phone (voice, sms)
+2. Contacts/Mail/Calendar sync
+3. Run android apps that require voice (Telegram, Signal, WhatsApp, etc)?
+4. Take pictures + videos (not even at a high level)
+5. eSIMEverything else is gravy. But those 5 items are the base requirement that I personally have for a phone. Every time I dip in, it&#39;s at best unclear."</p>
 							
 						
 						</a>
@@ -229,22 +226,22 @@ To reveal the answer, click on tab labelled &#34;3&#34; and then &#34;I give up!
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://manybutfinite.com/post/what-does-an-idle-cpu-do/">What does an idle CPU do? (2014)</a></h3>
+					<h3><a href="https://blog.thunderbird.net/2022/06/thunderbird-102-released-a-serious-upgrade-to-your-communication/">Thunderbird 102 Released</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31887202">
+						<a href="https://news.ycombinator.com/item?id=31914288">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; if the CPU is consistently busy for a normal userIt&#39;s probably Windows Store going bonkers with some insane backlog of periodic tasks, because you didn&#39;t open your laptop for a few months, that it absolutely at all costs must process for some reason, especially during a power outage when you&#39;re running on battery and need to use your laptop for once."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a good overview, but even by 2014 we weren&#39;t calling hlt - there&#39;s a few problems there. Imagine the situation where you fork() a process on one CPU, and you have another CPU that recently called hlt. Ideally you&#39;d schedule it immediately instead of waiting for the next scheduler interrupt, but sending interrupts from one CPU to another (to break it out of hlt) is kind of expensive. The replacement is an instruction called mwait, which will (like hlt) wake the CPU up on interrupts, but will also wake up the CPU on a write to a specific memory address. If you want to wake up an idle CPU, the working CPU can just do that memory write and then the idle CPU will wake up back into the scheduler and figure out it has work to do.(Edit: there are still actually some circumstances in which hlt is called rather than mwait, but this is very CPU dependent and is based on vendor recommendations. Also, before mwait showed up, switching to deep CPU power saving states tended to involve performing magic IO port accesses rather than calling hlt, and yes the world was worse back then)"</p>
+								<p class="story__comment_first line-clamp">"There is of course a flood of negative comments...So in the interest of balance I have to say thunderbird is a excellent program. I use it as my daily driver in work and for personal use.It has so many features that puts me, the user, in control that I totally take them for granted until I have to use outlook for something.I use it in a multinational, I used it with exchange and now with office 365. People can complain away but there are many like me who rely on it every single day and it has a real, positive impact on our work lives every single day.Some days are just email client and Web browser, and without thunderbird and Firefox working for me as the user...... I dunno, work would be a lot more frustrating I guess. MASSIVE thanks to all the contributors to thunderbird!"</p>
 							
 						
 							
-								<p class="story__comment_others">"In the days before MMU&#39;s and fancy DRAM controllers and newer DRAM chips the CPU had to do memory refresh during &#34;idle&#34; time."</p>
+								<p class="story__comment_others">"&gt; One of the core philosophies behind the development of Thunderbird 102 was doing more with less.&gt; ...you’ll find out-of-box support for the popular, decentralized chat protocol Matrix in Thunderbird 102Personally, I see these two statements as being directly contradictory. I&#39;m glad to see Thunderbird&#39;s maintenance continuing well, but I want it to be a focused app. On the other hand, I have been glad to have out of the box Lightning integration, so perhaps I will come to enjoy the Matrix addition as well."</p>
+							
+						
+							
+								<p class="story__comment_others">"A few months ago I was tasked with switching our office from Gmail&#39;s web interface to Thunderbird and it&#39;s gone surprisingly well. Usually new software meets a lot of resistance and complaints from the staff, but I&#39;ve heard mostly praise.I&#39;ve been playing around with a testing version (beta? nightly? can&#39;t remember) and am very excited about the chat integration. I&#39;m not sure if it will be useful in the office, which is small enough for people to just talk to one another, but it could come in handy in some circumstances where we&#39;d normally use an email chain."</p>
 							
 						
 						</a>
@@ -257,22 +254,22 @@ To reveal the answer, click on tab labelled &#34;3&#34; and then &#34;I give up!
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://sabukaru.online/articles/the-watch-for-which-james-bond-gave-up-his-rolex-the-seiko-tv-watch">The Seiko TV watch</a></h3>
+					<h3><a href="https://www.technologyreview.com/2022/05/03/1051691/meta-ai-large-language-model-gpt3-ethics-huggingface-transparency/">Meta is inviting researchers to pick apart the flaws in its version of GPT-3</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31874318">
+						<a href="https://news.ycombinator.com/item?id=31897101">
 						
 							
-								<p class="story__comment_first line-clamp">"Try this exercise:Hold your arm so a watch strapped on top of your wrist would be facing toward your eyes for easy viewing of its display.If you have a smartwatch, or any kind of watch, you do this many times a day.Now hold your arm in that position for 30 or 60 minutes to watch an entire TV show. You can take a break during the commercials.Enjoying that? Probably not.With a [smart]watch, you only glance at it a bit here and there. You don&#39;t try to view it continuously.It is interesting to see a very clever product idea that completely ignores human anatomy."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t get it. If I still have to carry around a walkman-like thing, why bother with the watch? Why not put the screen on the walkman-like thing, and eliminate the wire through my sleeve?"</p>
+								<p class="story__comment_first line-clamp">"Link to original blog post by Meta (3 May 2022)https://ai.facebook.com/blog/democratizing-access-to-large-s..."</p>
 							
 						
 							
-								<p class="story__comment_others">"My dad was a huge fan of Sony’s Watchman series of portable TVs. He had 2 or 3 different models. In the 1990s, I would steal them when I’d go on school trips in elementary school so I wouldn’t miss my TV shows. The limitation of antenna stuff made it less than ideal in a moving vehicle, but being able to watch Melrose Place on a bus in third grade instead of Homeward Bound or The Sandlot was pretty dope.Which is all to say, very young filmgirl would have loved this shit."</p>
+								<p class="story__comment_others">"The logbook is awesome: https://github.com/facebookresearch/metaseq/blob/main/projec...This is the true secret sauce -- all the tricks on how to get these things to train properly that aren&#39;t really published."</p>
+							
+						
+							
+								<p class="story__comment_others">"Really concerning to me that people find the luddite argument so persuasive and that it gets so much play in the press. The crux of the argument from the outside &#34;ethicists&#34; quoted in the article is something like.&#34;This new piece of technology might be dangerous and we don&#39;t fully understand it, so we should not poke at it or allow people to study it.&#34;Maybe there&#39;s just something about my personality that is deeply at odds with this sentiment, but it&#39;s also about the lack of testable predictions coming from people like this. Their position could be taken about literally anything with the same logical justification. It&#39;s a political and emotional stance masquerading as a technical or scientific process."</p>
 							
 						
 						</a>
@@ -285,22 +282,22 @@ To reveal the answer, click on tab labelled &#34;3&#34; and then &#34;I give up!
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://deepsource.io/blog/python-3-11-whats-new/">What&#39;s New in Python 3.11?</a></h3>
+					<h3><a href="https://thereload.com/new-california-ag-website-leaks-massive-trove-of-gun-owner-private-information/">Gun owners’ private information leaked by California Attorney General</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31888624">
+						<a href="https://news.ycombinator.com/item?id=31910724">
 						
 							
-								<p class="story__comment_first line-clamp">"I’ll just say. Since about 3.6/3.8 the language has been growing huge. Like C++ huge.I liked f-strings. Asyncio has its place but is waaay overused. Typing was a cool idea, but so awkward in practice.All of it has really turned me off, personally. It’s getting to where reading libraries is just painful.  The simplicity of the language was really beautiful and when I wanted type safety, etc. I’d use something else.  I can still write simple Python, but it’s more all the other code I need to grok.I find myself going to Go more and more for stuff I used to use Python for. It’s easier to set up a dev environment for other people, easier to distribute code, and gives me type safety and concurrency as first class citizens while being a very small language.I miss dictionary comprehensions and other shortcuts from time to time. But it actually feels more ergonomic now.All personal opinion. I’m fine shifting languages.  I still write C from time to time to bang bits.  I play with various LISPs to exercise my brain.  I never used Python for performance critical code.  I guess ML is changing that need.But I know others that want Java to have functional features and Python to have this stuff.I’m not saying I’m “right”, just uncomfortable in a place I used to love to hang out in."</p>
-							
-						
-							
-								<p class="story__comment_others">"Crickey:&gt; Python 3.11 is up to 10-60% faster than Python 3.10. On average, we measured a 1.25x speedup on the standard benchmark suite. See Faster CPython for details.* https://docs.python.org/3.11/whatsnew/3.11.html* https://docs.python.org/3.11/whatsnew/3.11.html#faster-cpyth..."</p>
+								<p class="story__comment_first line-clamp">"For those that don&#39;t understand the implication of this: Criminals get guns through burgling and robbery. By included such detailed information on who&#39;s a registered gun owner, where they live, etc. It makes the gun owner a lucrative target.I&#39;m staunchly pro regulation but this even I can&#39;t understand. Like someone just did SELECT * FROM GunOwnersDB and pushed is straight to the web."</p>
 							
 						
 							
-								<p class="story__comment_others">"Better error messages is something that literally every single language/framework/library should prioritize. It improves users lives by more than almost everything else besides correctness. It’s been great to see the improvements in python."</p>
+								<p class="story__comment_others">"Good job, jackasses, now this will get trotted out as an example against anything that ties a name to a firearm (i. e., registration). And though I might fall in with the &#34;if not Sandy Hook, then what is it going to take?&#34; crowd, I can&#39;t say it&#39;s an invalid argument. I mean, a government is unlikely to be so bold as to just outright publish the PII. But what if we suffered a &#34;data breach&#34;? If it&#39;s the way I&#39;d do it, is it really a conspiracy theory? :-)"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is made possible - ultimately - by the absence of criminal and statutory civil penalties for exposure of confidential data. Congress (gotta be federal) needs to jump on this for domestic and national security reasons, but the tech/data/corporate lobby will fight this to the bitter end."</p>
 							
 						
 						</a>
@@ -313,22 +310,22 @@ To reveal the answer, click on tab labelled &#34;3&#34; and then &#34;I give up!
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://dys2p.com/en/2021-12-tamper-evident-protection.html">Detecting unauthorized physical access with beans, lentils and colored rice</a></h3>
+					<h3><a href="https://world.openfoodfacts.org">Open Food Facts – a food products database made by everyone, for everyone</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31897530">
+						<a href="https://news.ycombinator.com/item?id=31898218">
 						
 							
-								<p class="story__comment_first line-clamp">"Lovely work.  Here&#39;s a similar project where I showed that randomly-placed multicolored candy particles (nonpareils) can be used to confirm the authenticity of pharmaceuticals:  https://www.nature.com/articles/s41598-022-11234-4"</p>
-							
-						
-							
-								<p class="story__comment_others">"If I were actually going to use a method like this in real life especially for international shipping etc, I’d probably avoid using rice or beans or other plant material to avoid unnecessary inspections at customs. I feel like this would definitely get stopped and inspected, where a block of multicoloured plastic or resin might not be."</p>
+								<p class="story__comment_first line-clamp">"OpenFoodFacts offers variety of options to consume their data: https://world.openfoodfacts.org/data. From my experience, their coverage for packaged foods from various countries is amazing, though it can be fairly noisy.In US, USDA provides a more curated dataset through FoodData Central (https://fdc.nal.usda.gov/) - smaller dataset but higher quality (nutrient coverage, number of samples tested, etc)."</p>
 							
 						
 							
-								<p class="story__comment_others">"My wife (shameless plug: https://messyplaykits.com) recommends liquid water colors instead of food coloring (cheaper and better color).Colorations brand from discount school supply or amazon works well for her and she makes a lot of colorful rice!"</p>
+								<p class="story__comment_others">"I&#39;ve worked in this industry for many years. Everything you see or read is all being controlled by the manufactures of the ingredients + the manufactures of the product to finally being label under controlled agencies by them.I&#39;m not being harsh , or stating that openfoodfacts is not good or the info you get is not real / valid. they basically have what they gave them.The industry (food and cosmetic) is in the paleolithic era , everything is being send and share on .csv or with proprietaries API (exam Nilsen), data aggregators using  GS1 which is horrible, being parsed by some kind of ML algos that companies are writing , trying to uniform product data,  trying to correct typos , clarify if the formulas are harmful for humans or not base on years of multiple studies and proprietary logic, that change more often than not. It Is a messThere is a lot of good intentions, a lot of good people that they really care and want to change the market to create better products (starting from creating better ingredients) but honestly is not going to happen any time soon. Is just simply too big of an industry with years of legacy.The only light I see is to start from 0, new small brands that may manufacture cosmetics and food and they can control what is being engineer inside , and they can store data in modern DBs and using Modern API design to expose the data and allow corrections. Is the only solution I see.*edit typo"</p>
+							
+						
+							
+								<p class="story__comment_others">"It looks like their terms of use [0] are that information and data are under a &#34;Database Contents License (1.0)&#34; [1] [2] and photos are under CC-BY-SA [3].[0] https://world.openfoodfacts.org/terms-of-use[1] https://opendatacommons.org/licenses/dbcl/1-0/[2] https://en.wikipedia.org/wiki/Open_Database_License[3] https://creativecommons.org/licenses/by-sa/3.0/deed.en"</p>
 							
 						
 						</a>
