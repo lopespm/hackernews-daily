@@ -36,6 +36,302 @@
 	</div>
 
 	
+	<div class="day__date">05 July 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://felt.com/">Felt</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31982959">
+						
+							
+								<p class="story__comment_first line-clamp">"What nonsense! Gave up after reading this.&#34;&#34;&#34;
+Where typical internet maps take 30+ seconds to load after each pan and zoom
+&#34;&#34;&#34;What typical maps are the talking about?"</p>
+							
+						
+							
+								<p class="story__comment_others">"The landing page has over a dozen demos and renders using OpenStreetMap data, but I see not a single attribution statement anywhere until I open an interactive map.Even renders and pictures require attribution."</p>
+							
+						
+							
+								<p class="story__comment_others">"I checked out the user supplied examples.On the Appalachian Trail map the Title of the Legend is &#34;Bathymetry&#34;. Something tells me that is not right. Global warming must be a bigger problem for the east coast than I had been misled to expect.The map of community solar proposals also has a problem in the legend. All the line sizes for the transmission capacity players are identical in the legend even though they are graduated sizes on the map.In addition, there actually end up being two map legends as you can see in the Appalachian Trip planner. The first one is tied to the base map and the symbology fits for the base map. You need to zoom in to see any Campground or Trailhead points since they are features common to the National Parks along the route. The second one is the user added note with Planned Stops and Estimated Date.Points associated with the second legend (or note or whatever) are all you see at the initial scale. This might be confusing for some users who would expect all map layers to belong to one legend so this should be clarified.With these in mind, it would pay off for them to examine their Legend tools so that they can become legendarily good because right now they serve as a perfect example of how not to do a map legend. They are supposed to convey useful information that aids visual interpretation of map features and layers."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/hemanth/functional-programming-jargon">Functional programming jargon in plain English</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31944352">
+						
+							
+								<p class="story__comment_first line-clamp">"These definitions don&#39;t really give you the idea, rather often just code examples..&#34;The ideas&#34;, in my view:Monoid = units that can be joined togetherFunctor = context for running a single-input functionApplicative = context for multi-input functionsMonad  = context for sequence-dependent operationsLifting = converting from one context to anotherSum type = something is either A or B or C..Product type = a record = something is both A and B and CPartial application = defaulting an argument to a functionCurrying = passing some arguments later = rephrasing a function to return a functions of n-1 arguments when given 1, st. the final function will compute the desired resultEDIT:
+Context = compiler information that changes how the program will be interpreted (, executed, compiled,...)Eg., context = run in the future, run across a list, redirect the i/o, ..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I didn&#39;t really understand FP until I read Functional Light JavaScript by getify/Kyle Simpson. It is so well written and approachable by mere mortal coders. I&#39;m not an FP wizard, but it is the coding paradigm I mostly use now. I&#39;ve even adapted some aspects (e.g. composability) to the CSS I write using `var()`.You can buy the book or read it on GitHub:http://fljsbook.com/https://github.com/getify/functional-light-js"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;A homomorphism is just a structure preserving map. In fact, a functor is just a homomorphism between categories as it preserves the original category&#39;s structure under the mapping.&#34;Oh ok. Plain english."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.jeremybrown.tech/8-kubernetes-is-a-red-flag-signalling-premature-optimisation/">Kubernetes is a red flag signalling premature optimisation</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31974420">
+						
+							
+								<p class="story__comment_first line-clamp">"Doesn&#39;t look like the author knows what he is talking about. His point about early stage startup should not use K8S is fine. But the next advice about not using a different language for frontend and backend is wrong. I think the most appropriate advice is to choose a stack which the founding team is most familiar with. If that means RoR then RoR is fine. If it means PHP then PHP is fine too. Another option is to use a technology which is best suited for the product your are trying to build. For example, if you are building a managed cloud service, then building on top of K8S, or FireCracker or Nomad can be a good choice. But then it means you need to learn the tech being used inside out.Also he talks about all of this and then gives example of WhatsApp at the end. WhatsApp chose Erlang for the backend and their front end was written in Java and Objective-C. They could have chosen Java for backend to keep frontend language same but they didn&#39;t. They used Erlang because they based their architecture on Ejabberd which was open source and was built with Erlang. Also WhatsApp managed all their servers by themselves and didn&#39;t even move to managed cloud services when they became available. They were self hosting till FB acquired them and moved them to FB data centres later on (Source: http://highscalability.com/blog/2014/2/26/the-whatsapp-archi...)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I agree entirely.I like to call what the author is referring to as, &#34;What-If Engineering&#34;. It&#39;s the science of thinking you&#39;ll be Google next week, so you build for that level of scale today. It involves picking extremely complicated, expensive (both in compute and skilled labour) technologies to deploy a Rails app that has two features. And it all boils down to, &#34;But what if...&#34; pre-optimising.It happens at all levels.At the individual unit level: &#34;I&#39;ll make these four lines of code a function in case I need to call it more than once later on - you know, what if that&#39;s needed?&#34;It also happens at the database level: &#34;What if we need to change the schema later on? Do we really want to be restricted to a hard schema in MySQL? Let&#39;s use MongoDB&#34;.What&#39;s even worse, is Helm and the likes make it possible to spin up these kinds of solutions in a heart beat. And, as witnessed and evidenced by several comments below, developers think that&#39;s that... all done. It&#39;s a perfect solution. It won&#39;t fail because K8s will manage it. Oh boy.Start with a monolith on two VMs and a load balancer. Chips and networks are cheaper than labour, and right now, anyone with K8s experience is demanding $150k + 10% Superannuation here in Australia... minimum!https://martinfowler.com/bliki/MonolithFirst.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"I lean conservative in my tech choices but I just don&#39;t see the big issue with Kubernetes. If you use a managed service like GKE it is really a breeze. I have seen teams with no prior experience set up simple deployments in a day or two and operate them without issues. Sure, it is often better to avoid the &#34;inner platform&#34; of K8s and run your application using a container service + managed SQL offering. But the difference isn&#39;t huge and the IaC ends up being about as complex as the K8s YAML. For setting up things like background jobs, cron jobs, managed certificates and so on I haven&#39;t found K8s less convenient than using whatever infrastructure alternatives are provided by cloud vendors.The main issue I have seen in startups is premature architecture complexity. Lambda soup, multiple databases, self-managed message brokers, unnecessary caching, microservices etc. Whether you use K8s or not, architectural complexity will bite your head off at small scales. K8s is an enabler for overly complicated architectures but it is not problematic with simple ones.&gt;Did users ask for this?Not an argument. Users don&#39;t ask for implementation details. They don&#39;t ask us to use Git or build automation or React. But if you always opt for less sophisticated workflows and technologies in the name of &#34;just getting stuff done right now&#34; you will end up bogged down really quickly. As in, weeks or months. I&#39;ve worked with teams who wanted to email source archives around because Git was &#34;too complicated.&#34; At some point you have to make the call of what is and isn&#39;t worth it. And that depends on the product, the team, projected future decisions and so on."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://seandietrich.com/mendon-missouri/">Mendon, Missouri</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31977144">
+						
+							
+								<p class="story__comment_first line-clamp">"I have witnessed something quite similar. During the flash-floods in 2021 in Germany, locals in the Ahr region absolutely rose to the occasion. Farmers were evacuating people in head-high water with their tractors during the night, local restaurants were already providing hot food and water the next morning wherever they could reach, pharmacies were loading whatever they had available on ATVs to somehow get much-needed medicine down precarious mudpaths. Local construction companies were already clearing rubble and building emergency bridges out of it. One Excavator was just basically standing in the middle of the river and ferrying people and rescue partys across. The local racetrack basically just organized everything while politicians were still playing the blame game. When our local firebrigade was officially pulled back from active duty because we lost one of ours during rescue operations in the first day, basically everyone just went down again and just tried to do whatever was possible. Absolutely stunning what people will do when they are face to face with disaster. I freely admit that I was crying like a little girl when I first saw the endless columns of Bundeswehr, THW, Fire Brigades, Farmers, basically everyone who could just streaming to help people they never met but were neighbors and friends for me.Sorry for the rambling, but I am still not emotionally disconnected enough from it to concisely talk about it."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; And the most unusual thing about all this is: None of this is unusual. At least not within the national tapestry that is The Great American Small Town.It also isn&#39;t unusual in the cities. Humans are wonderful and terrible everywhere. It reminds me of the 30 Rock episode where Jack and Liz go to Georgia to find a new comedian in touch with the &#34;real America&#34; and Liz keeps insisting that all Americans are real Americans and there is no &#34;real America.&#34;The acts of people after 9/11 in NYC remind us of the good in humans just as this small town inspires us.As Mr Rogers said, &#34;When I was a boy and I would see scary things in the news, my mother would say to me, &#34;Look for the helpers. You will always find people who are helping.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"For some reason this reminded me of the Ray Bradbury story, &#34;The Town Where Noone Got Off&#34; which is a dark little story indeed about two men and a small town on a railroad line.  This one is a bit more positive.However, it turns out this whole incident was apparently due to the lack of a railroad crossing guard system of any kind at the intersection.  The most basic system has flashing lights warning of oncoming trains, and even that wasn&#39;t present.https://www.kwch.com/2022/06/30/amtrak-derailment-places-spo...In that respect it&#39;s also a story about the poor state of American infrastructure."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/popcorn-official/popcorn-android/releases/tag/v0.3.5">Popcorn Time Is Back</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31972681">
+						
+							
+								<p class="story__comment_first line-clamp">"Given some of the people here might run their own servers, the self-hosted alternative is to have something like Sonarr PVR for newsgroups and torrents, alongside a tracker indexer like Jackett, and then Plex for the frontend. In this combination, you &#34;subscribe&#34; to TV shows and select movies on the Sonarr system, and then the downloading is taken care for you even when new episodes arrive. These will then appear on Plex which is refreshed by the pipeline automatically. The system integrates with private trackers and is capable of maintaining your seed-ratio if that&#39;s important.I recently fell into this rabbit-hole while trying to organise my music. For music there is Lidarr, which also ID3 tags your music and reorganizes it into folder structures. This is convenient since organizing anything using Plex is a nightmare."</p>
+							
+						
+							
+								<p class="story__comment_others">"Popcorn Time felt more web3 than all crypto combined."</p>
+							
+						
+							
+								<p class="story__comment_others">"Awh this brings me back. I was a large contributor to  the desktop version of this incarnation of PT, focusing on the ability to play on external applications and Chromecasts and also adding TV Shows. I remember having such a eureka moment when I finally figured out how to get subtitles working when streaming live to a Chromecast"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=31965616">Ask HN: How to keep my daughter busy while tickling her curiosity</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31965616">
+						
+							
+								<p class="story__comment_first line-clamp">"I became a single parent when my daughter turned 1 year old. When she got old enough we&#39;d go fishing, bicycling, swimming, and hiking a lot. We&#39;d also go to a used book store twice a month (on pay day) so she could pick out a few books to read. She loved doing that.She had no interest at all in learning how to code or gaming but she loved helping in the garden and in the kitchen prepping and cooking meals.When she got to Jr. High she wanted to join the &#34;Cheerleader&#34; squad so there were a lot early morning rides to school I had to make, and lot&#39;s of Basketball games I attended until she graduated, but I had a lot fun cheering along with them.During those years I setup a campsite on our property so her and her friends could go hang out there. I&#39;m sure they had more fun than most parents would approve of but they never got into any real trouble, the police were never called, and no one got hurt bad enough for the parents to call me. For the most part all those parents knew exactly where their kids were and what they were doing. And that I was close enough to deal with anything that came up. But there were never any serious issues.She&#39;s 37 years old now, still loves to hike, backpack, swim, fish, garden, and cook, and most important, she still likes to hang out with me!"</p>
+							
+						
+							
+								<p class="story__comment_others">"My son is 12 y/o, and he&#39;s into Minecraft.Yesterday he discovered the server mc.openredstone.org. He spent all day yesterday and about one hour today, and he ended up building a 4-bit adder.On this server players learn how to build logic gates, and mix them so they eventually build CPUs. It&#39;s fully gamified, so beginners are called &#34;students&#34; and more advanced players are called &#34;builders&#34;. To become a &#34;builder&#34; you need to pass some trials. The &#34;builders&#34; probably have their own challenges (not sure, my son is still a student), in any case, they behave like teachers. So a student will find a builder who will give them instructions, and guide them through more and more complex designs.So, yesterday my son had no idea what XOR or NAND is, and today he already built a 4-bit adder, and has dreams of building an ALU.I&#39;m quite excited to be honest. By the way, I&#39;m not in any way connected with whomever put together this Minecraft server. I don&#39;t even think it&#39;s a for-profit thing, as far as I can tell, it&#39;s fully non-profit."</p>
+							
+						
+							
+								<p class="story__comment_others">"Might be off topic but a nugget from having two girls (5 and 11). Kids don’t care about budget or how much things cost. We have toys we’ve spent hundreds of dollars on only to have the near free to free one be a hit. I say this to make sure you know your employment status likely only effects your kids if it effects you. Or said differently, to the extent it effects you it will effect them.Kids will generally have fun with anything you show a degree of interest in. The copper pipe plumbing example in this thread is a perfect example. A simple Task became a life long activity for the kid. They will remember it forever and tell someone in the future “this time I welded with my dad”… they won’t remember that time my dad didn’t hire a plumber.Things off the top of my head that have been a hit - 
+Planting plants 
+Fashion design 
+Basic coding activities or contests 
+Shooting
+Anything that requires safety procedures 
+Lawn work (but make it fun or set a timer)
+Writing a story where they write some of it, you add in silly bits, they write more , repeat till laughing out loud. 
+Both my girls super in to etiquetteBest of luck buddy and squeeze these years for as much as you can."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=31979104">Ask HN: I&#39;m disabled and out of money. Now what?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31979104">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m not sure what the cause of your chronic pain is, but I would highly recommend reading John Sarno&#39;s &#34;The Mindbody Prescription.&#34; I&#39;ve dealt with chronic pain for years and it&#39;s the only thing that&#39;s had any effect. Please, please, don&#39;t write it off until you&#39;ve read the book. Note that Sarno&#39;s work focuses on back pain, but it applies to all types of chronic pain (including migraines, which he discusses in the book).- https://www.youtube.com/watch?v=8jQtmSZetJM- https://aaroniba.net/how-i-cured-my-rsi-pain- https://www.nytimes.com/2021/11/09/well/mind/john-sarno-chro...- https://www.nytimes.com/interactive/2021/well/chronic-pain.h..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Do 1 task a day, no matter how small it is, do it consistently for a week or two. Then every other day you do 2 tasks for a month, and you start working up to a point where you feel you do what you can within your limits and get joy from that 1 (or 2) items you can scrap off.If you live with family focus your tasks maybe on easing their life, pull out 10  weeds out of the garden, take out the trash, fix a squeaking door. Small but attainable things.Chronical pain is a mess, it&#39;s relentless and it&#39;s always there, it doesn&#39;t go away, but you learn to deal with it. Focus on the pain initially, learn what pain you have and focus on it. I learned to focus on it and make a mental note (do not know how else to say) that it&#39;s not worth paying attention to, and I get by without medication. It&#39;s not always easy and there are days where you want to cry and cry and just fall asleep so you do not have to feel it.
+It&#39;s normal and accept that not all days will be the same and successful.It&#39;s a tough hill you are up against, but all shall pass and all will be well in the end. It&#39;s unbelievable sometimes, but all shall pass. Remember that.Good luck, don&#39;t falter, reaching out is the first step!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I was in a similar situation, minus the physical disability (I was mentally in a really bad place though). The only advise I have is to not think of any job as below you. I don&#39;t know your exact situation or your disabilities, but if you can deliver pizzas to at least keep your head above the water, do that. Having gone through YC you&#39;re obviously also a bright and intelligent person, how many different companies have you tried consulting for? Some companies could be more understanding than others of your situation, in which cases making 1500 a month shouldn&#39;t be a huge problem in this industry. Sorry you&#39;re going through this friend.."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.adafruit.com/2022/02/11/tiny-core-linux-13-0-is-a-full-linux-desktop-in-22-mb-linux/">Tiny Core Linux 13.0 is a full Linux desktop in 22 MB</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31977164">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; full Linux desktop&gt; The Core Project is a highly modular based system (...) It is not a complete desktop nor is all hardware completely supported. It represents only the core needed to boot into a very minimal X desktop typically with wired internet access.That is not a full desktop, and the [The Core] project doesn&#39;t say it is.That being said the concept of &#34;full desktop&#34; is somewhat loaded. Today we have a somewhat unreasonable expectation that at least one, but sometimes several browsers, office suites, multimedia viewers and editors to be a &#34;basic desktop&#34;.Back in the 90&#39;s people did not expect the computer to come with any such software applications built-in."</p>
+							
+						
+							
+								<p class="story__comment_others">"There&#39;s a bunch of nostalgia about what small meant to mean, so I&#39;ll leave some links to the QNX 1.44MB demo floppy:http://toastytech.com/guis/qnxdemo.htmlhttps://news.ycombinator.com/item?id=10483653"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Ubuntu can barely run with 2 GB of RAMThat&#39;s probably if you&#39;re running Gnome. I&#39;ve found that Ubuntu is pretty fast on very old (&gt; 10 years old) equipment if you use i3wm or Openbox. AFAICT the only reason old hardware is a problem with recent distros is graphics. Lighter desktops don&#39;t make the same demands. I bought a cheap Dell laptop in 2018 for $300. It came with Windows 10, but there&#39;s honestly no way to use it. A default Ubuntu install is no better. Installed Openbox and it flies."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.google.com/intl/en/ipv6/statistics.html">40% of Google users now connect via IPv6</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31967221">
+						
+							
+								<p class="story__comment_first line-clamp">"I sure wish Starlink supported IPv6. They&#39;re a brand new ISP planning for millions of customers and decided from the start they couldn&#39;t get enough IPv4 addresses for everyone. Fair enough! But we&#39;re stuck with Carrier Grade NAT and it is a drag.On Starlink it&#39;s impossible to host a server socket directly, which makes any peer to peer networking a PITA. Geocoding IP addresses doesn&#39;t work so I have to bend over backwards to convince, say, Youtube TV that I&#39;m in the Sacramento metro and not LA where the POP is. Also the shared IP addresses seem to trip a lot of DDOS protection; I fill out 10x as many CAPTCHAs on Starlink as I do on my other ISP. And I sometimes get random network stability problems; a few weeks ago Starlink screwed something up so no one could keep a persistent connection up more than a few minutes. Seems to be fixed now, but I bet it was their CGNAT system.I realize half the world lives with CGNAT. It&#39;s not unusable, at least web browsing works more or less. But IPv6 would solve all these problems. A little surprised that a new ISP created in 2021 wouldn&#39;t have IPv6 support as one of their launch features. There&#39;s hints they are trying to get it working but it&#39;s not an official thing now. Some discussion: https://www.reddit.com/r/Starlink/comments/tjr90n/starlink_i..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m curious how much of this is mobile vs desktop. My assumption is that a much larger percentage of the traffic on mobile is ipv6."</p>
+							
+						
+							
+								<p class="story__comment_others">"Meanwhile, Github is completely unreachable via IPv6 to this day.Found that out the hard way the other week when I went to order a build server without an IPv4."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://gist.github.com/richhickey/1563cddea1002958f96e7ba9519972d9">Open source is not about you (2018)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=31957554">
+						
+							
+								<p class="story__comment_first line-clamp">"One submission in the past with lots of good discussions: https://news.ycombinator.com/item?id=18538123 | 734 points | 2018 | 281 commentsOne of the main takeaways personally from this post, is the unique position Clojure (and other lisps) are in, where language additions can be done as libraries instead of changing the core of the language.Other languages don&#39;t (always) have this possibility.Taking TypeScript as one example. If 20% of users want to be able to do something in TypeScript that the language doesn&#39;t support, they either can try to get the change into the core language, or live without it (or fork it). If it changes, it&#39;ll change for everyone using TypeScriptBut in Clojure (lisps in general), you don&#39;t have this restriction, so modifying the language for your own need, becomes a lot easier. Lots of work on Clojure is simply done in libraries, as it&#39;s possible and doesn&#39;t impact the core of the language, which everyone shares."</p>
+							
+						
+							
+								<p class="story__comment_others">"As much as I respect Rich Hickey, it&#39;s hard to say anything positive about this. It has basically nothing to do with open source. It&#39;s entirely specific to how he chooses to run his own projects.Open source is not a gift in the sense that you &#34;get what they give you&#34;. You are entitled to the source code. You are entitled to modify the code. You are entitled to distribute your modifications.Are you entitled to be part of the development process and to state your opinions about how things are going? Yes...if those are the rules of the project. The thing is, that has nothing to do with open source, it&#39;s always project-specific, so the full post largely doesn&#39;t make any sense as a comment on open source."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; You are not entitled to the attention of others. You are not entitled to having value attached to your complaints. You are not entitled to this explanation.I wish I understood this earlier in my life."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">04 July 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -53,11 +349,11 @@
 							
 						
 							
-								<p class="story__comment_others">"So, if I get it right. First there was Libgen, which is mirrorable. Then, some Z-Library copied Libgen and added some more books, without making it mirrorable. The goal is to make these new books, which are not mirrorable — mirrorable (i.e. to &#34;preserve&#34; them).So, why not just re-upload them to Libgen, then? I guess somebody will do that now anyway, but you could easily done it in the first place, without making your own mirror, which is not a mirror of Libgen. Just upload them to Libgen and make a mirror of Libgen."</p>
+								<p class="story__comment_others">"Excellent. I hope more and more people start to see how absurd and evil the concept of &#34;intellectual property&#34; is. It should be totally rejected and any form of keeping useful information for yourself should be shunned and tabooized. In todays world, many have been programmed to believe that the would could not exits without such immoral restrictions, which is horrible."</p>
 							
 						
 							
-								<p class="story__comment_others">"I see things like this, and I wonder why the following software doesn&#39;t exist:I want a piece of software to which I can add a collection of files, say multiple TB. The software will then behave a bit like a BitTorrent tracker, and know which peer has which files. A peer joining this swarm will be able to say &#34;I want to donate X GB of space&#34;, and the tracker would tell it &#34;OK, then download and seed these files, which are the least seeded&#34;.The peer would download the files from the rest of the swarm and make them available to it. Then, a request layer on top of the swarm could be used to request a file from the peer which had it. Adding/removing files to this collection would also need to be a feature.Does anyone know if anything like this exists? If not, how easy would it be to make something like it out of BitTorrent? I might give it a go."</p>
+								<p class="story__comment_others">"So, if I get it right. First there was Libgen, which is mirrorable. Then, some Z-Library copied Libgen and added some more books, without making it mirrorable. The goal is to make these new books, which are not mirrorable — mirrorable (i.e. to &#34;preserve&#34; them).So, why not just re-upload them to Libgen, then? I guess somebody will do that now anyway, but you could easily done it in the first place, without making your own mirror, which is not a mirror of Libgen. Just upload them to Libgen and make a mirror of Libgen."</p>
 							
 						
 						</a>
@@ -142,7 +438,7 @@ There&#39;s an absolute onslaught of languages, frameworks, patterns and now als
 							
 						
 							
-								<p class="story__comment_others">"Generally speaking if you are an authoritarian government or rogue company and can afford a company like McKinsey, they will take your money to consult and provide legitimacy. Scruples are overrated in this industry."</p>
+								<p class="story__comment_others">"Is there literally anything good that these consultancy/auditing enterprises do?"</p>
 							
 						
 						</a>
@@ -226,7 +522,7 @@ There&#39;s an absolute onslaught of languages, frameworks, patterns and now als
 							
 						
 							
-								<p class="story__comment_others">"A quiet note of appreciation for Adam Grossman, one of the co-founders of Dark Sky. It&#39;s one thing to have an idea about a weather app, quite another to pursue it successfully within a small design agency and then make it polished enough over the years to sell it to a giant corporation like Apple. Even during that acquisition, Grossman went to bat for DarkSky&#39;s users, making sure that the API was kept live (for 2+ years running now). Post-acquisition, he has evidently become comfortable enough in a corporate environment to help evangelize the API&#39;s transition to an Apple-native SDK and Swift API. The creation of the REST API with a full mapping guide means that Grossman continues to bat for DarkSky API developers. The use of the native Swift API to create brand new Apple weather apps also appears to be well done. All-in-all, it has been a remarkable journey from a small, independent agency to a large corporate while keeping core values alive, a journey where many others have flamed out. An inspiration to all. Hats off to you, Grossman!"</p>
+								<p class="story__comment_others">"Looks like this is what they did with DarkSky after they acquired it. It looks awesome. It&#39;s a shame it&#39;s only available to Apple developers and usersEdit: my bad for skimming too fast, I&#39;m glad there&#39;s a REST API, that&#39;s unexpected and cool!"</p>
 							
 						
 						</a>
@@ -419,24 +715,33 @@ For protocol 30 and beyond (first supported in 3.0.0), the checksum used is MD5.
 						<a href="https://news.ycombinator.com/item?id=31947297">
 						
 							
-								<p class="story__comment_first line-clamp">"Virtual Internships | Global Head of Engineering | Full-time | Fully Remote | IST Timezone | www.virtualinternships.comWould you like to join a rapidly growing EdTech scale up (series A) to help build and develop a product that will impact millions of young people around the world? 
-You&#39;ll, grow, nurture and lead a small, world class globally distributed, team and work on a product that is backed by the likes of Sequoia Capital and 500Startups.Reporting into the CEO, this is a hands-on, yet strategic high-profile role that will be pivotal in the company&#39;s future success. You&#39;ll double/ triple the Engineering team and work on a product that is backed by the likes of Sequoia Capital and 500Startups.Also hiring for Software Engineers (BE &amp; FE)
-You can find more info and apply here: https://virtualinternships.recruitee.com/o/global-head-of-en..."</p>
+								<p class="story__comment_first line-clamp">"Aleo | Community Coordinator | REMOTE | Full timeBy leveraging decentralized systems and zero-knowledge cryptography, Aleo protects user data on the web. With Aleo, any developer or organization can add privacy to their application. Unlike existing solutions that seek to replace the web, Aleo is designed to integrate with it.We&#39;re looking for a Community Coordinator to help assist with the greater Aleo community.What you’ll be doing:
+- Implementing strategies to grow our Discord, Twitter, and YouTube communities
+Ability to effectively communicate relevant information from the core team to community channels
+- Provide engaging text, image and video content for social media accounts
+- Respond to and engage with community comments / DMs in a timely manner across social media channels
+- Maintain Discord by directing newcomers to the appropriate channels, and answering community questions - e.g., about Aleo’s technical stack (snarkVM and snarkOS), upcoming testnet / mainnet launches, etc.
+- Helping to organize and track the growing Ambassador Program (200+ members)
+- Providing community feedback to manager
+- Working with the team to help plan and coordinate community eventsIf you have experience with managing Discord or other online communities of 5000+ members and want to get involved, email viviane@aleo.org"</p>
 							
 						
 							
-								<p class="story__comment_others">"Hetzner Cloud | Software Developer Open Source Integration | Remote (within Germany) or on-site | Full-Time | https://hetzner-cloud.de/jobs/backend-opensource.pdfHetzner Cloud is looking for software developers for open source integrations, platform, backend positions and/or DevOps. The Open Source position will be working on our existing open source integrations (see https://github.com/hetznercloud) for terraform, kubernetes and ansible.
-Hetzner Cloud is one of Germany&#39;s and Europe&#39;s most popular and fastest growing cloud providers. In partnership with Hetzner Online, we develop and operate Hetzner Cloud. In doing so, we use modern technologies and strive to optimize the work process. We develop innovative solutions in the area of cloud, hosting and highly dynamic infrastructures.
-For details about this position or our other open job offers like &#34;Software Developer Backend Python/Go (remote or on-site)&#34; or &#34;DevOps/Sysadmin Kubernetes (remote or on-site)&#34;, head on over to our website: https://www.hetzner-cloud.de/#jobs."</p>
-							
-						
-							
-								<p class="story__comment_others">"Sentry | San Francisco, Seattle, Austin, Toronto, Vienna, VISA | https://sentry.io/jobs |Sentry is an open-source application monitoring SaaS.Overall techstack: Python, TypeScript, Rust, Postgres, Kafka, Redis, Clickhouse, and GCP.We&#39;re hiring for every department: Software Engineers, Site Reliability Engineers, Engineering Managers, Product Managers, Product Designers, and more.Some of the open roles:  - Sr. Software Engineer https://sentry.io/careers/4210347/
-  - Sr. Web Developer https://sentry.io/careers/3748461/
-  - Security Engineer https://sentry.io/careers/3654988/
-  - Sr. Product Manager https://sentry.io/careers/4233556/
+								<p class="story__comment_others">"The United States Digital Service is a team of cross-agency federal technologists who work on some of the biggest issues affecting the American people, including: streamlining immigration, helping veterans get benefits, modernizing health care, reforming hiring, improving school safety, fixing procurement, and more. Check out our most recent impact report for examples of what you could be working on: https://www.usds.gov/resources/USDS-Impact-Report-2020.pdf
+We&#39;re looking for the most empathetic, mission-driven, and tenacious technologists who are committed to untangling, rewiring, and redesigning critical government services. We hire folks from all walks of life who have demonstrable experience tackling complicated problems in the public, private, or non-profit sectors. We&#39;re hiring for:  * Software Engineers (Frontend, Backend, Full Stack, DevOps)
+  * Site Reliability Engineers (SREs) and Security Engineers
+  * Product Managers
+  * Data Scientists
+  * Designers (Generalists, Strategists, User Researchers, Interaction Designers, Content Strategists, Design Operations, and everything in between)
+  * Procurement Specialists
+  * Bureaucracy Hackers
+  * and more!
 
-Happy to put in a word; reach out at jump.hoop.one@gmail.com"</p>
+With regard to remote work during the pandemic, health and safety are our top priority for all employees. During this time, all new hires will start fully remote, though the expectation is they will come onsite to the DC metro area when we are able to resume normal operations. We also understand everyone’s circumstances may vary, and we will work closely with each person to make sure their transition works best for them.Come join us in shifting government tech in the right direction -- no prior government experience required! Read more about getting hired here: https://www.usds.gov/faqApply here: https://www.usds.gov/apply"</p>
+							
+						
+							
+								<p class="story__comment_others">"Connectly | Data/Backend(Python)/FullStack Engineers | Remote(Worldwide) / San Francisco | Full timeWe at Connectly(https://connectly.ai) are an ambitious group trying to redefine how people engage and transact with messages.Team - very much top people from their fields. pls check our profiles on our website. 20 people today and hiring 5+Product - an intelligent shopping flow + one-click-checkout experience on WA.Funding - have raised a large amount from top investors in Silicon ValleyRevenue - has been growing 50%+ month over month.Stack - golang, python, typescript &amp; reactCulture - We pay people well and treat each other with respect.Join us if you are driven and would like to make something great together! Email me at careers@connectly.ai or apply at https://jobs.lever.co/connectly"</p>
 							
 						
 						</a>
@@ -2692,297 +2997,6 @@ would say we feel hungrier after exercise. What gives?"</p>
 						
 							
 								<p class="story__comment_others">"A surprising experience to me was seeing Saturn through a telescope.  Despite working on PhD in physics at the time and being a lab demonstrator for an undergraduate astronomy course, I looked at it and thought &#34;shit, it&#39;s real!&#34;Though it was a nice enthusiast-level telescope, I think it was just seeing the rings that did it.  So I reckon a cheaper one would have had the same effect."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">25 June 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://apnews.com/article/abortion-supreme-court-decision-854f60302f21c2c35129e58cf8d8a7b0">Supreme Court Overturns Roe vs. Wade</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31862258">
-						
-							
-								<p class="story__comment_first line-clamp">"This thread has 3000 comments and will probably end up with a lot more. If you want to read them all, you need to click &#39;More&#39; at the bottom of the page, or like this:https://news.ycombinator.com/item?id=31862258&amp;p=2https://news.ycombinator.com/item?id=31862258&amp;p=3 [etc.]If you&#39;re adding comments or intending to, please make sure you&#39;re up on the site guidelines: https://news.ycombinator.com/newsguidelines.html."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll be the begrudging devils advocate for a decision that is sure to have devastating consequences for poor women in red states.It is good for unelected bodies like the Supreme Court to allow such dividing issues be figured out democratically. The US house has bled power to the other 3 institutions and of them, the judiciary is the least democratic. Ofc, my support for this change assumes that this Supreme Court will show restraint towards political activism (in either direction) in general. Call it naive, but I&#39;ll wait and see.States rights has always been a double edged sword. You can&#39;t have your cake and eat it too. The same state rights that allow gun control and homosexuality to be locally legalized before national concensus; also now lead to abortion legislation being a state issue.The sad part of democracy is that it aims to represent the views of the voting majority. If the voting majority truly cares about access to abortion then we will hopefully see enough democratic traction to give them the mandate needed. Now, the rural republican votes counting for more in the senate is a huge issue and threat to democracy that the US needs to figure out if it ever wants to represent the views of the people. But, the Supreme Court should not be responsible for managing dysfunction in other branches of govt.My personal opinion is that polarization has pushed both sides to be completely antagonistic towards each other. &#39;Own the libs, fuck the deplorables&#39;, no compromise. The jaded side of me says: vote in more moderates that are willing to strike compromises. Crazed jesus Republicans and hyperprogressive activists are terrible people to put into national office. They gain power by antagonizing and being unhelpful roadblocks for change, all while asking for the most stubbornly impossible outcomes.In the long run, history will have a dim view of this era of global polarization with all political sides to blame."</p>
-							
-						
-							
-								<p class="story__comment_others">"I almost lost my wife due to the Catholic Hospital&#39;s policy against D&amp;C procedures. Had the OBGYN not put his career on the line, and over-riding the prohibition on the procedure, she would have died.  Now that same hurdle can become risking prison.A few years later, we were blessed with a child who is doing well. I would have neither if not for Roe v. Wade.This isn&#39;t about abortion, it&#39;s about denying healthcare!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://kotaku.com/zachtronics-farewell-goodbye-closing-eliza-last-call-bb-1849096767">Goodbye Zachtronics</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31863966">
-						
-							
-								<p class="story__comment_first line-clamp">"Before anyone writes a eulogy based on the headline, note the following:So it’s sad, but also awesome in its own way, that 2022 will see the end of Zachtronics. Not because their publisher shuttered them, or because their venture capital funding ran out, or because Activision made them work on Call of Duty, or any other number of reasons (bankruptcy! scandal!) game developers usually close their doors.No, Zachtronics is closing because...they want to.“We’re wrapping things up!” Barth tells me, way more enthusiastically than you would normally expect under these circumstances. “Zachtronics will release Last Call BBS next month. We’re also working on a long-awaited solitaire collection that we’re hoping to have out by the end of the year. After that, the team will disband. We all have different ideas, interests, tolerances for risk, and so on, so we’re still figuring out what we want to do next.”I play games too infrequently to invest the necessary bandwidth into a Zachtronic game, but I read some of ZACH-LIKE and always respected the philosophy. As long as no one is getting the rug pulled, this sounds like an awesome way to go and an awesome thing for the gaming industry. Hopefully this means more smart indie gems in the future."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve found it difficult after starting to work full-time to fully enjoy Zachtronics games, since they use much of the same parts of my brain as my day job, but the sheer joy I got out of Zach&#39;s earlier games (SpaceChem, KOHCTPYKTOP, Codex of Alchemical Engineering) contributed a lot to my decision to work in software. I&#39;ve experienced little else that scratches the &#34;design itch&#34; in such a pure and thoughtful way, whether games from other developers or actual software development."</p>
-							
-						
-							
-								<p class="story__comment_others">"Zachtronics leaving game development is such a blow to the industry. Zach is directly and indirectly responsible for a lot of games we see today. His game Infiniminer was a major inspiration for Minecraft, he published a game that was also a book explaining his philosophy on puzzle design, and his games were genuinely fun with no BS."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://unherd.com/2022/06/what-happened-to-the-lab-leak-hypothesis/">What happened to the lab-leak hypothesis?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31866601">
-						
-							
-								<p class="story__comment_first line-clamp">"This is Alina Chan, one of the co-authors of Viral: The Search for the Origin of Covid-19.I’m going to answer some of the questions that have come up in the comments.1. Are Chan and Ridley selling a book?Yes, the updated paperback comes out in the US next week: https://www.harpercollins.com/products/viral-matt-ridleyalin...The updated epilogue now discusses three significant new developments since the publication of the hardback that are being hotly debated in the comments here. The first was the discovery of a virus in a bat in Laos that is slightly more similar to SARS-CoV-2 than the virus studied at the Wuhan Institute of Virology; but both are still not the progenitor of the pandemic. The second is detailed information about how prominent western virologists, who had privately thought the virus was likely manipulated in a laboratory, began to instead tell the public that no lab-based scenario was plausible. The third is a trio of conflicting studies about whether the Huanan seafood market was the site of a natural spillover of the virus from animals to people or just the site of a human superspreader event in December 2019.As with the hardcover, half of our earnings from the book have gone/will go to charity.2. Does the available evidence lean towards a market origin?Some experts have asserted that there is dispositive evidence that the virus jumped from animals to people at the Wuhan Huanan market. However, their analysis failed to take into account the realities in the early days of the pandemic. Without access to the methodology and actual data collected by investigators in Wuhan, their interpretation unfortunately falls prey to ascertainment bias. Please see this thread for details: https://twitter.com/Ayjchan/status/1499794942012579843At the moment, US intelligence, the WHO SAGO advisory group, and many top virologists and experts find both natural and lab origin hypotheses plausible and deserving of investigation. The evidence does not lean so strongly towards one hypothesis or the other that we can assume one as the default truth.I personally think the available evidence points towards a lab origin but would not go as far as to say that there is dispositive evidence of it. 
-Please see these 2 threads:
-https://twitter.com/Ayjchan/status/1524394197738049537
-https://twitter.com/Ayjchan/status/15397457368076165133. Can scientists manipulate and genetically engineer naturally found viruses without leaving a trace? In other words, can the genome of the virus tell us its recent history?We describe the seamless genetic engineering capabilities developed in the years leading up to the pandemic in VIRAL. Due to advanced technologies, it is no longer always possible to use the genome of a virus to distinguish between a natural pathogen vs one that has spent time in a laboratory. Even top coronavirologists, including Ralph Baric who collaborated with the Wuhan scientists, have said that the only way to know is to look at the Wuhan lab records. You can also read my twitter thread: https://twitter.com/Ayjchan/status/1493733086089121794Even the presence of the furin cleavage site insertion that is unique to the pandemic virus and is indeed what makes it a highly infectious pandemic virus is not “dispositive evidence” of either a natural or lab origin. Please see our peer-reviewed analysis here: https://academic.oup.com/mbe/article/39/1/msab327/64260854. Why does the lab leak hypothesis encompass so many different scenarios by which research activities could lead to the emergence of the pandemic virus?A natural spillover hypothesis also encompasses several different scenarios, e.g., bat direct transmission to people in natural habitats, bat to people in markets, bat to farmed animals or wildlife to people in nature, at farms or market, etc.This doesn’t mean that a natural or lab origin are insinuations. It just means we are lacking so much key evidence that it’s not possible to pin down an exact mechanism by which the virus emerged in the Wuhan human population.5. Does finding close relatives of the pandemic virus in bats, e.g., in Laos, mean that its origin is natural?No, because viruses that escape from labs were also ultimately derived from nature and we know that scientists in Wuhan had been collecting viruses from across 8 countries (China and SE Asia) where the closest relatives to the pandemic virus have been found. Please see the graphic in this tweet: https://twitter.com/Ayjchan/status/15221172706124513356. Is there anything to do about finding the origin of Covid-19 now? Isn’t it a dead end? And is that why interest is waning?There is plenty to do to investigate the origin of Covid-19 using sources and data that exist outside of China. Please see a recent peer-reviewed letter in PNAS: https://www.pnas.org/doi/10.1073/pnas.2202769119And my thread on it: https://twitter.com/Ayjchan/status/1527381169729425410It is very surprising to me that these feasible routes of inquiry have not been explored more than 2 years into the pandemic.7. Have infected animals on sale at the Huanan market been found? Was there any evidence that SARS-like viruses were circulating in the Wuhan animal trading community before the emergence of Covid-19?No. I recommend reading my medium post for more details: https://ayjchan.medium.com/a-response-to-the-origins-of-sars...8. Regardless of the origin of Covid-19, shouldn’t the focus be on making sure there is more oversight and regulation of current and future pathogen research?I agree and wish that we didn’t need to prove the origin of this pandemic to motivate scientific leaders to better regulate risky pathogen work. I have been dedicating efforts to this cause since last year and hope to be able to share some exciting news later this year."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those with a bit more background in the sciences, there&#39;s an increasingly massive amount of evidence to support Zoonotic origin.  Philipp Markolin has a good rundown:https://protagonistfuture.substack.com/p/natures-neglected-g...Most of the &#34;evidence&#34; for lab leak is just weird insinuation -- it&#39;s increasingly hard to pin down what the advocates for that position are even arguing (e.g. whether it&#39;s a natural virus that escaped or an engineered one, how different lineages showed up at the market, which lab it allegedly escaped from since the WIV campus is much further from the market compared to the CCDC, etc etc).China is a bad actor and definitely contributed to the conspiracy madness around the virus by being so shut-down and performing such a half-assed investigation but unfortunately they would have done the same whether the virus came to be via the same animal trade that caused the last SARS outbreak or if there was some secret Wuhan project."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think understanding the origin is important, but I also understand why it wasn&#39;t a media fixation during the pandemic itself.1) Understanding the origin doesn&#39;t change the consequences or response to the pandemic2) Unlike the nuclear analogy in the article, pandemic virus outbreaks happen naturally, and fairly frequently. Combined with the huge increase in global travel, when one does happen it can be around the world in every airport before anyone has even identified it.So in the big picture this type of outbreak seems inevitable, not anomalous or inherently preventable.Understanding the origin, either by cross-species origination or a laboratory containment breach, is indeed important and significant and should be pursued, but I also understand why the search for that answer isn&#39;t at the top of the 24-hour news cycle."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bejarano.io/sms-phishing/">SMS phishing is way too easy</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31862994">
-						
-							
-								<p class="story__comment_first line-clamp">"Bottom line up front: When sending tokens via SMS, you must include a &#34;do not share this token with anyone besides X.com&#34; text. Otherwise account takeovers become trivial.The article&#39;s attack is relatively benign - the user simply goes to a website. Sure they may end up putting info in that website, but probably not. Plus existing systems for malicious website filtering can kick in to prevent this.The more concerning attack is the social engineering one where a third party says something like &#34;let me &#39;verify&#39; your identity, I&#39;ll send you a number tell me what it is&#34; then triggers an identity verification request on the domain (this can be done either manually or part of a sign up flow for some honeypot service). Now the target needs only relay 6 digits to someone they already &#34;trust&#34; and are in a conversation with, versus in the article&#39;s example they needed to put their full account info into an unknown website."</p>
-							
-						
-							
-								<p class="story__comment_others">"Android supports &#34;verified SMS&#34; wherein the sender proves their identity to Google, tells Google the hashes of messages they send, and Google can tell recipients if the message hash is legit or not: https://developers.google.com/business-communications/verifi..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Maybe implement a two-way verification, for example:In the app/website:
-&#34;You will receive an SMS with two 6-digit numbers, one to certify that we sent it to you and another to type bellow. Our chosen number is 887-987, type the another one&#34;In the SMS:
-&#34;Two-way verification. Check if it&#39;s us with number 887-987 and confirm with number 543-621&#34;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://plausible.io/blog/open-source-saas">How We built a $1M ARR open source SaaS</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31857069">
-						
-							
-								<p class="story__comment_first line-clamp">"Pretty darn fun to be able to see the Hacker News front page effect in realtime since they have their own site&#39;s Plausible stats publicly available!https://plausible.io/plausible.io?period=30d&amp;source=Hacker+N...What a great demo of the product :D"</p>
-							
-						
-							
-								<p class="story__comment_others">"All their marketing seems to be pitching the product against Google Analytics. But they don&#39;t spend any time differentiating themselves from other privacy-first analytics companies, of which there are many.I mean, when they started in 2018:&gt; Uku’s first thought was, “Ugh. Can we just  use something other than Google Analytics?”. This is how the idea for Plausible was born.Surely they must have looked around and seen that there were already quite a few products doing privacy-first analytics? But yet they started anyway? And had success even though their marketing doesn&#39;t really state any reasons why the user should use them not the many other privacy-first analytics offerings out there?I mean I&#39;m happy for them that they&#39;re successful, but I think there must be more to it than alluded to in this blog post, both in (a) the decision to start in the face of lots of competition and (b) success despite not trying to differentiate themselves from the competition."</p>
-							
-						
-							
-								<p class="story__comment_others">"I might be abusing the term here, but Plausible seems like the best example of a mittelstand[1] that sells SaaS.They are not beholden to VC investors and can grow slowly, organically. According to this article, they were able to cover their costs by January 2021. By keeping their team small, they can remain sustainable for a long time and refine their product.The biggest challenge for growth right now seems to be that customer support costs will scale linearly with growth.[1] https://news.ycombinator.com/item?id=31327219"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31860131">Tell HN: Brother printers now locking out non-OEM paraphernalia</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31860131">
-						
-							
-								<p class="story__comment_first line-clamp">"I can&#39;t wrap my head around how the printer market has turned into this absolutely dispicable, foul state that it is in right now.Decades of innovation that have been invested, not to make a better product, but mostly on how to extract more and more money from their victims, I mean &#34;customers&#34;.I would like to own a printer again, but for printing something like once a month, I just can&#39;t financially justify spending several hundred bucks on a device that might, at the whim of the manufacturer, decide that the way I&#39;m using it is not okay anymore, is probably designed to break after two years, requires me to sign up for a subscription service for ink, or whatever BS else the decision makers in this space come up with."</p>
-							
-						
-							
-								<p class="story__comment_others">"Almost 40 years ago RMS, the guy people love to hate, created the Free/Libre software movement and a proprietary printer firmware was one of his motivations.For 40 years this guy has been talking about the perils of proprietary software and people gave a shit to him.Today people not only strongly defend proprietary software, but they think he is a moron, and even free/libre software activists think proprietary firmwares are okay as long their hardware works as expected.Of course this is okay until their hardware stops to work as intended and you are locked out because the proprietary firmware, which usually is what happens."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have an epson eco-tank printer.  I buy 3rd party bottles of ink once every 2-3 years.  The upfront cost of the printer (multifunction model ET-4550) was high in 2015 ($500) but I&#39;ve spent maybe $60-70 in ink to print (as of this morning) 19,536 pages (13,954 in color, 5,582 in B/W).I can&#39;t see a good reason to keep buying printers that are locked into proprietary cartridges or toners."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31858460">Tell HN: Coinbase now requires physical address of recipient in crypto transfers</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31858460">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; ... it seems one by one the promises of crypto of the last several years are evaporating ...Hardly. What&#39;s happening is that a financial institution is being regulated and pro-actively adopting steps to please regulators. And those regulators will never be satisfied.As regulators squeeze harder and harder, it will drive Coinbase under. That is not the disaster that some might think. It&#39;s a necessary next step for Bitcoin to prove that it can actually deliver on the promise of censorship-resistant money.At the very least what&#39;s happening with exchanges, regulation, and the over-eager suits at Coinbase demonstrates the need for censorship-resistance in the first place. None of the new steps add anything whatsoever to the experience of the user. It&#39;s all about other people exercising control over that user&#39;s money."</p>
-							
-						
-							
-								<p class="story__comment_others">"Currently this seems to apply only for customers in the Netherlands:https://help.coinbase.com/en/coinbase/trading-and-funding/se...Related to this:In 2020 the Netherlands approved the implementation for the European fifth Anti-Money Laundering Directive (AMLD5). Crypto providers operating in or from the Netherlands also needed to apply for registration with the Dutch Central Bank (DNB). Besides the AMLD5 implementation DNB required from crypto providers to implement additional measures, which is the same wallet verification that Coinbase now requires.Bitonic (a dutch crypto broker/provider) filed a lawsuit against DNB regarding the additional wallet verification requirement, which was not part of AMLD5. DNB formally acknowledged the complaints from Bitonic and revoked the wallet verification. I&#39;m not sure but I believe (until now) it has only be revoked for Bitonic.Bitonic published some articles on their site:https://bitonic.nl/en/news/206/dutch-amld5-implementation-la...https://bitonic.nl/en/news/224/lawsuit-bitonic-vs-dutch-cent...https://bitonic.nl/en/news/231/dnb-formally-acknowledges-com..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;  and it seems one by one the promises of crypto of the last several years are evaporatingPromises of crypto have nothing to do with some random US-based centralized entity. Not your keys, not your coins."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/dolthub/dolt">Dolt is Git for Data</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31847416">
-						
-							
-								<p class="story__comment_first line-clamp">"This is the future of databases, but nobody seems to realize it yet.One of the biggest problems with databases (particularly SQL ones) is they&#39;re a giant pile of mutable state. The whole idea of &#34;migrations&#34; exists because it is impossible to &#34;just&#34; revert any arbitrary change to a database, diff changes automatically, merge changes automatically. You need some kind of intelligent tool or framework to generate DDL, DML, DCL, they have to be applied in turn, something has to check if they&#39;ve already been applied, etc. And of course you can&#39;t roll back a change once it&#39;s been applied, unless you create even more program logic to figure out how to do that. It&#39;s all a big hack.By treating a database as version-controlled, you can treat any operation as immutable. Make any change you want and don&#39;t worry about conflicts. You can always just go back to the last working version, revert a specific change, merge in one or more changes from different working databases. Make a thousand changes a day, and when one breaks, revert it. No snapshotting and slowly restoring the whole database due to a non-reversible change. Somebody dropped the main table in prod? Just revert the drop. Need to make a change to the prod database but the staging database is different? Branch the prod database, make a change, test it, merge back into prod.The effect is going to be as radical as the popularization of containers. Whether you like them or not, they are revolutionizing an industry and are a productivity force multiplier."</p>
-							
-						
-							
-								<p class="story__comment_others">"That looks awesome. One of the listed use-cases is &#39;time-travel&#39;: https://dolthub.com/blog/2021-03-09-dolt-use-cases-in-the-wi...I wish we could use this at work. We&#39;re trying to predict time-series stuff. However, there&#39;s a lot of infrastructure complexity which is there to ensure that when we&#39;re training on data from years ago, that we&#39;re not using data that would be in the future from this point (future data leaking into the past).Using Dolt, as far as I understand it, we could simply set the DB to a point in the past where the &#39;future&#39; data wasn&#39;t available. Very cool"</p>
-							
-						
-							
-								<p class="story__comment_others">"Previous discussions:- Dolt is Git for Data: a SQL database that you can fork, clone, branch, merge (2021) - 177 comments
-https://news.ycombinator.com/item?id=26370572- Dolt is Git for data (2020) - 191 comments
-https://news.ycombinator.com/item?id=22731928"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://cs3110.github.io/textbook/cover.html">OCaml Programming: Correct and Efficient and Beautiful</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31848178">
-						
-							
-								<p class="story__comment_first line-clamp">"A quick scroll through the comments and it looks like no one is actually talking about the book itself, so I will. I came across it at a really good time in my computer science self education. It helped me learn about some essential data structures and algorithmic analysis. The video lectures interspersed in the text augment the text and vice versa. The sections without videos were tougher for me to digest, but are written clearly and bear revisiting and study. If you, like me, are looking for a good next step after Grossman’s PL MOOC, I recommend spending some time with this incredible free resource."</p>
-							
-						
-							
-								<p class="story__comment_others">"I found my experience trying to work with a large OCaml base a nightmare — when signatures changed in an unstable dependency (e.g. function argument removed and nested inside another), the errors spat out by the typechecker were utterly incomphrehensible.This was largely due to automatic currying in OCaml — if I have a function call &#34;some_function arg1 arg2&#34; and &#34;some_function&#34; adds a third argument, that call becomes a function that requires a single argument, arg3, but the typechecker message that tells you all of this is well-nigh unintelligible.Switching to Rust was a blessed relief, not least because Rust has much better developer tooling and documentation (but also no automatic currying).It made me think that OCaml is efficient and beautiful if you&#39;re the only person touching your specific codebase (which I think is true in the vast majority of cases) or if many of your colleagues are deep OCaml officionados with PhDs, but it&#39;s not a good collaborative language for the rest of us."</p>
-							
-						
-							
-								<p class="story__comment_others">"I spent a lot of time on Standard ML in university.OCaml was always portrayed as the engineer&#39;s alternative for real applications.I spent some time brushing up on OCaml a few years ago using Exercism.io.While OCaml is a personal &#34;top tier&#34; language, I&#39;d always prefer Haskell, Rust or Scala.Type classes / traits just seem to beat a higher-order module system for me."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://botblox.io/products/speblox-long">10mbps over 1km on a single pair of wires</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31834532">
-						
-							
-								<p class="story__comment_first line-clamp">"All these things are related.  Back in the 1990s I worked with others to develop DSL technologies (ADSL, HDSL, VDSL) for telcos.  Why not fiber, some ask?  oh, fiber materials may be sand, but installed fiber is sand, energy, and labor.  Installation costs trump everything - use what you have for the physical medium.While we (PairGain) also made point-to-point private links, it was clear then, and even moreso now that most DSL involves a service provider managing the network - with specialized skills, practices and setup.In the 2010&#39;s I was spending time with the Ethernet folks, and in particular industrial folks with large plants.  I ended up chairing IEEE Std 802.3cg which developed the 10 Mb/s 1km technology.  Not really a speed increase - more an application refocus.  As the networking world developed, many realized that converging networks above the physical layer added network complexity and therefore setup and ongoing operating costs...  So we now also have SPE - pure Ethernet at DSL-like distances...Similar tech with different use models, enabling connectivity for whatever...I&#39;m not Al Gore - I won&#39;t claim to have invented the internet.  I just an engineer who happened to have a hand in both of these technologies, and am still pleased to see that people use them."</p>
-							
-						
-							
-								<p class="story__comment_others">"A few years ago, revk (owner of an ISP in the UK) did ADSL over wet string: https://www.revk.uk/2017/12/its-official-adsl-works-over-wet..."</p>
-							
-						
-							
-								<p class="story__comment_others">"So I built a tiny single pair Ethernet bridge (10BASE-T1L) that can transmit 10mbps over a kilometer on a single pair of twisted copper wires.Would love to get some feedback for the next iteration"</p>
 							
 						
 						</a>
