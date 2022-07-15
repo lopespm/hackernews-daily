@@ -36,6 +36,298 @@
 	</div>
 
 	
+	<div class="day__date">15 July 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.theguardian.com/technology/2022/jul/14/melbourne-woman-dehumanised-by-viral-tiktok-filmed-without-her-consent">Woman ‘dehumanised’ by viral TikTok filmed without her consent</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32094798">
+						
+							
+								<p class="story__comment_first line-clamp">"The video itself was quite off-putting when I first saw it. He didn&#39;t even just kindly offer her flowers. He _tricked_ her into taking them by making it sound like he just wanted her to hold them for him. She was actually being kind to him by doing him a favor, and then he basically ran away and stuck her with them. That&#39;s not kind at all, it&#39;s pushy and exploitative. As someone who doesn&#39;t usually like to accept gifts from random strangers, I&#39;d be really put off and uncomfortable; and that&#39;s before taking into consideration the fact that it was filmed and put online for people to gawk at."</p>
+							
+						
+							
+								<p class="story__comment_others">"The reason this act breaks a moral boundary is that it subverts a
+principle of &#34;ends&#34; [1]. A genuine random act of kindness cannot occur
+if it&#39;s being filmed.  Filming the act turns it into a virtue
+display. It also turns the subject into an object of utility, a means
+and not and end in themself.[1] https://en.wikipedia.org/wiki/Kingdom_of_Ends"</p>
+							
+						
+							
+								<p class="story__comment_others">"I sort of feel compelled to quote the Bible here, though I&#39;m not religious.&#34;So when you give to the needy, do not sound a trumpet before you, as the hypocrites do ... to be honored by men. Truly I tell you, they already have their full reward. But when you give to the needy, do not let your left hand know what your right hand is doing, so that your giving may be in secret. And your Father, who sees what is done in secret, will reward you.&#34; Matthew 6"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://shkspr.mobi/blog/2022/07/dns-esoterica-why-you-cant-dig-switzerland/">DNS Esoterica – Why you can&#39;t dig Switzerland</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32094645">
+						
+							
+								<p class="story__comment_first line-clamp">"Man, not putting Fully Qualified Domain Names in code has been such a recurring source of pain in my software life. You make so many assumptions about the way people parse domain names and all of them are wrong. Vendors do all kinds of things to &#34;simplify&#34; their workflows internally and sometimes they just parse URLs and domains in all kinds of ways that break your brain.Reminds me so much of the way &#34;smart&#34; telecom engineers bastardized SS7 to ship new features onto legacy telco infrastructure. SS7 is like 20M lines of C. You can&#39;t really change it without breaking it in many other places, AT&amp;T used to have a metric which was something like &#34;for every 10 lines of code you alter in SS7, you create 8 bugs in other parts of the code.&#34; So &#34;smart&#34; telecom engineers would take existing fields in the SS7 logic and use them for different functions inside of their telco. A billing field could instead be used as a feature flag for some sort of customer state, but only inside of the telco&#39;s network (and re-written back to the compliant SS7 standard when the data was headed out of the network). This was called encapsulation and wrapping and un-wrapping packets just in time was the source of many many problems in my telecom life.Just in time editing of network packets at the boundary is always fun. Most of the problems that would happen would come from forgetting to rewrite back to SS7 and transmitting the internal codes out."</p>
+							
+						
+							
+								<p class="story__comment_others">"When writing scripts, always use the options to dig; i.e. in this case, use   dig -q ch -t NS
+
+instead of  dig ch NS
+
+Using the options eliminates any possibility of misinterpretations like this."</p>
+							
+						
+							
+								<p class="story__comment_others">"This article reminds me of the Unicode Japanese &#34;Ghost&#34; characters: https://www.dampfkraft.com/ghost-characters.htmlLong story short:Someone entered some characters erroneously in the Unicode spec and now those characters are there FOREVER."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://justine.lol/pledge/">Show HN: Porting OpenBSD Pledge() to Linux</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32096801">
+						
+							
+								<p class="story__comment_first line-clamp">"Thanks Justine, you&#39;re doing the Lord&#39;s work here.One of the best introductions I&#39;ve seen to pledge() is Kristaps Dzonson&#39;s writeup on it that you can find here [1]. The whole website in general is furthermore a guide on how to write webapps in C, which may sound like a crazy idea to some people who have written it off as everything from an elaborate joke to a security nightmare that nobody should ever consider doing [2], but for people like me who end up having to write that kind of code in constrained execution environments it&#39;s been extremely enlightening and I really appreciate knowing how to do it more securely. If pledge is something I can access in Linux it really helps me out for things in the future going forward, I hope to create some cool things with it![1] https://learnbchs.org/pledge.html[2] https://learnbchs.org/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Oh god yes please. If pledge() makes it into the mainline kernel, we OpenBSD-type people seem less weird when submitting patches for some syscall &#34;nobody uses&#34;.Many OpenBSD ports contain pledge() support. Steal all you can. OpenBSD does &#34;hoisting&#34; in many userland programs, meaning all the open calls and such take place at the very start but isn&#39;t actually parsed until after we have locked ourselves in with pledge() and unveil(). I hope this also means many non-base programs are redesigned in this manner."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hi jart,I noticed that you&#39;re missing the sendfd promise. Is there a reason for that omission? Also you&#39;ve added a number of extensions that perhaps should be documented as such.Also there&#39;s a pretty significant undocumented difference between your implementation and OpenBSD, in that promises are by inherited across exec in yours, and not on OpenBSD.OpenBSD experimented with that by specifying the second argument as execpromises, but discovered that it was extremely difficult if not impossible to write meaningful execpromises in the parent for potentially unrelated programs, it&#39;s also happening too early before dynamic linking, and before the program has had an opportunity to &#34;initialize&#34; or &#34;do privileged stuff&#34; and call pledge(2) later itself with more accurate knowledge of what to self-restrict. As such, no calls with execpromises set to anything but NULL/0 exist today. I&#39;m curious how to reconcile those differences."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.pcgamer.com/unity-is-merging-with-a-company-who-made-a-malware-installer/">Unity is acquiring a company who made a malware installer</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32096371">
+						
+							
+								<p class="story__comment_first line-clamp">"Unity merges with IronSource - https://news.ycombinator.com/item?id=32081051 - July 2022 (315 comments)"</p>
+							
+						
+							
+								<p class="story__comment_others">"About a decade ago, I briefly worked for a company with the same business model. Since most Windows installers require Administrator privileges, the DLLs that they side-load will inherit these elevated privileges and can scan the user&#39;s machine for anything they are interested in.The way this software worked (as far as I can recall): The installer bundled a DLL from which only a few minor functions were exposed to display offers within the host process. Usually, the only thing the client portion of this DLL needed was a HWND. During initialization, the DLL stored a copy of itself in the user&#39;s temp directory. The host application unknowingly then used rundll32 to load this copy as a separate (also elevated) process. This process would run at least as long as the calling process would. Once in place, the process would scan the user&#39;s computer for specific use patterns (geoinformation; MS Office presence; what language; etc.). In order to retrieve the latest advertising &#34;offers&#34;, the DLL called home with this information over a secure pipe and checked for updates. This data was stored and referenced if the same user invoked the DLL again at some point. Only at this point would any actual targeted ads be displayed in the client application&#39;s window.Things may have changed since then - these were the pre-Windows 10 days - but if it&#39;s anything like this, it&#39;s wise to avoid the Unity installer."</p>
+							
+						
+							
+								<p class="story__comment_others">"All of this makes me ask the question of, &#34;How does a company go public without losing themselves? Is that even possible?&#34;This type of going public and chasing shareholder, share selling, cash infusion (sorry for the word salad, I couldn&#39;t think of a better way to put it) - which is often needed for growth past a certain point - how does a company not compromise their vision and bow to the shareholders once they go public, when their directive then becomes &#34;Maximize stock value for the shareholders&#34;?NOTE: I&#39;m an engineer who graduated with an art degree, so this is way out of my wheel house. I&#39;ve always built things, and have not been privy to the business side of the show. It&#39;s a bit foreign to me."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://postgrespro.com/community/books/internals">PostgreSQL 14 Internals Book</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32088316">
+						
+							
+								<p class="story__comment_first line-clamp">"If you want more, here&#39;s another site with similar focus: http://www.interdb.jp/pg/index.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; If you want to use any part of this document and/or any figure, please contact me. If you work at Amazon, you cannot use and refer to this document because of the copyright violation issues.This is an interesting inclusion, would they be referring to copies of this book being sold on Amazon? Or usage in their documentation? I&#39;m genuinely curious what the issue is with them..."</p>
+							
+						
+							
+								<p class="story__comment_others">"There seems to be a demand for developers who know the internals of Postgres to evolve and customize it given that it is being used, at different levels of abstraction/layers, by basically all cloud providers (AWS, MS, Google, etc) and by some DB SaaS. BTW, that would be a cool job to have..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.westerninvestor.com/british-columbia/saskatchewan-ontario-to-roll-out-mini-nuclear-reactors-5568249">Saskatchewan, Ontario to roll out mini-nuclear reactors</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32091054">
+						
+							
+								<p class="story__comment_first line-clamp">"It looks like there may be a typo with the estimated year of deployment in Ontario: the estimate is likely for 2028, not 2018.The article was published on July 11, 2022, but opens with: &#34;Saskatchewan and Ontario have each chosen GE-Hitachi as the supplier of small modular nuclear reactors (SMRs), which could be deployed in the Prairie province by the 2030s and in Ontario by 2018.&#34; Then, the article concludes with: &#34;GEH and Ontario plan to construct up to four 300 MWe small module reactors, with the first coming online by 2028.&#34;A separate source by The Canadian Press [0] also reflects an estimate of 2028 for Ontario: &#34;The governments of Ontario, Saskatchewan, New Brunswick and Alberta have put forward a nuclear plan that they say will transition them toward cleaner energy. The provinces’ energy ministers agreed today to a joint plan for small modular reactors, with the first 300-megawatt plant to be built in Darlington, Ont., by 2028.&#34;[0] https://financialpost.com/commodities/energy/renewables/onta..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think it&#39;s worth pointing out that nuclear is pretty well loved in Ontario. Around 2/3 of our energy is coming from it already.https://www.ieso.ca/power-dataNuclear is the base load, alternatives supply what they can, and hydroelectric dams and gas plants act as the variable load supply.If we can just lose the gas plants, we&#39;d be pretty close to zero carbon. And I think that achievable."</p>
+							
+						
+							
+								<p class="story__comment_others">"They looked at the price tags of these reactors vs solar and wind, and chose the lowest number, fine.  But I&#39;ve never heard of a nuclear project coming in at under multiple times its original estimate, and taking a decade or more longer than expected.    Has any new nuclear power come online anywhere since Fukushima?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.nytimes.com/2022/06/24/health/sleep-debt-health.html">The effects of sleep debt</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32089964">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.ph/4Nr4M"</p>
+							
+						
+							
+								<p class="story__comment_others">"I had a very nasty case of insomnia 7 years ago. Without going into details of my associated illness, I went 2-3 months with almost no sleep due to hypnic jerks/sleep starts. When I told people I couldn&#39;t sleep, they assumed I just had difficulty falling asleep, but I literally could not fall asleep. It is terrifying. For whatever reason, whenever I miss a significant amount of sleep (one or two nights) I get very bad sleep jerks to the point I would start to fall asleep 30+ times a night and then wake back up immediately. The only two ways past it I found was a benzo sleeping pill or alcohol and both were hit and miss (just to inhibit the jerks - I had no problem starting to actually fall asleep). Even then, my body seems to build up massive adrenaline after sleep deprivation, so I would wake up 1-2 hours later in a cold sweat and have to start all over. The more sleep I miss, the worse it gets, and after you miss several nights in a row you get VERY &#34;sleep anxious&#34;, and so the cycle continues. Once I&#39;m caught up, I&#39;m fine and the jerks disappear completely, but it takes a while. I just had another case of the jerks this year for the first time since then but I was able to get over it in about 3 weeks this time. Still, it freaked me out as I had considered myself past that and had gotten a little bit careless.The point of this long winded intro: Don&#39;t take sleep for granted. If you sleep well, cherish it. Ever since this time I keep immaculate sleep hygiene. I go to bed on time, at the same time, get daily sunlight, don&#39;t eat before bed, and 9/10 times I&#39;m asleep in minutes and sleep great. I still have occasional early wake insomnia, but for the most part sleep well.Occasionally I think about things like mentioned in this article and what the long term effects will be, but mostly I just don&#39;t worry about it. There isn&#39;t anything I can do about it at this point except try to sleep as best I can from this point forward."</p>
+							
+						
+							
+								<p class="story__comment_others">"I feel like no one read the entire article, and it&#39;s partially the fault of traditional newspaper writing style for sticking the juiciest stuff up from, but the article concludes there&#39;s no consensus on what chronic sleep deprivation does to humans.&gt; Nevertheless, many scientists said that the new research should not be cause for panic. “It is possible that sleep deprivation damages rat and mouse brains, but that doesn’t mean that you should get stressed about not getting enough sleep,” said Jerome Siegel, a sleep scientist at the University of California, Los Angeles, who did not contribute to the review.&gt; Dr. Siegel noted that neural injury comes in degrees, and that the extent of sleep deprivation’s effect on the human brain is still largely unknown. He also expressed concern that undue worry about the long-term effects of sleep deprivation could lead people to try to sleep more, unnecessarily and with medication.The opinion of a single review paper on effects in mice is not conclusive science. So, in other words, there&#39;s no news here."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://jolexxa.medium.com/its-time-to-make-that-indie-c-game-in-godot-cea383151470">It’s time to make that indie C# game in Godot</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32096575">
+						
+							
+								<p class="story__comment_first line-clamp">"As much as I&#39;d like to use Godot, there are two features missing that I really don&#39;t think I could do without:- Asset store. I totally get it, handling payments, curating, etc. are a huge task... but man, I&#39;m a coder, and I don&#39;t have the funds to pay an artist or a musician full time. Being able to just go buy a pack of trees for $20 or something is a huge timer saver.- Animation re-targeting. It seems like there&#39;s a 3rd party plugin for this but it also seems like it hasn&#39;t been updated in a year. In unity I can buy a big pack of animations for pretty cheap and reuse it on almost all my humanoid characters. That&#39;s huge. I think this can be done in Blender or Maya, but it&#39;s so seamless in the engine compared to using a 3rd party tool."</p>
+							
+						
+							
+								<p class="story__comment_others">"With 4.0 getting more and more advanced features [0] and Unity merging with an Ad company [1], Godot is looking like it could be an attractive proposition for a lot of Unity shops.[0] https://news.ycombinator.com/item?id=32003065[1] https://news.ycombinator.com/item?id=32081051"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been using Godot for hobby projects on-and-off for a while now, and overall I vastly prefer it to Unity. The scene hierarchy of Godot is a better mental model (for me) than the GameObject/MonoBehavior ever was.That said, I have a _few_ items that I think are absolute showstoppers for solo-dev side projects.1. The asset pipeline is simply not as clean as Unity&#39;s. The ability to drop a .blend file in the project in Unity is so underrated. In Godot FBX imports are unreliable, texture imports misbehave frequently, and rigging goes wrong even in the recommended file formats. There&#39;s a lot less clarity around the path to getting real assets in game, which can be a major pain point for solo devs.2. Along the same lines, there is no equivalent of Unity&#39;s mecanim. With Unity, if you can model and rig a character in Blender, you can pull free mocap or other animations from the asset store and get to work. In Godot you&#39;re still best off authoring your own animations for each character. This drastically increases the amount of time spent making assets.3. Godot is in a weird spot version wise for anyone who wants to use C#; the beta version of 4.0 is rapidly approaching, and guarantees to break any project you start in 3.x --- but 4.0 still doesn&#39;t come built with C# support. Hopefully this gets resolved soon."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.unity.com/news/welcome-ironsource">Unity merges with IronSource</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32081051">
+						
+							
+								<p class="story__comment_first line-clamp">"IronSource is known for leveraging their ad network and installers to distribute spam, malware, and adware bundlers. What the fuck Unity.[1] https://www.benedelman.org/news-021815/[2] https://blog.infostruction.com/2018/10/26/adware-empire-iron..."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s the end of the road for Unity. ( at least what most of us think Unity still is, but it&#39;s not )The technology was always more or less &#34;fine&#34;. Unreal Engine didn&#39;t &#34;kill&#34; Unity and it will not in the future.For the better part of a decade, Unity tried to become not-sure-what but way more than &#34;just a game engine&#34;, and that&#39;s the problem, I don&#39;t know exactly what and neither do they.To be clear, Unity is not &#34;dead&#34; and will not be dead for a while, but the writing is on the wall with this &#34;merger&#34;.I&#39;m not sure how is Boeing and who is McDonnell Douglas but I already wrote the off my mind."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; If you don’t know ironSource, they bring a proven record of helping creators focus on what creators do best – bringing great apps and user experiences to life – while enabling business expansion in the app economy. ironSource’s suite of tools and solutions provides the majority of the world’s top games and many of the leading non-gaming apps with the monetization, marketing, analytics, and discovery capabilities they need to build and run scalable app-based businesses.I&#39;m sorry. I must be dense. I still don&#39;t understand what IronSource does. I thought, from the name, that it was like Perforce, but that is obviously not correct."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="http://unblah.me/">Show HN: I built an app for when I talk too much in online meetings</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32095592">
+						
+							
+								<p class="story__comment_first line-clamp">"Love this idea. I also thing there is a great use case here for people in sales, customer support / onboarding. Listening as a skill is very important for roles like this, and anything that can help people be a bit more conscious about this is great.A top bar icon for this could also be useful, so not to take up too my screen real estate, e.g. for example if you are giving a sales demo, you may want to hide the application, but still see visually how you are doing."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hey there, great app.By way of feedback:* The play icon with the strike through is not meaningful to me. I recommend a popover on hover to explain what this means. You probably thought about a log of different icons but might be worth polling for a few or letting the user pick one of a few a preference (At first I thought it &#34;wasn&#39;t working&#34;)* It would be nice to be able to add meta to the session, i.e. &#34;1:1 with joseph&#34; that automatically gets timestamped for start and end. Then be able to show the graphs from a day of meetings stacked.* Analysis would be good. Being able to say how many others are in the meeting so it makes more sense when there are longer gaps.* Someone mentioned additional recommendations, that would be awesome if it had a guidance mode where I could fit a template over this thing and have it help keep the meeting on track. 5 mins introductions / waiting for quorum, 5 mins agenda, 10 mins topic 1 etc.I realize the idea for this is to be a simple private app and its great at that. If necessary, I&#39;d suggest offering something more complex that might require greater buy in privacy wise so it can do more.I&#39;d still recommend requiring zero network requests as you&#39;ve done on this version, even though the analytics might be useful.I use an network filter and manually allow connections from apps.Starting with this high level of privacy is how you get someone like me to be comfortable allowing your app to run on my machine."</p>
+							
+						
+							
+								<p class="story__comment_others">"You should either change “ (like myself)” to the proper “(like me)” or just remove it entirely from the website.It also seems like the app did not help when recording the demo video. It should be much shorter than two minutes."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">14 July 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -194,11 +486,11 @@ It might be used to steal your personal information&#34; and an option to &#34;R
 							
 						
 							
-								<p class="story__comment_others">"Check out my projects, PRs are open!https://github.com/fossteams/teams-clihttps://github.com/fossteams/fossteams-frontendhttps://github.com/fossteams/fossteams_gui"</p>
+								<p class="story__comment_others">"Lets have no illusions. Teams is the absolute worst I have seen for teams. Basically every other tool I tried worked better.However, Slack isn&#39;t that much better. It still gaslights Firefox users and tells them their browser is not supported. What a nice way to put it, that after friggin&#39; years, they still have not managed to implement voice chat in a standard conform way. Discord and others have had this for years! Only Slack and Teams (in browser) seem to have incapable development teams behind them, who are comfortable with gaslighting unsuspecting users into using Chromium-based browsers, furthering web mono-culture.There are so many issues with Teams, that I am wondering, what they are even working on. Surely they cannot be bugfixing all day, if so many bugs remain after years. We&#39;ve had 2-3 years of pandemic now. What the heck are they doing!? They could have made the business. Instead they shove this broken thing down our throats and time will come, when people will just run away screaming, just like they did with Skype. Another business opportunity of MS ruined by bad quality software output.Stuff like that should get banned immediately, before it can harm the web any more, than it already has."</p>
 							
 						
 							
-								<p class="story__comment_others">"Lets have no illusions. Teams is the absolute worst I have seen for teams. Basically every other tool I tried worked better.However, Slack isn&#39;t that much better. It still gaslights Firefox users and tells them their browser is not supported. What a nice way to put it, that after friggin&#39; years, they still have not managed to implement voice chat in a standard conform way. Discord and others have had this for years! Only Slack and Teams (in browser) seem to have incapable development teams behind them, who are comfortable with gaslighting unsuspecting users into using Chromium-based browsers, furthering web mono-culture.There are so many issues with Teams, that I am wondering, what they are even working on. Surely they cannot be bugfixing all day, if so many bugs remain after years. We&#39;ve had 2-3 years of pandemic now. What the heck are they doing!? They could have made the business. Instead they shove this broken thing down our throats and time will come, when people will just run away screaming, just like they did with Skype. Another business opportunity of MS ruined by bad quality software output.Stuff like that should get banned immediately, before it can harm the web any more, than it already has."</p>
+								<p class="story__comment_others">"Discord is probably the only company that can make voice+chat+streaming software right.It&#39;s insane how bad Teams&#39; chat is.I don&#39;t know who was crazy enough to paste fucking formating with text,so when you copy from IDE/docs/whatever then Teams applies font sizes / colors and makes mess, so you have to copy stuff to e.g notepad and then to Teams. Additionally leaving `` block sometime doesn&#39;t work &lt;wtf&gt;Cool software doesn&#39;t do crazy shit with Clipboard and Links__________lack of Push2Talk option (not mute/unmute btn) is tragedy, did those people ever play some video games with teams/guilds?Ventrilo had this feature in probably 2003, Discord uses it too, but enterprise communicators struggle to figure this simple feature despite being so good, especially when everybody was WFH and had people in the house talking.____________On the positives side - calendar and its integrations are unparalleled and meetings are decent."</p>
 							
 						
 						</a>
@@ -306,15 +598,15 @@ Order of fields does not matter. Special characters &#34;&#34;&#34; (quotation m
 						<a href="https://news.ycombinator.com/item?id=32080741">
 						
 							
-								<p class="story__comment_first line-clamp">"CP/M was the popular operating system that IBM wanted to license for their skunkworks Personal Computer project. But the founder of Digital Research, the company that developed CP/M, was more interested that day in going flying his plane than meeting with corporate men in navy suits. (This may be apocryphal.)IBM turned instead to their second choice, a small company that was supplying BASIC interpreters to many 8-bit micros. The company didn’t actually have a suitable disk operating system product, but the founder knew someone who did. He made a deal to license the source code for a fixed fee and no limitations on redistribution. And that’s how Bill Gates acquired MS-DOS for $50k."</p>
-							
-						
-							
-								<p class="story__comment_others">"HP should open OS/8 and RT-11, the two big influences on CP/M.  OS/8 is kind of remarkable, running on a system arguably less powerful than the first 8-bit home computers (I would say they are closer to PIC microcontrollers, but with more RAM):https://www.pdp8online.com/os/os8/index.shtmlPDP-8 memory is heavily paged.  There are 128 word pages- direct addresses can only reach within the current page, and literals (immediate data including addresses to other pages) have to be allocated out of this current page along with the instructions.  Second, there are 4K-word fields.  So you need to use far jumps and returns to access outside the current field.  This is just like PIC microcontroller pages.OS/8 reserved only two pages for itself.  Things like the command interpreter were swapped out to disk or DECTape.https://en.wikipedia.org/wiki/DECtapeIf the application needed device drivers, it got to choose which pages the drivers would occupy- meaning the device drivers had to be written as position independent code.  Also I think each driver was limited to two pages.."</p>
+								<p class="story__comment_first line-clamp">"HP should open OS/8 and RT-11, the two big influences on CP/M.  OS/8 is kind of remarkable, running on a system arguably less powerful than the first 8-bit home computers (I would say they are closer to PIC microcontrollers, but with more RAM):https://www.pdp8online.com/os/os8/index.shtmlPDP-8 memory is heavily paged.  There are 128 word pages- direct addresses can only reach within the current page, and literals (immediate data including addresses to other pages) have to be allocated out of this current page along with the instructions.  Second, there are 4K-word fields.  So you need to use far jumps and returns to access outside the current field.  This is just like PIC microcontroller pages.OS/8 reserved only two pages for itself.  Things like the command interpreter were swapped out to disk or DECTape.https://en.wikipedia.org/wiki/DECtapeIf the application needed device drivers, it got to choose which pages the drivers would occupy- meaning the device drivers had to be written as position independent code.  Also I think each driver was limited to two pages.."</p>
 							
 						
 							
 								<p class="story__comment_others">"In high school in 1980 we had Commodore PETs. They had no tangible OS, just a BASIC interpreter in ROM. There was an easter egg that made it say Microsoft or wasn&#39;t it spelled MicroSoft? Either way a company nobody had ever heard of.CP/M had the aura of being something for real pros. Read some journal articles and it looked really complicated. But without suitable hardware I had never any chance to touch it.In 1983 I went to university where beginner courses happened on VAX/VMS and my definition of &#34;pro&#34; got shifted."</p>
+							
+						
+							
+								<p class="story__comment_others">"I remember, when I was a kid, having a CP/M diskette for the Amstrad CPC. It was provided with the machine. Every now and then I would try it out, not really understanding what it was about.Years later I learned, reading about it, that it was some sort of &#34;professional&#34; OS on which productivity software would be used.Does anyone actually used that OS on CPC or any other 8bits machine of the 80s to do anything remotely useful? Genuinely interested."</p>
 							
 						
 						</a>
@@ -2724,302 +3016,6 @@ https://www.simonandschuster.com/books/Seen-and-Unseen/Marc-..."</p>
 						
 							
 								<p class="story__comment_others">"Not a word about why media antitrust is important... even though the article casually mentions that &#34;Newspapers continue to be consolidated by hedge funds and private investment firms that believe they can wring more profits from the papers through synergies as the industry declines.&#34;&gt; &#34;Axios is owned by Axios Media, whose investors include Glade Brook Capital Partners, Lerer Hippeau Ventures, Greycroft, and NBC News. NBC doubles up as Axios’ media partner.&#34;https://marketrealist.com/p/who-owns-axios/Not only that, people employed by today&#39;s media conglomerates are increasingly drawn from the &#39;wealthy liberal coastal elite&#39; sector and are typically filtered through an unpaid internship process before getting hired, leading to non-representative &#39;journalists&#39;, which is probably doing as much damage (i.e pushing the populist perception of news media as a symbol of out-of-touch elitism) as the corporate consolidation is.Another side effect of this trend is the death of investigative journalism, which generally upsets the state and corporate power centers who are increasingly joined  at the hip.  For example, the last Washington Post investigative series of note was &#34;Top Secret America&#34; from about a decade ago, and now that Jeff Bezos owns the paper and AWS is actively seeking CIA and NSA contracts, forget about anything else like that."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">05 July 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://felt.com/">Felt</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31982959">
-						
-							
-								<p class="story__comment_first line-clamp">"The landing page has over a dozen demos and renders using OpenStreetMap data, but I see not a single attribution statement anywhere until I open an interactive map.Even renders and pictures require attribution."</p>
-							
-						
-							
-								<p class="story__comment_others">"I am excited about Felt. (And whoever comes around to compete.)That&#39;s mostly because I think (as they also must) that &#34;making maps&#34; is something that everyone does (in our heads; verbally; on the back of scrap paper; on random car-floor cardboard tacked to trailhead signs) but that few easily-accessible software tools have ever tried to facilitate digitally.I&#39;m interested mostly in the user-experience they&#39;ve created to add our &#34;human effects&#34; to an &#34;existing&#34; map (like notes, relevant points, lines, directions). I really am drawn to it.They&#39;re putting a lot of energy into the data-layer side of things, which I think is admirable considering the complexity, and seem to be nailing it. I&#39;m not sure how folks will use those things, since I don&#39;t think our mental maps often require additional data.I&#39;ll also add that their curated set of example uses is an excellent model for how to show people how to use a product that they might otherwise have no idea what to do with."</p>
-							
-						
-							
-								<p class="story__comment_others">"What nonsense! Gave up after reading this.&#34;&#34;&#34;
-Where typical internet maps take 30+ seconds to load after each pan and zoom
-&#34;&#34;&#34;What typical maps are the talking about?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/hemanth/functional-programming-jargon">Functional programming jargon in plain English</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31944352">
-						
-							
-								<p class="story__comment_first line-clamp">"These definitions don&#39;t really give you the idea, rather often just code examples..&#34;The ideas&#34;, in my view:Monoid = units that can be joined togetherFunctor = context for running a single-input functionApplicative = context for multi-input functionsMonad  = context for sequence-dependent operationsLifting = converting from one context to anotherSum type = something is either A or B or C..Product type = a record = something is both A and B and CPartial application = defaulting an argument to a functionCurrying = passing some arguments later = rephrasing a function to return a functions of n-1 arguments when given 1, st. the final function will compute the desired resultEDIT:
-Context = compiler information that changes how the program will be interpreted (, executed, compiled,...)Eg., context = run in the future, run across a list, redirect the i/o, ..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;A homomorphism is just a structure preserving map. In fact, a functor is just a homomorphism between categories as it preserves the original category&#39;s structure under the mapping.&#34;Oh ok. Plain english."</p>
-							
-						
-							
-								<p class="story__comment_others">"I didn&#39;t really understand FP until I read Functional Light JavaScript by getify/Kyle Simpson. It is so well written and approachable by mere mortal coders. I&#39;m not an FP wizard, but it is the coding paradigm I mostly use now. I&#39;ve even adapted some aspects (e.g. composability) to the CSS I write using `var()`.You can buy the book or read it on GitHub:http://fljsbook.com/https://github.com/getify/functional-light-js"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.jeremybrown.tech/8-kubernetes-is-a-red-flag-signalling-premature-optimisation/">Kubernetes is a red flag signalling premature optimisation</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31974420">
-						
-							
-								<p class="story__comment_first line-clamp">"Doesn&#39;t look like the author knows what he is talking about. His point about early stage startup should not use K8S is fine. But the next advice about not using a different language for frontend and backend is wrong. I think the most appropriate advice is to choose a stack which the founding team is most familiar with. If that means RoR then RoR is fine. If it means PHP then PHP is fine too. Another option is to use a technology which is best suited for the product your are trying to build. For example, if you are building a managed cloud service, then building on top of K8S, or FireCracker or Nomad can be a good choice. But then it means you need to learn the tech being used inside out.Also he talks about all of this and then gives example of WhatsApp at the end. WhatsApp chose Erlang for the backend and their front end was written in Java and Objective-C. They could have chosen Java for backend to keep frontend language same but they didn&#39;t. They used Erlang because they based their architecture on Ejabberd which was open source and was built with Erlang. Also WhatsApp managed all their servers by themselves and didn&#39;t even move to managed cloud services when they became available. They were self hosting till FB acquired them and moved them to FB data centres later on (Source: http://highscalability.com/blog/2014/2/26/the-whatsapp-archi...)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I agree entirely.I like to call what the author is referring to as, &#34;What-If Engineering&#34;. It&#39;s the science of thinking you&#39;ll be Google next week, so you build for that level of scale today. It involves picking extremely complicated, expensive (both in compute and skilled labour) technologies to deploy a Rails app that has two features. And it all boils down to, &#34;But what if...&#34; pre-optimising.It happens at all levels.At the individual unit level: &#34;I&#39;ll make these four lines of code a function in case I need to call it more than once later on - you know, what if that&#39;s needed?&#34;It also happens at the database level: &#34;What if we need to change the schema later on? Do we really want to be restricted to a hard schema in MySQL? Let&#39;s use MongoDB&#34;.What&#39;s even worse, is Helm and the likes make it possible to spin up these kinds of solutions in a heart beat. And, as witnessed and evidenced by several comments below, developers think that&#39;s that... all done. It&#39;s a perfect solution. It won&#39;t fail because K8s will manage it. Oh boy.Start with a monolith on two VMs and a load balancer. Chips and networks are cheaper than labour, and right now, anyone with K8s experience is demanding $150k + 10% Superannuation here in Australia... minimum!https://martinfowler.com/bliki/MonolithFirst.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"I lean conservative in my tech choices but I just don&#39;t see the big issue with Kubernetes. If you use a managed service like GKE it is really a breeze. I have seen teams with no prior experience set up simple deployments in a day or two and operate them without issues. Sure, it is often better to avoid the &#34;inner platform&#34; of K8s and run your application using a container service + managed SQL offering. But the difference isn&#39;t huge and the IaC ends up being about as complex as the K8s YAML. For setting up things like background jobs, cron jobs, managed certificates and so on I haven&#39;t found K8s less convenient than using whatever infrastructure alternatives are provided by cloud vendors.The main issue I have seen in startups is premature architecture complexity. Lambda soup, multiple databases, self-managed message brokers, unnecessary caching, microservices etc. Whether you use K8s or not, architectural complexity will bite your head off at small scales. K8s is an enabler for overly complicated architectures but it is not problematic with simple ones.&gt;Did users ask for this?Not an argument. Users don&#39;t ask for implementation details. They don&#39;t ask us to use Git or build automation or React. But if you always opt for less sophisticated workflows and technologies in the name of &#34;just getting stuff done right now&#34; you will end up bogged down really quickly. As in, weeks or months. I&#39;ve worked with teams who wanted to email source archives around because Git was &#34;too complicated.&#34; At some point you have to make the call of what is and isn&#39;t worth it. And that depends on the product, the team, projected future decisions and so on."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://seandietrich.com/mendon-missouri/">Mendon, Missouri</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31977144">
-						
-							
-								<p class="story__comment_first line-clamp">"I have witnessed something quite similar. During the flash-floods in 2021 in Germany, locals in the Ahr region absolutely rose to the occasion. Farmers were evacuating people in head-high water with their tractors during the night, local restaurants were already providing hot food and water the next morning wherever they could reach, pharmacies were loading whatever they had available on ATVs to somehow get much-needed medicine down precarious mudpaths. Local construction companies were already clearing rubble and building emergency bridges out of it. One Excavator was just basically standing in the middle of the river and ferrying people and rescue partys across. The local racetrack basically just organized everything while politicians were still playing the blame game. When our local firebrigade was officially pulled back from active duty because we lost one of ours during rescue operations in the first day, basically everyone just went down again and just tried to do whatever was possible. Absolutely stunning what people will do when they are face to face with disaster. I freely admit that I was crying like a little girl when I first saw the endless columns of Bundeswehr, THW, Fire Brigades, Farmers, basically everyone who could just streaming to help people they never met but were neighbors and friends for me.Sorry for the rambling, but I am still not emotionally disconnected enough from it to concisely talk about it."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; And the most unusual thing about all this is: None of this is unusual. At least not within the national tapestry that is The Great American Small Town.It also isn&#39;t unusual in the cities. Humans are wonderful and terrible everywhere. It reminds me of the 30 Rock episode where Jack and Liz go to Georgia to find a new comedian in touch with the &#34;real America&#34; and Liz keeps insisting that all Americans are real Americans and there is no &#34;real America.&#34;The acts of people after 9/11 in NYC remind us of the good in humans just as this small town inspires us.As Mr Rogers said, &#34;When I was a boy and I would see scary things in the news, my mother would say to me, &#34;Look for the helpers. You will always find people who are helping.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"For some reason this reminded me of the Ray Bradbury story, &#34;The Town Where Noone Got Off&#34; which is a dark little story indeed about two men and a small town on a railroad line.  This one is a bit more positive.However, it turns out this whole incident was apparently due to the lack of a railroad crossing guard system of any kind at the intersection.  The most basic system has flashing lights warning of oncoming trains, and even that wasn&#39;t present.https://www.kwch.com/2022/06/30/amtrak-derailment-places-spo...In that respect it&#39;s also a story about the poor state of American infrastructure."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/popcorn-official/popcorn-android/releases/tag/v0.3.5">Popcorn Time Is Back</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31972681">
-						
-							
-								<p class="story__comment_first line-clamp">"Given some of the people here might run their own servers, the self-hosted alternative is to have something like Sonarr PVR for newsgroups and torrents, alongside a tracker indexer like Jackett, and then Plex for the frontend. In this combination, you &#34;subscribe&#34; to TV shows and select movies on the Sonarr system, and then the downloading is taken care for you even when new episodes arrive. These will then appear on Plex which is refreshed by the pipeline automatically. The system integrates with private trackers and is capable of maintaining your seed-ratio if that&#39;s important.I recently fell into this rabbit-hole while trying to organise my music. For music there is Lidarr, which also ID3 tags your music and reorganizes it into folder structures. This is convenient since organizing anything using Plex is a nightmare."</p>
-							
-						
-							
-								<p class="story__comment_others">"Popcorn Time felt more web3 than all crypto combined."</p>
-							
-						
-							
-								<p class="story__comment_others">"Awh this brings me back. I was a large contributor to  the desktop version of this incarnation of PT, focusing on the ability to play on external applications and Chromecasts and also adding TV Shows. I remember having such a eureka moment when I finally figured out how to get subtitles working when streaming live to a Chromecast"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31965616">Ask HN: How to keep my daughter busy while tickling her curiosity</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31965616">
-						
-							
-								<p class="story__comment_first line-clamp">"I became a single parent when my daughter turned 1 year old. When she got old enough we&#39;d go fishing, bicycling, swimming, and hiking a lot. We&#39;d also go to a used book store twice a month (on pay day) so she could pick out a few books to read. She loved doing that.She had no interest at all in learning how to code or gaming but she loved helping in the garden and in the kitchen prepping and cooking meals.When she got to Jr. High she wanted to join the &#34;Cheerleader&#34; squad so there were a lot early morning rides to school I had to make, and lot&#39;s of Basketball games I attended until she graduated, but I had a lot fun cheering along with them.During those years I setup a campsite on our property so her and her friends could go hang out there. I&#39;m sure they had more fun than most parents would approve of but they never got into any real trouble, the police were never called, and no one got hurt bad enough for the parents to call me. For the most part all those parents knew exactly where their kids were and what they were doing. And that I was close enough to deal with anything that came up. But there were never any serious issues.She&#39;s 37 years old now, still loves to hike, backpack, swim, fish, garden, and cook, and most important, she still likes to hang out with me!"</p>
-							
-						
-							
-								<p class="story__comment_others">"My son is 12 y/o, and he&#39;s into Minecraft.Yesterday he discovered the server mc.openredstone.org. He spent all day yesterday and about one hour today, and he ended up building a 4-bit adder.On this server players learn how to build logic gates, and mix them so they eventually build CPUs. It&#39;s fully gamified, so beginners are called &#34;students&#34; and more advanced players are called &#34;builders&#34;. To become a &#34;builder&#34; you need to pass some trials. The &#34;builders&#34; probably have their own challenges (not sure, my son is still a student), in any case, they behave like teachers. So a student will find a builder who will give them instructions, and guide them through more and more complex designs.So, yesterday my son had no idea what XOR or NAND is, and today he already built a 4-bit adder, and has dreams of building an ALU.I&#39;m quite excited to be honest. By the way, I&#39;m not in any way connected with whomever put together this Minecraft server. I don&#39;t even think it&#39;s a for-profit thing, as far as I can tell, it&#39;s fully non-profit."</p>
-							
-						
-							
-								<p class="story__comment_others">"Might be off topic but a nugget from having two girls (5 and 11). Kids don’t care about budget or how much things cost. We have toys we’ve spent hundreds of dollars on only to have the near free to free one be a hit. I say this to make sure you know your employment status likely only effects your kids if it effects you. Or said differently, to the extent it effects you it will effect them.Kids will generally have fun with anything you show a degree of interest in. The copper pipe plumbing example in this thread is a perfect example. A simple Task became a life long activity for the kid. They will remember it forever and tell someone in the future “this time I welded with my dad”… they won’t remember that time my dad didn’t hire a plumber.Things off the top of my head that have been a hit - 
-Planting plants 
-Fashion design 
-Basic coding activities or contests 
-Shooting
-Anything that requires safety procedures 
-Lawn work (but make it fun or set a timer)
-Writing a story where they write some of it, you add in silly bits, they write more , repeat till laughing out loud. 
-Both my girls super in to etiquetteBest of luck buddy and squeeze these years for as much as you can."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=31979104">Ask HN: I&#39;m disabled and out of money. Now what?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31979104">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m not sure what the cause of your chronic pain is, but I would highly recommend reading John Sarno&#39;s &#34;The Mindbody Prescription.&#34; I&#39;ve dealt with chronic pain for years and it&#39;s the only thing that&#39;s had any effect. Please, please, don&#39;t write it off until you&#39;ve read the book. Note that Sarno&#39;s work focuses on back pain, but it applies to all types of chronic pain (including migraines, which he discusses in the book).- https://www.youtube.com/watch?v=8jQtmSZetJM- https://aaroniba.net/how-i-cured-my-rsi-pain- https://www.nytimes.com/2021/11/09/well/mind/john-sarno-chro...- https://www.nytimes.com/interactive/2021/well/chronic-pain.h..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Do 1 task a day, no matter how small it is, do it consistently for a week or two. Then every other day you do 2 tasks for a month, and you start working up to a point where you feel you do what you can within your limits and get joy from that 1 (or 2) items you can scrap off.If you live with family focus your tasks maybe on easing their life, pull out 10  weeds out of the garden, take out the trash, fix a squeaking door. Small but attainable things.Chronical pain is a mess, it&#39;s relentless and it&#39;s always there, it doesn&#39;t go away, but you learn to deal with it. Focus on the pain initially, learn what pain you have and focus on it. I learned to focus on it and make a mental note (do not know how else to say) that it&#39;s not worth paying attention to, and I get by without medication. It&#39;s not always easy and there are days where you want to cry and cry and just fall asleep so you do not have to feel it.
-It&#39;s normal and accept that not all days will be the same and successful.It&#39;s a tough hill you are up against, but all shall pass and all will be well in the end. It&#39;s unbelievable sometimes, but all shall pass. Remember that.Good luck, don&#39;t falter, reaching out is the first step!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I was in a similar situation, minus the physical disability (I was mentally in a really bad place though). The only advise I have is to not think of any job as below you. I don&#39;t know your exact situation or your disabilities, but if you can deliver pizzas to at least keep your head above the water, do that. Having gone through YC you&#39;re obviously also a bright and intelligent person, how many different companies have you tried consulting for? Some companies could be more understanding than others of your situation, in which cases making 1500 a month shouldn&#39;t be a huge problem in this industry. Sorry you&#39;re going through this friend.."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.adafruit.com/2022/02/11/tiny-core-linux-13-0-is-a-full-linux-desktop-in-22-mb-linux/">Tiny Core Linux 13.0 is a full Linux desktop in 22 MB</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31977164">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; full Linux desktop&gt; The Core Project is a highly modular based system (...) It is not a complete desktop nor is all hardware completely supported. It represents only the core needed to boot into a very minimal X desktop typically with wired internet access.That is not a full desktop, and the [The Core] project doesn&#39;t say it is.That being said the concept of &#34;full desktop&#34; is somewhat loaded. Today we have a somewhat unreasonable expectation that at least one, but sometimes several browsers, office suites, multimedia viewers and editors to be a &#34;basic desktop&#34;.Back in the 90&#39;s people did not expect the computer to come with any such software applications built-in."</p>
-							
-						
-							
-								<p class="story__comment_others">"Direct link:http://tinycorelinux.net/I have wondered how such a tiny distribution is possible. I&#39;m thinking of the kernel, in particular--when I try to compile my own kernel with no module support and only the drivers I need built-in (&#34;make localyesconfig&#34; will do this), it comes out like 10MB compressed. And I am no kernel expert, so it&#39;s hard for me to tell which settings I can change and what will happen if I do.Then when I boot the most bare-bones system with /bin/sh as init, it is using like 70mb of RAM doing nothing.So anyway, I found that you can just grab their kernel config, I&#39;ll be curious to see how it differs from more typical configs: http://tinycorelinux.net/13.x/x86/release/src/kernel/config-...Windows 95 ran in 8 MB of RAM. (Well, officially 4 MB for marketing purposes, but no one thought that was actually enough.) I would be really impressed to see a graphical Linux  environment that could run in that amount of RAM."</p>
-							
-						
-							
-								<p class="story__comment_others">"There&#39;s a bunch of nostalgia about what small meant to mean, so I&#39;ll leave some links to the QNX 1.44MB demo floppy:http://toastytech.com/guis/qnxdemo.htmlhttps://news.ycombinator.com/item?id=10483653"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.google.com/intl/en/ipv6/statistics.html">40% of Google users now connect via IPv6</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31967221">
-						
-							
-								<p class="story__comment_first line-clamp">"I sure wish Starlink supported IPv6. They&#39;re a brand new ISP planning for millions of customers and decided from the start they couldn&#39;t get enough IPv4 addresses for everyone. Fair enough! But we&#39;re stuck with Carrier Grade NAT and it is a drag.On Starlink it&#39;s impossible to host a server socket directly, which makes any peer to peer networking a PITA. Geocoding IP addresses doesn&#39;t work so I have to bend over backwards to convince, say, Youtube TV that I&#39;m in the Sacramento metro and not LA where the POP is. Also the shared IP addresses seem to trip a lot of DDOS protection; I fill out 10x as many CAPTCHAs on Starlink as I do on my other ISP. And I sometimes get random network stability problems; a few weeks ago Starlink screwed something up so no one could keep a persistent connection up more than a few minutes. Seems to be fixed now, but I bet it was their CGNAT system.I realize half the world lives with CGNAT. It&#39;s not unusable, at least web browsing works more or less. But IPv6 would solve all these problems. A little surprised that a new ISP created in 2021 wouldn&#39;t have IPv6 support as one of their launch features. There&#39;s hints they are trying to get it working but it&#39;s not an official thing now. Some discussion: https://www.reddit.com/r/Starlink/comments/tjr90n/starlink_i..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m curious how much of this is mobile vs desktop. My assumption is that a much larger percentage of the traffic on mobile is ipv6."</p>
-							
-						
-							
-								<p class="story__comment_others">"Meanwhile, Github is completely unreachable via IPv6 to this day.Found that out the hard way the other week when I went to order a build server without an IPv4."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://gist.github.com/richhickey/1563cddea1002958f96e7ba9519972d9">Open source is not about you (2018)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=31957554">
-						
-							
-								<p class="story__comment_first line-clamp">"One submission in the past with lots of good discussions: https://news.ycombinator.com/item?id=18538123 | 734 points | 2018 | 281 commentsOne of the main takeaways personally from this post, is the unique position Clojure (and other lisps) are in, where language additions can be done as libraries instead of changing the core of the language.Other languages don&#39;t (always) have this possibility.Taking TypeScript as one example. If 20% of users want to be able to do something in TypeScript that the language doesn&#39;t support, they either can try to get the change into the core language, or live without it (or fork it). If it changes, it&#39;ll change for everyone using TypeScriptBut in Clojure (lisps in general), you don&#39;t have this restriction, so modifying the language for your own need, becomes a lot easier. Lots of work on Clojure is simply done in libraries, as it&#39;s possible and doesn&#39;t impact the core of the language, which everyone shares."</p>
-							
-						
-							
-								<p class="story__comment_others">"As much as I respect Rich Hickey, it&#39;s hard to say anything positive about this. It has basically nothing to do with open source. It&#39;s entirely specific to how he chooses to run his own projects.Open source is not a gift in the sense that you &#34;get what they give you&#34;. You are entitled to the source code. You are entitled to modify the code. You are entitled to distribute your modifications.Are you entitled to be part of the development process and to state your opinions about how things are going? Yes...if those are the rules of the project. The thing is, that has nothing to do with open source, it&#39;s always project-specific, so the full post largely doesn&#39;t make any sense as a comment on open source."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; You are not entitled to the attention of others. You are not entitled to having value attached to your complaints. You are not entitled to this explanation.I wish I understood this earlier in my life."</p>
 							
 						
 						</a>
