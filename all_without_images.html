@@ -36,6 +36,300 @@
 	</div>
 
 	
+	<div class="day__date">14 August 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.theverge.com/2022/8/12/23303411/zoom-defcon-root-access-privilege-escalation-hack-patrick-wardle">The Zoom installer let a researcher hack his way to root access on macOS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32447339">
+						
+							
+								<p class="story__comment_first line-clamp">"&#34;But because of a subtlety of Unix systems (of which macOS is one), when an existing file is moved from another location to the root directory, it retains the same read-write permissions it previously had.&#34;And ownership. (The sentence before that suggests &#34;root directory&#34; here means &#34;directory owned by root&#34;.) The permissions on the directory apply only to the file&#39;s directory entry, not the file itself.This isn&#39;t a &#34;subtlety&#34;, it&#39;s how it works, and no-one who doesn&#39;t understand this should be writing macOS installers.The correct approach is to open the file for read and copy its bytes into your private area. Only then check the cryptographic signature. Just renaming into your private directory isn&#39;t enough, even if that directory has no read or execute access to other users, because the attacker could have opened the file for write access before you did the rename."</p>
+							
+						
+							
+								<p class="story__comment_others">"For years, I have refused to install zoom, webex etc clients for exactly this reason. Their installer wants admin user access for no apparent reason. They could have given a simple drag and drop installation app. Instead they want to run an installer with root user permissions to do whatever. Also, I hate apps that installs a helper background program, and doesn&#39;t let me disable it via preferences. I refuse to use those too.Besides, for what zoom does, why do they need an app? Browser has all the capabilities they need."</p>
+							
+						
+							
+								<p class="story__comment_others">"Note that if SIP is enabled (the default), &#34;root access&#34; does not mean full compromise. On macOS, root is far from being as privileged as it was in the old days of UNIX yore. (Even on Linux it does not have to be, but my impression is that on most distributions it probably still is.)Just because you&#39;re root does not mean you get any entitlement you want, or arbitrary access to the whole filesystem, arbitrary memory access (a la /dev/(k)mem), or can replace the kernel just like that.(That&#39;s also probably why you don&#39;t hear of iPhones being &#34;rooted&#34;, but rather &#34;jailbroken&#34;. Just being root on an iPhone wouldn&#39;t do that much.)Make no mistake, this is still a privilege escalation attack and needs to be fixed."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://programmingwithstyle.com/posts/howihackedmycar/">I hacked my car</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32447650">
+						
+							
+								<p class="story__comment_first line-clamp">"One of the things I remember being discussed on m.d.s.policy not so long ago was making a registry (maybe handled by IANA) for example private keys. Turns out Peter Gutmann did the heavy lifting (thank you Peter) to turn that from idle discussion into a draft document:https://datatracker.ietf.org/doc/draft-gutmann-testkeys/From the point of view of m.d.s.policy the main idea is to require CAs to reject these keys in certificates for the Web PKI and encourage software to use these keys (rather than their own examples) in sample code. Basically when you build my-cool-website.example and copy paste the private key from an example into your certificate fetching code, the CA should say &#34;Er, no, you need to actually choose your own private key, that&#39;s what the word private means&#34; and this should happen when you copy-paste a high-rated Stack Overflow example, the provided sample code from the library you used etc. Ideally these would all be the same keys is the idea.It would also make sense for tools to care about these example keys e.g. GitHub could flag code that&#39;s checked in and has keys which are not these examples since maybe you used real keys by mistake in your GitHub repo, meanwhile your build-for-production CI tools could reject keys which are on the list because that means you forgot to pick actual keys for the real build."</p>
+							
+						
+							
+								<p class="story__comment_others">"The Mac address part stood out to me, has something changed over the year that made changing Mac addresses more complex?Back in college our school had some limitations on the internal networks in our dorms. After doing my normal stuff (you know mega downloading,ftp, limewire etc) my net stopped working. Come to find out they had a bandwidth monitor and would just block you for some time if you used too much and had to contact tech support, even for simple things like window updates.Anyways, somehow I found out I could tweak some net configs in the registry. So here I randomly change some dword value to change my Mac address. I finally got back online and just forgot about it.A few days later I came back to my room after classes, my roommate told me the school officers raided the room trying to get on my PC. I went to the student dean&#39;s office and come to find out I took net access from I think the president and they tracked it to my PC ... Some luck I say lol .. Tech support said that there was no possible way I could change my Mac address after a bit back and forth I decided to just agree with him.O yeah and they had like a 200-300 page printout of irc chatlogs ,there was more stuff but I&#39;ll end it there.Needless to say my net access was blocked for a year even tho I had a work study job with the webdev department.
+It didn&#39;t stop me though, I ended up running a long cat5 cable from the dorm next door. Fun times."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow, this series of posts is awesome! I have a Kia EV6 and just finding the OBD-II PIDs is a massive pain in the arse. Kia is actually required by EU law to disclose them (Art. 61 EU regulation 2018/858 [0]) but refused to do so even when I wrote to them. Need to follow that up with a complaint to the Spanish type approval authority (which approved the EV6)...Writing custom software looks like a really promising alternative though, especially if the vehicle&#39;s cellular connection can be used. Hell, if the IVI uses the CAN bus, perhaps there&#39;s a reverse-engineerable list of PIDs.[0]: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.su.se/english/news/it-s-raining-pfas-even-in-antarctica-and-on-the-tibetan-plateau-rainwater-is-unsafe-to-drink-1.620735">It’s raining PFAS: rainwater is unsafe to drink even in Antarctica and Tibet</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32451024">
+						
+							
+								<p class="story__comment_first line-clamp">"The floss I use apparently has PFAS in it (Oral B Glude). Many paper straws contain it. Nonstick pans. Food wrappers designed to avoid grease. Water resistant clothing, cleaning products, candy wrappers. I used to drink out of plastic bottles and plastic glasses.We need to do a better job of regulating what is allowed to be sold to consumers. We&#39;re likely going to see a a whole host of rare medical conditions become common when my generation gets older. Not to mention that on top of destroying human health we&#39;re destroying the planet too. I don&#39;t know what to do about any of this but I feel powerless to make an impact."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is an exaggeration, of course. The EPA guideline of 70 ppt for PFAS is probably just too low compared to other standards. For example, a Canadian guideline suggests an MAC of 200 ppt for PFOA, and 600 ppt for PFOS. These are the most common PFAS. Also, these are based on a lifetime exposure, and short term exposure to these amounts is probably not particularly harmful.Additionally, even in the US, the guidelines by the individual states vary between 13 to 1000 ppt. [2][1]: https://www.canada.ca/en/services/health/publications/health...[2]: https://www.nature.com/articles/s41370-018-0099-9"</p>
+							
+						
+							
+								<p class="story__comment_others">"To all the chemical engineers:
+(And computer engineers for that matter)Your time is coming. The rest of the hard engineering disciplines have had their failures and now we have licenses and accountability.The amount of damage one bridge can do is limited, but the amount of destruction caused by endocrine disrupting chemicals and authoritarian enabling surveillance tools is unlimited.The civil engineer will be held to account for his failures. Hopefully, soon, the same will be true for the likes of your professions"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=32448825">Ask HN: Anyone else feels the commoditization of real estate is unethical?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32448825">
+						
+							
+								<p class="story__comment_first line-clamp">"Like another comment here mentioned, housing is complicated. People don&#39;t want to live in a random house in the middle of nowhere (&#39;roof over your head&#39;). Some people prefer to be homeless on the street versus getting to a roof over their head that they don&#39;t like.People want to live where they want to live (near family, jobs, culture etc)Take NYC for instance. Politicians try to address the NYC housing crisis from a demand/cost perspective. Rent is too high? Let&#39;s just screw the property owner and cap the rent. Or let&#39;s just raise minimum wage to make it easier for people to live in those properties.The result in both cases: you didn&#39;t have enough housing before, you don&#39;t have enough housing now. You give more money to people, rents will just go up. You cap the rent, there&#39;s still a huge number of people that can&#39;t live where they want and you make it impossible for existing tenants to move (or for new/more development to be built, for that matter)So, what instead? You want to build more housing in NYC? Great, that should work. But you have to make it cheap. Deregulate construction, get rid of unions, prioritize developer rights over tenant or homeowner rights. What? You don&#39;t think these are good things? Okay, but then you&#39;ll have to sit back and watch new construction trickle in and result in &#39;luxury&#39; housing because that&#39;s the only way a developer can recoup their enormous land acquisition, regulation and construction costs.
+So the challenge with housing is that it requires fundamentally difficult decisions. To pretend that you can just spend 100 billion (or even a trillion) and the problem will be solved and people will be happy, is an illusion."</p>
+							
+						
+							
+								<p class="story__comment_others">"I definitely do. It&#39;s something that turns a basic necessity into a speculative asset, with a price distorted by the money poured into it. Airbnb is also a deeply harmful influence on housing prices.Imagine if we did the same thing with, say, water: privatized it and then &#34;democratized&#34; ownership of it.It&#39;s easy to get retail investors to buy things at inflated, speculative prices, so the price of water would go up. People would say, &#34;Why are so many people dying due to lack of access to water?&#34; And we would blame these startups, laws would be passed, and we would fix it.Unfortunately the necessity of housing is not as direct and clear, and we have a long history of denying housing to people who are unlucky, sick, or the children of such people."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s a natural first impulse, but it&#39;s wrong. What is the correct impulse is to be concerned about how lopsided most cities zoning is towards single family, as that is what is driving the market power that makes real estate profitable as a financial asset. If most of a city was zoned to allow up to multi residential highrises rather than most of a city being zoned for single family it would cut the appreciation ability of the scarce and valuable land zoned for higher density already and would allow more people to live closer to where they want to live (i.e. close to work/wherever they daily commute).The market isn&#39;t failing to function because someone realized they could buy up current stock and make a large profit over time, people noticed they could make a large profit over time because city governments zoned everything wrong for the actual demand."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://about.gitlab.com/handbook/ceo/shadow/">CEO Shadow Program</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32445192">
+						
+							
+								<p class="story__comment_first line-clamp">"I was fortunate enough to spend about 18 months as staff assistant to my CEO, including access to their email and basically all meetings. This was a PE-backed roll-up that was in the midst of acquiring several smaller companies, and then pursuing an exit.The experience really opened my eyes about the requirements for the job. The amount of code-switching required to communicate well with ownership, the other C-levels, employees, customers, and potential acquirers could make my head swim. The breadth and depth of technical, financial, and human expertise necessary to verify all the parts of the business and smell out where issues might be hiding. All of that before even getting to (in this case) integrating several businesses into a whole, identifying up-and-coming leaders, and keeping the employees happy; let alone actually having a strategy, getting buy-in, and implementing it. And then spending most evenings networking with the elite class that you need to know to have access to capital. You can never have a bad day. Ever.This was for an org that was comfortably under 1000 employees, all located in the US, where none of the VPs were the kind of political operators you get in meatier companies.I walked away thinking that there can&#39;t be even 100k people in the country with the ability to do even a non-laughable job as the CEO of a 500ish employee company. Not even do a good job, just do a job that doesn&#39;t look like one of those 80s child-parent-bodyswap movies where the kid tries to work in an office.I still think CEO pay is out of control, but I understand better why boards end up paying what they do. Any weakness in any of these skills is an existential threat, and you don&#39;t know for sure what will hit you this year."</p>
+							
+						
+							
+								<p class="story__comment_others">"The &#34;What it&#39;s like&#34; posts are really cool. Especially enjoyed this account[1] from a content writer who shadowed the CEO during a half-day meeting with a major investor and got to see the impact of their work in a context they never expected:&gt; Next we met with Vinod, Bruce, and investment partners Brian Byun and Sven Strohband for a company brief and brainstorm session. Sid began with an update on the financials, and detailed our massive growth and expansion both in terms of people and product. There were no slides presented. Instead, Sid used our website as a visual aid. Nearly every question or discussion point was first addressed with a Google search to pull up the appropriate GitLab web page to reference.[...]&gt; I’ve been working at GitLab for two and a half years as a content writer on our marketing team and at times have been extremely frustrated with our marketing website—the content on it, how it’s organized, what we’re presenting, etc. It doesn’t look or operate in a way I’m familiar with so my instinct was to not trust it. But nothing we do at GitLab is “normal,” and witnessing our CEO use the website as a single source of public truth to inform our investors is just one example of what it means to be a transparent company.[1] https://about.gitlab.com/blog/2019/04/08/khosla-ventures-git..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m constantly in awe of Gitlab&#39;s radical transparency approach. I have no idea if this is actually a good idea (surely every competitor of Gitlab has a huge amount of assymetrical information about Gitlab that Gitlab does not have in return) - but I am fascinated by it and truly grateful for them for daring to go out on a limb and do this experiment. My fingers are crossed that this brings them amazing success as I wish all companies worked this way."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/Updates-to-the-Fusion-360-Simulation-Extension.html">Local simulation feature to be removed from all Autodesk Fusion 360 versions</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32445203">
+						
+							
+								<p class="story__comment_first line-clamp">"For consumers in some jurisdictions they may be able to get refunds on the product if it can be argued that this feature was a core reason the application was purchased.However once you are a business many of those protections aren’t present. There is an assumption that businesses should be able to sort things out amongst themselves and the court system. However an SME barely has any more power then a consumer going against a giant like Autodesk.I wonder if the solution wouldn’t be to extend those protections to smaller businesses, and additionally allow reclaiming the cost of any investments in the platform (Training, etc) and other expenses. Your not telling autodesk what they can do with their product, but if they are selling it based on features they are removing, they will be liable to make right anyone who purchased on that basis."</p>
+							
+						
+							
+								<p class="story__comment_others">"The perils of SaaS strike again. It used to be that you bought a license, and then the software was yours to use eternally thereafter with zero external dependencies.When will the users learn that SaaS means the software can change at any time out of your control, up to and including not functioning at all, and you will not be able to do anything about it?Or will their minds continue to be &#34;clouded&#34; by the corporate propaganda?I think the question of why people will willingly &#34;build on a shaky foundation&#34; is appropriate, especially given the type of software this is."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a fairly core feature they&#39;re removing from a product they already sold.I also liked that they don&#39;t make any attempt at claiming this is for any reason other than more money. No &#34;oh our new models are too powerful to run locally&#34; or &#34;oh for security reasons&#34; or whatever. Which would be pretty transparent bullshit but I think a lot of companies would try anyways. This literally admits that the cloud functionality is identical, just paid per use.Imo if you bought the product in this state, fine, but if you bought it before they probably ought to have to grandfather you in forever."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.mattkeeter.com/blog/2022-08-11-udp/">From Oscilloscope to Wireshark: A UDP Story</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32428032">
+						
+							
+								<p class="story__comment_first line-clamp">"If you have to debug at that level, and you&#39;re not designing hardware, things are really bad.Some years back, Wes Irish at Xerox PARC tracked down one of the great mysteries of early coax Ethernet - why was throughput so much lower than theory predicted? For this, he got both ends of a building-length coax with many machines on it connected to one office, so he could plug both ends into a storage scope. If the waveforms disagreed, somebody was transmitting when they shouldn&#39;t. Storage scopes with large storage were rare then. It was an expensive LeCroy unit.After the end of each Ethernet packet on coax, there is a brief &#34;quiet time&#34;, and then the next packet can be sent, beginning with a sync pattern. The hardware detects if what it is sending does not match what it is receiving, which indicates a collision. Both senders stop, wait a random time so they don&#39;t collide again, and retry. This is how &#34;carrier sense multiple access - collision detection&#34;, or CSMA-CD, works at the hardware level.This setup revealed that something on the cable was transmitting a single spike after the end of each packet, during the &#34;quiet time&#34;. That reset the &#34;quiet time&#34; timer in the network interface, which inhibited the transition to &#34;look for sync&#34; mode. So the next packet would be ignored. 
+The quiet time timer was at a very low level - software did not see this event.What came out of looking at the waveforms was the surprising result that the                                                                                      spike during the quiet time was not coming from either the data source or the destination, but from something elsewhere on the cable. The spike was not synchronized to the packet just sent.
+With the waveforms for both ends of the cable visible, speed of light lag revealed both that this was happening and where it was coming from, as distance along the cable.It turned out that several brands of network interface used a part which contained the quiet time timer, the sync recognizer, and the transmitter power controller. When the timer ran out, the device did a state machine transition, and during that transition, for a nanosecond or so, the transmitter turned on. It wasn&#39;t supposed to do that. This generated a spike on the cable, resetting every quiet time timer and causing the next packet to be silently ignored by all stations.The network interface didn&#39;t need to be active to do this. Being powered on was sufficient. One device with that part could halve the data rate on a coax Ethernet. Thousands of network interfaces had to be scrapped to fix this."</p>
+							
+						
+							
+								<p class="story__comment_others">"I know a little bit about Ethernet, having used it since the early 10Base-2 days as well as having done a bit of &#34;hacking&#34; in an effort to decode 1000Base-T.This article is focused on the QSGMII PHY chip, without which it would be practically impossible to use an oscilloscope for any meaningful troubleshooting.1000Base-T is the most commonly used Ethernet variant in use today.  It uses four balanced differential pairs for signalling.  Each pair transmits and receives simultaneously.  This works because 1000Base-T is a point-to-point connection and the PHY contains a hybrid that subtracts the voltage being transmitted from what is received.  This makes the problem of &#34;tapping&#34; the interface harder because the third party observer sees a jumble of data and cannot easily determine what data is coming from either of the two connected devices.  Each pair can send/receive five possible symbols, represented by voltages of +3.5, +2, 0, -2, -3.5 volts.  In addition, the PHY &#34;scrambles&#34; the data being sent with a LFSR (https://en.wikipedia.org/wiki/Linear-feedback_shift_register) seeded with either a &#34;master&#34; or &#34;slave&#34; value.  (The master/slave identity is negotiated between the two peers when they detect each other.)  It gets even more complex with hamming codes and an abstraction layer to separate the control/data planes.  There&#39;s also a complicated DSP for line equalization.BTW, I do own one of these: https://www.amazon.com/midBit-Technologies-LLC-SharkTapUSB-1... which can make the job very easy, but it was not an available option for my &#34;hacking&#34; application."</p>
+							
+						
+							
+								<p class="story__comment_others">"The scope&#39;s sample rate really jumped out to me:&gt;  I configured the oscilloscope to collect 100M samples at 1 TSPS (tera-sample per second, 10^12) ...Wow! Sampling at 1000 GHz? I wouldn&#39;t have thought that was possible! Does anyone know how the scope can even do that?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.indiatoday.in/technology/news/story/vlc-media-player-banned-in-india-website-and-vlc-download-link-blocked-1987361-2022-08-12">VLC media player banned in India</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32441911">
+						
+							
+								<p class="story__comment_first line-clamp">"President of VideoLAN here: we got banned since a few months, and we don’t know why. (According to my stats, it is since the 13 February 2022).We’ve asked the Indian government and we got no answer. We probably did not ask the right place though. I wish I knew how to ask properly.The weirdest is that some ISP are blocking it and some are not. So why is that the case? Are some ISP not listening to the government?VLC and VideoLAN are quite apolitical (we only fight against DRM and for open source) and VLC is a pure tool that can read anything."</p>
+							
+						
+							
+								<p class="story__comment_others">"The Indian government (and Indian courts) is infamous for these random harebrained stunts.  In the past, it has banned archive.org [1], continues to block the French ISP free.fr, etc.  VLC was likely banned because people use it to watch pirated films (the same reason free.fr continues to be banned [2]).  And it&#39;s plain f*cking stupid to just ban videolan.org, because it can be downloaded from numerous other websites [3], not to mention the repositories of every major Linux distribution.[1] http://blog.archive.org/2017/08/09/statement-and-questions-r...[2] https://www.reddit.com/r/india/comments/74lqug/why_is_free_a...[3] https://duckduckgo.com/?q=download+vlc+-site:videolan.org"</p>
+							
+						
+							
+								<p class="story__comment_others">"It is cute to see non-indians trying to guess the reason. We were like you once.It is an exercise in futility. Our government is run by monkeys. They are stubbornly uneducated about science and technology, at the same time pretending to know everything about it. How does our government take decisions? My best guess is they consult a successful team of astrologers."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://benhoyt.com/writings/rob-pike-regex/">Rob Pike&#39;s simple C regex matcher in Go</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32434412">
+						
+							
+								<p class="story__comment_first line-clamp">"Apparently I reinvented almost the same code several years after Pike:https://github.com/redis/redis/blob/99ebbee2b260b3466672b4fa..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I like the article that this post refers to about efficient implementation
+(https://swtch.com/~rsc/regexp/regexp1.html). It mentions a debate between
+J. Friedl and comp. sci. purists about whether NFAs and regular expressions should really be called what they are in the face of backreferences and other notation. Friedl suggests another name should be used, because de facto &#34;NFAs&#34;
+are no longer equivalent to DFAs.Since Xerox Research Europe&#39;s invention of xfst, the term &#34;extended regular
+expression&#34; is already taken for a specific superclass of expressions that
+describe regular relations.So I propose two alternatives, semi-regular expressions and super-regular expressions, for strings that look like regular expressions but that use non-regular extensions like backreferences that push the complexity beyond what can be done with NDAs/DFAs."</p>
+							
+						
+							
+								<p class="story__comment_others">"So fun story (to me in retrospect).I had an interview at google years ago where I basically I was asked to come up with this on my own.  In my opinion, a terrible interview Q (per Kernighan&#39;s blog, linked in original post, it took pike an hour or two alone in his office), and I bombed it.  It was either my just before or just after lunch interview and it stuck with me for the rest of the day and I couldn&#39;t give my entire focus to the rest of the sessions.anyways, after it was done, I found kernighan&#39;s blog post and decided I should try to implement this in java as it will allow me to even get some practice with things like junit and more experience with object oriented programming as I had been living in the C world at that time).  so I did, but I then found this regular expression page ( https://www.regular-expressions.info/) and learned many more things about &#34;regular expressions&#34; that i hadn&#39;t learned in school (because they aren&#39;t regular) and wondered if I could extend pike&#39;s simplicity to them in a relatively simple manner.  So I did.which I created this https://github.com/sjpotter/regex.Not meant to be &#34;performant&#34; but meant to be educational to me and perhaps others.Then when I was learning go, I rewrote it in Go.  I did things that are not &#34;normal&#34; go patterns (i.e. using panic and recover to make error handling cleaner (in my opinion, if an error path is simply if (err) { return err } all the way up, I personally think panics/recover at the top can be cleaner, but it seems most disagree), but it was educational on how to rewrite my java code to an object oriented style in Go and to explore the limitations of interfaces and how one might get around them (also perhaps in ways that go against what might be considered proper go programming)https://github.com/sjpotter/regex-gothough now that I look at that repo, wondering if all the work was done elsewhere and then I just pushed a single commit there, might need to go back and look at it"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://readpassage.com/i-watched-an-857-hour-movie-to-encounter-capitalisms-extremes/">“Logistics”, an 857-hour movie, tracks a pedometer from shop back to factory</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32449846">
+						
+							
+								<p class="story__comment_first line-clamp">"The crazy part is that this journey is only the tip of the iceberg for this pedometer. It is made of many components, all of which follow similar journeys to the pedometer factory from their respective factories. And the components are made of raw materials, which are also shipped around in a similar manner after being mined. And the mining itself displaces those who live in that space."</p>
+							
+						
+							
+								<p class="story__comment_others">"Why did they do this backwards? It sounds like they took the trip in reverse. I thought they recorded it forward (tracking an actual object the whole time) and presented it in reverse, but it looks like they didn&#39;t actually follow a real object. They just chose a path and took the path in reverse, using the types of transportation that such an object might in theory have taken:&gt; They write that, “Four years later we found ourselves on the largest container ship in the world on our way from Sweden to China.” As per the trip: “We had started the journey by truck to Middle Sweden, then by freight train to the port of Gothenburg, and after four weeks at sea, we filmed from a truck again, this time from the port of Shenzhen to a factory in Bao’an.”The idea of following a single, real object from point of manufacture to destination--documenting all the transfers and hiccups along the way--is interesting to me. Presenting it in reverse chronological order is an artistic decision I&#39;m ambivalent about. But it doesn&#39;t sound like that&#39;s what they did. They didn&#39;t track a pedometer; they just took freight vehicles along a path that maybe the thing went on, without following the actual transfer of the item from box to container, from truck to ship, etc.I&#39;m disappointed. I was ready to actually watch the whole thing. But it&#39;s contrived."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hi there, creators of Logistics here. Super happy to see this featured on Hacker News.Feel free to ask us anything!official site is logisticsartproject.com"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">13 August 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -57,7 +351,7 @@
 							
 						
 							
-								<p class="story__comment_others">"The effect of all of this nonsense will to drive developers into pseudonymity. It won&#39;t solve the &#34;problem&#34; of developers building privacy tools. It won&#39;t stop experimentation with shitcoins. But it will eliminate the phenomenon of the Buterin-style project lead and &#34;core developer&#34;.The bullseye has been painted. And now those who have reaped the benefits of fame will come to know why Satoshi concluded that it was a trap to be avoided. The legal pressure that will be brought to bear on the Ethereum foundation to enact various changes will be enormous and never-ending.It doesn&#39;t matter whether or not this case flies. That will take many years to sort out. In the meantime, rational actors will do the rational thing. Everyone else will receive summons and indictments."</p>
+								<p class="story__comment_others">"My comment from 2 days ago:&gt; The US sanctioning Tornado Cash and the resulting repercussions is deeply concerning. Whether or not you like crypto, you should not be supporting this if you are a researcher, academic, technologist, cryptographer, or privacy advocate. The code for Tornado Cash is a series of cryptographic and mathematical functions that can be repurposed for a variety of applications unrelated to privatizing user wallets. The protocol itself is designed for one reason: to give users privacy through end to end and zero knowledge cryptography.&gt; Allowing it to remain open source and accessible as a tool for blockchain privacy and codebase for cryptographic research is a net benefit for the entire world.&gt; A comparison would be that US decides to sanction the open Matrix protocol along with any user, developer, source host, or sponsor that has ever contributed to it in the past - because it can facilitate end-to-end encrypted terrorist communication.Discussion:https://news.ycombinator.com/item?id=32404966"</p>
 							
 						
 						</a>
@@ -109,11 +403,12 @@
 							
 						
 							
-								<p class="story__comment_others">"They&#39;re finding PFAS in everything now.https://www.consumerreports.org/bottled-water/pfas-in-bottle...https://www.vice.com/en/article/m7gban/rainwater-everywhere-...https://www.dcourier.com/news/2022/aug/11/prescott-valley-sh..."</p>
+								<p class="story__comment_others">"From this 2019 study:Serum concentrations of PFASs and exposure-related behaviors in African American and non-Hispanic white womenhttps://www.nature.com/articles/s41370-018-0109-yFlossing with Oral-B Glide was associated with 24.9% (95% CI: 0.2–55.7) higher levels of PFHxSExposure to these chemicals and draws attention to coated cardboard prepared food containers and dental floss as modifiable sources.
+Fast food packaging show that fluorinated chemicals are detected more frequently in paper wrappers than in paperboard containers.Eating food prepared with nonstick cookware had no significant association with PFAS levels."</p>
 							
 						
 							
-								<p class="story__comment_others">"There isn&#39;t a human alive today whose blood is free from PFOA and/or PFOS. The question to answer is what are the major routes by which this is happening.There is a lot of discussion in this thread about cookware. The problem is that these chemicals are now found throughout the environment and used in countless products. The stuff is found increasingly in drinking water and foods. Maybe cookware is a major contributor, but the truth is nobody knows yet.Nor does this effect appear limited to liver cancer. The paper notes:&gt; Studies examining associations of PFAS exposure with risk of other cancers, such as kidney cancer, in the general population have found similar associations to those reported here. For example, in the only existing nested case-control study examining the prospective association between PFAS levels and risk of renal cell carcinoma, PFOS levels &gt;50 μg/L were associated with more than two-fold increased risk of developing renal cell carcinoma (OR=2.51; 95% CI: 1.28-4.92), and similar associations were reported for PFOA and PFHxS [[52]]. These findings are notable due to the similarity in PFOS concentrations associated with risk of HCC in our study. ...https://www.jhep-reports.eu/article/S2589-5559(22)00122-7/fu...For its part, the paper never mentions the word &#34;cookware&#34; and is instead focused on the link between blood concentrations and cancer.Edit: Wikipedia has the following paragraph on the topic of cookware:&gt; Despite DuPont&#39;s asserting that &#34;cookware coated with DuPont Teflon non-stick coatings does not contain PFOA&#34;,[91] residual PFOA was also detected in finished PTFE products including PTFE cookware (4–75 parts per billion).[87] However, PFOA levels ranged from undetectable (&lt;1.5) to 4.3 parts per billion in a more recent study.[48] Also, non-stick cookware is heated—which should volatilize PFOA; PTFE products that are not heated, such as PTFE sealant tape, had higher (1800 parts per billion) levels detected.[92] Overall, PTFE cookware is considered an insignificant exposure pathway to PFOA.[93][94]https://en.wikipedia.org/wiki/Perfluorooctanoic_acid"</p>
+								<p class="story__comment_others">"They&#39;re finding PFAS in everything now.https://www.consumerreports.org/bottled-water/pfas-in-bottle...https://www.vice.com/en/article/m7gban/rainwater-everywhere-...https://www.dcourier.com/news/2022/aug/11/prescott-valley-sh..."</p>
 							
 						
 						</a>
@@ -690,12 +985,12 @@ You can still escape the app context via the sharing menu though, although that 
 							
 						
 							
-								<p class="story__comment_others">"By the end of my employment at Google I was not working very hard.  Probably a few hours a day, mostly doing whatever I felt like doing.  My managers consistently gave me &#34;meets expectations&#34; regardless of how much I achieved or how hard I worked.  However, any time there was an emergency related to my function, I had everything required to jump in, fix serious problems, and then get out of the way during the cleanup then contributing my bit to the postmortem.  
-I could tell there were very few (fewer all the time) people who truly understand google prod, and in that sense, the company seems to be OK with paying top salaries to people who can prevent the company losing lots of money, or other critical prod issues."</p>
+								<p class="story__comment_others">"Maybe it’s not the employees fault, but the management who hired them… or maybe it’s the fact that it takes forever to get anything done at FAANG nowadays.Or maybe, just maybe, interviewing based on esoteric computer science problems isn’t the best way to identify high performing builders.. but a great way of identifying people who can hack a process to secure maximal reward.Look, if I can ‘crack the coding interview’, then I can certainly crack ‘how to do as little work as possible and stack paper to the ceiling while my stock vests’.I wonder when the last time was that Mark or Sundar actually wrote any code they pushed to prod."</p>
 							
 						
 							
-								<p class="story__comment_others">"Maybe it’s not the employees fault, but the management who hired them… or maybe it’s the fact that it takes forever to get anything done at FAANG nowadays.Or maybe, just maybe, interviewing based on esoteric computer science problems isn’t the best way to identify high performing builders.. but a great way of identifying people who can hack a process to secure maximal reward.Look, if I can ‘crack the coding interview’, then I can certainly crack ‘how to do as little work as possible and stack paper to the ceiling while my stock vests’.I wonder when the last time was that Mark or Sundar actually wrote any code they pushed to prod."</p>
+								<p class="story__comment_others">"By the end of my employment at Google I was not working very hard.  Probably a few hours a day, mostly doing whatever I felt like doing.  My managers consistently gave me &#34;meets expectations&#34; regardless of how much I achieved or how hard I worked.  However, any time there was an emergency related to my function, I had everything required to jump in, fix serious problems, and then get out of the way during the cleanup then contributing my bit to the postmortem.  
+I could tell there were very few (fewer all the time) people who truly understand google prod, and in that sense, the company seems to be OK with paying top salaries to people who can prevent the company losing lots of money, or other critical prod issues."</p>
 							
 						
 						</a>
@@ -2634,298 +2929,6 @@ this trend to future work."</p>
 							
 								<p class="story__comment_others">"This was a variant of the question that I had when I left Stripe in 2019. After hearing someone say “We are the first generation to feel the impact of climate change and the last generation that can do something about it.”, I became fixated on the question of what can I, with my software skillset, do to have a meaningful impact on climate?.  The answer (in hindsight), is a ton.My particular approach was to start a company (Watershed[0]), but today there are lots of great options as a software engineer. There are already plenty of great examples in the thread of places to look for companies (MyClimateJourney community, climate job boards, etc). I think the most important thing is not to feel like you need to learn a ton before jumping into the fray. Most engineers that joined us had zero climate experience beforehand. All you need is to be curious, be an effective engineer and you can learn what you need on the job.My email is in my profile if you want to chat![0] We’re hiring (https://watershed.com/jobs)
  and engineering is absolutely our rate limiter in helping companies decarbonize. We’ve built a climate platform that’s powering the climate programs of some of the world’s leading companies (Block, Shopify, Doordash as a few examples). Our goal is to be responsible for reducing the world’s yearly carbon emissions by 500 megatonnes of carbon by 2030 (1% of global emissions)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">04 August 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://noctslackv2.wordpress.com/2022/08/02/whats-the-strangest-thing-you-ever-found-in-a-book/">What’s the strangest thing you ever found in a book?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32334552">
-						
-							
-								<p class="story__comment_first line-clamp">"I once took a critical thinking course and bought the textbook 2nd hand from the college bookstore.  A week or two in, I noticed half of a sentence written in the margin.  As the professor started teaching the topic from that page, he rhetorically asked a question, did not get an answer, and then answered himself with the sentence from the book.  I filliped ahead and found that the entire book was annotated with all of his answers, anecdotes, and various other helpful notes.  There was even a table that accurately listed his wardrobe choices!  The notes were in several different handwritings, and the book had been resold over a dozen times, so that professor must have been teaching the same class the exact same way for a decade or more.  I quickly became a star pupil as I always had an answer ready.  I added a few notes along the way and then sold it back to the bookstore at the end of the year.  I really wanted to keep it for posterity, but It just seemed wrong to take it out of circulation."</p>
-							
-						
-							
-								<p class="story__comment_others">"In my middle school German textbook, I found the following note (translation my own):Hi Katie, we should meet up over tea over these images. The first image should be a simple sketch of two dudes playing football, tell the guys in graphics that the one they gave me is waaa too complex. The second image should be a chick playing tennis.The note went on in this manner for a couple more sentences, describing all the images on the page. Because I was a blind student who used a screen reader, I had to get the PDF version from the publishing company, which I then put in a specialized ebook reading app for the blind. I strongly suspect that the editors of that book used some PDF tricks for hiding information to post notes to each other. Whether they were alt descriptions, white fonts on white background, regions shrunk to be 1px tall by 1px wide or something else entirely, I do not know. That file was intended for printing, not digital distribution, so I guess that they decided the notes didn&#39;t need removing as long as they weren&#39;t visible."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; He looked around at the faces in the crowd and said, “I’m opening the bidding at one dollar.” I about shit myself. I bid the $1 immediately to get things rolling. Well, after I bid, he looked around and said, “Once, twice, sold that man there for $1.” I just laughed… and wondered how the Hell I was going to get this pallet home and what I was going to do with all those books.&gt; When I asked the auctioneer afterwards why he’d let it go so cheaply, he said, “Did you see anyone trampling you to get in a bid?” I said no, I didn’t. His reply, with a smirk on his face, was, “Gotta’ know your audience in this job.”&gt; Well, needless to say, I got the books home and spent a few years going through them and selling some, giving some away, etc. However, that’s not the point of this story. The point was finding things in books. So, with that in mind…Dude goes to an auction and finds books. Nobody bids on the books. Dude is amazed that the auctioneer is willing to sell him something nobody wants for a low price. Dude spends years going through those books.I&#39;m happy for this guy."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://calebschoepp.com/blog/2022/productivity-porn/">Productivity porn</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32335165">
-						
-							
-								<p class="story__comment_first line-clamp">"Sometimes I feel as if our entire society has turned into one giant cargo cult.  Whether it&#39;s OKRs or the latest tech fad or black turtlenecks, everyone looks at the last big hit, picks out some set of superficial features of the person at the top, and says, &#34;Yeah, that is the key to success.&#34;  No one ever steps back to think about causality or even what they actually want.Brings to mind one of my favorite aphorisms: furious activity is no substitute for understanding.  Very few people seem to subscribe to it, but I&#39;ve gotten an enormous amount of mileage out of it over the years."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is 100% me if you substitute social media browsing with distro hopping and text editor tinkering. Now I understand why redditors decided to call that subreddit &#34;unixporn&#34;.My solution: Stick with Fedora and Visual Studio Code, because I&#39;ve spent at least 100 hours in the past month checking out Neovim, getting my first init.lua to work, messing around with configurations, making telescope work, make telescope look good. Then switched to Arch, try bspwm, Gnome, KDE, fonts.Meanwhile, my fellow junior colleague is flexing all over me his Docker knowledge, his experience in unit testing and CI/CD, and generally things people actually pay you for."</p>
-							
-						
-							
-								<p class="story__comment_others">"While this term gets overused, I think what we&#39;re really saying is that we&#39;re addicted to success. Or the idea that we will be successful if we are overly productive.If you watch many of the people on social media who are &#34;productivity gurus&#34;, you will notice that their philosophy of how to stay productive will shift as the content gets stale and they need something more novel to talk about with their growing audience. Many of them are just like you and me and cover the latest bestseller book or popular tweet that has merit to it, but then gets discarded after we realize it doesn&#39;t work in our lives.In turn, they also become wildly successful by providing you surface level tips on how to be a little more productive each day.While I used to be obsessed about this topic or what others call &#34;hustle culture&#34;, I think you have to go through it before you realize how finite one&#39;s life really is. The overworking, the &#34;always on&#34;-ness, the comparison to others who happened to reach success earlier than us.It all doesn&#39;t matter at the end of the day. The simplistic perspective is that you can take common occasions and make them great and you&#39;ll find success or at least a better understanding of your definition of &#34;success&#34;."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.freethink.com/technology/solar-desalination">MIT invents $4 solar desalination device</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32328185">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; The device worked for a week straight with no signs of salt accumulation, but we still don’t know exactly how long it could operate.Let’s maybe run it for a couple more weeks before we talk about it again?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Maybe I&#39;m crazy but does MIT get a disproportionate number of features on HN? For one of thousands of institutions in the US let alone the world, they&#39;re not the only ones inventing things. I feel like there&#39;s at least one MIT adjacent post in the top 5 each time I log on and it doesn&#39;t feel like a coincidence."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t mind that MIT has a great reputation and a great PR team. It&#39;s okay to put out new ideas and inventions that may not pan out. But the breathless coverage of their work by news organizations, little more than rephrasing press releases, that&#39;s what irks me. They also suck the oxygen out of the space for other science coverage, as if there&#39;s not good work being done at dozens of other institutions around the world."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="http://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf">DALL·E 2 prompt book [pdf]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32322329">
-						
-							
-								<p class="story__comment_first line-clamp">"I just got access to the DALL-E 2 beta, and it&#39;s a ton of fun to make pictures out of everyday occurrences as prompts.Someone else here on HN observed that everyday people don&#39;t &#34;get&#34; how huge this all is. I experimented with asking random acquaintances at a local cafe for prompts and showed them the generated pictures. All but one person was totally unimpressed.If everything feels like magic, then what&#39;s one more piece of magic?This scared me more than the implications of DALL•E 2 itself specifically. People think of the technology in the world as mysterious black boxes that do inexplicable things, and they hence no longer understand relative complexity, progress, or change.My impression is that to most people DALL•E 2 is not &#34;substantially&#34; different to, say, Google Image search. Text in... image out. What&#39;s the big deal?"</p>
-							
-						
-							
-								<p class="story__comment_others">"I’ve spent just over 1 week with DALL•E 2.Over the past 7 days I’ve generated ~1000 images, 150 of which were good enough to save. I only saved images which made me audibly gasp.Witnessing your own novel idea spring to life is a magical experience. DALL•E provides an artistic tool on a comparable level to digital photography, and by extension Photoshop.At this stage it’s 100% clear to me that DALL•E has heralded in a revolutionary new age of design. Every day I worked with it, I grew more confident in my outlook.It might not necessarily be an OpenAI product which truly “integrates” with humanity — but DALL•E has shown me that it’s possible… and just a matter of time."</p>
-							
-						
-							
-								<p class="story__comment_others">"Prompt crafting is quickly becoming an art. I just found out yesterday that there&#39;s actually market places for buying and selling prompts [0]. It can really make a big difference if you can tune the image by adding the right words. Midjourney [1] even allows things such as adjusting the weight of each keyword or how &#34;literal&#34; the AI should take your prompt.[0] https://promptbase.com/[1] https://midjourney.gitbook.io/docs/user-manual"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://the.scapegoat.dev/why-i-love-php-and-javascript/">I still love PHP and JavaScript</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32325055">
-						
-							
-								<p class="story__comment_first line-clamp">"PHP has so many hidden benefits:- it&#39;s stateless by design (much easier to scale)- it was &#34;serverless&#34; before Serverless- surprisingly performant- no &#34;unknown unknowns&#34;. it&#39;s so tried-and-true, there&#39;s no surprises- deployment is so simple, just drop a file on a web server. No middleware needed.- No long compile times because there is no compiling needed.EDIT: why the downvotes? If you don&#39;t agree, just reply so we can have a healthy dialogue.EDIT2: I also think there is something unique about PHP documentation. It has plenty of real life examples, and the ability for users to leave comments allows you to hear directly from others &#34;gotchas&#34; that people have experienced. I feel like PHP documentation is very undervalued."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; I love legacy codebases.&gt; A legacy codebase means that the product is performing well. It means that I can often make immediate and impactful improvements.Wow. This person must have worked on very different legacy codebases than me.Legacy Javascript code, to me, is something that I do not want to touch with a 10 foot pole, because every little piece of it can be intertwined with and used by many other hidden places. Plus, I&#39;ve never found a legacy JS codebase that has a robust test suite, so any refactoring I do can be hard to test and verify.From a practicality perspective, I get that the best programming language is the one you can use to build your product, but I tend to long for languages like C# or even Go when I&#39;m trying to deliver a product on a team with 10+ people. Static typing really helps when you&#39;re interfacing with someone elses code, and Typescript only aids this point.Maybe if your target audience is genuinely 10 year olds learning to code, fine. But also if you&#39;re building a serious product for a company, please don&#39;t choose a &#34;Janky programming language&#34; because I really don&#39;t want to have to debug it after you left before really thinking about sanitizing user input.I feel like, in the hands of a really talented programmer, they can be super productive in PHP or Javascript or really anything. But I&#39;ve just had a lot of bad experiences with quickly written, undocumented code."</p>
-							
-						
-							
-								<p class="story__comment_others">"This really speaks to my heart. I learned programming as a young kid when my uncle taught my pascal. But I just couldn&#39;t see the point of console programs and never really got into it. Eventually I picked up late 90s HTML (hello geocities!) and php was a natural next step. I still remember going to the library to borrow the book PHP and MySQL web development. It was so empowering. I could make any kind of application I wanted and see the result in my browser, GUI and all (Win32 API was way beyond me at that age). I made my own forums, ebay clone, and a few web apps for an old Korean MMO.Fast forward a few decades, and things look very different. Tons of web app backends being written in go, nodeJS/TS, and I recently learned people write them in rust+webasm. It&#39;s just crazy to me. I&#39;ve worked on FOSS projects that are massively over-complicated because of their platform/language choice, when they would&#39;ve been very straightforward php choices. But php still has this weird stigma about it despite most of the old concerns having been addressed.I do have to say, though, that front end web development is way better than before with the advent of React and co, webpack, css libraries etc. Doing all that html/js/css by hand was always painful."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/moyix/fauxpilot">FauxPilot – an attempt to build a locally hosted version of GitHub Copilot</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32327711">
-						
-							
-								<p class="story__comment_first line-clamp">"Bravo! I&#39;m so glad this is born. I&#39;m curious about its model, SalesForce CodeGen. Does it train on all the public repos on GitHub? Does Copilot have access to private repos that CodeGen cannot access?Also, it would be really cool if I can personalize FauxPilot by feeding it with all my repos on GitHub. Sometimes I just need to reimplement a function I&#39;ve written before but it&#39;s really hard to find where my old code is."</p>
-							
-						
-							
-								<p class="story__comment_others">"Tangential, maybe someone here knows; how complicated would be to implement an autocompleter that just understands syntax + patterns and can offer me suggestions but based on my own stuff? Like what is the simplest version of Copilot that doesn&#39;t require huge amounts of training but just does a decent job at recognizing tokens and trying to fill in the structure based on some input code. e.g: `app.get(&#39;/&#39;,|`  &lt;- at this point I should get an express.js handler autocomplete like `(req, res, next) =&gt; {}`, maybe with multiple choices grepped from my own data ranked by occurences. Is this too extreme it needs a multibillion parameter AI model to achieve? Does anything like this exist? Like an auto-snippet thing but contextual and token replacing."</p>
-							
-						
-							
-								<p class="story__comment_others">"Next step is to train a model exclusively on leaks of proprietary Microsoft source code. Fair use, right Microsoft?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://lichess.org/blog/Yt7x2BAAACkABlKS/a-first-time-grandmaster-titled-arena-winner-and-nakamuras-forbidden-platform">Hikaru Nakamura&#39;s Forbidden Platform</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32328846">
-						
-							
-								<p class="story__comment_first line-clamp">"There is plenty of room for all of Chess.com, Chess24 and Lichess to exist.Lichess has the best platform to play on and is free to use.Chess.com is a business. As such they want to earn money.
-However, without a large, online chess community there will be no subscribers.
-The amount of effort chess.com has made to sponsor events, streamers etc.
-is tremendous.Making a living as a chess professional is tough. 
-Streaming/YouTube has opened the field somewhat: it is no longer
-required to be in the world top 20 to make a living in the field of chess.The Chess24 initiative is without doubt inspired by Chess.com.
-Chess24 gives yet another way for chess players to earn money.
-Via Chessable (owneed by Chess24) players can sell chess online book/booklets.If Hikaru has a clause in his contract with Chess.com, that he can&#39;t play on Lichess - then the just can&#39;t play on Lichess. That&#39;s simple.Would Nike be happy if Portugal’s Cristiano Ronaldo suddenly appeared in Adidas shoes?It works the other way too: Wen did you last see Magnus play on Chess.com?
-[I am aware that Magnus as owner/investor in Chess24 makes his own rules - and plays on Lichess]"</p>
-							
-						
-							
-								<p class="story__comment_others">"Paying off Chess streamers is pretty much the only way Chess.com can keep people using their site. Their product is simply inferior in every way, except for their library of master lessons, and all these GMs exclusively streaming through Chess.com.I figure all this spending on sponsorship and GM content is why the rest of their site is so inferior to Lichess. Lichess can spend all their time perfecting the platform, and it really shows."</p>
-							
-						
-							
-								<p class="story__comment_others">"Chess has always had this dichotomy over free/paid services. (a bit not unlike programming tools).I love lichess.org but make no mistake: without the dedication of one talented Scala programmer willing to underpay themselves that site would not exist.Commercial sites can provide more services and offer more opportunities to chess professionals simply due to the funding model.Disclaimer: I&#39;ve played over 100k online chess games since 1992. Starting with original ICS (client was on Xwindows) before ICS/FICS split drama, then chessbase.com, then chess.com and now lichess.org. I slightly prefer lichess but play on chess.com as well."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.textualize.io/blog/posts/7-things-about-terminals">Things I&#39;ve learned building a modern TUI framework</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32331367">
-						
-							
-								<p class="story__comment_first line-clamp">"I really like this trend of &#34;making the terminal great again&#34;. Between rich/textual in python and lipgloss/bubble tea for golang, this turns cmd from &#34;the default ugly stuff that is easy to produce&#34; into &#34;something fun and pretty&#34;.Also note that those projects have the (not anymore) secret goal to also produce a web app from the same code base automatically.I imagine native will follow, or wasm, or something. Nevertheless, having the terminal as the smallest denominator for UI makes a lot of sense for small utilities. You won&#39;t build the next Figma with it but a lot of scripts could benefit from that."</p>
-							
-						
-							
-								<p class="story__comment_others">"The advice to use lru_cache is good.But there is an issue if lru_cache is used on methods, like in the example given in the article:1. When lru_cache is used on a method, `self` is used as a part of cache key. That&#39;s good, because there is a single cache for all instances, and using self as a part of the key allows not to share data between instances (it&#39;d be incorrect in most cases).2. But: because `self` is a part of a key, a reference to `self` is stored in the cache.3. If there is a reference to Python object, it can&#39;t be deallocated. So, an instance can&#39;t be deallocated until the cache is deallocated (or the entry is expired) - if a lru_cache&#39;d method is called at least once.4. Cache itself is never deallocated (well, at least until the class is destroyed, probably at Python shutdown). So, instances are kept in memory, unless the cache is over the size limit, and all entries for this instance are purged.I think there is a similar problem in the source code as well, e.g. https://github.com/Textualize/textual/blob/4d94df81e44b27fff... - a DirectoryTree instance won&#39;t be deallocated if its render_tree_label method is called, at least until new cache records push out all the references to this particular instance.It may be important or not, depending on a situation, but it&#39;s good to be aware of this caveat. lru_cache is not a good fit for methods unfortunately."</p>
-							
-						
-							
-								<p class="story__comment_others">"One of my proudest moments during the development of &#34;Linux on the Web&#34; had to be the creation of a Terminal application (try it at https://lotw.site/shell) that can render its output with near-native efficiency. My initial attempt was based on placing character images, one-by-one, onto a canvas element, but it was horribly sluggish. Then I started playing around with a &#34;Virtual Dom&#34; (React-like) approach, wherein I convert the underlying data structure into an html string, and then set the innerHTML property of a div element, for every time the screen has to be redrawn. (Source code: https://github.com/linuxontheweb/LOTW/blob/main/root/code/ap..., the relevant code is the &#34;render&#34; function starting on line 569, and the innerHTML is set on line 940).I don&#39;t know how many years its been that I started working on the Terminal application, but it was only within the past week or so that I &#34;bit the bullet&#34; and figured out how to do finger pad/mouse wheel scrolling of the output buffer (See the &#39;main.onwheel&#39; function in the source code for that little tidbit!). Since I required fine-grained control over the rendering process, I could not rely on the &#34;naive&#34; way of doing scrolling on the web (which is to simply let the browser take care of the entire process)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://techcrunch.com/2022/08/02/y-combinator-narrows-current-cohort-size-by-40-citing-downturn-and-funding-environment/">Y Combinator narrows current cohort size by 40%, citing downturn and funding</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32326208">
-						
-							
-								<p class="story__comment_first line-clamp">"The emphasis on &#34;downturn&#34; concerns me. Aren&#39;t reputed firms like YC supposed to look at a 10+ year horizon?If this is true, it indicates that earlier investments were based on the market than the fundamentals of the founding team, market, and product."</p>
-							
-						
-							
-								<p class="story__comment_others">"From what I&#39;ve heard from people in recent batches, this is probably a good thing for those that make it in.Pretty little personalized attention when there are 400 startups in a batch..."</p>
-							
-						
-							
-								<p class="story__comment_others">"no, YC realized that they let a bunch of companies into YC that historically would have never made it in, reducing the value of the brand.  This is a great move to more or less shrink the size and use the economy as a reason."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.gkogan.co/blog/swamped/">Being swamped is normal and not impressive</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32332109">
-						
-							
-								<p class="story__comment_first line-clamp">"I have worked at both startups and tech companies 40+ years old, and the conclusion I&#39;ve come to from my anecdata is that every engineer at every company is swamped all the time.Feature requests and bug reports are easy. Writing features and fixing bugs is hard. Your todo list will always grow faster than you can tackle items. Once a senior engineer retired, and I inherited about a hundred of his bugs out of the 600 or so he left behind.It&#39;s a marathon, not a sprint. Working at a consistent pace is better than burning yourself out. The work is omnipresent. It will never stop growing. It will consume all if you let it.Unless you&#39;re at an early-stage startup, let your manager deal with your giant and ever-growing todo list. Let someone more plugged-in to the business side deal with prioritizing, and focus on technical excellence. Unless you aspire to management yourself, that&#39;s already plenty to do.Anyone who tells you every engineer needs to be in touch with every business concern either only works on early-stage projects or is part of a hustle culture that I don&#39;t ascribe to. I don&#39;t have the energy for technical excellence and knowing everything about the business."</p>
-							
-						
-							
-								<p class="story__comment_others">"I just talked about this with my wife just yesterday about her peer. If you&#39;re always the hero to take on too much work and you never keep up, you invite various significant structural problems.You&#39;re too useful to remove, you may not get attention for corrective measures because of fear of the person leaving.You are often too swamped to effectively get work done smoothly and in an expedient manner.You become a single point of failure (bus factor 1) so that when you take a vacation / hit by a bus, the company suffers significantly.A common personality trait of these types of people seem to be self reliance / control seekers. When they own that authority of work, they are less likely to accept delegation to get them out of their woes.In general, these types of employees may end up being labeled super stars, but they&#39;re also potential albatrosses that could significantly wound a company if not properly managed."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve been on both sides. A lot of people say people who want to be swamped is a control problem but I&#39;ve found its more delicate than that. My circumstances require me to have decent insurance so my life will forever be tied to an employer. I don&#39;t really get an &#34;escape&#34; at least until obamacare becomes cheaper than $2800/mo. for what I need in order to try out the entrepreneur life.As a result I work very hard. I end up getting a lot of work done, and thus more work on my plate. This is often manageable and I use this as a gauge of my probability of being fired for any given reason. Someone knocking on the door of a PIP likely won&#39;t be getting as much work especially if it&#39;s reasonably complicated. It&#39;s been my experience as work starts to die down to a less-than-consistent level I&#39;m usually out the door (never fired, but often laid off in this industry).However, this burned me when I became staff-level because I&#39;d get so much work that despite trying to reduce the bus factor back to &#34;manageable chaos&#34; I was unable to and ended up leaving the job for another one because I became the smart guy in the room.But overall I aim to walk the razors edge between swamped and normal at all times because it&#39;s the only form of security I have. When I am in this condition I am now useful enough I have plenty of power over my employer and my position and for an employee this is an ideal situation to have. Especially when the alternative is extremely expensive &#34;between jobs&#34; insurance, or a less than ideal insurance package from another company."</p>
 							
 						
 						</a>
