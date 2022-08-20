@@ -33,40 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">19 August 2022</div>
+	<div class="day__date">20 August 2022</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://electronicmaterialsoffice.com/">
+					<a href="http://nabstreamingsummit.com/wp-content/uploads/2022/05/2022-Streaming-Summit-Netflix.pdf">
 						<picture>
-							<source srcset="default_32507172.webp" type="image/webp">
-							<source srcset="default_32507172.png" type="image/png">
-							<img src="default_32507172.png" alt="Preview of 'I spent a year designing a low profile, minimal mechanical keyboard'">
+							<source srcset="default_32519881.webp" type="image/webp">
+							<source srcset="default_32519881.png" type="image/png">
+							<img src="default_32519881.png" alt="Preview of 'Serving Netflix Video Traffic at 800Gb/s and Beyond [pdf]'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://electronicmaterialsoffice.com/">I spent a year designing a low profile, minimal mechanical keyboard</a></h3>
+					<h3><a href="http://nabstreamingsummit.com/wp-content/uploads/2022/05/2022-Streaming-Summit-Netflix.pdf">Serving Netflix Video Traffic at 800Gb/s and Beyond [pdf]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32507172">
+						<a href="https://news.ycombinator.com/item?id=32519881">
 						
 							
-								<p class="story__comment_first line-clamp">"This looks fantastic!A thought-experiment that may interest you coming from someone (me) who already has happily spent several hundreds of dollars on mechanical keyboards and uses them every single day:Let&#39;s imagine the keyboard could be bought today as-is with a simple &#34;Buy Now&#34; button and price was no concern.The two main reasons I would _still_ hesitate to hit that button are:1. I absolutely and undoubtedly need to know what it SOUNDS and FEELS like. Is it linear, tactile, clicky? How much? I turned my speakers to max because I assumed you&#39;d have some audio-track running but to no avail. Did I miss something?2. I wish there was a &#39;blank&#39; version with zero typography anywhere. Just all black. I touch-type and have not looked at my keyboard in 15 years."</p>
-							
-						
-							
-								<p class="story__comment_others">"Low profile ergonomic mechanical keyboard is a pretty deep hole to dive into.
-You can design your own PCB, order it from manufacturer and build the exact keyboard you want (split, wireless, with knobs, any form and key count).
-It is not for everyone and might require soldering, but possibilities are endless.Additional resources:- r/ErgoMechBoards: https://www.reddit.com/r/ErgoMechKeyboards/- Low Profile Discord: https://discord.com/invite/dBSRZ2a- Collection of split low profile mechanical keyboards: https://kbd.news/tag/low-profile/- &#34;A Tiny, Ultra-Affordable Keyboard You Can Build Yourself!&#34; video:  https://www.youtube.com/watch?v=JqpBKuEVinw"</p>
+								<p class="story__comment_first line-clamp">"I love technical content like this. Not only is it incredibly interesting and informative, it also serves as a perfect counterpoint to the popular &#34;why does Netflix need X thousand engineers, I could build it in a weekend&#34; sentiment that is frequently brought up on forums like this one.Building software and productionalizing/scaling it are two very different problems, and the latter is far more difficult. Running a successful company always requires an unlimited number of very smart people who are willing to get their hands dirty optimizing every aspect of the product and business. Too many people today think that programming starts and ends at pulling a dozen popular libraries and making some API calls."</p>
 							
 						
 							
-								<p class="story__comment_others">"Cool, congrats and thanks for sharing, we need more competition here1. raised/indented keys will get dirty really fast, an option without would sell me2. 2-device pairing is great, your competitors have 3 though3. hot-swap keycaps would be a huge sell4. nice typography, why isn&#39;t the logo in it? take off the logo5. replace the empty area with home =&gt; end6. 3 modifiers on the left, 3 right please! (not 4-left/2-right)7. options for other keycap sets later?8. dial is too tall, removable? swappable? jog dial?9. love the giant esc key,  L-shaped enter10. esc keycap to replace caps would be awesome11. show me a pic of the full cable/any more details here12. what are the feet like? foam? rubber? adjustable height?13. neat website but moves too much, show me a boring gallery of static images somewhere please14. add clit mouse15. sustainable material means something to me and makes me more want to buy, really!16. don&#39;t add LEDs, i&#39;d rather save money17. lmk when it&#39;s ergo (cries in carpal tunnel)"</p>
+								<p class="story__comment_others">"I have some experience serving static content and working with CDNs. Here is what I find interesting / unique here:- They are not using OS page cache or any memory caching for that, every request is served directly from disks. This seems possible only when requests are spread between may NVMe disks since single high-end NVMe like Micron 9300 PRO has max 3.5GB/s read speed (or 28Gbps) - far less than 800Gbps. Looks like it works ok for long-tail content but what about new hot content everybody wants to watch at the day of release? Do they spread the same content over multiple disks for this purpose?- Async I/O resolves issues with nginx process stalling because of disk read operation but only after you&#39;ve already opened the file. Depending on FS / number of files / other FS activities, directory structure opening the file can block for significant time and there is no async open() AFAIK. How they resolve that? Are we assuming i-node cache contains all i-nodes and open() time is insignificant? Or are they configuring nginx() with large open file cache?- TLS for streamed media was necessary because browsers started to complain about non-TLS content. But that makes things sooo complicated as we see in the presentation (kTLS is 50% of CPU usage before moving to encryption offloaded by NIC). One has to remember that the content is most probably already encrypted (DRM), we just add another layer of encryption / authentication. TLS for media segments make so little sens IMO.- When you relay on encryption or TCP offloading by NIC you are stuck with that is possible with your NIC. I guess no HTTP/3 over UDP or fancy congestion control optimization in TCP until the vendor somehow implements it in the hardware."</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of the reasons they&#39;ve had to build most of this stuff themselfs is because they decided for some reason to use freeBSD.The NUMA work they did, I remember being in a meeting with them as a Linux Developer at Intel at the time. They bought NVMe drives or were saying they were going to buy NVMe drives from Intel which got them access to &#34;on the ground&#34; kernel developers and CPU people from Intel. Instead of talking about NVMe they spent the entire meeting asking us about howt the Linux kernel handles NUMA and corner cases around memory and scheudling. If I recall correctly I think they asked if we could help them upstream BSD code for NVMe and NUMA. I think in that meeting there was even some L9 or super high up NUMA CPU guy from Hillsborough they some how convinced to join.The conversation and technical discussion was quite fun, but it was sort of funny to us at the time they were having to do all this work on the BSD kernel that was solved years ago for linux.Technical debt I guess."</p>
 							
 						
 						</a>
@@ -78,33 +76,33 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://learnmyog.com/">
+					<a href="https://notes.alinpanaitiu.com/Dealing%20with%20App%20Store%20rejections">
 						<picture>
-							<source srcset="default_32507843.webp" type="image/webp">
-							<source srcset="default_32507843.png" type="image/png">
-							<img src="default_32507843.png" alt="Preview of 'Learn to sew your own outdoor gear'">
+							<source srcset="default_32526047.webp" type="image/webp">
+							<source srcset="default_32526047.png" type="image/png">
+							<img src="default_32526047.png" alt="Preview of 'App Store doesn&#39;t accept “too simple” apps'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://learnmyog.com/">Learn to sew your own outdoor gear</a></h3>
+					<h3><a href="https://notes.alinpanaitiu.com/Dealing%20with%20App%20Store%20rejections">App Store doesn&#39;t accept “too simple” apps</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32507843">
+						<a href="https://news.ycombinator.com/item?id=32526047">
 						
 							
-								<p class="story__comment_first line-clamp">"I guess this is a good place to share my open source large format laser cutter design for sewing projects. It’s cheap to make, works pretty well, and the whole gantry assembly slides right off leaving just a sheet of plywood with low profile 3D printed rails on the sides. So I throw my rug over it and it becomes my floor when not in use. Important because the laser cutter can cut a full 60” wide piece of fabric two yards long. It’s basically 5 foot by 6 foot, and I don’t have space in my apartment for a dedicated machine that takes up all that space. But since this doubles as my floor it works great! Also includes a raspberry pi camera on the laser head which serves as a pattern scanner. I really want to finish my video on this thing, I’ve just been busy. But please take a look and considering building it! If you have any questions open a GitHub issue and I will do everything I can to help. I think it’s a great starting point (designed in three weeks) and I’d LOVE for other people to reproduce it and extend the design! The machine has a few hiccups but I use it all the time for my sewing projects and it is SO nice to get all the cutting done repeatably and automatically. You can even scan existing clothes often without disassembly and turn those in to digital patterns!https://github.com/tlalexander/large_format_laser_cutter"</p>
-							
-						
-							
-								<p class="story__comment_others">"Didn&#39;t expect to see sewing patterns on HN, but not complaining, this looks really cool!While on the topic, my girlfriend recently showed me this site: https://freesewing.org . It&#39;s fully open source and all the patterns are actually parametric, meaning you can customize the patterns to exact body measurements. Their custom JS framework for designing patters as well as the rest of the platform is MIT licensed [0] and the patterns are all Creative Commons.[0] https://github.com/freesewing/"</p>
+								<p class="story__comment_first line-clamp">"This sucks... I&#39;m sorry you had to go through this. The App Store review process is just pretty bad. It&#39;s especially frustrating when you see downright shitty apps on the store. The &#34;black-box&#34; aspect of it makes it that much more kafkaesque too.When I first submitted my app on there, they rejected it and complained that I used HealthKit but didn&#39;t mention it in the app description. The thing is, I did. My app description had a list of &#34;highlighted features&#34;, one them being &#34;Apple health integration&#34;.I was about to file an appeal, but then I saw a couple other apps with &#34;Integrates with Apple Health&#34; on its own line in the description. Figured that&#39;s probably what they were looking for (even though the guidelines don&#39;t explicitly say that) so I changed it and boom, the app was approved. I hate it, but it&#39;s not worth my time or the risk to fight it.For what it&#39;s worth, I think your app looks really good!"</p>
 							
 						
 							
-								<p class="story__comment_others">"In the British Army every subunit is entitled to train someone in sewing and using sewing machines so that they can repair the subunit’s clothes and webbing equipment, including in the field. It’s a very creative course and people come back able to build you all kinds of rigs and pouches and things like this from webbing and Cordura that are extremely robust. The soldiers are all super keen to get on the course and to learn to sew."</p>
+								<p class="story__comment_others">"Yep, I got this rejection when I made this tipping app (https://apps.apple.com/us/app/tip-69/id1460610078).I went on to add OCR detection for receipts so you don&#39;t have to type in the amount, I added more tipping modes, I added split bill functionality, and eventually added an entire social network with the ability to share your receipt for the world to see, like or comment on.Must have spent months trying to get approved by Apple.I&#39;d rather no one ask me why."</p>
+							
+						
+							
+								<p class="story__comment_others">"They&#39;ve done this since the early days of the app store. Mostly-content apps without really broad appeal have long carried a high risk of rejection.&gt; Homescreen widgets: utterly useless, but can&#39;t get more iOS-y and less webapp-y than this, right?This especially, but really the whole post reads like the system working as intended.Granted (as the author notes) way too much shit gets through anyway, but that&#39;s not an excuse to do even worse. I do, as a user, wish they&#39;d tighten up the rules a lot and improve enforcement. I&#39;m quite sure it&#39;d improve my experience on the store (and probably on the web—imagine how much better the Reddit site would get, probably overnight, if their app got pulled over not being well-justified)."</p>
 							
 						
 						</a>
@@ -116,33 +114,33 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://gexp.no/it-wasnt-for-nothing.html">
+					<a href="https://blog.danieljanus.pl/2022/08/18/i-love-my-gpd-micro-pc/">
 						<picture>
-							<source srcset="default_32491811.webp" type="image/webp">
-							<source srcset="default_32491811.png" type="image/png">
-							<img src="default_32491811.png" alt="Preview of 'It wasn&#39;t for nothing'">
+							<source srcset="default_32513927.webp" type="image/webp">
+							<source srcset="default_32513927.png" type="image/png">
+							<img src="default_32513927.png" alt="Preview of 'I love my GPD Micro PC'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://gexp.no/it-wasnt-for-nothing.html">It wasn&#39;t for nothing</a></h3>
+					<h3><a href="https://blog.danieljanus.pl/2022/08/18/i-love-my-gpd-micro-pc/">I love my GPD Micro PC</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32491811">
+						<a href="https://news.ycombinator.com/item?id=32513927">
 						
 							
-								<p class="story__comment_first line-clamp">"I really appreciate this post and how it highlights the power of becoming involved in occupation. I use that term in the context of the fact that my spouse is an Occupational Therapist by trade. In that field, the term occupation refers to a collection of activities of daily living, not a &#34;job&#34; per se. Rather than seeing patients through a framework of diagnosis or disability, they look at activities and people&#39;s ability to perform them, and intervene where there is lack. In practice that may involve helping an amputee learn how to put on socks, or helping an autistic child participate in education. More broadly, a central philosophy of their field is that meaningful occupation is a powerful motivator that has cascading effects across the many component activities in somebody&#39;s daily life. OP&#39;s post described how becoming involved as a Guix contributor effectively organized and motivated other areas of their life as well. The fact that we all are here hanging out on a VC&#39;s forum tends to color our idea of what value means. I think this post inspires that there is value to not only the community but also the individual as well in just &#34;doing cool stuff&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"https://guix.gnu.org/en/about/&gt; Guix is an advanced distribution of the GNU operating system developed by the GNU Project—which respects the freedom of computer users.For anyone looking for more context. I did not know anything about the what and why and who of this post.Having read it, I like the author&#39;s point of view. Working on it is good for his well-being. That&#39;s more than enough reason to pursue it."</p>
+								<p class="story__comment_first line-clamp">"At a previous job, I was the engineering manager for a new neo-bank and was on call 24/7 for it. I have a beefy Lenovo P52 that I hated carrying around and leaving in my car lest it get stolen. So I got a GPD Pocket. It fit very well into my back pocket.Not only did it work great for emergency situations (I ran Ubuntu MATE as well) when I needed to SSH into machines, check stuff on Datadog, edit code to make a quick fix, push code to our K8S environments and more, but I actually found myself frequently at coffee shops and bars coding away happily on it. It brought a certain amount of freedom and cool factor with it. It was a delightful little device with a very sharp and crisp screen, a surprisingly useful keyboard that combined well with my i3 environment, that I could actually be productive on (save for running our test suite which took around 30 minutes and sucked the life out of the battery). It also got a lot of onlookers asking questions about it, leading to those ever so fun random conversations that can lead to night long friendships over wine and coffee.I genuinely miss it and will probably pick up another one now that I just got hired as a CTO for another project with equally demanding on-call schedules and uptime requirements. Although I don&#39;t drink anymore so none of those fun conversations. Ce la vie."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m not a developer but I totally relate to this. Most of my creative pursuits are weird, niche, sometimes avant-garde. If I didn&#39;t make my artifacts, nobody else would, and it is so intrinsically rewarding to see my visions instantiated, even if they pale in comparison to my first imagining of what they might be. Because I have fringe-y interests, most people don&#39;t necessarily &#34;get&#34; it. (Probably true of everyone else on HN as well.) But the people who do get it, I found them on the internet, and I thank God for that."</p>
+								<p class="story__comment_others">"The Micro PC is a really cool device, but owning one I couldn&#39;t really recommend it outside a very small niche.Form factor, ports, and performance are all great. The firmware is very frustrating though. Mine shipped with a newer firmware (4.18) than was available to download, and it was miserable. The machine would power on to blank screens, and have random crashes. I was wary of downgrading because I couldn&#39;t put the &#34;newer&#34; firmware back on.Finally gave in and stability was much improved on 4.13. Boot issues still happen though (less frequently). They seem possibly exasperated by Linux. It can require 3 or 4 attempts at holding the power button to force a reset. Unplug anything that could be back-feeding power so it will actually reset (not confirmed). Just all around annoying if you power it on and off a lot.Other issues to consider. The hinge support is somewhat fragile. I try to be gentle opening and closing. I think I also put some epoxy around the plastic screwhole pillar. The battery has a permanent over-discharge cutoff that a number of users have hit so I&#39;ve been careful to keep a charge on it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Had one for three years. Use it nearly every day, but I work with embedded systems in robots/industrial machinery. One handed operation, tons of IO, dual boot, fits in back pocket etc. have made this indispensable.One dead battery, replacement part from alibaba via GPD rep given link. Easy to disassemble via screwdriver and spudger. Works great now. Injection molded piece that held the threads where the hinge attached also failed. Drilled a little pinhole and added a small machine screw, nut and threadlocker. No more problems. Nut goes under the plastic hinge cover. The fix is literally better than original.Other than that, the only issue I&#39;ve had is getting grub to see the screen as landscape. Grub config options seem to get ignored. Oh well. Standard rotation is sorted with boot scripts and the OEM Windows 10 side works great."</p>
 							
 						
 						</a>
@@ -154,33 +152,34 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://krausefx.com/blog/announcing-inappbrowsercom-see-what-javascript-commands-get-executed-in-an-in-app-browser">
+					<a href="https://whytheluckystiff.net/">
 						<picture>
-							<source srcset="default_32514793.webp" type="image/webp">
-							<source srcset="default_32514793.png" type="image/png">
-							<img src="default_32514793.png" alt="Preview of 'See what JavaScript commands get injected through an in-app browser'">
+							<source srcset="default_32513020.webp" type="image/webp">
+							<source srcset="default_32513020.png" type="image/png">
+							<img src="default_32513020.png" alt="Preview of 'Whytheluckystiff&#39;s original domain back as an archive'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://krausefx.com/blog/announcing-inappbrowsercom-see-what-javascript-commands-get-executed-in-an-in-app-browser">See what JavaScript commands get injected through an in-app browser</a></h3>
+					<h3><a href="https://whytheluckystiff.net/">Whytheluckystiff&#39;s original domain back as an archive</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32514793">
+						<a href="https://news.ycombinator.com/item?id=32513020">
 						
 							
-								<p class="story__comment_first line-clamp">"They&#39;re going to heavily lockdown WKWebView after the Instagram and Tiktok revelations, probably in iOS16.1. They may even remove it entirely and force people to use SFSafariViewController (heavily locked down web browser, opaque to developers other than URL). Best of luck to anyone that was using javascript injection for legitimate purposes, others have ruined it for everyone by abusing user trust."</p>
-							
-						
-							
-								<p class="story__comment_others">"In-app browsers are a huge mess and security/privacy nightmare. Browsers implement a security sandbox. In-app browsers break and circumvent this threat model in nasty ways. I hope this gets the same attention as cross-site scripting (XSS) attacks and browser engines implement strict countermeasures by default locking WebViews to the equivalent of an Incognito/InPrivate tab."</p>
+								<p class="story__comment_first line-clamp">"_Why’s work led me to where I am. At a crucial time in my life I found _Why. That put me on a path to learning Ruby and then a whole bunch of steps now I have an actual job as a web developer. I work in Python, but I’m sure _Why won’t mind. 
+Before I found _Why I wasn’t sure what to do with my career-life. He showed me that programming can be art and science."</p>
 							
 						
 							
-								<p class="story__comment_others">"I can’t quite figure this out: it sounds like if you click a link in someone’s TikTok content, the in app browser can read any text entered on that site using the in app browser. Does just not entering any keyboard input in the in app browser mitigate this?Does Apple Lockdown help in this situation? I thought that typical TikTok use just involved scrolling and watching video content. Are users who only view content subject to this security flaw?Thanks in advance for any clarification.Also, off topic but doesn’t YouTube’s “Shorts” take the place of TikTok? I have my Google privacy settings set so YouTube can store my viewing history for one month so I get reasonable recommendations. Does TikTok have similar settings?"</p>
+								<p class="story__comment_others">"Why’s work had a lot of charm and heart. It was weird and funny and avant-garde but in a pretty accessible and (mostly) unpretentious way.It didn’t teach me a whole lot about Ruby but I probably read it a dozen times or so lol"</p>
+							
+						
+							
+								<p class="story__comment_others">"Why to me contrasts a huge proportion of todays body of new programmers. Instead of the pursuit of programming as a means to a profession, career or livelihood, Why embodied programming as something to be pursued for the wonderment and satisfaction of being able to use a computer to make or model things real or imagined."</p>
 							
 						
 						</a>
@@ -192,33 +191,33 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://yoyo-code.com/programming-breakthroughs-we-need/">
+					<a href="https://twitter.com/ID_AA_Carmack/status/1560728042959507457">
 						<picture>
-							<source srcset="default_32495133.webp" type="image/webp">
-							<source srcset="default_32495133.png" type="image/png">
-							<img src="default_32495133.png" alt="Preview of 'Programming breakthroughs we need'">
+							<source srcset="default_32525721.webp" type="image/webp">
+							<source srcset="default_32525721.png" type="image/png">
+							<img src="default_32525721.png" alt="Preview of 'John Carmack&#39;s new AGI company, Keen Technologies, has raised a $20M round'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://yoyo-code.com/programming-breakthroughs-we-need/">Programming breakthroughs we need</a></h3>
+					<h3><a href="https://twitter.com/ID_AA_Carmack/status/1560728042959507457">John Carmack&#39;s new AGI company, Keen Technologies, has raised a $20M round</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32495133">
+						<a href="https://news.ycombinator.com/item?id=32525721">
 						
 							
-								<p class="story__comment_first line-clamp">"I believe already some 2 decades ago Bill Gates said that the biggest failure in software is the lack of productivity gains in software development.Just to cherry pick a dramatized example. In the late 90s, one of my first programming experiences was in Delphi. It&#39;s a very visual way to program. You drag and drop a UI together from standardized elements. You could data bind things like input fields to a data source. You&#39;d double click a button and it takes you to the already created &#34;onclick&#34; event where you do the actual coding. In a way, this is still similar to how you can &#34;program&#34; Microsoft Access today.In this same period (I was in a computer science study) I was moaning to my teacher how tricky programming in C was. I made tiny memory management errors crashing the entire PC, with zero debug output.His words: &#34;Don&#39;t worry. By the time you get to work, you&#39;ll just do modeling&#34;.Now I work on the web. It&#39;s been 30 years since Delphi and instead of productivity gains, we&#39;ve taken steps in the opposite direction. There is no standardized UI library. JavaScript has no standard library. There&#39;s no single unified architecture. There&#39;s no standard tool chain. It&#39;s all very low level after which we stitch together fragile semi-abstractions.I know it&#39;s an imperfect comparison, but I hope it gets the point across. It&#39;s all far too low level and fragile.This doesn&#39;t just hurt productivity, also accessibility. It&#39;s simply not beginner friendly."</p>
-							
-						
-							
-								<p class="story__comment_others">"Great post - the one word missing, &#34;maintenance.&#34; Most programming work is done maintaining/enhancing existing code. The greenfield work is a piece of cake by comparison.You want to do the hard stuff? Maintain existing code you&#39;re not familiar with.The problems around maintaining unfamiliar code are huge, largely unsolved, expensive and risky. There&#39;s a little branch of computer science called Program Comprehension and no one pays any attention. Though most programming money is spent on maintenance."</p>
+								<p class="story__comment_first line-clamp">"I&#39;m very optimistic for near-term AGI (10 years or less). Even just a few years ago most in the field would have said that it&#39;s an &#34;unknown unknown&#34;, we didn&#39;t have the theory or the models, there was no path forward and so it was impossible to predict.Now we have a fairly concrete idea of what a potential AGI might look like - an RL agent that uses a large transformer.The issue is that unlike supervised training you need to simulate the environment along with the agent, so this requires a magnitude more compute compared to LLMs. That&#39;s why I think it will still be large corporate labs that will make the most progress in this field."</p>
 							
 						
 							
-								<p class="story__comment_others">"I’ve been programming for over 30 years, and never been as productive as before. Need to load and decode a jpeg/png, I grab stb_image.h. Need to decode an ogg file, libogg. Need to decompress, libz. Need to decode video, libavformat. Need physics, libbullet. Need truetype fonts, freetype. Need a GUI, Qt. Need SSL, libssl.My day becomes selecting libraries, integrating them, and testing integration. My business code is &lt; 20% of our entire codebase. And I’m much more productive in 2022 than in 1992."</p>
+								<p class="story__comment_others">"The interview with Lex Fridman that he was referring to:https://www.youtube.com/watch?v=I845O57ZSy4&amp;t=14567sThe entire video is worth viewing, an impressive 5:15h!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Interesting to see how he&#39;s progressed with this. When he first announced he was getting into AI it sounded almost like a semi retirement thing: something that interested him that he could do for fun and solo, without the expectation that it would go anywhere. But now he seems truly serious about it. Wonder if he&#39;s started hiring yet."</p>
 							
 						
 						</a>
@@ -230,33 +229,33 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.jeffgeerling.com/blog/2022/6-raspberry-pis-6-ssds-on-mini-itx-motherboard">
+					<a href="https://blog.ando.fyi/posts/diagnosing-an-unsual-wifi-issue/">
 						<picture>
-							<source srcset="default_32497116.webp" type="image/webp">
-							<source srcset="default_32497116.png" type="image/png">
-							<img src="default_32497116.png" alt="Preview of '6 Raspberry Pis, 6 SSDs on a Mini ITX Motherboard'">
+							<source srcset="default_32524702.webp" type="image/webp">
+							<source srcset="default_32524702.png" type="image/png">
+							<img src="default_32524702.png" alt="Preview of 'Resolving an unusual WiFi issue'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.jeffgeerling.com/blog/2022/6-raspberry-pis-6-ssds-on-mini-itx-motherboard">6 Raspberry Pis, 6 SSDs on a Mini ITX Motherboard</a></h3>
+					<h3><a href="https://blog.ando.fyi/posts/diagnosing-an-unsual-wifi-issue/">Resolving an unusual WiFi issue</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32497116">
+						<a href="https://news.ycombinator.com/item?id=32524702">
 						
 							
-								<p class="story__comment_first line-clamp">"Aside from running Ceph as my day job, I have a 9-node Ceph cluster on Rasberry Pi 4s at home that I&#39;ve been running for a year now, and I&#39;m slowly starting to move things away from ZFS to this cluster as my main storage.My setup is individual nodes, with 2.5&#34; external HDDs (mostly SMR), so I actually get sligtly better performance than this cluster, and I&#39;m using 4+2 erasure coding for the main data pool for CephFS.CephFS has so far been incredibly stable and all my Linux laptops reconnect to it after sleep with no issues (in this regard it&#39;s better than NFS).I like this setup a lot better now than ZFS, and I&#39;m slowly starting to migrate away from ZFS, and now I&#39;m even thinking of setting up a second Ceph cluster.  The best thing with Ceph is that I can do a maintenance on a node at any time and storage availability is never affected, with ZFS I&#39;ve always dreaded any kind of upgrade, and any reboot requires an outage.  Plus with Ceph I can add just one disk at a time to the cluster and disks don&#39;t have to be the same size.  Also, I can move the physical nodes individually to a different part of my home, change switches and network cabling without an outage now.  It&#39;s a nice feeling."</p>
-							
-						
-							
-								<p class="story__comment_others">"Man, Ceph really doesn&#39;t get enough love. For all the distributed systems hype out there - be it Kubernetes or blockchains or serverless - the ol&#39; rock solid distributed storage systems sat in the background iterating like crazy.We had a huge Rook/Ceph installation in the early days of our startup before we killed off the product that used it (sadly). It did explode under some rare unusual cases, but I sometimes miss it! For folks who aren&#39;t aware, a rough TLDR is that Ceph is to ZFS/LVM what Kubernetes is to containers.This seems like a very cool board for a Ceph lab - although - extremely expensive - and I say that as someone who sells very expensive Raspberry Pi based computers!"</p>
+								<p class="story__comment_first line-clamp">"This is incredible, we use QT5.12 for an embedded device application, and this issue has been a really weird one for us and this spot on resolves it! See browsing HN at work does pay off!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I will once again lament the fact that WD Labs built SBCs that sat with their hard drives to make them individual CEPH nodes but never took the hardware to production.  It seems to me there&#39;s still a market for SBCs that could serve a CEPH OSD on a per-device basis, although with ever increasing density in the storage and hyperconverged space that&#39;s probably more of a small business or prosumer solution."</p>
+								<p class="story__comment_others">"Years ago I experienced an issue with a Cyberpower UPS software update that interfered with the system&#39;s Bluetooth, causing devices to not be able to connect, inexplicably since the software doesn&#39;t use BT for anything.Only after much online searching did I stumble on another user with the same issue and after uninstalling it and reverting to an earlier version the issue immediately went away. I&#39;ve since kept a more open mind as to what may be causing network issues."</p>
+							
+						
+							
+								<p class="story__comment_others">"Anyone ever had arp storms on a home network?I&#39;ve had something trigger every device into asking &#39;who has xyz ip tell [Mac]&#39;. It made the network unusable and even rebooting systems it would come back since as soon as one device asked the question (sent the broken arp packet) all other devices decided they too needed to know.The solution that worked was to flip the circuit breaker for the whole house and reset every network device at once."</p>
 							
 						
 						</a>
@@ -268,33 +267,33 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.tomshardware.com/news/tsmc-initiates-3nm-chips-production-next-month">
+					<a href="https://github.com/Twipped/InterviewThis">
 						<picture>
-							<source srcset="default_32509267.webp" type="image/webp">
-							<source srcset="default_32509267.png" type="image/png">
-							<img src="default_32509267.png" alt="Preview of 'TSMC to begin 3nm chip production next month'">
+							<source srcset="default_32519547.webp" type="image/webp">
+							<source srcset="default_32519547.png" type="image/png">
+							<img src="default_32519547.png" alt="Preview of 'A list of developer questions to ask prospective employers'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.tomshardware.com/news/tsmc-initiates-3nm-chips-production-next-month">TSMC to begin 3nm chip production next month</a></h3>
+					<h3><a href="https://github.com/Twipped/InterviewThis">A list of developer questions to ask prospective employers</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32509267">
+						<a href="https://news.ycombinator.com/item?id=32519547">
 						
 							
-								<p class="story__comment_first line-clamp">"If any chip manufacturer can hear me: please, change this metric to transistor per square millimeter. Thanks!"</p>
-							
-						
-							
-								<p class="story__comment_others">"It is hard to imagine the scale of these things, I know if you had tapped me on the shoulder at Intel in the 80&#39;s and said, &#34;in 40 years, the chip your looking at will fit in a couple of square mm of silicon.&#34; I would not have believed you. Of course it doesn&#39;t &#34;really&#34; fit in that small a slice as you need to get the signals into and out of it and those points take space, but it is doesn&#39;t take much space."</p>
+								<p class="story__comment_first line-clamp">"As someone who has recruited hundreds of candidates at this point I would urge caution with lists like this.By all means read the list, but rather than trying to grind through as many of the questions as possible, try to use it as inspiration and think of what you&#39;re actually curious about and which might tip you over one way or the other if you&#39;re on the fence. It&#39;s far better to have a good conversation about 1 thing which might affect your decision than a superficial sprint through a bunch of topics you don&#39;t actually care that much about.Secondly, consider that if you do well you are likely to have multiple rounds of interviews.  Think about which questions are likely to be most enlightening when you ask each interviewer.  Don&#39;t shy away from asking 2 people the same question if you think you&#39;ll get different perspectives. If you ask a peer engineer the diversity questions you may well get quite a different answer from asking the HR/recruiting person for instance (eg one might give you a cultural insight vs the other might just give you the policy/factual answer).I once interviewed a candidate[1] who had printed off a whole list like this and insisted on grinding through the whole thing.  It was weirdly offputting, but he was such a monster programmer that he was already a clear hire. It gave an insight into the thoroughness of his nature though and showed that he was absolutely perfect for the (critical) role we were hiring him for where mistakes were extremely costly.[1] Hi Fluffy! If you see this I hope you&#39;re doing well."</p>
 							
 						
 							
-								<p class="story__comment_others">"So I wonder if the M2 Pro/Max/Ultra will after all be on the N3 node. If N3 HVM starts next month, the A15 being on N5P and it being a year until the A16 on N3 will be released and Apple being the first to use N3... some other Apple silicon needs to use the capacity first, or am I missing something?"</p>
+								<p class="story__comment_others">"I&#39;m obviously cherry picking, but if an applicant asks me a series of questions akin to &#34;what source control tool do you use and why&#34; I&#39;m going to begin doubting that this person can focus on actually shipping product. There&#39;s this whole scene of people who do performative, almost theatrical, quality programming but nigh on forgot how to actually ship features, and questions like those are a hint they might be in that camp.EDIT: to add some context, i run a small startup, we need the whole team able to ship. I can imagine that in certain bureaucratic bigcorps, performatively obsessing on code/process quality can be useful, because the distance between the programmer and the customer/user is so long."</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of the comments in here are reacting to the large list of questions being very off-putting. There&#39;s a deeper issue here that we still don&#39;t have a good answer for: it is incredibly hard to tell what a company is like until you start working there, and asking questions either leads to very surface-level answers or just flat out catfishing candidates. Companies being transparent and detailed about how they operate is the exception.The company gets to spend 3+ hours finding out information about a candidate, but the candidate has little option to discover company culture for themselves. They can snoop around on LinkedIn but this doesn&#39;t answer much about culture unless there is someone who is prolifically producing content inside the company. There&#39;s glassdoor which might answer part of it but generally the reviews there are extremely shallow and biased by the skills, mindset, and treatment of whoever wrote the review.So what&#39;s the answer? I think &#34;ask targeted questions&#34; is fine as long as it is not &#34;ask 100 general questions&#34;. I haven&#39;t seen a single article on the meta of how to pick what questions to ask or how to get past shallow answers. I also think the entire industry is performing pretty terrible in this space and we don&#39;t have a good answer for how to handle it that is common or even well-known. This leads to lost candidates or (intentionally or unintentionally) catfished candidates who will leave after joining."</p>
 							
 						
 						</a>
@@ -306,33 +305,34 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.economist.com/special-report/2020/01/16/housing-is-at-the-root-of-many-of-the-rich-worlds-problems">
+					<a href="https://supabase.com/blog/supabase-realtime-multiplayer-general-availability">
 						<picture>
-							<source srcset="default_32493549.webp" type="image/webp">
-							<source srcset="default_32493549.png" type="image/png">
-							<img src="default_32493549.png" alt="Preview of 'Housing is at the root of many of the rich world’s problems (2020)'">
+							<source srcset="default_32510405.webp" type="image/webp">
+							<source srcset="default_32510405.png" type="image/png">
+							<img src="default_32510405.png" alt="Preview of 'Supabase – Realtime: Multiplayer Edition'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.economist.com/special-report/2020/01/16/housing-is-at-the-root-of-many-of-the-rich-worlds-problems">Housing is at the root of many of the rich world’s problems (2020)</a></h3>
+					<h3><a href="https://supabase.com/blog/supabase-realtime-multiplayer-general-availability">Supabase – Realtime: Multiplayer Edition</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32493549">
+						<a href="https://news.ycombinator.com/item?id=32510405">
 						
 							
-								<p class="story__comment_first line-clamp">"https://archive.ph/zdXH2"</p>
-							
-						
-							
-								<p class="story__comment_others">"Housing in the US has gotten to where it is due to horrible laws effectively allowing total tax avoidance for landlords.Take some investment property. You buy it at some basis price, let&#39;s say 500k. You rent it out for 15k a year. Each year you can offset your rental income against deprecation of the property and property taxes - meaning, you pay no income tax on your rental income.~30 years later, you&#39;ve deprecated it down to an effective value of $0, so you hypothetically would have to start paying taxes on your rental income(of course, you can still deduct property taxes against that). What do you do? Well, there&#39;s something called a 1031 exchange - this lets you sell an investment property, and as long as the funds go directly into another investment property, you pay no capital gains taxes. So guess what? You can buy a brand new investment property with a new(albeit adjusted) cost basis, and you can start the entire cycle of depreciation and deduction all over again on your new, more expensive, property.So, you&#39;ve now held this property your entire life, and you die and pass it to your kids - well, great news, unless your estate is over 12 million dollars(and double that for a married couple), you pay no estate taxes.  And even more fun - when you inherit property, the cost basis is &#34;reset&#34; to the present day value of the property at time of inheritance - So your children can now rent the property out, deprecate it, and pay no income tax on the rental income either, and continue the cycle.The net result is that rental properties generate a ton of income for the owners, who pay almost nothing in taxes. Even if they do pay property tax, property tax rates are generally much lower than income tax rates."</p>
+								<p class="story__comment_first line-clamp">"So I&#39;m just at the tail end of a project where I&#39;m attempting to build a collaborative text editor, and it&#39;s been absolute hell. I figured it would be a tricky problem, but I had no idea how far down the rabbit hole goes. I kept thinking, gosh, there&#39;s gotta be a backend service that bakes this in, if there isn&#39;t it would be a great business opportunity.I almost want to scrap all of my code and move it to Supabase. Congrats to the team on this launch, very cool.edit: actually, after thinking it through, I&#39;m not clear on what Supabase is calling multiplayer. Presence is one thing, but when I think multiplayer, I&#39;m thinking conflict resolution. Is this an OT/CRDT implementation? Or is it just presence?"</p>
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s a simple problem, we turned housing into an investment.  Now everyone who owns a home is incentivized to ensure their investment is maximized and that results in a lot of NIMBYism.  The simple solution is we need more housing in cities and suburbs.  How we get there is an exercise that&#39;s taken on by local housing authorities and they are not incentivized to solve the problem.  That&#39;s because they work for voters who are currently living in the area opposed to future people who aren&#39;t contributing to the vote.States are going to have to step in and override cities that aren&#39;t being effective, this cannot be solved from the federal level.  They are going to have to say, these permitting processes are too restrictive, homeowners can add backyard units or convert their homes to duplexes/etc, and make it easy for apartment builders to buy a few homes to make small apartment complexes even if the neighborhood hates it or the city has been stalling on that kind of development."</p>
+								<p class="story__comment_others">"hey hn, supabase ceo herewe&#39;re excited about this release - it adds a few neat features to our Realtime server[0]. For those who don&#39;t read the post (it&#39;s quite long), our Realtime server was initially built for subscribing to Postgres changes via websockets. We&#39;ve added Broadcast functionality (for &#34;ephemeral&#34; messages that don&#39;t need to be persisted to Postgres) and Presence (similar to Broadcasts, but it retains an eventually-consistent state between users).We were planning a larger write-up with all the technical details but it became a bit long. Some highlights:- Realtime is built with Elixir an Phoenix[1]- We&#39;ve moved to a single, global cluster
+- We&#39;re using `Phoenix.Tracker` to globally distribute the Erlang PIDs of all of our Postgres connections. This guarantees there is only a single connection to each database.- We&#39;ve implemented a &#34;leaky-bucket&#34; rate-limiter using Erlang&#39;s `:counters` module[3] for &#34;per tenant&#34; rate-limiting. We&#39;ll move this to a global rate-limiter in the future- We&#39;re currently seeing ~2000 concurrent connected users - it will be interesting to see what this spikes up to now that this is on HNIt&#39;s still in heavy development, and we&#39;ll make sure to detail all the choices we take as we continue solve problems. A few of the Realtime team will be here answer questions - @chasers, @wenbo, @abc3erl.[0] Realtime: https://github.com/supabase/realtime[1] Phoenix Framework: https://www.phoenixframework.org/[2] rate limiter: https://en.wikipedia.org/wiki/Leaky_bucket[3] :counters: https://www.erlang.org/doc/man/counters.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is really neat, I have been keeping an eye on Supabase, this (presence) is the feature that will finally push me to build a side project with it. I have one in mind.Anyone from Supabase here, do you have any plans to build in support for CRDT toolkits such as Yjs or AutoMerge for these features? It would make working with them so much easer if there was a plug and play backend.The one other thing I would love to see next from them is an offline sync product, so you could partially sync a users dataset to their device and save back any changes later (bonus points for then combing that with CRDTs). Maybe the WASM Postgres yesterday [0] could be a foundation for such a product.https://news.ycombinator.com/item?id=32498435"</p>
 							
 						
 						</a>
@@ -344,33 +344,33 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.economist.com/finance-and-economics/2022/08/17/can-the-visa-mastercard-duopoly-be-broken">
+					<a href="https://www.tesla.com/support/energy/tesla-virtual-power-plant-pge-2022">
 						<picture>
-							<source srcset="default_32502072.webp" type="image/webp">
-							<source srcset="default_32502072.png" type="image/png">
-							<img src="default_32502072.png" alt="Preview of 'Can the Visa-Mastercard duopoly be broken?'">
+							<source srcset="default_32500926.webp" type="image/webp">
+							<source srcset="default_32500926.png" type="image/png">
+							<img src="default_32500926.png" alt="Preview of 'Tesla Virtual Power Plant'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.economist.com/finance-and-economics/2022/08/17/can-the-visa-mastercard-duopoly-be-broken">Can the Visa-Mastercard duopoly be broken?</a></h3>
+					<h3><a href="https://www.tesla.com/support/energy/tesla-virtual-power-plant-pge-2022">Tesla Virtual Power Plant</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32502072">
+						<a href="https://news.ycombinator.com/item?id=32500926">
 						
 							
-								<p class="story__comment_first line-clamp">"https://archive.ph/5HJal"</p>
-							
-						
-							
-								<p class="story__comment_others">"Fraud protection of credit cards is the root of modern e-commerce. In some ways, Visa and Mastercard are the privatized court systems of the internet.If I end up on a random, self-hosted ecommerce site and decide to make a purchase - what guarantee do I have that the item will show up or be as-described? If I bought something through a bank transfer, reversing that purchase would be incredibly difficult. And, suing a merchant is prohibitively slow, expensive, and arduous.Also, modern B2C SaaS is built on credit card subscriptions. The ability for a merchant to pull payments on a recurring basis from a credit card requires an incredible amount of trust. If consumers had to push payment every month or year to continue subscriptions (instead of having it automatically debited), then churn rates would skyrocket and modern SaaS multiples would crash - taking company valuations with it.So, I&#39;m sure online merchants are happy to keep paying their ~3% fees as long as sales continue. Nobody wants to go back to &#34;Cash on Delivery&#34;, and nobody wants to hire workers to knock on doors asking for bills to be paid."</p>
+								<p class="story__comment_first line-clamp">"I&#39;m not OP, but the timing context of this post is important:Today, California has issued a FlexAlert, and Powerwalls in PG&amp;E and SCE will start discharging at 6pm to help reduce load on the grid. It&#39;s not a daily action, but it&#39;s emergency support when the grid needs it the most.And the time window when it happens is important: Powerwalls are contributing to  to reduce load when the grid needs it the most. It&#39;s not meant to support the entire grid, just directly attack the problem at the time where every Watt and Watt-hour counts.You don&#39;t need to own Powerwall to benefit from this, just like how you don&#39;t own the peaker plants that typically spark up at these times. You benefit because there&#39;s a big chance that there won&#39;t be rolling blackouts in California this afternoon—distributed assets like this can be dispatched.Dispatch Info: https://twitter.com/AlexGuichet/status/1559748677626777600A VPP tracker in the Tesla community: https://www.lastbulb.com/virtual-power-plantSome technical details of how Tesla VPPs work, as organized distributed systems: https://www.youtube.com/watch?v=ggdYts4muu0CAISO Grid Outlook: https://www.caiso.com/TodaysOutlook/Pages/default.aspx"</p>
 							
 						
 							
-								<p class="story__comment_others">"Living in New York City, I&#39;ve noticed that there are a whole lot of businesses that are either cash-only or card-only.I always understood the cash-only ones. If you can get plenty of customers who are willing to pay in cash, why would you want to pay credit card fees?The card-only ones were harder for me to understand, until I realized that handling cash costs money, too. Somebody needs to count it all at least once a day, if not more. Employees can steal it. Robbers can steal it. You need a safe. You need cash registers. You need to get the cash deposited in the bank, by paying someone to go do that. You need to maintain an inventory of smaller bills and coins to make change. You need to train people on all of this.Even just the accounting costs might make up the 2-3 percent in fees. &#34;Your register said you made $150 in cash that day, but the deposit that night was only $135.&#34; That&#39;s what you pay accountants to deal with, rather than just exporting from your Square account to Quickbooks or whatever.I had this realization because I went to a new coffee shop that had opened up. It appeared to be owned and operated by just one lady, and she was really nice. So, as I normally do for the nice local business owners in my neighborhood, I got out some cash instead of a card, thinking it would benefit her business. But then she told me they were card-only and it dawned on me: she&#39;s just one lady running a store by herself, _of course_ she doesn&#39;t want to deal with cash.So, I&#39;m not sure the 2-3 percent fees are all that bad, though I could be convinced otherwise. Plenty of small business owners seem pretty happy just setting up a Square reader and not dealing with the headache of cash. I think there&#39;s a lot of value in that for them."</p>
+								<p class="story__comment_others">"I&#39;m contemplating enrolling in this.Right now I&#39;m a net generator, even with our 100 deg days, but I am not 100% off grid. The Panels charge the Powerwall during the day, the Powerwall is drained overnight.The batteries currently do not survive the night. Even though the house cools down, it retains enough heat that the AC still kicks on, thus draining the battery. Note my AC is 78 all day/night. We got a thing from the power company &#34;do these things on this day and get power credits by lowering your usage&#34;, and, of course, we already do all that...no credits for us!So typically during transition at dawn, I pull in grid power.But I&#39;m still a net generator, they get more than I take.The concern was simply if I enroll in this, then the batteries kick in and drain even before the evening, and I go to grid power sooner.But, thinking about it, &#34;I don&#39;t care&#34;. It&#39;s an offset. They&#39;re draining because they need the load NOW, and I can provide it. Later, when things settle down, I&#39;ll pull it back.I think this works out, simply as a &#34;be a good citizen&#34;, use my battery to prevent someone in Fresno&#39;s AC browning out late in the heat of the afternoon.Maybe I&#39;m just being whimsical, but I&#39;m still thinking about it.Also thinking about bolting on another battery, I already have two."</p>
+							
+						
+							
+								<p class="story__comment_others">"Quick math shows a long range Model 3 has about six times as much battery capacity as a Powerwall. I’m willing to bet more people have Model 3’s than Powerwalls. And I’m willing to bet 16% of your car’s battery capacity will impact you far less than 100% of your Powerwall.F-150 Lightning called it right: EV’s should ship with grid-tie inverting."</p>
 							
 						
 						</a>
@@ -382,33 +382,33 @@ It is not for everyone and might require soldering, but possibilities are endles
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.youtube.com/watch?v=tDacjrSCeq4">
+					<a href="https://eresources.hcourt.gov.au/downloadPdf/2022/HCA/27">
 						<picture>
-							<source srcset="default_32513240.webp" type="image/webp">
-							<source srcset="default_32513240.png" type="image/png">
-							<img src="default_32513240.png" alt="Preview of 'Shouting in the Datacenter (2008) [video]'">
+							<source srcset="default_32490953.webp" type="image/webp">
+							<source srcset="default_32490953.png" type="image/png">
+							<img src="default_32490953.png" alt="Preview of 'High Court of Australia rules hyperlinking is not publishing [pdf]'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.youtube.com/watch?v=tDacjrSCeq4">Shouting in the Datacenter (2008) [video]</a></h3>
+					<h3><a href="https://eresources.hcourt.gov.au/downloadPdf/2022/HCA/27">High Court of Australia rules hyperlinking is not publishing [pdf]</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32513240">
+						<a href="https://news.ycombinator.com/item?id=32490953">
 						
 							
-								<p class="story__comment_first line-clamp">"Pretty funny to see this video at the top of HN! My kids still think I&#39;m an idiot for not having somehow parlayed the enduring popularity of this video into being a YouTuber -- despite my protestations that I was merely the videographer here. If anyone is curious about the video&#39;s origins, I had a fun conversation about it with Ben Sigelman a few years ago.[0][0] https://www.youtube.com/watch?v=_IYzD_NR0W4"</p>
-							
-						
-							
-								<p class="story__comment_others">"In case anyone needs to know, the shouter in question is none other than Brendan Gregg (of flame graph, eBPF, and Systems Performance fame). And the guy who took the video is Bryan Cantrill of Oxide Computer, DTrace, and Joyent."</p>
+								<p class="story__comment_first line-clamp">"Judgment summary: https://cdn.hcourt.gov.au/assets/publications/judgment-summa..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Oh man. Once, when I was a young padawan doing maintenance by myself on one of our three racks in a colocation DC, I dropped a 1U server from about 2m/6ft high.  It was scary as hell. While trying to grab it I hit the off button on one of the other servers, causing an outage for about 50 customers. What&#39;s more, it fell on the floor and just missed the SAN with the spinning disk array at the bottom of the rack. Everything was fine, including the fallen server, but shit, that was stupid. The vibration alone could have caused a lot of data corruption."</p>
+								<p class="story__comment_others">"Seems like a dodged bullet. There is little to no constitutional protection for free speech in Australia and defamation is routinely employed successfully in fairly speculative situations (for example, politicians, as public figures, suing journalists they don&#39;t like). Every time a question comes up like this it is genuinely an unknown what the court will do and no clear precedent suggesting they weigh potential broad impact of decisions heavily in their judgement.So this could easily have come down the other way and we could have a precedent suggesting potential liability for literally anybody who links to anything."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hyperlinking can still be constrained by other laws. So, this has high specificity as I see it. The specific constraints applied in the suit which led to the High Court have been found not to apply.I don&#39;t have a list of what do, I just hypothesise there could be other constraints. Private agreements, CSAM laws, IPR laws, which go to why you cannot provide a hyperlink.Not a Lawyer."</p>
 							
 						
 						</a>

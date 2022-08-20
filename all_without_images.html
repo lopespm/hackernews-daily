@@ -36,6 +36,292 @@
 	</div>
 
 	
+	<div class="day__date">20 August 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="http://nabstreamingsummit.com/wp-content/uploads/2022/05/2022-Streaming-Summit-Netflix.pdf">Serving Netflix Video Traffic at 800Gb/s and Beyond [pdf]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32519881">
+						
+							
+								<p class="story__comment_first line-clamp">"I love technical content like this. Not only is it incredibly interesting and informative, it also serves as a perfect counterpoint to the popular &#34;why does Netflix need X thousand engineers, I could build it in a weekend&#34; sentiment that is frequently brought up on forums like this one.Building software and productionalizing/scaling it are two very different problems, and the latter is far more difficult. Running a successful company always requires an unlimited number of very smart people who are willing to get their hands dirty optimizing every aspect of the product and business. Too many people today think that programming starts and ends at pulling a dozen popular libraries and making some API calls."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have some experience serving static content and working with CDNs. Here is what I find interesting / unique here:- They are not using OS page cache or any memory caching for that, every request is served directly from disks. This seems possible only when requests are spread between may NVMe disks since single high-end NVMe like Micron 9300 PRO has max 3.5GB/s read speed (or 28Gbps) - far less than 800Gbps. Looks like it works ok for long-tail content but what about new hot content everybody wants to watch at the day of release? Do they spread the same content over multiple disks for this purpose?- Async I/O resolves issues with nginx process stalling because of disk read operation but only after you&#39;ve already opened the file. Depending on FS / number of files / other FS activities, directory structure opening the file can block for significant time and there is no async open() AFAIK. How they resolve that? Are we assuming i-node cache contains all i-nodes and open() time is insignificant? Or are they configuring nginx() with large open file cache?- TLS for streamed media was necessary because browsers started to complain about non-TLS content. But that makes things sooo complicated as we see in the presentation (kTLS is 50% of CPU usage before moving to encryption offloaded by NIC). One has to remember that the content is most probably already encrypted (DRM), we just add another layer of encryption / authentication. TLS for media segments make so little sens IMO.- When you relay on encryption or TCP offloading by NIC you are stuck with that is possible with your NIC. I guess no HTTP/3 over UDP or fancy congestion control optimization in TCP until the vendor somehow implements it in the hardware."</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of the reasons they&#39;ve had to build most of this stuff themselfs is because they decided for some reason to use freeBSD.The NUMA work they did, I remember being in a meeting with them as a Linux Developer at Intel at the time. They bought NVMe drives or were saying they were going to buy NVMe drives from Intel which got them access to &#34;on the ground&#34; kernel developers and CPU people from Intel. Instead of talking about NVMe they spent the entire meeting asking us about howt the Linux kernel handles NUMA and corner cases around memory and scheudling. If I recall correctly I think they asked if we could help them upstream BSD code for NVMe and NUMA. I think in that meeting there was even some L9 or super high up NUMA CPU guy from Hillsborough they some how convinced to join.The conversation and technical discussion was quite fun, but it was sort of funny to us at the time they were having to do all this work on the BSD kernel that was solved years ago for linux.Technical debt I guess."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://notes.alinpanaitiu.com/Dealing%20with%20App%20Store%20rejections">App Store doesn&#39;t accept “too simple” apps</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32526047">
+						
+							
+								<p class="story__comment_first line-clamp">"This sucks... I&#39;m sorry you had to go through this. The App Store review process is just pretty bad. It&#39;s especially frustrating when you see downright shitty apps on the store. The &#34;black-box&#34; aspect of it makes it that much more kafkaesque too.When I first submitted my app on there, they rejected it and complained that I used HealthKit but didn&#39;t mention it in the app description. The thing is, I did. My app description had a list of &#34;highlighted features&#34;, one them being &#34;Apple health integration&#34;.I was about to file an appeal, but then I saw a couple other apps with &#34;Integrates with Apple Health&#34; on its own line in the description. Figured that&#39;s probably what they were looking for (even though the guidelines don&#39;t explicitly say that) so I changed it and boom, the app was approved. I hate it, but it&#39;s not worth my time or the risk to fight it.For what it&#39;s worth, I think your app looks really good!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Yep, I got this rejection when I made this tipping app (https://apps.apple.com/us/app/tip-69/id1460610078).I went on to add OCR detection for receipts so you don&#39;t have to type in the amount, I added more tipping modes, I added split bill functionality, and eventually added an entire social network with the ability to share your receipt for the world to see, like or comment on.Must have spent months trying to get approved by Apple.I&#39;d rather no one ask me why."</p>
+							
+						
+							
+								<p class="story__comment_others">"They&#39;ve done this since the early days of the app store. Mostly-content apps without really broad appeal have long carried a high risk of rejection.&gt; Homescreen widgets: utterly useless, but can&#39;t get more iOS-y and less webapp-y than this, right?This especially, but really the whole post reads like the system working as intended.Granted (as the author notes) way too much shit gets through anyway, but that&#39;s not an excuse to do even worse. I do, as a user, wish they&#39;d tighten up the rules a lot and improve enforcement. I&#39;m quite sure it&#39;d improve my experience on the store (and probably on the web—imagine how much better the Reddit site would get, probably overnight, if their app got pulled over not being well-justified)."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.danieljanus.pl/2022/08/18/i-love-my-gpd-micro-pc/">I love my GPD Micro PC</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32513927">
+						
+							
+								<p class="story__comment_first line-clamp">"At a previous job, I was the engineering manager for a new neo-bank and was on call 24/7 for it. I have a beefy Lenovo P52 that I hated carrying around and leaving in my car lest it get stolen. So I got a GPD Pocket. It fit very well into my back pocket.Not only did it work great for emergency situations (I ran Ubuntu MATE as well) when I needed to SSH into machines, check stuff on Datadog, edit code to make a quick fix, push code to our K8S environments and more, but I actually found myself frequently at coffee shops and bars coding away happily on it. It brought a certain amount of freedom and cool factor with it. It was a delightful little device with a very sharp and crisp screen, a surprisingly useful keyboard that combined well with my i3 environment, that I could actually be productive on (save for running our test suite which took around 30 minutes and sucked the life out of the battery). It also got a lot of onlookers asking questions about it, leading to those ever so fun random conversations that can lead to night long friendships over wine and coffee.I genuinely miss it and will probably pick up another one now that I just got hired as a CTO for another project with equally demanding on-call schedules and uptime requirements. Although I don&#39;t drink anymore so none of those fun conversations. Ce la vie."</p>
+							
+						
+							
+								<p class="story__comment_others">"The Micro PC is a really cool device, but owning one I couldn&#39;t really recommend it outside a very small niche.Form factor, ports, and performance are all great. The firmware is very frustrating though. Mine shipped with a newer firmware (4.18) than was available to download, and it was miserable. The machine would power on to blank screens, and have random crashes. I was wary of downgrading because I couldn&#39;t put the &#34;newer&#34; firmware back on.Finally gave in and stability was much improved on 4.13. Boot issues still happen though (less frequently). They seem possibly exasperated by Linux. It can require 3 or 4 attempts at holding the power button to force a reset. Unplug anything that could be back-feeding power so it will actually reset (not confirmed). Just all around annoying if you power it on and off a lot.Other issues to consider. The hinge support is somewhat fragile. I try to be gentle opening and closing. I think I also put some epoxy around the plastic screwhole pillar. The battery has a permanent over-discharge cutoff that a number of users have hit so I&#39;ve been careful to keep a charge on it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Had one for three years. Use it nearly every day, but I work with embedded systems in robots/industrial machinery. One handed operation, tons of IO, dual boot, fits in back pocket etc. have made this indispensable.One dead battery, replacement part from alibaba via GPD rep given link. Easy to disassemble via screwdriver and spudger. Works great now. Injection molded piece that held the threads where the hinge attached also failed. Drilled a little pinhole and added a small machine screw, nut and threadlocker. No more problems. Nut goes under the plastic hinge cover. The fix is literally better than original.Other than that, the only issue I&#39;ve had is getting grub to see the screen as landscape. Grub config options seem to get ignored. Oh well. Standard rotation is sorted with boot scripts and the OEM Windows 10 side works great."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://whytheluckystiff.net/">Whytheluckystiff&#39;s original domain back as an archive</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32513020">
+						
+							
+								<p class="story__comment_first line-clamp">"_Why’s work led me to where I am. At a crucial time in my life I found _Why. That put me on a path to learning Ruby and then a whole bunch of steps now I have an actual job as a web developer. I work in Python, but I’m sure _Why won’t mind. 
+Before I found _Why I wasn’t sure what to do with my career-life. He showed me that programming can be art and science."</p>
+							
+						
+							
+								<p class="story__comment_others">"Why’s work had a lot of charm and heart. It was weird and funny and avant-garde but in a pretty accessible and (mostly) unpretentious way.It didn’t teach me a whole lot about Ruby but I probably read it a dozen times or so lol"</p>
+							
+						
+							
+								<p class="story__comment_others">"Why to me contrasts a huge proportion of todays body of new programmers. Instead of the pursuit of programming as a means to a profession, career or livelihood, Why embodied programming as something to be pursued for the wonderment and satisfaction of being able to use a computer to make or model things real or imagined."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/ID_AA_Carmack/status/1560728042959507457">John Carmack&#39;s new AGI company, Keen Technologies, has raised a $20M round</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32525721">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m very optimistic for near-term AGI (10 years or less). Even just a few years ago most in the field would have said that it&#39;s an &#34;unknown unknown&#34;, we didn&#39;t have the theory or the models, there was no path forward and so it was impossible to predict.Now we have a fairly concrete idea of what a potential AGI might look like - an RL agent that uses a large transformer.The issue is that unlike supervised training you need to simulate the environment along with the agent, so this requires a magnitude more compute compared to LLMs. That&#39;s why I think it will still be large corporate labs that will make the most progress in this field."</p>
+							
+						
+							
+								<p class="story__comment_others">"The interview with Lex Fridman that he was referring to:https://www.youtube.com/watch?v=I845O57ZSy4&amp;t=14567sThe entire video is worth viewing, an impressive 5:15h!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Interesting to see how he&#39;s progressed with this. When he first announced he was getting into AI it sounded almost like a semi retirement thing: something that interested him that he could do for fun and solo, without the expectation that it would go anywhere. But now he seems truly serious about it. Wonder if he&#39;s started hiring yet."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.ando.fyi/posts/diagnosing-an-unsual-wifi-issue/">Resolving an unusual WiFi issue</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32524702">
+						
+							
+								<p class="story__comment_first line-clamp">"This is incredible, we use QT5.12 for an embedded device application, and this issue has been a really weird one for us and this spot on resolves it! See browsing HN at work does pay off!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Years ago I experienced an issue with a Cyberpower UPS software update that interfered with the system&#39;s Bluetooth, causing devices to not be able to connect, inexplicably since the software doesn&#39;t use BT for anything.Only after much online searching did I stumble on another user with the same issue and after uninstalling it and reverting to an earlier version the issue immediately went away. I&#39;ve since kept a more open mind as to what may be causing network issues."</p>
+							
+						
+							
+								<p class="story__comment_others">"Anyone ever had arp storms on a home network?I&#39;ve had something trigger every device into asking &#39;who has xyz ip tell [Mac]&#39;. It made the network unusable and even rebooting systems it would come back since as soon as one device asked the question (sent the broken arp packet) all other devices decided they too needed to know.The solution that worked was to flip the circuit breaker for the whole house and reset every network device at once."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/Twipped/InterviewThis">A list of developer questions to ask prospective employers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32519547">
+						
+							
+								<p class="story__comment_first line-clamp">"As someone who has recruited hundreds of candidates at this point I would urge caution with lists like this.By all means read the list, but rather than trying to grind through as many of the questions as possible, try to use it as inspiration and think of what you&#39;re actually curious about and which might tip you over one way or the other if you&#39;re on the fence. It&#39;s far better to have a good conversation about 1 thing which might affect your decision than a superficial sprint through a bunch of topics you don&#39;t actually care that much about.Secondly, consider that if you do well you are likely to have multiple rounds of interviews.  Think about which questions are likely to be most enlightening when you ask each interviewer.  Don&#39;t shy away from asking 2 people the same question if you think you&#39;ll get different perspectives. If you ask a peer engineer the diversity questions you may well get quite a different answer from asking the HR/recruiting person for instance (eg one might give you a cultural insight vs the other might just give you the policy/factual answer).I once interviewed a candidate[1] who had printed off a whole list like this and insisted on grinding through the whole thing.  It was weirdly offputting, but he was such a monster programmer that he was already a clear hire. It gave an insight into the thoroughness of his nature though and showed that he was absolutely perfect for the (critical) role we were hiring him for where mistakes were extremely costly.[1] Hi Fluffy! If you see this I hope you&#39;re doing well."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m obviously cherry picking, but if an applicant asks me a series of questions akin to &#34;what source control tool do you use and why&#34; I&#39;m going to begin doubting that this person can focus on actually shipping product. There&#39;s this whole scene of people who do performative, almost theatrical, quality programming but nigh on forgot how to actually ship features, and questions like those are a hint they might be in that camp.EDIT: to add some context, i run a small startup, we need the whole team able to ship. I can imagine that in certain bureaucratic bigcorps, performatively obsessing on code/process quality can be useful, because the distance between the programmer and the customer/user is so long."</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of the comments in here are reacting to the large list of questions being very off-putting. There&#39;s a deeper issue here that we still don&#39;t have a good answer for: it is incredibly hard to tell what a company is like until you start working there, and asking questions either leads to very surface-level answers or just flat out catfishing candidates. Companies being transparent and detailed about how they operate is the exception.The company gets to spend 3+ hours finding out information about a candidate, but the candidate has little option to discover company culture for themselves. They can snoop around on LinkedIn but this doesn&#39;t answer much about culture unless there is someone who is prolifically producing content inside the company. There&#39;s glassdoor which might answer part of it but generally the reviews there are extremely shallow and biased by the skills, mindset, and treatment of whoever wrote the review.So what&#39;s the answer? I think &#34;ask targeted questions&#34; is fine as long as it is not &#34;ask 100 general questions&#34;. I haven&#39;t seen a single article on the meta of how to pick what questions to ask or how to get past shallow answers. I also think the entire industry is performing pretty terrible in this space and we don&#39;t have a good answer for how to handle it that is common or even well-known. This leads to lost candidates or (intentionally or unintentionally) catfished candidates who will leave after joining."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://supabase.com/blog/supabase-realtime-multiplayer-general-availability">Supabase – Realtime: Multiplayer Edition</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32510405">
+						
+							
+								<p class="story__comment_first line-clamp">"So I&#39;m just at the tail end of a project where I&#39;m attempting to build a collaborative text editor, and it&#39;s been absolute hell. I figured it would be a tricky problem, but I had no idea how far down the rabbit hole goes. I kept thinking, gosh, there&#39;s gotta be a backend service that bakes this in, if there isn&#39;t it would be a great business opportunity.I almost want to scrap all of my code and move it to Supabase. Congrats to the team on this launch, very cool.edit: actually, after thinking it through, I&#39;m not clear on what Supabase is calling multiplayer. Presence is one thing, but when I think multiplayer, I&#39;m thinking conflict resolution. Is this an OT/CRDT implementation? Or is it just presence?"</p>
+							
+						
+							
+								<p class="story__comment_others">"hey hn, supabase ceo herewe&#39;re excited about this release - it adds a few neat features to our Realtime server[0]. For those who don&#39;t read the post (it&#39;s quite long), our Realtime server was initially built for subscribing to Postgres changes via websockets. We&#39;ve added Broadcast functionality (for &#34;ephemeral&#34; messages that don&#39;t need to be persisted to Postgres) and Presence (similar to Broadcasts, but it retains an eventually-consistent state between users).We were planning a larger write-up with all the technical details but it became a bit long. Some highlights:- Realtime is built with Elixir an Phoenix[1]- We&#39;ve moved to a single, global cluster
+- We&#39;re using `Phoenix.Tracker` to globally distribute the Erlang PIDs of all of our Postgres connections. This guarantees there is only a single connection to each database.- We&#39;ve implemented a &#34;leaky-bucket&#34; rate-limiter using Erlang&#39;s `:counters` module[3] for &#34;per tenant&#34; rate-limiting. We&#39;ll move this to a global rate-limiter in the future- We&#39;re currently seeing ~2000 concurrent connected users - it will be interesting to see what this spikes up to now that this is on HNIt&#39;s still in heavy development, and we&#39;ll make sure to detail all the choices we take as we continue solve problems. A few of the Realtime team will be here answer questions - @chasers, @wenbo, @abc3erl.[0] Realtime: https://github.com/supabase/realtime[1] Phoenix Framework: https://www.phoenixframework.org/[2] rate limiter: https://en.wikipedia.org/wiki/Leaky_bucket[3] :counters: https://www.erlang.org/doc/man/counters.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is really neat, I have been keeping an eye on Supabase, this (presence) is the feature that will finally push me to build a side project with it. I have one in mind.Anyone from Supabase here, do you have any plans to build in support for CRDT toolkits such as Yjs or AutoMerge for these features? It would make working with them so much easer if there was a plug and play backend.The one other thing I would love to see next from them is an offline sync product, so you could partially sync a users dataset to their device and save back any changes later (bonus points for then combing that with CRDTs). Maybe the WASM Postgres yesterday [0] could be a foundation for such a product.https://news.ycombinator.com/item?id=32498435"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.tesla.com/support/energy/tesla-virtual-power-plant-pge-2022">Tesla Virtual Power Plant</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32500926">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m not OP, but the timing context of this post is important:Today, California has issued a FlexAlert, and Powerwalls in PG&amp;E and SCE will start discharging at 6pm to help reduce load on the grid. It&#39;s not a daily action, but it&#39;s emergency support when the grid needs it the most.And the time window when it happens is important: Powerwalls are contributing to  to reduce load when the grid needs it the most. It&#39;s not meant to support the entire grid, just directly attack the problem at the time where every Watt and Watt-hour counts.You don&#39;t need to own Powerwall to benefit from this, just like how you don&#39;t own the peaker plants that typically spark up at these times. You benefit because there&#39;s a big chance that there won&#39;t be rolling blackouts in California this afternoon—distributed assets like this can be dispatched.Dispatch Info: https://twitter.com/AlexGuichet/status/1559748677626777600A VPP tracker in the Tesla community: https://www.lastbulb.com/virtual-power-plantSome technical details of how Tesla VPPs work, as organized distributed systems: https://www.youtube.com/watch?v=ggdYts4muu0CAISO Grid Outlook: https://www.caiso.com/TodaysOutlook/Pages/default.aspx"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m contemplating enrolling in this.Right now I&#39;m a net generator, even with our 100 deg days, but I am not 100% off grid. The Panels charge the Powerwall during the day, the Powerwall is drained overnight.The batteries currently do not survive the night. Even though the house cools down, it retains enough heat that the AC still kicks on, thus draining the battery. Note my AC is 78 all day/night. We got a thing from the power company &#34;do these things on this day and get power credits by lowering your usage&#34;, and, of course, we already do all that...no credits for us!So typically during transition at dawn, I pull in grid power.But I&#39;m still a net generator, they get more than I take.The concern was simply if I enroll in this, then the batteries kick in and drain even before the evening, and I go to grid power sooner.But, thinking about it, &#34;I don&#39;t care&#34;. It&#39;s an offset. They&#39;re draining because they need the load NOW, and I can provide it. Later, when things settle down, I&#39;ll pull it back.I think this works out, simply as a &#34;be a good citizen&#34;, use my battery to prevent someone in Fresno&#39;s AC browning out late in the heat of the afternoon.Maybe I&#39;m just being whimsical, but I&#39;m still thinking about it.Also thinking about bolting on another battery, I already have two."</p>
+							
+						
+							
+								<p class="story__comment_others">"Quick math shows a long range Model 3 has about six times as much battery capacity as a Powerwall. I’m willing to bet more people have Model 3’s than Powerwalls. And I’m willing to bet 16% of your car’s battery capacity will impact you far less than 100% of your Powerwall.F-150 Lightning called it right: EV’s should ship with grid-tie inverting."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://eresources.hcourt.gov.au/downloadPdf/2022/HCA/27">High Court of Australia rules hyperlinking is not publishing [pdf]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32490953">
+						
+							
+								<p class="story__comment_first line-clamp">"Judgment summary: https://cdn.hcourt.gov.au/assets/publications/judgment-summa..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Seems like a dodged bullet. There is little to no constitutional protection for free speech in Australia and defamation is routinely employed successfully in fairly speculative situations (for example, politicians, as public figures, suing journalists they don&#39;t like). Every time a question comes up like this it is genuinely an unknown what the court will do and no clear precedent suggesting they weigh potential broad impact of decisions heavily in their judgement.So this could easily have come down the other way and we could have a precedent suggesting potential liability for literally anybody who links to anything."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hyperlinking can still be constrained by other laws. So, this has high specificity as I see it. The specific constraints applied in the suit which led to the High Court have been found not to apply.I don&#39;t have a list of what do, I just hypothesise there could be other constraints. Private agreements, CSAM laws, IPR laws, which go to why you cannot provide a hyperlink.Not a Lawyer."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">19 August 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -49,13 +335,13 @@
 						<a href="https://news.ycombinator.com/item?id=32507172">
 						
 							
-								<p class="story__comment_first line-clamp">"This looks fantastic!A thought-experiment that may interest you coming from someone (me) who already has happily spent several hundreds of dollars on mechanical keyboards and uses them every single day:Let&#39;s imagine the keyboard could be bought today as-is with a simple &#34;Buy Now&#34; button and price was no concern.The two main reasons I would _still_ hesitate to hit that button are:1. I absolutely and undoubtedly need to know what it SOUNDS and FEELS like. Is it linear, tactile, clicky? How much? I turned my speakers to max because I assumed you&#39;d have some audio-track running but to no avail. Did I miss something?2. I wish there was a &#39;blank&#39; version with zero typography anywhere. Just all black. I touch-type and have not looked at my keyboard in 15 years."</p>
+								<p class="story__comment_first line-clamp">"Low profile ergonomic mechanical keyboard is a pretty deep hole to dive into.
+You can design your own PCB, order it from manufacturer and build the exact keyboard you want (split, wireless, with knobs, any form and key count).
+It is not for everyone and might require soldering, but possibilities are endless.Additional resources:- r/ErgoMechBoards: https://www.reddit.com/r/ErgoMechKeyboards/- Low Profile Discord: https://discord.com/invite/dBSRZ2a- Collection of split low profile mechanical keyboards: https://kbd.news/tag/low-profile/- &#34;A Tiny, Ultra-Affordable Keyboard You Can Build Yourself!&#34; video:  https://www.youtube.com/watch?v=JqpBKuEVinw"</p>
 							
 						
 							
-								<p class="story__comment_others">"Low profile ergonomic mechanical keyboard is a pretty deep hole to dive into.
-You can design your own PCB, order it from manufacturer and build the exact keyboard you want (split, wireless, with knobs, any form and key count).
-It is not for everyone and might require soldering, but possibilities are endless.Additional resources:- r/ErgoMechBoards: https://www.reddit.com/r/ErgoMechKeyboards/- Low Profile Discord: https://discord.com/invite/dBSRZ2a- Collection of split low profile mechanical keyboards: https://kbd.news/tag/low-profile/- &#34;A Tiny, Ultra-Affordable Keyboard You Can Build Yourself!&#34; video:  https://www.youtube.com/watch?v=JqpBKuEVinw"</p>
+								<p class="story__comment_others">"This looks fantastic!A thought-experiment that may interest you coming from someone (me) who already has happily spent several hundreds of dollars on mechanical keyboards and uses them every single day:Let&#39;s imagine the keyboard could be bought today as-is with a simple &#34;Buy Now&#34; button and price was no concern.The two main reasons I would _still_ hesitate to hit that button are:1. I absolutely and undoubtedly need to know what it SOUNDS and FEELS like. Is it linear, tactile, clicky? How much? I turned my speakers to max because I assumed you&#39;d have some audio-track running but to no avail. Did I miss something?2. I wish there was a &#39;blank&#39; version with zero typography anywhere. Just all black. I touch-type and have not looked at my keyboard in 15 years."</p>
 							
 						
 							
@@ -135,15 +421,15 @@ It is not for everyone and might require soldering, but possibilities are endles
 						<a href="https://news.ycombinator.com/item?id=32514793">
 						
 							
-								<p class="story__comment_first line-clamp">"They&#39;re going to heavily lockdown WKWebView after the Instagram and Tiktok revelations, probably in iOS16.1. They may even remove it entirely and force people to use SFSafariViewController (heavily locked down web browser, opaque to developers other than URL). Best of luck to anyone that was using javascript injection for legitimate purposes, others have ruined it for everyone by abusing user trust."</p>
+								<p class="story__comment_first line-clamp">"In-app browsers are a huge mess and security/privacy nightmare. Browsers implement a security sandbox. In-app browsers break and circumvent this threat model in nasty ways. I hope this gets the same attention as cross-site scripting (XSS) attacks and browser engines implement strict countermeasures by default locking WebViews to the equivalent of an Incognito/InPrivate tab."</p>
 							
 						
 							
-								<p class="story__comment_others">"In-app browsers are a huge mess and security/privacy nightmare. Browsers implement a security sandbox. In-app browsers break and circumvent this threat model in nasty ways. I hope this gets the same attention as cross-site scripting (XSS) attacks and browser engines implement strict countermeasures by default locking WebViews to the equivalent of an Incognito/InPrivate tab."</p>
+								<p class="story__comment_others">"They&#39;re going to heavily lockdown WKWebView after the Instagram and Tiktok revelations, probably in iOS16.1. They may even remove it entirely and force people to use SFSafariViewController (heavily locked down web browser, opaque to developers other than URL). Best of luck to anyone that was using javascript injection for legitimate purposes, others have ruined it for everyone by abusing user trust."</p>
 							
 						
 							
-								<p class="story__comment_others">"I can’t quite figure this out: it sounds like if you click a link in someone’s TikTok content, the in app browser can read any text entered on that site using the in app browser. Does just not entering any keyboard input in the in app browser mitigate this?Does Apple Lockdown help in this situation? I thought that typical TikTok use just involved scrolling and watching video content. Are users who only view content subject to this security flaw?Thanks in advance for any clarification.Also, off topic but doesn’t YouTube’s “Shorts” take the place of TikTok? I have my Google privacy settings set so YouTube can store my viewing history for one month so I get reasonable recommendations. Does TikTok have similar settings?"</p>
+								<p class="story__comment_others">"I always hate in app browsers and always reopen them in Safari, for UX reasons. Now I hate them even more, with even stronger reasons."</p>
 							
 						
 						</a>
@@ -219,15 +505,15 @@ It is not for everyone and might require soldering, but possibilities are endles
 						<a href="https://news.ycombinator.com/item?id=32509267">
 						
 							
-								<p class="story__comment_first line-clamp">"If any chip manufacturer can hear me: please, change this metric to transistor per square millimeter. Thanks!"</p>
-							
-						
-							
-								<p class="story__comment_others">"It is hard to imagine the scale of these things, I know if you had tapped me on the shoulder at Intel in the 80&#39;s and said, &#34;in 40 years, the chip your looking at will fit in a couple of square mm of silicon.&#34; I would not have believed you. Of course it doesn&#39;t &#34;really&#34; fit in that small a slice as you need to get the signals into and out of it and those points take space, but it is doesn&#39;t take much space."</p>
+								<p class="story__comment_first line-clamp">"It is hard to imagine the scale of these things, I know if you had tapped me on the shoulder at Intel in the 80&#39;s and said, &#34;in 40 years, the chip your looking at will fit in a couple of square mm of silicon.&#34; I would not have believed you. Of course it doesn&#39;t &#34;really&#34; fit in that small a slice as you need to get the signals into and out of it and those points take space, but it is doesn&#39;t take much space."</p>
 							
 						
 							
 								<p class="story__comment_others">"So I wonder if the M2 Pro/Max/Ultra will after all be on the N3 node. If N3 HVM starts next month, the A15 being on N5P and it being a year until the A16 on N3 will be released and Apple being the first to use N3... some other Apple silicon needs to use the capacity first, or am I missing something?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Pardon my ignorance on this subject, but at 3 nm, don’t you get into some weird quantum artifacts because the layers are so stupidly close? Curious how that is addressed?"</p>
 							
 						
 						</a>
@@ -311,7 +597,7 @@ It is not for everyone and might require soldering, but possibilities are endles
 							
 						
 							
-								<p class="story__comment_others">"Oh man. Once, when I was a young padawan doing maintenance by myself on one of our three racks in a colocation DC, I dropped a 1U server from about 2m/6ft high.  It was scary as hell. While trying to grab it I hit the off button on one of the other servers, causing an outage for about 50 customers. What&#39;s more, it fell on the floor and just missed the SAN with the spinning disk array at the bottom of the rack. Everything was fine, including the fallen server, but shit, that was stupid. The vibration alone could have caused a lot of data corruption."</p>
+								<p class="story__comment_others">"FWIW I did a &#34;making of&#34; video soon after, in 2009: https://www.youtube.com/watch?v=lMPozJFC8g0 . Only bit I missed discussing there was that I did try to download freeware frequency generators wondering if there was some &#34;rust note&#34; of HDD harmonics, but those I downloaded didn&#39;t work and out of frustration I decided to start yelling instead."</p>
 							
 						
 						</a>
@@ -546,7 +832,7 @@ and use `tsh host`[1] https://unix.stackexchange.com/questions/628607/how-to-byp
 							
 						
 							
-								<p class="story__comment_others">"I wonder how long it will be until Apple is running their own fabs, or at least diversifies away from heavily relying on TSMC. Has anyone seen news to this effect?"</p>
+								<p class="story__comment_others">"Vietnam is the go to destination for stolen Apple equipment. Someone there is already an expert at unenrolling MDM, etc.Makes sense to move manufacturing capabilities there, they are a step ahead. Perhaps it will result in vulnerabilities being closed."</p>
 							
 						
 						</a>
@@ -1547,7 +1833,7 @@ It didn&#39;t stop me though, I ended up running a long cat5 cable from the dorm
 							
 						
 							
-								<p class="story__comment_others">"This sort of idiocy is why I removed the modem from my Niro EV: https://www.kianiroforum.com/threads/how-to-remove-head-unit...(It is basically the same head unit, Kias/Hyundais share a lot of components.)IMO Kia makes great cars but I don&#39;t trust them with Internet security.  Android device permanently connected to the Internet with unfettered access to the CAN bus of my car....no thank you.  And even if it was relatively secure today, I doubt it will get security updates for the 10+ years I expect to have the car, if at all.I&#39;m glad folks can now sign their own firmware to run on their own cars, but what else is vulnerable in these things?The car is amazing otherwise, and I&#39;m glad Kia does not seem to use the modem for any anti-features, so the car is totally fine with removing it."</p>
+								<p class="story__comment_others">"Wow, this series of posts is awesome! I have a Kia EV6 and just finding the OBD-II PIDs is a massive pain in the arse. Kia is actually required by EU law to disclose them (Art. 61 EU regulation 2018/858 [0]) but refused to do so even when I wrote to them. Need to follow that up with a complaint to the Spanish type approval authority (which approved the EV6)...Writing custom software looks like a really promising alternative though, especially if the vehicle&#39;s cellular connection can be used. Hell, if the IVI uses the CAN bus, perhaps there&#39;s a reverse-engineerable list of PIDs.[0]: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A..."</p>
 							
 						
 						</a>
@@ -2648,292 +2934,6 @@ All of the sudden, there&#39;s always a post about it with hundreds of comments.
 						
 							
 								<p class="story__comment_others">"The only thing left to solve is to actually build cross platform. You can do with rust cross but you have to build your own docker images on macos first since apple licensing prohibits redistribution of binaries. It would save us so much money in github CI minutes."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">10 August 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://privacy.twitter.com/en/blog/2022/an-issue-affecting-some-anonymous-accounts">An incident impacting 5M accounts and private information on Twitter</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32399949">
-						
-							
-								<p class="story__comment_first line-clamp">"Remember that phone numbers are only 10 digits long, so brute forcing all phone numbers is totally doable.Considering that, if you implement any flow that involves checking if a phone number is already in use, then you are effectively leaking to an attacker a list of every phone number that uses your product."</p>
-							
-						
-							
-								<p class="story__comment_others">"So after forcing users to enter a phone number to continue using twitter, despite twitter having no need to know the users phone number, they then leak the phone numbers and associated accounts.   Great.But it gets worse...   After being told of the leak in January, rather than disclosing the fact millions of users data had been open for anyone who looked, they quietly fixed it and hoped nobody else had found it.It was only when the press started to notice they finally disclosed the leak.That isn&#39;t just one bug causing a security leak - it&#39;s a chain of bad decisions and bad security culture, and if anything should attract government fines for lax data security, this is it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have seen too many services that ask phone number for account recovery purposes and then end up using it for other purposes for which the user didn&#39;t consent. Given how insecure SMS OTP is, I try not to enable that if I can avoid it. Then, on top of it, bugs like this make the service behave like a globally accessible open reverse-directory of mobile numbers to names.How is twitter notifying users? Has anyone posted screenshots of this notification? I want to know where this notice will appear."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.android.com/get-the-message/">“It’s time for Apple to fix texting”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32399238">
-						
-							
-								<p class="story__comment_first line-clamp">"Most businesses, consumers, and developers universally continue to ignore the primary reason that iMessage is a closed platform, rather than an app on every platform as iTunes is:Apple is using device serial numbers for anti-spam, supported by a fully-authenticated hardware and software stack that does not allow user modification. This permits Apple to simply “console ban” any Apple device that spams on iMessage. This makes it prohibitively expensive to send spam over iMessage. They have been doing so since iMessage was launched.Android offers no such attestation that I’m aware of. Windows, on Pluton, could offer this attestation securely — and that is a key deliverable of Pluton.It’s easy, then, to predict what Apple’s first non-Apple platform will be: Microsoft Windows 12, only if secure-booted, with Pluton-signed attestation that the kernel is unmodified. And it’s easy to predict how Apple will implement anti-spam: by applying “console” bans to specific Pluton chips by their serial number.If Android wants to join the party, then Android phone builders need to implement secure boot with hardware-signed attestation of non-rooted-ness, in the style of Apple T2 + macOS or Microsoft Pluton + Secure Boot. Until then, Apple iMessage will remain single platform.(I recognize that this is extremely unpalatable to device hackers, but the same freedom to modify an OS kernel that hackers desire is also the freedom to spam all users, as we have seen repeatedly with all messaging software platforms operated without hardware-backed attestation for the past thirty years — including email, Jabber, and HN itself.)(No, I do not work at Apple.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I can understand Google&#39;s frustration but they have no one to blame but themselves.Everyone is familiar with their graveyard of failed messaging applications (along with their graveyard of products generally).When I had an android phone, I tried RCS with someone else on Android. It never worked. I&#39;m sure it&#39;s improved, but as the common theme of this story goes, Google blew their chance.I also don&#39;t trust google to abide by the &#34;standard&#34; they&#39;ve created. Their track record is abysmal. I don&#39;t want to use yet another messaging service that they&#39;ve built. I don&#39;t trust it to exist in the future, receive support and updates, and for it to be maintained. If google abandons it that means the telecoms are stuck holding the bag and when we demand even more from the next iteration of messaging apps, RCS will go the way SMS has today.This is nothing more than Google reaping the results of their own failures. It&#39;s a shame they squandered the opportunity over the last 15 years to develop a cohesive messaging app strategy across their products, but its their shame and now they have to pay the price.In a last ditch effort they&#39;re trying to throw all the blame on Apple who was able to innovate and launch a successful messaging service years ago. Apple recognized that SMS could be improved, and they improved it. They didn&#39;t wait for anyone and they recognize the importance of continued support - a quality Google does not seem to foster.Google had their chance over and over again but they blew it over and over again. I don&#39;t care about the little things RCS adds, message bubbles, delivery confirmation etc. These may be nice additions but they truly don&#39;t make a large difference. If an Android phone wants to send a high quality image, video etc they can share a link. That&#39;s good enough for me.Google failed, miserably and publicly. This latest campaign is just embarrassing for them."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t love RCS[0], but Apple implementing it (including the E2EE extensions) would strike a huge blow to messaging fragmentation immediately, at least in the US.Hell, Apple doesn&#39;t have to ditch iMessage; they just have to support RCS for messaging with Android users, or group messaging with mixed Android/iOS devices.I would also (grudgingly) accept an opening of the iMessage protocol so Google could implement it in the Android Messages app.  Not ideal by any measure, and I figure Apple would never do this (and I suspect Google would hypocritically not want to do this anyway), but it would at least improve things.The thing that&#39;s sad overall is that the current state of affairs is just a result of an anti-consumer corporate pissing match.  The only losers here are the users, both on iOS and Android.  And meanwhile both Apple and Google get to tout the benefits of their preferred solution as if they&#39;re both the good guys, fighting for their users.  When in reality they&#39;re merely fighting for their own market dominance.[0] Tying messaging to your carrier is just a continuation of the crappy SMS &#34;portability&#34; experience.  Sure, most RCS backend implementations are currently provided by Google, but one thing I&#39;d like to see would be the ability to select your RCS provider.  Maybe others would crop up if this were an option, and if RCS were actually popular."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://reason.com/2022/08/05/he-was-arrested-for-promoting-jury-nullification-a-federal-court-says-that-was-illegal/">Man arrested for promoting jury nullification wins federal case</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32392997">
-						
-							
-								<p class="story__comment_first line-clamp">"CGP Grey has a video discussing jury nullification, for those interested in a further explanation of the subject: https://youtu.be/uqH_Y1TupoQ"</p>
-							
-						
-							
-								<p class="story__comment_others">"Jury nullification is just one manifestation of good-ol&#39;-boy-ism.Good-ol&#39;-boy-ism is a good thing when it let&#39;s the sheriff of Mayberry teach a kid a lesson without making him a felon and ruining his future.Good-ol&#39;-boyism is a horrible thing when it let&#39;s the sheriff of Mayberry teach a kid a lesson, making him a felon and ruining his future.I have personally benefited from the former. I don&#39;t know how to reconcile the latter when the only difference was the kid&#39;s last name, or skin color, or religion. Every good thing can be abused. Sometimes the scale of abuse calls for the abolition of the &#34;good thing&#34;. Sometimes it is better to tolerate some abuse because of the scale of good that comes from the good thing.For me, this train of thought always breaks down to reasoning that good-ol&#39;-boy-ism is good when the ol&#39;-boys are good and bad when the ol&#39;-boys are bad. But that&#39;s obviously broken when &#39;good&#39; or &#39;bad&#39; is left to the decision of the ol&#39;-boys. Historically, we just have constant war to decide who gets to be the ol&#39;-boys this week."</p>
-							
-						
-							
-								<p class="story__comment_others">"Some quotations...for me, the quote from Supreme Court justice Oliver Wendell Holmes is important: &#39;The jury has the power to bring a verdict in the teeth of both the law and the facts.&#39;https://www.jurorsrule.com/quotations-and-comments-on-fully-..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://jdnoc.com/note/">Write a note to your spouse every day</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32393545">
-						
-							
-								<p class="story__comment_first line-clamp">"Wow, so much negativity.I think this is great advice. The key is being genuine and appreciative. Take care of your neediness in other ways. If you don&#39;t know how to listen, writing lots of notes can be just another way of monopolizing the conversation. Use the note as a way to  maintain the intimacy you already have.Ps my marriage lasted happily for 37 years until the untimely death of my beloved wife."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have had an opposite experience. Daily notes makes no difference. I was in a relationship for 2 years and have written a poem every day for 400 days straight to her. But it failed nevertheless. In fact, I was told by her that these notes put her in guilt. Weird.Gestures like these amplify whatever the relationship there is to start with.If there&#39;s a lot of love, they amplify it.If there&#39;s a lot of lack of commitment, they amplify it.They do not change lack of commitment into love magically.Sorry for being the party pooper. I understand where the OP is coming from and I truly respect that. Just wanted to add a bit of more context."</p>
-							
-						
-							
-								<p class="story__comment_others">"My wife and I write an annual letter to one another. They are truly magical and they are great to read back, often bringing us to tears and capturing the struggles of raising children, moving continents etc. They unleash memories when read.
-We have ten years of them and they are truly amazing and I recommend it as a slightly less involved shared (two way) ritual ."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=32378695">Ask HN: What&#39;s the next big thing that few people are talking about?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32378695">
-						
-							
-								<p class="story__comment_first line-clamp">"Personal vehicles will be getting both bigger and smaller.  What&#39;s different from the past is that electric motors scale much better than IC engines. Both the world&#39;s smallest vehicles (kid&#39;s toys) and the largest vehicles (huge mining trucks) are both electric.First the small.  Cities will soon start to ban all but electric vehicles in their downtown cores  (already happening in some Chinese cities).  The primary reason being electric vehicles don&#39;t emit the poisonous gases that IC vehicles do.  The next phase will be only EV&#39;s that are half the width of a normal car lane will be allowed in the downtown core.  Most vehicles in the downtown core now are single occupancy, a city can double its downtown vehicle infrastructure for free by restricting most EV vehicles to taking up just half a lane.  These vehicles will be much cheaper too, probably less than $10k.Now the big.  IC RV&#39;s are a bit of a pain but an all electric RV will be much better all around.  That&#39;s because all of the required functions will be electric and run off the huge battery.  Hot water, TVs, heat, refrigeration, very little maintenance just like a normal house, but smaller.  Tesla vehicles already have &#34;camp mode&#34; and people love it.  Image when Tesla builds an EV RV.  This will become young people&#39;s &#39;First home&#39;.  Buy it for $70k and live in it for much less than rent.  When you finish Uni, you own an asset rather than peeing your money away on rent.  Oh and for weekend trips to the lake or the ski mountain and all that, couldn&#39;t be more convenient.Remember, you read it here first.EDIT ... a few typos"</p>
-							
-						
-							
-								<p class="story__comment_others">"Energy? I feel like it&#39;s been talked about a lot but maybe not?Solar panels are dropping in cost at an exponential rate [0]. As of this writing, consumer &#34;new&#34; panels are $0.75/W and used are at around $0.30/W right now (I won&#39;t give a link as a Google search will do).Battery technology is also dropping at an exponential rate. I believe, with a little effort, one can purchase batteries at about $0.08/Wh.Taken together, one can purchase a 30KWh (daily) solar panel and battery storage system for about $4,200 (not including labor and extra hardware/electronics), which puts the return on investment (ROI) at about 3.5 years if we consider the average house spends around $1200 (in the USA).Dropping costs will quickly put that in the 2 year ROI range which, in my opinion, is the inflection point where it effectively becomes too good to pass up for the average consumer.The dropping price of energy comes with all sorts of side effects, like a potentially decentralized energy grid, use cases for excess energy (eg bitcoin mining, carbon capture, hydrogen production, etc.), novel power storage systems etc., which is maybe the &#34;novel&#34; part that I haven&#39;t heard too much talk about.[0] https://en.wikipedia.org/wiki/Swanson%27s_law"</p>
-							
-						
-							
-								<p class="story__comment_others">"WLAN sensing.  Off the shelf mesh wifi systems are capable of sensing people reliably.  This includes qty, position, motion, &amp; gestures.Here is the IEEE spec due for approval in a year or two: https://www.ieee802.org/11/Reports/tgbf_update.htmI have mixed feelings on the tech.  The home security implications are amazing, and things like automatic fall detection for the elderly would be a literal lifesaver.  Small business could gain great insight into customer behavior.On the other hand, it&#39;s just creepy.  How do you prevent the next apartment over from spying through your walls?  Is the hotel wifi going to recognize and catalog physical activity between two people?Anyway, Plume already makes a home security system that utilizes the tech.https://support.plume.com/hc/en-us/articles/360043364893"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.djmnet.org/2013/01/14/from-novice-to-master-and-back-again/">From novice to master, and back again (2013)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32398391">
-						
-							
-								<p class="story__comment_first line-clamp">"Twice in the last decade I&#39;ve been completely stuck on something, googled extensively, finally found the answer ... which I wrote, on Usenet, 25 years ago."</p>
-							
-						
-							
-								<p class="story__comment_others">"I can&#39;t even tell you how often this happens to me. People come to me because I wrote something and I then tell them: &#34;Let me go read the manual&#34; (because I can&#39;t remember what I did a month later, so I&#39;m always consulting my own docs).I always tell people: &#34;You think I wrote this manual for you, but I&#39;m not that altruistic. I wrote it for future me.&#34;To be fair, not exactly the same thing. I typically remember I wrote it, just not what it does or how it works. :-)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Wow, epic!The most depressing thing is being presented with an issue and finding my name attached to a closed ticket from years before with no explanation of how I fixed it.Guess what, current me, you&#39;re going to learn this again from scratch because past me was in a hurry and couldn&#39;t be bothered to type out what he did.BSG - this has all happened before, and it will all happen again."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.cs.utah.edu/~elb/folklore/mel.html">The Story of Mel (1983)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32395589">
-						
-							
-								<p class="story__comment_first line-clamp">"So, the RPC-4000 version of blackjack seems lost, but the LGP-30 version exists (and can be run on simh). I&#39;ve disassembled and partly annotated it, and found that it too has a sort of cheat switch.The LGP-30 has no source of randomness to use as a seed. From loading the program, if the player plays optimally, the games will all be the same. Over the first few dozen games, the player ends up in the hole (IIRC, noticeably more than the long-run house edge).The LGP-30 has one conditional branch instruction, that tests the sign bit of the accumulator. But if the sign bit on the instruction is set, and the TRANSFER CONTROL switch on the front panel is set, then the branch is always taken. This appears once in the program. On startup, if the switch is set, it marks two of the aces as already dealt. This perturbs the sequence enough so that, over the first few dozen games, the player has the advantage."</p>
-							
-						
-							
-								<p class="story__comment_others">"This page [0] includes an analysis of the manual for the possible machine Mel programmed in the story along with a probable photograph of him.[1] is an instruction manual for the blackjack program itself, written by Mel.Classic story solidly in the “should be reposted every six months or so” cohort.0: https://www.freecodecamp.org/news/macho-programmers-drum-mem...1: http://bitsavers.trailing-edge.com/pdf/royalPrecision/RPC-40..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve always loved this story as a tribute to the early hacker ethos. So easy to forget how high up the stack we live these days.There are a few other gems at this site, in the &#34;hacker folklore&#34; appendix.
-http://catb.org/esr/jargon/html/index.htmlI like &#34;How to Become a Hacker&#34;, and the AI Koans too.  Lots of good stuff there. These old pages have a certain biblical magic to them.I love our field! Long live the hacker."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/bantg/status/1556721709931175937">GitHub deleted accounts of people who contributed to Tornado Cash repos</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32395971">
-						
-							
-								<p class="story__comment_first line-clamp">"The commenters saying be reasonable, they were sanctioned, GitHub had to do this, should look into the last time code was made illegal or similar turmoil and what the developer community did in response…It was not accepting sanctions or govt failures to understand code as “well that’s that.”- Phil Zimmerman (PGP) was under  criminal investigation for arms exports by releasing the code for consumer encryption. The case escalated and was eventually dropped, included POTUS attention.- Aaron Swartz passed away via suicide in 2013 under threat of 35 years in prison and a lot else  for downloading from JSTOR programmatically- Clifford Stole spent several years being ignored by every govt agency under the Sun, except for CIA, for finding, attributing and then exposing a widespread KGB hack of govt systems in the 80s- L0pht testified in front of congress to expose significant  internet security risks that were otherwise ignored.I’m not saying Tornado Cash and related devs were doing a purely moral action. But the automatic siding with the heavy hand of govt sanctions on code the govt doesn’t really understand is pretty shameful for a nuanced technical audience."</p>
-							
-						
-							
-								<p class="story__comment_others">"People on Twitter are either wilfully dumb or simply ignorant.GitHub had to do this. It was required of them by law. Tornado was sanctioned.&gt; These prohibitions include the making of any contribution or provision of funds, goods, or services by, to, or for the benefit of any blocked person and the receipt of any contribution or provision of funds, goods, or services from any such person.This is, unambiguously, directed toward entities such as GitHub providing them service.I&#39;m not a fan of GH these days but they did the only thing they could do in this situation. You can be upset about it, but you can&#39;t be upset at GitHub about it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Honest question: was GitHub legally obligated to delete the accounts of anyone who had contributed to the repos?I get that contributing to the repos would be a violation of the sanctions, but it&#39;s not clear to me when the project was sanctioned and whether all the contributors were aware that they were contributing to a sanctioned project. Would it have been enough for GitHub just to remove the projects?I ask as someone who has a lot of developer friends from Cuba who run into problems with accounts on platforms being deleted all the time. IIRC there was an episode awhile ago when accounts were being deleted simply for logging in from Cuba.It seems like the legal obligation would be to block logins from Cuba (and/or Cuban people), but deletion of accounts seems more like a CYA move than a strict obligation."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://frame.work/blog/how-fast-is-12th-gen-intel-core">How fast is 12th Gen Intel Core?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32393634">
-						
-							
-								<p class="story__comment_first line-clamp">"In a laptop, I care far more about battery life and the fan noise. However, Intel 12th gen is only able to pull these impressive performance feats due to very high turbo boost clocks.It&#39;s not that Intel is bad, it&#39;s still pretty great but in the age of M1 I wish Intel released a processor with similar power consumption.I use my Intel i5-1240p with turbo boost disabled when on battery. Here&#39;s the geekbench with TB disabled. https://browser.geekbench.com/v5/cpu/16497299"</p>
-							
-						
-							
-								<p class="story__comment_others">"The coolest thing isn&#39;t just the cpu upgrade, but that the whole mainboard is something like a standard. Other laptops have weird shaped boards just for that one model.If this &#39;standard&#39; takes off it could start an entire ecosystem of modular hardware.  That&#39;s exciting. I&#39;m hoping for a &#39;Framework surface&#39;, a &#39;Framework tv&#39;, a &#39;Framework 400&#39;, etc."</p>
-							
-						
-							
-								<p class="story__comment_others">"I went from saying, &#34;if only they had an AMD&#34; to getting a different machine in ARM and now im saying &#34;if only they had ARM&#34;.I never realized how much heat, vibration, air blowers negatively affected me before. A framework laptop with some type of ARM or ARM-like cpu could do a lot with the space savings on cooling."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://getfirebug.com/">Thank You, Firebug (2017)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32395518">
-						
-							
-								<p class="story__comment_first line-clamp">"Wow, i almost forgot about Firebug.From my point of view it was really a game changer. The first time debugging and understanding web-applications became accessible. Probably all browser dev tools were inspired by this tool"</p>
-							
-						
-							
-								<p class="story__comment_others">"An interesting convention that ~started with Firebug was the use of angle brackets in the DOM/Elements view. (eg a DIV element is shown as `&lt;div&gt;`). HTML, as a text format, uses angle brackets to denote tags. But DOM is an in-memory object model; it doesn&#39;t have tags, but elements, and those have nothing do with angle brackets (other than getting el.innerHTML will serialize back).From a usability POV, it&#39;s entirely defendable: make the DOM visually look like the HTML you authored. But Firebug and our current browser devtools only add them for aesthetics and familiarity.It rarely causes problems, but it&#39;ll explain why you&#39;ll see `&lt;tbody&gt;` in DevTools even if your HTML doesn&#39;t have it.  Still, I think dropping the HTML-y representation of DOM elements could be a win — removing end tags in particular would improve the information density.Bonus: A Firebug Cheatsheet I made in 2007, 4 years before I was working on Chrome DevTools: https://imgur.com/I2KbZWm"</p>
-							
-						
-							
-								<p class="story__comment_others">"Firebug was some truly excellent work - but I think it&#39;s worth also mentionining its precursor Venkman - which in turn built upon the js/jsd low-level debugging APIs inside the mozilla suite.https://www-archive.mozilla.org/projects/venkman/edit: there&#39;s a nice write-up of how firebug got started here https://flailingmonkey.com/the-history-of-firebug"</p>
 							
 						
 						</a>
