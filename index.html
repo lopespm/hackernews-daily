@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">20 August 2022</div>
+	<div class="day__date">21 August 2022</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="http://nabstreamingsummit.com/wp-content/uploads/2022/05/2022-Streaming-Summit-Netflix.pdf">
+					<a href="https://github.com/onetrueawk/awk/commit/9ebe940cf3c652b0e373634d2aa4a00b8395b636">
 						<picture>
-							<source srcset="default_32519881.webp" type="image/webp">
-							<source srcset="default_32519881.png" type="image/png">
-							<img src="default_32519881.png" alt="Preview of 'Serving Netflix Video Traffic at 800Gb/s and Beyond [pdf]'">
+							<source srcset="default_32534173.webp" type="image/webp">
+							<source srcset="default_32534173.png" type="image/png">
+							<img src="default_32534173.png" alt="Preview of 'Brian Kernighan adds Unicode support to Awk'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="http://nabstreamingsummit.com/wp-content/uploads/2022/05/2022-Streaming-Summit-Netflix.pdf">Serving Netflix Video Traffic at 800Gb/s and Beyond [pdf]</a></h3>
+					<h3><a href="https://github.com/onetrueawk/awk/commit/9ebe940cf3c652b0e373634d2aa4a00b8395b636">Brian Kernighan adds Unicode support to Awk</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32519881">
+						<a href="https://news.ycombinator.com/item?id=32534173">
 						
 							
-								<p class="story__comment_first line-clamp">"I love technical content like this. Not only is it incredibly interesting and informative, it also serves as a perfect counterpoint to the popular &#34;why does Netflix need X thousand engineers, I could build it in a weekend&#34; sentiment that is frequently brought up on forums like this one.Building software and productionalizing/scaling it are two very different problems, and the latter is far more difficult. Running a successful company always requires an unlimited number of very smart people who are willing to get their hands dirty optimizing every aspect of the product and business. Too many people today think that programming starts and ends at pulling a dozen popular libraries and making some API calls."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have some experience serving static content and working with CDNs. Here is what I find interesting / unique here:- They are not using OS page cache or any memory caching for that, every request is served directly from disks. This seems possible only when requests are spread between may NVMe disks since single high-end NVMe like Micron 9300 PRO has max 3.5GB/s read speed (or 28Gbps) - far less than 800Gbps. Looks like it works ok for long-tail content but what about new hot content everybody wants to watch at the day of release? Do they spread the same content over multiple disks for this purpose?- Async I/O resolves issues with nginx process stalling because of disk read operation but only after you&#39;ve already opened the file. Depending on FS / number of files / other FS activities, directory structure opening the file can block for significant time and there is no async open() AFAIK. How they resolve that? Are we assuming i-node cache contains all i-nodes and open() time is insignificant? Or are they configuring nginx() with large open file cache?- TLS for streamed media was necessary because browsers started to complain about non-TLS content. But that makes things sooo complicated as we see in the presentation (kTLS is 50% of CPU usage before moving to encryption offloaded by NIC). One has to remember that the content is most probably already encrypted (DRM), we just add another layer of encryption / authentication. TLS for media segments make so little sens IMO.- When you relay on encryption or TCP offloading by NIC you are stuck with that is possible with your NIC. I guess no HTTP/3 over UDP or fancy congestion control optimization in TCP until the vendor somehow implements it in the hardware."</p>
+								<p class="story__comment_first line-clamp">"I became aware of this while watching Professor Brailsford&#39;s interview with him (Computerphile channel): https://www.youtube.com/watch?v=GNyQxXw_oMQ(Around 7-8 minute mark)Update:At 24-25 minute mark, he talks about the technologies he is inquiring to write his new book with (he mentions troff and groff).He says he wanted to try &#34;XeTeX&#34; (which supports Unicode) but &#34;...I was going to download it as an experiment and they wanted 5 gigabytes and 5 gigabytes at the particular boonies place I&#39;m living would...mmm..not be finished yet!&#34;So there we go...We had the opportunity to read the mind of the developer of awk and unix and co-author of the literal &#34;C Programming Language&#34;, confronting with the absolute state of the tooling of the modern world."</p>
 							
 						
 							
-								<p class="story__comment_others">"A lot of the reasons they&#39;ve had to build most of this stuff themselfs is because they decided for some reason to use freeBSD.The NUMA work they did, I remember being in a meeting with them as a Linux Developer at Intel at the time. They bought NVMe drives or were saying they were going to buy NVMe drives from Intel which got them access to &#34;on the ground&#34; kernel developers and CPU people from Intel. Instead of talking about NVMe they spent the entire meeting asking us about howt the Linux kernel handles NUMA and corner cases around memory and scheudling. If I recall correctly I think they asked if we could help them upstream BSD code for NVMe and NUMA. I think in that meeting there was even some L9 or super high up NUMA CPU guy from Hillsborough they some how convinced to join.The conversation and technical discussion was quite fun, but it was sort of funny to us at the time they were having to do all this work on the BSD kernel that was solved years ago for linux.Technical debt I guess."</p>
+								<p class="story__comment_others">"Apparently Kernighan is also updating his Awk book of 1988 this summer too.https://irreal.org/blog/?p=10746"</p>
+							
+						
+							
+								<p class="story__comment_others">"The choice to use UTF-32 (ie Unicode code points as integers, which might as well be 32-bit since your CPU definitely doesn&#39;t have a suitably sized integer type) is unexpected, as I had seen so many other systems just choose to work entirely in UTF-8 for this problem.Now, Brian obviously has much better instincts about performance than I do and may even have tried some things and benchmarked them, but my guess would have been that you should stay in UTF-8 because it&#39;s always faster for the typical cases."</p>
 							
 						
 						</a>
@@ -76,33 +76,34 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://notes.alinpanaitiu.com/Dealing%20with%20App%20Store%20rejections">
+					<a href="https://twitter.com/adrianco/status/1560854827810361345">
 						<picture>
-							<source srcset="default_32526047.webp" type="image/webp">
-							<source srcset="default_32526047.png" type="image/png">
-							<img src="default_32526047.png" alt="Preview of 'App Store doesn&#39;t accept “too simple” apps'">
+							<source srcset="default_32529412.webp" type="image/webp">
+							<source srcset="default_32529412.png" type="image/png">
+							<img src="default_32529412.png" alt="Preview of 'AWS switch from gzip to zstd – about 30% reduction in compressed S3 storage'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://notes.alinpanaitiu.com/Dealing%20with%20App%20Store%20rejections">App Store doesn&#39;t accept “too simple” apps</a></h3>
+					<h3><a href="https://twitter.com/adrianco/status/1560854827810361345">AWS switch from gzip to zstd – about 30% reduction in compressed S3 storage</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32526047">
+						<a href="https://news.ycombinator.com/item?id=32529412">
 						
 							
-								<p class="story__comment_first line-clamp">"This sucks... I&#39;m sorry you had to go through this. The App Store review process is just pretty bad. It&#39;s especially frustrating when you see downright shitty apps on the store. The &#34;black-box&#34; aspect of it makes it that much more kafkaesque too.When I first submitted my app on there, they rejected it and complained that I used HealthKit but didn&#39;t mention it in the app description. The thing is, I did. My app description had a list of &#34;highlighted features&#34;, one them being &#34;Apple health integration&#34;.I was about to file an appeal, but then I saw a couple other apps with &#34;Integrates with Apple Health&#34; on its own line in the description. Figured that&#39;s probably what they were looking for (even though the guidelines don&#39;t explicitly say that) so I changed it and boom, the app was approved. I hate it, but it&#39;s not worth my time or the risk to fight it.For what it&#39;s worth, I think your app looks really good!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Yep, I got this rejection when I made this tipping app (https://apps.apple.com/us/app/tip-69/id1460610078).I went on to add OCR detection for receipts so you don&#39;t have to type in the amount, I added more tipping modes, I added split bill functionality, and eventually added an entire social network with the ability to share your receipt for the world to see, like or comment on.Must have spent months trying to get approved by Apple.I&#39;d rather no one ask me why."</p>
+								<p class="story__comment_first line-clamp">"There&#39;s a balance between compression ratio and CPU utilisation. Zstd is several times faster at compressing than gzip to produce a file of similar size (it&#39;s good, give it a try if you haven&#39;t already). I guess he means by using zstd they were able to crank up the compression ratio and maintain the same CPU usage maybe?I don&#39;t think AWS routinely compress customer data that I&#39;ve noticed. I guess he must mean for their internal products that use S3 perhaps?"</p>
 							
 						
 							
-								<p class="story__comment_others">"They&#39;ve done this since the early days of the app store. Mostly-content apps without really broad appeal have long carried a high risk of rejection.&gt; Homescreen widgets: utterly useless, but can&#39;t get more iOS-y and less webapp-y than this, right?This especially, but really the whole post reads like the system working as intended.Granted (as the author notes) way too much shit gets through anyway, but that&#39;s not an excuse to do even worse. I do, as a user, wish they&#39;d tighten up the rules a lot and improve enforcement. I&#39;m quite sure it&#39;d improve my experience on the store (and probably on the web—imagine how much better the Reddit site would get, probably overnight, if their app got pulled over not being well-justified)."</p>
+								<p class="story__comment_others">"It uses some black magic wizardy&gt;FSE, short for Finite State Entropy, is an entropy codec based on ANS. FSE encoding/decoding involves a state that is carried over between symbols, so decoding must be done in the opposite direction as encoding. Therefore, all FSE bitstreams are read from end to beginning. Note that the order of the bits in the stream is not reversed, we just read the elements in the reverse order they are written.https://en.wikipedia.org/wiki/Asymmetric_numeral_systems"</p>
+							
+						
+							
+								<p class="story__comment_others">"Everyone&#39;s interpreting this as AWS is zipping every customer&#39;s S3 data and improved storage of their data with ztsd.
+That&#39;s now what Adrian said, and this is not an announcement - this was a &#34;by-the-way&#34; from a retired Amazonian.AWS switched our own service&#39;s log storage (in S3) from gzip to ztsd a bunch of years ago -and reduced storage costs by 30%.This is AWS&#39;s service data (which is still exabytes) and AWS realized the efficiency.So all the comments of &#34;where is my 30% discount&#34; are offbase.Source: I&#39;ve worked on AWS for a bunch of years."</p>
 							
 						
 						</a>
@@ -114,33 +115,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://blog.danieljanus.pl/2022/08/18/i-love-my-gpd-micro-pc/">
+					<a href="https://github.com/d07RiV/diabloweb">
 						<picture>
-							<source srcset="default_32513927.webp" type="image/webp">
-							<source srcset="default_32513927.png" type="image/png">
-							<img src="default_32513927.png" alt="Preview of 'I love my GPD Micro PC'">
+							<source srcset="default_32528433.webp" type="image/webp">
+							<source srcset="default_32528433.png" type="image/png">
+							<img src="default_32528433.png" alt="Preview of 'Diablo 1 for Web Browsers'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://blog.danieljanus.pl/2022/08/18/i-love-my-gpd-micro-pc/">I love my GPD Micro PC</a></h3>
+					<h3><a href="https://github.com/d07RiV/diabloweb">Diablo 1 for Web Browsers</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32513927">
+						<a href="https://news.ycombinator.com/item?id=32528433">
 						
 							
-								<p class="story__comment_first line-clamp">"At a previous job, I was the engineering manager for a new neo-bank and was on call 24/7 for it. I have a beefy Lenovo P52 that I hated carrying around and leaving in my car lest it get stolen. So I got a GPD Pocket. It fit very well into my back pocket.Not only did it work great for emergency situations (I ran Ubuntu MATE as well) when I needed to SSH into machines, check stuff on Datadog, edit code to make a quick fix, push code to our K8S environments and more, but I actually found myself frequently at coffee shops and bars coding away happily on it. It brought a certain amount of freedom and cool factor with it. It was a delightful little device with a very sharp and crisp screen, a surprisingly useful keyboard that combined well with my i3 environment, that I could actually be productive on (save for running our test suite which took around 30 minutes and sucked the life out of the battery). It also got a lot of onlookers asking questions about it, leading to those ever so fun random conversations that can lead to night long friendships over wine and coffee.I genuinely miss it and will probably pick up another one now that I just got hired as a CTO for another project with equally demanding on-call schedules and uptime requirements. Although I don&#39;t drink anymore so none of those fun conversations. Ce la vie."</p>
-							
-						
-							
-								<p class="story__comment_others">"The Micro PC is a really cool device, but owning one I couldn&#39;t really recommend it outside a very small niche.Form factor, ports, and performance are all great. The firmware is very frustrating though. Mine shipped with a newer firmware (4.18) than was available to download, and it was miserable. The machine would power on to blank screens, and have random crashes. I was wary of downgrading because I couldn&#39;t put the &#34;newer&#34; firmware back on.Finally gave in and stability was much improved on 4.13. Boot issues still happen though (less frequently). They seem possibly exasperated by Linux. It can require 3 or 4 attempts at holding the power button to force a reset. Unplug anything that could be back-feeding power so it will actually reset (not confirmed). Just all around annoying if you power it on and off a lot.Other issues to consider. The hinge support is somewhat fragile. I try to be gentle opening and closing. I think I also put some epoxy around the plastic screwhole pillar. The battery has a permanent over-discharge cutoff that a number of users have hit so I&#39;ve been careful to keep a charge on it."</p>
+								<p class="story__comment_first line-clamp">"Still some of the best (pseudo-) random dungeon generation I&#39;ve ever played.  That functionality alone probably accounts for over 90% of the time I spent replaying it.It&#39;s strange to me that so few games in the genre seem to do this as well, over 25 years later.  Hades is supposed to be good, but for some reason it doesn&#39;t look like something I&#39;d enjoy.  Maybe I&#39;ll pick it up on sale at some point and find out."</p>
 							
 						
 							
-								<p class="story__comment_others">"Had one for three years. Use it nearly every day, but I work with embedded systems in robots/industrial machinery. One handed operation, tons of IO, dual boot, fits in back pocket etc. have made this indispensable.One dead battery, replacement part from alibaba via GPD rep given link. Easy to disassemble via screwdriver and spudger. Works great now. Injection molded piece that held the threads where the hinge attached also failed. Drilled a little pinhole and added a small machine screw, nut and threadlocker. No more problems. Nut goes under the plastic hinge cover. The fix is literally better than original.Other than that, the only issue I&#39;ve had is getting grub to see the screen as landscape. Grub config options seem to get ignored. Oh well. Standard rotation is sorted with boot scripts and the OEM Windows 10 side works great."</p>
+								<p class="story__comment_others">"Counterstrike 1.6 in the browser for those who like quick trips down memory lane: https://play-cs.com"</p>
+							
+						
+							
+								<p class="story__comment_others">"https://news.ycombinator.com/item?id=32529645I posted this if anyone is interested. It&#39;s Ultima Online in a browser, allows you to connect to official server or private.All written in C#.These different games in browsers are incredible. Always blown away at the cool stuff people do."</p>
 							
 						
 						</a>
@@ -152,34 +153,47 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://whytheluckystiff.net/">
+					<a href="https://web.williams.edu/Mathematics/lg5/Rota.pdf">
 						<picture>
-							<source srcset="default_32513020.webp" type="image/webp">
-							<source srcset="default_32513020.png" type="image/png">
-							<img src="default_32513020.png" alt="Preview of 'Whytheluckystiff&#39;s original domain back as an archive'">
+							<source srcset="default_32530035.webp" type="image/webp">
+							<source srcset="default_32530035.png" type="image/png">
+							<img src="default_32530035.png" alt="Preview of 'Lessons I wish I had learned before I started teaching differential equations [pdf] (1997)'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://whytheluckystiff.net/">Whytheluckystiff&#39;s original domain back as an archive</a></h3>
+					<h3><a href="https://web.williams.edu/Mathematics/lg5/Rota.pdf">Lessons I wish I had learned before I started teaching differential equations [pdf] (1997)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32513020">
+						<a href="https://news.ycombinator.com/item?id=32530035">
 						
 							
-								<p class="story__comment_first line-clamp">"_Why’s work led me to where I am. At a crucial time in my life I found _Why. That put me on a path to learning Ruby and then a whole bunch of steps now I have an actual job as a web developer. I work in Python, but I’m sure _Why won’t mind. 
-Before I found _Why I wasn’t sure what to do with my career-life. He showed me that programming can be art and science."</p>
-							
-						
-							
-								<p class="story__comment_others">"Why’s work had a lot of charm and heart. It was weird and funny and avant-garde but in a pretty accessible and (mostly) unpretentious way.It didn’t teach me a whole lot about Ruby but I probably read it a dozen times or so lol"</p>
+								<p class="story__comment_first line-clamp">"One of the most interesting applications of ODEs (in my opinion) is the field of control theory, which empowers autonomous systems/robots/vehicles to guide themselves. Brian Douglas has some fantastic introductory videos on the subject [1].I don&#39;t think I agree completely with section 5 (Forget About Existence and Uniqueness of Solutions). For an ODE in the form xdot = f(t,x), existence and uniqueness on an interval follows if f is continuous in t and Lipschitz continuous in x [2]. This often isn&#39;t too difficult to demonstrate for a given system. In addition, if you can&#39;t prove uniqueness of solutions then you likely have to treat the system as a differential inclusion [3]. I personally find differential inclusions fascinating, but the math can be much more dense.[1]: https://engineeringmedia.com/videos[2]: https://en.m.wikipedia.org/wiki/Picard%E2%80%93Lindel%C3%B6f...[3]: https://en.m.wikipedia.org/wiki/Differential_inclusion"</p>
 							
 						
 							
-								<p class="story__comment_others">"Why to me contrasts a huge proportion of todays body of new programmers. Instead of the pursuit of programming as a means to a profession, career or livelihood, Why embodied programming as something to be pursued for the wonderment and satisfaction of being able to use a computer to make or model things real or imagined."</p>
+								<p class="story__comment_others">"&gt; 7. stay away from differentialsI always had issues with this. My undergraduate math classes were very formal and well thought, every object was defined, almost all theorems were proved in class.In particular, we were taught differential equations theories, some general theories like systems of differential equations with constant coefficients, Cauchy&#39;s theorem, and a bunch of recipes.In a separate class, we were also taught differential forms (e.g. a.dx + b.dy being a linear combination of base elements dx and dy - if I remember well).But then came the physics class, why we could go from dy/dx = f(x) to dy = f(x).dx and integrate both sides remain a mystery. &#34;dx&#34; suddenly became an infinitely small things, when it used to be a notation for a linear form OR a notation for f&#39;(x) === df/dx.Generally speaking, I had a lot of issues in physics because the maths used in that context were not formally defined and seemed to obey to some unwritten set of rules that you were supposed to find out by yourself during your final exam..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I find the following remark by Rota interesting:Insofar as the Laplace transform goes, two radically different uses of the word “function”
+are dangerously confused with each other. The first is the ordinary notion of function as a
+something that has a graph. The second is the radically different notion of function as density, whether mass density or probability density. For the sake of the argument, let us agree
+to call this second kind of function “density function.” Professional mathematicians have
+avoided facing up to density functions by a variety of escapes, such as Stieltjes integrals,
+measures, etc. But the fact is that the current notation for density functions in physics and
+engineering is provably superior, and we had better face up to it squarelyI&#39;ve suggested to mathematicians that the notation  ⌠             
+  | f(x) dμ(x)
+  ⌡             
+
+in measure theory where μ is a measure should be replaced with  ⌠             
+  | f(x)⋅μ(x) dx
+  ⌡             
+
+where the measure μ is treated as a density function. What I&#39;ve found is a mixture of either not understanding the logic, or the response &#34;What&#39;s the point?&#34; So it&#39;s interesting seeing Gian-Carlo Rota suggest the same idea AFAICT.As a bonus, the Radon-Nikodym &#34;derivative&#34; would be written as μ/λ instead of dμ/dλ. The RN derivative then doesn&#39;t appear like a derivative - it looks simply like division."</p>
 							
 						
 						</a>
@@ -191,33 +205,33 @@ Before I found _Why I wasn’t sure what to do with my career-life. He showed me
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://twitter.com/ID_AA_Carmack/status/1560728042959507457">
+					<a href="https://spectrum.ieee.org/quantum-safe-encryption-hacked">
 						<picture>
-							<source srcset="default_32525721.webp" type="image/webp">
-							<source srcset="default_32525721.png" type="image/png">
-							<img src="default_32525721.png" alt="Preview of 'John Carmack&#39;s new AGI company, Keen Technologies, has raised a $20M round'">
+							<source srcset="default_32523584.webp" type="image/webp">
+							<source srcset="default_32523584.png" type="image/png">
+							<img src="default_32523584.png" alt="Preview of '“Quantum-Safe” Crypto Hacked by 10-Year-Old PC'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://twitter.com/ID_AA_Carmack/status/1560728042959507457">John Carmack&#39;s new AGI company, Keen Technologies, has raised a $20M round</a></h3>
+					<h3><a href="https://spectrum.ieee.org/quantum-safe-encryption-hacked">“Quantum-Safe” Crypto Hacked by 10-Year-Old PC</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32525721">
+						<a href="https://news.ycombinator.com/item?id=32523584">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;m very optimistic for near-term AGI (10 years or less). Even just a few years ago most in the field would have said that it&#39;s an &#34;unknown unknown&#34;, we didn&#39;t have the theory or the models, there was no path forward and so it was impossible to predict.Now we have a fairly concrete idea of what a potential AGI might look like - an RL agent that uses a large transformer.The issue is that unlike supervised training you need to simulate the environment along with the agent, so this requires a magnitude more compute compared to LLMs. That&#39;s why I think it will still be large corporate labs that will make the most progress in this field."</p>
-							
-						
-							
-								<p class="story__comment_others">"The interview with Lex Fridman that he was referring to:https://www.youtube.com/watch?v=I845O57ZSy4&amp;t=14567sThe entire video is worth viewing, an impressive 5:15h!"</p>
+								<p class="story__comment_first line-clamp">"If you&#39;d like to hear someone who can barely do long division† discuss this vulnerability with one of the leading isogeny cryptographer researchers and the world&#39;s most isogeny-enthusiastic cryptography engineer, have I got a podcast for you:https://securitycryptographywhatever.buzzsprout.com/1822302/...There&#39;s even a transcript, if you want to read things like:So I watched the, uh, I watched Costello&#39;s tutorial, like the, the broadcast he did for, um, for Microsoft. And I kind of worked my way through the, the tutorial paper. So like, is it, is it true that like, in sort of the same sense we&#39;re...† Looks back and forth around the room furtively"</p>
 							
 						
 							
-								<p class="story__comment_others">"Interesting to see how he&#39;s progressed with this. When he first announced he was getting into AI it sounded almost like a semi retirement thing: something that interested him that he could do for fun and solo, without the expectation that it would go anywhere. But now he seems truly serious about it. Wonder if he&#39;s started hiring yet."</p>
+								<p class="story__comment_others">"Schneier had a less breathless account a few days ago:https://www.schneier.com/blog/archives/2022/08/nists-post-qu..."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Remember, this is a demolition derby. The goal is to surface these cryptanalytic results before standardization, which is exactly what happenedhttps://www.schneier.com/blog/archives/2022/08/nists-post-qu..."</p>
 							
 						
 						</a>
@@ -229,33 +243,34 @@ Before I found _Why I wasn’t sure what to do with my career-life. He showed me
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://blog.ando.fyi/posts/diagnosing-an-unsual-wifi-issue/">
+					<a href="https://www.apple.com/newsroom/2022/08/shazam-turns-20/">
 						<picture>
-							<source srcset="default_32524702.webp" type="image/webp">
-							<source srcset="default_32524702.png" type="image/png">
-							<img src="default_32524702.png" alt="Preview of 'Resolving an unusual WiFi issue'">
+							<source srcset="default_32520593.webp" type="image/webp">
+							<source srcset="default_32520593.png" type="image/png">
+							<img src="default_32520593.png" alt="Preview of 'Shazam turns 20'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://blog.ando.fyi/posts/diagnosing-an-unsual-wifi-issue/">Resolving an unusual WiFi issue</a></h3>
+					<h3><a href="https://www.apple.com/newsroom/2022/08/shazam-turns-20/">Shazam turns 20</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32524702">
+						<a href="https://news.ycombinator.com/item?id=32520593">
 						
 							
-								<p class="story__comment_first line-clamp">"This is incredible, we use QT5.12 for an embedded device application, and this issue has been a really weird one for us and this spot on resolves it! See browsing HN at work does pay off!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Years ago I experienced an issue with a Cyberpower UPS software update that interfered with the system&#39;s Bluetooth, causing devices to not be able to connect, inexplicably since the software doesn&#39;t use BT for anything.Only after much online searching did I stumble on another user with the same issue and after uninstalling it and reverting to an earlier version the issue immediately went away. I&#39;ve since kept a more open mind as to what may be causing network issues."</p>
+								<p class="story__comment_first line-clamp">"Shazam is one of the very few apps in the past 20 years that STILL &#34;wows&#34; me. I have no idea how the tech works, and I even sort of like not knowing, to be honest. It&#39;s one of the very few apps out there that still in exist in a &#34;magical&#34; way to me. I am constantly impressed with how fast/easy it works, even with very obscure music. What an amazing app.Fun quick related story, about 10 or more years ago there was a back tracking song on a TV show (Scrubs) that I really liked that was only in the Netflix version. It was just an instrumental song with some French sounding words speaking in it so there was no easy way to search for it. However, it was distinct enough that it didn&#39;t seem like something made just for the show. It was also pretty quiet and under some talking in the tv show scene. I had posted on reddit asking if anyone knew it, and never got any responses. I searched all over the web, but no source had the track details. It drove me crazy every time I would hear the song in re-watching the show, and I still could not track it down every few years when I tried again. Back then, Shazam had no cataloging of it so it wasn&#39;t in there either yet. However, when re-watching it a few years back again, I tried Shazam again and to my surprise it finally worked. I was blown away that Shazam was finally able to solve this 10+ year mystery. It was one of the coolest feelings every to scratch that itch finding this rare French song and hearing it in full. It was truly magical.EDIT: Oh sorry, I didn&#39;t think anyone would actually care about the song itself lol It was called &#34;Sans Hésitation&#34; by the French-Canadian band &#34;Chapeaumelon&#34;. https://www.youtube.com/watch?v=Ju4d3YQhByU - It&#39;s also interesting cause now the song does in the episode in tv music database sites. Very cool."</p>
 							
 						
 							
-								<p class="story__comment_others">"Anyone ever had arp storms on a home network?I&#39;ve had something trigger every device into asking &#39;who has xyz ip tell [Mac]&#39;. It made the network unusable and even rebooting systems it would come back since as soon as one device asked the question (sent the broken arp packet) all other devices decided they too needed to know.The solution that worked was to flip the circuit breaker for the whole house and reset every network device at once."</p>
+								<p class="story__comment_others">"I have a relevant story here. The inventor of the Shazam algorithm, Avery Wang, gave me a demo of it within a couple weeks of it being created. Here is the backstory (partly from personal knowledge, partly relayed by Avery).Avery had gotten his PhD from CCRMA at Stanford under Julius O Smith. His PhD had been on the topic of automatically (&#34;blind&#34;) recovery of individual vocal/instrument tracks from a final mix. From there he joined a startup, Chromatic Research, where I was also at. He created lots of code and patented some algorithms related to resampling and MIDI synthesis, stuff like that. Avery was (and is) a super nice guy, humble but incredibly smart -- he could work not only with the high level mathematics but was also equally excited to fine tune assembly code.After Chromatic folded, Avery had been struggling to get his own startup off the ground. About the same time, the Shazam guys had the idea for the product but didn&#39;t know how to create the algorithm. They approached Smith at CCRMA looking for someone capable of creating something that worked. Smith suggested they try Avery Wang.At first Avery said, &#34;Hmm, that seems difficult, but let me think about it.&#34; Within a week he had a demo running on a few thousand songs he had gathered from CDs. I&#39;m sure a lot of refinements went into it after that, but the core idea took him a weekend.[ All factual mistakes above are due to me and 20 year old memories -- if I misrepresented something it certainly wasn&#39;t due to Avery telling me something that wasn&#39;t true ]EDIT: A blurb about Avery
+https://www.seti.org/avery-wang"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; August 2002: Shazam launches as a text message service based in the UK. At the time, users could identify songs by dialing “2580” on their phone and holding it up as a song played. They were then sent an SMS message telling them the song title and the name of the artist.Incredible! Curious to know what exactly happened backend after it listened to the audio, and what hardware it ran on."</p>
 							
 						
 						</a>
@@ -267,33 +282,33 @@ Before I found _Why I wasn’t sure what to do with my career-life. He showed me
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/Twipped/InterviewThis">
+					<a href="https://wiki.eth0.nl/index.php/LackRack">
 						<picture>
-							<source srcset="default_32519547.webp" type="image/webp">
-							<source srcset="default_32519547.png" type="image/png">
-							<img src="default_32519547.png" alt="Preview of 'A list of developer questions to ask prospective employers'">
+							<source srcset="default_32520882.webp" type="image/webp">
+							<source srcset="default_32520882.png" type="image/png">
+							<img src="default_32520882.png" alt="Preview of 'LackRack: IKEA&#39;s cheapest table is perfectly sized to rackmount computers (2020)'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/Twipped/InterviewThis">A list of developer questions to ask prospective employers</a></h3>
+					<h3><a href="https://wiki.eth0.nl/index.php/LackRack">LackRack: IKEA&#39;s cheapest table is perfectly sized to rackmount computers (2020)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32519547">
+						<a href="https://news.ycombinator.com/item?id=32520882">
 						
 							
-								<p class="story__comment_first line-clamp">"As someone who has recruited hundreds of candidates at this point I would urge caution with lists like this.By all means read the list, but rather than trying to grind through as many of the questions as possible, try to use it as inspiration and think of what you&#39;re actually curious about and which might tip you over one way or the other if you&#39;re on the fence. It&#39;s far better to have a good conversation about 1 thing which might affect your decision than a superficial sprint through a bunch of topics you don&#39;t actually care that much about.Secondly, consider that if you do well you are likely to have multiple rounds of interviews.  Think about which questions are likely to be most enlightening when you ask each interviewer.  Don&#39;t shy away from asking 2 people the same question if you think you&#39;ll get different perspectives. If you ask a peer engineer the diversity questions you may well get quite a different answer from asking the HR/recruiting person for instance (eg one might give you a cultural insight vs the other might just give you the policy/factual answer).I once interviewed a candidate[1] who had printed off a whole list like this and insisted on grinding through the whole thing.  It was weirdly offputting, but he was such a monster programmer that he was already a clear hire. It gave an insight into the thoroughness of his nature though and showed that he was absolutely perfect for the (critical) role we were hiring him for where mistakes were extremely costly.[1] Hi Fluffy! If you see this I hope you&#39;re doing well."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m obviously cherry picking, but if an applicant asks me a series of questions akin to &#34;what source control tool do you use and why&#34; I&#39;m going to begin doubting that this person can focus on actually shipping product. There&#39;s this whole scene of people who do performative, almost theatrical, quality programming but nigh on forgot how to actually ship features, and questions like those are a hint they might be in that camp.EDIT: to add some context, i run a small startup, we need the whole team able to ship. I can imagine that in certain bureaucratic bigcorps, performatively obsessing on code/process quality can be useful, because the distance between the programmer and the customer/user is so long."</p>
+								<p class="story__comment_first line-clamp">"I have been really happy with the HEJNE shelf as a rack.Here are some 2U&#39;s here at home: https://s3.whalesalad.com/lab/rack.jpgThe shelf: https://www.ikea.com/us/en/p/hejne-shelf-unit-softwood-s7903...I keep seeing full height Dell racks for sale on FB marketplace  in the $200 range but haven&#39;t encountered the right manic episode to actually go for it."</p>
 							
 						
 							
-								<p class="story__comment_others">"A lot of the comments in here are reacting to the large list of questions being very off-putting. There&#39;s a deeper issue here that we still don&#39;t have a good answer for: it is incredibly hard to tell what a company is like until you start working there, and asking questions either leads to very surface-level answers or just flat out catfishing candidates. Companies being transparent and detailed about how they operate is the exception.The company gets to spend 3+ hours finding out information about a candidate, but the candidate has little option to discover company culture for themselves. They can snoop around on LinkedIn but this doesn&#39;t answer much about culture unless there is someone who is prolifically producing content inside the company. There&#39;s glassdoor which might answer part of it but generally the reviews there are extremely shallow and biased by the skills, mindset, and treatment of whoever wrote the review.So what&#39;s the answer? I think &#34;ask targeted questions&#34; is fine as long as it is not &#34;ask 100 general questions&#34;. I haven&#39;t seen a single article on the meta of how to pick what questions to ask or how to get past shallow answers. I also think the entire industry is performing pretty terrible in this space and we don&#39;t have a good answer for how to handle it that is common or even well-known. This leads to lost candidates or (intentionally or unintentionally) catfished candidates who will leave after joining."</p>
+								<p class="story__comment_others">"I prefer the minimalism of a &#34;vertical rack&#34; which, for some reason, I tend to never see. If you don&#39;t have more than 6U or so of equipment, it&#39;s really the way to go because of its minimal profile and amazing load-bearing ability: it is load-bearing parallel to the direction of gravitational pull (vs regular rack cabinets where the load is perpendicular to the posts), and then that weight is all redirected towards the wall, so even the heaviest servers or whatnot that would normally sag unless it comes with rear-mountable rails for 4-post racks (which, for some reason, very few do) work amazingly well. I&#39;ve bought a few of this StarTech one [0] over the years, but I&#39;ve also seen people weld together a couple of metal struts to accomplish the same.[0]: https://amzn.to/3QTmVee"</p>
+							
+						
+							
+								<p class="story__comment_others">"Watch out: newer Lack Tables from Ikea are less sturdy than their older predecessors. IKEA has made them even lighter than before, particularly the legs are almost cave inside, so beware that server racks might be too heavy for it"</p>
 							
 						
 						</a>
@@ -305,34 +320,33 @@ Before I found _Why I wasn’t sure what to do with my career-life. He showed me
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://supabase.com/blog/supabase-realtime-multiplayer-general-availability">
+					<a href="https://www.seriouseats.com/fermented-hot-sauce-how-to">
 						<picture>
-							<source srcset="default_32510405.webp" type="image/webp">
-							<source srcset="default_32510405.png" type="image/png">
-							<img src="default_32510405.png" alt="Preview of 'Supabase – Realtime: Multiplayer Edition'">
+							<source srcset="default_32486504.webp" type="image/webp">
+							<source srcset="default_32486504.png" type="image/png">
+							<img src="default_32486504.png" alt="Preview of 'How to make fermented hot sauce (2021)'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://supabase.com/blog/supabase-realtime-multiplayer-general-availability">Supabase – Realtime: Multiplayer Edition</a></h3>
+					<h3><a href="https://www.seriouseats.com/fermented-hot-sauce-how-to">How to make fermented hot sauce (2021)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32510405">
+						<a href="https://news.ycombinator.com/item?id=32486504">
 						
 							
-								<p class="story__comment_first line-clamp">"So I&#39;m just at the tail end of a project where I&#39;m attempting to build a collaborative text editor, and it&#39;s been absolute hell. I figured it would be a tricky problem, but I had no idea how far down the rabbit hole goes. I kept thinking, gosh, there&#39;s gotta be a backend service that bakes this in, if there isn&#39;t it would be a great business opportunity.I almost want to scrap all of my code and move it to Supabase. Congrats to the team on this launch, very cool.edit: actually, after thinking it through, I&#39;m not clear on what Supabase is calling multiplayer. Presence is one thing, but when I think multiplayer, I&#39;m thinking conflict resolution. Is this an OT/CRDT implementation? Or is it just presence?"</p>
-							
-						
-							
-								<p class="story__comment_others">"hey hn, supabase ceo herewe&#39;re excited about this release - it adds a few neat features to our Realtime server[0]. For those who don&#39;t read the post (it&#39;s quite long), our Realtime server was initially built for subscribing to Postgres changes via websockets. We&#39;ve added Broadcast functionality (for &#34;ephemeral&#34; messages that don&#39;t need to be persisted to Postgres) and Presence (similar to Broadcasts, but it retains an eventually-consistent state between users).We were planning a larger write-up with all the technical details but it became a bit long. Some highlights:- Realtime is built with Elixir an Phoenix[1]- We&#39;ve moved to a single, global cluster
-- We&#39;re using `Phoenix.Tracker` to globally distribute the Erlang PIDs of all of our Postgres connections. This guarantees there is only a single connection to each database.- We&#39;ve implemented a &#34;leaky-bucket&#34; rate-limiter using Erlang&#39;s `:counters` module[3] for &#34;per tenant&#34; rate-limiting. We&#39;ll move this to a global rate-limiter in the future- We&#39;re currently seeing ~2000 concurrent connected users - it will be interesting to see what this spikes up to now that this is on HNIt&#39;s still in heavy development, and we&#39;ll make sure to detail all the choices we take as we continue solve problems. A few of the Realtime team will be here answer questions - @chasers, @wenbo, @abc3erl.[0] Realtime: https://github.com/supabase/realtime[1] Phoenix Framework: https://www.phoenixframework.org/[2] rate limiter: https://en.wikipedia.org/wiki/Leaky_bucket[3] :counters: https://www.erlang.org/doc/man/counters.html"</p>
+								<p class="story__comment_first line-clamp">"I just opened one 2 weekends ago. I bought a kit (because of the really nice bottles), but then ignored the instructions and found significantly better recipes online. First time I&#39;ve fermented one, and it came out gloriously.I&#39;m proud of the result because it tastes nothing like other hot sauces I&#39;ve had (and there have been very many!), but also doesn&#39;t taste the least bit strange or out-of-place. I expected it to taste like Tabasco, but it came out more like Hunan because of a much darker flavour.I also make regular hot sauces with fruits and herbs that I forage from the neighbourhood. My current dipper is a slightly smokey medium heat made with morita, cascabel and guajira peppers, plum-like damson fruit and some wild mint that I lovingly call &#34;ditch-mint&#34; because that&#39;s where I found it. It would probably work fermented, but I&#39;ve only tried fermenting once so far.Once you get the connection with how certain ingredients alter the taste and texture when combined, you can pretty much wing it as you go. The more complex, the better. There is a balance, and you quickly learn flavourful vinegars / citrus, and sweeteners (brown sugar/honey/maple) will balance out just about any amount of spices and herbs. It&#39;s very rewarding if you like hot sauces, dips, marinades, etc, and the results will pretty much always make you feel like an old pro."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is really neat, I have been keeping an eye on Supabase, this (presence) is the feature that will finally push me to build a side project with it. I have one in mind.Anyone from Supabase here, do you have any plans to build in support for CRDT toolkits such as Yjs or AutoMerge for these features? It would make working with them so much easer if there was a plug and play backend.The one other thing I would love to see next from them is an offline sync product, so you could partially sync a users dataset to their device and save back any changes later (bonus points for then combing that with CRDTs). Maybe the WASM Postgres yesterday [0] could be a foundation for such a product.https://news.ycombinator.com/item?id=32498435"</p>
+								<p class="story__comment_others">"I started making fermented hot sauce during COVID in 2020. There&#39;s a fancy grocery store near me that sells scorpions, ghosts, and reapers, as well as burdock, tamarind, mango, etc. I usually fermented for a week, and I&#39;ve tried longer with little difference. I made an entire spreadsheet full of recipes that I tried, but ultimately I thought the fermented sour flavor overwhelmed everything. So, I started making them without fermenting, but with a little cooking to help break down some of the fruits and veggies and blend the flavors, and suddenly everything tasted 10x better. I was surprised, because for some reason I got it in my head that hot sauce must be fermented, when that&#39;s totally not true. Anyway, my $0.02 on fermenting hotsauce."</p>
+							
+						
+							
+								<p class="story__comment_others">"A link to a great resource for learning about peppers and fermentation, replete with many good recipes: https://m.youtube.com/c/Chillichump (Chilli Chump)Edit for intriguing experiment of mine: I originally began experimenting with fermented chillis due to a suspected h-pylori infection. My reasons were a) h-pylori seems to swim away from capsaicin, possibly encouraging it to develop an excessive biofilm, thus contributing to its own isolation, b) capsaicin, despite its apparent burning effect, can be helpful with ulcers due in part to encouraging healthy mucous formation and c) the lactobacillus and other probiotic factors involved. I believe this was critical in abolishing a rather nasty ulcer that nearly debilitated me."</p>
 							
 						
 						</a>
@@ -344,33 +358,33 @@ Before I found _Why I wasn’t sure what to do with my career-life. He showed me
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.tesla.com/support/energy/tesla-virtual-power-plant-pge-2022">
+					<a href="https://x.st/visual-sum-of-cubes/">
 						<picture>
-							<source srcset="default_32500926.webp" type="image/webp">
-							<source srcset="default_32500926.png" type="image/png">
-							<img src="default_32500926.png" alt="Preview of 'Tesla Virtual Power Plant'">
+							<source srcset="default_32528769.webp" type="image/webp">
+							<source srcset="default_32528769.png" type="image/png">
+							<img src="default_32528769.png" alt="Preview of 'Visual Sum of Cubes'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.tesla.com/support/energy/tesla-virtual-power-plant-pge-2022">Tesla Virtual Power Plant</a></h3>
+					<h3><a href="https://x.st/visual-sum-of-cubes/">Visual Sum of Cubes</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32500926">
+						<a href="https://news.ycombinator.com/item?id=32528769">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;m not OP, but the timing context of this post is important:Today, California has issued a FlexAlert, and Powerwalls in PG&amp;E and SCE will start discharging at 6pm to help reduce load on the grid. It&#39;s not a daily action, but it&#39;s emergency support when the grid needs it the most.And the time window when it happens is important: Powerwalls are contributing to  to reduce load when the grid needs it the most. It&#39;s not meant to support the entire grid, just directly attack the problem at the time where every Watt and Watt-hour counts.You don&#39;t need to own Powerwall to benefit from this, just like how you don&#39;t own the peaker plants that typically spark up at these times. You benefit because there&#39;s a big chance that there won&#39;t be rolling blackouts in California this afternoon—distributed assets like this can be dispatched.Dispatch Info: https://twitter.com/AlexGuichet/status/1559748677626777600A VPP tracker in the Tesla community: https://www.lastbulb.com/virtual-power-plantSome technical details of how Tesla VPPs work, as organized distributed systems: https://www.youtube.com/watch?v=ggdYts4muu0CAISO Grid Outlook: https://www.caiso.com/TodaysOutlook/Pages/default.aspx"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m contemplating enrolling in this.Right now I&#39;m a net generator, even with our 100 deg days, but I am not 100% off grid. The Panels charge the Powerwall during the day, the Powerwall is drained overnight.The batteries currently do not survive the night. Even though the house cools down, it retains enough heat that the AC still kicks on, thus draining the battery. Note my AC is 78 all day/night. We got a thing from the power company &#34;do these things on this day and get power credits by lowering your usage&#34;, and, of course, we already do all that...no credits for us!So typically during transition at dawn, I pull in grid power.But I&#39;m still a net generator, they get more than I take.The concern was simply if I enroll in this, then the batteries kick in and drain even before the evening, and I go to grid power sooner.But, thinking about it, &#34;I don&#39;t care&#34;. It&#39;s an offset. They&#39;re draining because they need the load NOW, and I can provide it. Later, when things settle down, I&#39;ll pull it back.I think this works out, simply as a &#34;be a good citizen&#34;, use my battery to prevent someone in Fresno&#39;s AC browning out late in the heat of the afternoon.Maybe I&#39;m just being whimsical, but I&#39;m still thinking about it.Also thinking about bolting on another battery, I already have two."</p>
+								<p class="story__comment_first line-clamp">"Thanks for the nice comments, everyone! I made this but didn&#39;t expect to see it here.As people have noticed, the spinning diagrams are done with CSS, which was fun.Basically it&#39;s just an `animation: linear infinite;` from `transform: rotateY(0turn);` to `transform: rotateY(1turn);`(source here https://github.com/hrldcpr/poole/blob/master/_sass/_latex3d.... )To keep the numbers facing forward, they&#39;re all also rotating, but in the opposite direction :pAnd all of the numbers&#39; `translate3d(...)` coordinates are generated by a Python script because I didn&#39;t want to do that by hand..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Quick math shows a long range Model 3 has about six times as much battery capacity as a Powerwall. I’m willing to bet more people have Model 3’s than Powerwalls. And I’m willing to bet 16% of your car’s battery capacity will impact you far less than 100% of your Powerwall.F-150 Lightning called it right: EV’s should ship with grid-tie inverting."</p>
+								<p class="story__comment_others">"The most impressive thing for me is that I could copy and paste the text/numbers in the rotating pyramids!"</p>
+							
+						
+							
+								<p class="story__comment_others">"The sum of S(n) = 1^k + 2^k + ... + n^k is a polynomial of degree k + 1 over n. To find a closed form for S(n) you only need to compute  k + 2 points, e.g. S(0), S(1), ..., S(k + 1) and fit a polynomial.The claim that 1 + 2 + ... + n = n (n + 1) / 2 only requires you to verify it for n = 0, n = 1, and n = 2, e.g. that 0 = 0 * 1 /2, 1 = 1 * 2 / 2, and 1 + 2 = 2 * 3 / 2. I found this really surprising when I first heard it and thought I&#39;d share :)"</p>
 							
 						
 						</a>
@@ -382,33 +396,33 @@ Before I found _Why I wasn’t sure what to do with my career-life. He showed me
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://eresources.hcourt.gov.au/downloadPdf/2022/HCA/27">
+					<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0219303">
 						<picture>
-							<source srcset="default_32490953.webp" type="image/webp">
-							<source srcset="default_32490953.png" type="image/png">
-							<img src="default_32490953.png" alt="Preview of 'High Court of Australia rules hyperlinking is not publishing [pdf]'">
+							<source srcset="default_32505092.webp" type="image/webp">
+							<source srcset="default_32505092.png" type="image/png">
+							<img src="default_32505092.png" alt="Preview of 'Edible insects role in transmission of parasitic diseases to humans (2019)'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://eresources.hcourt.gov.au/downloadPdf/2022/HCA/27">High Court of Australia rules hyperlinking is not publishing [pdf]</a></h3>
+					<h3><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0219303">Edible insects role in transmission of parasitic diseases to humans (2019)</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32490953">
+						<a href="https://news.ycombinator.com/item?id=32505092">
 						
 							
-								<p class="story__comment_first line-clamp">"Judgment summary: https://cdn.hcourt.gov.au/assets/publications/judgment-summa..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Seems like a dodged bullet. There is little to no constitutional protection for free speech in Australia and defamation is routinely employed successfully in fairly speculative situations (for example, politicians, as public figures, suing journalists they don&#39;t like). Every time a question comes up like this it is genuinely an unknown what the court will do and no clear precedent suggesting they weigh potential broad impact of decisions heavily in their judgement.So this could easily have come down the other way and we could have a precedent suggesting potential liability for literally anybody who links to anything."</p>
+								<p class="story__comment_first line-clamp">"The importance of this subject is underestimated and applies as well quite independently of whether humans eat the insects directly or not. Consider the cuban tree frog for example, which has long since initiated its campaign in Florida to host and spread throughout the food chain the rat lungworm nematode. Rat lungworm (angiostrongylus) holds its own in the burgeoning presence of hideous and hostile parasites. It is highly infectious to many species and no picky eater, as it favors the entire body of the host, the brain and all. Burmese pythons are another up and coming host in Florida, and while they might prefer a provincial life in the everglades, many other species will meander north and onward. There are other nasties from nematodes to cestodes and more, gaining new ground. Baylisascaris procyonis is another terrible nematode found almost anywhere in the US, mostly in racoons, but in other species (humans included) with more varying and less frequency and it&#39;s often incurable. A study showed that, if I remember correctly, 40 out of 250 wildlife rehabilitation personnel had been exposed, but symptoms varied by exposure load. Both rat lungworm and baylis ascaris are resistant to environmental elements that normally break things down, with baylis even surviving UV light, formaldehyde and extreme cold. Rat lungworm can be deposited on surfaces (eg vegetables),  and snails are common vectors. Lungworm is very difficult to remove by washing while baylis is so adhesive that wildlife control authorities advise disposing of rather than washing shovels or tools exposed to racoon latrines. The list goes merrily along with other nasties, but it would require time to refresh my memory and accurately describe more."</p>
 							
 						
 							
-								<p class="story__comment_others">"Hyperlinking can still be constrained by other laws. So, this has high specificity as I see it. The specific constraints applied in the suit which led to the High Court have been found not to apply.I don&#39;t have a list of what do, I just hypothesise there could be other constraints. Private agreements, CSAM laws, IPR laws, which go to why you cannot provide a hyperlink.Not a Lawyer."</p>
+								<p class="story__comment_others">"Larger animals can be inspected individually to find pathogens or diseases.Insects are so small that it&#39;s practically impossible to inspect each individual organism. You can do sampling of the batch, but the odds of missing bad ones are still high.Same with the fruits and vegetables, some are easy to inspect, others are almost impossible, or impossible to clean. There are kosher (insect-free) versions of lettuce and some berries which are much more expensive than non-kosher ones.Lastly, disgust is a part of the human immune system. Religious dietary laws and cultural taboos are probably partly developed from disgust, and partly from trial-and-error."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve wondered about this for a few years so this is extremely gratifying to read. I’ll have to go in deeper later to really understand the implications of each parasite, but my main takeaway is that my intuition here was way off. I expected insects to pose far fewer risks from parasites to humans.I wouldn’t have taken a chance based on that assumption, and cooking bugs seems like it would eliminate most of these pathogens, but still. I figured it would be safer.I’d need to read a lot more to draw some kind of comparison between insects and animal agriculture (both seem to carry plenty of baggage), but it’s great to see research like this so it’s possible to begin doing so."</p>
 							
 						
 						</a>
