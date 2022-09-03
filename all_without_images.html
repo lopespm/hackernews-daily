@@ -36,6 +36,299 @@
 	</div>
 
 	
+	<div class="day__date">03 September 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://openship.org/">Show HN: I&#39;m building an open-source Amazon</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32690410">
+						
+							
+								<p class="story__comment_first line-clamp">"You are trying to solve a real-world problem experienced by a lot of profitable companies, so there is already a market of paying customers waiting for this.  One of my clients is actively trying to reduce their dependence on Amazon and instead integrate with other marketplaces.I see it&#39;s just Shopify-to-Shopify for now - bravo for starting with probably one of the most costly integrations.  I&#39;m working with a client right now who had to build these integrations using a low-code drag-n-drop platform which allows a quick MVP but has slow job processing, so isn&#39;t great for high order volume.The &#34;amazon&#34; comparison is good for marketing - sure you&#39;re not doing all their marketing, or having their reach but you are connecting suppliers, buyers and fulfilment which is a genuine problem.The companies who would use this often have developers on board already, so providing open source, accepting contributions and turning this into a useful dev-friendly service will almost certainly find paying customers.Following :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"A few points I&#39;m skeptical of:  simply connect to the seller’s infra instead of locking them in.
+
+One of the value-adds of Amazon is there&#39;s a whole bunch of tech sellers don&#39;t need to know how to write, run, and maintain. You&#39;d need to understand how big the niche &#34;technically literate to run their own e-commerce business, but selling on Amazon for other reasons&#34; is, then how your operation would answer those &#34;other reasons&#34; to make you competitive to the niche.  If, for some reason, the seller is removed from the marketplace, their software stays with them and they can continue accepting orders directly.
+
+Apart from the software systems, there&#39;s a whole bunch of basic business processes that Amazon takes care of, which are less portable. Using FBA? Leaving means learning how to run a warehouse, shipping logistics, pricing, staffing, etc. Not using FBA? How&#39;s your Marketing department doing? Hopefully you didn&#39;t let it get too anemic or too fitted to &#34;people who are good at gaming Amazon&#39;s algorithm.&#34;In short, if your value add is: &#34;Amazon, but you get to take the tech home with you if you leave the platform,&#34; then that feels like a small niche of highly competent businesses, then you&#39;re stuck with &#34;well if they could do all this on their own anyway, why are they choosing Amazon?&#34;Hope that helps and wasn&#39;t just me blabbering. Good luck!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Love open source projects in the eCommerce domain, especially ones that are JavaScript instead of PHP! Two pieces of feedback:- Using a copyleft license like AGPL makes this an automatic non-starter for most businesses, no matter how impressive your tech might be. You&#39;ll have a lot more luck with mid-size and enterprise adoption with an MIT license.- You&#39;ve really built an Order Management System for marketplace use cases, which is in industry typically a distinct domain from a Warehouse Management System (WMS) or a Transportation Management System (TMS) which at large-scale tend to handle how orders actually get fulfilled and shipped to customers. Your naming is a bit misleading - at the very least I&#39;d emphasize somewhere on your landing page that this is an open source Order Management System if you want eCommerce domain folks to grok quickly what you&#39;ve built and how it plugs into a broader architecture."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://wavvy.app/">Show HN: Wavvy – web-based audio editor (Audacity port)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32688646">
+						
+							
+								<p class="story__comment_first line-clamp">"This is awesome, and also awesome is this:&gt; I originally developed a WASM port of wxWidgetsI had some fun looking at the commits here[1] and I can imagine a lot of classic wxWidgets apps are going to be ported to wasm now. Congrats, that a lot of dedication![1] https://github.com/wxWidgets/wxWidgets/compare/master...ahil..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Nice! Is it possible to merge this WASM port back into the wxWidgets main project? It just seems like a valuable target addition and could breathe some life back into wxWidgets."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Audacity seemed like the obvious choiceTangential question, but why did Audacity seem like the obvious choice? Not a knock on the product - I use it often - but I&#39;m just curious about why it was chosen."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://codesandbox.io/post/how-we-clone-a-running-vm-in-2-seconds">We clone a running VM in 2 seconds</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32683834">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s always great to see different ways folks are using Firecracker. Snapshot-and-restore is a particularly cool capability, especially if you solve the data movement problems (like these folks have).One challenge to clone-and-restore that they don&#39;t talk about here is making sure that clones don&#39;t behave too similarly (like returning the same cryptographic random numbers). We wrote a paper about that a while back (https://arxiv.org/abs/2102.12892), and the Linux kernel community has been doing some great work in that area recently too."</p>
+							
+						
+							
+								<p class="story__comment_others">"Beware that such techniques slow down memory access for the newly running VM quite substantially.For example, a simple memset() call across a few gigabytes of RAM inside the VM might slow down a factor of 1000x after a VM clone like this.Both &#39;parent&#39; and &#39;child&#39; VM&#39;s see the slowdowns.Some types of garbage collector also see really substantial slowdowns.It was a deal-breaker for my project where I did similar sorts of things."</p>
+							
+						
+							
+								<p class="story__comment_others">"Not to diminish this work, but I think it&#39;s worth noting that it&#39;s increasingly possibly to launch new VMs extremely quickly too.  FreeBSD/Firecracker can reach userland in 33 ms, and the OSv unikernel boots in under 10 ms.I think increasingly we&#39;ll see Firecracker used with EC2-like setups of &#34;create a disk image with everything preinstalled and then boot it&#34; rather than using snapshots of running (suspended) VMs."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://osrp.lanl.gov/pacemakers.shtml">Nuclear-Powered Cardiac Pacemakers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32690454">
+						
+							
+								<p class="story__comment_first line-clamp">"If it is a dead body and it is being cremated you take it out so it doesn&#39;t explode in the crematorium. I say this as a former funeral director who had to remove them."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wonder how I slided into the world of Fallout?WTF!?! We have plutonium powered pacemakers?http://large.stanford.edu/courses/2015/ph241/degraw2/Ah, okay we had.&gt; Despite the often longer life-expectancies, nuclear pacemakers quickly became a part of the past when lithium batteries were developed. Not only did the technology improve, allowing for lighter, smaller, and programmable pacemakers, but doctors began to realize that this excessive longevity of nuclear pacemakers was excessive. Lithium pacemakers often last 10-15 years allowing for doctors to check in on their patients and replace either the batteries or the pacemakers themselves with new and improved technology as it is develops in those 10-15 year spans."</p>
+							
+						
+							
+								<p class="story__comment_others">"Just got me thinking:
+What would it take for us to get to a point where there are small, safe nuclear powered &#34;batteries&#34;, that can supply enough electricity for a building."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=32677265">Ask HN: Who is hiring? (September 2022)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32677265">
+						
+							
+								<p class="story__comment_first line-clamp">"Unnamed Forum | San Francisco | Remote | ContractYou may know me here as the owner and founder of rsync.net.This is not a job posting for rsync.net.  Rather, I am starting a new venture that involves creating a threaded discussion software very much like what we are using right here on HN.The full job description, which is likely to be a contract position but could evolve into a full time development position, is here:https://kozubik.com/forumjob.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"University of Michigan | Research Software Programmer | Ann Arbor, MI | onsite | full timeThe Technology Services department in the University of Michigan&#39;s College of Literature, Science, and the Arts is hiring a Research Software Programmer to join our team in creating custom software for researchers. If you&#39;ve ever thought about a role where you can see what&#39;s going on in research across a wide range of fields, work with a customer to create a project from start to finish, and have the chance to broaden your programming skills, this could be the job for you.Note that we&#39;ve posted this position as an intermediate level with the option to underfill at the associate (entry) level, so if you&#39;re interested but not sure about the level, please do consider applying anyway.Read more about the Research Software Programming group here: https://lsa.umich.edu/technology-services/services/research-...Job posting and application site: https://careers.umich.edu/job_detail/222052/research-support..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Screeenly (https://screenly.io) | Open Source Developer | Full-Time | RemoteScreenly is looking for an open source developer to work on the most popular digital signage project on GitHub (https://github.com/Screenly/screenly-ose).In the role, you&#39;ll be maintaining the open source code base, help the community, and drive the project forward (new features etc). It&#39;s a plus if you have experience tinkering with Raspberry Pis (since you&#39;ll be doing a fair bit of that).Apply here:
+https://apply.workable.com/screenly/j/84E840B181/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.kagi.com/status-update-first-three-months">Kagi/Orion status update: First three months</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32676993">
+						
+							
+								<p class="story__comment_first line-clamp">"Both Kagi and Orion are deeply impressive products. Even though I try every new general purpose web browser and search engine that comes out, this combo is the only one that stuck.Orion: Finally a non-chrome based web browser that can compete with the likes of Brave and Arc. It works much better on Mac than the alternatives, with the same engine as Safari it also benefits from deeper system integration such as native Sign-in with Apple and password management. Also, like Brave, comes with powerful ad and tracker blocker so you don&#39;t need a separate extension. I also love its built-in tree-style tabs implementation.Kagi: It is Google without all the bad parts. It is user centric like some other alternatives, without the poor index and search results.Props to the team, I am looking forward to what&#39;s to come. It is mind blowing how a single small company can make one of the best desktop browser AND search engine AND mobile browser on the market. Hope they are not spreading themselves too thin and can fund the development of all these for a long time!My only complaints are the slow performance of Orion on iOS, and its poor handling of app urls. Latter caused some issues when I had Orion set as the default browser on my iPhone and some payment flow that used app redirects between my banking app and the store app got stuck. I was lucky and I could manually launch the app by pasting the app link in Safari, but I hope it can handle these cases as well as Mobile Safari in the future."</p>
+							
+						
+							
+								<p class="story__comment_others">"I joined the Kagi beta two weeks before it ended and have been a paying user ever since. I find the price to be quite steep but so far it have no regrets and will most likely continue my subscription. I average over 2000 queries per month.- Search result quality is at least equal to Google for most queries and far superior for queries involving discussions or technical topics. Sadly, it is inferior for queries in my area of expertise (Swiss law).- Kagi is the only alternative to Google that I know of (and I have tried many) which is able to produce good regional results and mix them - when appropriate - with international results. Most privacy focused search engines are very US centric.- Blog spam and copy cats are not completely gone but the situation is at least bearable, especially after continuosly filtering them and boosting credible sites instead.- Customization options, filtering options, speed and site layout are also far superior when compared to Google.Apart from the lower quality results from queries involving my area of expertise, the only thing that still keeps me using Google Search are the reviews from Google Maps.All in all, I recommend supporting this product."</p>
+							
+						
+							
+								<p class="story__comment_others">"I can&#39;t stress how much better Kagi is than Google, I&#39;m a paying user. No more scrolling through tons of ads. Filtering by time and language is great, no more GitHub and Stackoverflow clones in the result. 
+Thank you, I actually haven&#39;t realized how small Kagi still is, given how polished that product already is."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.newyorker.com/humor/daily-shouts/if-you-want-this-job-we-must-interview-you-forever">If You Want This Job, We Must Interview You Forever</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32697528">
+						
+							
+								<p class="story__comment_first line-clamp">"I’ve been interviewing for 8 months. Getting to many final rounds, 1 lowballed offer, 1 rescinded offer, and it’s playing a mental toll. Today, I got a rejection that went along the lines of “everyone loved you and there was absolutely 0 negative feedback, but we just found a better fit.”  I almost broke down, but hid behind a facade of positivity because the long weekend was starting and my kids can’t afford a bummed out Friday.Interviewing shouldn’t require such thick skin. I’m here questioning my life, and reduced to worthlessness."</p>
+							
+						
+							
+								<p class="story__comment_others">"These styles of multi-round interviews inspired by the FAANG collective started picking up in Australia before the pandemic, but it got to a point where most of my more talented colleagues and I all agreed it just wasn’t worth the time for the salaries being offered. 4 round interviews for a ‘senior’ developer position on $120k?When interviewing my own candidates, I use a 1 hour interview mostly focused on approach and personality. We have a probation period to work out if they’ve over-promised, and most of our tech industry is big banks that won’t notice if they waste a few weeks salary trying someone out. Honestly, for the salaries the local market provides, I think 1 interview is fair. Any more and I think we’re wasting peoples time for nothing.Personally, I’ve dropped out of application processes when they’ve indicated there are multiple rounds, and my salary hasn’t suffered for it relative to my friends who put up with them, so I feel like I’m ahead."</p>
+							
+						
+							
+								<p class="story__comment_others">"My last job search took a toll on my mental health. I felt like a worthless person for 3 months. I could feel (or imagine?) the disdain of the interviewers as I was failing their tests. The fake enthusiasm on their side as they rejected me (&#34;that was great! But we&#39;re not going to move forward with you! Good luck!!!&#34;) and on my side while pretending I was excited when in fact I was worried about money and the gap on my resume.I dread the next one."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=32676728">Tell HN: Meetup.com is offering abandoned meetups to anyone willing to pay</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32676728">
+						
+							
+								<p class="story__comment_first line-clamp">"There is actually a way to delete Meetup groups, versus just leaving/stepping down from them.The Meetup docs are quite clear about the default behavior if you leave/step down: https://help.meetup.com/hc/en-us/articles/360002865332-Closi...The answer you needed was just a quick Google search away: https://www.google.com/search?q=delete+meetup+group, e.g. https://support.google.com/developergroups/answer/7378020?hl... and many other results.Could Meetup offer up this distinction more clearly in their user docs? Sure. But like I said, the Meetup docs are pretty clear what happens when you follow their instructions.It&#39;s hard not to read OP as &#34;we took an action without doing due diligence to fully understand the consequences of doing so.&#34; The point at which you make an assumption like this is the point at which you bear equal responsibility for unfavorable outcomes.Edit—the UI is actually very clear about this, and has been for at least the last couple of years: &#34;Your members will be given the chance to become the organizer and keep the group running without you.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"This has been an issue with Meetup for as long as I remember. The problem is there are two distinct scenarios.One is that the organizer has lost interest or is stepping down for some reason. Allowing the community to continue on Meetup in that case makes sense, by having someone step up to continue paying Meetup.The other is that the community as a whole has decided to move to a new platform. In this case keeping the now defunct community around and making it seem viable is bad. The current active members will know where to go, but new potential members or former members that want to re-engage are going to get confused.I got burned by this a couple of times, finding a group on meetup only to discover that it’s a ghost group, to the point where I’m now suspicious of any meetup group I find that hasn’t had an active event in the last couple of months.This is where I think Meetup is shooting themselves in the foot by not having a way to dissolve a group if the group as a whole decides to move."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am a multiple meetup organizer and owner on meetup.com and I find it actually great that the meetup can stay alive if the organizer stop to pay.
+Your communities are not owned by you.
+Also, they don&#39;t give subscribers infos but just &#34;an access&#34; to send them email communication to the list, not the &#34;list&#34; with email list etc..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://waqas.xyz/post/">They&#39;re trying to get me kidnapped and tortured, but Twitter doesn&#39;t care</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32627017">
+						
+							
+								<p class="story__comment_first line-clamp">"This really sucks to hear. What’s unclear to me is whether Twitter is being negligent or abnormal here or whether this is just shitty world politics unfolding partly on Twitter. Twitter is being used by both sides to fight over a narrative. Nothing new in that respect.The author doesn&#39;t really propose a solution other than Twitter essentially siding with him and take (what appears to me to be) a political stance. Of course moderating political topics isn’t outside Twitter’s wheelhouse, but this is what you get as a society when you let arbitrary entities arbitrate speech: ambiguity and unclear expectations.On the one hand, it’s reasonable for the author to expect that Twitter removes clear misinformation from their platform since that’s what they purportedly claim to do. On the other hand doing so would go against a national narrative and piss off lots of Pakistanis. Uh oh.Maybe Twitter was never about being arbiters of facts and instead just pandering to the popular political narrative of the time? Or maybe they are objective and they’re just trying their best and we’re all human and we’ll do better next time? Regardless, this is the reason people get so frustrated with censorship: it cannot be applied objectively and fairly in every case.Twitter and social commentary aside: sounds like the author needs political asylum or at least real protection. Twitter is not the right entity to depend on to handle this situation, I fear."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am sorry for the responses I am seeing on HN. People with cushy lives who&#39;ve likely never faced similar danger seem to just not really get it.I will say that your framing is one that most Westerners will have trouble taking seriously.It might go over better to document known cases where this pattern occurred and show the similarities.  Walk people through it like they are five, so to speak.I know it&#39;s hard to do that kind of objective writing when you are feeling so threatened due to genuine threats, but in my experience that approach works better.I know you didn&#39;t ask for advice. I apologize for my bad habit of trying to be helpful in the only way I know how.I hope something improves soon."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Twitter, despite millions of Pakistani users, it seems has no moderation system that understands local dynamics.Many would argue they don&#39;t even understand the local dynamics of the U.S. It&#39;s impossible for twitter to be an arbiter of the truth around the world, and you shouldn&#39;t expect them to be. However, I understand that&#39;s cold comfort for someone facing the threat of torture, death, or exile from their home, and I think your decision to call out twitter using your own platform to act with respect to your specific circumstances is the right thing to do and really the only way to handle this kind of thing.Good luck, I hope you stay safe and that the government doesn&#39;t succeed in silencing you."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://bastian.rieck.me/blog/posts/2022/neal_stephenson/">We are all nerds: The literary works of Neal Stephenson</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32629857">
+						
+							
+								<p class="story__comment_first line-clamp">"My favorite Stephenson&#39;s novel is Anathem with superb world building (as usual) but also a pretty good story and ending.But it&#39;s also a book whose world (specifically the avout society) attracts me. I&#39;ve grown up in a Catholic setting, but &#34;converted&#34; to atheism/agnosticism pretty early. But even with its many failings, there are certain aspects of religions which seem worth preserving - the focus on community, the rituals, a particular rule framework, meditation (prayers) and introspection.The book presents a (on a certain level) pretty attractive model of society which combines the practical religious patterns with a full rationalism.I kind of understand why such &#34;atheist religion&#34; is unlikely to get off in the real world, but it&#39;s still something I would wish for."</p>
+							
+						
+							
+								<p class="story__comment_others">"I agree, I don&#39;t think diamond age gets enough interest. It&#39;s one of my favorite books and the ending is unsatisfying but at least upbeat. Seveneves is also tons of fun. And if you know anyone who likes history, his older Baroque Cycle is pretty greatI haven&#39;t heard this in an interview or anything but I think now Stephenson is older and successful enough, he just writes the books exactly how he likes. Diamond age feels like he was agonizing over every word to keep everything so short. But Fall, and his newest book Termination Shock (which I also didn&#39;t like most of) ,just feels like an author who likes writing. Both have these amazing moments, which reminds me like a jazz musician, where it&#39;s almost effortlessly insightful and funny. But with no editing or second thoughts"</p>
+							
+						
+							
+								<p class="story__comment_others">"Much as I love Neal Stephenson&#39;s novels, I really wish he&#39;d stayed around at the writer&#39;s class he surely took until they had learned how to wrap up books and write endings; more often than not, I turn the page on a Stephenson novel only to find it was the last...(While I exaggerate a little, his stories do not end as much as END - I would be thrilled if he could spend a few pages wrapping it up in the end before leaving us waiting for the next title...)The yarns he constructs are definitely entertaining enough for me to cope with this very minor annoyance, though."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">02 September 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -747,7 +1040,7 @@ https://twitter.com/SALT_VERSE/status/1536799731774537733That would have been co
 							
 						
 							
-								<p class="story__comment_others">"Funny of Reddit banning the mentioned Subs in a short amount of time.Some years ago, the pendulum was very much on the other side."</p>
+								<p class="story__comment_others">"They forgot to mention the porn one..https://www.vice.com/en/article/xgygy4/stable-diffusion-stab...Why&#39;d they &#34;overlook&#34; it? Probably more culturally significant and controversial than any of the others.  It&#39;s the natural elephant."</p>
 							
 						
 						</a>
@@ -919,7 +1212,7 @@ So what you have now is the same required permission to &#34;read or modify host
 							
 						
 							
-								<p class="story__comment_others">"I wish Ken Shirriff [1], too, published a book like this. Such a treasure.[1] http://www.righto.com/"</p>
+								<p class="story__comment_others">"Bought this book the second I found it. It&#39;s incredibly well-put together, and I can&#39;t wait for the print edition. I have already read through the PDF, and there are so many beautiful illustrations that help show what is actually happening inside a component."</p>
 							
 						
 						</a>
@@ -2740,296 +3033,6 @@ https://news.ycombinator.com/item?id=32557294"</p>
 						
 							
 								<p class="story__comment_others">"&#34;A study conducted on the main campus of a Fortune 500 company found that just 10 percent of all communications occurred between employees whose desks were more than 500 meters apart. This suggests that once companies span multiple floors, buildings, or campuses, they’ve already lost much of the collaborative value of being “in the office” together.&#34;This point often seems to get missed. If you&#39;re at a large company, you&#39;re often working with people on different floors, buildings, offices, countries. I want to be co-located with the people I work with often just isn&#39;t an option at larger companies even if many people come into an office."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">23 August 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=32547912">Tell HN: Google Cloud suspended our production projects at 1am on Saturday</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32547912">
-						
-							
-								<p class="story__comment_first line-clamp">"This is why my old hosting company changed its auto disconnection code to work at 11am on a Monday morning, never at a weekend.That way it&#39;s the bill-payers that notice and get in touch, not the poor tech on the out-of-hours rota.Also, it only firewalled the customer&#39;s public IPs from the Internet - it didn&#39;t stop servers. That way when the account is settled there was often nothing for the techs to do.Also it was only ever done after the bank reconciliation was marked as complete, just in case...We relied on goodwill and recommendation of engineers for our growth, so were keen not to make their lives harder for someone else&#39;s bureaucratic (or cynical) mistake."</p>
-							
-						
-							
-								<p class="story__comment_others">"A few years ago I was working at a startup and we had just started moving some stuff over from AWS to GCP. Things were going pretty good with GCP until one day they pulled the plug on everything with no explanation. It turns out that our company credit card details had been fraudulently used without our knowledge. The criminal had decided to use the card to buy Google Ad Words or something like that - this is the same card we use on our GCP billing account. Anyway Google just took prod down with no notice on grounds of fraud. Could happen to anyone."</p>
-							
-						
-							
-								<p class="story__comment_others">"A suggestion for engineers that lack business experience. As soon as your project grows beyond the non-hobby scale and starts making real money, invest some time to reach out to company providing the services that keep it alive and find an account manager that will take care of you.We&#39;re a Google customer and of course we had our fair share of issues (btw: it&#39;s the same with Azure, based on our experience), and we always escalate to our account manager. That usually starts turning the wheels much faster.Also, do not be afraid to ask your account manager for additional discounts. Everybody in sales has some wiggle room to get you a better deal. With Google their account manager actually suggested that we work through a reseller and we&#39;re getting % off the list prices.Dealing with Google, Amazon, etc.. is not like dealing with code. It&#39;s not only transactional and you need to invest some time in the relationship even if you&#39;re the customer."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://stability.ai/blog/stable-diffusion-public-release">Stable Diffusion Public Release</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32555028">
-						
-							
-								<p class="story__comment_first line-clamp">"The most interesting part, to me, of a release like this is the amount of &#34;please don&#39;t abuse this technology&#34; pleading. No licence will ever stop people from doing things that the licence says they can&#39;t. There will always be someone who digs into the internals and makes a version that does not respect your hopes and dreams. It&#39;s going to be bad.As I see it, within a couple years this tech will be so widespread and ubiquitous that you can fully expect your asshole friends to grab a dozen photos of you from Facebook and then make a hyperrealistic pornographic image of you with a gorilla[0]. Pandora&#39;s box is open, and you cannot put the technology back once it&#39;s out there.You can&#39;t simply pass laws against it because every country has its own laws and people in other places will just do whatever it is you can&#39;t do here.And it&#39;s only going to get better/worse. Video will follow soon enough, as the tech improves. Politics will be influenced. You can&#39;t trust anything you see anymore (if you even could before, since Photoshop became readily available).Why bother asking people not to? I guess if it helps you sleep at night that you tried, I guess?[0]A gorilla if you&#39;re lucky, to be honest."</p>
-							
-						
-							
-								<p class="story__comment_others">"Played with it for a bit in DreamStudio so I could control more of the settings.  So far everything it generates is &#34;high quality&#34;, but the AI seems to lack the creativity and breadth of understanding that DALL-E 2 has.  OpenAI&#39;s model is better at taking wildly differing concepts and figuring out creative ways to glue them together, even if the end result isn&#39;t perfect.  Stable Diffusion is very resistant to that, and errs towards the goal of making a high quality image.  If it doesn&#39;t understand the prompt, it&#39;ll pick and choose what parts of the prompt are easiest for it and generate fantastic looking results for those.  Which is both good and bad.For example, I asked it in various ways for a bison dressed as an astronaut.  The results varied from just photos of astronauts, to bisons on earth, to bisons on the moon.  The bison was always drawn hyper realistically, which is cool, but none of them were dressed as an astronaut.  DALLE on the other hand will try all kinds of different ways that a bison might be portrayed as an astronaut.  Some realistic, some more imaginative.  All of them generally trying to fulfill the prompt.  But many results will be crude and imperfect.I personally find DALLE to be more satisfying to play with right now, because of that creativity.  I&#39;m not necessarily looking for the highest quality results.  I just want interesting results that follow my prompt.  (And no, SD&#39;s Scale knob didn&#39;t seem to help me).  But there&#39;s also a place for SD&#39;s style if you just want really great looking, but generic stuff.That said, the current version of SD was explicitly finetuned on an &#34;aesthetically&#34; ranked dataset.  So these results aren&#39;t really surprising.  I&#39;m sure the next generations of SD will start knocking DALLE out of the park in both metrics.  And, of course, massive massive props to Stability.ai for releasing this incredible work as open source.  Imagine all the tinkering and evolving people are going to do on top of this work.  It&#39;s going to be incredible."</p>
-							
-						
-							
-								<p class="story__comment_others">"Is there any way to download this on my PC and run it offline? Something like a command-line tool like    $ ./something &#34;cow flying in space&#34; &gt; cow-in-space.png
-
-that runs with local-only data (i.e. no internet access, no DRM, no weird API keys, etc like pretty much every AI-related application i&#39;ve seen recently) would be neat."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://about.maps.earth/">Maps.earth – free and open-source web maps</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32551273">
-						
-							
-								<p class="story__comment_first line-clamp">"Link to the previous post: https://news.ycombinator.com/item?id=31536217Congrats on all the progress in 3 months!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Hey, this looks great, thanks for working on it! I&#39;m the creator of Mapzy[0], an open-source and self-hostable store finder. We&#39;re trying to focus on privacy as much as possible, but currently use Mapbox since it&#39;s better than Google Maps and we didn&#39;t find any other alternatives.Do you think Headway could be a replacement for us? We currently use the Mapbox JS library to create the pins etc. - could we use Headway with Leaflet JS for example? We also use the Mapbox geocoder, mainly for reverse geocoding of addresses. How does Headway&#39;s geocoder compare?0: https://github.com/mapzy/mapzy/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Very impressive!Is it just me (Firefox on Android) or does the UI really not allow tapping landmarks (shops, restaurants, subway stations)?Also, directions don&#39;t seem to work right now (infinite loading) but I suppose this is due to the server receiving the HN hug of death right now.By the way, for anyone looking for the mobile (non-web) version of this: Organic Maps is a fantastic frontend for OpenStreetMaps (and of course there&#39;s the good old OsmAnd, though I like Organic Maps better these days)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://adguard.com/en/blog/smart-tv-ad-blocking.html">The downfall of smart TVs: From promises of seamless viewing to ad tool</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32550211">
-						
-							
-								<p class="story__comment_first line-clamp">"FWIW, it is still possible to get TVs without this stuff, albeit at a premium. TVs are still made for business usage in areas like conference rooms, wall displays etc. They&#39;re often found under labeling like &#34;commercial digital signage&#34; or &#34;business display&#34; or the like, they seem to often try to avoid using &#34;TV&#34; (if being cynical maybe to make them harder for normal people to discover and confuse them if they do). But they&#39;re often nice panels aimed at serious running hours, without this sort of junk (which would give enterprise IT conniptions) and can have very useful feature support like 802.1x authentication which so many devices still lack. Players like NEC will even advertise their use of an RPi compute and wink at lack of spyware [0] for some of their products, but lots of major &#34;smart TV&#34; providers also have a commercial lineup.I think they&#39;re well worth considering, particularly for the HN crowd, granted I suppose for people who truly want built-in netflix or the like without connecting something like a Roku or Apple TV maybe it&#39;s less optimal. But even they might change their tunes back to the concept of separate boxes and normal panels if they dislike all the ads and data tracking.----0: https://www.sharpnecdisplays.us/products/displays/me501"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Some may argue that there&#39;s no need to be dramatic and that there&#39;s nothing wrong in seeing an occasional ad every now and then.Oh, no, I am very dramatic about this. I will go to any lengths not to see advertising. I will entirely forgo any platform that shows me even one ad, especially when I pay them. Amazon Prime video is already pushing it with their preroll previews. The second it&#39;s something else I&#39;m canceling and going back to P2P. Fuck &#39;em."</p>
-							
-						
-							
-								<p class="story__comment_others">"At home, I&#39;ve never connected my TV to my network.  The few firmware updates I&#39;ve needed to do were applied using a thumb drive, and I use an AppleTV as my interface.When I travel, I bring along an AppleTV and plug the HDMI port into their set.  This lets me keep the services I subscribe-to and use them with their display.  This has worked great until my most-recent rental, which had a RokuTV -- presumably setup on Wifi.When content was streaming from my AppleTV, Roku would overlay a panel along the bottom-part of the screen proposing that I can watch what I&#39;m currently watching from a variety of other providers.  This must mean that the TV set is analyzing the video or audio signal to fingerprint what the content contained, then matching it against a library of content to feed into its profile of my use.This is the first time I&#39;ve seen something like this.  I&#39;d always assumed that if you used the TV&#39;s UI and if it was connected to the internet, then you&#39;d probably be subject to their ads and data analysis, but it never crossed my mind that they&#39;d perform the same data-analysis over any signal passing through its silicon.Is this commonplace or is Roku the first of what&#39;s likely to be many doing the same?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.apple.com/newsroom/2022/08/apple-expands-self-service-repair-to-mac-notebooks/">Apple expands Self Service Repair to Mac notebooks</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32550717">
-						
-							
-								<p class="story__comment_first line-clamp">"As someone who has repaired Apple devices over the years, swearing under my breath each time they put new hurdles in the way, it is so refreshing to see a full repair manual for my relatively new phone [0]. Lots of negativity in the comments but it is so relieving to see Apple change course and lift the curtain.Also adding to the anecdotes with my own:
-I have never needed a case for my phones or computers, and have barely even scratched the shell. I go on adventures for a good portion of the year and still manage to keep it intact, so i scratch my head when people say they break easily or that they always shatter their screen, it really seems to go beyond accidental damage and stray into carelessness.[0] https://manuals.info.apple.com/MANUALS/2000/MA2074/en_US/iph..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Valve&#39;s approach to the Steam Deck has been a refreshing approach in all this. It is a well-built product and replacement parts are a few clicks away https://www.ifixit.com/Parts/Steam_Deck
-People keep asking me why I don&#39;t like Apple products. I actually like most of their actual products, but their attitude as a company is frustrating. I don&#39;t want to pay a premium to feel limited."</p>
-							
-						
-							
-								<p class="story__comment_others">"Caveat: repair now available for Mac Notebooks &#34;with the M1 family of chips&#34; - this is reasonable, I think. However, I do feel badly because I have a 2017 with a noisy fan that needs to be replaced, but I don&#39;t think I&#39;ll ever be able to get the precisely OEM Apple-blessed one. This is important to me because of the non-annoying whoosh sound that the varied blade spacing of the OEM fans normally provide. My options are (1) used or (2) rando cross-your-fingers &#39;brand&#39; fan. I guess I could just try a variety of those no-names and use the least annoying one."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/gorhill/uBlock/wiki/uBlock-Origin-works-best-on-Firefox">uBlock Origin works best on Firefox</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32542968">
-						
-							
-								<p class="story__comment_first line-clamp">"Yesterday I downloaded Firefox on my 2018 Macbook because Chrome slowed the thing down to an absolute crawl.What. A. Difference! Firefox is so snappy, and at one point it was using less CPU than iTerm2. Mozilla has received a lot of crapped these past years, as did Firefox, but throughout my life this software has been free and open for me to use. I thank the contributors a lot for it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Some reasons to continue using firefox:1. Containers! This is one of the biggest reasons to stick with Firefox. Along with the multi-account containers extension, you can restrict opening of specific domains to specific containers. Gives a huge privacy boost.2. uBlock (origin)3. uMatrix"</p>
-							
-						
-							
-								<p class="story__comment_others">"Firefox has been my daily driver for a few years. I&#39;ll keep using it for that. It&#39;s fast, compatible, and reliable."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.world-nuclear-news.org/Articles/Application-submitted-for-US-molten-salt-research">Application submitted for US molten salt research reactor</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32553574">
-						
-							
-								<p class="story__comment_first line-clamp">"So, in a conventional reactor, you use nuclear fission to heat/pressurize water and then use your hot, slightly radioactive steam turn a turbine. This mostly works because moving even very hot, very high pressure water around is kind of a solved problem in industry.In a molten salt reactor, you use nuclear fission to melt various corrosive salts into a fluid, and this is good because molten salts store a lot more energy per unit (volume, presumably?) at low pressures, so you can transfer heat indirectly to nearby turbine-turning water without irradiating the water or relying on high-pressure water to cool your reactor. Cool.But I was under the impression that the main stumbling block for molten salt reactors was that high-energy corrosion resistant materials for containing / moving molten salt simply don&#39;t exist (yet). I suppose this is less of a problem for a research reactor, but it doesn&#39;t sound like there&#39;s been a materials breakthrough here that&#39;s allowing them to get started. Are they just plowing forward and they&#39;ll need to replace the containment infrastructure every few years?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Way, way overdue!  China has taken all of our research from the 50&#39;s and has been charging ahead.  Very sad that politics and ignorance has severely kneecapped our nuclear industry :("</p>
-							
-						
-							
-								<p class="story__comment_others">"A 1MW research reactor.Anyway, why is it always a fluoride salt? Is it because of the melting point or because of some nuclear property?I imagine there is some very relevant reason, because a less reactive anion (even chlorine) would be much easier to work with."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://pluralistic.net/2022/08/21/great-taylors-ghost/#solidarity-or-bust">Workplace surveillance is coming for you</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32550336">
-						
-							
-								<p class="story__comment_first line-clamp">"Damn, I had some fairly old opinion of Doctorow where I disliked him for some reason or other, but I am definitely revising that. I thought this was a great article.I am certain “bossware” will accelerate the downfall of already shitty workplaces.Very happy to hear Amazon is doing away with it. Strongly hope their workers unionize anyway. What kind of employer nickle-and-dimes a worker’s bathroom breaks? Not a good one, that’s for damn sure.I used to see these job postings on LinkedIn for Crossover for Work. I was intrigued by the claim of $400yr salary. Glad I didn’t end up working there. Thanks but no thanks, I am not going to work actively oppressing already downtrodden workers. A quick search turned up this fascinating article as well: https://medium.com/@whistler_12777/heres-why-crossover-is-a-...Fuck bossware. Fuck people who work to actively oppress others. Humanity for all, value of life for each and every person out there.Rant over. Thanks for the link."</p>
-							
-						
-							
-								<p class="story__comment_others">"On workplace surveillance / &#34;bossware&#34;:&gt; Mazzoli seems to have either not used his product, or, if he did, did so under conditions where he was in charge of it – using it the way an athlete might use a stopwatch to time their own sprints, and not the way a boss might: to decide whether to dock your pay or fire you.&gt; This inability to understand the difference between using a technology and having the same technology used against you is endemic to the industry.I think this is a key failure of understanding for the &#34;tech is neither good nor bad!&#34; camp: just as the Death Star clearly was never going to be used for mining planetoids, it&#39;s very clear how workplace surveillance tech will be used to harm workers, if nothing else because of how it is currently being used. Continuing to work on such tech just because it could theoretically be used for non-evil purposes is morally bankrupt, and something the industry needs to establish ethical standards to prevent."</p>
-							
-						
-							
-								<p class="story__comment_others">"I’ve recently watched Brazil, and the film has one of the most chilling dystopian views I’ve ever seen because it’s easy to see yourself as part of the machine doing your best just trying to get by.Similarly, I can see how the people working in this software slipped into this- they identified a need in the market with WFH, tried prototypes that were well received on the market, and keep iterating. Many of them legitimately are interested in time tracking and optimization, but of course the market for personal tools like that is very small and lots of employers want to pay you for this because they want more productive employees. Meanwhile the people buying them don’t really know what they are buying, they want to believe they have found a solution to the problem they are terrified of, employees pretending to work and milking them. And the employees exposed to it aren’t in a position of power to change it. And next thing you know we have a dystopian monster with enough funding to be responsible for people’s jobs itself, where no one individual has incentives to buck the curve or much ability to fight back.What’s the solution then? Doctorow mentions unions, and I’d agree that could work. I think there must be another faction to join that doesn’t ruin you, something to compete with the monolith in case the monolith gets sick in this way. Being able to quit and find somewhere else only works if that somewhere else is mostly differentiated by the fact that it doesn’t do these programs you disagree with- many people will put up with this and worse if there is a large pay differential between it and the next option, or if they would have to move and uproot themselves. And if a government gets sick in this way it might not let you quit the country. You have to be able to form collective groups that can bargain with the behemoth, like a union, or political party, or other action that relies on people for it’s power and not capital. That’s one reason why money in politics is so worrying to me, because the way I see it, it messes with this crucial release valve of political action."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://core-electronics.com.au/guides/colour-e-ink-display-raspberry-pi/">Inky Impression 5.7“ – Colour e-ink display for Raspberry Pi</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32545785">
-						
-							
-								<p class="story__comment_first line-clamp">"The killer application for these e-ink dispalys is calendar/todo list display. I&#39;d love to have my org-mode agenda and todo-list/notes on such a low-powered, low-refresh-rate e-ink screen.I know this question has been probably been asked many times, but I&#39;ll ask again: why are these devices not mass-produced in great numbers? Clearly there is great market demand for it, so then why would the market supply not respond to this demand? Is it because the technology has some oddities that manifest in tricky manufacturing processes? Or is it some patent encumbrance issue?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Somewhat unrelated, but I&#39;m still waiting for an affordable PC monitor based on e-ink technology. Dasung has been making some progress in the area but their products are quite expensive, around $1000 or more for anything with a useable size.
-People might disagree on the count of lack of colors, but to me e-ink technology seems very well suited for writing code. And who knows, maybe in a decade or so the refresh rates for these color e-ink might be in a usable range as well."</p>
-							
-						
-							
-								<p class="story__comment_others">"My ideal use case for this would be full size wall art. Similar to the Samsung TV that when off looks like art on a wall. Being able to have a new piece of art displayed daily along with as another commentator said your schedule. Wake up enjoy the new random art and see what your plans for the day are. Im sure the ability to scale this would be quite expensive. Buying many to connect and make your own custom size could work."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.devgenius.io/why-is-snowflake-so-expensive-92b67203945">Why is Snowflake so expensive</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32551212">
-						
-							
-								<p class="story__comment_first line-clamp">"Great article. On the surface, it&#39;s about Snowflake. At a deeper level, the article is about the perverse incentives motivating SaaS businesses to do seemingly dumb, inefficient things and avoid seemingly obvious optimizations by default.Many SaaS businesses are perfectly happy to let customers shoot themselves in the foot if it generates more revenue. The BigQuery example (presently, by default, `select * from table limit 10` obediently scans the entire table at your expense!) is spot-on.As the article so well puts it, every SaaS company has a vested financial interest &#34;to leave optimization gremlins in.&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"Snowflake is not expensive. Snowflake is super cheap, IF you know what it is for and how to use it. Compared to if you had to solve the problem on your own.The best way to describe Snowflake is that it is a brute force method to run complex queries without creating indexes.If you have a more traditional database, you will notice you need to set up indexes to be able to get anything from it in finite time. What if you don&#39;t know the indexes upfront? What if you want your users to be able to ask arbitrary queries and get answers before bedtime?That&#39;s what Snowflake is for. It automates using ENORMOUS amount of hardware to get your query executed fast, very inefficiently.It is not for free though. That inefficiency will cause a lot of resources used for queries. It is meant for those few queries when your users try to get some insight into your data and you can&#39;t predict indexes beforehand. Sometimes this is exactly what you want, like when you let your data people in to figure stuff out. Or when you have very rare functionality that allows the user to build their own queries -- which you should avoid like hell (and there are tricks to make it index pretty well) but can&#39;t always avoid.For everything else, whenever you can predict your indexes, you always want to use more traditional database that can be very efficient on queries properly supported by indexes.The issue is a lot of people try to use Snowflake as a database or to support frequently executing queries of the same kind. This is bad and it will cost you."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m the author of the article. Didn&#39;t expect it to blow up. Let me clarify a few points:1. I like Snowflake and I think they brought several innovations to the field: Instant scale out/up, time-travel, unstructured data query support. 
-2. Snowflake obviously makes innovations and performance improvements, otherwise they would not be the market leader they are. But I&#39;m also suspecting that they make just enough performance improvements to be at par and then use the vendor lock in features to make switching hard.My argument is that their rate of performance innovation has considerably gone down and DataBricks, Firebolt, and open source alternatives just seem more attractive from a cost/performance ratio. I agree that Snowflake is still the best data-warehouse to start with if you have 100k, but not if you truly plan for a multi-year horizon and your usage expands.- Redshift also brought a lot of innovation that allowed people to execute analytical queries 100x-1000x faster than any OLTP that existed out there. I&#39;ve used Redshift for four years and they kept ignoring performance and features until Snowflake came out. All of a sudden because of competitor pressure, they put more effort into the product to maintain and gain market share. My hope is that Snowflake finds a solution to their innovator&#39;s dilemma, since competitors are hot on their tails.- Some people point out that 70% usage growth just shows that Snowflake is useful. Nobody disagrees with that. The issue is that majority of the companies don&#39;t experience a 70% revenue growth to catch up with the growth in costs. At some point, you have to clamp down on costs, which means that you have to look for alternatives to run things more efficiently."</p>
 							
 						
 						</a>
