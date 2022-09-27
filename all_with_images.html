@@ -36,6 +36,420 @@
 	</div>
 
 	
+	<div class="day__date">27 September 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.computerenhance.com/p/turns-are-better-than-radians">
+						<picture>
+							<source srcset="default_32980782.webp" type="image/webp">
+							<source srcset="default_32980782.png" type="image/png">
+							<img src="default_32980782.png" alt="Preview of 'Turns are better than radians'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.computerenhance.com/p/turns-are-better-than-radians">Turns are better than radians</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32980782">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; But math never decreed that sine and cosine have to take radian arguments!That is not entirely true. It comes from the relationship between those functions and the complex numbers via the Euler formula.     ix
+    e    = cos x   +   i sin x
+
+There may be arithmetic/numerical inconveniences, but that&#39;s not all there is to &#34;math&#34;.Let&#39;s define ncos and nsin (&#34;nice cos, nice sin&#34;) as follows:   nsin x = sin 2πx
+   ncos x = cos 2πx
+
+So then what do we make of:   ncos x   +   i nsin x
+
+This has to be   cos 2πx  +   i sin 2πx
+
+which is then     2πix        (   2π) ix        ix 
+   e           = ( e   )      =  f 
+
+      
+           2π
+Where f = e    is a weird number like 535.4916. This f doesn&#39;t have nice properties. E.g.:      d     x           x
+      -   f     /=    f 
+      dx
+
+Otherwise it works; for instance 90 degrees is 0.25 and surely enough     0.25i 
+   f          = i
+
+In situations not involving e in relation to angular representations via Euler, f cannot replace e.I&#39;m all for having parallel trig functions in libraries that work with turns, though.The annoying 2π factor shows up in lots of places though. Should way, say, in electronics, redefine a new version of capacitive reactance which doesn&#39;t have 2πf in the denominator, but only f?"</p>
+							
+						
+							
+								<p class="story__comment_others">"The author makes the point that turns allow for exact representation of many commonly used angles, but with binary floating point, many common angles (1/6 of a turn, for example) are inexact.This could be addressed by using a whole number other than 1 to represent a turn ... one that is a multiple of 3 (or 3x3) and 5, and while we&#39;re at it, 2 (or 2x2x2), so most commonly-used angles are whole numbers!  That gives us 360 as the value representing a whole turn."</p>
+							
+						
+							
+								<p class="story__comment_others">"My favourite way of handling angles was always with either unsigned char or 16bit unsigned int that was treated as 1/nth of turn. Usually in these cases cos/sin tables were pre-calculated for speed, although that need went away to an extent. As long as as the calculations wrap around on the underlying system, it makes angles much easier to manage, because angle1 + angle2 = angle3 is always within 0 to 255 or 0 to 65535. Unfortunately I mostly work with higher level languages now that have mostly dropped integer types.If anybody knows how similar calculations can be easily achieved in JS for example, I&#39;d love to hear about it. I&#39;m sure there must be a better way than boundary checks and manual wrap-around."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://vivqu.com/blog/2022/09/25/outdated-apps/">
+						<picture>
+							<source srcset="default_32987028.webp" type="image/webp">
+							<source srcset="default_32987028.png" type="image/png">
+							<img src="default_32987028.png" alt="Preview of 'Outdated vs. Complete: In defense of apps that don’t need updates'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://vivqu.com/blog/2022/09/25/outdated-apps/">Outdated vs. Complete: In defense of apps that don’t need updates</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32987028">
+						
+							
+								<p class="story__comment_first line-clamp">"I can relate to the frustration of the author.
+I wrote an open source library which gets downloaded 50K+ times per week.
+At one point, I hadn&#39;t updated it in several months and people started asking if the project is dead...
+In fact, it wasn&#39;t updated in a while because it had been working perfectly and was built in a forward-compatible way; that makes it more healthy and therefore more alive than probably 99% of libraries on the internet.The expectation that software libraries or frameworks should break every few months is disturbing. I think this may be due to the fact that many of the most popular frameworks do this.
+I find that React-based apps tend to break every few months for a range of reasons; often because of reliance on obscure functionality or bundling of binaries which aren&#39;t forward-compatible with newer engine versions."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; So I had to spend four hours on Saturday upgrading all my platform libraries simply so that I could compile the damn app.I sort of assume this is the actual point? Apple presumably wants to drop support for older versions of the SDKs, and that requires that app developers update to the newer versions. I think you can make a reasonable argument that dumping work on third-party developers to simplify things for themselves is bad, but the author&#39;s belief that it was simply pointless busywork is probably incorrect from Apple&#39;s perspective.I suspect the minimum download threshold to be exempt from this is _very_ high. Maintaining backwards compatibility for a small fixed set of apps doing things an old way is a categorically different problem from maintaining backwards compatibility for every app out there."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t think culling games/apps based on age is the right approach to improving discoverability.I don&#39;t see Nintendo removing old Switch games from the eShop.I don&#39;t see Apple Music removing the Beatles because they haven&#39;t updated recently.My recommendation, which Apple&#39;s (obnoxious) ad business would never accept, would be to1. Remove the obnoxious and generally useless ads which eat up the top half of the first page of app search on the iPhone.2. Improve app search with more options and a fast, responsive UI. Also they might consider allowing you to consider ratings from other sources such as critical reviews vs. user reviews (a la metacritic.)3. Better human curation with more categories. This is the same approach that Apple Music takes and it seems to work well. Games should have Artist/Studio/Developer pages as well as Essentials lists to facilitate discovery. Same with genre/category essentials, which have a rotating list that can be saved/bookmarked."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/MagnusCarlsen/status/1574482694406565888">
+						<picture>
+							<source srcset="default_32987413.webp" type="image/webp">
+							<source srcset="default_32987413.png" type="image/png">
+							<img src="default_32987413.png" alt="Preview of 'Dear Chess World'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/MagnusCarlsen/status/1574482694406565888">Dear Chess World</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32987413">
+						
+							
+								<p class="story__comment_first line-clamp">"A key fact to understand in thinking about cheating in over the board chess: a strong player can defeat a much stronger opponent with just 1-3 hints per game indicating the strongest move.  For example, most chess experts agree that a ~2600 rated player with 2-3 hints at key moments per game would be expected to beat a ~2800 rated player.  Many people might assume that a cheater needs guidance every move, thereby requiring a potentially more obvious cheating mechanism. That is not the case.Also, clever cheating devices have been found in over the board chess competitions.  So, this is possible.  Moreover, one needn&#39;t carry a device on themselves.  A cheater may have accomplices providing hints, if they carry a device.It will be interesting to see how chess tournaments, as well as FIDE, chess.com, and other major chess institutions react to this situation.  The potential for cheating has now been brought to the absolute forefront of chess discussion.  And Carlsen&#39;s actions have been questioned by FIDE in recent interviews, with FIDE staff condemning &#34;vigilantism&#34; of a kind.Some set of resolutions seems necessary--perhaps standards for security in major chess tournaments, perhaps an alliance to share cheating or reliability data amongst major chess operations, perhaps a standard term in major chess tournament agreements that no previously identified cheaters (online or otherwise) will be allowed to play, and perhaps sanctions in some form against Carlsen (or Niemann, if concrete evidence against him emerges)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Imagine you know someone with a history of stealing cars and other valuable objects. He has been caught multiple times. Now you see him with a shiny new car that you’re pretty sure he can’t afford.Did he steal it? Not necessarily — it’s entirely possible that he got a higher-paying legit job and saved up for it, or inherited money from a relative, or got it legally in some other way. He shouldn’t be convicted of a new crime with no other evidence just because he committed similar crimes in the past.However, it would be entirely natural for a reasonable person to assume that theft is the most likely explanation of the facts, and to avoid trusting that person.This is basically what happened with Hans. He has been caught cheating multiple times, and then had an unusually fast rise in rating. Is that rise impossible? No. But it’s consistent with cheating, and given his history, cheating is the simplest explanation.So it would be totally normal for Magnus to refuse to trust such a person even though it can’t be conclusively proven that he’s still dirty. But even then, Magnus agreed to play against him, until further circumstantial evidence came to light and it just got to be too much.So, is it possible that Hans is clean? Sure. If that’s indeed the case, do I feel sorry for him? No. He made the choice to destroy his own reputation when he cheated multiple times. If he doesn’t get the benefit of the doubt now, it’s on him."</p>
+							
+						
+							
+								<p class="story__comment_others">"I believe people might be seriously underestimating just how good Magnus may be at detecting cheating.Dude probably trains with computers regularly. He has a better memory than 10 average Joe&#39;s combined. He&#39;s been the absolute #1 of the world for what, 10 years now?He wouldn&#39;t risk his whole reputation for nothing.I personally take his suspicions very seriously, though I agree that evidence has to be presented sooner or later."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.southparkcommons.com/your-cto-should-actually-be-technical/">
+						<picture>
+							<source srcset="default_32987094.webp" type="image/webp">
+							<source srcset="default_32987094.png" type="image/png">
+							<img src="default_32987094.png" alt="Preview of 'A CTO should be technical'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.southparkcommons.com/your-cto-should-actually-be-technical/">A CTO should be technical</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32987094">
+						
+							
+								<p class="story__comment_first line-clamp">"Microsoft employee here. I really appreciate CTOs who are technical. They understand certain challenges of delivering products and they are often more sympathetic of last-minute issues. But Microsoft is a different company than maybe startups or smaller companies. So, I am not really sure."</p>
+							
+						
+							
+								<p class="story__comment_others">"I didn&#39;t even realize having a non-technical CTO was a thing that could happen?&#34;Chief (Nontechnical) Technology Officer&#34;. What a nonsense idea"</p>
+							
+						
+							
+								<p class="story__comment_others">"I just became a CTO. So, let me bear my thoughts.Since July of this year I&#39;ve been CTO for a small games company, I&#39;ve worked in this industry before in a more specialised role but this is much broader scope.I&#39;ve gone from being responsible for 1 person to 10 which will likely become 50 by the end of next year.I&#39;m terrified.I&#39;m terrified because I feel like I will let my reports down.I&#39;m terrified because a lot of the work I&#39;m doing lacks transparency, how do I tell my compatriots about things that may not come to pass, especially deep political things -- and the amount of work necessary to onboard/offboard people, about &#34;strategic partnerships&#34; and why they&#39;re taken, or not taken or any of the hundreds of other things which are changing direction 3 times a day each.I am technical, deeply, passionately technical.I will not do service to people by being technical, my days are too fragmented, my worries too broad, it&#39;s impossible to dig into a small focused problem and give it the treatment it deserves - and even if I could then I&#39;d be dooming one of my colleagues to maintain it forever because I couldn&#39;t possibly..My being technical is good because I know the problems and I know what can make people feel valued; I can give people autonomy and direction and I can understand when help is needed and how to give it.However, almost nothing in my work is technical, it&#39;s all presentations, discussions, breakdowns, timelines, contracts and negotiation.The most code I write now is to do cost reporting.My most frequently accessed cloud console pages are the billing sections.This is not fun at all (and frankly, I didn&#39;t think it would be); but I fear what will replace me if I leave."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://objective-see.org/tools.html">
+						<picture>
+							<source srcset="default_32979796.webp" type="image/webp">
+							<source srcset="default_32979796.png" type="image/png">
+							<img src="default_32979796.png" alt="Preview of 'macOS Free and Open-Source Security Tools by Objective-See'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://objective-see.org/tools.html">macOS Free and Open-Source Security Tools by Objective-See</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32979796">
+						
+							
+								<p class="story__comment_first line-clamp">"These tools send telemetry to Sentry (or at least the ones I evaluated did, which I believe were Lulu and TaskExplorer).Personally I&#39;m not comfortable with this due to the level of access they require and thought it worth to mention."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wish LuLu had some kind of logging though, and asynchronous rule adding (i.e. no need to take decision when connection happens and block by default, and then review this list when I have time), otherwise it at some point you just start accepting connections for all processes without thinking, just to not be distracted too often."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve been using KnockKnock, RansomWhere?, BlockBlock, and OverSight for many years. They are great pieces of software that are simple to use and do what’s advertised. The biggest issue I’ve had is memory consumption issues with OverSight."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://saveall.ai/blog/learning-is-remembering">
+						<picture>
+							<source srcset="default_32982513.webp" type="image/webp">
+							<source srcset="default_32982513.png" type="image/png">
+							<img src="default_32982513.png" alt="Preview of 'Learning Is Remembering'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://saveall.ai/blog/learning-is-remembering">Learning Is Remembering</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32982513">
+						
+							
+								<p class="story__comment_first line-clamp">"There is a difference between remembering something (like a fact) and a deep understanding of a concept.Let me give you an example in programming: I sometimes have to google for the names of functions I&#39;ve already used a hundred times. Sometimes extremely simple functions (just a while ago it was list.size() in Java), only because I can&#39;t remember the name of the function, but of course I understand the concept - the length of a list/array. I just can&#39;t remember if it&#39;s length(), or size() or count(), or whatever.This deep understanding feels quite different from simple memorization. It feels more like something in my body, similar to muscle memory or like playing a piano piece. It&#39;s something I feel I will never forget.I&#39;d love to learn more about this kind of understanding. For years I&#39;ve tried to find good reading about it, but much has been disappointing."</p>
+							
+						
+							
+								<p class="story__comment_others">"As someone who has been using Anki for the past 4 years to learn Japanese and now Chinese, I&#39;ve recently found that the initial &#34;learning&#34; step is not that hard. (i.e., given 辞書, I remember &#34;dictionary&#34;) What is hard is keeping the content I&#39;ve learned, _learned_, for more than a day.So now I&#39;m wondering, is my initial &#34;learning&#34; process wrong? Since definitions are fairly simple and I find them easy to remember at first but hard to hold onto. And my process in Anki for New cards is to rep them like reviewed cards until I pass the card; so really, I&#39;m just staring at the kanji + definition until I remember it.This brings me to my question: is there more Anki can do when it comes to learning new cards? Is there something we can do when learning new information that will help make it &#34;sticky&#34;? Especially in regards to &#34;simple&#34; facts, like basic kanji -&gt; definition mappings, where there are no mechanics to understand, just simple mappings.Edit (an addition):Also, I love SRS, but I don&#39;t understand how it can be advertised as completely different than rote memorization. When you learn a new physical flashcard, you&#39;re learning it the same way as you would be when learning a new Anki card. The only difference is that Anki will show it to you again at a more efficient time in the future, rather than at some regular interval."</p>
+							
+						
+							
+								<p class="story__comment_others">"Calling learning remembering, is like calling a computer a hard drive. Sorry, but, remembering is just one part, although important part of learning. There is loads of difference between remembering the words of a foreign language and fluently speaking it. The process of learning is complicated, eg. good teaching is not giving the final answers to learner, which should seem faster, but letting the learner arrive at their answers, even sometimes arriving at a wrong answer at first.
+And the point about reducing forgetting, that&#39;s also a terrible way of learning. If you want to minimize forgetting, that means you have to learn in baby steps, repeat everything using some kind of spaced repetition algorithm, and endure the pain of doing all this for a considerate amount of time. Instead, learning the content rapidly (meanwhile forgetting a lot of the content), getting a whole picture, and gradually gain more understanding repeating the process using different textbooks/courses, is a much more faster way of learning. The brain is more used to BFS (breadth-first-search) than DFS (depth-first-search), and the whole process is much more stimulating. This is because new knowledge needs to be encoded with connections to pre-existing knowledge, and most knowledge is intertwined together, for example in calculus, limits, derivatives, integrals, infinite series, etc. Learning limits in isolation of the whole picture, optimizing for less percentage of forgetting, often leaves learners confused, why am I even learning this, and what use is this for. Even though the percentage of forgetting is much higher in the latter holistic BFS process, the overall content mastered in the same month or week duration is higher. So forgetting is actually normal and you shouldn&#39;t panic when you forget things- since you will gain more understanding each time you learn and re-learn the content.
+For the last ten years, I&#39;ve been making products for learning, and every day now and then, I&#39;m still learning something new about learning."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.mersenneforum.org/showthread.php?p=614191">
+						<picture>
+							<source srcset="default_32983406.webp" type="image/webp">
+							<source srcset="default_32983406.png" type="image/png">
+							<img src="default_32983406.png" alt="Preview of 'Zen4&#39;s AVX512 Teardown'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.mersenneforum.org/showthread.php?p=614191">Zen4&#39;s AVX512 Teardown</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32983406">
+						
+							
+								<p class="story__comment_first line-clamp">"Excellent Teardown by &#34;Mysticial&#34; from mersenneforum.org.Cliffnotes:* Zen4 AVX512 is mostly double-pumped: a 256-bit native hardware that processes two halves of the 512-bit register.* No throttling observed* 512-bit shuffle pipeline (!!). A powerful exception to the &#34;double-pumping&#34; found in most other AVX512 instructions.* AMD seemingly handles the AVX512 mask registers better than Intel.* Gather/Scatter slow on AMD&#39;s Zen4 implementation.* Intel&#39;s 512-bit native load/store unit has clear advantages over AMD&#39;s 256-bit load-store unit when reading/writing to L1 cache and beyond."</p>
+							
+						
+							
+								<p class="story__comment_others">"I find the vpmullq part the most stunning.This instruction is used in some bignum code, for example if you are implementing RSA. Yet AMD implemented it three times faster than Intel.I&#39;m also fascinated by AMD now making AVX512 worthwhile on consumer devices (where they would until quite recently artificially slow down Intel CPUs that had it), which presumably will lead to widespread adoption where it matters. Intels strategy of turning off AVX512 in the recent consumer devices because their energy efficiency cores don&#39;t have it may turn out to be a monumental mistake."</p>
+							
+						
+							
+								<p class="story__comment_others">"phoronix:AMD Zen 4 AVX-512 Performance Analysis On The Ryzen 9 7950Xhttps://www.phoronix.com/review/amd-zen4-avx512&#34;On average for the tested AVX-512 workloads, making use of the AVX-512 instructions led to around 59% higher performance compared to when artificially limiting the Ryzen 9 7950X to AVX2 / no-AVX512.From these results I am rather impressed by the AVX-512 performance out of the AMD Ryzen 9 7950X. While initially being disappointed when hearing of their &#34;double pumping&#34; approach rather than going for a 512-bit data path, these benchmark results speak for themselves. For software that can effectively make use of AVX-512 (and compiled so), there is significant performance uplift to enjoy while no negative impact in terms of reduced CPU clock speeds / higher power consumption (with oneDNN being one of the only exceptions seen so far in terms of higher power draw).AVX-512 is looking good on the Ryzen 7000 series and I&#39;ll continue running more benchmarks over the weeks ahead. These AVX-512 results make me all the more excited for AMD EPYC &#34;Genoa&#34; where AVX-512 can be a lot more widely-used among HPC/server workloads. &#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.cloudflare.com/the-first-zero-trust-sim/">
+						<picture>
+							<source srcset="default_32982697.webp" type="image/webp">
+							<source srcset="default_32982697.png" type="image/png">
+							<img src="default_32982697.png" alt="Preview of 'Zero Trust SIM'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.cloudflare.com/the-first-zero-trust-sim/">Zero Trust SIM</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32982697">
+						
+							
+								<p class="story__comment_first line-clamp">"Great implementation of the wrong solution.  The problem isn&#39;t that SIM security is weak but it&#39;s that we&#39;re using SIM/eSIM for identification and authorization in the first place. When we stop using SIM for authentication the need to guard against SIM Swap attacks goes away as well."</p>
+							
+						
+							
+								<p class="story__comment_others">"How is this even Zero Trust. Admittedly, there is no precise definition for ZT, but Cloudflare&#39;s solution seems to run counter to the idea of perimeter-less ZT philosophy. Instead of assuming that phones can be insecure and developing appropriate crypto based mechanisms, Cloudflare is proposing to bring the phone inside a &#39;trusted&#39; network. Remember, ZT does not rely on trusted network.Solutions like this will increase confusion and fragment the already &#39;interpretation led&#39; as opposed to definition led ZT landscape."</p>
+							
+						
+							
+								<p class="story__comment_others">"Why is there no opposition to this shit? SIMs were physical for a reason. As a consumer what do you get out of it? You have to go through the carriers to switch between phones now! You can&#39;t just pick up a random unlocked phone and put a sim in it. No more burner phones. I have been in situations where I changed SIM between phones multiple times a day.But it sounds like it is too late for this. It&#39;s like people who oppose cash payments out of the convenience of card/app payments. This small chipping away of a small libery adds up.I hope eveyone knows that you can&#39;t as a layman register an email address or any meaningful service you depend on without a phone number (i.e.: a sim), that is what is being regulated here even more."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://notmyplate.com/whitepaper/">
+						<picture>
+							<source srcset="default_32980040.webp" type="image/webp">
+							<source srcset="default_32980040.png" type="image/png">
+							<img src="default_32980040.png" alt="Preview of 'Traffic cameras expose your location through parking apps'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://notmyplate.com/whitepaper/">Traffic cameras expose your location through parking apps</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32980040">
+						
+							
+								<p class="story__comment_first line-clamp">"The gist of it: I can subscribe to location updates for any license plate that I want, without knowledge or consent from the owner of that car."</p>
+							
+						
+							
+								<p class="story__comment_others">"Finally. Publish it all. Tracking of every vehicle, visible for everyone.It has been that way with aircraft for a long time. Pilots, however, are such a minority that noone really cares.Now that everyone is impacted, regulation might get updated (or someone might spend the time to identify existing regulation that prohibits this), and that would extend to other vehicles than those with wheels."</p>
+							
+						
+							
+								<p class="story__comment_others">"As long as privacy is not a granted right that enables you to sue offenders, there&#39;s not much you can do. The EU has at least started to realize the issue but giving the speed of technology vs. the pace of administration, it might be a losing battle."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://docs.google.com/presentation/d/1HwLNSyHxy203eptO9cbTmr7CH23sBGtTrfOmJf9n0ug/edit?usp=sharing&amp;resourcekey=0-GH5F3wdP7D4dmxvLdBaMvw">
+						<picture>
+							<source srcset="default_32969957.webp" type="image/webp">
+							<source srcset="default_32969957.png" type="image/png">
+							<img src="default_32969957.png" alt="Preview of 'C++20, How Hard Could It Be'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://docs.google.com/presentation/d/1HwLNSyHxy203eptO9cbTmr7CH23sBGtTrfOmJf9n0ug/edit?usp=sharing&amp;resourcekey=0-GH5F3wdP7D4dmxvLdBaMvw">C++20, How Hard Could It Be</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=32969957">
+						
+							
+								<p class="story__comment_first line-clamp">"Many are of the listed items are merely being deprecated. These shouldn’t really qualify as breaking changes. In fact, the ability to migrate away incrementally is precisely the point of deprecating instead of removing a feature.What surprises me is that a lot of the deprecated functionality seems really recent — C++14 or newer. Compatibility is C++’s big thing, that’s historically why it kept almost all of C as a sublanguage. I know organizations where migrating to C++11 is still an ongoing process. It’s not great news if features become obsolete faster than many users can adopt them."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wait, so the words &#34;concepts&#34; and &#34;requires&#34; were newly made keywords, and this breaks code, but the words &#34;yield&#34; and &#34;await&#34; were determined too important and too common to standards members that they needed to be renamed to the horrifically ugly &#34;co_await&#34; and &#34;co_yield&#34;?Also, last time I actually tried to use C++20 none of the standard library implementations had std::format; has this changed now?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Just a note but I&#39;m fairly certain this is purely from the perspective of Google Chrome, meaning it excludes google3 (Google&#39;s repo for nearly all Google services). I don&#39;t know this for a fact but I suspect it&#39;s the case. I only bring it up because google3 C++ is (or was; it&#39;s now been years since I&#39;ve done this directly) a very different beast. It was notionally compliant with recent standards but a very restrictive subset of features were allowed.The C++ standard currently sits at &gt;1800 pages. Looking through these examples, I&#39;m honestly horrified. The semantics around moving and copying and the many ways you can initialize a variable [1] and how you can mess that up so it&#39;s actually a copy instead of a move is just mind-bending.Can we also talk about how in 2022 we&#39;re still talking about and getting wrong const-correctness? I guess we&#39;re going ever further now because this presentation touches on constexpr correctness (as in const vs constexpr).Another thought: problems like comparisons between base and derived problems shouldn&#39;t even be problems (IMHO) because you&#39;ve already messed up by wanting that behaviour.The change about not doing arithmetic on enum values is a good one but pretty late.TIL this is a valid way to cast:    size_t{expanded_size}
+
+[1]: https://en.cppreference.com/w/cpp/language/initialization"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">26 September 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -59,15 +473,15 @@
 						<a href="https://news.ycombinator.com/item?id=32975173">
 						
 							
-								<p class="story__comment_first line-clamp">"This is absolutely hilarious, and despite being long form, fits Twitter format very well, with each chunk funnier than the last :)A few notes:- Per my knowledge US is the only country which stubbornly (and illogically) considers Sunday to be the first day of the week;- US (and maybe one or two English-speaking countries) are the only ones using 12h time, the rest of the world uses 24hrs, however 12h _sometimes_ is used conversationally;- May be the author got tired (or whatever he took started to wear off) but I consider omitting the whole DST thing a major missed opportunity. :)Also, for those interested, look up Swatch time invented in late 90s and touted as more logical replacement of the mess that we have. I believe they still maintain some Internet presence but mostly gave up on promoting it. Good luck breaking 1000+yo habits."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; &#34;uh, it&#39;s supposed to be the birth of a religious leader, but they got the math wrong so it&#39;s off by 4 years, if he existed at all.&#34;&gt; &#34;if? You based your calendar off the birth date of someone you&#39;re not sure exists?&#34;I find it quite offensive. Not all scholars agree that Jesus was raised from dead, but the existence of Jesus is accepted even by non-Christian scholars.&gt; Virtually all scholars of antiquity agree that Jesus existed.[7][8][30] Historian Michael Grant asserts that if conventional standards of historical textual criticism are applied to the New Testament, &#34;we can no more reject Jesus&#39; existence than we can reject the existence of a mass of pagan personages whose reality as historical figures is never questioned.&#34;[31] There is no indication that writers in antiquity who opposed Christianity questioned the existence of Jesus.[32][33]https://en.m.wikipedia.org/wiki/Historical_Jesus"</p>
+								<p class="story__comment_first line-clamp">"I didn&#39;t appreciate until recently that the calendar we live by today was personally designed by Julius Caesar.Like not by some forgotten technocrats incidentally during his time, but Julius Caesar himself as a subject matter expert, as a side-project.  With consultation, certainly, but by his initiative, from long-standing engagement with the problem in one of his early jobs from long before he was a main character of the Roman story.Digestable and entertaining (fragment of a) video on the topic:https://www.youtube.com/watch?v=fD-R35DSSZY&amp;t=1312s"</p>
 							
 						
 							
 								<p class="story__comment_others">"I find the implication that aliens are rational and have no subrational concepts due to tradition and habit interesting, as it sort of implies that these kinds of outgrowths are not necessary and can just be done away with.  The narrator starts from a position of not wanting to legitimize or historicize beyond reductive statements like &#34;some ancient civilization did XYZ&#34;.  I&#39;ll admit that I skimmed through the last part of the thread, so I might have missed something, but I don&#39;t see any mention of the decimal calendar https://en.wikipedia.org/wiki/French_Republican_calendar, or why that failed.  I get that this is supposed to be funny, but the indirect message of getting rid of whatever doesn&#39;t make conscious sense is simplistic, and spoils the fun for me.  Humans are stupid, very funny."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is absolutely hilarious, and despite being long form, fits Twitter format very well, with each chunk funnier than the last :)A few notes:- Per my knowledge US is the only country which stubbornly (and illogically) considers Sunday to be the first day of the week;- US (and maybe one or two English-speaking countries) are the only ones using 12h time, the rest of the world uses 24hrs, however 12h _sometimes_ is used conversationally;- May be the author got tired (or whatever he took started to wear off) but I consider omitting the whole DST thing a major missed opportunity. :)Also, for those interested, look up Swatch time invented in late 90s and touted as more logical replacement of the mess that we have. I believe they still maintain some Internet presence but mostly gave up on promoting it. Good luck breaking 1000+yo habits."</p>
 							
 						
 						</a>
@@ -230,11 +644,11 @@
 							
 						
 							
-								<p class="story__comment_others">"A slightly off-topic but still relevant - the app Libby is currently as close to that ideal library of everything for free. You have access to vast amount of books, especially most of the recently published ones (and some popular older ones that have digital versions published) and available for free, at your fingertip. Since I have started reading books through Libby, I read a lot more books, and started collecting more library cards :) Surprisingly few people seem to know about Libby. If you haven&#39;t installed one, you really should. And I am surprised there&#39;s no mention of Libby in HN when the topic is about books and its availability."</p>
+								<p class="story__comment_others">"Main site: http://pilimi.org/Torrents can be obtained via their onion site: http://2urmf2mk2dhmz4km522u4yfy2ynbzkbejf2cvmpcbzhpffvcuksrz... (requires Tor to follow link)Using onion.ws proxy: http://2urmf2mk2dhmz4km522u4yfy2ynbzkbejf2cvmpcbzhpffvcuksrz... (doesn&#39;t require Tor)"</p>
 							
 						
 							
-								<p class="story__comment_others">"Main site: http://pilimi.org/Torrents can be obtained via their onion site: http://2urmf2mk2dhmz4km522u4yfy2ynbzkbejf2cvmpcbzhpffvcuksrz... (requires Tor to follow link)Using onion.ws proxy: http://2urmf2mk2dhmz4km522u4yfy2ynbzkbejf2cvmpcbzhpffvcuksrz... (doesn&#39;t require Tor)"</p>
+								<p class="story__comment_others">"There are ways we as a society could endorse these kinds of libraries while also keeping authors incentivized.Here’s how I see it: https://blog.danieljanus.pl/2022/09/24/paying-for-books/"</p>
 							
 						
 						</a>
@@ -553,7 +967,7 @@ The above example is C#, but similar code can be written in any language. It&#39
 							
 						
 							
-								<p class="story__comment_others">"A lot of argument here complaints that Linux is broken outside of Linux specific vendors or ThinkPads.Well, how did it go for you to try and run MacOS on non-Apple hardware?Maybe, sure you get a better experience with hardware supported by Linux. But that&#39;s a lot of bias in your opinion."</p>
+								<p class="story__comment_others">"The laptop: &#34;It’s an 11-year-old Thinkpad T420, a big ol’ thick brick of computation that I bought used a few years ago for $200.&#34;"</p>
 							
 						
 						</a>
@@ -625,11 +1039,11 @@ The above example is C#, but similar code can be written in any language. It&#39
 							
 						
 							
-								<p class="story__comment_others">"One note of caution, he describes removing the lath and plaster and inserting eps insulation. It didn’t mention if he did this, he might have done, but it’s important to have a continuous taped vapour barrier on the warm side of the insulation to prevent water vapour from passing through, condensing on the timber structure and causing it to rot. Also ventilate the cold side of the insulation or a least have a gap to form a capillary break with the cold outside wall. I’ve seen a few badly done insulation jobs in timber buildings that have needed floor joists and studs cut out and replaced. It only takes about 15-20 years."</p>
+								<p class="story__comment_others">"From the same forum, a 50+ page thread on DIY ventilation heat exchangers, e.g. 4&#34;x4&#34;x24&#34; window unit that moves heat from exhaust airflow to fresh incoming airflow, https://ecorenovator.org/forum/showthread.php?t=891&amp;page=38#... and a home-sized DIY HRV, https://ecorenovator.org/forum/showpost.php?p=26861&amp;postcoun...&gt; outside temperature is 10,0 degrees Celcius, inside T is 21,1 and incoming fresh breeze (top) at 19,0!!"</p>
 							
 						
 							
-								<p class="story__comment_others">"From the same forum, a 50+ page thread on DIY ventilation heat exchangers, e.g. 4&#34;x4&#34;x24&#34; window unit that moves heat from exhaust airflow to fresh incoming airflow, https://ecorenovator.org/forum/showthread.php?t=891&amp;page=38#... and a home-sized DIY HRV, https://ecorenovator.org/forum/showpost.php?p=26861&amp;postcoun...&gt; outside temperature is 10,0 degrees Celcius, inside T is 21,1 and incoming fresh breeze (top) at 19,0!!"</p>
+								<p class="story__comment_others">"One note of caution, he describes removing the lath and plaster and inserting eps insulation. It didn’t mention if he did this, he might have done, but it’s important to have a continuous taped vapour barrier on the warm side of the insulation to prevent water vapour from passing through, condensing on the timber structure and causing it to rot. Also ventilate the cold side of the insulation or a least have a gap to form a capillary break with the cold outside wall. I’ve seen a few badly done insulation jobs in timber buildings that have needed floor joists and studs cut out and replaced. It only takes about 15-20 years."</p>
 							
 						
 						</a>
@@ -3622,390 +4036,6 @@ Time: 257.660 SecondsNumber of links visited: 3The path you took:
 								<p class="story__comment_others">"Looking at the result for others, mines doesn&#39;t look so good.&#34;Australian Recording Industry Association&#34; to &#34;National Register of Historic Places listings in South Carolina&#34;
 Time: 285.376 SecondsNumber of links visited: 16The path you took:
 [ &#34;Australian Recording Industry Association&#34;, &#34;Australia&#34;, &#34;Oceania&#34;, &#34;Region&#34;, &#34;List of regions of the United States&#34;, &#34;Grand Strand&#34;, &#34;South Carolina&#34;, &#34;Fort Sumter&#34;, &#34;Fort Sumter and Fort Moultrie National Historical Park&#34;, &#34;National Historic Site (United States)&#34;, &#34;National Register of Historic Places&#34;, &#34;List of U.S. National Historic Landmarks by state&#34;, &#34;List of National Historic Landmarks in South Carolina&#34;, &#34;St. James Episcopal Church (Santee, South Carolina)&#34;, &#34;National Register of Historic Places&#34;, &#34;United States National Register of Historic Places listings&#34;, &#34;National Register of Historic Places listings in South Carolina&#34; ]"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">17 September 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.engadget.com/us-border-forces-traveler-data-15-years-085106938.html">
-						<picture>
-							<source srcset="default_32864997.webp" type="image/webp">
-							<source srcset="default_32864997.png" type="image/png">
-							<img src="default_32864997.png" alt="Preview of 'US border forces are seizing Americans&#39; phone data and storing it for 15 years'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.engadget.com/us-border-forces-traveler-data-15-years-085106938.html">US border forces are seizing Americans&#39; phone data and storing it for 15 years</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32864997">
-						
-							
-								<p class="story__comment_first line-clamp">"Even if you are a person who will never in your life end up as any kind of person of interest for the government, handing over data in this way could still be quite dangerous.Phones will often contain data that can facilitate theft and fraud if ending up in the wrong hands. If they&#39;re able to copy everything, including private data from all apps that could be quite bad. For example many countries now use apps to login to online banking, with private keys for the login stored in the app. Will that be copied? Will it ever be found out if one of the 3000 government officials with access to this data sold it on darknet markets?Maybe some months after your travel you suddenly wake up one day to find all your money transferred from your bank account to some account in Nigeria."</p>
-							
-						
-							
-								<p class="story__comment_others">"Terrifying for only 2 reasons:1. Any malicious person savvy enough to pull off a crime of interest to the Feds is smart enough to provide a wiped or burner phone to DHS/ICE, and they have to know this. So, what is the point in doing this if not to target law abiding citizens.2. USGOV has a spotty track record of keeping this information secure. A foreign actor is likely to access this info eventually. As one former government official once joked many years ago - concerning Chinese hacking - &#34;Well, its probably more secure in the CCP&#39;s data center, so I wouldn&#39;t worry.&#34;This is the problem when a non-technical generation makes the rules and regs. Luddites ought not be permitted to ascend the GS ranks."</p>
-							
-						
-							
-								<p class="story__comment_others">"Reminder for the folks using iPhones, you can prevent law enforcement from doing this by &#34;pair locking&#34; your device: https://arkadiyt.com/2019/10/07/pair-locking-your-iphone-wit..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://plasma-bigscreen.org/">
-						<picture>
-							<source srcset="default_32859256.webp" type="image/webp">
-							<source srcset="default_32859256.png" type="image/png">
-							<img src="default_32859256.png" alt="Preview of 'Plasma Bigscreen'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://plasma-bigscreen.org/">Plasma Bigscreen</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32859256">
-						
-							
-								<p class="story__comment_first line-clamp">"The killer feature of Kodi (on most hardware, for example the Raspberry Pi) is that it can switch the output resolution to match the video you are playing. It also bypasses things like ALSA in order to be able to bit-bang audio in supported formats directly to an external receiver. These are basic functions of normal video playback devices like blu-ray players or cable boxes.A Plasma skin can&#39;t do any of this. So while it&#39;s probably very suitable for things like games and photo frames on a big screen, I fear that it is disadvantaged from the start for video and audio."</p>
-							
-						
-							
-								<p class="story__comment_others">"If they expect ordinary people to use this, the Install page could use some love:https://plasma-bigscreen.org/get/The very first heading is &#34;Neon based reference rootfs&#34;. It gives the impression that you must know exactly what these words mean and what you&#39;re doing, or there&#39;s no hope of ever using this thing. (The classic 1990s style Linux onboarding experience, in other words.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"If I understand correctly it uses a RPi or other ARM device attached to the TV.Is there anything out there tbat overwrite the TV&#39;s &#34;smart&#34; firmware? Something analogous to OpenWRT and its router support?It would be bet cool if you could use the controller and buttons &#34;natively&#34;."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.youtube.com/watch?v=cV9QES-FUAM">
-						<picture>
-							<source srcset="default_32870677.webp" type="image/webp">
-							<source srcset="default_32870677.png" type="image/png">
-							<img src="default_32870677.png" alt="Preview of 'EVGA terminates Nvidia partnership [video]'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.youtube.com/watch?v=cV9QES-FUAM">EVGA terminates Nvidia partnership [video]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32870677">
-						
-							
-								<p class="story__comment_first line-clamp">"Having watched most of the GamersNexus video, my takeaways were:- Will maintain some stock for RMAs- Made pre-production boards for 4xxx, will not manufacture- 3080 and above are not profitable for EVGA- NVIDIA is not transparent about pricing with board manufacturers, they find out MRSP same time we do- NVIDIA limits MSRP heavily on cards so they can&#39;t do things to sell more profitable higher end cards- It sounds like (this is my takeaway from GN&#39;s description, not their words) EVGA&#39;s CEO is tired of dealing with NVIDIA, wants to refocus on family, and there isn&#39;t a clear person to replace him and hesitant to sell to people who would mistreat employees/cut corners/damage brand.- Will continue selling power supplies- No plan to work with AMD or Intel making boards, CEO sounded dismissive toward it"</p>
-							
-						
-							
-								<p class="story__comment_others">"EVGA is doing what every iOS developer secretly dreams of doing whenever they have to deal with some new stupid bullshit from Apple. Respect.Also, I&#39;ve always liked EVGA. I&#39;ve bought a few of their cards over the years, and many power supplies, and I&#39;ve never had a bad experience. It seems like they really care about making quality products, which is pretty rare to see nowadays.If they start expanding into new products with the same focus on quality, that&#39;ll be a net gain for the world. Maybe they&#39;ll try making laptops again?Or maybe this is all just an elaborate power move to put pressure on Nvidia and renegotiate their relationship."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s crazy to see them go, they&#39;ve been a big name in the GPU space since as long as I can remember. If they truly don&#39;t expand into AMD GPUs or something else as they&#39;ve said, I don&#39;t see them sticking around in the long term. A bit sad, they have been a good company to their customers.I don&#39;t blame them though, it sounds like Nvidia is a PITA to deal with, and the recent pains with GPU shortages and mining have likely exacerbated it as well.My best wishes to their employees, hope they all find good work elsewhere."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.nytimes.com/2022/09/15/technology/uber-hacking-breach.html">
-						<picture>
-							<source srcset="default_32860728.webp" type="image/webp">
-							<source srcset="default_32860728.png" type="image/png">
-							<img src="default_32860728.png" alt="Preview of 'Uber investigating breach of its computer systems'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.nytimes.com/2022/09/15/technology/uber-hacking-breach.html">Uber investigating breach of its computer systems</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32860728">
-						
-							
-								<p class="story__comment_first line-clamp">"I think it&#39;s worth repeating: at this point, MFA that is not based on Webauthn (https://webauthn.guide/#about-webauthn) should be considered dangerously insecure. Uber almost certainly enforces MFA for remote access; I strongly suspect we&#39;ll end up hearing that it was successfully provided during the authentication step (update: screenshots on Twitter appear to confirm this). As we saw in the case of the 0ktapus campaign, a sufficiently-skilled attacker will simply proxy the MFA calls to the real identity provider in real-time, the user none the wiser.Webauthn, however, binds the authenticator to the domain and port, and requires https as the scheme. If a user gets phished, they cannot be compromised: the phisher&#39;s domain will not match and any Webauthn authentication challenge would fail.So if your workplace is letting you authenticate with SMS codes, push notifications to an app, or 6-digit codes generated by an authenticator app/hardware device, you need to start banging on pots and pans up your reporting chain to get your security team the support they need to make Webauthn + FIDO2 hardware tokens or Webauthn + Mac Touch ID happen."</p>
-							
-						
-							
-								<p class="story__comment_others">"Why are people talking about MFA on this thread. Look, as someone whose day job is responding to such incidents, someone targeting Uber and is persistent will get in, MFA or not. Infostealers for Mac are a thing (Uber is a mac heavy shop I hear) and that&#39;s all it takes to steal cookies and tokens post-mfa, or why even bother with that, if you&#39;re running code just make it a reverse shell.The big screw up here is powershell script on a network share. A cheap pentest would have uncovered something like that.Modern security is not perimeter focused where you try to keep the bad guys out. Yes, you should do MFA,firewalls,vpns the whole schtick but(!!) your presumption should always be that threat actors already have a foot-hold in your network. This is very important because it helps you  focus on basic things like scripts and gpos with creds in them but also you treat internal devices the same as internet exposed devices. It&#39;s sort of what the whole &#34;zero trust&#34; thing is about as well. In other words, host/user compromise is a given but lateral movement should be at least as difficult as breaching the perimeter.But my prediction is, just like top commenters here, they will slap MFA on it and of course cleanup scripts with creds and call it fixed until the next compromise. Oh and FYI, MFA on VPNs is a PITA, that&#39;s rarely done for good reason, instead you use device certificates in addition to passwords which is what the recommendation should be not yubikeys or webauthn (vpn!=web??) because VPNs need to reconnect and you can&#39;t have people insert a yubi each time their connection drops. Ideal setup would have 7 day valid (or however long is reasonable for users to disconnect their PC and remain out of office) mutual-auth certs+ocsp getting conditionally reissued new certs to remain connected (compliance stuff like patching, unapporoved software,security alerts for the device). If you think about it, you typically issue users two yubikeys not just one so if the backup gets stolen you have a problem depending on how easy it is to social engineer users or reset their password with a good yubikey but a stolen laptop means certs+password revoked immediately."</p>
-							
-						
-							
-								<p class="story__comment_others">"Unconfirmed method of breach: https://twitter.com/hacker_/status/1570582547415068672- Socially engineer an employee to get on their VPN (could have been prevented with webauthn / hardware 2fa)- Once on VPN, scan their intranet and find a network share- Network share has powershell scripts with admin credentials for their PAM vendor, Thycotic- From there can get full access to all systems"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.tomshardware.com/news/gpu-mining-is-now-unprofitable">
-						<picture>
-							<source srcset="default_32867584.webp" type="image/webp">
-							<source srcset="default_32867584.png" type="image/png">
-							<img src="default_32867584.png" alt="Preview of 'GPU mining no longer profitable after Ethereum merge'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.tomshardware.com/news/gpu-mining-is-now-unprofitable">GPU mining no longer profitable after Ethereum merge</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32867584">
-						
-							
-								<p class="story__comment_first line-clamp">"There is so much interesting stuff going on in GPU compute that isn&#39;t crypto. I&#39;m really excited about this because there are SO MANY gpus that are now going to be cheaper than sand. There is A LOT that can be made of that and I intend to get mine. I think the crypto boom really covered up what we can really, really do with GPU compute and possibly stifled adoption and innovation but now we&#39;ve got so many just sitting around. Which is super useful as we move more into a world after being able to get things manufactured and shipped world wide in what feels like an instant."</p>
-							
-						
-							
-								<p class="story__comment_others">"Head to the Winchester, grab a pint and wait for those GPU prices to come down"</p>
-							
-						
-							
-								<p class="story__comment_others">"There is one other cryptocurrency use for these mining rigs, and that is to compromise existing chains.Now that there is a great deal of excess capacity, presumably it would be possible to attack smaller chains in an attempt to glean some profit through double-spending, as those chains might now be vulnerable to larger-scale history-rewriting attacks."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://stackdiary.com/figma-alternatives/">
-						<picture>
-							<source srcset="default_32865786.webp" type="image/webp">
-							<source srcset="default_32865786.png" type="image/png">
-							<img src="default_32865786.png" alt="Preview of 'Figma Alternatives'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://stackdiary.com/figma-alternatives/">Figma Alternatives</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32865786">
-						
-							
-								<p class="story__comment_first line-clamp">"I like this list, I like that Sketch is #2, and #1 is an OSS self-hostable solution, https://penpot.app/ -- https://github.com/penpot so we can&#39;t quite get burned like we did with Figma.From some cursory review, it seems pretty good! And there&#39;s now effort underway to be able to import Figma files.edit: okay, I&#39;ve gotten signed up with penpot, made rudimentary sketches, it seems solid and promising. I&#39;m now a fan and I think this seals the deal for me, I&#39;m glad that it was an easy decision. And I will give them the benefit of the doubt when it&#39;s not exactly up to par because 1) they seem to be new and characterize themselves as still being in beta and 2) it&#39;s self-hostable OSS and the inherent security of this offering is something I value deeply."</p>
-							
-						
-							
-								<p class="story__comment_others">"Since 2012, through the eras of Photoshop, Sketch, InVision, XD, Figma, and whatever else, I&#39;ve been using Antetype: https://www.antetype.comFor me, it&#39;s been a 10x tool since it was always the only piece of software that was designed from the ground up as a UI design tool, rather than being some other kind of app that was pressed into service for UI design. Auto-layout, responsiveness, and flexible components that can be edited per instance without breaking their link to the master component are all features that were present from day one rather than being awkwardly bolted on."</p>
-							
-						
-							
-								<p class="story__comment_others">"Not a designer but an engineer that reads designs, and Figma really is a game changer.  High quality collaborative designs, great UX, and rather inexpensive to users.Exactly what Adobe would need to stay relevant because they’re usually the opposite on these fronts :-)I can’t see switching being too realistic.$20 billion is a lot of money.  That’s worth more than Cloudflare, Snap, Spotify, and just $3b shy of Zoom’s current market cap."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.pcmag.com/news/heres-why-craigslist-still-looks-the-same-after-25-plus-years">
-						<picture>
-							<source srcset="default_32862803.webp" type="image/webp">
-							<source srcset="default_32862803.png" type="image/png">
-							<img src="default_32862803.png" alt="Preview of 'Why Craigslist still looks the same after 25 years'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.pcmag.com/news/heres-why-craigslist-still-looks-the-same-after-25-plus-years">Why Craigslist still looks the same after 25 years</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32862803">
-						
-							
-								<p class="story__comment_first line-clamp">"* I far, far, far prefer Craigslist interface to anything else in that space. It&#39;s clear and focusedIts search engine too - I get things I search for in the area I search for.For me, Kijiji and Facebook marketplace are awful UI, awful distractions, and give me 10,000 &#34;suggested&#34; or &#34;fuzzy searched&#34; things in random order, suppressing things I&#39;m actually looking for. And I&#39;ve completely given up on eBay over last decade.However.* Nothing is on Craigslist anymore in my area (Greater Toronto Area). Until about... 5-6 years ago, I could find comparable number of photography, computer, music &amp; kids stuff on Craigslist and Kijiji. Today, Craigslist is a desert, a void, an oasis of empty search results.So network effect wins, as always :-/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I hate FB Marketplace.It&#39;s actively hostile to buyers.Like, try to find a &#34;kinda nice&#34; bicycle. You can&#39;t find the bicycle category  (though it does exist as a sub-group of Sporting Goods), you can&#39;t just say &#34;show me bikes&#34; unless you hack the URL, you can search for the word &#34;bicycle&#34; but for some reason people selling a &#34;Specialized Rockhopper&#34; think you know it&#39;s a bicycle so don&#39;t use that word.Oh, and when selling, they just suggest random categories instead of letting you choose from their heirarchy. So you get bicycles in Hobbies. You get them in Sporting Goods. You get them in Bicycles. But... You can&#39;t search for them by type.That&#39;s not even complaining about the lack of attributes, like &#34;type=BMX&#34; or &#34;type=Mountain&#34; or &#34;Size=Large&#34; or &#34;Frame Material=Carbon Fiber&#34;... all of which are in Craigslist and eBay.And! when searching, they actively work to inject ebay-like selling (non-local) into the mix by resetting my distance preferences every time I change the search. &#34;Find bicycles&#34; -&gt; &#34;Find bicycles in 30 miles&#34; -&gt; &#34;Find &#39;Specialized Rockhopper&#39;&#34; -&gt; Why am I getting &#34;Ships To You&#34; results?! Why am I getting non-bicycle results?! Oh. They reset my distance again.^-- BTW they do this because they actually make money when the sale happens through FB. If you just buy it in-person with cash they don&#39;t get a cut. Misaligned incentives, as they say.And! even if I do find the bicycle category, if narrow the category by searching with a word in there, like &#34;Rockhopper&#34; it takes me out of the bicycle category to do the search!G. A. R. B. A. G. E."</p>
-							
-						
-							
-								<p class="story__comment_others">"My problem with Craigslist isn&#39;t that it looks old, the problem is that they seemingly refuse to modernize anything else about the site. Craigslist is chock full of spam and people abusing the search feature. I&#39;m no anti-spam guru, but surely there is a way to cut down on people submitting the same thumbnail dozens of times using as many keywords as they can so their cellphone screen repair service shows up when looking for just about anything.Craig is no saint, and actively goes after any competition to his site. That, coupled with the complacency or refusal to go after spammers leaves me with a very sour opinion of the platform and Craig himself."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://spectrum.ieee.org/cryptokitties">
-						<picture>
-							<source srcset="default_32856333.webp" type="image/webp">
-							<source srcset="default_32856333.png" type="image/png">
-							<img src="default_32856333.png" alt="Preview of 'The collapse of cryptokitties, the first big blockchain game'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://spectrum.ieee.org/cryptokitties">The collapse of cryptokitties, the first big blockchain game</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32856333">
-						
-							
-								<p class="story__comment_first line-clamp">"I read these articles sometimes about crypto games, but they all never seem to describe the actual game, it’s like crypto is the primary concern, and game is secondary, and i’m getting the distinct impression none of these games are any fun and everyone in the space has to avoid mentioning it.I think that the people writing these things only have a very slim grasp of gaming, but they know it would be a good market to capture"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; What Went Wrong?It&#39;s in the title of the article. It&#39;s a &#34;Blockchain Game&#34;. That&#39;s what went wrong. It was a flawed concept from its inception. Blockchains are pretty cool from a math/cryptography standpoint, but they really do not provide added value in most areas people try to apply them to.CryptoKitties is a digital trading card game. You get cards, you can &#34;breed&#34; cards together to make new cards, you trade/buy/sell cards. That&#39;s it. Nowhere at any point in this &#34;game&#34; is a blockchain necessary. Nowhere at any point does a blockchain add any value whatsoever. In fact, due to transaction fees, I&#39;d argue the blockchain actively detracts from the game.The idea of an artist signing their work in a cryptographically unique way is not new or revolutionary, and it certainly doesn&#39;t need a blockchain. There&#39;s a reason the general sentiment the art community has towards NFTs is overwhelmingly negative: it&#39;s because they literally actively harm us."</p>
-							
-						
-							
-								<p class="story__comment_others">"One thing I don&#39;t see addressed in this article is that as far as I know, it&#39;s basically impossible to trust the reported price or volume of NFT transactions, because there&#39;s no way to distinguish fake wash trades from real ones.So it&#39;s hard to draw any conclusions about whether the data reflects an actual peak in user activity, or just a peak in scams."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://blog.tjll.net/reverse-proxy-hot-dog-eating-contest-caddy-vs-nginx/">
-						<picture>
-							<source srcset="default_32865497.webp" type="image/webp">
-							<source srcset="default_32865497.png" type="image/png">
-							<img src="default_32865497.png" alt="Preview of '35M Hot Dogs: Benchmarking Caddy vs. Nginx'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://blog.tjll.net/reverse-proxy-hot-dog-eating-contest-caddy-vs-nginx/">35M Hot Dogs: Benchmarking Caddy vs. Nginx</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32865497">
-						
-							
-								<p class="story__comment_first line-clamp">"This is a great writeup overall. I was happy to see Tyler&#39;s initial outreach before conducting his tests [0]. However, please note that these tests are also being revised shortly after some brief feedback [1]:- The sendfile tests at the end actually didn&#39;t use sendfile, so expect much greater performance there.- All the Caddy tests had metrics enabled, which are known[2] to be quite slow currently. Nginx does not emit metrics in its configuration, so in that sense the tests are a bit uneven. From my own tests, when I remove metrics code, Caddy is 10-20% faster. (We&#39;re working on addressing that [3].)- The tests in this article did not tune reverse proxy buffers, which are 4KB by default. I was able to see moderate performance improvements (depending on the size of payload) by reducing the buffer size to 1KB and 2KB.I want to thank Tyler for his considerate and careful approach, and for all the effort put into this![0]: https://caddy.community/t/seeking-performance-suggestions-fo...[1]: https://twitter.com/mholt6/status/1570442275339239424 (thread)[2]: https://github.com/caddyserver/caddy/issues/4644[3]: https://github.com/caddyserver/caddy/pull/5042"</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel like we never see HAProxy in these reverse proxy comparisons. Lots of nginx, Apache, Caddy, Traefik, Envoy, etc.The HAProxy configuration is just as simple as Caddy for a reverse proxy setup. It&#39;s also written in C which is a comparison the author makes between nginx and Caddy. And it seems to be available on every *nix OS."</p>
-							
-						
-							
-								<p class="story__comment_others">"I wrote up a few notes on my Caddy setup here https://muxup.com/2022q3/muxup-implementation-notes#serving-... which may be a useful reference if you have a static site and wanted to tick off a few items likely on your list (brotli, http3, cache-control, more fine-grained control on redirects).I don&#39;t think performance is ever going to matter for my use case, but one thing I think is worth highlighting is the quality of the community and maintainership. In a thread I started asking for feedback on my Caddyfile (https://caddy.community/t/suggestions-for-simplifying-my-cad...), mholt determined I&#39;d found a bug and rapidly fixed it. I followed up with a PR (https://github.com/caddyserver/website/pull/264) for the docs to clarify something related to this bug which was reviewed and merged within 30 minutes."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://godotengine.org/article/dev-snapshot-godot-4-0-beta-1">
-						<picture>
-							<source srcset="default_32856034.webp" type="image/webp">
-							<source srcset="default_32856034.png" type="image/png">
-							<img src="default_32856034.png" alt="Preview of 'Godot 4 Beta 1'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://godotengine.org/article/dev-snapshot-godot-4-0-beta-1">Godot 4 Beta 1</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=32856034">
-						
-							
-								<p class="story__comment_first line-clamp">"from the article,&gt;&gt;As much as we love exciting new features, we also want to see people create games on the full spectrum of devices for everyone to enjoy.This is one of the main attitudes of the Godot team I really appreciate a lot. It might be easy for people in more developed nations to upgrade their hardware every few years, but there&#39;s people still playing games running on computers from 2002 and before. I used to know of a player who used to play (an old MMORPG) games on a computer he aimed a table fan at to keep it cool. The whole casing was open, it was kinna funny to look at it and it had hardware he got as a birthday gift more than 10 years ago. He played that old MMORPG because newer games wouldn&#39;t even start on that old thing. But most people who played that MMO were in the same boat, it was one of the very few ones they could run.The requirements for some of the games coming out these days is sometimes so insane a lot of people from around the world are unable to play them. I always found it funny how we had so much developer time wasted on supporting ie6 because a small percentage of people were unable to upgrade their browsers, but when it comes to gaming, all bets were off and you are now expected to spend a few grand a year on upgrading your computer to play newer games. And don&#39;t get me started on the bandwidth costs to play some of the new games."</p>
-							
-						
-							
-								<p class="story__comment_others">"I played with Godot back in the early 3.x timeframe (3.1? 3.2?) and then fell away and spent some time with Unity. But between some of Unity&#39;s missteps and Godot getting dotnet 6 support it is time to give it another go, plus a bunch of nice changes to gdscript that might make it something I&#39;m okay with using (functions are first class citizens now unlike before where you just passed the name of the function as a string which always felt incredibly gross).Though based on the discord conversation there are still a lot of bumps even in the beta so I would not expect smooth sailing yet, but lets see if it is any good.For anyone interested, the main documentation on their site is still pointing at 3.x. If you want the docs for 4.0 start herehttps://docs.godotengine.org/en/latest/index.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"HN hug of death? godotengine.org is offline for me at the moment. Regardless, really looking forward to trying it out! Here it is on the wayback machine:https://web.archive.org/web/20220915181526/https://godotengi..."</p>
 							
 						
 						</a>
