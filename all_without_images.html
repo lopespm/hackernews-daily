@@ -36,6 +36,299 @@
 	</div>
 
 	
+	<div class="day__date">11 October 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://hacks.mozilla.org/2022/10/improving-firefox-responsiveness-on-macos/">Improving Firefox Responsiveness on macOS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33152472">
+						
+							
+								<p class="story__comment_first line-clamp">"I tried Firefox again a few days ago, and it was indeed noticeably snappier. In fact, it felt snappier than Chrome on the handful of sites I tried.With all the things they&#39;ve addressed in Firefox recently and with Chrome&#39;s manifest v3 nonsense, I&#39;m running out of reasons not to switch."</p>
+							
+						
+							
+								<p class="story__comment_others">"This blog post has some good discussion about what makes a good locking primitive. On macOS, os_unfair_lock is generally a good choice for many applications. That said,&gt; At this point, you might wonder if os_unfair_lock – possibly coupled with the undocumented flags – would be a good fit for your codebase. My answer is likely yes but you’ll have to be careful when using it.I would hesitate to give this advice. The overwhelming majority of applications on macOS do not have performance profiles like Firefox does. The system allocator (rather than jemalloc) is the right choice for all but very few use cases. There are a vanishingly small number of usecases where using the undocumented flags is appropriate.The rules are different when you’re a popular browser with an existing relationship with Apple and dozens of smart engineers who can (at least in theory) understand the consequences of using this API, and leverage an existing relationship with Apple to ensure that it doesn’t become a liability in the future as the platform evolves. For pretty much everyone else, this should be nothing more than a “wow, neat” blog post."</p>
+							
+						
+							
+								<p class="story__comment_others">"Have you looked at `__ulock_wake` versus `os_unfair_lock_with_options`? __ulock_wake is another private darwin API for locking.From some Zig code:        // Darwin XNU 7195.50.7.100.1 introduced __ulock_wait2 and migrated code paths (notably pthread_cond_t) towards it:
+        // https://github.com/apple/darwin-xnu/commit/d4061fb0260b3ed486147341b72468f836ed6c8f#diff-08f993cc40af475663274687b7c326cc6c3031e0db3ac8de7b24624610616be6
+        //
+        // This XNU version appears to correspond to 11.0.1:
+        // https://kernelshaman.blogspot.com/2021/01/building-xnu-for-macos-big-sur-1101.html
+        //
+        // ulock_wait() uses 32-bit micro-second timeouts where 0 = INFINITE or no-timeout
+        // ulock_wait2() uses 64-bit nano-second timeouts (with the same convention)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/helix-editor/helix">Helix: A Neovim inspired editor, written in Rust</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33147270">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve used Helix for all my recreational programming projects (in Rust) for about 6 months and I&#39;ve written about 10kLOC of code with it. Still using vim at $WORK for a variety of reasons (giant c++ codebase that does not easily plug in to clangd/LSP), but I might be doing the switch soon.Installation was easy and the default configuration is good. Plugging in rust-analyzer still needed a line or two of config file editing, but that should not be necessary for very long. Hint: use `hx --health` to check that all the tools are properly installed and configured (it shows a matrix of programming languages and their associated tooling, with red/green check marks).My Helix config file is about 5 lines long, but my Vim config is in the hundreds of lines.I had very little friction coming from Vim and a little bit of Kakoune.I particularly like the fact that all the important features are built-in and not half baked scripts with unintended side effects (e.g. opening a Makefile in Vim triggers a ftplugin script that messes editor-global config instead of buffer-local, with the default out of the box scripts).Lots of people are requesting a plugin extension system, which is kinda understandable since every editor seems to have one. But I haven&#39;t had a need to add any kind of plugin, and it&#39;s easy enough to fork a shell for an external process if needed.It&#39;s still rough around the edges, but good enough for a daily driver.Thanks to everyone working on the project."</p>
+							
+						
+							
+								<p class="story__comment_others">"I fully expect Helix to replace Vim, Neovim, and Kakoune for most users in the long run.Helix is built from the ground up around Tree-Sitter and LSP. This means you get the best syntax highlighting available, and IDE-like functionality, with zero configuration required other than installing the appropriate language server.Those are by far the most important features for a text editor to have, and crucially, they are fully integrated into Helix, but are an afterthought in (Neo)vim and Kakoune. The quality difference is obvious the moment you try it side by side. Nothing else really matters. Vim&#39;s and Kakoune&#39;s syntax highlighting is terrible, and while Neovim can now use Tree-Sitter as well, there always seem to be some additional hoops the user needs to jump through in order to get it to work. Not so with Helix.Regrettably, Helix has inherited Vim&#39;s worst design flaw, namely being unusable with non-English keyboard layouts, but all other Vim derivatives share this flaw as well so I don&#39;t see that stopping Helix from steamrolling the competition once it matures and the word spreads."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have been trying out Helix for the last few months as part of my now 24 year quest to incorporate some form of vi into my daily routine. This time, it&#39;s looking good. What sets it apart are the (zero-conf) built-in LSP and tree-sitter highlighting, and the select-verb modal keybindings instead of vi&#39;s verb-object syntax, where you see what you&#39;re about to do before you do it. Some of the key combinations also show a reminder menu, aiding the learning process, which is a nice touch over plain old vi which has zero discoverability. General performance is also very good, the editor feels a lot snappier than a fully loaded Neovim or Doom Emacs, or a monster like Visual Code.I think there are plans to see if a graphical editor could be built on top of it, which would be an interesting project. As a new Rust graphical tree-sitter based editor, it would probably rival the upcoming open-or-not Zed editor by the Atom folks."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://serenityos.org/happy/4th/">The 4th Year of SerenityOS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33151658">
+						
+							
+								<p class="story__comment_first line-clamp">"I think there is more behind SerenityOS that elevates it above being just another OS project. They&#39;ve attracted hundreds of contributors and have instilled a unique sense of culture within their community (as an example, going as far to devote an entire GitHub repository to documenting a list of &#34;yak-shaving&#34; yak emojis[1]).I think that kind of social endeavor isn&#39;t something a lot of maintainers can accomplish, not even those with the skills to work on such a project all by themselves.[1] https://github.com/SerenityOS/yaksplained"</p>
+							
+						
+							
+								<p class="story__comment_others">"I follow Andreas on twitter and he is a big inspiration for me when I go look at more challenging problems now.I have an addictive personality, so far cigarettes are the only thing that got me and only for 4 years, but I largely stay away anything else now because I see how it effected members of my family and how easily someone like myself could go the same way.Because of that I very much appreciate channeling yourself into something as ambitious as an operating system instead. It&#39;s actually the same way I&#39;ve built any of my best work and how I&#39;ve gotten even this far in my career. The line I say is: programming keeps me sane."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wouldn&#39;t be surprised if, at some point, some commercial project adopts a part of Serenity and turns it into a huge hit, even outside of tech.Such things have definitely happened in the past.. Not many (average) people have heard of KDE or its web engine, KHTML, but almost everybody these days uses Chrome, which, through Apple&#39;s WebKit, is descended from KHTML itself.Serenity uses its own libraries everywhere, to the point of replacing C++&#39;s std with their own library, AK, which might make stripping it for parts more difficult, but it&#39;s certainly not unimaginable.If Serenity&#39;s web engine gets good enough, I can even imagine some EU government sponsoring an independent competitor to the Google / Apple browser duopoly."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://werat.dev/blog/how-wine-works-101/">How Wine works 101</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33156727">
+						
+							
+								<p class="story__comment_first line-clamp">"The LWN article &#34;Emulating Windows system calls in Linux&#34; discussed on HN:https://news.ycombinator.com/item?id=24120066 (August 2020, 64 comments)"</p>
+							
+						
+							
+								<p class="story__comment_others">"What I&#39;m curious about (and probably there are some good write ups about this somewhere) that how come modern Linux and modern Wine is better to run old Windows applications than modern Windows (7 to some extent but mostly 10&amp;11). Did MS &#34;intentionally&#34; &#34;left behind&#34; certain APIs and system calls to sacrifice it for some greater good? Like I use Windows every day and have no problems at all. And I use Linux every day too for work. But by my experience if I come around an old Windows application (Vista, XP, 2000 or before) then I probably have a better chance to run it as it meant to be on Linux w/ Wine than on Windows 10/11"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; In the last year I’ve spent quite some time working on a debugger capable of debugging both the Wine layer and the Windows application running with it.looking forward to this. every attempt i&#39;ve made to debug a misbehaving program in wine has left me extremely frustrated with the debugger"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://developer.apple.com/documentation/virtualization/running_gui_linux_in_a_virtual_machine_on_a_mac">Running GUI Linux in a virtual machine on a Mac</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33143016">
+						
+							
+								<p class="story__comment_first line-clamp">"It seems there is some confusion of what this page is about or why it might be relevant. This is not about an end-user product to run desktop virtualisation, but it is a page for developers in the Apple ecosystem to programmatically make use of OS-native virtualisation to create virtual machines with graphics output.The value in this is not as much that &#34;it is possible&#34; because there are plenty of implementations of this possibility, but it&#39;s more about the vendor-native support, vendor-native documentation and examples and the signal it gives about the current state of support.In the wild, an end-user (that includes developers, it&#39;s not a derogatory term, it simply mens the person the product is intended to be used by) might see applications like UTM, Veertu, Q and others use this under the hood.VirtualBox doesn&#39;t work on ARM by the way, they only release for x86(_64). So it can only virtualise, and only on x86 hosts for x86 guests."</p>
+							
+						
+							
+								<p class="story__comment_others">"UTM works great. Emulate X86, AMD64, or run on Apple Silicon. It&#39;s essentially a GUI on top of QEMU.https://mac.getutm.app/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow, you can use Rosetta to run x86 Linux binaries inside the VM on ARM? That seems pretty awesome. https://developer.apple.com/documentation/virtualization/run..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.nitinpai.in/2022/10/10/why-an-everything-app-is-bad-news-for-liberal-democracies-and-free-markets">An ‘everything app’ would be bad for liberal democracies and free markets</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33151774">
+						
+							
+								<p class="story__comment_first line-clamp">"I thought Elon&#39;s tweet was pretty funny, not just because &#34;X&#34; is already taken by X.com which he founded, but also because we already kinda tried an &#34;everything app&#34;. It&#39;s called Facebook, and the reason why other social networks like Instagram and Twitter exist _at all_ is because Facebook could not keep everyone on their network.Lest we forget, Facebook was the ONLY social network people used for a good long while, at least when I was graduating HS and entering college. You had Facebook for actual social networking, band/music pages on MySpace, and everything else was essentially porn bots and pedophiles, aka &#34;spam city&#34;. So you have to wonder, if an everything app actually is a good idea, why couldn&#39;t the one company who had the most opportunity at the perfect time with as much funding as they could possibly need...not be able to do it?Just because something works in China, doesn&#39;t mean it will work everywhere else. Actually, I would say that if something works in China, your best bet is that it _won&#39;t_ work anywhere else. TikTok being a notable exception."</p>
+							
+						
+							
+								<p class="story__comment_others">"The web is an everything app, and despite capture by incumbents it is still the most open platform we have and it is not illiberal. The reason for that is open standards that are not owned by anyone. We need open identity standards and open payment standards so we can have an everything web that is liberal. But governments have to allow those things to happen. Right now their legislation favors the incumbent monopolies"</p>
+							
+						
+							
+								<p class="story__comment_others">"I wish I could go back in time and just curb crypto from growing into the current tumor it has become. Decentralization efforts applied to app servers and services would have been such a better use of time and energy imo.If there was a protocol for cab hailing, and anyone could roll it out for someone to connect to their network (like xmpp), and anyone could offer to become a driver or play another role like customer support, they earn their local currency and are a part of their local economy. The same protocol could be used in Norway and in Taiwan. There might be a gap that’s too hard to fill, and someone else could create another protocol that works in their local economy, maybe like a matrix protocol. They’re completely different but serve to solve the same problem of real time communication.Then Elon’s super app could offer users a platform which tries to implement multiple protocols, or have a in app protocol marketplace which is the sub apps. Apps for buying shoes, or buying groceries, or hiring movers. Users could become consumers or agents, so they can both work for various protocols and spend their money on them. They would be vetted and backed by the super app.It would be fully decentralized, except for the payment part. If you have everyone on your platform you don’t need to issue tokens and other bullshit. Just build something useful and they will come."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.pagesonpages.com/">Show HN: I built a site that finds the cheapest place to buy a book</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33147079">
+						
+							
+								<p class="story__comment_first line-clamp">"Is &#34;cheapest&#34; the right objective? Because if that&#39;s the case, book piracy seems like the clear winner.But maybe we should consider &#34;cheapest with some boundaries&#34;. For instance, we probably agree that bookstores are nice for a myriad of reasons, even if we don&#39;t frequent them. They employ people in the area, they offer curation and recommendations, they invite speakers and host events, and they help local authors get started. They may offer benefits or profit sharing.But a physical space like that costs money. Experience costs money. Curation costs money (indirectly).I&#39;d argue that cheapest as a metric undercuts best as a metric. Cheap is one important input to the purchasing decision, but it shouldn&#39;t be the only one.We have to learn to accept some inefficiencies and some personal inconveniences for the sake of a healthier social ecosystem."</p>
+							
+						
+							
+								<p class="story__comment_others">"As a German I don&#39;t have to worry too much about the prices of books. We have Buchpreisbindung https://de.wikipedia.org/wiki/Buchpreisbindung"</p>
+							
+						
+							
+								<p class="story__comment_others">"Searched for Streams of Silver and got a higher priced book as a return than what was available on the site recommended. Seems that was because of the cost of shipping. Though it was only 0.01 more than what was recommended and didn&#39;t appear on the results.Recommended: $4.58
+https://www.abebooks.com/servlet/BookDetailsPL?bi=3131841312...Found: $2.50 + $2.00 shipping
+https://www.abebooks.com/servlet/BookDetailsPL?bi=3119792159...Not sure how to takes shipping into account; but really solid results so far!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/invoke-ai/InvokeAI">Show HN: InvokeAI, an open source Stable Diffusion toolkit and WebUI</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33155074">
+						
+							
+								<p class="story__comment_first line-clamp">"Speaking of SD, I wonder if 1.4 will be the last truly open release as Emad said 1.5 would release a while ago but it&#39;s been held up for &#34;compliance&#34; reasons. Maybe they got legal threats due to using artists&#39; works and stock images. If so, that would be sad to see it.In a way it reminds me of people who make unofficial remakes of games but get cease and desists if they show gameplay while in development. The correct move is to fully develop the game and release it, then if you get C&amp;Ds, too late, the game is already available to download."</p>
+							
+						
+							
+								<p class="story__comment_others">"[OT] its been hard for me to trace the universe of stable diffusion forks so ive been maintaining a list here: https://github.com/sw-yx/prompt-eng#sd-major-forksplease let me know/send PRs if i missed anything, its been a couple months so i&#39;m overdue for a round of cleanup/reorganizing"</p>
+							
+						
+							
+								<p class="story__comment_others">"A Shameless plug, if anyone is interested in building apps using stable diffusion and wants to keep things as cheap as possible, I built a very user-friendly API that is 1/4 the cost of the official stable diffusion API. There is also a free demo.You can try it out:https://computerender.com."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="http://kylehalladay.com/blog/2020/05/20/Rendering-With-Notepad.html">Ray Tracing in Notepad.exe at 30 FPS (2020)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33151402">
+						
+							
+								<p class="story__comment_first line-clamp">"Every time I see someone&#39;s off-piste raytracer project, I feel compelled to link my own silly contribution to that diaspora: https://github.com/chunky/sqlraytracer"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Using notepad.exe as an output device&#34; is the message here.But impressive job nevertheless."</p>
+							
+						
+							
+								<p class="story__comment_others">"Love this though I have to ask, wouldn&#39;t getting the HWND of the Edit Control via WindowFromPoint and sending WM_SETTEXT be easier than digging through memory?I guess the point may be to learn how Cheat Engine can be used in a practical way to hook things which is definitely more along the lines of some of the author&#39;s other posts!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/Demindiro/agreper">Show HN: Minimal, no-JS web forum software</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33153152">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s always nice to hear about someone writing a cool program just because they felt like doing so.  Every time I think about writing a forum server, I find I return to the thought that Usenet was better, and that if I wanted a web forum, I&#39;d consider putting a web front end on an NNTP server.  That would among other things let people keep using NNTP clients (I like gnus.el) if they don&#39;t want to use a browser.  There are a bunch of NNTP web clients already, but afaict they all needlessly suck.You might take a look at Fossil (fossil-scm.org) which is not a forum, but is an all-in-one source control system, bug tracker, wiki, and web backend, all implemented as an SQLite client written in C.  Its blurb says a scripting language might sound more attractive than C superficially, but in Fossil, SQLite does all the heavy lifting that would otherwise have been done with scripts.  On my bottomless todo list I want to study its implementation sometime, since I think it would be a good example of &#34;advanced&#34; uses of SQL and SQLite.  That is completely independent of Fossil&#39;s purpose as a VCS application.  I&#39;m ok at basic SQL but not so clueful about sophisticated uses.One thing to watch out for is that since SQLite is an embedded DB, when you make an SQlite query, the overhead is basically a local subroutine call rather than the network traffic that a client/server DB would incur.  That in a way changes the asymptotics of an application: particularly, the &#34;N+1 queries&#34; antipattern of some client/server DB apps is a perfectly ok design strategy for SQLite.  I believe Fossil may rely on this in some way."</p>
+							
+						
+							
+								<p class="story__comment_others">"I commend you for hand rolling it all and not using JS.I miss the days of good ole forum software (e.g. FluxBB/PunBB) before it was superseded with massive JS bloat/clunky forum software like Discourse, Flarum, etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"That reminded me of the 1KB forum: https://nerdparadise.com/programming/phpforumI actually shortened it, expanded it to add bot detection and published the update also under 1KB: https://gist.github.com/Xeoncross/1503594Such abuse PHP could handle back then."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">10 October 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -269,7 +562,7 @@ I think the former requires a tool, but nothing particularly sophisticated - App
 							
 						
 							
-								<p class="story__comment_others">"Any article that pretends to know what the right way of taking notes (say, &#34;This is known as a commonplace book, and it is about how detailed your note-taking system should be unless you plan on thinking more elaborately than Leonardo da Vinci.&#34; in this article) is missing the point.People think differently, people have different purposes and goals, people have different constraints on their time, their memory, their field. Can you procrastinate on note-taking? Sure. So can you on writing, and publishing, and building an audience, and writing papers, and doing the dishes.Can people have a fantastic creative output by just opening a blank page and jotting down their thoughts? Sure. Can other people write great books with an elaborate notetaking system? Of course. There are plenty of people out there with terrific, obsessive note-taking and reference systems, Kubrick being one of the prime examples.As someone with what looks from the outside to be an overarchitected note-taking system ( https://publish.obsidian.md/manuel ), it is a system that works great for me, and it is a system that makes me more creative and helps me discover ideas I would have never been able to articulate without. I used linear sketchbooks where I would write and draw whatever for years, filling hundreds of notebooks, and it came nowhere near my obsidian setup in terms of output and effectiveness."</p>
+								<p class="story__comment_others">"This is strange.  Lately, I&#39;ve had a number of people in different situations (especially at work) tell me of similar efforts pushing back on organized process or.. organized anything, including note-taking, task tracking and more.  Is there some kind of attempt at a mental revolution here or is this some kind of response to people being overloaded and not wanting to carry the mental burden/weight/let it go?I almost feel like this should not even be a topic.  Using tools to help organize thoughts - why do we care if it helps people? - not all brains work the same.  What is wrong about organizing one&#39;s thoughts and spending time doing so??I can see the argument that one can get lost in a meta-loop of sorts, but that&#39;s probably true of anything when you take into account procrastination - or certain brain types - that are prone to loops.  For some people loops feel good, right?  I say this as somebody who is lightly on the spectrum.Even the pushback against knowledge management as a practice is perplexing - there was a time where Peter Drucker, for example, thought knowledge work would someday be all there was left to do.That said, I can&#39;t help but wonder if there really is something bigger/some kind of trend going on here and I can&#39;t quite put my finger on it.  Is this something evolutionary?  Are we trying to evolve/seek a better way as an organism?Is anybody else seeing/feeling the same trend?"</p>
 							
 						
 						</a>
@@ -317,30 +610,18 @@ I think the former requires a tool, but nothing particularly sophisticated - App
 						<a href="https://news.ycombinator.com/item?id=33068421">
 						
 							
-								<p class="story__comment_first line-clamp">"Angular Software Developer, Remote, EUFull-time, 6–12-month contract position, starting immediatelyWe are in the process of revamping our IT and custom ERP systems, which have been key to the success of Memodo (https://www.memodo.de/). If you are living within the European Union, join our international English-speaking team.About MemodoMemodo is driving the energy transition forward as the wholesaler for photovoltaics and electricity storage in Europe. Our team not only supplies installers quickly with goods, but along with our industry-leading knowledge platform, also advise installers competently.Your tasks
-1. You will support the further development our custom ERP system.
-2. You plan and implement new frontend features using the latest version of Angular. Our development environment includes usage of Nx, Jest and Cypress.
-3. You participate in frontend client software architecture discussions.
-4. You work closely with our backend team; discuss the use of existing APIs and APIs to be developed.What we offer
-1. A job with meaning in a fast-growing and sustainable-oriented company.
-2. A passionate and supportive team that has wide-ranging technical expertise.
-3. A well-structured project, maintained by our product owner and product manager, working in 3-week sprints.
-4. Weekly professional development and knowledge sharing discussions.
-5. Remote work.
-6. Flexible working hours.
-7. An opportunity to work in our offices in Munich: Good coffee from the barista machine and fresh fruit.
-8. Several department and company events per year.How to Apply
-If you are interested, please send your questions and/or your CV/resume directly to p.oliva@memodo.de."</p>
-							
-						
-							
-								<p class="story__comment_others">"ShapeBlue | Remote (Europe/Asia/Flexible timezones) | Dev and QA engineers | Full time | https://shapeblue.comHi all, ShapeBlue is a remote-only 100% employee-owned international business ( more on this on https://www.shapeblue.com/shapeblue-has-become-an-employee-o... ).We are hiring devs and QA engineers to work on opensource Apache Cloudstack ( see https://cloudstack.apache.org https://github.com/apache/cloudstack ).Read more on https://www.shapeblue.com/careers/Tech stack is (mainly): Java, Python, Vue.js, (and Go for sub-projects). Expertise in IaaS, hypervisors (such as KVM, Vmware, XenServer/XCP-ng), storage and networking is a plus.To apply, you can email me on rohit.yadav AT shapeblue.com"</p>
-							
-						
-							
-								<p class="story__comment_others">"Hi everyone, my group at NASA is looking to hire a US citizen junior programmer government contract to help assist with our mission to map every tree on the planet!  If you&#39;re a US resident and want to help us tackle exascale compute problems, please submit your resume here: https://workforcenow.adp.com/mascsr/default/mdf/recruitment/...You can visualize our team&#39;s findings here (and help me replace this site with something much cooler)
+								<p class="story__comment_first line-clamp">"Hi everyone, my group at NASA is looking to hire a US citizen junior programmer government contract to help assist with our mission to map every tree on the planet!  If you&#39;re a US resident and want to help us tackle exascale compute problems, please submit your resume here: https://workforcenow.adp.com/mascsr/default/mdf/recruitment/...You can visualize our team&#39;s findings here (and help me replace this site with something much cooler)
 https://trees.pgc.umn.edu/appOur paper:
 https://www.nature.com/articles/s41586-020-2824-5We are seeking someone with low level C/C++ experience."</p>
+							
+						
+							
+								<p class="story__comment_others">"TikTok | Software Engineer | Full Time| Singapore/United States/London/Vietnam/Jakarta | Global Hiring VISA SPONSORSHIPI am a software engineer from TikTok, a short video product company you might already know. I am trying to make extra money by referring talents who are looking and don&#39;t mind to join ByteDance. Now there is a lot of head count and a very good change to have a try.  
+Free free to reach me for any consultant.https://www.notion.so/TikTok-Software-Engineer-Job-32afd492f..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Vendia | Product and Engineering | Remote | Full-Time | https://www.vendia.net/careersLooking for a remote-first company that lets you celebrate Canadian Thanksgiving, the Independence of Guayaquil, or &lt;insert-your-country’s October holiday here&gt;? Or maybe you’d just like to work on tough tech problems at a startup that believes in growing intentionally, and that has multiple years of runway in capital?Vendia is looking for senior product managers and senior software engineers, both roles that require &gt;5 years experience in the cloud on B2B products; check out our open roles here: https://www.vendia.net/careers. We’re also interested in talking with security engineers, compliance / automation engineers, and customer growth engineers. Our core tech stack is AWS, but we’ve products on Azure and more, primarily in Python &amp; Rust, Node.js, Serverless, CDK, Terraform, Lambda, GraphQL, Next.js, React, TypeScript, &amp; more.What do we do? We span data silos, enabling our customers to see a single view of truth, while ensuring full control, security &amp; privacy of their data. We do this by delivering multi-cloud, serverless blockchains &amp; ledgers, plus some. We’re a Venn diagram of all of all things data. (Venn diagram… Vendia… get it?)We were founded by Dr. Tim Wagner and Shruthi Rao - two of the amazing people you would get to work with if you join us. Apply here: https://www.vendia.net/careers"</p>
 							
 						
 						</a>
@@ -1153,13 +1434,13 @@ https://groups.google.com/g/comp.os.linux.advocacy/c/QslNrtx...(note it doesn&#3
 							
 						
 							
-								<p class="story__comment_others">"This issue imploring Yusuke Endoh to write a paper about it is amusing:https://github.com/mame/quine-relay/issues/10&gt; p-e-w:&gt; This is more than a cool program – it&#39;s a computer science breakthrough! Apparently, you have discovered a method for constructing quines based on an arbitrary blueprint involving any amount of languages.
-&gt; 
-&gt; Please write a technical paper describing your approach. I&#39;m sure you&#39;ll have no trouble finding a CS journal that will publish it.&gt; mame:&gt; Okay I&#39;ll submit to the Journal of Universal Rejection.Later:&gt; mame:&gt; I&#39;ll soon publish a book, &#34;The world of obfuscated, esoteric, artistic programming&#34;. The book explains how to write a uroboros quine. Hence, I proudly close this issue.&gt; It also contains my almost all (about forty) works, including alphabet-only Ruby program, radiation-hardened quine, etc., and explains many techniques to write such programs.&gt; You can buy my book on amazon.co.jp. Unfortunately, it is written in Japanese, yet another esoteric language. I hope anyone can translate to English."</p>
+								<p class="story__comment_others">"This was written by Yusuke Endoh, who also wrote this submission to the IOCCC that I remember being arguably more astonished when I saw it for the first time: https://www.youtube.com/watch?v=QMYfkOtYYlg (ASCII fluid dynamics)."</p>
 							
 						
 							
-								<p class="story__comment_others">"This was written by Yusuke Endoh, who also wrote this submission to the IOCCC that I remember being arguably more astonished when I saw it for the first time: https://www.youtube.com/watch?v=QMYfkOtYYlg (ASCII fluid dynamics)."</p>
+								<p class="story__comment_others">"This issue imploring Yusuke Endoh to write a paper about it is amusing:https://github.com/mame/quine-relay/issues/10&gt; p-e-w:&gt; This is more than a cool program – it&#39;s a computer science breakthrough! Apparently, you have discovered a method for constructing quines based on an arbitrary blueprint involving any amount of languages.
+&gt; 
+&gt; Please write a technical paper describing your approach. I&#39;m sure you&#39;ll have no trouble finding a CS journal that will publish it.&gt; mame:&gt; Okay I&#39;ll submit to the Journal of Universal Rejection.Later:&gt; mame:&gt; I&#39;ll soon publish a book, &#34;The world of obfuscated, esoteric, artistic programming&#34;. The book explains how to write a uroboros quine. Hence, I proudly close this issue.&gt; It also contains my almost all (about forty) works, including alphabet-only Ruby program, radiation-hardened quine, etc., and explains many techniques to write such programs.&gt; You can buy my book on amazon.co.jp. Unfortunately, it is written in Japanese, yet another esoteric language. I hope anyone can translate to English."</p>
 							
 						
 						</a>
@@ -2717,297 +2998,6 @@ https://www.ftc.gov/business-guidance/blog/2019/07/ftcs-5-bi...&gt; Another way 
 						
 							
 								<p class="story__comment_others">"Not a constructive comment... but this project made me smile during the whole video.  This is awesome!  Great hacker in my book."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">01 October 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://steampipe.io/">Select * from cloud</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33034351">
-						
-							
-								<p class="story__comment_first line-clamp">"Since starting my career, the tech stack I use has changed numerous times.  Technologies have come, gone, evolved.  But except for a brief period in 2010 where we thought we could kill it, SQL is the one technology that has stayed around.  It might be the only TECHNICAL knowledge I learned in the first year of my career that is still relavent.  You&#39;re probably not making the wrong decision if you decide to build on top of SQL."</p>
-							
-						
-							
-								<p class="story__comment_others">"Excited to see Steampipe shared here - thanks kiyanwang! I&#39;m a lead on the project, so sharing some quick info below and happy to answer any questions.Steampipe is open source [1] and uses Postgres foreign data wrappers under the hood [2]. We have 84+ plugins to SQL query AWS, GitHub, Slack, HN, etc [3]. Mods (written in HCL) provide dashboards as code and automated security &amp; compliance benchmarks [3]. We&#39;d love your help &amp; feedback!1 - https://github.com/turbot/steampipe
-2 - https://steampipe.io/docs/develop/overview
-3 - https://hub.steampipe.io/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Steampipe killed my startup.  I couldn&#39;t be happier about it.I started a company six years ago to do exactly this -- make a SQL interface for the AWS API.  Steampipe out-executed us and made a way better product, in part because their technology choices were much smarter than ours.  I shut down the startup as soon as I saw steampipe.I wish them all the best, it&#39;s a great product!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/techemails/status/1575588277700026368">Jack Dorsey texts Elon Musk, March 26, 2022</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33032847">
-						
-							
-								<p class="story__comment_first line-clamp">"Unlike everyone else here apparently, I find his attitude pretty positive. You all act as if you would have know what twitter would become from the beginning and you would have done better, I&#39;ve been in infinitesimally smaller projects with pressures that have nothing to do with building Twitter and still I thought like I was losing control of the direction the product was going."</p>
-							
-						
-							
-								<p class="story__comment_others">"Is he talking about ActivityPub[1, 2] and the Fediverse[3]?Just look at Mastodon[4, 5] if you&#39;re looking for something like twitter without the centralization and the corporate greed.[1] https://en.wikipedia.org/wiki/ActivityPub
-[2] https://activitypub.rocks
-[3] https://en.wikipedia.org/wiki/Fediverse
-[4] https://en.wikipedia.org/wiki/Mastodon_(software)
-[5] https://joinmastodon.org/servers"</p>
-							
-						
-							
-								<p class="story__comment_others">"For someone invested in decentralized protocols, it just sounds like people trying to reinvent the wheel. &#34;let’s make it decentralized&#34; &#34;wow, very cool idea&#34;.Those guys are business guys but they have no idea what they are talking about. They don’t know the first bit about technical decentralization, about prior art, about the politics involved.They are so close of realizing that their companies are Frankenstein monsters they don’t control anymore. They are so close of getting the whole idea that Stallman is trying to articulate for the late 40 years.  But they are locked in their business/company/VC model and can’t get out of that."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://adguard-vpn.com/en/blog/vpn-built-browser-microsoft.html">Microsoft bakes a VPN into Edge and turns it on</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33037171">
-						
-							
-								<p class="story__comment_first line-clamp">"Why do I always get a bad feeling about the motivations behind stuff like this? I want to believe it&#39;s for better privacy and security, but it&#39;s being driven by a corporation or two, and that makes me 100% suspicious. Like, for example, suddenly Edge is no longer respecting local DNS options and my pihole protects one fewer device from the real dangers to privacy. I don&#39;t want to be cynical so often, but this really doesn&#39;t feel like a benevolent move. Yeah, it&#39;s conditional at the moment, but as with Chrome and manifest v3, among many other examples, I&#39;m losing my faith that anything with the potential to increase ad revenue will remain turned off for long."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; the VPN will automatically connect when you’re using public Wi-Fi or browsing unsecured networks and sites lacking a valid HTTP certificate.OK, that&#39;s actually a pretty decent idea. It&#39;s not going to be always-on, but it&#39;s providing security specifically for things like coffeeshops/libraries and for sites that don&#39;t provide their own security. In other words, it&#39;s &#34;backup security&#34;, not rerouting all of your &#34;normal&#34; secure traffic at work/home.This mainly protects sites you visit from having JavaScript injected into them by networks when there aren&#39;t any other protections, and the VPN is run by Cloudflare so it will be performant, so I don&#39;t really see any problems here? Seems like a positive development actually."</p>
-							
-						
-							
-								<p class="story__comment_others">"From the article, this is powered by a partnership with Cloudflare. It&#39;s worth noting that until August 6 of this year, Cloudflare&#39;s WARP VPN would leak your IP address - but only to sites using the Cloudflare network.https://web.archive.org/web/20220609160341/https://developer...And when Cloudflare released their new SOPs for Warp, they did so in a blog post titled &#34;More features, still private&#34; - https://blog.cloudflare.com/geoexit-improving-warp-user-expe... as referenced in https://developers.cloudflare.com/warp-client/known-issues-a...Microsoft&#39;s initial announcement for the feature touted that IP addresses would be masked, and one imagines that they did their diligence with Cloudflare and are enforcing the strong practices that WARP has now rolled out more broadly.But it&#39;s worth noting that you&#39;re routing through a company to whom the words &#34;still private&#34; encompassed leaking client IP address information to Cloudflare&#39;s hosting customers as recently as two months ago."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=33032470">Google has added ads on both its search page and Chrome://newtab</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33032470">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; Google has historically been protective of their front page, why now?Probably for the same reason that Google is shutting down Stadia [1] and cutting staff [2], and the same reason that we see roughly one announcement of layoffs here on Hacker News every week: most people expect that we are going into a recession. For example, see the price of major indexes like the S&amp;P 500 or the NASDAQ and plot it on a 10+ year timescale.What surprises me the most actually is how quickly Google can adapt to the situation. Basically, they have been giving out candy for free when there was lots of money coming and now that they expect less, they quickly put on extra income streams and cut out money losers.[1]: https://news.ycombinator.com/item?id=33022768[2]: https://news.ycombinator.com/item?id=32927848"</p>
-							
-						
-							
-								<p class="story__comment_others">"Notably, this is not Google showing random search/display ads.Those look like ads for Google&#39;s own product.I don&#39;t think this is the first time. IIRC, Google used to show an ad for Chrome if you used the search from any other browser."</p>
-							
-						
-							
-								<p class="story__comment_others">"It was inevitable, you gotta get the infite growth from somewhere. Ane the next move will +1 this and so on, until google becomes less attractive than leaner competition. Because of inertia, legacy and people benefitting from the status quo, they won&#39;t be able to correct course.This is textbook &#34;how empire falls&#34; and why things that seem indestructible eventually dies like anything else.This will be the mile stone people will remember as the first sign of google decline."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://old.reddit.com/r/gamedev/comments/xrkpmf/horrible_night_with_stadia_we_worked_for_45/">We worked for 4 months to build a port for Stadia and today we finished it</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33033416">
-						
-							
-								<p class="story__comment_first line-clamp">"Best thing to ever happen to them.https://store.steampowered.com/app/1787630/Jump_Challenge/Write a postmortem, publish it to gamedeveloper dot com and capitalize on all the Stadia drama while it&#39;s hot to boost sales for your original game release. Make a YouTube video talking about the pain you went through, all the things you learned that you didn&#39;t get to give to people, and see what kind of hype you can salvage.Or just get it on HN and tell people where they can buy your game?"</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;I&#39;m actually not a big gamer&#34; - Sundar Pichai on the Stadia reveal event https://youtu.be/nUih5C5rOrA?t=120The whole industry is there and this is how you start a keynote. Not surprised that most people weren&#39;t confident about Stadia.But it&#39;s also baffling when there were so many running services and standalone products already. Steam Link, Nvidia Geforce Now, Xbox Cloud Gaming, Playstation Remote Play, Parsec etc. It&#39;s not like Google had a brand new open field ahead of them and no idea what to do"</p>
-							
-						
-							
-								<p class="story__comment_others">"IMHO: Google is handling a bunch of things, including Stadia, and including GCP, in a very poor way.GCP: copycat of AWS, but with less high margin, higher level services, so have been losing money since the beginning (ask some of Alphabet&#39;s board members, if you can, and watch their eyes rolling). The only thing that could have given them the advantage - not, not Kubernetes, although K was and is a great thing to fund - was a &#34;cloud in a box&#34; product, so companies could install a rack of GCP in their existing Data Centers, and use it. See &#34;The Cloud Wars of 2017&#34;, written by me [0] six years ago.Stadia: you can&#39;t build Stadia without getting into account that the market has one big monopoly (Steam), and a few huge other ones (Xbox, Epic, etc). The strategy has simply been to ignore this simple fact. It&#39;s like Netflix building a streaming service, without a huge investment into content as well. Doomed to fail from the get go.Small rant, no horses in this game on my part; just a pity that two huge opportunities were wasted like this.[0]: https://medium.com/simone-brunozzi/the-cloud-wars-of-2017-ac..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://halestrom.net/darksleep/blog/048_indoorairsensing/">Many indoor air quality sensor products are a scam</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33025995">
-						
-							
-								<p class="story__comment_first line-clamp">"We really just need a group like ConsumerReports, Labdoor, WireCutter or something that actually digs into the quality and claims of devices. Very few people are going to buy 30 competing options as well as a known good control and compare and contrast them in a scientific context, but that&#39;s what&#39;s needed.I remember looking around for a Radon sensor for way too long. An electronic device, a litmus-like strip test, some analog crystal ball -- hell a mail-in lab kit bag of carbon -- but they all seemed inaccurate. The few people that &#34;bought two&#34; always showed heavy variance while the majority that bought and got a number *loved it*. Even buying two that agree often just means the products are consistently and predictably wrong, but most products don&#39;t even check this box ffs.Reviewers that try and apples-to-apples all products by comparing cost, size, advertised features and ergonomics are doing no better than you or I opening up a package and appraising it. For awhile this Google dev was putting up extremely detailed amazon reviews for USBC cables based on their purported features v. reality and it was wonderful, but tucked away and undiscoverable.The world needs multiple parties providing unbiased in-depth reviews, but there&#39;s very little will to pay for even one group to do something like this. Ironically, paying for information in the information age seems almost comical to today&#39;s consumers and while there&#39;s demand for good information, no one&#39;s willing to open their wallets. Labdoor moved from subscription-only memberships to &#34;certified products&#34; and affiliate links because everyone wants to know what&#39;s in their multivitamin, but no one wants to pay for an indepth review. We aren&#39;t cultivating a supply-side that works for us, but against us.The result of this is shilling and fake reviews running wild. I mean hell, consumers will buy a product knowing full well they might get a shoddy knock off and yet it&#39;s $5 less and they can get it tomorrow so they&#39;ll roll the dice. Sadly, we don&#39;t live in a world where people are intimately concerned with quality and accuracy in their purchases.edit: USBC not USB3"</p>
-							
-						
-							
-								<p class="story__comment_others">"My cheap co2 sensor shows dramatically different readings for my office with the window closed vs open. It is great at reminding me to crack my window open to get more air flow.Its temperature sensor is within a couple degrees of my nest&#39;s remote sensor.My Amazon vo2 sensor can tell if I turned my kitchen fan on to a sufficient level to clear out whatever I am cooking.Lots of sensors don&#39;t need to be precise, they just need to indicate if some action needs to be taken.e.g. If there is a fire, I just need the alarm to go off, I don&#39;t care how hot the fire is."</p>
-							
-						
-							
-								<p class="story__comment_others">"Relative VOC measurements at least are able to detect a no. 2 in nappies. Great to distinguish if you should go in and change them or would be a distraction from falling to sleep when checking. I bulit a Pi ZeroW that measures on the side of the bed and publishes a curve of the last hour of the values. You can see a pretty salient drop when &#34;it&#34; happens."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.google/products/stadia/message-on-stadia-streaming-strategy/">A message about Stadia and our long term streaming strategy</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33022775">
-						
-							
-								<p class="story__comment_first line-clamp">"Comments moved to https://news.ycombinator.com/item?id=33022768, which was posted slightly earlier and also isn&#39;t a press release - we generally prefer third-party articles to the latter.https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;sor..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Google&#39;s tendency to do this is why I will never pay Google for any of their services, nor jump onboard any that don&#39;t already have widespread adoption. I knew Stadia wouldn&#39;t last, and I knew it&#39;d be a better choice to stick with companies that actually have some experience in the games industry instead.So good job guys. You proved that yet again, Google will kill off a new service/product before it ever has the chance to get good, and validated everyone&#39;s fears about the same."</p>
-							
-						
-							
-								<p class="story__comment_others">"I never so much as a saw a single advertisement or retail display for Stadia in the two years since it launched.Microsoft lost A BILLION dollars a year for 4 YEARS before they ever turned a profit on Xbox.You cannot &#34;Lean Startup&#34; your way into a consumer platform."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://2012.osmz.ru/#15/40.7822/-73.9685">OpenStreepMap 2012 vs. 2022</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33034631">
-						
-							
-								<p class="story__comment_first line-clamp">"OSM needs some form of gamification adding to it.Google Maps app is great, lets you gain points by adding information &amp; photos &amp; reviews etc. They even send you a free bespoke pair of socks or a badge if you&#39;re active enough. So fun to add photos and then see how many views they get (I posted one of a chippy in Scotland (for Americans that&#39;s Fish &amp; Chip &#39;Thick French Fries&#39; shop) which got over 1.4 million views - mental). The location history feature suggests things  to contribute which helps too.Would be good to have something similar to make contributing fun."</p>
-							
-						
-							
-								<p class="story__comment_others">"When looking at these then/now renderings, one needs to take into account, that only very little of the actual data is rendered on those maps.The database contains an incredible level of detail which can be used in completely different contexts and I&#39;d say what&#39;s rendered is roughly only 1/10th of the data"</p>
-							
-						
-							
-								<p class="story__comment_others">"Some background from the guy who maintains this site at https://www.openstreetmap.org/user/Zverik/diary/399925.There is a script (disclaimer, that I wrote) to set up a couple of docker images so you can create / host something like this yourself: https://www.openstreetmap.org/user/mvexel/diary/399939. It requires downloading of a &#34;full history&#34; OSM data file for the region of interest."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://support.google.com/adsense/thread/178197751/adsense-account?hl=en">Google Adsense/Admob blocks you for life if you use it before you&#39;re 18</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33038311">
-						
-							
-								<p class="story__comment_first line-clamp">"As someone who operated on the &#34;adult internet&#34; with payment processors and related infrastructure without being 18, I still carry forward the constant fear that I&#39;ll be banned for retroactive Terms of Service violations incurred when I was a kid. It really sucks when it&#39;s services like AdSense because you&#39;re just screwed forever.I really really wish the internet was more supportive of &#34;early hackers&#34; who want to experiment. I get that there are tons of implications around contract law and child labor here, but there really needs to be an escape hatch if a parent agrees to whatever activity is being done. Ostensibly, this is a young creator getting discouraged from their hobby, even though they&#39;ve shown that they&#39;re good enough at it to deserve some form of compensation. This&#39;ll leave a bad taste in the kid&#39;s mouth for a long time."</p>
-							
-						
-							
-								<p class="story__comment_others">"I received a lifelong ban on using Google Ad products when I was 16 after experimenting with clicking my own ads (and asking my high school friends to click on them). I remember the account accumulated almost $80 before Google detected the suspicious activity and banned me.Given that this was 16 years ago, it would be nice to get second chance.."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve been banned-for-life from a handful of services after I lied about my age as a kid.I can see both (all?) sides of this:- As a society we ought to be forgiving of harmless youthful indiscretions- As a business you shouldn&#39;t have to give second chances to people who blatantly defraud you- There is a big can of worms when it comes to doing business with minors on the internet. I don&#39;t think there&#39;s a solution as easy as &#34;well when they&#39;re 18, let them log into their account and update their age to acknowledge that they were using the service as a minor&#34; or &#34;just let people open multiple accounts (with wildly different ages) under their name.&#34;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://developer.chrome.com/blog/more-mv2-transition/">Google postpones MV2 shutoff in Chrome stable to June 2023</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33012057">
-						
-							
-								<p class="story__comment_first line-clamp">"Don’t mistake this for victory. Google’s standard playbook when forcing things people don’t like is to spread the action out over a longer timeframe, exhausting the media and keeping the final blow mostly out of the news, and exhausting our individual outrage and will to keep fighting. It works every time, and it’ll work again if we become complacent again. Until and unless Google meaningfully commits to never neuter ad blockers, it’s still critical and urgent that we switch to Firefox."</p>
-							
-						
-							
-								<p class="story__comment_others">"The postponement was practically inevitable. Manifest v3 is a slow moving train wreck. Extension developers know it isn&#39;t ready and won&#39;t be ready by January.Happy holidays to me, I can kick this can down the road too.Look at some of the known issues:
-https://developer.chrome.com/docs/extensions/mv3/known-issue...Userscript managers supportEstimated timeline: Canary support around October, 2022.Service workers are not started in response to webRequest eventsEstimated timeline: Targeting Canary support before October, 2022.No way they were going to be ready to disable v2 in January for the stable channel."</p>
-							
-						
-							
-								<p class="story__comment_others">"So I was actually trying out uBlock Origin Lite [1] (the MV3 compatible version) as my daily driver for the past week and I must say it&#39;s not that bad. I had to manually enable content access for a handful of sites but doing so on an opt-in basis and getting more performant experience on 98% of other sites is actually something I&#39;m going to use going forward even if MV2 compatibility gets pushed further into the future.I wonder how long things will stay that way though, when sites will tailor their tracking/ad annoyances to exploit the MV3 limitations. I really wouldn&#39;t want to opt into every single site I visit.[1] https://github.com/gorhill/uBlock/releases/tag/uBOLite_0.1.2..."</p>
 							
 						
 						</a>
