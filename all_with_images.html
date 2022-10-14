@@ -36,6 +36,426 @@
 	</div>
 
 	
+	<div class="day__date">14 October 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://obsidian.md/1.0">
+						<picture>
+							<source srcset="default_33190433.webp" type="image/webp">
+							<source srcset="default_33190433.png" type="image/png">
+							<img src="default_33190433.png" alt="Preview of 'Obsidian 1.0 – Personal knowledge base app'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://obsidian.md/1.0">Obsidian 1.0 – Personal knowledge base app</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33190433">
+						
+							
+								<p class="story__comment_first line-clamp">"Love love love obsidian. The tool is aesthetically pleasing, built-in vim mode surprisingly well (a few minor glitches with the cursor blinking) — but above all else, the plug-in community takes the cake.Finally, a note taking application with a decent API that&#39;s allowed me to extract metadata and publish metrics into CloudWatch, allowing me to track key metrics and graphically[0] review historical trends of my &#34;second brain.&#34; Previous note taking applications I&#39;ve tried in the past (e.g. Zettlr, Bear) lacked the vibrant developer community that Obsidian has cultivated.Hats off to the founder and the Obsidian team![0] - https://digitalorganizationdad.substack.com/p/stop-zettelkas..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Between Obsidian, Roam, Amplenote, and Reflect it has certainly been a golden age for note taking over the last few years. It&#39;s hard to remember that it was only 5 years ago that second generation note apps like Evernote, Notion and Bear were the only viable options unless you wanted a 1st gen app like OneNote or Workflowy.What might be most interesting about the new set of fast moving note apps is that all seem to be built by teams of 3 or less people. Obsidian seems to have ascended to the top of the heap with a team of three and no apparent VC funding. Anyone that roots for small companies and passionate programmers should appreciate Obsidian proving that the best tools don&#39;t have to be built by the biggest teams. More the opposite."</p>
+							
+						
+							
+								<p class="story__comment_others">"Congratulations, and also: holy fucking shit!! no app has changed my day-to-day life to this degree in many, many years.I use Obsidian every morning on my roof deck for my journal (automated with the plugin, of course) and then at my desk all day long for my daily WTF blah blah info-capturing tool.Sure I wish it had more features (persist collapsed/expanded state, even in a best-effort, might-not-last-forever kind of way! build in git support because apple makes it too hard for plugin guys to do on mobile!) but the fact that it is all just &#34;standard&#34; markdown and image files washes away all almost my complaints.I use the paid Sync plugin, too (even though it&#39;s standard files and folders; could totally do it myself! could totally just use SyncThing! etc!) so that it is on all my machines and virtual machines. Perfect for sysadmin logs of things you touch only annually, e.g. Dad&#39;s iMac.To HN readers who haven&#39;t tried it: it&#39;s the millennials&#39; VisiCalc, basically, except for words."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.postgresql.org/about/news/postgresql-15-released-2526/">
+						<picture>
+							<source srcset="default_33190456.webp" type="image/webp">
+							<source srcset="default_33190456.png" type="image/png">
+							<img src="default_33190456.png" alt="Preview of 'PostgreSQL 15'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.postgresql.org/about/news/postgresql-15-released-2526/">PostgreSQL 15</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33190456">
+						
+							
+								<p class="story__comment_first line-clamp">"This release includes a feature I added [1] to support partial foreign key updates in referential integrity triggers!This is useful for schemas that use a denormalized tenant id across multiple tables, as might be common in a multi-tenant application:    CREATE TABLE tenants (id serial PRIMARY KEY);
+    CREATE TABLE users (
+      tenant_id int REFERENCES tenants ON DELETE CASCADE,
+      id serial,
+      PRIMARY KEY (tenant_id, id),
+    );
+    CREATE TABLE posts (
+        tenant_id int REFERENCES tenants ON DELETE CASCADE,
+        id serial,
+        author_id int,
+        PRIMARY KEY (tenant_id, id),
+        FOREIGN KEY (tenant_id, author_id)
+          REFERENCES users ON DELETE SET NULL
+    );
+
+This schema has a problem. When you delete a user, it will try to set both the tenant_id and author_id columns on the posts table to NULL:    INSERT INTO tenants VALUES (1);
+    INSERT INTO users VALUES (1, 101);
+    INSERT INTO posts VALUES (1, 201, 101);
+    DELETE FROM users WHERE id = 101;
+    ERROR:  null value in column &#34;tenant_id&#34; violates not-null constraint
+    DETAIL:  Failing row contains (null, 201, null).
+
+When we delete a user, we really only want to clear the author_id column in the posts table, and we want to leave the tenant_id column untouched. The feature I added is a small syntax extension to support doing exactly this. You can provide an explicit column list to the ON DELETE SET NULL / ON DELETE SET DEFAULT actions:    CREATE TABLE posts (
+        tenant_id int REFERENCES tenants ON DELETE CASCADE,
+        id serial,
+        author_id int,
+        PRIMARY KEY (tenant_id, id),
+        FOREIGN KEY (tenant_id, author_id)
+          -- Clear only author_id, not tenant_id
+          REFERENCES users ON DELETE SET NULL (author_id)
+          --                                  ^^^^^^^^^^^
+    );
+
+I initially encountered this problem while converting a database to use composite primary keys in preparation for migrating to Citus [2], and it required adding custom triggers for every single foreign key we created. Now it can be handled entirely by Postgres![1]: https://www.postgresql.org/message-id/flat/CACqFVBZQyMYJV%3D...[2]: https://www.citusdata.com/"</p>
+							
+						
+							
+								<p class="story__comment_others">"SQL MERGE looks great! I hope I remember it when the time comes, instead of writing 3 separate queries.edit: Postgres docs on MERGE: https://www.postgresql.org/docs/15/sql-merge.html"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; PostgreSQL 15 lets users create views that query data using the permissions of the caller, not the view creator. This option, called security_invoker, adds an additional layer of protection to ensure that view callers have the correct permissions for working with the underlying data.Thank you, kind friends. This is a huge QOL improvement when using row-level security with views and is the top reason I&#39;ll be upgrading from Postgres 13 to 15."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.bbc.com/news/world-63213567">
+						<picture>
+							<source srcset="default_33190627.webp" type="image/webp">
+							<source srcset="default_33190627.png" type="image/png">
+							<img src="default_33190627.png" alt="Preview of 'TikTok profits from livestreams of families begging'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.bbc.com/news/world-63213567">TikTok profits from livestreams of families begging</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33190627">
+						
+							
+								<p class="story__comment_first line-clamp">"TikTok livestreams are a bizarre experience that doesn&#39;t get fully conveyed by this article. Scrolling through TikTok it will start showing you live streams every once in a while, and they tend to fall in to patterns like:* baby with a giant deformed head in some kind of medical setting, unable to tell if that baby is real -- if it is, then it&#39;s not a good situation for that baby* people who outwardly have disabilities of some sort, but it also looks like how you&#39;d act as having a severe disability if you&#39;re a con-artist (like constantly shaking, or very slurred speech, I still can&#39;t whether these are legit or not)* people with these vibrating bowls of sand with crystals in them, and they take crystals out of the bowl every once in a while to show you* a teenager building a house of cards, and when they get a certain sticker, they have to destroy the house of cards and start building it again. they are pretending to cry while doing this, and begging you not to give them that sticker    \* there was also a variation where it was a kid deleting games off their PlayStation when they got a certain sticker
+
+* people pretending to sleep, and if you donate different kinds of stickers, it plays different loud sounds or trigger lights to &#34;wake&#34; them* people freestyle rapping on the spot, but it&#39;s more like 
+melodic rambling to the same backing track, so you don&#39;t really have to rhyme, you just have to rap in a way that sounds like it rhymes or makes sense* and my favourite: some workers in what seems to be a Chinese factory assembling something like AirPods. they take the airpods, they take the case, they put the airpods in the case, and they throw the whole thing on to the completed pileI came across one last night that I hadn&#39;t seen before and was kind of cool. It was a livestream of a woman filling a washing machine with different detergents, and like, way too much detergents for a load, way too much, and then eventually she turned the machine on.It&#39;s a wild show that you don&#39;t ask for, it gets thrust on you every once in a while when scrolling. The whole game is to give viewers a reason to use stickers on the show, which gives the streamer money (and TikTok like 70% of it)."</p>
+							
+						
+							
+								<p class="story__comment_others">"This really is a story for our age:Rather than giving money to organisations and charities that can distribute donations cheaply and fairly to those that need it, people give direct to the prettiest/most entertaining/most harrowing channel on a social media app and even then most of the donation ends up in the pockets of middlemen and for profit corporations."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;The middlemen said they worked with agencies affiliated to TikTok in China and the Middle East, who gave the families access to TikTok accounts. These agencies are part of TikTok&#39;s global strategy to recruit livestreamers and encourage users to spend more time on the app.&#34;Fascinating and rare insight (to me) on how they acquire some of their users. Recruiting high value livestreamers isn&#39;t new (see Twitch) but the target here is radically different: people that don&#39;t even have a phone. That&#39;s one desperate (or at the very least aggressive) rollout. Like a Jehova&#39;s witness for social networks."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://berk.es/2022/09/06/frameworks-harm-maintenance/">
+						<picture>
+							<source srcset="default_33185010.webp" type="image/webp">
+							<source srcset="default_33185010.png" type="image/png">
+							<img src="default_33185010.png" alt="Preview of 'Using a framework will harm the maintenance of your software'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://berk.es/2022/09/06/frameworks-harm-maintenance/">Using a framework will harm the maintenance of your software</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33185010">
+						
+							
+								<p class="story__comment_first line-clamp">"1. Every sufficiently complex framework-free application contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of a framework.2. If you have a talented team, that half of a framework can be much better than using a one-size-fits-all framework that is popular because it used to be lean and mean with a small surface area, but has grown over time to do everything for everyone, becoming a complex monster.3. If you have a small team that hires slowly, it&#39;s relatively straightforward to bring new devs up to speed on &#34;the way we do things.&#34; if you are hiring rapidly and/or have a large team, the more bespoke things you have, the harder it is to maintain them.4. Over time, everything degrades. In the long run, many framework-free applications either get walled off as &#34;legacy&#34; apps with new work done in separate services, or replaced outright. If it makes you money before that happens, you win. It is not necessary to try to design architecture that will last for centuries.5. My last and--to me the most significant--observation is this: You want to pay the majority of your attention to the code that has the greatest impact on your desired outcomes.Using libraries and frameworks is like a business outsourcing things that aren&#39;t its core competency and also aren&#39;t competitive differentiators. Most software shops do not win by having their own framework or by not having a framework, they win by using something bog-standard and saving their attention for the part of their code that &#34;moves the needle.&#34;But that&#39;s only &#34;most,&#34; and your business may be one of the few."</p>
+							
+						
+							
+								<p class="story__comment_others">"Every time I see anti framework posts I am forced to frusteratedly chime in. This mentality makes me fume... not all of us work on massive teams where building stuff without a framework is even an option.And even then, whats really a &#34;framework&#34;? You could argue it&#39;s even the language itself. Android apps used to be written in Java, and now they are pushing Kotlin way harder (and it may even be the default soon). Everyone who wrote those JavaScript apps back in the 1990s without TypeScript, are they still just as maintainable as their TypeScript counterparts? Such a shortsided and ignorant view IMO.I think what bugs me the most is any sort of purist mentality (about anything) in software engineering. WE ARE ENGINEEERS. ENGINEERS USE THE RIGHT TOOL FOR THE RIGHT JOB! It should NEVER be &#34;always use X&#34;, &#34;never use Y&#34;. Both X and Y exist for a reason, so they are both useful for some reason.And again, because I&#39;m an engineer, I&#39;ve also built my fair share of apps in just &#34;purist&#34; languages, the classic HTML / CSS / JavaScript, so I&#39;m not against the purist approach either. Again, right tool for the right job."</p>
+							
+						
+							
+								<p class="story__comment_others">"The post is promoting building applications in a loosely coupled but highly cohesive manner. It mentions using libraries when appropriate and not duplicating code.I agree with this but it requires a lead who&#39;s good at architecting such a codebase. That person also needs to stay with the company for a long time because they&#39;re essentially replacing the &#34;framework&#34; with bespoke human logic.I think many, maybe most, companies that try to build loosely coupled and highly cohesive code bases end up failing and it ends up being a mess.Frameworks aren&#39;t perfect. But know what&#39;s less perfect? Humans. The really big frameworks try and take the human component out and replace it with codified conventions."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.gitguardian.com/toyota-accidently-exposed-a-secret-key-publicly-on-github-for-five-years/">
+						<picture>
+							<source srcset="default_33196146.webp" type="image/webp">
+							<source srcset="default_33196146.png" type="image/png">
+							<img src="default_33196146.png" alt="Preview of 'Toyota suffered a data breach by accidentally exposing a secret key on GitHub'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.gitguardian.com/toyota-accidently-exposed-a-secret-key-publicly-on-github-for-five-years/">Toyota suffered a data breach by accidentally exposing a secret key on GitHub</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33196146">
+						
+							
+								<p class="story__comment_first line-clamp">"Many years ago I got a trial license key for something, Aspose components of some sorts I think, and without thinking of it, checked it in into public Github repo. Well, few days later Aspose&#39;s support sends me a nicely worded note saying that they noticed that it was there and invalidated it for me. Their description and instructions were very clear about why they did it and why I shouldn&#39;t have checked it in. I thought that was very proactive and excellent customer service."</p>
+							
+						
+							
+								<p class="story__comment_others">"Hah. Yeah. Found a bunch of ssh keys, passwords, etc for Comcast years back which turned into a shitshow when I tried to report it. Once I found the right people to talk to things got better, but the entire experience was really reflective of how bad large orgs are with security.A friend once told me he was having a hard time getting a client to take his security concerns seriously. So I went on github and found a commit in their repo that included a production password and sent it to him. Maybe took 5-10 minutes to find? Apparently once they found out about the commit, they panicked a bit and started taking his concerns more seriously."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have an idea:What if companies using secret keys (not SaaS providers who generate secret keys) voluntarily send their secret keys (MD5 hashed or somehow encrypted) to GitHub and GitHub can then monitor their leakage and notify the company?Is this useful or feasible?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://5to9.beehiiv.com/p/builtwith-generates-14-million-year-zero-employees">
+						<picture>
+							<source srcset="default_33184909.webp" type="image/webp">
+							<source srcset="default_33184909.png" type="image/png">
+							<img src="default_33184909.png" alt="Preview of 'BuiltWith: $14M ARR, no employees'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://5to9.beehiiv.com/p/builtwith-generates-14-million-year-zero-employees">BuiltWith: $14M ARR, no employees</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33184909">
+						
+							
+								<p class="story__comment_first line-clamp">"$14M ARR appears to be urban legend.If anyone has a source that’s the founder saying this, please reply with a link.___________This tweet appears to be the source of the legend:&gt;&gt; “BuiltWith is an amazing site that I use regularly. But it&#39;s also an amazing business. 1 fulltime employee. $14m a year in revenue. [...] Disclaimer: I do not know 100% if this is true.”Source:- https://twitter.com/thesamparr/status/1257819248484745216"</p>
+							
+						
+							
+								<p class="story__comment_others">"The key takeaway for me was that the mid-2000s were the perfect time to be a founder of a software tool. I can’t help but feel that there are so many tens of thousands of similar stories without such a successful conclusion.In previous roles I’ve used BuiltWith before and it’s an invaluable tool. There’s a few companies with similar approaches except focusing on social media profiles (HypeAuditor comes to mind) that spawned in (iirc) 2017 after Instagram made significant changes to what data were available through their API.It seems similar that Etherscan had this type of first mover advantage with automated data indexing and basic discovery tools for the Ethereum blockchain.I wonder what the next wave of straightforward software utilities will be like."</p>
+							
+						
+							
+								<p class="story__comment_others">"Don&#39;t hire until you need to.And then don&#39;t hire until you want to.I&#39;m doubtful every business can make it to $14M ARR, but I bet many companies could generate $1M ARR without needing employees. And that amount of money would be life-changing for many people (with, of course, the potential to sell what you&#39;ve created to exit).I&#39;ve spent much of my life chasing the &#34;make it big&#34; startup dream. I&#39;ll be pretty content if I can generate meaningful recurring revenue by building things I love. Still trying to decouple hours worked from the paycheck."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.vice.com/en/article/v7vyj3/california-man-fined-for-drawing-lines-on-existing-maps">
+						<picture>
+							<source srcset="default_33185090.webp" type="image/webp">
+							<source srcset="default_33185090.png" type="image/png">
+							<img src="default_33185090.png" alt="Preview of 'California man fined for selling maps of property boundaries without a license'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.vice.com/en/article/v7vyj3/california-man-fined-for-drawing-lines-on-existing-maps">California man fined for selling maps of property boundaries without a license</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33185090">
+						
+							
+								<p class="story__comment_first line-clamp">"Texas state politics/law is completely f&#39;d in so many ways, but one thing they do that I think is fantastic, and I wish all states did, was have a &#34;Sunset Review Commission&#34;, https://www.sunset.texas.gov/how-sunset-works.Basically, all agencies that are authorized by the legislature are set to automatically be abolished in (usually) 12 years. Once the expiration date is near, the Sunset Commission reviews the agency and recommends whether to reauthorize it, in which case the legislature must pass a law to reauthorize, but the &#34;default&#34; is that the agency expires.This really helps fight the natural tendency of lots of these professional agencies to grow to protect their own power, regardless of their original purpose. And even if agencies are normally always renewed, the review process itself is really useful to, when necessary, smack these agencies upside the head to get them back to their original goal. One example I&#39;m familiar with, a couple years ago the Sunset Commission basically tore the Texas Veterinary Board a new one after they decided to go after animal shelter vets for trying to save animals with extremely limited resources, https://www.mysanantonio.com/news/local/article/One-third-of... - actual report at https://www.sunset.texas.gov/public/uploads/files/reports/St..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The biggest difference between an official site survey and you (or him) doing it themselves is liability. It is pretty clear from the language on the site that they aren&#39;t accepting legal liability and are just a convenience over doing it yourself using Google Maps or a tape-measure.I think the article is very well argued, and if this board&#39;s closure notice is allowed to stand then it will infringe on Californian&#39;s right to simply draw a map of their home or business. His business isn&#39;t offering site surveys and doesn&#39;t proclaim to, and to be honest even Google Maps/Bing/Apple could be at risk if this board&#39;s ability to close/ban this were allowed (they do show property boundaries after all).The biggest problem they&#39;re going to run into is: Who has deeper pockets? Since often in the US legal system that can decide the winner/loser."</p>
+							
+						
+							
+								<p class="story__comment_others">"This really feels like a &#34;spirit of the law&#34; vs &#34;letter of the law&#34; situation - requiring that only a licensed surveyor &#34;depict the location of property lines&#34; seems totally reasonable as to prevent the &#34;location of property lines&#34; from eroding legally, but banning a site loaded with &#34;THIS IS NOT A SURVEY&#34; disclaimers does not.A discrepancy between requirements from building departments and planning and platting departments is par for the course. Everywhere I have ever lived, the building department will accept an informal description of boundaries to determine whether or not a plan interferes with setback requirements, while a planning department or platting recorder will demand an officially certified survey to determine the actual parcel boundaries.I think this site&#39;s &#34;If your building department DOES NOT require a Surveyor, Engineer, or Architect Stamp our plans are just what you need!&#34; disclaimer is quite spot-on and it is rather frustrating that they are getting targeted.My own county (Boulder County, CO) offer a county-sponsored GIS service which is not surveyor-approved, with similar disclaimers. My surveyed parcel at my current household differed from their assessment by 5% and at my last household, by 10%. While this is a significant number, for building purposes, it isn&#39;t unreasonable - just a few degrees either way in the projection of edges. I think these sites should be allowed to stand with the acceptance that a suit based on the material contained in these sites would be bogus."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.quantamagazine.org/teenager-solves-stubborn-riddle-about-prime-number-look-alikes-20221013/">
+						<picture>
+							<source srcset="default_33192074.webp" type="image/webp">
+							<source srcset="default_33192074.png" type="image/png">
+							<img src="default_33192074.png" alt="Preview of 'Teenager solves stubborn riddle about prime number look-alikes'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.quantamagazine.org/teenager-solves-stubborn-riddle-about-prime-number-look-alikes-20221013/">Teenager solves stubborn riddle about prime number look-alikes</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33192074">
+						
+							
+								<p class="story__comment_first line-clamp">"I knew a guy in high school that carried around a sub-compact notebook and one day in science class we were learning about how to factor quadratic equations (a review of old math we should know) and this guy was not paying attention at all, just typing away. The teacher asked him what he was doing that was so important that he couldn&#39;t listen, and to please come up and solve the problem.This kid walked straight up to the board and explained how you can design a computer program to factor any polynomial equation string input to it, and in fact had implemented a polynomial equation factoring program while the teacher explained how to factor simple quadratic equations.Since then, I don&#39;t feel bad if someone achieves more than me, because clearly there are some people out there that are born to solve certain classes of problems (maybe their brain structure is better for those, or something, who knows)."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve known quite a few families where both parents are scientists or software engineers or quantitative engineers.Very frequently, their children will have a scary intuitive understanding of concepts that took my many years to understand (I&#39;m a slow learner; didn&#39;t really understand hash tables until my 30s) and then apply their abilities to be in the higher echelons at science in a very young age. I see a similar thing in the children of world-class athletes."</p>
+							
+						
+							
+								<p class="story__comment_others">"Nobody is talking about the proof, but about the fact that the person who produced it was younger than them and they are trying to explain the achievement by innate abilities or parent influence. The fact is just that most of people don&#39;t want to do something like that. They just want to be someone who do things like that."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://gizmodo.com/clegg-meta-executives-identified-in-onlyfans-bribery-su-1849649270?rev=1665602961883">
+						<picture>
+							<source srcset="default_33188028.webp" type="image/webp">
+							<source srcset="default_33188028.png" type="image/png">
+							<img src="default_33188028.png" alt="Preview of 'Meta executives ‘inadvertently’ identified in OnlyFans bribery suit'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://gizmodo.com/clegg-meta-executives-identified-in-onlyfans-bribery-su-1849649270?rev=1665602961883">Meta executives ‘inadvertently’ identified in OnlyFans bribery suit</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33188028">
+						
+							
+								<p class="story__comment_first line-clamp">"Source filing:https://www.documentcloud.org/documents/23131224-76-main#doc...Page 10, lines 26 and 27 say the names are Nick Clegg, Nicola Mendelsohn, and Cristian Perrella.To be clear, this is a motion from OnlyFans lawyers, and they&#39;re trying to communicate that the anonymous tip should not be considered reliable information. Not even the plaintiffs are claiming to have evidence of a demand to go with the bribe. But I expect it should be enough to subpoena the financial records that could prove that the information is true."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; alleged Meta employees added their accounts and others linked to OnlyFans competitors to databases used by companies internationally to identify malware and accounts linked to terrorism.If this is true, I&#39;d guess the situation might not only include issues of bribery, a quasi-public platform silencing speech, interfering with commerce, etc.It sounds like it might include abusing/compromising/eroding mechanisms intended for protecting people against violent attacks, as well as other aspects of national security."</p>
+							
+						
+							
+								<p class="story__comment_others">"Just need to point the obvious out that being &#39;accused of&#39; accepting a bride is not the same as the crime. Too many people commenting are taking the bribe accusation to be true."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://tigerbeetle.com/blog/a-database-without-dynamic-memory/">
+						<picture>
+							<source srcset="default_33192288.webp" type="image/webp">
+							<source srcset="default_33192288.png" type="image/png">
+							<img src="default_33192288.png" alt="Preview of 'A database without dynamic memory allocation'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://tigerbeetle.com/blog/a-database-without-dynamic-memory/">A database without dynamic memory allocation</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33192288">
+						
+							
+								<p class="story__comment_first line-clamp">"Allocating all required memory during startup has been idiomatic for database architectures as long as I can remember. The obvious benefits to doing things this way are wide-ranging.There is a less obvious benefit in more schedule-driven database architectures. By implication, the code knows exactly how much of which resources are instantaneously available at all times since it is directly managing those resources. This enables the database to dynamically adapt its behavior and scheduling decisions in response to specific resource pressures or excess resource capacity. This is basically a fine-grained form of internal micro-backpressure, dynamically prioritizing subsets of the workload that minimize impact on the resources under pressure at any moment in time. In some versions, you can switch internal execution strategies to take advantage of currently under-utilized resources. If you outsource this to the OS, you have no idea how close or far you are from the limits, it doesn&#39;t really work.This doesn&#39;t add much performance per se but is great for minimizing tail latencies. It helps to create a robust internal resource equilibrium that handles transients and concurrency more smoothly and consistently than if the database couldn&#39;t make a fine-grained decisions about what to do from a position of total resource awareness."</p>
+							
+						
+							
+								<p class="story__comment_others">"Building a system that allocates memory once up-front requires up-front thinking.sqlite apparently  has some support for this, although of course you make it more predictable if you control all the code.https://www.sqlite.org/malloc.htmlThey even provide some nice math for you to create the fixed size heap!The problem of dynamic memory allocation, and specifically the problem of a memory allocator breakdown, has been studied by J. M. Robson and the results published as    J. M. Robson. &#34;Bounds for Some Functions Concerning Dynamic Storage Allocation&#34;. Journal of the Association for Computing Machinery, Volume 21, Number 8, July 1974, pages 491-499."</p>
+							
+						
+							
+								<p class="story__comment_others">"Isn&#39;t this just a bunch of static object pools? That&#39;s extremely common in embedded programming. I&#39;m glad to see someone recognized it could apply to a database.My students do this on the GameBoy Advance specifically so they don&#39;t need to learn about dynamic memory allocation to get useful things done early in my course. In fact, they only learn about dynamic memory allocation for academic reasons later on and never _need_ to use it in their games."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">13 October 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -141,11 +561,14 @@
 							
 						
 							
-								<p class="story__comment_others">"If you like electronic music, check out &#34;Sisters with Transistors&#34;, a documentary about women in electronic music going back to the 1920&#39;s.https://sisterswithtransistors.com/the-pioneersSomething like Eno&#39;s tape loops, in 1949 Daphe Oram was doing similar research with optical &#34;tape&#34; loops on some early synths she built. What&#39;s fascinating is how no one had any paths to follow, they were just throwing things at the wall to see what worked."</p>
+								<p class="story__comment_others">"If you aren&#39;t particularly musical, like myself, but love the concept of playing with loops, ambient sounds, etc. give the fully open-source https://www.bespokesynth.com/ a try, it has a brilliant pro tier option as well ;).A simple MIDI source keyboard can help you find the notes that sound pleasing, then you can code them in.  Python support, etc. etc."</p>
 							
 						
 							
-								<p class="story__comment_others">"Wow, this brings back memories! My roommate in college was really into Brian Eno, and I recall many a night when we&#39;d go to sleep to this. HN is pretty great sometimes."</p>
+								<p class="story__comment_others">"I went to see him speak at a music festival in the summer. He spoke about one of his recent projects - the 10,000 year clock:
+ https://www.solidsmack.com/design/what-jeff-bezos-and-brian-...
+The idea is that modern living has been divided into smaller and smaller sub-divisions as processors get faster, media competes for attention and attention spans get shorter. The 10,000 clock was an artistic endeavour to engineer and design for a much broader time span - and every day the peal of bells is unique to that day only.
+I found the way he thinks about extending the bounds of creativity in new ways quite inspiring."</p>
 							
 						
 						</a>
@@ -175,15 +598,15 @@
 						<a href="https://news.ycombinator.com/item?id=33178301">
 						
 							
-								<p class="story__comment_first line-clamp">"Reminds me of https://lazertrax.itch.io/one-dimension"</p>
-							
-						
-							
-								<p class="story__comment_others">"Well, we see the world as a 2d projection BUT we (usually) have 2 eyes so we have some amount of 3d-info.Maybe mario has 2 eyes too, which would give him some amount of 2d-info. (Just like an MRI can construct a 2d slice from 1d info). So the first person game should have maybe a depth info on those pixels.What I mean, mario does not see only a line. He sees a silhouette of what lies ahead of him."</p>
+								<p class="story__comment_first line-clamp">"Well, we see the world as a 2d projection BUT we (usually) have 2 eyes so we have some amount of 3d-info.Maybe mario has 2 eyes too, which would give him some amount of 2d-info. (Just like an MRI can construct a 2d slice from 1d info). So the first person game should have maybe a depth info on those pixels.What I mean, mario does not see only a line. He sees a silhouette of what lies ahead of him."</p>
 							
 						
 							
 								<p class="story__comment_others">"See also, the glEnd() of Zelda http://tom7.org/zelda/"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is neat. I love fun with dimensions like this. This 4D minecraft clone is a similarly fun thing.https://www.youtube.com/watch?v=u8LMyWcKL_c"</p>
 							
 						
 						</a>
@@ -256,11 +679,12 @@
 							
 						
 							
-								<p class="story__comment_others">"This is great news, but we should temper our expectations: It&#39;s likely that Jones will appeal and keep this tied up for years before he has to pay anything. Even if he is eventually obligated to pay some amount, it is unlikely to be what the jury just decided. And even if it is what the jury just decided, Jones&#39; company is already &#34;bankrupt&#34; (yet still on the air) and he will almost certainly avoid liability through all the useful tools and entities available to a person who has hundreds of millions of dollars in the first place. And through all this, he will probably remain on the air spouting his lies - as he is literally right now as I write this post.In sum, it&#39;s good to know that we&#39;re trying to hold him to account, but it seems unlikely that this stops him in any material way from just continuing on the way he has been.Our system is not setup for situations that involve faith as bad as Jones&#39;, on the part of people who have not themselves committed an obvious violent crime."</p>
+								<p class="story__comment_others">"This is a good verdict - defamation in the media is a very serious problem. It&#39;s unfortunate that it took a person like Alex Jones to convince people of it. If anything he should not be taken seriously. Those who are taken seriously have gotten away with much worse by merely apologizing or correcting themselves (as he did as well).As for the amount - the highest fine paid by Wall Street firms for the 2008 crisis was less than $100M. One of those numbers is unjust for sure."</p>
 							
 						
 							
-								<p class="story__comment_others">"This is a good verdict - defamation in the media is a very serious problem. It&#39;s unfortunate that it took a person like Alex Jones to convince people of it. If anything he should not be taken seriously. Those who are taken seriously have gotten away with much worse by merely apologizing or correcting themselves (as he did as well).As for the amount - the highest fine paid by Wall Street firms for the 2008 crisis was less than $100M. One of those numbers is unjust for sure."</p>
+								<p class="story__comment_others">"This title is so misleading, &#34;to pay&#34; and &#34;told to pay&#34; are not remotely the same. 
+There is no chance Alex Jones will pay this amount.Actual headline is: Alex Jones told to pay $965m damages to Sandy Hook victims&#39; families@dang pls fix."</p>
 							
 						
 						</a>
@@ -298,7 +722,7 @@
 							
 						
 							
-								<p class="story__comment_others">"So I tried it out. I own a CLion license and have been using Jetbrains products since IntelliJ 3.0. It seems ok, but very very VSCode-ish.I tried it with our Rust codebase and it seemed to be fairly competitive with CLion in terms of analysis. I didn&#39;t try any refactorings but I did notice that it doesn&#39;t have many of them. It was fairly snappy, felt more responsive than CLion. I was disappointed that even after I switched it to &#34;IntelliJ&#34; keybindings many keybindings still were more like VSCode than IntelliJ. I.e. Ctrl-N was still &#34;open new tab&#34; and not &#34;jump to symbol&#34; (have to do ctrl-shift-alt-N for that.)Overall, I guess I&#39;m curious where they go with it. I won&#39;t be trading in my CLion license, though. I am probably not the target audience; I suspect they&#39;re looking to capture customers who work in large corporations where VSCode is getting penetration as a hosted/fleet solution. With the default keybindings I suspect those coming from VSCode will find Fleet very comfortable.For myself, I continue to give Jetbrains money for their IDEs, because as a company they do great work and give good value. I&#39;m happy to modestly help pay the salaries of their employees. I wish them luck."</p>
+								<p class="story__comment_others">"&gt; Fleet is our new distributed polyglot editor and IDE.Ok, polygot makes sense, it supports more than just one language. But what does distributed mean in this context? You run the editor across many machines? What does that mean? Coming from a backend perspective, it quite doesn&#39;t make much sense. Thinking about it from a client-side perspective, I&#39;m guessing they mean the architecture is decoupled, meaning basically plugins/extensions but with a fancier word?Judging by the &#34;Features Matrix&#34; (https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTWt9RlJ...), sad to see not a single non C-like language is being considered."</p>
 							
 						
 						</a>
@@ -701,11 +1125,11 @@ I guess this is a lesson in designing language semantics that match people&#39;s
 							
 						
 							
-								<p class="story__comment_others">"I was drinking heavily and knew that it would be the quickest and most effective hack towards being a better father and husband. I first stepped into an AA meeting and as the opportunity to speak was going around the room I started seeing many similarities between the people sharing their stories and myself. I thought to myself &#39;If I were perhaps an alcoholic, what could I share about it and how it may hurt me and those that love me?&#39; When the opportunity for me to share came up, I said &#39;screw it!&#39; to myself and spilled the beans. &#34;I am an alcoholic...&#34;The meetings made me feel good at first as I kept telling myself that my stories could potentially help someone else. I did not end up sticking with the AA program but the meetings really launched me into the right direction and finding my own path. I do drink NA beer and as many others in the comments have pointed out, there is a lot offered in that arena as of lately.I am a very social person and navigating that lifestyle for the first time without alcoholic beverages was the biggest challenge for me. But I learned to like the challenge and found that sparked a lot of conversations with friends that were interested in quitting or dialing it back. It also identified and strengthened a lot of friendships where people normally wouldn&#39;t drink while doing whatever it was we are doing, but they did because I was &#39;the drinker.&#39;Next week marks my first year of sobriety, so I am certainly no expert, but feel free to reach out if you ever need to hash some things out."</p>
+								<p class="story__comment_others">"I haven&#39;t had a drink in 27 days, which is the longest I&#39;ve gone in a while. Left to my own devices, I tend to settle into a pattern of 2-4 drinks per night, 5-6 nights a week (I actually tracked this for a while with a spreadsheet).It&#39;s not like, ruin my life, wake up in a gutter type situation, but it leads to just feeling somewhat crappy all the time, and I didn&#39;t like it, so I wanted to stop.Some things that helped / are helping:I have an app Habit Tracker. It&#39;s a pretty simple app with a list of habits you want do do, you can set on some schedule. When you do them, you tick them off and it keeps track of how many times, so you build up a streak. I made a &#34;don&#39;t drink&#34; habit, and check it off in the morning if I didn&#39;t drink the day before. It also shows a notification bubble on the app if you don&#39;t check it off and I hate that. It&#39;s like this little negative reinforcement that I have to live with that bubble all day if I drank the day before. It&#39;s silly, but it helped.Reading the book This Naked Mind and listening to The Huberman Lab podcast episode about alcohol (#86) also helped. Alcohol messes up your body in a lot of ways, even at what&#39;s considered &#34;moderate&#34; or &#34;normal&#34; levels of drinking./r/stopdrinking on RedditAlcohol is an addictive drug and when you stop after using it regularly, you&#39;re going to feel cravings. It&#39;s not a moral failing, it&#39;s physiology. They do get less intense and less frequent after the first two weeks or so."</p>
 							
 						
 							
-								<p class="story__comment_others">"I haven&#39;t had a drink in 27 days, which is the longest I&#39;ve gone in a while. Left to my own devices, I tend to settle into a pattern of 2-4 drinks per night, 5-6 nights a week (I actually tracked this for a while with a spreadsheet).It&#39;s not like, ruin my life, wake up in a gutter type situation, but it leads to just feeling somewhat crappy all the time, and I didn&#39;t like it, so I wanted to stop.Some things that helped / are helping:I have an app Habit Tracker. It&#39;s a pretty simple app with a list of habits you want do do, you can set on some schedule. When you do them, you tick them off and it keeps track of how many times, so you build up a streak. I made a &#34;don&#39;t drink&#34; habit, and check it off in the morning if I didn&#39;t drink the day before. It also shows a notification bubble on the app if you don&#39;t check it off and I hate that. It&#39;s like this little negative reinforcement that I have to live with that bubble all day if I drank the day before. It&#39;s silly, but it helped.Reading the book This Naked Mind and listening to The Huberman Lab podcast episode about alcohol (#86) also helped. Alcohol messes up your body in a lot of ways, even at what&#39;s considered &#34;moderate&#34; or &#34;normal&#34; levels of drinking./r/stopdrinking on RedditAlcohol is an addictive drug and when you stop after using it regularly, you&#39;re going to feel cravings. It&#39;s not a moral failing, it&#39;s physiology. They do get less intense and less frequent after the first two weeks or so."</p>
+								<p class="story__comment_others">"I was drinking heavily and knew that it would be the quickest and most effective hack towards being a better father and husband. I first stepped into an AA meeting and as the opportunity to speak was going around the room I started seeing many similarities between the people sharing their stories and myself. I thought to myself &#39;If I were perhaps an alcoholic, what could I share about it and how it may hurt me and those that love me?&#39; When the opportunity for me to share came up, I said &#39;screw it!&#39; to myself and spilled the beans. &#34;I am an alcoholic...&#34;The meetings made me feel good at first as I kept telling myself that my stories could potentially help someone else. I did not end up sticking with the AA program but the meetings really launched me into the right direction and finding my own path. I do drink NA beer and as many others in the comments have pointed out, there is a lot offered in that arena as of lately.I am a very social person and navigating that lifestyle for the first time without alcoholic beverages was the biggest challenge for me. But I learned to like the challenge and found that sparked a lot of conversations with friends that were interested in quitting or dialing it back. It also identified and strengthened a lot of friendships where people normally wouldn&#39;t drink while doing whatever it was we are doing, but they did because I was &#39;the drinker.&#39;Next week marks my first year of sobriety, so I am certainly no expert, but feel free to reach out if you ever need to hash some things out."</p>
 							
 						
 						</a>
@@ -983,7 +1407,7 @@ I guess this is a lesson in designing language semantics that match people&#39;s
 							
 						
 							
-								<p class="story__comment_others">"I was hoping this was a treatise on the history of wine production."</p>
+								<p class="story__comment_others">"The LWN article &#34;Emulating Windows system calls in Linux&#34; discussed on HN:https://news.ycombinator.com/item?id=24120066 (August 2020, 64 comments)"</p>
 							
 						
 						</a>
@@ -1537,7 +1961,7 @@ I think the former requires a tool, but nothing particularly sophisticated - App
 							
 						
 							
-								<p class="story__comment_others">"This is strange.  Lately, I&#39;ve had a number of people in different situations (especially at work) tell me of similar efforts pushing back on organized process or.. organized anything, including note-taking, task tracking and more.  Is there some kind of attempt at a mental revolution here or is this some kind of response to people being overloaded and not wanting to carry the mental burden/weight/let it go?I almost feel like this should not even be a topic.  Using tools to help organize thoughts - why do we care if it helps people? - not all brains work the same.  What is wrong about organizing one&#39;s thoughts and spending time doing so??I can see the argument that one can get lost in a meta-loop of sorts, but that&#39;s probably true of anything when you take into account procrastination - or certain brain types - that are prone to loops.  For some people loops feel good, right?  I say this as somebody who is lightly on the spectrum.Even the pushback against knowledge management as a practice is perplexing - there was a time where Peter Drucker, for example, thought knowledge work would someday be all there was left to do.That said, I can&#39;t help but wonder if there really is something bigger/some kind of trend going on here and I can&#39;t quite put my finger on it.  Is this something evolutionary?  Are we trying to evolve/seek a better way as an organism?Is anybody else seeing/feeling the same trend?"</p>
+								<p class="story__comment_others">"Any article that pretends to know what the right way of taking notes (say, &#34;This is known as a commonplace book, and it is about how detailed your note-taking system should be unless you plan on thinking more elaborately than Leonardo da Vinci.&#34; in this article) is missing the point.People think differently, people have different purposes and goals, people have different constraints on their time, their memory, their field. Can you procrastinate on note-taking? Sure. So can you on writing, and publishing, and building an audience, and writing papers, and doing the dishes.Can people have a fantastic creative output by just opening a blank page and jotting down their thoughts? Sure. Can other people write great books with an elaborate notetaking system? Of course. There are plenty of people out there with terrific, obsessive note-taking and reference systems, Kubrick being one of the prime examples.As someone with what looks from the outside to be an overarchitected note-taking system ( https://publish.obsidian.md/manuel ), it is a system that works great for me, and it is a system that makes me more creative and helps me discover ideas I would have never been able to articulate without. I used linear sketchbooks where I would write and draw whatever for years, filling hundreds of notebooks, and it came nowhere near my obsidian setup in terms of output and effectiveness."</p>
 							
 						
 						</a>
@@ -1605,18 +2029,18 @@ I think the former requires a tool, but nothing particularly sophisticated - App
 						<a href="https://news.ycombinator.com/item?id=33068421">
 						
 							
-								<p class="story__comment_first line-clamp">"Hi everyone, my group at NASA is looking to hire a US citizen junior programmer government contract to help assist with our mission to map every tree on the planet!  If you&#39;re a US resident and want to help us tackle exascale compute problems, please submit your resume here: https://workforcenow.adp.com/mascsr/default/mdf/recruitment/...You can visualize our team&#39;s findings here (and help me replace this site with something much cooler)
+								<p class="story__comment_first line-clamp">"We&#39;re two former leads formerly from the PayPal Checkout team (engineering &amp; product), we just got pre-seed funding for our new startup which we launched earlier this year, and we&#39;re looking for an engineer to join us!Our goal is simple: to make it possible to use your phone number to pay, anywhere and everywhere, with zero friction. We have a ton of cool ways to make that work, and a bunch of brands already using our platform.Email: hello@onetext.comOur stack:- Front-end: JS/TS/React- API: Node/TS/Postgres/Redis- Services: Shopify/Twilio/PayPal/Stripe/Authorize.netWhat we do: payments, vaulting, automated conversations, and merchant-facing dashboards. Plus a whole load of interesting things in-between.Most important skill: be able to communicate well, and learn quickly. Doesn&#39;t matter if you haven&#39;t used every technology listed above, so long as you&#39;re a fast learner and happy to jump quickly into new things.Experience level: any. So long as you can code, if we like you and you&#39;re a good fit, we&#39;ll find a role for you.Expectations: it&#39;s a startup, and we just got accepted into YCombinator 2023. So it will be busy, there&#39;s no avoiding that. But we want to create a great engineering culture that fosters innovation, learning, and mentorship. We want to teach, and we want to learn from you too.Location: we&#39;re both CA (bay area), open to remote anywhere in US, may be able to make non-US work with some kind of contracting role but priority given to US-based folk. Not sponsoring Visas.Salary: completely dependent on experience and skill. Equity on the table.Send us an email about yourself!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Hi everyone, my group at NASA is looking to hire a US citizen junior programmer government contract to help assist with our mission to map every tree on the planet!  If you&#39;re a US resident and want to help us tackle exascale compute problems, please submit your resume here: https://workforcenow.adp.com/mascsr/default/mdf/recruitment/...You can visualize our team&#39;s findings here (and help me replace this site with something much cooler)
 https://trees.pgc.umn.edu/appOur paper:
 https://www.nature.com/articles/s41586-020-2824-5We are seeking someone with low level C/C++ experience."</p>
 							
 						
 							
-								<p class="story__comment_others">"Labelbox | Remote | Frontend / WebGL, Backend, Engineering Managers | https://labelbox.comLabelbox is building the training data platform to power breakthroughs in machine learning. We provide an end to end solutions for the full AI lifecycle from creating catalogs of unstructured data all the way to building the tools for humans to label the data to teach machines.Why choose us? 
-We work on interesting problems such as:* Auto tracking objects in a video in a browser* Building frameworks for high performance graphic rendering in the browser (WebGL)* Building an at-scale task distribution service for human labelers* Building storage systems to store billions of assetsCheck out https://labelbox.com to check out our openings!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Bond | Software Engineer | Full-time | US Remote | https://www.bond.tech/At Bond, we are building a Banking-as-a-Service platform, focusing on credit, that helps brands and fintechs to launch financial solutions quickly. We are hiring Senior Backend Engineers and Platform Engineers to help develop the API-first embedded finance platform that&#39;s scalable, reliable, and secure. Here is an article talking about the product we currently launched: https://www.prnewswire.com/news-releases/bond-launches-life-...To learn more, check out the roles here:- Senior Backend Engineer: https://boards.greenhouse.io/bondfinancialtechnologies/jobs/...- Platform Engineer: https://boards.greenhouse.io/bondfinancialtechnologies/jobs/..."</p>
+								<p class="story__comment_others">"Dipsea | New York, NY or Remote (US timezones) | Product Manager | Full Time | https://dipseastories.com
+Dipsea is a female-founded startup and audio content studio at the intersection of storytelling and sexual wellness. We produce the best audio erotica in the world. Backed by world-class investors including Thrive (Slack, Stripe, Hims) and Bedrock Capital (The Athletic, Cameo), we’re a team of creators pioneering a new genre of storytelling and creating carefully considered experiences that subscribers love. We’re on a mission to empower our listeners to find joy and confidence in and out of the bedroom.We&#39;re looking for a new team member with 2+ years of experience in product management or relevant experience on a product team. Our team is super small, agile and has a high impact every day on 100,000s of users around the world. You&#39;ll be an integral part of feature development, business process improvement and product design.To apply see https://jobs.lever.co/dipseastories/810652a7-3b47-43db-a2eb-..."</p>
 							
 						
 						</a>
@@ -3030,11 +3454,11 @@ than doing a division.&#34;"</p>
 						<a href="https://news.ycombinator.com/item?id=33085532">
 						
 							
-								<p class="story__comment_first line-clamp">"I have had to answer this question to my kids (one of whom abhors math). The explanation I gave is this:For many subjects, most kids will end up never using them. But, we have no way to predict which subjects will be useful for which kids. Without the ability to do that, our priority is maximize each child&#39;s opportunity. We never want a kid to be in the situation where they would have been interested in a subject and a career path but never ended up discovering that and using it because we didn&#39;t expose it to them.So we teach some of every subject to every kid. That way no matter which path they end up following, they are as prepared for it as we can make them.(Also, yes, I agree that math is good general training for cognitive rigor. Also, numeric literacy is vital for all adults since we live in an ecomonic world and participate in a democracy where statistics are necessary to understand policies.)"</p>
+								<p class="story__comment_first line-clamp">"“Bingo!!” said the teacher. “It’s the same thing with calculus. You’re not here because you’re going to use calculus in your everyday life. You’re here because calculus is weightlifting for your brain.”Total BS...There are better ways to exercise your brain that will be many more times better than Calculus. This is HW so one that comes to mind is programming. But there are so many more. Here are a few, understanding and fixing a car, understanding music and playing music, art appreciation, literature and understanding the human condition and on and on. Recent research has shown that doing daily exercise is a great way to keep a healthy body and brain, rather than sitting on your butt learning a useless subject.Yes, there are professions where Calculus is needed and there are people that truly enjoy math. Cool, take all the math you need and want to learn. You should take it.Anyone that tells you that Calculus is a good way to exercise your brain is just trying to justify their job. Don&#39;t for a minute believe that it&#39;s the best way to use a limited resource like your time.Source: Me, it took me 3 semesters of Calculus to figure out that it was useless to me and 90+% of the people that take any of it.P.S. note: Many people disagree. Good, you should not take it as absolute truth. I guess my real point is that you should question whether you really need to take Calculus. Don&#39;t just take it blindly because you are told you should. You have other options."</p>
 							
 						
 							
-								<p class="story__comment_others">"“Bingo!!” said the teacher. “It’s the same thing with calculus. You’re not here because you’re going to use calculus in your everyday life. You’re here because calculus is weightlifting for your brain.”Total BS...There are better ways to exercise your brain that will be many more times better than Calculus. This is HW so one that comes to mind is programming. But there are so many more. Here are a few, understanding and fixing a car, understanding music and playing music, art appreciation, literature and understanding the human condition and on and on. Recent research has shown that doing daily exercise is a great way to keep a healthy body and brain, rather than sitting on your butt learning a useless subject.Yes, there are professions where Calculus is needed and there are people that truly enjoy math. Cool, take all the math you need and want to learn. You should take it.Anyone that tells you that Calculus is a good way to exercise your brain is just trying to justify their job. Don&#39;t for a minute believe that it&#39;s the best way to use a limited resource like your time.Source: Me, it took me 3 semesters of Calculus to figure out that it was useless to me and 90+% of the people that take any of it.P.S. note: Many people disagree. Good, you should not take it as absolute truth. I guess my real point is that you should question whether you really need to take Calculus. Don&#39;t just take it blindly because you are told you should. You have other options."</p>
+								<p class="story__comment_others">"I have had to answer this question to my kids (one of whom abhors math). The explanation I gave is this:For many subjects, most kids will end up never using them. But, we have no way to predict which subjects will be useful for which kids. Without the ability to do that, our priority is maximize each child&#39;s opportunity. We never want a kid to be in the situation where they would have been interested in a subject and a career path but never ended up discovering that and using it because we didn&#39;t expose it to them.So we teach some of every subject to every kid. That way no matter which path they end up following, they are as prepared for it as we can make them.(Also, yes, I agree that math is good general training for cognitive rigor. Also, numeric literacy is vital for all adults since we live in an ecomonic world and participate in a democracy where statistics are necessary to understand policies.)"</p>
 							
 						
 							
@@ -3634,393 +4058,6 @@ pened."</p>
 						
 							
 								<p class="story__comment_others">"I have 4 apps running on fly.io for most of this year and can recommend them.2 are elixir apps that have been created on fly, 1 was an elixir app I had running on heroku, and 1 was rails app on heroku I recently migrated. I used their heroku migrator and it worked pretty much automatically. I had a few steps to follow to move the DB, but their docs covered it - https://fly.io/docs/rails/getting-started/migrate-from-herok...I didn&#39;t want a self-hosted flavor of Heroku, and I value an opinionated and active community around the platform. I&#39;ll mirror another comment here:&gt; Everyone wants to be the new Heroku, but that should be table stakes. Fly is innovative in the same way Heroku was when it launched."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">04 October 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://supabase.com/blog/postgres-wasm">
-						<picture>
-							<source srcset="default_33067962.webp" type="image/webp">
-							<source srcset="default_33067962.png" type="image/png">
-							<img src="default_33067962.png" alt="Preview of 'Postgres WASM'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://supabase.com/blog/postgres-wasm">Postgres WASM</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33067962">
-						
-							
-								<p class="story__comment_first line-clamp">"Peter from Snaplet here. A month ago I saw the CrunchyData post and wanted to play around with the code that made it happen, it wasn&#39;t OSS so I asked for help:&gt;  If anyone out there wants to work on an open source version of this full-time please reach out to me. [0]Paul reached out and we started working on it almost immediately. Check out the repo here: https://github.com/snaplet/postgres-wasmWe have a blog post about some of the interesting technical challenges that we faced whilst building this: https://www.snaplet.dev/post/postgresql-in-the-browserLike most things, this is built on-top of the amazing open-source projects that made this possible, but special mention goes to v86.js and buildroot. We just glued it together.My hope is that we as a community can own this project and make PostgresQL, and the software that runs on it, accessible to a larger audience.---[0] Request for collaboration: https://news.ycombinator.com/item?id=32500526"</p>
-							
-						
-							
-								<p class="story__comment_others">"Hey HN, we’re excited about this launch. This was a collaborative effort with the team at Snaplet [0].postgres-wasm is an embeddable Linux VM with Postgres installed, which runs inside a browser. It provides some neat features: persisting state to browser, restoring from pg_dump, logical replication from a remote database, etc.The idea was inspired by CrunchyData’s HN post about a month ago [1]. We love the possibilities of Postgres+WASM, and so Supabase &amp; Snaplet teamed up to create an open source version. The linked blog post explains the technical difficulties we encountered, and the architecture decisions we made.We’re still working hard on this, but it’s at a good “MVP” stage where you can run it yourself. Snaplet are working on a feature where you can drag-and-drop a snapshot into your browser to restore the state from any backup. Supabase are exploring ways we can run the entire Supabase stack inside the browser. You can find the Snaplet repo here [2], and the Supabase fork here [3]. There’s very little difference between these two, we just have a different browser UI.Both Supabase team and the Snaplet team will be in here commenting if you want to know anything else about the technical details.[0] Snaplet: https://www.snaplet.dev/[1] Crunchy post: https://news.ycombinator.com/item?id=32498435[2] Snaplet repo: https://github.com/snaplet/postgres-wasm[3] Supabase fork: https://github.com/supabase-community/postgres-wasm"</p>
-							
-						
-							
-								<p class="story__comment_others">"One of the things I love from this post is the collaboration on this kind of OSS projects.Making Postgres Wasm helped:- v86[0] to find a new bug- Providing a great deep-dive article that will trigger new ideas in the future- Showcase the possibilities of Wasm and how you can overcome the current challengesI really appreciate these projects are OSS :)Congratulations for the project![0] https://github.com/copy/v86"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=33062606">
-						<picture>
-							<source srcset="default_33062606.webp" type="image/webp">
-							<source srcset="default_33062606.png" type="image/png">
-							<img src="default_33062606.png" alt="Preview of 'Tell HN: A disabled 40-year-old person founded a startup and makes a living'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=33062606">Tell HN: A disabled 40-year-old person founded a startup and makes a living</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33062606">
-						
-							
-								<p class="story__comment_first line-clamp">"Congratulations, Michael, thank you for sharing your story!A cautionary note on using Paypal as your sole payment system. If this is a considerable source of your income, I would caution against only using Paypal or keeping a large amount of money in that account. There are too many Paypal horror stories out there to mention of people getting their accounts limited or shut down without recourse because their automated checks flagged accounts for suspected fraud or violating their ToS. Best of luck!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Hi Michael, your story put a smile on my face. Its so awesome that you were able to leverage the Google workspace add-on marketplace for your QR code. I think there is still a lot of untapped markets apart from Contact tracing which might use QR codes. So keep plugging and wish You and Your co-founder all the power in the world. Start Small.Stay small."</p>
-							
-						
-							
-								<p class="story__comment_others">"Hi Micheal,I admire what you did, seriously. But here us the &#34;but&#34;...In no way am I understating the difficulty of what you have to go though. I am disabled myself and you should celebrate your success widely in t his forum.However, you lost me when you said:&gt;Also, I would like to encourage disabled people, older people to escape your comfort zone and make changes in the world.When you say that things like that you lump all disabilities into one amorphous blob and it actually harms the disabled community. That and your whole story is known as &#34;Disability Porn&#34;.Not all of us have disabilities that are constant and predictable. I was making six digits working at Cisco Systems and idea that I should struggle through it all for some notion of success almost killed me. I have Schizoaffective Bipolar Disorder. It is not predictable and it is way more stigmatized. Plus it get worse when you are under stress. I know you can appreciate that as the owner of a startup.So people will read your story, then they ask me what I do and when I am disabled they say a lot of stupid sht like; &#34;Why don&#39;t you get a part time job?&#34; Or &#34;You are so intelligent, can&#39;t you get an online job?&#34; All because they heard some guy who was disabled by polio did a startup up, or a man with no legs climbed Mount Everest.The part about telling us to &#34;escape our comfort zone&#34; was demeaning as well. In the U.S., many disabled people are forcefully pushed out of our comfort zones. I am currently homeless livening on disability as inflation makes me more and more uncomfortable.This is not to say I do not keep trying. I have taught my self Genetics, Nutritional Biology, amount other health related sciences in hope to keep me alive with this genetic disorder.  But there were times when the effort involved to merely brush my teeth was all the success I could muster.I am glad for you, really, but I had to say all this if not for anyone here, just for myself."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.glitched.online/the-ps5-has-been-jailbroken-custom-packages-can-now-be-installed/">
-						<picture>
-							<source srcset="default_33065297.webp" type="image/webp">
-							<source srcset="default_33065297.png" type="image/png">
-							<img src="default_33065297.png" alt="Preview of 'The PS5 Has Been Jailbroken'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.glitched.online/the-ps5-has-been-jailbroken-custom-packages-can-now-be-installed/">The PS5 Has Been Jailbroken</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33065297">
-						
-							
-								<p class="story__comment_first line-clamp">"This reminds me of a meme.&gt; PS5 User: hey can I install a SSH server on my PlayStation?
-&gt; Sony: NOOOOOO YOU CAN&#39;T DO THAT THAT&#39;S&#39; ILLEGAL WE&#39;LL SUE YOU FOR VIOLATING TOS&gt; Steam Deck User: hey can I install a SSH server on my Steam Deck?
-&gt; Valve: It&#39;s already included. Have fun."</p>
-							
-						
-							
-								<p class="story__comment_others">"That reminds me of a video that I watched a few months ago about how an earlier generation of PlayStation got jailbroken very late in its lifecycle because Sony decided to disable Linux (or something like that, I don’t remember). As long as that feature was available, nobody cared to hack the console because they could do what they want, but as soon as Sony pulled the feature, the console was hacked in a very short time."</p>
-							
-						
-							
-								<p class="story__comment_others">"https://github.com/Cryptogenic/PS5-4.03-Kernel-ExploitFine documentation of the process and the (limitations of the) exploit."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://adguard.com/en/blog/apple-tracking-ads-business.html">
-						<picture>
-							<source srcset="default_33069696.webp" type="image/webp">
-							<source srcset="default_33069696.png" type="image/png">
-							<img src="default_33069696.png" alt="Preview of 'Apple’s ad business set to boom on the back of its own anti-tracking crackdown'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://adguard.com/en/blog/apple-tracking-ads-business.html">Apple’s ad business set to boom on the back of its own anti-tracking crackdown</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33069696">
-						
-							
-								<p class="story__comment_first line-clamp">"After reading the article, I still don&#39;t understand the exception Apple purportedly gets from its tracking rules. As I understand it, Amazon is allowed to use activity in the Kindle app to show personalized ads in the Amazon Shopping app without using the ATT prompt. Isn&#39;t that the same thing as Apple using News app activity to personalize ads in the App Store?The part that is unfair is that no one but Apple gets to have an App Store or process IAPs, which has always been the problem with iOS. Trying to make it about ATT just seems like a red herring."</p>
-							
-						
-							
-								<p class="story__comment_others">"One of the reasons I pay a premium to use Apple&#39;s products is to not be part of an advertising ecosystem. I am disappointed that this seems to be changing. Ads in the App Store are one thing—ads in Maps, Books, and Podcasts as the article suggests may be coming in the future—will drive me to use premium (even if they&#39;re paid) alternatives. At a minimum, people who pay for an Apple monthly iCloud subscription should be able to opt-out (not just of tracking, which already exists, but seeing ads all together)."</p>
-							
-						
-							
-								<p class="story__comment_others">"To be clear, this is entirely about advertising within Apple&#39;s App Store (that&#39;s what Apple Search Ads is). It has nothing to do with ads on the internet or in Safari, or even within third party apps."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.wired.com/story/bots-online-advertising/">
-						<picture>
-							<source srcset="default_33045372.webp" type="image/webp">
-							<source srcset="default_33045372.png" type="image/png">
-							<img src="default_33045372.png" alt="Preview of 'Companies are paying huge sums to show their ads to bots'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.wired.com/story/bots-online-advertising/">Companies are paying huge sums to show their ads to bots</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33045372">
-						
-							
-								<p class="story__comment_first line-clamp">"When I worked in adtech, I proposed a simple solution to ad fraud on our platform - assume any UA coming from an IP range owned by a cloud provider was a bot and don&#39;t show them ads, don&#39;t count their impressions.Worst case, people using a VPN hosted on EC2 might not see an ad, but I was certain they&#39;d cope. Best case, higher quality traffic increases yields.The business team vetoed that, it would adversely impact their numbers in the current quarter, and well, a significant proportion of their total comp was bonuses tied to those numbers. Also, the shareholders seemed to be of the mindset that has infected cryptocurrency speculators where no matter what, the spice must flow, wait, I mean, the number go up.Then there were all the &#34;bonuses&#34; and &#34;incentives&#34; negotiated with big advertisers or publishers. We just referred to them as kickbacks, because they totally are, but labeling something in code as kickbackPercentage was verboten. Just in case.Advertising has always been corrupt. Bots just corrupt it a little further."</p>
-							
-						
-							
-								<p class="story__comment_others">"If you are paying any bill for ads, make sure you only pay for conversions.   Ie. unless the customer actually buys your product, then don&#39;t pay anything.   Eg. instead of paying $0.002 per view of your ad, or $0.10 per click of your ad, pay $6 per person who clicks your ad and then buys your product.That way, ad fraud doesn&#39;t affect you.    Plenty of ad providers allow such an option.   Internally, they convert your payments per conversion into payments per click and then payments per impression, but importantly this shifts the incentive to get rid of bots to them, not you - you no longer care.   The provider also has an incentive to send you customers who will actually buy your product, and to send the bots and web scrapers to their other clients."</p>
-							
-						
-							
-								<p class="story__comment_others">"A few years ago, I tried to help out a locally owned gym do an experiment with Google Ad-Words. The place small storefront in a run-down strip mall straight out of the 1960s, but it had very good equipment for people that were in the know and it was 24 hours.The owner was a nice guy but he relied entirely on word-of-mouth and his technical skills extended to making expletive laced, 128-point-font signs reminding people to put equipment away in Word. I got the sense the business was not going well after a protracted battle with a former business partner, where the business partner just wanted to liquidate the assets and call it a day. He managed to buy the business partner out and continued to operate the place---sans a few treadmills. I decided to try and help him out by volunteering my time and some money to see if a small, targeted ad buy from Google could help him out. It sure beat finding another place like this.The dashboard made it look very targeted geographically. But, when I investigated where they were all coming from it was 95% international and from affiliates listings from very low quality sites with no information on them. A month and $300 later, I discontinued this experiment because the traffic was entirely bot driven.From that experience, I&#39;ve come to the conclusion that online Ad Tech is 99% a scam."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/soxoj/maigret">
-						<picture>
-							<source srcset="default_33061058.webp" type="image/webp">
-							<source srcset="default_33061058.png" type="image/png">
-							<img src="default_33061058.png" alt="Preview of 'Maigret: Collect a dossier on a person by username from thousands of sites'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/soxoj/maigret">Maigret: Collect a dossier on a person by username from thousands of sites</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33061058">
-						
-							
-								<p class="story__comment_first line-clamp">"Seems incredibly prone to false positives. For example, I can guarantee that I&#39;m not the AdmiralAsshat on Reddit, Gmail, or Twitter, because that username was already taken by the time I tried to sign up for them."</p>
-							
-						
-							
-								<p class="story__comment_others">"This project is apparently a fork of another project called Sherlock [1] which is still active.Does anyone know the story behind the fork?[1]: https://github.com/sherlock-project/sherlock"</p>
-							
-						
-							
-								<p class="story__comment_others">"Well, that is creepy as hell, but I guess it is obvious that such a tool could exist, and it is better not to have it exclusively in the hands of data-brokers, etc.I wonder how hard it would be to add the functionality: go back to the email address that has registered these accounts, find any other names they&#39;ve registered, and search off those. (EDIT: err, wait, I bet that&#39;s the &#34;recursive&#34; functionality they mention)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://engineeringmedia.com/books">
-						<picture>
-							<source srcset="default_33071119.webp" type="image/webp">
-							<source srcset="default_33071119.png" type="image/png">
-							<img src="default_33071119.png" alt="Preview of 'The Fundamentals of Control Theory'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://engineeringmedia.com/books">The Fundamentals of Control Theory</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33071119">
-						
-							
-								<p class="story__comment_first line-clamp">"If anyone&#39;s studying control theory, you&#39;re doing yourself a disservice if you don&#39;t use Brian Douglas&#39;s resources. His videos on YouTube are phenomenal at explaining not only the theory and techniques, but why you should care in the first place.Also, why should anyone study control theory? It&#39;s the math behind making real-world systems perform what you want them to do. In particular, robotics and autonomous vehicles rely heavily on techniques from control theory.If you watch Brian&#39;s videos, keep in mind that they bifurcated into two places: his original videos [1], and his more recent MATLAB tech talk videos [2].[1]: https://www.youtube.com/controllectures[2]: https://engineeringmedia.com/videos"</p>
-							
-						
-							
-								<p class="story__comment_others">"Another source for simple to digest, useful fundamentals: https://file.tavsys.net/control/controls-engineering-in-frc....This was originally created as a guide for high schoolers for robotics but goes into relative depth (the subtitle is &#34;Graduate-level Control Theory for High Schoolers). I personally found it quite useful for intuitive understanding of how control systems work.Prerequisites: linear algebra"</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t recall much about control theory from university, but the one thing that did stick was state-space representation.The part that got me was that you could take this arbitrarily-complex LTI system and basically turn it into a matrix that encapsulates everything. Any given state the system could exist in becomes a simple vector. Lots of crazy compositional techniques exist once you get your problems into this kind of shape."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://javalin.io/news/javalin-5.0.0-stable.html">
-						<picture>
-							<source srcset="default_33068017.webp" type="image/webp">
-							<source srcset="default_33068017.png" type="image/png">
-							<img src="default_33068017.png" alt="Preview of 'Show HN: I finished v5 of a JVM framework I&#39;ve spent spent half a decade making'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://javalin.io/news/javalin-5.0.0-stable.html">Show HN: I finished v5 of a JVM framework I&#39;ve spent spent half a decade making</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33068017">
-						
-							
-								<p class="story__comment_first line-clamp">"I just wanted to say thank you for your work. The straightforward docs are some the best in my opinion when you want to go from &#34;How do I do ...&#34; to answer.I ended up using Javalin with Kotlin and SQLite to build my wedding website.Most of my projects are lucky to see the light of day, but with a very persistent project manager and a simple lightweight framework, I was able to ship a fantastic product with very little fuss."</p>
-							
-						
-							
-								<p class="story__comment_others">"This looks great!  I did Java professionally for years but when all the jobs moved to EE I bailed for Ruby/Rails and similar.  Java the language I&#39;ve always really enjoyed.  It&#39;s the frameworks and hundreds of design patterns that repelled me.  I felt like they were all needlessly complex.  If frameworks like this one were more common in Java world, I may never have left.This looks really nice!  I wish more Java devs approached things with KISS and simple in mind, rather than looking at every problem as a way to apply some obscure design pattern that involves 15 levels of abstraction and indirection for a relatively simple microservice."</p>
-							
-						
-							
-								<p class="story__comment_others">"I just started using this! Spring Boot seemed so convoluted, having to go to a website to even begin. And then to have the Tomcat dependency seemed like a heavy lift just to get a &#34;hello world&#34; working. Virtual threads seems to be the way to go.Virtual threads in Java 19:
-https://www.infoq.com/articles/java-virtual-threads/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://lwn.net/Articles/910087/">
-						<picture>
-							<source srcset="default_33062252.webp" type="image/webp">
-							<source srcset="default_33062252.png" type="image/png">
-							<img src="default_33062252.png" alt="Preview of 'Linux Kernel 6.0'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://lwn.net/Articles/910087/">Linux Kernel 6.0</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33062252">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt;&gt; Linux is a registered trademark of Linus TorvaldsI hadn&#39;t realized that before. The link below discusses the reasons why this was done.https://www.linux.com/news/linux-mark-institute-protecting-l..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Major  versions of Linux used to be awaited with bated breath.  For many years I ran a &#34;Linux kernel major release pool&#34;, which probably nobody here remembers, but it was fairly popular.  Npw, it&#39;s fairly boring when a new release comes out.  Don&#39;t get me wrong, I don&#39;t think that&#39;s necessarily a bad thing..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Can someone explain what Linus meant by &#34;running out of fingers and toes&#34;?EDIT: Ah I got the joke - he meant DIGITS!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.paypalobjects.com/marketing/ua/pdf/AU/en/acceptableuse-full-110322.pdf">
-						<picture>
-							<source srcset="default_33062320.webp" type="image/webp">
-							<source srcset="default_33062320.png" type="image/png">
-							<img src="default_33062320.png" alt="Preview of 'PayPal’s updated acceptable use policy [pdf]'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.paypalobjects.com/marketing/ua/pdf/AU/en/acceptableuse-full-110322.pdf">PayPal’s updated acceptable use policy [pdf]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33062320">
-						
-							
-								<p class="story__comment_first line-clamp">"So, it&#39;s clear from the text that it needs to be understood in the context of the PayPal User Agreement. I tracked that down assuming that it would limit PayPal&#39;s ability to charge you to their actual damages. But no, in fact the text is quite shocking:&gt; If you are a seller and receive funds for transactions that violate the Acceptable Use Policy, then in addition to being subject to the above actions you will be liable to PayPal for the amount of PayPal’s damages caused by your violation of the Acceptable Use Policy. You acknowledge and agree that $2,500.00 U.S. dollars per violation of the Acceptable Use Policy is presently a reasonable minimum estimate of PayPal’s actual damages - including, but not limited to, internal administrative costs incurred by PayPal to monitor and track violations, damage to PayPal’s brand and reputation, and penalties imposed upon PayPal by its business partners resulting from a user’s violation - considering all currently existing circumstances, including the relationship of the sum to the range of harm to PayPal that reasonably could be anticipated because, due to the nature of the violations of the Acceptable Use Policy, actual damages would be impractical or extremely difficult to calculate. PayPal may deduct such damages directly from any existing balance in any PayPal account you control. [emphasis is mine]As I read this (not a lawyer) PayPal claims that any violation of their acceptable use policy will result in an  a̶u̶t̶o̶m̶a̶t̶i̶c̶ charge of $2500 because that represents the &#34;minimum estimate&#34; of the damage your violation causes them.On top of being completely a completely unacceptable policy, the idea that any violation costs them at least $2500 is complete fucking horseshit, if you&#39;ll pardon my explicitness. There is absolutely no way I would ever do business with PayPal as a seller under any circumstances, even if it was my customers&#39; preferred method."</p>
-							
-						
-							
-								<p class="story__comment_others">"Most people never want to acknowledge the sheer scope and scale of Paypal and Square&#39;s Cash app&#39;s usage as large scale money laundering, drug trafficking, and prostitution tooling. (and much more)They didn&#39;t really even try to stop it in the early days. You could setup an injectable immunomodulator merchant account in under 10 minutes with Square. People started entire pill mills using Square and Paypal. It was wild!Similar to Turo who allowed the vehicles of their users to be used by weak KYC&#39;d users. You never knew who was actually driving the vehicle.I had loads of interesting conversations with Ex San Quentin prisoners, was riveting to listen to some of them talk about the crimes committed with all the fintech startups. Everything I thought I knew was wrong.Paypal/Square Mafia&#39;s used cheap pension money of VC&#39;s to take their vig."</p>
-							
-						
-							
-								<p class="story__comment_others">"FYI (before misinformation spreads): OP&#39;s title is a bit misleading. The $2500 policy has been in effect since at least September 20 of last year. That is not a new change. The new thing is section 5 (regarding &#34;speech&#34;)https://www.paypal.com/us/legalhub/acceptableuse-full (archived: https://web.archive.org/web/20221003014408/https://www.paypa... )"</p>
 							
 						
 						</a>
