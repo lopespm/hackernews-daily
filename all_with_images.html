@@ -36,6 +36,405 @@
 	</div>
 
 	
+	<div class="day__date">19 October 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://ciechanow.ski/sound/">
+						<picture>
+							<source srcset="default_33249215.webp" type="image/webp">
+							<source srcset="default_33249215.png" type="image/png">
+							<img src="default_33249215.png" alt="Preview of 'Sound'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://ciechanow.ski/sound/">Sound</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33249215">
+						
+							
+								<p class="story__comment_first line-clamp">"This man needs a genius grant, and this is about the 6th time I&#39;ve thought this.Any one of these pages would be a feat, an achievement to be proud of, but as a collection, it forms one of the greatest educational resources of its type that I have known.These things can give you more intuition about a subject in 45 minutes than a textbook might be able to in 3 months, because it&#39;s interesting and not dry.I wish I had more time to rant about this right now, but I haven&#39;t, so: Kudos. Another amazing job."</p>
+							
+						
+							
+								<p class="story__comment_others">"Bartosz&#39; blog posts are in a league of their own.They way he is able to explain complex subjects by starting from first principles, gently adding more and more layers, with beautiful, custom-made figures and animations is truly, literally, awesome.I strongly recommend supporting the author via his Patreon if you enjoy his blog posts."</p>
+							
+						
+							
+								<p class="story__comment_others">"+1 for the recommendation for &#34;The Scientist and Engineer&#39;s Guide to
+Digital Signal Processing&#34; by Steven W. Smith. I spoke to Steven many
+years ago about his putting all of the book PDFs online for free and
+since then have recommended at least 5 university libraries to buy it
+because the students could get free copies of a great book that can be
+referenced in the library.FWIW the The Scientist and Engineer&#39;s Guide doesn&#39;t actually cover a
+lot on sound. It starts in a particular DSP way with frequency domain
+definitions and convolution - and I actually think Steven&#39;s background
+is in medial imaging, though I could be mistaken."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/hillelogram/status/1534301374166474752">
+						<picture>
+							<source srcset="default_33248391.webp" type="image/webp">
+							<source srcset="default_33248391.png" type="image/png">
+							<img src="default_33248391.png" alt="Preview of 'I am endlessly fascinated with content tagging systems'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/hillelogram/status/1534301374166474752">I am endlessly fascinated with content tagging systems</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33248391">
+						
+							
+								<p class="story__comment_first line-clamp">"Instagram&#39;s tagging system was actually really effective at categorizing content and discovery because each hashtag was treated as a node in a (giant) graph, where each node has multiple properties, including post count (number of posts using a tag), &#39;velocity&#39; (number of posts using a particular tag per unit time), etc. I could write up a big post about it as I made a study of it in when I created a web app for finding the most relevant tags a few years ago.All that to say there was a lot to their system and it worked because users became aware that they were rewarded for using the most relevant tags. Using irrelevant tags was punished. This guided users towards using a mix of relevant popular and niche tags to maximize their reach, which, in turn, further improved the tagging system.Instagram&#39;s tagging system isn&#39;t as important anymore as their algorithm has deemphasized it, in favor of other methods for classification and discovery, but there were a couple of golden years where it worked very well. Most users still look back on those years as the &#39;good times&#39; even if they don&#39;t know exactly why. I&#39;d go so far as to say they ruined the app after they deemphasized tags (and added way too many ads)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I adore tagging systems and have worked on them in several different applications and implementations, but there are always pitfalls and trade offs, and it’s possible to bury yourselfNowadays I nearly always store the assigned tags as an integer array column in Postgres, then use the intarray extension to handle the arbitrary boolean expression searches like “((1|2)&amp;(3)&amp;(！5))”. I still have a tags table that stores all the metadata / hierarchy / rules, but for performance I don’t use a join table. This has solved most of my problems. Supertags just expand to OR statements when I generate the expression. Performance has been excellent even with large tables thanks to pg indexing."</p>
+							
+						
+							
+								<p class="story__comment_others">"I worked with the Wikipedia category system a few years ago, and you could see the problems with hierarchical tagging systems right in action back then. (Though it may have gotten better in the meantime)The system appeared simple: There were just two relations, &#34;Article A is a member of category B&#34; and &#34;Category X is a subcategory of category Y&#34;.However, in practice, the community was using this system to represent a whole host of wildly different relationships between items, often with different implications what a category actually applied to.E.g., if A has a subcategory B, this could mean one of several things: B might be an additional constraint on the items in A (&#34;American writers&#34; -&gt; &#34;19th century American writers&#34;), the things in B might be more specific than the things in A: (&#34;Writers&#34; -&gt; &#34;Novelists&#34;), A might apply to the concept B, not the things in B (&#34;Occupations&#34; -&gt; &#34;Writers&#34;) or A might refer to the category B (&#34;Categories with more than 100 entries&#34; -&gt; &#34;Writers&#34;) and on and on...Of course those different aspects could even be combined. E.g. &#34;Categories with more than 100 entries&#34; might have a child &#34;Categories with more than 100 entries in need of review&#34;, which represents a constraint but might itself contain less than 100 entries...The basic question &#34;Is item X in category Y&#34; becomes impossible to answer generally, because there is no clear indication if a category only applies to its direct children or to all of its descendants or only to the subcategories itself.I&#39;m sure there are sophisticated ontological systems which would allow users to specify all those different relationships separately. I&#39;m also pretty sure that users would become sloppy after a short time or would disagree which particular relationship to use in a particular situation..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://neil.computer/notes/dear-jetbrains-dont-mess-with-your-ui/">
+						<picture>
+							<source srcset="default_33242730.webp" type="image/webp">
+							<source srcset="default_33242730.png" type="image/png">
+							<img src="default_33242730.png" alt="Preview of 'Dear JetBrains, Don&#39;t mess with your UI'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://neil.computer/notes/dear-jetbrains-dont-mess-with-your-ui/">Dear JetBrains, Don&#39;t mess with your UI</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33242730">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; - Rounding of corners. Religion at this point&gt; - Homogenization. JetBrains wants to be like VSCode&gt; - Animations. Haven&#39;t seen them but it will be filledSeriously, HN? This is the quality that you reward with hundreds of points? Unlike the author, I happen to have used this UI for the past five months and it solves many of my longstanding gripes with IntelliJ:- Gutters are now much better at highlighting local changes, while also being less visually obtrusive.- The shaded tool window background nicely separates them from the editor- Showing the git branch next to the title makes it so much easier to understand where I am, when I work with multiple projects and branches.- Breadcrumbs in the Statusbar save some space and look much cleaner---Also, many of the complaints that I&#39;ve seen in this thread are either wrong or exaggerated:- &#34;Monochrome icons&#34; - Only the toolbar icons are monochrome, everything else still uses coloured icons.- &#34;The toolbar has less icons now&#34; - It&#39;s customisable, you can put whatever you want in there. Yes, with colourful icons.- &#34;More Whitespace&#34; - The vertical space from the top of the screen to the editor is the exact same. The Project view actually looses some vertical space, but only because the font size is bigger (Which you can change obviously). The spacing between the list items is the same according to a designer on Slack.- &#34;This is just some incompetent designer pushing their agenda on us, breaking my workflow because something something trends&#34; - go touch grass.And finally, just to be clear: no, there are no animations - everything is instant."</p>
+							
+						
+							
+								<p class="story__comment_others">"Eh, I have used vim, spacemacs, sublime, vscode, atom, eclipse and netbeans. Jetbrains IDEs have superior functionality out of the box across languages and don’t require me to mess with and debug a million plugins. I don’t mind a UI refresh, it’s going to be just like the gmail refresh everyone hated it and now we’re all fine with it.I just wish they would invest more money into things that are actually a problem currently like how slow indexing is and how disruptive it is when you do a clean re-install and it indexes all your dependencies again.I have tried spacemacs which gives a lot of functionality out the box with less configuration needed than DIY vim or emacs but it still just doesn’t compare to the ease of use of Jetbrains IDEs across languages (I use Java, Python, Ruby and Typescript every week)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Seriously! Their slick, compact, and beautifully well laid out UI is one of the primary reasons I use I Intellij Idea.If they force this update, I&#39;ll just not update it. Not to mention, since I now will not be updating it, I can cancel my yearly, recurring subscription too.Hey Jetbrains: You just have to do one thing. And that is: to NOT mess up existing thing.Even if you stop launching new features into your product for next few years, I&#39;ll still happily pay you folks just because your product is so damn perfect as of now.Please don&#39;t ruin it. Forget what VSCode is doing. They are far far far behind you folks. Don&#39;t let THEM ruin your product."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://news.ycombinator.com/item?id=33246841">
+						<picture>
+							<source srcset="default_33246841.webp" type="image/webp">
+							<source srcset="default_33246841.png" type="image/png">
+							<img src="default_33246841.png" alt="Preview of 'Tell HN: Beware &#39;Ungrowth&#39; in Your Job'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=33246841">Tell HN: Beware &#39;Ungrowth&#39; in Your Job</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33246841">
+						
+							
+								<p class="story__comment_first line-clamp">"I had a situation once where we had a minor re-org and I ended up with a new manager. Literally day one, he made an attempt to change everyone&#39;s role. We were a team of developers and business analysts. He decided that everyone would become both and spend 50% of their time on each activity. Not sure why he thought this was a good idea, but he did.After he announced it, I had a 1x1 with him and clearly let him know that he was the boss and I&#39;d do my best to accomplish anything he assigned me. I also let him know that the business analyst duties didn&#39;t fit well with my skillset and that I would very likely struggle to produce output. We had a good, honest conversation about the situation and I ended up staying 100% as a developer. In the end he was happy and I was happy.Why am I telling you? It&#39;s that I&#39;ve learned it better to communicate and hopefully work things out then just pack up and head to another place."</p>
+							
+						
+							
+								<p class="story__comment_others">"Personally I think the concept of growth is a scam to get people to work harder for less. You can certainly grow your skill set, but intelligent people can rise to the occasion in most jobs. Including CEO/Director/High level decision making jobs.Everytime I have received some insultingly low offer from a startup, they start talking about &#34;growth&#34;, &#34;what I can own&#34;, &#34;wearing many hats&#34;. Meanwhile, the founder is sitting on some 40% equity grant."</p>
+							
+						
+							
+								<p class="story__comment_others">"There is a leadership book called &#34;First Break all the Rules - What the World&#39;s Greatest Managers Do Differently&#34;.  It&#39;s data driven by a large meta-survey and research project.One of the conclusions was that, essentially, the normal instinct with Performance Management to focus on improving weaknesses is wrong and leads to sub-optimal outcomes.  The best managers actually doubled down on each individuals strengths, and simply accepted weaknesses as something to be smoothed out to the minimally acceptable level. (e.g. someone may not be &#34;good with people&#34;, but they can&#39;t be openly hostile with co-workers.)  Instead the manager would look for another employee which had that weakness as a strength, and manage responsibilities appropriately.It speaks exactly to what was wrong in OP&#39;s experience."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://tigyog.app/d/H7XOvXvC_x/r/goedel-s-first-incompleteness-theorem">
+						<picture>
+							<source srcset="default_33236447.webp" type="image/webp">
+							<source srcset="default_33236447.png" type="image/png">
+							<img src="default_33236447.png" alt="Preview of 'Gödel’s first incompleteness theorem – an interactive tutorial'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://tigyog.app/d/H7XOvXvC_x/r/goedel-s-first-incompleteness-theorem">Gödel’s first incompleteness theorem – an interactive tutorial</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33236447">
+						
+							
+								<p class="story__comment_first line-clamp">"Is the essential similarity of the key trick in Godel&#39;s incompleteness theorem and the Y combinator well known?  I finally &#34;got&#34; the incompleteness theorem when that relationship dawned on me.  As a cute entry point, consider the standard lambda term with no normal form, &#34;(lambda x. (x x)) (lambda x. (x x))&#34;.  Now consider the Godel formula &#34;Substitute(F, n)&#34;, which takes a number F, the Godel number of a formula with a single free variable, and another number n.  It simplifies to a number M which is the Godel number of the formula F with n replacing all instances of its free variable.  One might interpret F as function-like, in the sense that for any number n, F [free_var := n] simplifies to some other number m.  So now consider &#34;Substitute(F, F)&#34;, which is suggestive of &#34;(x x)&#34; in lambda notation.  Let M be the Godel number of this formula, which has one free variable.  Finally, use an analogy to the above self-referential lambda term to create the formula G, defined as &#34;Substitute(M, M)&#34;.  To what number does this arithmetic formula with no free variables simplify?  The delightful answer is that it simplifies to its own Godel number!  Just as it is a short step from the above simple self-referential lambda term to the Y combinator, so it is a short step from the above fact to the standard Godel formula for which neither it nor its negation has a proof."</p>
+							
+						
+							
+								<p class="story__comment_others">"Cool page, though the Halting Problem brings with it a lot of stuff, so using it to prove Godel&#39;s first incompleteness theorem is (imo) a bit like cheating. I&#39;ve proven it before using diagonalization on my blog (but also using concepts like computability for free). At the end of the day, using these ideas, you get the Curry–Howard correspondence for free (which, again, is a bit like cheating).&gt; Gödel’s original proof was slightly strongerTechnically speaking, a lot stronger. Proving Godel&#39;s first incompleteness theorem (don&#39;t even get me started on the second) from first principles is actually much more involved; and certainly more difficult to make it intelligible for non-logicians."</p>
+							
+						
+							
+								<p class="story__comment_others">"A math prof had a brilliant blog and one of the subjects he covered was Gödel&#39;s incomepleteness theorems. I really loved his style (and his wife&#39;s illustrations). Too bad he stopped posting.https://infinityplusonemath.wordpress.com/2017/07/22/kurt-go...https://infinityplusonemath.wordpress.com/2017/08/04/godels-...https://infinityplusonemath.wordpress.com/2017/09/04/how-god..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.1000hoursoutside.com/blog/time-with-kids-before-age-12">
+						<picture>
+							<source srcset="default_33254597.webp" type="image/webp">
+							<source srcset="default_33254597.png" type="image/png">
+							<img src="default_33254597.png" alt="Preview of '75% of the time we spend with our kids in our lifetime will be spent by age 12'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.1000hoursoutside.com/blog/time-with-kids-before-age-12">75% of the time we spend with our kids in our lifetime will be spent by age 12</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33254597">
+						
+							
+								<p class="story__comment_first line-clamp">"One of the things I have a hard time conveying to non-parents is that the most time-intensive parts of parenting don&#39;t last forever.I&#39;ve talked to a lot of young people who say they don&#39;t want kids because they think their personal lives will permanently halt the moment they have kids. I spend a lot of time trying to explain that:1) I still spend a lot of time with friends and can do most of my personal hobbies/activities on weekends. My wife and I are good at sharing the load. You don&#39;t need 2 parents watching kids 100% of the time.2) The sleepless nights and diaper changes are a mere blip on the scale of a lifetime with kids. You deal with it, then the kids grow up quicker than you think. Don&#39;t let the idea of the first few months/years define your entire decision for how you want to structure your family for the rest of your life.3) You actually like hanging out with your own kids. I talk to a lot of people who are anchored to some negative experience they had 10 years ago babysitting for someone else&#39;s kids, as if that was representative of parenting life. It&#39;s not at all. At the end of the day, I actually rush to finish up my work so I can have more kid time. It&#39;s fun."</p>
+							
+						
+							
+								<p class="story__comment_others">"A huge asterisk here is that this varies greatly by culture. For better or worse* certain cultures value strong family bonds and time spent with the parents, as well as bilateral support well into adulthood. Many cultures also encourage multigenerational living within a single household (or in extremely close proximity like my parents did).For example, my parents were happy to have me live at home as long as I wanted, and in fact encouraged me to stay so I could save up. Ideally in their eyes I wouldn&#39;t even move out until I was married. In my parent&#39;s culture, I&#39;m not seen as a loser or a burden because I&#39;m living with them as an adult, only if I wasn&#39;t contributing to the family&#39;s prosperity. Of course I wanted to live my own life sooner than that, but that doesn&#39;t mean I left as soon as I was 18.Because of these strong family ties I live within minutes of my parents, and still make sure to visit often, even if it&#39;s just for dinner.*Where this can breakdown is if one does not fit neatly within the boundaries and expectations set by cultural norms."</p>
+							
+						
+							
+								<p class="story__comment_others">"I enjoyed the comments section much more than the article itself (even though it&#39;s a great article)There is something magical to me about seeing other people&#39;s experiences (especially positive ones)P.S. I&#39;ve noticed we&#39;re in a need for more streamlined info on being a parent in the world we live in so I created a weekly newsletter for remote-working parents - https://thursdaydigest.com/Most of my subscribers are coming from comments just like this."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://sensebridge.net/projects/northpaw/">
+						<picture>
+							<source srcset="default_33237952.webp" type="image/webp">
+							<source srcset="default_33237952.png" type="image/png">
+							<img src="default_33237952.png" alt="Preview of 'North Paw'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://sensebridge.net/projects/northpaw/">North Paw</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33237952">
+						
+							
+								<p class="story__comment_first line-clamp">"I own one of these - bought it pre-made years ago rather than assembling the kit myself. It&#39;s a ton of fun, and really does give me a more-intuitive sense of direction. After wearing it for a while around places I go to regularly, I keep that intuitive sense of direction without having to wear it.I&#39;ve mostly stopped wearing it though, because it looks a lot like a GPS-based parole-monitoring device, and I got tired of questions/comments :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; As you might have guessed by the long period with no posting, Sensebridge is out of business. We’ve been out of stock on Northpaw Kits since late 2016; we do not have plans to make more kits."</p>
+							
+						
+							
+								<p class="story__comment_others">"Back in 2005 my university built this as a belt and ran several studies on it over the following decade.[1]It morphed into a product for the visually impaired and is still available today. [2][1] https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C34&amp;q=fee...
+[2] https://feelspace.de/en/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.hydro-international.com/content/news/seabed-2030-almost-25-of-world-s-seafloor-now-mapped">
+						<picture>
+							<source srcset="default_33239220.webp" type="image/webp">
+							<source srcset="default_33239220.png" type="image/png">
+							<img src="default_33239220.png" alt="Preview of 'Almost 25% of world’s seafloor now mapped'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.hydro-international.com/content/news/seabed-2030-almost-25-of-world-s-seafloor-now-mapped">Almost 25% of world’s seafloor now mapped</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33239220">
+						
+							
+								<p class="story__comment_first line-clamp">"Will be interesting this century to see if increased sensor coverage in the ocean leads to more detection of USOs (unidentified submerged objects). Would love it if a curious billionaire would fund detection systems as anecdotally it seems USO and UFO (same thing?) activity is centered around oceans and coasts, especially off Santa Catalina Island as well as Virginia Beach."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Ocean floor topography also helps identify underwater hazards and inform sustainable marine resource management and infrastructure development.&#34;Likely to inform and fuel the Rare Earth mining already being done on the ocean floor. Take for example off the West Coast of North America: https://www.cbsnews.com/news/rare-earth-elements-u-s-on-side..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Project site: https://seabed2030.org. From the FAQ, they aim for something better than  Depth range Grid cell size % of world ocean floor
+     0– 1500 m 100 × 100 m 13.7
+  1500– 3000 m 200 × 200 m 11
+  3000– 5750 m 400 × 400 m 72.6
+  5750–11000 m 800 × 800 m 2.7
+
+For comparison, https://mars.nasa.gov/resources/8333/a-decade-of-compiling-t...:“each observation by CTX covers a swath of ground about 18.6 miles (30 kilometers) wide, at a resolution of about 20 feet (6 meters) per pixel”Not having oceans makes this a lot easier."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://blog.singleton.io/posts/2022-10-17-otp-on-wrist/">
+						<picture>
+							<source srcset="default_33243434.webp" type="image/webp">
+							<source srcset="default_33243434.png" type="image/png">
+							<img src="default_33243434.png" alt="Preview of 'TOTP tokens on my wrist with the smartest dumb watch'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://blog.singleton.io/posts/2022-10-17-otp-on-wrist/">TOTP tokens on my wrist with the smartest dumb watch</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33243434">
+						
+							
+								<p class="story__comment_first line-clamp">"I just wanted to call out how cool it is to replace the guts of a 1980s-era wristwatch with a ARM Cortex M0+ microcontroller, while reusing the original display and buttons."</p>
+							
+						
+							
+								<p class="story__comment_others">"Please do not paste your secrets into any website as proposed here for conversion."</p>
+							
+						
+							
+								<p class="story__comment_others">"How accurate does the time have to be for TOTP to work? If the watch drifts a bit, will it no longer work? Compared to your phone which is synced with an NTP server."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/p8952/bocker">
+						<picture>
+							<source srcset="default_33218094.webp" type="image/webp">
+							<source srcset="default_33218094.png" type="image/png">
+							<img src="default_33218094.png" alt="Preview of 'Bocker: Docker implemented in around 100 lines of Bash (2015)'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/p8952/bocker">Bocker: Docker implemented in around 100 lines of Bash (2015)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33218094">
+						
+							
+								<p class="story__comment_first line-clamp">"Related:Bocker – Docker implemented in around 100 lines of Bash (2015) - https://news.ycombinator.com/item?id=22244706 - Feb 2020 (196 comments)Docker implemented in around 100 lines of bash - https://news.ycombinator.com/item?id=16453610 - Feb 2018 (9 comments)Show HN: Bocker – Docker implemented in 100 lines of bash - https://news.ycombinator.com/item?id=9925896 - July 2015 (87 comments)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Liz Rice&#39;s presentation on re-creating Docker in Go is also quite eye-opening: https://www.youtube.com/watch?v=Utf-A4rODH8"</p>
+							
+						
+							
+								<p class="story__comment_others">"Really this is more interesting as a great tutorial on the way Linux container tools work (and especially their fundamental simplicity -- the docs make them seem scary when they really aren&#39;t) more than it is as a docker replacement (docker is obviously much larger than this one script, but not really &#34;large&#34; as a software stack).But reading this makes clear that, yes, containers are just filesystem trees, network namespaces are just like internal networks maintained by straightforward commands underneath an &#34;ip netns&#34; command, etc...Great stuff."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">18 October 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -63,11 +462,12 @@
 							
 						
 							
-								<p class="story__comment_others">"The paper is surreal.An AI paper that starts with experiments on drowning cats and religious chimpanzees.Then it talks about making the system by cutting up a large wire mesh and assembling it back randomly.Then it talks about simulating the system on a computer, and coding it in a programming language called YAWN that is like English.Then it says that they could not obtain the machine that runs YAWN programs, so they emulated that machine on another computer (IBM 704).Then it says (excitedly) that the machine printed gibberish when presented with a certain input and on another run ejected the input punched card twice.I&#39;m not sure if this is real or a joke.I&#39;m not sure if the experiment itself was designed as a joke to waste US military&#39;s computer time.I&#39;m not sure if this has some deep lessons.To me, it felt like when Dumbledore set the chicken on fire in HPMOR."</p>
+								<p class="story__comment_others">"I got to the end of the paper before I noticed that it was published in the April issue of Communications of the ACM. I have a hard time believing that this is not an April Fool&#39;s Day joke.I provide as evidence this line from near the end of the paper: &#34;Thanks are due ... to Mr. V. A. Vyssotsky for manually simulating the 704 simulating STRETCH simulating Chaostron&#34;"</p>
 							
 						
 							
-								<p class="story__comment_others">"I got to the end of the paper before I noticed that it was published in the April issue of Communications of the ACM. I have a hard time believing that this is not an April Fool&#39;s Day joke.I provide as evidence this line from near the end of the paper: &#34;Thanks are due ... to Mr. V. A. Vyssotsky for manually simulating the 704 simulating STRETCH simulating Chaostron&#34;"</p>
+								<p class="story__comment_others">"Pretty nice satire once you realize it&#39;s a joke. My favorite quote is definitely &#34;(where by curiosity,&#34; of course, we do not mean to imply that
+anthropomorphic categories or judgements should be applied to machines, but merely that the machines have a desire to learn)."</p>
 							
 						
 						</a>
@@ -105,7 +505,7 @@
 							
 						
 							
-								<p class="story__comment_others">"RSI took away my ability to write any significant amount of code 30 yrs ago. co-pilot plus speech recognition restored that ability.  what impressed me most was that from a textual description,co-pilot gave me code that could have been written by my mind and pre-injury hands.from the comments here, if I push copilot into giving me code that I would have written for a given problem and that code violates licenses, then who is responsible for the copyright violation? co-pilot for giving me code that looks like copyrighted code or me for tweaking co-pilot commands to give me the code I envisioned which looks like copyrighted code?also consider that the very tools used for solving problems in code lead coders to a small number of solutions for a given problem.  is it plagiarism or parallel original thought?also consider that when I wrote code, if I was solving a similar problem to what I solved before, I recreated that previously used code fragment (or larger) and use it to solve the problem at hand. I had zero issues leaving a trail of duplicate code behind me especially if the code was a major part of a software patent.I didn&#39;t care, my code was lauded for it&#39;s readability and reliability. reuse the same concepts in multiple variations, you get real good and writing code correctly.maybe co-pilot like programs could scan existing code bases and find examples of  code fragment plagiarism with the goal of showing that software copyrights are useless."</p>
+								<p class="story__comment_others">"A sizable, possibly plurality cohort of fully adult tech people is young enough to not know about United States v. Microsoft Corp. This would explain a lot of comments I see on this topic.If you don&#39;t know Microsoft&#39;s history, a lot of what more informed people are worried about seems overblown. Copilot was Microsoft&#39;s first test of people&#39;s trust after the GitHub acquisition. It&#39;s going very, very, very poorly. There were ways to do this with consent and collaboration with the people and projects it takes code from, but they&#39;re acting like classic Microsoft here.Too many people are focused on what&#39;s legal. It&#39;s fine to think of, but law is the last stop before the breakdown of society. Microsoft skipped society and went straight to sparking an inevitable test of and possible reshaping of copyright law."</p>
 							
 						
 						</a>
@@ -257,7 +657,7 @@
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m not in the pirate archivist space, but sections 3 and 5 are relevant to my interests. I&#39;ve had great luck with ZAP (https://github.com/zaproxy/zaproxy#readme) glued to a copy of Firefox (because it allows monkeying with the _browser_&#39;s proxy without having to alter the system one as other browsers do) for archiving all content seen while surfing around a site. It even achieves the stated goal of preserving the HTML (etc) in a database since ZAP uses hsqldbThen, section 5 reads like an advertisement for Scrapy since it is just stellar at following all pagination links and then either emitting the extracted payload as your own data structure and/or by telling Scrapy you want to download some media as-is. It will, by default, put the local content in a directory of your choice and hash the url to make the local filename. A separate json file serves as the &#34;accounting&#34; between the things it downloaded and their hashed on-disk filenameScrapy is also able to glue 3 and 5 together because it has a pluggable (everything, heh) dupe detection hook and also HTTP cache support that can be backed by anything, including the aforementioned hsqldb operating in network mode. Scrapy is also very test friendly, since each method accepts a well known python object and emits either a follow-on request, zero or more extracted objects, or nothing if pagination has ended. Thus, one need not rerun the whole scraping process just to test if a bug has been fixed, or during developmentI can appreciate there may be other scraping frameworks, but of the ones I&#39;ve tried Scrapy makes everything that I&#39;ve asked it to do simple and transparent"</p>
+								<p class="story__comment_others">"As an active hoarder I think there is problem with &#34;6. Distribution: Packaging it up in torrents, announcing it somewhere, getting people to spread it.&#34;.I miss a p2p application with torrent packaging and Kademlia like per-file advertising and discovery, where I could point it to my hefty NAS directory of random things and they could be wired to released torrents. This way we could make torrents live much longer, even partially complete. In super extra option the app could even notify me to load DVD because somebody asked for a file which I indexed and advertised previously.For years my program preferences changed, file locations changed - I have moved files around, made them offline, burned on DVDs, deleted some parts of torrent just to keep interesting stuff. Now these torrents are lost, at least my seeding contribution is gone. But I almost never change the content of these files, their checksum stays the same forever, so they could be still discoverable.The digital preservation needs better distribution system."</p>
 							
 						
 						</a>
@@ -413,7 +813,7 @@ Note that every step starts with &#34;ask&#34;. This means that you need to list
 							
 						
 							
-								<p class="story__comment_others">"I wish they would explain what xcheck is and how it works before the talk about the problems with it. This reads like a blog post to other Integrity FB engineers that already know that system."</p>
+								<p class="story__comment_others">"I&#39;m wondering if it&#39;s XCheck that locked-out my later account when it decided by zombie account (I don&#39;t have the email address anymore) was a &#34;duplicate&#34;. The check condition it fired on was visiting the 2FA settings page. Some nice wf on-call fixed it from an oops task and I don&#39;t touch that page anymore. :)"</p>
 							
 						
 						</a>
@@ -493,7 +893,7 @@ Note that every step starts with &#34;ask&#34;. This means that you need to list
 							
 						
 							
-								<p class="story__comment_others">"People forget that React can be used for just the complex components that require it.  Your entire page need not be a React app just because you use it for one component.To me it&#39;s bonkers that all web sites seem to be moving towards SPA when they don&#39;t benefit from it at all and require so much frontend work when a little bit of simple HTML and Javascript could do most of the work. It feels like the whole industry is Reactifying everything because they&#39;re scared that if they don&#39;t they won&#39;t look professional."</p>
+								<p class="story__comment_others">"There are four main problems in the React SPA world:- State management - hooks are awful for anything complex- Packaging + Bundling - Webpack kitchen sink, JS/TS, browser vs node vs random runtimes, packaging vs bundling, etc- Data/API binding - Adds distributed state to your data and the complexity that goes with that (cross dom reuse, caching, staleness, realtime updates, etc)- SEO/Prehydrating - Mostly applies to landing/CRM/blog type things.These &#39;old school&#39; solutions help you avoid some of these issues in favor of relocating the complexity a bit (those templates in the talk are absolutely gnarly and I&#39;m sure very bug prone) and reducing the experience. Also the API boundaries are blurred should you ever need one for non UI usage. Ignoring HackerNews taste for simpler websites, some complexity of UIs can and should only be captured with client sided javascript.With that said, after a few years of things shifting around I&#39;m really happy with the Typescript (lang) + Parcel (packaging) + MobX (state management) + Vercel (when server side rendering is needed). They&#39;ve been really stable, no fuss, always work. Especially MobX for state, absolutely game changing for the dev experience.As for the data binding problem, still sucks and my 4th attempt at solving it internally is still meh. This feels like it comes with the territory.As much as I loved my working with Django/Jinja2/etc, I think theres a light at  the end of this tunnel."</p>
 							
 						
 						</a>
@@ -763,7 +1163,7 @@ gives us 4037. So the total number of emojis on iOS should be 4037 + 21 = 4058. 
 							
 						
 							
-								<p class="story__comment_others">"&gt; “Ultimately, we don’t only need to increase the number of girls choosing science, we need to increase the proportion of women who stay in science,”We need to do neither of those things. Women who are smart enough to contribute to science are also smart enough to make their own mind about whether or not they want to contribute to science."</p>
+								<p class="story__comment_others">"Last I heard, Wikipedia doesn&#39;t want to carry an article for every university professor or scientist who has published some papers. In glancing through Wade&#39;s entries, it seems like many of them are just published scholars without any additional notability. I wonder if Wikipedia&#39;s notability rules are being uniformly respected here, or are they being selectively applied based on the gender of the person?I think it&#39;s great that Wade is bringing more visibility to lesser-known female scientists, but if we are valuing that, I think we should do so regardless of the subject&#39;s identity. Maybe Wikipedia should relax its notability rules a bit for scholars.If you are inspired to downvote this, I would be curious to know if you disagree with my proposal, or just dislike that I brought up the issue at all."</p>
 							
 						
 						</a>
@@ -3631,394 +4031,6 @@ https://www.nature.com/articles/s41586-020-2824-5We are seeking someone with low
 						
 							
 								<p class="story__comment_others">"Striveworks | Remote in USA | Sr. DevOps Engineer | Full Time | www.striveworks.comAs a Senior DevOps Engineer at Striveworks, you will be leading the charge on ensuring the robustness, reliability, efficiency, and automation of our development and operational environments as well as the design, engineering, and development operations for our products. You will be responsible for refining our software development/delivery process. You will have the opportunity to work with new, cloud-native technologies, and have the autonomy to select or engineer solutions to address the unique challenges posed by artificial intelligence data systems at both large and small scale.  In addition to standard site reliability engineering tasks—such as building software for monitoring and alerting, DevOps, and infrastructure automation—you will have the opportunity to contribute to the design and deployment of our MLOps platform.The anticipated base pay range for this position is $175,000-240,000/year. In addition to base pay Striveworks offers annual performance-based equity paired with a lucrative cash bonus, a full benefits suite, and two compensation reviews per year.This is a high impact, high visibility, high priority role for our team. Need someone with 2+ years of professional experience with Kubernetes.Full job posting is here: https://boards.greenhouse.io/striveworks/jobs/5146743003Please reach out with any questions to c.brim@striveworks.com"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">09 October 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://github.com/ggandor/leap.nvim">
-						<picture>
-							<source srcset="default_33134113.webp" type="image/webp">
-							<source srcset="default_33134113.png" type="image/png">
-							<img src="default_33134113.png" alt="Preview of 'Leap: Neovim’s Answer to the Mouse'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://github.com/ggandor/leap.nvim">Leap: Neovim’s Answer to the Mouse</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33134113">
-						
-							
-								<p class="story__comment_first line-clamp">"Hm - I can&#39;t see how this is functionally significantly different than EasyMotion[1] or Sneak[2]. Not a knock on it - just curious if I&#39;m missing something.My problem with these types of plugins is that, although it&#39;s a bit more annoying to type out a few more characters, with my vanilla Vim workflow I can pre-compute the motions in my head - I can figure out I need to type d7l or whatever way before I get to the point in my editing where I need to, and as I&#39;m typing it out I&#39;m already thinking about what I want to do next. With sneak, easymotion, or leap, it looks like I can&#39;t actually figure out what keys I need to press to get to where I want until I&#39;ve already started the motion. That means I need to take some time to read the label, etc. So maybe I&#39;ve saved a few milliseconds of not having to type one or two more keys, but I lose that and more by having to parse what to do.Curious about other experiences and if I&#39;m off base though.[1]: https://github.com/easymotion/vim-easymotion
-[2]: https://github.com/justinmk/vim-sneak"</p>
-							
-						
-							
-								<p class="story__comment_others">"Reminds me of Avy on emacs.https://karthinks.com/software/avy-can-do-anything/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Vim (and recently neovim) has been my editor for around 14 years now!  That&#39;s about seven hours in this editor every day, and I still find the mouse very convenient for a lot of the moves where the destination cannot be described with one or two keys.  I like the idea of this plugin but I don&#39;t think it will be a big leap over the use of mouse!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.sofuckingagile.com/blog/i-listened-to-1000-b2b-saas-sales-calls">
-						<picture>
-							<source srcset="default_33132951.webp" type="image/webp">
-							<source srcset="default_33132951.png" type="image/png">
-							<img src="default_33132951.png" alt="Preview of 'I Listened to 1000 B2B SaaS Sales Calls'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.sofuckingagile.com/blog/i-listened-to-1000-b2b-saas-sales-calls">I Listened to 1000 B2B SaaS Sales Calls</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33132951">
-						
-							
-								<p class="story__comment_first line-clamp">"I didn&#39;t expect to learn much from this article - but it actually really resonated with me. I often am responsible for purchasing decisions and found much of the advice to sales reps really insightful.(1) The number one thing that bothers me is when I reach out to a company to explore their product and I get scheduled with a BDR who&#39;s sole job is to &#34;qualify&#34; me as a lead. I know BDRs are in a tough spot - but if you have someone reaching out and interested in your product, take advantage of that and get them straight to the person who can demo and answer questions. I&#39;m shocked at how many companies make me want to prove myself as a customer before spending time on demoing.(2) Ask before recording meetings, and if someone doesn&#39;t want to be recorded make sure you actually have the ability to turn that recording off. I&#39;ve been on calls where the person who set up the Zoom/Gong wasn&#39;t on the call, and so no one had the ability to stop recording.(3) The details of what is shared on calls is often completely lost. Every time a new person gets on the call, they ask the exact same questions that have already been answered. Make the customer feel as though you&#39;re interested in their business, have discussed their pain points, and have a plan ready to help them.(4) Discounting discussions are always a pain. It&#39;s a game that no one likes to play.(5) Offer to send some swag to the implementing team at your customer - not just your champion. It&#39;s a nice gesture and goes a surprisingly long way towards building positive sentiment."</p>
-							
-						
-							
-								<p class="story__comment_others">"Just thought the call out for &#34;Protected Health Information&#34; was weird, and it&#39;s wrong. If you&#39;re just having small talk with someone on a zoom call and you say &#34;Yeah, that last COVID booster really wiped me out, I was in bed for 2 days&#34;, that doesn&#39;t mean the call contains &#34;PHI&#34;.First of all, you shared it. The whole reason for protecting PHI in the first place is limiting what others can do with your information, not what you can do with it. And if you share it willingly, and not for medical purposes, it doesn&#39;t mean that the person you shared it with suddenly has a higher burden of security/privacy with that info.Just calling this out because so often see people that fundamentally misunderstand what &#34;PHI&#34; means in a legal sense, and specifically what the HIPAA regulations require."</p>
-							
-						
-							
-								<p class="story__comment_others">"As someone who was accidentially thrust into an IT role and had to do some purchasing... I absolutely hated sales cales and B2B selling. The simple act of buying a server means finding an &#34;authorized reseller&#34;, going through some sales calls, proving that you are a worthy customer, then they want to know all about your other setup to make sure it is &#34;supported&#34; (which turns out to have no consequence whatsoever). The quoted price is completely different from what is listed, and there are arbitrary surcharges. Isn&#39;t there an easier way? Yes, but the pointy haired boss decided we have to go the proper route. Funnily the reseller had a very trustworthy name like &#34;usedserverdiscount24.de&#34; or something.The worst one was when I was trying to get some antivirus licenses. We were willing to spend a lot on Sophos, because it had good reviews, we were happy with the trial, and so on. But the reseller tried to upsell us, insisted we buy matching firewalls, and so on. So in the end we stuck with Windows Defender (we got a bunch of licenses for Advanced Threat Protection from MS for free)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="http://muezza.ca/thoughts/favourite_computer/">
-						<picture>
-							<source srcset="default_33124986.webp" type="image/webp">
-							<source srcset="default_33124986.png" type="image/png">
-							<img src="default_33124986.png" alt="Preview of 'My Favourite Computer, an Old Mac'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="http://muezza.ca/thoughts/favourite_computer/">My Favourite Computer, an Old Mac</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33124986">
-						
-							
-								<p class="story__comment_first line-clamp">"...and a very cute kitty!Most Classic II suffer from leaking capacitors which should be replaced and it&#39;s a good idea to replace the onboard battery, which is prone to leaking and destroying the board:https://www.classic-computers.org.nz/blog/2014-05-24-Classic...There are two different versions of the mainboard which require different numbers and types of capacitors:https://recapamac.com.au/macintosh-classic-ii-a/
-vs.
-https://recapamac.com.au/macintosh-classic-ii-b/"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; it never begs for your attention and its applications never try to distract you from what you are doing, begging you to look at them instead.This.In the modern world, it feels everything and everyone’s apps have a good reason to beg for your attention. I think it even transcends OS. On GitHub, my notifications are spammed by Dependabot. Who cares if my benchmark repos from 5 years ago have security issues."</p>
-							
-						
-							
-								<p class="story__comment_others">"Hi HN, I&#39;ve been ruminating of this a little bit and figured I&#39;d write and post my thoughts (I&#39;m not a good writer, sorry in advance). I don&#39;t expect this to get much traffic, but if it somehow does my cable line probably won&#39;t handle it well so here&#39;s an archive: https://archive.ph/VIbMDI really like this little computer and I&#39;m sure some of you enjoy (or enjoyed) them too. :)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://mortalkombat.plus">
-						<picture>
-							<source srcset="default_33122122.webp" type="image/webp">
-							<source srcset="default_33122122.png" type="image/png">
-							<img src="default_33122122.png" alt="Preview of 'Mortal Kombat+'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://mortalkombat.plus">Mortal Kombat+</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33122122">
-						
-							
-								<p class="story__comment_first line-clamp">"&#39;Number of times Ed Boon said “Hello”&#39; - 0That has gotta be painful.  As a kid who ruined their studies because of this game, wanting to meet Boon after learning about the Noob Saibot backstory was it!   Heck I&#39;d kill to meet him now.  So I can totally relate to the developers&#39; disappointment.  Hope your dreams one day come true."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those interested in these types of hacks, new legacy is a balanced and fixed sf2: https://newlegacy.fr/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Reminds me of the guy who fixed the famous ET game: http://www.neocomputer.org/projects/et/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://jetbrains.github.io/ring-ui/master/index.html">
-						<picture>
-							<source srcset="default_33123948.webp" type="image/webp">
-							<source srcset="default_33123948.png" type="image/png">
-							<img src="default_33123948.png" alt="Preview of 'JetBrains Ring UI'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://jetbrains.github.io/ring-ui/master/index.html">JetBrains Ring UI</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33123948">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;d never heard of it so I did some quick googling.From https://github.com/JetBrains/ring-ui:&gt; This collection of UI components aims to provide all the necessary building blocks for web-based products built inside JetBrains, as well as third-party plugins developed for JetBrains&#39; products.From https://blog.jetbrains.com/blog/2018/09/25/ring-ui-1-0-is-re...:&gt; At JetBrains, we use Ring UI components for our web-based products like YouTrack, Hub, TeamCity, and Upsource."</p>
-							
-						
-							
-								<p class="story__comment_others">"The date picker is pretty impressive. Well done.https://jetbrains.github.io/ring-ui/master/index.html?path=/..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Component UI libraries have converged towards providing the most basic building blocks instead of creating higher levels of abstraction, which I personally think is a bad trend.You could build a very complex UI with Ext.JS back in 2010 with a lot less code and very little time, while it takes a while lot more work to produce even something relatively basic  with modern UI frameworks.I really don&#39;t care about how customizable your spinner is. I want to use it in common contexts with as little code as possible. Heck, at least provide me with a kitchen sink so I can copy and paste common patterns."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://variety.com/2022/tv/news/william-shatner-space-boldly-go-excerpt-1235395113/">
-						<picture>
-							<source srcset="default_33131367.webp" type="image/webp">
-							<source srcset="default_33131367.png" type="image/png">
-							<img src="default_33131367.png" alt="Preview of 'My Trip to Space Filled Me with Overwhelming Sadness'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://variety.com/2022/tv/news/william-shatner-space-boldly-go-excerpt-1235395113/">My Trip to Space Filled Me with Overwhelming Sadness</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33131367">
-						
-							
-								<p class="story__comment_first line-clamp">"Fwiw I had something akin to the overview effect when I attended a full solar eclipse. I thought I was prepared. I had read up on what to expect because I wanted to make the most of the experience for the kids. I wanted to make sure we observed the &#34;shadow bands&#34; (snake like shadows traversing across single colored surfaces that aren&#39;t always visible).Everything did proceed as I expected (including the shadow bands), but when the eclipse was full, the earth went quiet. All the animals stopped and wondered (including the younger children who were boisterously playing seconds before the full effect).As I stared up into the heavens, I had this deeply profound realization that our planet is traveling through space like all the other planets. The observation and experience of an eclipse made the abstract concept of space a reality and brought it closer to me in a way that just thinking (a lot) about space has never done."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; It was among the strongest feelings of grief I have ever encountered. The contrast between the vicious coldness of space and the warm nurturing of Earth below filled me with overwhelming sadness. Every day, we are confronted with the knowledge of further destruction of Earth at our hands: the extinction of animal species, of flora and fauna . . . things that took five billion years to evolve, and suddenly we will never see them again because of the interference of mankind. It filled me with dread. My trip to space was supposed to be a celebration; instead, it felt like a funeral.Very well written. Conveys his feelings quite well I find."</p>
-							
-						
-							
-								<p class="story__comment_others">"Unfortunately sending every millionaire into space for them to realize this is an hostile environment is taking us closer to earth destruction. Sorry to be sour about this, but people could just teach themself astronomy and realize there is no place out there to welcome us when the earth will be on the verge to become unlivable. Even assuming a colony of a dozen women/men is ever established on the moon or Mars, they will die in a matter or months or years once the tether to earth is broken.Reading this guy paid millions of $ to realize these basic facts fills me with overwhelming sadness too. Can his experience be of value for us? Given that he could have discovered what he just experienced by reading good books, I think this n+1 experience has zero value. Send human beings in space to perform scientific experiments. Period."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://kurtisknodel.com/blog/1Z7fBnGTIlOklNRJ0_nDXnANHcPRYSmRyakATw6lDts">
-						<picture>
-							<source srcset="default_33129685.webp" type="image/webp">
-							<source srcset="default_33129685.png" type="image/png">
-							<img src="default_33129685.png" alt="Preview of 'Top USB Drives on Amazon are a Scam'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://kurtisknodel.com/blog/1Z7fBnGTIlOklNRJ0_nDXnANHcPRYSmRyakATw6lDts">Top USB Drives on Amazon are a Scam</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33129685">
-						
-							
-								<p class="story__comment_first line-clamp">"While I agree this is a problem - one which I have been the victim of as well - Amazon accepts the return with no questions and/or charges. This, of course, is not a great consolidation, especially for a novice who doesn&#39;t understand or encounters it too late. But I strongly disagree with &#34;Amazon runs little to no risk selling the fraudulent products, but still makes money off of them.&#34; In the next paragraph the author outlines how they&#39;ve lost trust in Amazon and will not be buying electronics. Erosion of trust is absolutely a massive risk, and one that eBay is also arguably pretty publicly recovering from. I suspect Amazon would prefer not to have fake drives and the costs associated with returns and erosion of trust for the infinitesimal rounding error that makes up the extra revenue they get from fake $20 thumb drives.
-I&#39;m far from an Amazon fanboy, but I think the problem is more complex than Amazon turning a blind eye because they&#39;re making $10k extra profit a year from phony thumb drives. As an outsider, it seems like a difficult tradeoff of not creating incredible hurdles to list products, versus counterfeits getting through.In my case, the phony thumb drive I bought was delisted before I got home from the walk to the mailbox, literally."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think there&#39;s one thing that should be clarified from the article. &#34;Sponsored&#34; does not mean that the product is &#34;sponsored by Amazon&#34; as italicized in the article. It means the seller paid money to be at the top of the search query.Perhaps it is a healthy dose of old aged jadedness, but I have a habit of trying to avoid Sponsored items."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have refused to give Amazon any business of my own for several years because their directly-operated logistics business is morally disgusting to me. Realistically they run many businesses, that’s one of them. Their retail business is little more than branding. Their real business is private infrastructure.The retail business overall is a scam. Example: I’ve been trying to find a comforter for a while, and I haven’t been happy with some of the options I found because a lot of other ecommerce sites have not great search experiences. I thought, well I can search Amazon for my preferences and buy it elsewhere. Nope, not even a single filter I applied was true for any search results I looked at. Amazon didn’t even try to serve me cotton comforters, much less any other refinements they offered.They’re in the business of selling business. Whether that’s their logistics connecting suppliers and shipping with sales, or it’s their tech services connecting startups with time shares on a server.I wouldn’t buy a USB drive or a blanket from IBM either. It’s the same thing."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.wsj.com/articles/chess-cheating-hans-niemann-report-magnus-carlsen-11664911524">
-						<picture>
-							<source srcset="default_33085649.webp" type="image/webp">
-							<source srcset="default_33085649.png" type="image/png">
-							<img src="default_33085649.png" alt="Preview of 'Chess Investigation Finds U.S. Grandmaster ‘Likely Cheated’ More Than 100 Times'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.wsj.com/articles/chess-cheating-hans-niemann-report-magnus-carlsen-11664911524">Chess Investigation Finds U.S. Grandmaster ‘Likely Cheated’ More Than 100 Times</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33085649">
-						
-							
-								<p class="story__comment_first line-clamp">"There is so much more to our report than what was focused on in the WSJ article. The full report will be shared shortly…"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; “Outside his online play, Hans is the fastest rising top player in Classical [over-the-board] chess in modern history,” the report says, while comparing his progress to the game’s brightest rising stars. “Looking purely at rating, Hans should be classified as a member of this group of top young players. While we don’t doubt that Hans is a talented player, we note that his results are statistically extraordinary.”I basically made the argument that, in any sport, when a player does statistically much, much better than their previous performance would predict, that in and of itself should be considered evidence of cheating - perhaps not conclusive evidence, but definitely evidence warranting further investigation: https://news.ycombinator.com/item?id=32990022&gt; All this talk of &#34;Carlsen accused him of cheating with no evidence&#34; reminds me of the blowback against some athletes in the 70s and 80s who accused rivals of taking PEDs &#34;with no evidence&#34;.&gt; Sometimes the evidence of someone doing monstrously better than can be expected by their history is sufficient IMO. I mean, look at this article about swimmer Shirley Babashoff [1], dubbed &#34;Surly Shirley&#34; at the time by the media, for suggesting the East German women were on PEDs in the 70s. Nowadays we look back on those images of the East German women, looking more manly than any dude I&#39;ve ever seen, and wonder how we considered with a straight face that they weren&#39;t on a boatload of drugs. Similarly, it completely baffles me how any sane person can think that Flo Jo wasn&#39;t on PEDs in the runup to the 1988 Olympics - her 100m dash record still stands today.&gt; I&#39;m not saying Carlsen went about it in the right way, because now Niemann is basically in an indefensible position, but I&#39;m also not willing to quickly dismiss it because Carlsen has &#34;no evidence&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"The fact that an athlete in a competitive sport was allowed to partake in an event even after admitting to cheating not only once, but twice, is outrageous in itself."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://castopod.org/">
-						<picture>
-							<source srcset="default_33091903.webp" type="image/webp">
-							<source srcset="default_33091903.png" type="image/png">
-							<img src="default_33091903.png" alt="Preview of 'Castopod – Open-source podcast hosting platform'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://castopod.org/">Castopod – Open-source podcast hosting platform</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33091903">
-						
-							
-								<p class="story__comment_first line-clamp">"This may not be directly apparent to &#34;typical&#34; HN crowd, but PHP is having a quiet renaissance, thanks in part to a standardization of tools and processes, a more mature ecosystem (Laravel has been a huge factor here) plus the performance improvements since PHP 7.Kudos to the folks who built Castopod."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve been using Castopod for over a year. I deployed it for my podcast using https://linode.com on Debian after my last web host lost my data in some sort of internal mistake (or rogue-employee deletion). I used the experience as a chance to learn some server administration and to &#34;self-host&#34; our own show.It&#39;s been a great experience. The developers and community is active on Discord (before that, I had only used irc and webchat) and they are always willing to help. The software is always getting new podcasting 2.0 features and actually feels exiting again, similar to podcasting circa 2004."</p>
-							
-						
-							
-								<p class="story__comment_others">"Here are some example/demo websites https://www.reddit.com/r/selfhosted/comments/tjhlyn/-/i1ruyk..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://bigthink.com/the-present/attention-economy-science-damaged/">
-						<picture>
-							<source srcset="default_33043945.webp" type="image/webp">
-							<source srcset="default_33043945.png" type="image/png">
-							<img src="default_33043945.png" alt="Preview of 'The &#39;attention economy&#39; corrupts science'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://bigthink.com/the-present/attention-economy-science-damaged/">The &#39;attention economy&#39; corrupts science</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33043945">
-						
-							
-								<p class="story__comment_first line-clamp">"The attention economy corrupts everything it touches: not just science, but journalism, politics, and even childhood.Being famous used to be rather difficult. Of course there were exceptions (writing To Kill a Mockingbird, being the guy who dove into the river to save a drowning child, for example), but for the most part, you were going to live your life known only to the few hundred or thousand people you met personally.Even though you could pick up a phone and dial anyone in the world who owned a phone, you wouldn&#39;t, and if you did, they&#39;d hang up on you. Now you can force your idiotic, or great ideas onto the screens of millions of people you&#39;ll never meet.Is that a good or a bad thing? It&#39;s certainly bad in some ways, and this is one of them."</p>
-							
-						
-							
-								<p class="story__comment_others">"Having spent over 10 years in a university and been a professor, the problem isn’t attention seeking behavior but a lack of accountability.  For example, you can literally make up any data you want in a grant proposal and so long as it sounds right no one can or will double check it. The foundation of academia is rotting, but maybe it’s always been like this"</p>
-							
-						
-							
-								<p class="story__comment_others">"What most people fail to realize is that fundamentally, most principle investigators, the people who actually run the research world, are primarily fundraisers. Their day-to-day job is a mix of grant and proposal writing, relationship building/organizational meetings, and checking in on their postdocs, candidates, and lab techs.Your main goal, as a PI, is to keep your lab running, and thus research flowing, by any means possible. For some PIs, this means milking every drop of available talent and time out of your doctoral candidates, and is the most common cause of the horror stories you hear about people leaving academia. On the other end of the extreme, they can embed themselves so deeply in fundraising with private or public capital that their lab staff don&#39;t see them for more than 15-30 minutes a week, because they are essentially living their lives hopping from sales meeting to sales meeting.This wouldn&#39;t be a problem if the job of the PI was explicitly meant to be that of a salesman, but the actual role of a PI is to define the research being done. They draft the hypotheses, the expected impact, etc, because that is their intended role, but in reality these will always be constructed in a way that makes it easier for the PI to solicit funding.It&#39;s impossible for the attention economy to not play into the research funding loop then, because every set of eyeballs is another potential revenue source for future research, or a tool to justify growing the footprint of your lab. I wouldn&#39;t go so far as to call the superstructure corrupting of science though, not in those words. I&#39;d say it forces science to be mission focused, where the mission is a subtle negotiation between the people funding the research and the people performing it, and often times the person with the capital lands much closer to their ideal."</p>
 							
 						
 						</a>
