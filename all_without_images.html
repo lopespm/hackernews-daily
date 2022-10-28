@@ -36,6 +36,297 @@
 	</div>
 
 	
+	<div class="day__date">28 October 2022</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://giza.mused.org/en/guided/266/inside-the-great-pyramid">Show HN: I 3D scanned the interior of the Great Pyramid at Giza</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33357197">
+						
+							
+								<p class="story__comment_first line-clamp">"Thanks for the feedback! Didn&#39;t know if people would like this. If this is interesting, and you&#39;d like to learn more about Ancient Egypt, here are a few more sites that I&#39;ve worked at:Luxor Temple: https://luxortemple.mused.org/en/guided/178/luxor-temple 
+Tomb of Queen Meresankh III at Giza: https://giza.mused.org/en/guided/4/tomb-of-queen-meresankh-i...I&#39;ve mostly been working around the Mediterranean, Central America, and Eastern Asia. I&#39;ll publish articles on our blog as the next come out in the future https://blog.mused.org/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Semi-related, the Great Pyramid was also scanned using muon radiography, by which a &#34;big void&#34; was discovered [0]. Muons can penetrate through a lot of material, so they can see through very large, thick things like the pyramids.Muon tomography was also used to scan the Fukushima reactors [1] and see where the fuel ended up.[0] https://arxiv.org/pdf/1711.01576.pdf
+[1] https://www.world-nuclear-news.org/RS-Muons-suggest-location..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Egyptology is so fascinating. When I was in primary school, the teacher did a really special lesson I&#39;ll never forget. The classroom was decorated like a tomb - the windows were blacked out and the tables were arranged in a way that we had to crawl in to start the lesson. We went through puzzles and explored pyramids on the projector. When some pupils were distracted by the table tunnel, the teacher stayed in the character of an archeologist and warned them to keep away for the tunnel may collapse at any moment. Now that&#39;s teaching."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://sharats.me/posts/shell-script-best-practices/">Shell Script Best Practices, from a decade of scripting things</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33354286">
+						
+							
+								<p class="story__comment_first line-clamp">"Hands down, shell scripting is one of my all time favorite languages. It gets tons of hate, e.g. &#34;If you have to write more than 10 lines, then use a real language,&#34; but I feel like those assertions are more socially-founded opinions than technically-backed arguments.My basic thesis is that Shell as a programming language---with it&#39;s dynamic scope, focus on line-oriented text, and pipelines---is simply a different programming paradigm than languages like Perl, Python, whatever.Obviously, if your mental model is BASIC and you try to write Python, then you encounter lots of friction and it&#39;s easy for the latter to feel hacky, bad and ugly. To enjoy and program Python well, it&#39;s probably best to shift your mental model. The same goes for Shell.What is the Shell paradigm? I would argue that it&#39;s line-oriented pipelines. There is a ton to unpack in that, but a huge example where I see friction is overuse of variables in scripts. Trying to stuff data inside variables, with shell&#39;s paucity of data types is a recipe for irritation. However, if you instead organize all your data in a format that&#39;s sympathetic to line-oriented processing on stdin-stdout, then shell will work with you instead of against./2cents"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Use bash. Using zsh or fish or any other, will make it hard for others to understand / collaborate. Among all shells, bash strikes a good balance between portability and DX.I think fish is quite a bit different in terms of syntax and semantics (I&#39;m not very familiar with it), but zsh is essentially the same as bash except without most of the needless footguns and awkwardness. zsh also has many more advanced features, which you don&#39;t need to use (and many people are unaware of them anyway), but will very quickly become useful; in bash all sorts of things require obscure incantations and/or shell pipelines that almost make APL seem obvious in comparison.In my experience few people understand bash (or POSIX sh) in the first place, partly because everything is so difficult and full of caveats. Half my professional shell scripting experience on the job is fixing other people&#39;s scripts. So might as well use something that doesn&#39;t accidentally introduce bugs every other line.Most – though obviously far from all – scripts tend to be run in environments you control; portability is often overrated and not all that important (except when it is of course). Once upon a time I insisted on POSIX sh, and then I realised that actually, &gt;90% of the scripts I wrote were run just by me or run only in an environment otherwise under my control, and that it made no sense. I still use POSIX sh for some public things I write, when it makes sense, but that&#39;s fairly rare.I think bash is really standing in the way of progress, whether that progress is in the form of fish, zsh, oil shell, or something else, because so many people conflate &#34;shell&#34; with &#34;bash&#34;, similar to how people conflate &#34;Google&#34; with &#34;search&#34; or &#34;git&#34; with &#34;GitHub&#34; (to some degree)."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;Use set -o errexit&#34;Only if it doesn&#39;t matter that the script fails non-gracefully. Some scripts are better to either have explicit error handling code, or simply never fail. In particular, scripts you source into your shell should not use set options to change the shell&#39;s default behavior.&#34;Prefer to use set -o nounset.&#34;ALWAYS use this option. You can test for a variable that might not be set with &#34;${FOO:-}&#34;. There is no real downside.&#34;Use set -o pipefail.&#34;Waste of time. You will spend so much time debugging your app from random pipe failures that actually didn&#39;t matter. Dont use this option; just check the output of the pipe for sane values.&#34;Use [[ ]] for conditions&#34;No!!! Only use that for bashisms where there&#39;s no POSIX alternative and try to avoid them wherever possible. YAGNI!&#34;Use cd &#34;$(dirname &#34;$0&#34;)&#34;&#34;Use either &#34;$(dirname &#34;${BASH_SOURCE[0]}&#34;)&#34; or grab a POSIX readfile-f implementation.&#34;Use shellcheck.&#34;This should have been Best Practice #1. You will learn more about scripting from shellcheck than 10 years worth of blog posts. Always use shellcheck. Always.Also, don&#39;t use set -o nounset when set -u will do. Always avoid doing something &#34;fancy&#34; with a Bashism if there&#39;s a simpler POSIX way. The whole point of scripts is for them to be dead simple."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://deck-24abcd.netlify.app/">Pokemon Card Animation</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33363331">
+						
+							
+								<p class="story__comment_first line-clamp">"It really does make them feel that much more collectible. I don&#39;t know much about NFTs, but this kind of pseudo-3D experience ought to be standard for browsing digital collectible art.I also wonder how this would hold up for viewing artworks on a display.
+Maybe a website or browser extension that gives you a similar experience for any image you come across could be useful."</p>
+							
+						
+							
+								<p class="story__comment_others">"Took me a while to REALLY realize this is all CSS no WebGL. You just blew my mind... and ruined my weekend: I&#39;m not leaving home untilI learn this sort of wizardry!"</p>
+							
+						
+							
+								<p class="story__comment_others">"It’s also really refreshing to see a project done for the love, the passion, the fun.There was a question the other day about how come people, especially programmers, don’t have as much hobbies or frivolous projects anymore.It feels like many projects nowadays are done with some ulterior motive or motivation such as buffing up your resume, ego, credibility, employment potential, or startup funding. This affects the priorities and level of polish you put into certain things"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://wh0.github.io/2020/01/02/scissors.html">Which emoji scissors close (2020)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33360171">
+						
+							
+								<p class="story__comment_first line-clamp">"A lot of the emojis also seem to have a bevel along the inside cutting edge, making it impossible to cut anything because the edges of the two blades don&#39;t meet. A real pair of scissors would only have a bevel on the outside edge."</p>
+							
+						
+							
+								<p class="story__comment_others">"The handles could be designed to overlap in the 3rd axis. I think I&#39;ve seen scissors like this but I can&#39;t find an example."</p>
+							
+						
+							
+								<p class="story__comment_others">"Similar posts:- Ants: https://news.ycombinator.com/item?id=17555842- Smiling faces: https://grouplens.org/blog/investigating-the-potential-for-m...- Butterflies: http://emilydamstra.com/news/please-enough-dead-butterflies/- Trains: https://mobile.twitter.com/BisTheFairy/status/11925577307096...- Horses: https://twitter.com/jelenawoehr/status/1191872816372600832?l...- Planets: https://mobile.twitter.com/physicsJ/status/12326622114383708...- Telescopes: https://mobile.twitter.com/BeckePhysics/status/1233414553607...- Parachutes: https://darekkay.com/blog/parachute-emoji/- Chickens: https://www.tumblr.com/ub-notactive/176663342440/reviewing-a...- Snakes: https://anothertiredmonster.tumblr.com/post/156610510939/sna..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://nida.nih.gov/news-events/news-releases/2022/10/video-gaming-may-be-associated-with-better-cognitive-performance-in-children">Video gaming may be associated with better cognitive performance in children</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33349296">
+						
+							
+								<p class="story__comment_first line-clamp">"I credit RuneScape with teaching me the value of delayed gratification and basic economics. I credit competitive Halo 3 with teaching me team building and strategy skills. I credit StarCraft with training my mind to travel at warp speed.Honestly. My video game experience was instrumental to my success so far in life. This is not surprising to me."</p>
+							
+						
+							
+								<p class="story__comment_others">"I always find it hard to say anything of value about a subject like this. I used to not believe in these things at all. But now that I think about it, gaming did get me into programming with Roblox. I&#39;m also quite adept at puzzle solving and in general spotting things that are out of the ordinary. I guess I could attribute that to my great love for the legend of Zelda series but I&#39;m no expert in this field. So, who knows..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Read about the methods: They used visual cues on computer screens to test who was better in responding to visual cues on computer screens.Let me guess.... The kids who were experienced in responding to visual cues on computer screens scored better (－‸ლ)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.theverge.com/23409716/signal-encryption-messaging-sms-meredith-whittaker-imessage-whatsapp-china">Signal says it won’t compromise on encryption</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33353345">
+						
+							
+								<p class="story__comment_first line-clamp">"Requiring handing over encryption keys as a requirement to do business there sounds like a good way to sanction yourself from the modern world."</p>
+							
+						
+							
+								<p class="story__comment_others">"India wants to read everything? Why don&#39;t they just forbid the use of https. So that everyone can read everything on the internet"</p>
+							
+						
+							
+								<p class="story__comment_others">"Signal is too small a player and is therefore more likely to be bullied by governments. India is taking pot shots at it to see if it can get away with forcing them into intercepting communications. If they leave as a result, they&#39;ll simply shrug and move on.Also, I&#39;m convinced that if Signal were to become popular they&#39;d probably sell it to some commercial provider, since the cost of maintaining a service used by hundreds of millions if not billions is extremely expensive.WhatsApp is an entirely different matter. Hundreds of millions of Indians probably use it and if the company were to suspend service because the Indian government mandated a backdoor all hell would break loose!For the same reason both Australia and the UK haven&#39;t as of yet forced WhatsApp to install a backdoor, even though legislation forcing them to do so is already in place there."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.pushbullet.com/2022/10/27/how-we-became-the-worlds-foremost-expert-on-google-play-store-policy-violations/">We became experts on Google Play Store policy violations</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33361311">
+						
+							
+								<p class="story__comment_first line-clamp">"Starting around January, our app (Dominion[1]) has randomly had updates rejected (including one that _delisted the existing app_) because of our app description.  We make some irrelevant changes and resubmit and, so far, it&#39;s been accepted each time. We&#39;ve had the same description for over a year/10+ releases before.The latest rejection:&gt;&gt;&gt;
+The app title or description does not accurately describe the app’s functionality.
+Issue detailsWe found an issue in the following area(s):
+Full description (en_US): “▪ Tutorial &amp; Rules ”
+&lt;&lt;&lt;So we changed this to:▪ In app Tutorial &amp; RulesAnd it passed.  Every release is just a bucket of stress that we are going to lose N-days of revenue again for no obvious reason.[1] https://play.google.com/store/apps/details?id=com.templegate..."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s really sad that software distribution has deteriorated into this submissive permission-seeking practice of pleasing an opaque moving target, as a sort of disorganized morality police that claim to act on behalf of the users. And not only that, but we still have 0 standardization or agreed-upon APIs so devs generally have waste heaps of time on per-platform idiosyncrasies that has nothing to do with business logic. We do have cooler tech today, but that is despite, not because, this suffocating and unsustainable selection of walled &#34;gardens&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"Can someone explain why both the Google Play Store and the Apple App Store give opaque explanations for rejections? Why don&#39;t they just tell developers what&#39;s wrong and what needs to be fixed instead of pointing to some broad rule and forcing an interpretative song and dance?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://adguard.com/en/blog/ad-blocking-is-under-attack.html">Ad blocking is under attack (2017)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33356513">
+						
+							
+								<p class="story__comment_first line-clamp">"This is my article from 2017.Here&#39;s a short update on what happened since then:1. DMCA takedowns did not destroy ad blocking (thank god), but there were a couple more times when it was tried, nothing huge though.2. Streisand effect is a thing and the domain in question was blocked by everyone and everywhere. There was even a special filter list and later a browser extension which only purpose was to block such domains. It got some traction but later got abandoned: https://github.com/paulgb/BarbBlock. If something like that happens again I am pretty sure it can be revived very quickly.3. The corporations still try different angles to prohibit ad blocking. The last example I know about is something like this: Axel Springer claimed that the web page and all its content (including subrequest) and ads is subject to copyright law. So when you modify the web page with adding new styles or blocking a web request you violate the copyright."</p>
+							
+						
+							
+								<p class="story__comment_others">"While the article is from 2017, the relevance is high today.Large adtech companies are coalescing and supporting a single browser framework that gives them a modicum of control around how adblockers are integrated into the extensions, while also funding directly or indirectly realistic browser competition through Firefox (sorry Brave and Vivaldi... still a ways to go market share-wise). The economist in me thinks there is formal and informal coordination to make this ad &#34;market&#34; exist (no one wants ads, really, they want search engines with relevant results) and there is exercise in market power to the detriment of businesses purchasing advertising (and waste to society writ large)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Ad blocking is by definition attacking ads and all the companies and interests that revolve around that.So ad blocking is and always will be &#34;under attack&#34;, that was always expected, &#34;small&#34; players, like individual news sites for example have been fighting ad blocking for years, now big players are feeling the heat too and since ad blocking is an &#34;existential threat&#34; ( Meta just learned that ), they no longer ignore it or &#34;kinda deal with it&#34;.It always has been a war. And like every war, there are endless philosophical theories and discussions about the &#34;sustainability&#34; of the Web &#34;without ads&#34;, the  tracking, etc.But the reality is: It always has been a war."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.wired.com/1997/12/es-attention/">The currency of the new economy won&#39;t be money, but attention (1997)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33345954">
+						
+							
+								<p class="story__comment_first line-clamp">"Whenever I see sentiments like this, or when I hear people with comfortable jobs in the tech industry talk about how money is imaginary, etc., it just comes across as being detached from reality to me.It&#39;s easy to fall into this trap when money is abstracted away to being just a number you see on your smartphone, but money is very real, and if you don&#39;t have it, you can&#39;t pay rent or for heat in winter."</p>
+							
+						
+							
+								<p class="story__comment_others">"Attention = Time + ConsciousnessWay more valuable than time or money. This is why people(especially buddhists) say to &#34;be present in the moment&#34;.Attention management is crucial in being able to find meaning in today&#39;s society. Neil Postman did a good job regarding Huxley&#39;s warning to the world.https://www.goodreads.com/book/show/74034.Amusing_Ourselves_...There&#39;s even some unique ideas like Zombies in Western Culture which talk about our lack of meaning and insatiability of consuming others &#34;brains&#34;:https://www.goodreads.com/book/show/35523766-zombies-in-west..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Herbert Simon, &#34;Designing Organizations for an Information-Rich World&#34;, 1971:&gt; &#34;In an information-rich world, the wealth of information means a dearth of something else: a scarcity of whatever it is that information consumes. What information consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of information creates a poverty of attention.&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/jeremyknauff/status/1584919295225729028">PayPal restores to its TOS $2,500 charge for any post they don&#39;t like</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33348913">
+						
+							
+								<p class="story__comment_first line-clamp">"This is neither shocking, nor new.A decade ago I remember a friend who had a small business selling some niche collectors items. One day, he was scammed. The guy reported that the package was never delivered and, without even investigating, Paypal banned my friend&#39;s account and awarded the buyer their money back.Paypal has always, and will always be a shit company. Charging people $2,500 for wrongthink is simply asinine. They must be betting BIG on either woke politics being mainstream for the long term, unbreakable bonds with their existing customers, or both. I can&#39;t even think of someone around me that uses paypal regularly.I will be interested in reading the technical report on how they plan on implementing this because I&#39;m sure it&#39;ll be silicon valley diarrhea. I am currently working out how to pay companies in a similar fashion to Paypal. I&#39;m looking at Privacy.com but something is off about it to me for some reason. Once that is solved I&#39;ll get this ape off my back forever.I wonder what happens if I just say &#34;lol, not paying&#34; to them. Would they put me in collections? It seems infeasible to even enforce this and it strikes me that clicking a button doesn&#39;t amount of a legal agreement."</p>
+							
+						
+							
+								<p class="story__comment_others">"How exactly do conditions like this work in practice?I can go ahead and write a ToS or even a contract that says &#34;if you don&#39;t give me a blue M&amp;M on Saturday 29 October 2022, you owe me $1M&#34;. I can get a client to sign it, perhaps it&#39;s part of my conditions as a freelancer.I can&#39;t realistically see any court enforcing that.As far as I can tell PayPal can only get away with this nonsense because they hold your money anyway. It&#39;s exactly the sort of reason people are fighting against cashless/custodial financial systems."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow, great news! Now everyone who says anything racist will have to put $2500 into the swear jar. I expect racism will disappear overnight, and we will have a plushappy society with institutionalized love for all. Thanks PayPal!"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">27 October 2022</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -85,7 +376,7 @@
 							
 						
 							
-								<p class="story__comment_others">"I&#39;d love to get the actual VM content offline, packaged as Vagrantfiles or Containerfiles. Love the idea though! Go to Pluralsight and pitch it to them :)"</p>
+								<p class="story__comment_others">"New challenge: Fix SadServers’ sad servers"</p>
 							
 						
 						</a>
@@ -442,11 +733,11 @@ Yessss"</p>
 							
 						
 							
-								<p class="story__comment_others">"These bundlers do not do the same work as webpack. Turbopack is using swc for typescript which means it will not do typechecking during compilation which effectively makes it fairly useless as a compiler. Now, if you only want bundling and minification then sure but why would anyone want only bundling? Good luck having a sensible workflow when your type checking has to run separately and perfectly match whatever typescript version is hidden inside your bundler, good luck dealing with constant mismatches when there are errors on either side.EDIT: The responses pointed out that the author is the maintainer of webpack, I removed that part of the comment calling it deceptive. Maybe the entire intent is to deprecate webpack. I still think that it should be renamed to &#34;Turbopack: our webpack successor&#34; because calling it &#39;the&#39; successor is a bit presumptuous and the article doesn&#39;t even directly say that."</p>
+								<p class="story__comment_others">"From my experience working with esbuild since it&#39;s early days, all I can say is to that there has been a very high bar set by esbuild&#39;s speed and ease-of-use. I&#39;ve used it for all my web apps and services since and i&#39;ve finally begun to like my front-end build chain, unbelievably."</p>
 							
 						
 							
-								<p class="story__comment_others">"From my experience working with esbuild since it&#39;s early days, all I can say is to that there has been a very high bar set by esbuild&#39;s speed and ease-of-use. I&#39;ve used it for all my web apps and services since and i&#39;ve finally begun to like my front-end build chain, unbelievably."</p>
+								<p class="story__comment_others">"These bundlers do not do the same work as webpack. Turbopack is using swc for typescript which means it will not do typechecking during compilation which effectively makes it fairly useless as a compiler. Now, if you only want bundling and minification then sure but why would anyone want only bundling? Good luck having a sensible workflow when your type checking has to run separately and perfectly match whatever typescript version is hidden inside your bundler, good luck dealing with constant mismatches when there are errors on either side.EDIT: The responses pointed out that the author is the maintainer of webpack, I removed that part of the comment calling it deceptive. Maybe the entire intent is to deprecate webpack. I still think that it should be renamed to &#34;Turbopack: our webpack successor&#34; because calling it &#39;the&#39; successor is a bit presumptuous and the article doesn&#39;t even directly say that."</p>
 							
 						
 						</a>
@@ -565,7 +856,7 @@ Yessss"</p>
 							
 						
 							
-								<p class="story__comment_others">"Quick turnaround!July 14, 2022: Reported vulnerability to the Computer Emergency Response Team (CERT) Coordination Center.July 15, 2022: CERT/CC reported vulnerability to SQLite maintainers.July 18, 2022: SQLite maintainers confirmed the vulnerability and fixed it in source code.July 21, 2022: SQLite maintainers released SQLite version 3.39.2 with fix."</p>
+								<p class="story__comment_others">"The root of this problem seems to be the widespread availability of 64-bit CPUs.≥ When this code was first written, most processors had 32-bit registers and 4GB of addressable memory, so allocating 1GB strings as input was impractical. Now that 64-bit processors are quite common, allocating such large strings is feasible and the vulnerable conditions are reachable.One has to wonder how much code written in the past 30 years has safety checks assuming 32-bit processors which now have vulnerabilities like this one. I&#39;d bet quite a lot."</p>
 							
 						
 						</a>
@@ -767,7 +1058,7 @@ More than once, Steve did cut some projects that were close to finish and you ju
 							
 						
 							
-								<p class="story__comment_others">"So, i hope this is lightweight, cause heave &#34;glass&#34; eyes deform the skull over time, leading to eyesocket drop. One of the many reasons that becoming a cyborg aint easy.But if it was a lightweight memory device with wireless connection to all devices of mine nearby. This would be neat"</p>
+								<p class="story__comment_others">"Immediate &#34;flashback&#34;. https://www.youtube.com/watch?v=Rkr1oUH1SV8 . This is a German version while Astérix is a french comic (and perhaps not widely known outside Europe?)."</p>
 							
 						
 						</a>
@@ -2667,294 +2958,6 @@ is in medial imaging, though I could be mistaken."</p>
 						
 							
 								<p class="story__comment_others">"Really this is more interesting as a great tutorial on the way Linux container tools work (and especially their fundamental simplicity -- the docs make them seem scary when they really aren&#39;t) more than it is as a docker replacement (docker is obviously much larger than this one script, but not really &#34;large&#34; as a software stack).But reading this makes clear that, yes, containers are just filesystem trees, network namespaces are just like internal networks maintained by straightforward commands underneath an &#34;ip netns&#34; command, etc...Great stuff."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">18 October 2022</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://dl.acm.org/doi/pdf/10.1145/358027.358047">The Chaostron: An Important Advance in Learning Machines (1961)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33210381">
-						
-							
-								<p class="story__comment_first line-clamp">"How does this post have so many points (350+ right now), yet no comments?"</p>
-							
-						
-							
-								<p class="story__comment_others">"The paper is surreal.An AI paper that starts with experiments on drowning cats and religious chimpanzees.Then it talks about making the system by cutting up a large wire mesh and assembling it back randomly.Then it talks about simulating the system on a computer, and coding it in a programming language called YAWN that is like English.Then it says that they could not obtain the machine that runs YAWN programs, so they emulated that machine on another computer (IBM 704).Then it says (excitedly) that the machine printed gibberish when presented with a certain input and on another run ejected the input punched card twice.I&#39;m not sure if this is real or a joke.I&#39;m not sure if the experiment itself was designed as a joke to waste US military&#39;s computer time.I&#39;m not sure if this has some deep lessons.To me, it felt like when Dumbledore set the chicken on fire in HPMOR."</p>
-							
-						
-							
-								<p class="story__comment_others">"I got to the end of the paper before I noticed that it was published in the April issue of Communications of the ACM. I have a hard time believing that this is not an April Fool&#39;s Day joke.I provide as evidence this line from near the end of the paper: &#34;Thanks are due ... to Mr. V. A. Vyssotsky for manually simulating the 704 simulating STRETCH simulating Chaostron&#34;"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://githubcopilotinvestigation.com/">GitHub Copi­lot inves­ti­ga­tion</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33240341">
-						
-							
-								<p class="story__comment_first line-clamp">"Here are a few thoughts I haven&#39;t formulated before:It seems clear enough to me that training AIs on copyrighted works is typically or commonly a fair use under existing law, because the AIs can and commonly do learn non-copyrightable elements and aspects of those works. It&#39;s very obvious from enormous numbers of examples that current AI systems are capable of learning much more abstract features of human culture (grammar, concepts, facts, cultural tropes, and many others).A human being doesn&#39;t violate copyright in learning from a copyrighted work, including when that human being is later more able to produce other works based on that learning (e.g. reading fantasy novels and learning concepts, tropes, or vocabulary that one uses to produce other fantasy novels; reading a newspaper and learning facts that one incorporates into an essay; learning artistic techniques or stylistic conventions from studying existing artworks and using them when producing new artworks). Current AI systems are (amazingly) becoming capable of all of these things and may do them in ways that are somewhat akin to how human beings do them. (although I guess Jaron Lanier would object &#34;that&#39;s what they want you to think&#34;)But there are also examples in existing copyright doctrine where people accidentally repeat enough of a prior work to get in trouble for infringement -- most often with song composition (like George Harrison&#39;s &#34;My Sweet Lord&#34;) because relatively small pieces of melody (which a person might easily memorize) may be considered copyrightable.If human beings had much more accurate memories, copyright would be quite a bit more intrusive (and/or quite a bit less effective) because, following any exposure to some kinds of works, we could use our own memories to reproduce those entire works from scratch for our own use or pleasure without obtaining authorized copies from elsewhere.Computers do have such accurate memories, and machine learning systems, which are optimized for things like maximum likelihood estimation, can and do reproduce both copyrightable and non-copyrightable elements of works that they&#39;ve been trained on. After all, the maximum likelihood continuation of a fragment of a text or a song is ... the complete original work. And the ability to reproduce the complete original work would, other things being equal, reduce loss in training. After all, that&#39;s something someone might specifically ask for, and if the system could oblige, it would be doing a better job of providing what the user wanted.It&#39;s relatively foreseeable that machine learning systems would potentially be able to reproduce both copyrightable and non-copyrightable elements of various works, because the distinction between the two isn&#39;t especially clear from an algorithmic or mechanical point of view. (For instance, facts aren&#39;t copyrightable, but the notion of what constitutes a &#34;fact&#34; for this purpose is a culturally-bound legal notion and not at all straightforward to make precise.)But if you had a human author or artist or scholar or programmer who was &#34;trained on&#34; exposure to an enormous body of works, and that person had an exceptional eidetic memory, you could imagine that he or she would be perfectly capable of recreating many of those works from memory (and that other people might request such recreations). (Again, in music in particular, it&#39;s already routine that someone could have unambiguously copyrightable material memorized and be subject to copyright restrictions on performing songs. Like if a singer or band performs a cover from memory.)If you wanted to avoid this ability then you might need to build in an explicit notion of copyright that limits the accuracy or level of detail inside of the model in some way. This is tricky because (1) I don&#39;t think people have really tried to do this much so far, (2) copyright applies very differently to different categories of work, (3) it obviously wouldn&#39;t satisfy critics even if it mitigated the most extreme examples of &#34;regurgitation&#34;, and (4) it would be kind of weird because you would be intentionally limiting the quality and extent of learning that the system was allowed to do. (I imagine Jaron Lanier getting mad again about my repeated comparison between human learning and machine learning, and between human memory and machine memory)Some of the weirdness in point (4) is that accurate prediction is usually cool / great / impressive / accepted as an appropriate goal or capability, but if it&#39;s too accurate in certain contexts, it may be deemed a copyright infringement. Like if you said &#34;what word comes next? FOUR SCORE AND SEVEN YEARS AGO OUR FATHERS&#34;, there&#39;s a clear correct answer and knowing it requires having a certain text memorized. OK, if you said &#34;what word comes next? MR. AND MRS. DURSLEY OF NUMBER FOUR PRIVET DRIVE WERE PROUD TO SAY&#34; ... same thing, but Bloomsbury Publishing may be unhappy if you have a system that can get all such questions right."</p>
-							
-						
-							
-								<p class="story__comment_others">"It would be sad if someone succeeded in shutting down CoPilot for this kind of copyright stuff. It is genuinely useful. I don&#39;t care that it reproduces copyrighted content. The only way you can get it to do that is to bait it with the function names of functions that have already been copy and pasted thousands of times onto GitHub without proper licenses.Luckily, someone will probably come out with a &#34;renegade&#34; version trained on whatever makes it a useful assistant to my coding. I won&#39;t be afraid of accidently violating copyright myself, because I won&#39;t be trying to bait it into reproducing heavily copy&amp;pasted cherrypicked examples, and I won&#39;t use 20 lines of its output with zero modification."</p>
-							
-						
-							
-								<p class="story__comment_others">"A sizable, possibly plurality cohort of fully adult tech people is young enough to not know about United States v. Microsoft Corp. This would explain a lot of comments I see on this topic.If you don&#39;t know Microsoft&#39;s history, a lot of what more informed people are worried about seems overblown. Copilot was Microsoft&#39;s first test of people&#39;s trust after the GitHub acquisition. It&#39;s going very, very, very poorly. There were ways to do this with consent and collaboration with the people and projects it takes code from, but they&#39;re acting like classic Microsoft here.Too many people are focused on what&#39;s legal. It&#39;s fine to think of, but law is the last stop before the breakdown of society. Microsoft skipped society and went straight to sparking an inevitable test of and possible reshaping of copyright law."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.paddleyourownkanoo.com/2022/10/14/american-airlines-is-trying-to-stop-a-popular-iphone-app-thats-become-a-must-have-for-its-flight-attendants/">American Airlines is trying to stop a popular app used by flight attendants</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33233975">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m sad that this is happening to an app that&#39;s useful to its users, but the reality is that scraping is legal, always possible, but difficult.This particular case is a bit harder since it&#39;s not purely using public data, but may still qualify since it&#39;s likely scraping with legally-obtained credentials.I know of businesses (scraping for ride-sharing, scraping for business intelligence for retailers, scraping from LinkedIn - see HiQ Labs v. LinkedIn) that have continuously succeeded via scraping in ways that large businesses oppose.The key is: you must make enough profit to justify dedicating engineering and legal techniques to defend your scraping.- Scraping public data is legal, as affirmed by the Supreme Court in Van Buren v. United States [1] and HiQ Labs v. LinkedIn [2]. Defending yourself or suing the data owner in court are both expensive though- Defeating anti-scraping via technical means is pretty much always possible, but can be costly depending on the scraped site&#39;s technical expertise and value in keeping their data private. The benefit to you must exceed the cost to you, and ideally should also exceed the cost to the data owner- Mobilizing PR and internal resistance may also be effective, but it&#39;s usually hard to have outcry from a large enough group to change an organization&#39;s policies. In this case, the union can push for it, but AA may try to withhold improvements until the next set of union negotiations1. https://en.wikipedia.org/wiki/Van_Buren_v._United_States2. https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn"</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;One flight attendant said of the current situation affecting Sequence Decoder that they had “never seen a company go out of their way to make life harder for their workers.”&#34;Every large company I&#39;ve worked for had an IT department (or similar) that intentionally made developers&#39;/sysadmins&#39; lives harder. They don&#39;t care. So the good people leave, morale drops, productivity drops, management starts implementing crap policies to force more work to get done."</p>
-							
-						
-							
-								<p class="story__comment_others">"Reminds me of those Stockholm parents that built an app by obtaining data, in a legal way, that worked better the the manufactorer build themselfs.... https://www.wired.com/story/sweden-stockholm-school-app-open... :)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/Foone/status/1581643197427523584">Never trust a system that seems to be working</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33233720">
-						
-							
-								<p class="story__comment_first line-clamp">"This is why 4-20 mA is a common signaling standard in industrial automation. 4 mA means zero and 20 mA means one. 0 mA means broken transmitter!"</p>
-							
-						
-							
-								<p class="story__comment_others">"One reply tweet notes &#34;a complex system always operates in a failure state&#34;, but to find more discussion on this point it&#39;s worth noting that this is a restatement of:&gt; &#34;The Fundamental Failure-Mode Theorem (F.F.T.): complex systems usually operate in a failure mode.&#34;-- John Gall, General Systemantics (aka Systemantics, aka The Systems Bible), 1977 &lt; https://en.wikipedia.org/wiki/Systemantics &gt;Searching for &#34;fundamental failure mode theorem&#34; will provide interesting further insights on this."</p>
-							
-						
-							
-								<p class="story__comment_others">"If your code has side effects, it only ever seems to be working.----&gt; the newbie says &#34;aww, why isn&#39;t it working?&#34;&gt; the intermediate says &#34;yay, it&#39;s working!&#34;&gt; the expert goes &#34;hmm, why is it working?&#34;I&#39;ve also seen this asMy thing isn&#39;t working and I change X and now I get error J instead of error K, so now I have to change X back because it&#39;s still not working.Where K is a &#34;better&#34; error than J, such as K = failed to connect and J is Server 500 error. With J you are at least talking to a webserver."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.theverge.com/2022/10/17/23408443/kanye-west-ye-parler-free-speech-social-media-platform">Kanye West is buying Parler</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33231563">
-						
-							
-								<p class="story__comment_first line-clamp">"This is really a story about a celebrity&#39;s mental illness and public breakdown. If you haven&#39;t been following the news, West has spent the week saying increasingly unhinged things, not just about politics but about Pete Davidson, his wife, and (if I&#39;m remembering right) his kids and the fake actor children that have been installed in his former home to corrupt them. He was interviewed for a show on Fox and a big chunk of what he said was edited out and later leaked; the &#34;people at the Gap&#34; knew about Uvalde, Kanye is now a Black Hebrew Israelite, &amp;c. He&#39;s quite evidently sick, and these Parler people are scamming him."</p>
-							
-						
-							
-								<p class="story__comment_others">"Musk and everyone else is right that we do need a platform with free speech. The only problem is that all those free speech advocates are actually NIMBY&#39;s when it comes to free speech.I have been following self proclaimed free speech absolutists(because I too, believe in free speech but don&#39;t believe it exists) and they are totally not the kind of people that say &#34;I hate what you say but I will die defending your right to say it&#34;. In all places, these people are curating comments and posts to push agenda.The only somewhat free place I&#39;ve seen is 4Chan but it contains so much toxicity, that&#39;s its barely bearable.Yet again, I like that Musk and Kanye kind of people claim that they want free speech because at least we can hold them responsible when they don&#39;t deliver it. This is in contrast with the pure fascist where they cannot be held responsible for anything because they don&#39;t claim virtue in first place. It&#39;s a bit like companies doing greenwashing, which can be exposed when they don&#39;t deliver on their claimed virtues versus companies who don&#39;t even claim such virtues and instead pretend that it doesn&#39;t matter. Those who claim virtue are better even if they ultimately fail."</p>
-							
-						
-							
-								<p class="story__comment_others">"How could an average outside observer distinguish between another&#39;s mental illness and a guy who&#39;s just a real out of the box thinker who might be wrong about many ideas but might also add value to the world by perceiving reality in an atypical way?A lot of posters are claiming Kanye is mentally ill and unable to manage his own affairs. What is the direct evidence of this? And I don&#39;t simply mean &#34;provide examples of opinions he&#39;s said that I don&#39;t understand or care for&#34;.I think it&#39;s pretty dangerous to be labeling people involved in the national dialogue as mentally ill without a diagnosis, or at least some substantial and direct evidence. This label could be weaponized by an authoritarian political movement in a very dangerous way if that&#39;s the precedent we&#39;re using."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="http://annas-blog.org/blog-how-to-become-a-pirate-archivist.html">How to become a pirate archivist</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33240701">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m curious how Sci-hub&#39;s approach compares to the What.cd/Redacted approach.IIUC Sci-hub has scooped up science docs through a good enough UX that it was able to leverage the goodwill of science folks to upload docs (plus whatever other methods it has used to scoop up docs), and it uses a public blitzkrieg-style distribution mechanism. I.e., I guess if one had a big enough harddrive and a fast enough internet connection, one could start downloading the lib right now and see if they win the race against the copyright holders.On the other hand, the What.cd/Redacted approach seems to use Bittorrent ratios to create a private-tracker economy. New users get a few gigs free download on joining. But apparently because a) there&#39;s a 1:1 upload/download ratio, and b) a few first-mover fat cats are sitting on enormous ratios, this means there is a scramble by everyone else to upload new FLACs to build up their ratio so they can continue to be able to download FLACs. It seems that would mean the library-in-its-entirety cannot be easily replicated at will. Yet the tracker was apparently already nuked off the internet as What.cd and reappeared later as Redacted. Was any data lost between the two services?Oh yeah, there&#39;s also apparently another approach in rutracker, which seems to be blitzkrieg to add content and publish, at the (apparent?) cost of quality of content.It&#39;s really a shame that the nerdy, completist domain of digital archiving through torrents isn&#39;t covered by fair use. Perhaps we could exclude the most recent 10 years of music so that the hopeful young musician streamers can get paid a few hundred dollars for millions of streams and then receive the silver lining of fair use protection against a label refusing to release one of their albums."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think Alexandra Elbakyan actually did not want to be revealed as the librarian behind Sci-Hub, it was her poor opsec that led to her being identified.Basically her servers were set up to emit detailed error messages from PHP, including full path of faulting source file, which was under directory /home/ringo-ring, which could be traced to a username she had online on an unrelated site, attached to her real name. Before this revelation, she was anonymous."</p>
-							
-						
-							
-								<p class="story__comment_others">"As an active hoarder I think there is problem with &#34;6. Distribution: Packaging it up in torrents, announcing it somewhere, getting people to spread it.&#34;.I miss a p2p application with torrent packaging and Kademlia like per-file advertising and discovery, where I could point it to my hefty NAS directory of random things and they could be wired to released torrents. This way we could make torrents live much longer, even partially complete. In super extra option the app could even notify me to load DVD because somebody asked for a file which I indexed and advertised previously.For years my program preferences changed, file locations changed - I have moved files around, made them offline, burned on DVDs, deleted some parts of torrent just to keep interesting stuff. Now these torrents are lost, at least my seeding contribution is gone. But I almost never change the content of these files, their checksum stays the same forever, so they could be still discoverable.The digital preservation needs better distribution system."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://lancengym.medium.com/former-fbi-director-said-blockchain-is-easier-to-trace-than-paper-money-c3400f8d9596">Chainalysis CTO said blockchain is easier to trace than paper money</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33232921">
-						
-							
-								<p class="story__comment_first line-clamp">"“No shit”.Wait, you mean something that literally tracks any and all actions in a literal chain of history that is immutable is easy to track?!?You mean that pattern recognition can be applied to even “randomized” in both size, time, and destination of transactions can be done to track like how they can track burner phones?I’m shocked! Shocked I say!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I have refused to shop at numerous stores because they make a point of not accepting cash. Cash is incredibly important for modern society due to actually being untraceable and allowing for private transactions. Plus, a society without cash is one where you are forced to use central banking. Blockchain is just trying to imitate cash digitally, which as it turns out is really hard to do. So it just ends up that people use central services anyways.The point is, cash is hard to trace. And that&#39;s a good thing. I personally refuse to shop anywhere that refuses cash, and I encourage you to do the same if possible."</p>
-							
-						
-							
-								<p class="story__comment_others">"Yeah, it&#39;s entirely built on the idea that every transaction is known by everyone. I think Lance is a bit confused. Maybe he should look into Monero.The point of Bitcoin is to enable anyone to exchange value with anyone. And it does that very well. When the US justice department declared that credit card companies had to stop processing donations to wikileaks I could still donate through bitcoin."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://ruky.me/2022/10/17/codeberg-a-github-alternative-from-europe/">Codeberg: A GitHub alternative from Europe</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33233360">
-						
-							
-								<p class="story__comment_first line-clamp">"Here is a list of free Git hosting services for open source software:• https://github.com/• https://gitlab.com/• https://bitbucket.org/• https://codeberg.org/ (As per the linked article)• https://sr.ht/ (Sourcehut)Codeberg and Sourcehut appear to use open source code for their web page backend; the others seem to use proprietary software (in the case of GitLab, there is a free version, but gitlab.com also uses non-free software).Sourcehut says they may some day charge people to host open source software on their server, but right now it’s a free beer service (but, yes, I have donated) using Free (libre) software.Souceforge also has a proprietary free-to-use for open source Git hosting service, but their service is a little buggy so I would use one (or in my case, all) of the five I have listed.If there are any others, please let us know.In terms of continuous integration, in my particular use case, the automated CI tests take about an hour to all run, so I have a Raspberry Pi server the size of a deck of cards which runs Ubuntu 22.04. The server uses a crontab which checks to see if the Git repo has been updated once a day, and runs the tests inside a Docker container if the repo has changed.  Some problems, such as automated testing, don’t need to be solved by putting everything in a cloud."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;d like to plug self-hosting via Gitea. I have it running on a Raspberry Pi Zero(!) and it works really well[0]. I no longer star projects on GitHub: instead, I mirror them onto my Gitea server which periodically syncs in changes with a cadence of my choosing[1]. If a project I depend on ever gets deleted from GitHub, I&#39;ll have a reasonably up-to-date copy.If you have a Pi in a drawer somewhere, or an underutilized 512MB VPS, using it to self-host a Gitea instance is worthwhile!0.Using SQLite as the data store.1. Alternatively, you can use your Gitea instance as the primary, and have it push changes to other git servers like GitHub or Gitlab"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; However, you won’t be getting the advanced features like automation or other integration and collaboration features provided by GitHub.Codeberg is working on CI and you can request early access. I&#39;ve found it to work well and fast.https://codeberg.org/Codeberg-CI"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=33224240">Ask HN: How to learn to sell?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33224240">
-						
-							
-								<p class="story__comment_first line-clamp">"Hi there - one of the few pro sellers on HN here.You&#39;re planning on prospecting into one of the most rejection-heavy domains out there with small physical business. These people get dozens of calls per day from companies they&#39;ve never heard of - many of whom are trying to rip them off - and even the best ones (Groupon, Yelp, google ads, etc.) are basically just rent-seeking. Oh, and most have gatekeepers who don&#39;t care the slightest bit about your pitch.Because of that I&#39;d stay away from all this &#34;smile and dial&#34; advice. You&#39;ll have no chance. Go out there and hit the pavement and meet these people at their establishments at off hours. If you catch the owner in there at a good time - do your best to inform them of your products benefits and come up with a really good offer to get started (something that loses you money and time). Free Trial, free month of services, whatever makes sense based on the context of your business. The goal is NOT to make money or build a book of business at this point - it&#39;s to get a person happy with your software to sell to later.If the owner is too busy or whatever - have some stuff printed out for them to read later that you can drop off. Ideally with a small gift (coffee, food, candy, etc.) and come back in a few weeks to see if you catch them at a better time (again with a gift, until they talk).A solid entry level book would be Fanatical Prospecting by Jeb Blount.Good Luck.*edit to fix book name"</p>
-							
-						
-							
-								<p class="story__comment_others">"To be frank you&#39;ve already committed the classic blunder of developer initiated startups.  You built before you sold.  Now there&#39;s no telling if what you built is what anyone wants.IMHO, and extrapolating a lot here it&#39;s very unlikely you will get any sale based off your MVP.  It&#39;s unlikely that you&#39;ve hit the right market fit without first having found customer #1.So I&#39;d back up a step and find someone with the problem you&#39;re trying to solve.  Offer the deal of a custom built solution to meet their need.  Once that&#39;s built and validated that it actually solves the problem then start selling to others."</p>
-							
-						
-							
-								<p class="story__comment_others">"There&#39;s a difference between marketing and sales. You&#39;re building a solution to a problem. Marketing is about getting people who have the problem to know your solution exists. Sales is about convincing them to pay money to solve the problem.If you built the MVP but don&#39;t have customers yet, you should already have some people in mind who suffer from the problem your solution is supposed to solve. Selling is then just a conversation that loosely follows the following steps:  (a) Ask if they still have the problem
-  (b) Ask if your proposed solution solves their problem
-  (c) Ask them to spend money to buy your solution
-
-Note that every step starts with &#34;ask&#34;. This means that you need to listen to their response. If they don&#39;t still have the problem, walk away. If your proposed solution doesn&#39;t solve their problem, listen to why not, and focus on improving your product until it does solve their problem (hopefully in a generic way such that your improvements will help you sell to other customers in the future). If they aren&#39;t willing to spend the price you&#39;re asking to buy a solution that they consider to be a solution to a problem they have, then find a way to add more value so that they will be willing to pay that price."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.nindalf.com/posts/xcheck/">XCheck at Meta: Why it exists and how it works</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33224347">
-						
-							
-								<p class="story__comment_first line-clamp">"This is an excellent piece which really does a good job at explaining the nuance that exists in this challenging problem domain. Thank you for writing this. It&#39;s a great piece to point to whenever the next scandal gets &#34;exposed&#34; by click-seeking folks on the internet."</p>
-							
-						
-							
-								<p class="story__comment_others">"It makes sense from a technical perspective why you&#39;d build a system like XCheck. The problem is that once you build XCheck you actually need to say to your C-suite and PR department &#34;Actually no, you can&#39;t say we treat everyone equally, we&#39;re manually going in and exempting certain people from scrutiny, and that&#39;s entirely within our discretion.&#34;The problem isn&#39;t technical, it&#39;s legal - you can&#39;t build a system that operates one way and then publicly misrepresent it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I wish they would explain what xcheck is and how it works before the talk about the problems with it. This reads like a blog post to other Integrity FB engineers that already know that system."</p>
 							
 						
 						</a>
