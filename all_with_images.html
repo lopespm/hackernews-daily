@@ -36,6 +36,398 @@
 	</div>
 
 	
+	<div class="day__date">02 November 2022</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.openssl.org/blog/blog/2022/11/01/email-address-overflows/">
+						<picture>
+							<source srcset="default_33422837.webp" type="image/webp">
+							<source srcset="default_33422837.png" type="image/png">
+							<img src="default_33422837.png" alt="Preview of 'OpenSSL 3.0.7 fixes X.509 email address buffer overflows'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.openssl.org/blog/blog/2022/11/01/email-address-overflows/">OpenSSL 3.0.7 fixes X.509 email address buffer overflows</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33422837">
+						
+							
+								<p class="story__comment_first line-clamp">"The web pages and git aren&#39;t updated yet, here is the vulnerability straight from the .tar.gz on their FTP:Fixed two buffer overflows in punycode decoding functions. 
+A buffer overrun can be triggered in X.509 certificate verification, specifically in name constraint checking. Note that this occurs after
+certificate chain signature verification and requires either a CA to have signed the malicious certificate or for the application to continue
+certificate verification despite failure to construct a path to a trusted issuer.In a TLS client, this can be triggered by connecting to a malicious server. In a TLS server, this can be triggered if the server requests client
+authentication and a malicious client connects.An attacker can craft a malicious email address to overflow an arbitrary number of bytes containing the . character (decimal 46) on the
+stack. This buffer overflow could result in a crash (causing a denial of service). ([CVE-2022-3786])An attacker can craft a malicious email address to overflow four attacker-controlled bytes on the stack. This buffer overflow could result in a
+crash (causing a denial of service) or potentially remote code execution depending on stack layout for any given platform/compiler.
+([CVE-2022-3602])-----------------------------------Doesn&#39;t sound that critical to me. CAs normally don&#39;t let you outright construct your own certificate, and I&#39;d expect you&#39;ll have a hard time to get a certificate issued which is both for mail encryption (so you get an email name constraint) and TLS (SAN constraint). And servers without TLS client authentication, which is about 99.99 % of them, aren&#39;t affected. TLS client auth is usually only used in enterprise networks and typically terminated by middleboxes running ancient software anyway."</p>
+							
+						
+							
+								<p class="story__comment_others">"For anyone else with &#34;mature&#34; server configurations confused by the OpenSSL version number because you&#39;re on 1.1.x and wondering how to translate the patched 3.0.x version number to something that applies to you; it seems that you have nothing to worry about:&gt; This code was first introduced in OpenSSL 3.0.0. OpenSSL 1.0.2, 1.1.1 and other earlier versions are not affected.&gt; We did release an update to OpenSSL 1.1.1, namely 1.1.1s, also on 1st November 2022, but this is a bug fix release only and does not include any security fixes."</p>
+							
+						
+							
+								<p class="story__comment_others">"From their blog [1] the vulnerability &#34;was reported in private to OpenSSL on 17th October 2022 by Polar Bear who was performing an audit of OpenSSL code&#34;. OpenSSL 3.0 was released in September 2021.Shouldn&#39;t fuzzing have caught this at some point? I was under the impression that OpenSSL was being fuzz tested constantly since Heartbleed.[1] https://www.openssl.org/blog/blog/2022/11/01/email-address-o..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.smithsonianmag.com/smart-news/nasa-finds-more-than-50-super-emitters-of-methane-180981045/">
+						<picture>
+							<source srcset="default_33427157.webp" type="image/webp">
+							<source srcset="default_33427157.png" type="image/png">
+							<img src="default_33427157.png" alt="Preview of 'NASA finds super-emitters of methane'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.smithsonianmag.com/smart-news/nasa-finds-more-than-50-super-emitters-of-methane-180981045/">NASA finds super-emitters of methane</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33427157">
+						
+							
+								<p class="story__comment_first line-clamp">"To put this in perspective, the 18300kg per hour from the Permian site is equivalent (over a 100 time horizon global warming potential) to a 500 Megawatt coal power plant&#39;s CO2 emissions (~1kg of CO2 per kWh of electricity) burning 24/7. Or, to put it another way, it accounts for the same emissions as about 0.3% of the entire US electricity grid."</p>
+							
+						
+							
+								<p class="story__comment_others">"Several questions ask to contextualize this measurement.Here&#39;s a highly-cited paper in Nature (including some of the researchers quoted in the OP) that describes how an earlier survey of California methane emissions went:https://www.nature.com/articles/s41586-019-1720-3If I remember right, the state of CA asked for this survey. It was carried out by an instrument similar to that of the OP, but airborne, not on ISS as in OP.California has standards for methane emissions (e.g., https://ww2.arb.ca.gov/resources/fact-sheets/oil-and-gas-met...) that are now covering landfills and oil and gas infrastructure, and dairies -- three of the largest categories of large emitters.(One effect of these regulations, that lay people may have noticed, is trying to get food waste out of the landfill stream, and into composting, so that it doesn&#39;t decay anaerobically and produce methane. In LA, for example, the LADWP is test-driving a program where food scraps - vegetables, but also meats and fats - are diverted into green bins.)Strengthened regulations on methane emissions from oil and gas infrastructure are part of this - I&#39;m not saying the studies motivated these regulations, just that they are all part of policies heading in that direction.It is believed that large oil companies are aggressively selling off oil pumps/fields to get out from under this responsibility. (https://www.propublica.org/article/california-oil-wells-shel...)The ISS measurements in OP have covered (and will continue to cover) a much broader area than the California airborne survey - but with less spatial resolution - so presumably a broad survey of mid-latitude super-emitters will be possible in the coming months."</p>
+							
+						
+							
+								<p class="story__comment_others">"How could a 2 mile long methane plume in New Mexico have been undetected for any significant amount of time?From what I understand basic environmental monitoring is done in 2022 around all major industrial facilities in the U.S."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://waxy.org/2022/11/invasive-diffusion-how-one-unwilling-illustrator-found-herself-turned-into-an-ai-model/">
+						<picture>
+							<source srcset="default_33422990.webp" type="image/webp">
+							<source srcset="default_33422990.png" type="image/png">
+							<img src="default_33422990.png" alt="Preview of 'An unwilling illustrator found herself turned into an AI model'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://waxy.org/2022/11/invasive-diffusion-how-one-unwilling-illustrator-found-herself-turned-into-an-ai-model/">An unwilling illustrator found herself turned into an AI model</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33422990">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;m thinking a little bit of empathy doesn&#39;t hurt. Reason from Hollie&#39;s point of view. She didn&#39;t ask for this and was working on cool stuff:https://holliemengert.com/Next, somebody grabs her work (copyrighted by the clients she works for), without permission. Then goes on to try and create an AI version of her style. When confronted, the guy&#39;s like: &#34;meh, ah well&#34;.Doesn&#39;t matter if it&#39;s legal or not, it&#39;s careless and plain rude. Meanwhile, Hollie is quite cool-headed and reasonable about it. Not aggressive, not threatening to sue, just expressing civilized dislike, which is as reasonable as it gets.Next, she gets to see her name on the orange site, reading things like &#34;style is bad and too generic&#34;, a wide series of cold-hearted legal arguments and &#34;get out of the way of progress&#34;.How wonderful. Maybe consider that there&#39;s a human being on the other end? Here she is:https://www.youtube.com/watch?v=XWiwZLJVwi4A kind and creative soul, which apparently is now worth 2 hours of GPU time.I too believe AI art is inevitable and cannot be stopped at this point. Doesn&#39;t mean we have to be so ruthless about it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I know this website is not a hivemind, but it&#39;s interesting every time an article like this gets posted the majority opinion seems to be that training diffusion models on copyrighted work is totally fine. In contrast when talking about training code generation models there are multiple comments mentioning this is not ok if licenses weren&#39;t respected.For anyone who holds both of these opinions, why do you think it&#39;s ok to train diffusion models on copyrighted work, but not co-pilot on GPL code?"</p>
+							
+						
+							
+								<p class="story__comment_others">"I am a graphic artist. In the recent months I&#39;ve read dozens of articles and threads like this. I still can&#39;t see what the big deal is.Graphic artists don&#39;t have trade secrets or unique impossible techniques. If someone can see your picture, he can copy its style. It becomes publicly available as soon as you publish it. For the vast majority of graphic styles, if one author can do it, then hundreds of his colleagues can do it too, often just as well. If one author becomes popular and expensive - then his less popular colleagues can copy his style for cheaper. The market for this is enormous and this was the case for probably hundreds of years.I personally am a non-brand artist like that. More often then not clients come to me with a reference not from my portfolio and ask me to produce something similar. I will do it, probably five times cheaper than the artist or studio who did the original. It may not be exactly as good, but it won&#39;t be five times worse.Some clients are happy to pay extra for the name brand, and will pay. Some want to spend less, and will settle for a non-brand copy.The clients that are willing to pay for the name brand will still be there for the same reason they are now, and the existence of Stable Diffusion changes nothing to them. And the ones that just want the cheap copy would never contact the big name artist in the first place. The copy market will shift, but the big name artist doesn&#39;t even have to be aware of it."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/jamealg/KT-companion">
+						<picture>
+							<source srcset="default_33420852.webp" type="image/webp">
+							<source srcset="default_33420852.png" type="image/png">
+							<img src="default_33420852.png" alt="Preview of 'Show HN: I made an offline-ready hiking trail companion app'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/jamealg/KT-companion">Show HN: I made an offline-ready hiking trail companion app</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33420852">
+						
+							
+								<p class="story__comment_first line-clamp">"This is great.  I&#39;ve been working on an adventure motorcycling trip planning app which has similar requirements of being able to work offline as you ride your preplanned trip.Yours is a good example of what can be done by keeping it simple and not getting wrapped around the axle with complicated frameworks.It makes me regret all the time I&#39;ve spent trying to figure out the absolute best tech stack to use rather than just working on finishing the damn thing."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is fantastic. I currently live in Rocky Mountain National Park where I climb, hike, and ski nearly every day - my partner also works for the Park Service. We have been using Gaia and love it but your UI looks fantastic and I&#39;ll get it installed.It reminds me of a very simplified interface of CalTopo.One question, are you open to PR&#39;s? If so, I&#39;d love to see slope angle added into this in the same format for avalanche awareness along a trial.Great work!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Nice app. Can you explain why you chose ArgGis as your tile provider [1]? A lot of the struggle of making a public map app is that map tiles are hard to host and not cheap to buy at scale.[1] https://github.com/jamealg/KT-companion/blob/master/scripts/..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/elonmusk/status/1587498907336118274">
+						<picture>
+							<source srcset="default_33424607.webp" type="image/webp">
+							<source srcset="default_33424607.png" type="image/png">
+							<img src="default_33424607.png" alt="Preview of 'Twitter Blue for $8/Month'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/elonmusk/status/1587498907336118274">Twitter Blue for $8/Month</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33424607">
+						
+							
+								<p class="story__comment_first line-clamp">"The dynamics on Twitter are quite weird. There’s a small number of users with potentially lots of followers for whom Twitter is an important part of their work or life. If you’re a journalist, being on Twitter is basically part of your job so maybe you should have to pay a bit more just like the customer of some business software ($100 pa seems pretty cheap there). Indeed maybe media publications should be paying for the blue checks for their staff. But on the other hand, these people are going to represent a large part of the draw of Twitter and so maybe Twitter should be paying them instead.But other people use Twitter in different ways. If you mostly use it as a social network between your friends you might not care because they’ll presumably see your tweets because they follow you rather than because they found them in search or whatever.If you’re using Twitter as a forum for discussions about some topic of your interest, maybe you’ll end up feeling crowded out in replies by people with the check. But if you’re at risk of being crowded out then maybe Twitter isn’t working so well as a forum. And I think that if eg A follows B and B retweets you, A should see your tweet whether or not you have a check. Maybe that isn’t so true with the non-chronological feed. If people in the community follow you then, depending on the dynamics, your opinions could still be spread via retweet rather than getting lucky in your position in the replies, no?If you’re some reply guy, maybe your tweets should be downranked but then if you’re serious about it then I guess you’ll pay."</p>
+							
+						
+							
+								<p class="story__comment_others">"The good:Twitter should not be editorally curating people through verification, making verification only about ID and being a real person is a broadly good change, as long as it&#39;s not necessary for participation. Brands, celebrities, those in the public eye could benefit from this. Needs to be implemented with care and ideally with a branding change so as not to confuse users as the semantics change.The bad:$8 is way more than the profitability of an ad supported user. There&#39;s no excuse for &#34;half the ads&#34;, it should be none at all. See: every streaming service. (Edit: ok some streaming services have ads, but for most online content - video, journalism, etc, if you subscribe there are no ads, it&#39;s just nickle-and-diming users to give them a bunch of ads, particularly when the marginal cost for Twitter Blue is essentially zero).The ugly:Paying $8 to get your voice heard by more people biases towards those with means rather than those contributing to the conversation. At best this will reduce conversation quality on Twitter, at worst this is ripe for abuse."</p>
+							
+						
+							
+								<p class="story__comment_others">"Elon is the PM from hell. Has some shower thought and starts throwing tickets on everyone&#39;s board 45 minutes later.This is why the Model X has those silly doors."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.spacex.com/launches/ussf-44/index.html">
+						<picture>
+							<source srcset="default_33421049.webp" type="image/webp">
+							<source srcset="default_33421049.png" type="image/png">
+							<img src="default_33421049.png" alt="Preview of 'Falcon Heavy Launch [video]'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.spacex.com/launches/ussf-44/index.html">Falcon Heavy Launch [video]</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33421049">
+						
+							
+								<p class="story__comment_first line-clamp">"Possibly the most expensive thing in the world with a publicly listed price ($97M) and sales contact (sales@spacex.com)? https://www.spacex.com/media/Capabilities&amp;Services.pdf Just find that amusingly &#39;accessible&#39;."</p>
+							
+						
+							
+								<p class="story__comment_others">"The couple seconds of tracking camera footage of the boosters coming back down looked amazing. I wish it wasn&#39;t so foggy at the pad!When the second stage separates there&#39;s a few cables that are flying around. Does anyone know what those are used for? Electrical connections between the stages maybe?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Seeing those boosters land will never get old. I drive by one on my way to work every day and it&#39;s just amazing how large they are."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.nature.com/articles/505283a">
+						<picture>
+							<source srcset="default_33413278.webp" type="image/webp">
+							<source srcset="default_33413278.png" type="image/png">
+							<img src="default_33413278.png" alt="Preview of 'Gross domestic product is a misleading measure of national success (2014)'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.nature.com/articles/505283a">Gross domestic product is a misleading measure of national success (2014)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33413278">
+						
+							
+								<p class="story__comment_first line-clamp">"The title/article seems to be a bit of a strawman, AFAICT countries (or their governments / citizens) do not consider the GDP as the one and only measure of national success. Politics are driven by tons of different interest groups (in the broadest sense, ranging from corporate interests, environmental activists, minority representatives, medical or teaching professionals, farmers, retirees living on state pensions, etc, etc.), not by whether some policy might give a boost to GDP. I could argue that it would probably be better if they actually did, but that&#39;s for another thread.In truth, pretty much nobody really knows for sure what policies actually will increase GDP, or what causes the short term fluctuations (business cycle / recession) or variation in long term divergense between different countries in the first place. The more honest academic economists will freely admit this. (I was explicitly thaught so in my graduate macro-economics courses). So I think it&#39;s a strawman to think that countries/governments are engating in some kind of myopic GDP maximization plan.I think the appropriate analogy is household or personal income. (GDP is just all incomes in a country summed up and corrected for inflation.)  It&#39;s probably not the most important thing in the world, and probably not the most important determinant of personal happyness or life satisfaction. But a severe lack of it (especially compared to the people around you) or an unexpected large drop will probably be considered problematic by most people."</p>
+							
+						
+							
+								<p class="story__comment_others">"This has been known since the idea was first conceived: https://en.wikipedia.org/wiki/Gross_domestic_product#Limitat...The real issue is simply that, a lot of the things we want to convert to simple metrics can&#39;t be. Suppose I hand you a list of the exact rate each crime in a country was committed, and I ask you to convert that list to a single number, how would you do so? You could assign a weight to each crime, but how would you know which weights to use? What&#39;s the &#34;true cost&#34; of each crime?Of course, in reality we won&#39;t know the real rate of any crime. We will have estimates, which are likely quite far from the truth."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s hard to overstate how terrible this idea is.GDP is a concrete measure that is difficult to fake.  Once you start arguing about the economic value of volunteering, divorce, income inequality, and crime -- you&#39;ve opened the door to never being able to trust GDP again.Should we create new metrics to track progress?  Sure.  Should we stop tracking GDP?  No way."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.nytimes.com/2022/10/31/world/asia/china-launch-space-station.html">
+						<picture>
+							<source srcset="default_33422779.webp" type="image/webp">
+							<source srcset="default_33422779.png" type="image/png">
+							<img src="default_33422779.png" alt="Preview of 'As last module docks, China completes its space station'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.nytimes.com/2022/10/31/world/asia/china-launch-space-station.html">As last module docks, China completes its space station</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33422779">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.ph/2bXGR"</p>
+							
+						
+							
+								<p class="story__comment_others">"Does anyone know to what extent China has advanced the state of the Soviet technology that they have (I assume) licensed? I have been to the Russian Star City training facility, Baikonur Cosmodrome and been in the full-size Mir training module and the Chinese station components look very similar. I am sure getting good information is difficult, but perhaps someone here has some more info."</p>
+							
+						
+							
+								<p class="story__comment_others">"Last week I stood outside my apartment and watched Tiangong fly across the sky[0]. What an incredible time to be alive.[0] https://james.darpinian.com/satellites/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/yyx990803/vite-vs-next-turbo-hmr/discussions/8">
+						<picture>
+							<source srcset="default_33416989.webp" type="image/webp">
+							<source srcset="default_33416989.png" type="image/png">
+							<img src="default_33416989.png" alt="Preview of 'Is Turbopack really 10x faster than Vite?'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/yyx990803/vite-vs-next-turbo-hmr/discussions/8">Is Turbopack really 10x faster than Vite?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33416989">
+						
+							
+								<p class="story__comment_first line-clamp">"Glad to see that Evan You has stepped up with a response. When these 10x improvements were presented without a release of the benchmark code I was very sceptical.  
+Vercel, do better! You champion yourself as a leader in the OSS React ecosystem, so please act accordingly. This has eroded my trust and excitement for your products."</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;There were number rounding issues in the original numbers for the 1k component case - Turbopack&#39;s 15ms was rounded down to 0.01s while Vite&#39;s 87ms was rounded up to 0.09s. This further got marketed as a 10x advantage when the original numbers were close to 6x.&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"It happens again and again, never believe benchmarks by original author/owner. They are misleading in most cases.Deno vs bun was same case, each showed their runtime as faster"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.washingtonpost.com/business/2022/10/31/productivity-down-employers-worried-recession/">
+						<picture>
+							<source srcset="default_33405389.webp" type="image/webp">
+							<source srcset="default_33405389.png" type="image/png">
+							<img src="default_33405389.png" alt="Preview of 'U.S. workers have gotten less productive – no one is sure why'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.washingtonpost.com/business/2022/10/31/productivity-down-employers-worried-recession/">U.S. workers have gotten less productive – no one is sure why</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=33405389">
+						
+							
+								<p class="story__comment_first line-clamp">"https://archive.ph/fTkHI"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve read that doctors now spend as much as 50% of their time documenting their work. Companies such as Epic, which provide the software that hospitals use to build databases of patient data, have been big winners in the new world of hospitals-depending-on-software. But did the doctors become more productive? By almost any measure, they became less productive.People in tech keep thinking more tech will solve problems and they keep underestimating the flexibility of the old models. For instance, most large companies used to be run by armies of secretaries, and the senior secretaries functioned as what we would now call &#34;project managers&#34; -- they made calendars, oversaw who was working on what, followed up to keep track on whether work was being done, and kept a close eye on what money was being spent. The crucial thing about having humans overseeing such work is that humans can take a flexible approach to the rules: they know when to break them. By contrast, systems that are highly dependent on software tend to be more rigid. Software doesn&#39;t know when its rules should be broken.The flexibility of the old system is constantly underestimated, the rigidness of the new systems is often misunderstood.In his book &#34;The Design Of Design&#34; Fred Brooks talks about the power of trust, and he contrasts that situations where everything needs to be first negotiated and specified in a contract. High trust systems are flexible and fast, whereas a system where every detail needs to be specified in a contract is slow and rigid. We should stop and ask ourselves, our favorite Agile methodology resembles which of these? Are specifying things with needless detail?"</p>
+							
+						
+							
+								<p class="story__comment_others">"US Worker productivity is 0.7 standard deviations below its average over the last 3 years. It is 3.6% below all time high. It is higher now than at any point before July of 2020. YOY Productivity growth has dipped negative and then went back to positive 20 times in the past 22 years.To be concerned about the current level of productivity requires either the attention span or the intelligence of a goldfish.https://tradingeconomics.com/united-states/productivity"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">01 November 2022</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -68,7 +460,7 @@
 							
 						
 							
-								<p class="story__comment_others">"This is also the shortest short track NASCAR races, its in Martinsville, VA. Known as &#34;The paperclip&#34;.This was a lot fun to watch.  #1 Ross Chastain had to get more points than #11 Denny Hamlin to qualify.  He was in 10th I think when he went full send with the wall, putting an arms length in front of Denny at the very last second to finish #5th.Short track races are fun because the do have a lot of rubbing, but they dont nearly go as fast as the super-speedways.  And just generally you dont see something like this.  I understand NASCAR is gonna make a rule to prevent it, but you know they are gonna promote the heck outta this clip.https://en.wikipedia.org/wiki/Martinsville_Speedway"</p>
+								<p class="story__comment_others">"Of all the forms of immortality, my favorite is participating in a competition in such a brilliant, incorrect way that a rule is permanently added just for you."</p>
 							
 						
 						</a>
@@ -343,15 +735,15 @@ https://news.ycombinator.com/item?id=31614055&gt; Today, the New York State legi
 						<a href="https://news.ycombinator.com/item?id=33406790">
 						
 							
-								<p class="story__comment_first line-clamp">"One of my favorite tech articles of all time involved this guy. He was showing off the self driving capabilities of his framework and took a reporter out on a drive. Everything went well and while they were wrapping up the interview the reporter said &#34;Well I bet you&#39;re just driving around all the time hands free, it must be amazing&#34; and Hotz says &#34;Oh well I just got it working this morning&#34;.Classic. I love it. My kind of engineer."</p>
+								<p class="story__comment_first line-clamp">"One of my favorite Dirty Harry quotes: &#34;A man&#39;s got to know his limitations.&#34;I really appreciate his self-awareness and (dare I say it?) humility in this situation.  While other people may be struck by his hubris, I for one really appreciated his humility in this post.  I feel like he is acknowledging his own shortcomings, and how while he likes the immaturity of hacking together a racecar, but if Comma is going to go to the next level, then he needs someone who can pilot a boat, and George is not that pilot.  I appreciate that awareness, and I appreciate that he has the ability to detach himself and move onwards this way.Kudos to you, George.  I appreciate and respect what you do.  Thanks for letting us have a glimpse at it -- I personally find it very inspiring and encouraging for me and what I do."</p>
 							
 						
 							
-								<p class="story__comment_others">"One of my favorite Dirty Harry quotes: &#34;A man&#39;s got to know his limitations.&#34;I really appreciate his self-awareness and (dare I say it?) humility in this situation.  While other people may be struck by his hubris, I for one really appreciated his humility in this post.  I feel like he is acknowledging his own shortcomings, and how while he likes the immaturity of hacking together a racecar, but if Comma is going to go to the next level, then he needs someone who can pilot a boat, and George is not that pilot.  I appreciate that awareness, and I appreciate that he has the ability to detach himself and move onwards this way.Kudos to you, George.  I appreciate and respect what you do.  Thanks for letting us have a glimpse at it -- I personally find it very inspiring and encouraging for me and what I do."</p>
+								<p class="story__comment_others">"One of my favorite tech articles of all time involved this guy. He was showing off the self driving capabilities of his framework and took a reporter out on a drive. Everything went well and while they were wrapping up the interview the reporter said &#34;Well I bet you&#39;re just driving around all the time hands free, it must be amazing&#34; and Hotz says &#34;Oh well I just got it working this morning&#34;.Classic. I love it. My kind of engineer."</p>
 							
 						
 							
-								<p class="story__comment_others">"Although I haven&#39;t done such great things as Geohot, I connect the spirit he is describing. In my mind I have already solved the technical problems my firm will face over the next 3 years, and I no longer have the patience to see them implemented. I am languishing in my role as a result."</p>
+								<p class="story__comment_others">"George Hotz is my canary for the question &#34;is there still adventure to be found in computing&#34;. I hope he finds some, because if he can&#39;t, then there is probably none."</p>
 							
 						
 						</a>
@@ -389,7 +781,7 @@ https://news.ycombinator.com/item?id=31614055&gt; Today, the New York State legi
 							
 						
 							
-								<p class="story__comment_others">"So, it was a simple corporate raid after all. Welcome back to the 70s: energy markets problems, inflation, and now finally some good old corporate raiding with LBOs.PS. https://en.wikipedia.org/wiki/Corporate_raid"</p>
+								<p class="story__comment_others">"Twitter is already improved IMHO: The &#34;sign in or sign up&#34; nag screen is gone for me!"</p>
 							
 						
 						</a>
@@ -774,7 +1166,7 @@ https://www.garagejournal.com/forum/threads/jeffs-mountain-s..."</p>
 							
 						
 							
-								<p class="story__comment_others">"- Conquest: Cortes, Montezuma, and the Fall of Old Mexico by Hugh Thomas , because he brings history to life and the story of the Spanish and the Mexica is stranger than fiction, more subtle and terrible than you might think, and has many lessons on human behavior applicable to today.- Ecclesiastes by Qoheleth: In my opinion, superior to Marcus Aurelius&#39; Meditations. &#34;Go, eat your bread with enjoyment, and drink your wine with a merry heart; for God has already approved what you do. Let your garments be always white; let not oil be lacking on your head. Enjoy life with the wife whom you love, all the days of your vain life which he has given you under the sun, because that is your portion in life and in your toil at which you toil under the sun. Whatever your hand finds to do, do it with your might; for there is no work or thought or knowledge or wisdom in Sheol, to which you are going.&#34; (Eccles 9:11)- Amusing ourselves to death by Neil Postman: We thought we had to worry about 1984 and big brother. We were wrong. We are living in Huxley&#39;s Brave New World where digital media has made us dumber, distracted and cut our connections with one other. Our smartphones substitute rosaries and entertainment becomes the dogma.- Structure and Intepretation of Computer Programs by Hal Abelson and Gerlad J. Sussman: Need I say more? This books makes me fall in love all over again with programming every time I pick it up.- Nichomachean Ethics by Aristotle: What does it mean to live well? How can we be happy? Aristotle makes the striking claim that everyone knows how to be happy, but we have to create the habits that are in accord with reason and right judgement in order to get there. Also, happiness is not a state but rather the result of our active will and right ordering of desire. Required reading for any political leader.- Theory of Computation by Michael Sipser: Javascript frameworks come and go, language standards change, Computer platforms rise and fall, but math and the underling concepts of computation stay the same. Knowing what computation is, what its properties are, etc. will not only make you a better programmer but a better thinker. Church-Turing Thesis essential reading for anyone serious about algorithm design and analysis."</p>
+								<p class="story__comment_others">"Non-Fiction / Self-Help:No Bad Parts: Healing Trauma and Restoring Wholeness with the Internal Family Systems ModelIFS for short.Written for normal people, not psychologists/psychiatrists. It has a very valuable core philosophy/teaching about who we are underneath all the masks of our personality(s). It closely resembles something I experienced during an Ayahuasca retreat in 2018, about the soul / inner child/god entity.For something a little more tangible that digs in closer to the mechanism/science, see Dr Tori Olds on youtube, she has 5 videos on the topic that is incredibly powerful in understanding your own behaviours. Will take less than 2 hours of your life but can change it permanently for the better!"</p>
 							
 						
 						</a>
@@ -3592,389 +3984,6 @@ Funnily enough I had just started reading the Ars Technica review when the upgra
 						
 							
 								<p class="story__comment_others">"I think this is great, and though I agree that determining whether there is an &#34;on-going cost to the manufacturer&#34; will be a gray area that automakers will try to game, I think that&#39;s a solvable problem.The heated seats example is a great one. There is no reason for this not be a one-time charge.On the other hand, I think it&#39;s fair to offer autopilot/&#34;full self driving&#34; on a subscription, or at least the upgrades as a subscription. Clearly there is a large ongoing cost to continually improve self-driving capabilities, and it seems reasonable to me to have a pricing model that reflects that."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">23 October 2022</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://twitter.com/juanbuis/status/1583412762176524288">
-						<picture>
-							<source srcset="default_33295923.webp" type="image/webp">
-							<source srcset="default_33295923.png" type="image/png">
-							<img src="default_33295923.png" alt="Preview of 'Amsterdam looks incredibly realistic in the new Call of Duty'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://twitter.com/juanbuis/status/1583412762176524288">Amsterdam looks incredibly realistic in the new Call of Duty</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33295923">
-						
-							
-								<p class="story__comment_first line-clamp">"Amsterdam local here — in fact, I live in exactly this street. Where the first cartel guy gets subdued is where I get my coffee, and the people that live in the canal houses are my neighbors. (My house may or may not be in the map, would have to play the game to check.)Fun facts:(1) A year or two ago several guys spent days using some sort of device to scan all buildings in our street. They got complaints from several bar owners and tenants as they appeared to be taking photographs inside the buildings, and they wouldn’t explain why. I wouldn’t be be surprised if it was for this map.(2) The footage is hyperrealistic not just graphically, they got the details right with surprising accuracy. Even the garbage bins are in exactly the right place. (It’s also not unlikely that a guy could be subdued like this without people being too surprised, as tourists like to use this district to get wasted 24/7.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"Though it does look great, i wish more games focused on actually being fun to play instead of having long cut scenes and micro transactions.Ironically other than the fact that you have to pay per game and that you’re often forced to die, I prefer arcade games. They generally minimize friction to playedit: to clarify, I mean games with good graphics specifically. There are many great games (especially indie) out there."</p>
-							
-						
-							
-								<p class="story__comment_others">"It looks incredible.Although this beautiful recreation is missing the endless tourists aimlessly walking on bike paths and the very loud conversations between Dutch people (their talking volume is what many of us consider yelling, but that&#39;s just normal).Once we get VR headsets that are maybe twice as good as the best now, and we have high quality simulations, the scifi stories of people choosing living in unreality seem more plausible."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.reuters.com/business/autos-transportation/exclusive-korean-auto-giant-hyundai-investigating-child-labor-its-us-supply-2022-10-19/">
-						<picture>
-							<source srcset="default_33299929.webp" type="image/webp">
-							<source srcset="default_33299929.png" type="image/png">
-							<img src="default_33299929.png" alt="Preview of 'Hyundai investigating child labor in its U.S. supply chain'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/business/autos-transportation/exclusive-korean-auto-giant-hyundai-investigating-child-labor-its-us-supply-2022-10-19/">Hyundai investigating child labor in its U.S. supply chain</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33299929">
-						
-							
-								<p class="story__comment_first line-clamp">"Here&#39;s a link from the article to more information on the child labor violations:https://www.reuters.com/world/us/hyundai-kia-auto-parts-supp...(This links to more info.)Wow.I think the thing that shocks me the most is that the punishment from the Department of Labor is a very mild slap-on-the-wrist. A small fine and a promise not to do it any more. This should basically be the end of that company entirely. Instead they just have to point the finger at some low-level managers, fire them, and keep on rolling. I would think criminal charges are warranted for importing 12 and 13 year-olds for labor. The children can&#39;t consent. That&#39;s essentially child slave labor.If Hyundai/Kia drops them, that would at least be a much bigger penalty than the DOL imposed."</p>
-							
-						
-							
-								<p class="story__comment_others">"I work on ESG consulting and part of the speech we give is &#34;... ESG is not only environmental, there&#39;s other important areas to improve like making sure there&#39;s no kids working on your company, blah blah&#34; kind of like a joke and it then triggers more jokes from the other side like &#34;Oh you got us, time to change our plans&#34; etc ... and then we never talk about the subject again because who is going to actually do that, right? Right?!Well, color me amazed, TIL there&#39;s child labor happening in the US."</p>
-							
-						
-							
-								<p class="story__comment_others">"From articleAs Reuters reported, migrant children from Guatemala found working at SMART Alabama, LLC and SL Alabama had been hired by recruiting or staffing firms in the region. In a statement to Reuters this week, Hyundai said it had already stopped relying on at least one labor recruiting firm that had been hiring for SMART"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://blog.replit.com/mobile-app">
-						<picture>
-							<source srcset="default_33263432.webp" type="image/webp">
-							<source srcset="default_33263432.png" type="image/png">
-							<img src="default_33263432.png" alt="Preview of 'Replit Mobile App'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://blog.replit.com/mobile-app">Replit Mobile App</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33263432">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m bullish on this because mobile (and web) development is ridiculously overcomplicated to a beginner. I think it&#39;s a common misconception that coding/logic is difficult. I find the development setup and deployment to be much more complicated. As evidence, take a look at the impressive workarounds that citizen developers use to make things work in an easy environment like Excel.A keyboard and mouse probably solve most of the complaints in this thread."</p>
-							
-						
-							
-								<p class="story__comment_others">"I want a token based keyboard with the following propertiesLanguage and syntax awareness. When I’m writing JavaScript - it should provide keys for ‘if’ ‘each’ ‘function’ etc.When I have unbalanced parens, braces etc, it should tell me how many levels deep I am and what context I’m in.Instead of me naming variables it should generate random names and let me declare with a single tap. Provide easy refactoring tools so I can rename them later.On mobile I want to manipulate symbols or the AST directly rather than rely on text input.Take advantage of a keyboard that can display infinite variation and change on the fly."</p>
-							
-						
-							
-								<p class="story__comment_others">"Very little innovation is done in the area of coding on a small-form mobile device.  Early attempts are needed in order to get feedback and learn from experience what works and what doesn&#39;t.It&#39;s nice to see repl.it is at least attempting to address this &#34;market&#34;.  Their previous mobile app was so bad I uninstalled it and used the web site directly instead.  Hopefully this works better."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://ubuntu.com/blog/canonical-releases-ubuntu-22-10-kinetic-kudu">
-						<picture>
-							<source srcset="default_33275206.webp" type="image/webp">
-							<source srcset="default_33275206.png" type="image/png">
-							<img src="default_33275206.png" alt="Preview of 'Ubuntu 22.10 Kinetic Kudu'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://ubuntu.com/blog/canonical-releases-ubuntu-22-10-kinetic-kudu">Ubuntu 22.10 Kinetic Kudu</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33275206">
-						
-							
-								<p class="story__comment_first line-clamp">"I used to use Ubuntu for everything and was very happy in the massive Ubuntu ecosystem with a .deb for everything till I was forced to use Snap a few releases ago for installing even some basic utils I used on a daily basis. I then had Snap constantly hang on installs and just break for no apparent reason and waste my time debugging it. It didn&#39;t &#34;just work&#34; anymore.Swapped to Arch and haven&#39;t looked back yet, Arch took me a lot more work to get set up but once it was it&#39;s been pretty invisible, which is how I like my OS to be.I&#39;d probably happily swap back to Ubuntu if I read somewhere that Snap was removed entirely/canceled or something."</p>
-							
-						
-							
-								<p class="story__comment_others">"The regular as clockwork bi-yearly releases are one of the best things about Ubuntu. Ubuntu is the default supported Linux laptop/desktop env in so many tech orgs.If you use Ubuntu and want to help ensure it works for your env remember to test the upcoming release alphas / betas eg with USB boot stick and file bugs on Launchpad if you notice something broken.(Same goes for other distros your org may use, eg Debian, Fedora etc)Snaps mostly work great, and are a great improvement for keepign up to date sw available for people using LTS releases. This and the security improvements brought by the sandboxing greatly overshadow the sometime teething problems of the system."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m not sure precisely why, but when I first saw ads in Apt(8) I decided I wouldn&#39;t be using Ubuntu for any more personal projects. On one hand they obviously need to keep the project alive. On the other hand, putting your own ads on top of something that fundamental to the system just felt ... weird/narsty?Reading state information... DoneCalculating upgrade... DoneTry Ubuntu Pro beta with a free personal subscription on up to 5 machines.
-Learn more at https://ubuntu.com/pro"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://medium.com/@julia.airbnb.horrorstory/illegal-host-electric-shocks-slugs-leaks-and-no-support-how-airbnb-failed-ae89925fca7b">
-						<picture>
-							<source srcset="default_33286238.webp" type="image/webp">
-							<source srcset="default_33286238.png" type="image/png">
-							<img src="default_33286238.png" alt="Preview of 'Illegal host, electric shocks, slugs, leaks and no support – How Airbnb failed'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://medium.com/@julia.airbnb.horrorstory/illegal-host-electric-shocks-slugs-leaks-and-no-support-how-airbnb-failed-ae89925fca7b">Illegal host, electric shocks, slugs, leaks and no support – How Airbnb failed</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33286238">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s not surprising at all. All of these review-driven P2P marketplace businesses end up with the same problem. After the initial phase of early adopters that offer generally high quality products, a flood of fake or low-quality listing tries to squeeze money out of the platform. These people are not listing their homes on Airbnb, they are trying to make a living by extracting as much money from the platform as they possibly can. They don&#39;t care if they&#39;re banned or reported. They&#39;ll just make a new fake account. Low ratings? No problem, just pay for some fake reviews.The same is true for Amazon and other marketplace business. It&#39;s overrun by Amazon FBA sellers selling cheap low-quality white-labeled Alibaba products. It&#39;s almost impossible to find real brands or high-quality products these days, unless you specifically know what to search for.How to deal with it? Personally I&#39;ve started going back to hotels to be safe. If I do use Airbnb, I do a lot of research on the host and reviews and assume the place I&#39;m getting is 80% worse than what the pictures show.Other examples: App Store app reviews, restaurant review apps and food delivery apps. Fortunately it&#39;s not a big deal if these are scams. It&#39;s just a few dollars. Sucks much more when it&#39;s your vacation rental."</p>
-							
-						
-							
-								<p class="story__comment_others">"This stuff is incredibly common in short term rental market.  You are scraping the bottom of the barrel on landlord scruples.There was a recent fire in a summer vacation town popular with NYers.
-The town requires summer short term rental landlords to get a permit &amp; inspection.
-The landlord did not get one.
-The landlord also had sketchy kitchen wiring that was probably some sort of DIY and not up to code.
-The landlord had removed batteries and hardwiring from 3 smoke detectors.
-These are the kind of things the inspector would have found immediately.A family visiting from out of state lost 2 of their 3 children in this fire.Apps like AirBnB create the facade of officialness on what are instead very sketchy markets.  Family probably thought they were doing the right thing going through an app and the landlord must be verified and more &#34;legit&#34;.  Being from out of state they wouldn&#39;t know the intricacies of local town permit&amp;inspection requirements and how to check if the landlord has one, etc.Likewise in my condo in NYC, we had one particular owner who was trying to use their unit as an Airbnb.  Regardless of the local laws which were tightening up at the time, our condo expressly forbid short term rentals, and had language around minimum length of stay and lease approval requirements.  It only stopped when we started fining them $1000 per incident.Stuff like this matters because you buy a condo to live in it and don&#39;t expect the unit on the other side of your bedroom wall to essentially be a hotel room with new neighbors every 3 days, staying up all hours (vacation, yay), dragging suitcases in&amp;out at odd hours multiple times per week.. forever.The building itself takes on a lot more wear &amp; tear, and they put a burden on staff as they think the building porter&amp;doorman are there for them like a hotel concierge and front desk."</p>
-							
-						
-							
-								<p class="story__comment_others">"If only there was some regulation for such services that would require some sort of standard. You know some sort of licensing by the state. /sThis is what you get when you skirt laws, artificially lowering prices to kill competition and exploit workers. Stop complaining, it&#39;s your own doing for supporting this type of economy. Only because maybe some of those existing laws were cumbersome or outdated doesn&#39;t mean you just go around all of them."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=33297217">
-						<picture>
-							<source srcset="default_33297217.webp" type="image/webp">
-							<source srcset="default_33297217.png" type="image/png">
-							<img src="default_33297217.png" alt="Preview of 'Ask HN: HNers with multiple sclerosis, can we get in touch?'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=33297217">Ask HN: HNers with multiple sclerosis, can we get in touch?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33297217">
-						
-							
-								<p class="story__comment_first line-clamp">"I’m a programmer with MS.  Like you, diagnosed about 15 years ago, but still doing pretty well.  I feel like I’m starting to notice the gradual decline more and more, despite not having had a serious clinical relapse for about 10 years (some minor ones).Things you can try:
-Changing your drugs - maybe going for something drastic like HSCT.Being patient and not panicking - if you’re currently having flare ups your symptoms will appear worse than they really are while there’s acute inflammation happening.  Don’t forget that.  If the flare ups get under control you’ll should see some recovery and improvement.Not giving up - keep pushing yourself as hard as you can, make sure you’re training whatever’s left of your central nervous capacity.  There’s probably still some left.  Keep trying to do as much as you can and you’ll get access to it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Also had it for 15 years, I was sharper in my 20s than now but now and I think age and MS have affected that. I realise I&#39;m at my best when not stressed, well rested and happy. However I&#39;m not always in control of those. Stress is easier to deal with as I talk to my employers about my condition and I avoid anything stressful when possible. I still feel useless some days and have bad brain fog and can&#39;t think clearly, it gives me a lot of imposter syndrome.Im currently moving somewhere else to get better rest. And my happiness is in progress, I tried anti depressants but I get anxiety and I tried CBT but it didn&#39;t work either. I do also swim regularly which helps too but still not enough. Im hoping this move will help. However its gone on for so many years that I think I will seek a professional soon.Covid and the pandemic definitely affected me, I couldn&#39;t walk properly for weeks after recovering from it. I used to do 20min walk every day to recover and just to keep active and get out. My depression got worse (was getting CBT in days before lockdown) but a few friends of mine play regularly online so I got to be social at least and talk about it. To add to this, I also quit my job before lockdown to travel so I was unemployed for a year in pandemic. I remember going to cafes when things partially opened to practise interview questions and did little projects. I finally got a job the next year.I&#39;m still worried I won&#39;t be strong enough to travel one day, my max distance walking is 1.5km, give or take, without a rest, I could go a lot further only a few years ago.I know MS affects everyone differently and it can be a very hidden condition. My life could of been quite different without it but it could have been worse. Im lucky to have found a job coding and the silver lining of the pandemic is wfh. I see it like you have to play with the cards your dealt and whatever you can change for the better then try to. It&#39;s not been an easy road till now but I try and remain hopeful for the future.I know it must be even harder considering your circumstances and your health. I hope this helps to know your not alone at least."</p>
-							
-						
-							
-								<p class="story__comment_others">"That sounds incredibly tough.My brother has a similar/worse sickness that halves his life expectancy. He&#39;s also a programmer. Some quick thoughts from going through the downs with him:- There&#39;s no silver bullet. More sleep, better nutrition, more sports, and less stress make a difference.- My brother literally left a PhD in treatment optimization using ML at Cambridge because pharmaceutical companies are churning such better treatment so fast that optimization past ones felt irrelevant. The bad news is that most new treatments only stabilize your situation, so you have to stay as healthy as you can until the cure comes. We felt it was better to plan around this, and open the door to be positively surprised, than hope for the moon and get crushed with never ending disappointment.- There are many ways of earning a living that don&#39;t involve programming. Career switches can be daunting when you&#39;ve lost self confidence, but most jobs require only a fraction of the brain it takes to program.- If the prospects are very gloomy, consider changing country. We had my brother move country so he could get a medication that&#39;s not covered at home and costs &gt;$250k/year. The medication changed his life, and will soon be covered at home too. Having to leave your friends for health reasons suck, but European countries offer such better health coverage that it can be worth it. And it&#39;s easier living a happy life when you don&#39;t have to worry about unpredictably becoming homeless."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://astronomy.stackexchange.com/questions/23378/is-this-photocomposition-of-andromedas-galaxy-and-the-moon-accurate">
-						<picture>
-							<source srcset="default_33281682.webp" type="image/webp">
-							<source srcset="default_33281682.png" type="image/png">
-							<img src="default_33281682.png" alt="Preview of 'Apparent size of Andromeda galaxy compared to the Moon'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://astronomy.stackexchange.com/questions/23378/is-this-photocomposition-of-andromedas-galaxy-and-the-moon-accurate">Apparent size of Andromeda galaxy compared to the Moon</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33281682">
-						
-							
-								<p class="story__comment_first line-clamp">"I made that image![1]. And this is not the first time it&#39;s been on the front page of HN either[2]. So I&#39;d like to share some context that I&#39;ve not mentioned elsewhere before.My father died from alcoholism in 2004. He made his living writing software (hence why I do too, and why I enjoy HN). But he also, for a short time, taught Astronomy evening classes. I&#39;ve always felt short-changed by the emotional absence and traumatic passing of my male parent. But the continued virality of this image has been some sort of magical glimmer from the depths of the universe that it was still his shoulders that I stood on in order to reach where I am today. Maybe it was the glint in his eyes every time he showed me the latest APOD image[3], and the deep love with which he would explain their contexts. I made this composite image of Andromeda and the moon precisely because of that extra commentary, or rather I should say, extra love, of the night sky that my father gave me. Seeing it here, sparkling in the &#34;night sky&#34; of the HN front page stirs the same kind of wonder I sometimes feel catching those million year old specks of light above my head. Reminding me that though the universe is mostly cold and dark that doesn&#39;t diminish its warmth and brightness.1. https://www.reddit.com/r/spaceporn/comments/1u0dxs/andromeda...2. https://news.ycombinator.com/item?id=229923843. https://apod.nasa.gov/apod/astropix.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"This (or some sort of very similar comparison) prompted me to figure out how to locate Andromeda. And I could not see anything, So I bought a nice pair of binoculars, and perhaps I could see something, but it was impossible to tell for sure. until I went camping in Arizona, I was looking at the stars, I remembered how to find Andromeda, remembered my binoculars. everything had came together and there it was! it looked like a blue mist.But really it was a nearly spiritual experience. Out in the cold Arizona desert, more stars than I have ever seen in my life and you bring up a pair of binoculars to what looks like an empty area of sky and it too is full of stars, And there is this blue mist, the furthest thing you can see with the naked eye(at least with better eyes than mine) with billions and billions of stars contained within. I don&#39;t know, but you feel stuff under those circumstances."</p>
-							
-						
-							
-								<p class="story__comment_others">"It may be obvious and this may be a bit pedantic, but the “actual size” and “size compared to the moon” part is confusing, as comparing the size of two objects is usually comparing two objects at the same scale.If someone was completely clueless, they would think Andromeda is a teeny tiny galaxy. But it’s actually 110,000 light years wide — quite a bit bigger than the moon. :)The title show just be something along the lines of “Andromeda in the sky if it were brighter, next to the moon”. Or just “Andromeda if it were brighter”.I say this because I’ve seen other “X compared to Y” articles on HN (one compared planets and the sun to the moon, where the moon was a pixel), and these are all at-scale comparisons. So I was expecting something similar here from the title."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="http://benjaminrosshoffman.com/wait-vs-interrupt-culture/">
-						<picture>
-							<source srcset="default_33266372.webp" type="image/webp">
-							<source srcset="default_33266372.png" type="image/png">
-							<img src="default_33266372.png" alt="Preview of 'Wait vs. Interrupt Culture'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="http://benjaminrosshoffman.com/wait-vs-interrupt-culture/">Wait vs. Interrupt Culture</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33266372">
-						
-							
-								<p class="story__comment_first line-clamp">"Here&#39;s why interrupt is inherently more efficient: as long as both participants are willing to yield to interrupt-denies and counter-interrupts when interrupting, you have shifted the communication mode from:A) Anticipate up front what other person needs to hear and say it allB) Rapid adjustment to ideal info requirements as your model of their knowledge/interest is live-updated.But the trick people seem to miss is that interrupt-denies and counter-interrupts make the whole thing possible.When I&#39;m talking with someone for whom this style is natural, there can be many very rapid small gestures to interrupt, which sometimes are accepted and sometimes are rejected by a small &#34;just let me keep going, you&#39;ll see why&#34; gesture. Each of those gestures takes a fraction of a second (and generally does not actually break flow of speech, just eye contact + a little head motion), and conversations employing them are far more enjoyable because information flow is near optimal.On the other hand, when speaking with anti-interrupt people, I often get so bored it&#39;s hard to pay attention because either 1) they left something out that I wanted to ask about so I can&#39;t follow what they are saying, or 2) I already had a thorough understanding of something they insist on giving a long explanation of."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have a strong habit of &#34;autocompleting&#34; people&#39;s thoughts in my head before they&#39;re done saying them. I&#39;m only right maybe ~60% of the time, but it comes with a strong urge to interrupt them and let them know where I think they&#39;re going. This is especially true if I can tell that it will take them multiple sentences to finish their thought. It does not come from a place of &#34;you&#39;re wasting my time, I get it, jeez&#34;, but more from a &#34;I understand the point you&#39;re making and I am eager to hear the next thing you have to share.&#34;What I&#39;ve noticed is that my habit of interruption is received wildly differently by different kinds of people. It drives some people absolutely crazy, and in these settings I&#39;ve learned to be a little more mindful and try to restrain myself from interjecting so frequently. However, for other people, it works wonderfully and we&#39;ll get into a really fast-moving conversation where less redundant information is shared.My theory is that two well-intentioned interrupters can have a pleasant conversation, and two well-intentioned waiters can have a pleasant conversation, but any pairing of an interrupter and a waiter will be disastrous unless both are very mindful of how they participate in the conversation."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m surprised no one here has mentioned the power dynamics of interruption.  It is well known in psychology that interrupting anothers speech is a way to exert power.  The boss can interrupt anyone, no one interrupts the boss.  It&#39;s one of several types of interruption:https://www.psychmechanics.com/psychology-of-interrupting/Interrupting someone can say &#34;I am more important than you&#34;.  This can also cause failures to communicate since the boss can change the subject and the interrupted speaker may never get to finish their thought.  I&#39;ve seen projects fail because a boss intentionally interrupted people who were trending in a direction they did not want to go, squashing anyone who was pointing out a major flaw in the bosses plans, which resulted in building things in a bad way and then having the flaw manifest and cause the project to fail.There are other types of interruption though that can be more supportive or more like parallel conversations.  The efficiency of those often depends on the quality of the participants memory and ability to follow multiple threads simultaneously."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.openbsd.org/72.html">
-						<picture>
-							<source srcset="default_33274679.webp" type="image/webp">
-							<source srcset="default_33274679.png" type="image/png">
-							<img src="default_33274679.png" alt="Preview of 'OpenBSD 7.2'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.openbsd.org/72.html">OpenBSD 7.2</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33274679">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; Fixed luna88k MULTIPROCESSOR kernels booting with CPU modules installed in arbitrary slots.An OS release capable of running on the latest hardware in 2022 is still making optimizations for a niche system from the late 80s/early 90s. There&#39;s something very beautiful about that."</p>
-							
-						
-							
-								<p class="story__comment_others">"I wish there was more interest in getting acceptable WiFi and Bluetooth performance from any BSD. Even FreeBSD lacks anything but a half-baked 802.11n implementation :/I truly adore BSD; using Linux is a chore comparatively. But I don&#39;t really have a choice."</p>
-							
-						
-							
-								<p class="story__comment_others">"Just finished upgrading. Thank you OpenBSD!&gt; Added support for Apple M2&gt; Added support for Lenovo ThinkPad x13s and other machines using the Qualcomm Snapdragon 8cx Gen 3 (SC8280XP) SoC.Given the current status and trajectory of ARM64 in phones and tablets, in SBCs, laptops, and even some servers, coupled with the deeply-held global interest in reducing energy usage, every year I get more confident in the belief that AMD64 has peaked and ARM64 is the upcoming top platform. I&#39;m not sure if I&#39;ll ever buy another x86 machine for myself."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://news.yahoo.com/flushing-money-san-francisco-spend-154446848.html">
-						<picture>
-							<source srcset="default_33274885.webp" type="image/webp">
-							<source srcset="default_33274885.png" type="image/png">
-							<img src="default_33274885.png" alt="Preview of 'San Francisco to Spend $1.7M to Build a Single Public Toilet'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://news.yahoo.com/flushing-money-san-francisco-spend-154446848.html">San Francisco to Spend $1.7M to Build a Single Public Toilet</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33274885">
-						
-							
-								<p class="story__comment_first line-clamp">"Comments moved to https://news.ycombinator.com/item?id=33268748."</p>
 							
 						
 						</a>
