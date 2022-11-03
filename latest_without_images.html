@@ -33,35 +33,43 @@
 	</div>
 
 	
-	<div class="day__date">02 November 2022</div>
+	<div class="day__date">03 November 2022</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.openssl.org/blog/blog/2022/11/01/email-address-overflows/">OpenSSL 3.0.7 fixes X.509 email address buffer overflows</a></h3>
+					<h3><a href="https://blog.phylum.io/phylum-discovers-dozens-more-pypi-packages-attempting-to-deliver-w4sp-stealer-in-ongoing-supply-chain-attack">Dozens of malicious PyPI packages discovered targeting developers</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33422837">
+						<a href="https://news.ycombinator.com/item?id=33438678">
 						
 							
-								<p class="story__comment_first line-clamp">"The web pages and git aren&#39;t updated yet, here is the vulnerability straight from the .tar.gz on their FTP:Fixed two buffer overflows in punycode decoding functions. 
-A buffer overrun can be triggered in X.509 certificate verification, specifically in name constraint checking. Note that this occurs after
-certificate chain signature verification and requires either a CA to have signed the malicious certificate or for the application to continue
-certificate verification despite failure to construct a path to a trusted issuer.In a TLS client, this can be triggered by connecting to a malicious server. In a TLS server, this can be triggered if the server requests client
-authentication and a malicious client connects.An attacker can craft a malicious email address to overflow an arbitrary number of bytes containing the . character (decimal 46) on the
-stack. This buffer overflow could result in a crash (causing a denial of service). ([CVE-2022-3786])An attacker can craft a malicious email address to overflow four attacker-controlled bytes on the stack. This buffer overflow could result in a
-crash (causing a denial of service) or potentially remote code execution depending on stack layout for any given platform/compiler.
-([CVE-2022-3602])-----------------------------------Doesn&#39;t sound that critical to me. CAs normally don&#39;t let you outright construct your own certificate, and I&#39;d expect you&#39;ll have a hard time to get a certificate issued which is both for mail encryption (so you get an email name constraint) and TLS (SAN constraint). And servers without TLS client authentication, which is about 99.99 % of them, aren&#39;t affected. TLS client auth is usually only used in enterprise networks and typically terminated by middleboxes running ancient software anyway."</p>
+								<p class="story__comment_first line-clamp">"I think a proper way to solve this issue, not specific to python but languages running in a VM in general, would be to have some sort of language support where you specifically define what access rights/ system resources you allow for any given dependency.Example of defining project dependencies:  {
+    &#34;apollo-client&#34;: {
+      &#34;version&#34;: &#34;...&#34;,
+      &#34;access&#34;: [&#34;fetch&#34;] // only fetch allowed
+    },
+    &#34;stringutils&#34;: {
+       &#34;version&#34;: &#34;...&#34;,
+       &#34;access&#34;: [] // no system resources allowed for this dependency, own or transitive
+    },
+    ...
+  }
+
+It would probably require the language to limit monkey-patching core primitives (such as Object.prototype in javascript),
+and it would be more cumbersome for the developer to define the permissions it gives to each dependency.
+These required permissions could be listed on the package site (eg npm or PyPI) and the developer would just copy paste the permissions when adding the dependency.
+But if you upgrade a dependency version and it now requires a permission that seems suspicious (eg &#34;stringutils&#34; needing &#34;filesystem&#34;), it would prompt the developer to stop and investigate, or if it seems justified add the permission to &#34;access&#34; list."</p>
 							
 						
 							
-								<p class="story__comment_others">"For anyone else with &#34;mature&#34; server configurations confused by the OpenSSL version number because you&#39;re on 1.1.x and wondering how to translate the patched 3.0.x version number to something that applies to you; it seems that you have nothing to worry about:&gt; This code was first introduced in OpenSSL 3.0.0. OpenSSL 1.0.2, 1.1.1 and other earlier versions are not affected.&gt; We did release an update to OpenSSL 1.1.1, namely 1.1.1s, also on 1st November 2022, but this is a bug fix release only and does not include any security fixes."</p>
+								<p class="story__comment_others">"In a previous HN discussion on the topic of rogue Python packages, readers had suggested bubblewrap and firejail for sandboxing. They limit the access a script and its packages have to your filesystem and network.I think that&#39;s the better approach - just assume all packages are malicious by default. Can&#39;t rely on scanners because of the large number of packages and attacks."</p>
 							
 						
 							
-								<p class="story__comment_others">"From their blog [1] the vulnerability &#34;was reported in private to OpenSSL on 17th October 2022 by Polar Bear who was performing an audit of OpenSSL code&#34;. OpenSSL 3.0 was released in September 2021.Shouldn&#39;t fuzzing have caught this at some point? I was under the impression that OpenSSL was being fuzz tested constantly since Heartbleed.[1] https://www.openssl.org/blog/blog/2022/11/01/email-address-o..."</p>
+								<p class="story__comment_others">"I started to develop only inside VMs, with a full Desktop, IDE, browser etc. inside the virtual machine.There have been to many contaminations of major package repos lately. Only one typo in an import statement up the dependency chain and you’d be compromised."</p>
 							
 						
 						</a>
@@ -74,22 +82,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.smithsonianmag.com/smart-news/nasa-finds-more-than-50-super-emitters-of-methane-180981045/">NASA finds super-emitters of methane</a></h3>
+					<h3><a href="https://www.economist.com/leaders/2022/11/02/american-society-is-so-focused-on-race-that-it-is-blind-to-class">American society is so focused on race that it is blind to class</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33427157">
+						<a href="https://news.ycombinator.com/item?id=33444137">
 						
 							
-								<p class="story__comment_first line-clamp">"To put this in perspective, the 18300kg per hour from the Permian site is equivalent (over a 100 time horizon global warming potential) to a 500 Megawatt coal power plant&#39;s CO2 emissions (~1kg of CO2 per kWh of electricity) burning 24/7. Or, to put it another way, it accounts for the same emissions as about 0.3% of the entire US electricity grid."</p>
-							
-						
-							
-								<p class="story__comment_others">"Several questions ask to contextualize this measurement.Here&#39;s a highly-cited paper in Nature (including some of the researchers quoted in the OP) that describes how an earlier survey of California methane emissions went:https://www.nature.com/articles/s41586-019-1720-3If I remember right, the state of CA asked for this survey. It was carried out by an instrument similar to that of the OP, but airborne, not on ISS as in OP.California has standards for methane emissions (e.g., https://ww2.arb.ca.gov/resources/fact-sheets/oil-and-gas-met...) that are now covering landfills and oil and gas infrastructure, and dairies -- three of the largest categories of large emitters.(One effect of these regulations, that lay people may have noticed, is trying to get food waste out of the landfill stream, and into composting, so that it doesn&#39;t decay anaerobically and produce methane. In LA, for example, the LADWP is test-driving a program where food scraps - vegetables, but also meats and fats - are diverted into green bins.)Strengthened regulations on methane emissions from oil and gas infrastructure are part of this - I&#39;m not saying the studies motivated these regulations, just that they are all part of policies heading in that direction.It is believed that large oil companies are aggressively selling off oil pumps/fields to get out from under this responsibility. (https://www.propublica.org/article/california-oil-wells-shel...)The ISS measurements in OP have covered (and will continue to cover) a much broader area than the California airborne survey - but with less spatial resolution - so presumably a broad survey of mid-latitude super-emitters will be possible in the coming months."</p>
+								<p class="story__comment_first line-clamp">"https://archive.ph/gQvwd"</p>
 							
 						
 							
-								<p class="story__comment_others">"How could a 2 mile long methane plume in New Mexico have been undetected for any significant amount of time?From what I understand basic environmental monitoring is done in 2022 around all major industrial facilities in the U.S."</p>
+								<p class="story__comment_others">"For some of us (me included) living in a racist society is like a fish swiming who does not notice water.  I only noticed when I became intimate with a person from a minority race and saw how they were treated.  That is when I noticed I live in a racist society.I love the economist.  Their writing is so good, they are biased but know it, and acknowledge it.  Biased, but not bigoted.  nYet this article misses the point, IMO, or racial quotas in professional schools.  They have the liberal individualistic bias, and have not noticed that one. It is their water  (I am a liberal myself, but I have had that particular bias removed by my experiences.)Here (Aotearoa) the point of quotas is not to allow some groups the same access to the privilege of the profession, but it is to help the consumers of professional services get what they need.For doctors, lawyers, architects, accountants (yes) etcetera being from a similar community as your clients is very helpful for your clients.  This is not a benefit to the individual professional, it is a benefit to the community.There is a secondary benefit to the professions themselves.  A cultural milieu helps bring new ideas forward.Whether or not the system in the USA is fit for purpose or not, I do not know.  But when deciding I hope the American judges think not, only, of benefit to the individuals but the wider effects on our communities."</p>
+							
+						
+							
+								<p class="story__comment_others">"One of the most pernicious consequences of this fixation on race is the definition of a person by an arbitrary social construct. Although they all check the same box, they have very different experiences and cultural backgrounds:* Black descendents of slaves vs African immigrants [1]* Chinese Americans vs Hmong Americans (a higher poverty rate than Black Americans! [2])* A Korean who grew up in Koreatown LA vs one who grew up in Utah* A Boston Brahmin vs an impoverished White Virginian whose family members were targeted by eugenic boardsThat said, Affirmative Action can reasonably make those from marginalized groups feel more welcome. In elementary school for example, I felt very out place among the largely affluent members of my accelerated math class. By contrast, I related much more to the mischievous truants who would later go on to be low-level criminals.[1] - https://www.nytimes.com/2004/06/24/us/top-colleges-take-more...[2] - https://tcf.org/content/commentary/misleading-data-policies-..."</p>
 							
 						
 						</a>
@@ -102,22 +110,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://waxy.org/2022/11/invasive-diffusion-how-one-unwilling-illustrator-found-herself-turned-into-an-ai-model/">An unwilling illustrator found herself turned into an AI model</a></h3>
+					<h3><a href="https://www.tomtom.com/newsroom/behind-the-map/the-future-of-mapmaking-tomtom-maps-platform/">TomTom’s new mapping platform and ecosystem</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33422990">
+						<a href="https://news.ycombinator.com/item?id=33432720">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;m thinking a little bit of empathy doesn&#39;t hurt. Reason from Hollie&#39;s point of view. She didn&#39;t ask for this and was working on cool stuff:https://holliemengert.com/Next, somebody grabs her work (copyrighted by the clients she works for), without permission. Then goes on to try and create an AI version of her style. When confronted, the guy&#39;s like: &#34;meh, ah well&#34;.Doesn&#39;t matter if it&#39;s legal or not, it&#39;s careless and plain rude. Meanwhile, Hollie is quite cool-headed and reasonable about it. Not aggressive, not threatening to sue, just expressing civilized dislike, which is as reasonable as it gets.Next, she gets to see her name on the orange site, reading things like &#34;style is bad and too generic&#34;, a wide series of cold-hearted legal arguments and &#34;get out of the way of progress&#34;.How wonderful. Maybe consider that there&#39;s a human being on the other end? Here she is:https://www.youtube.com/watch?v=XWiwZLJVwi4A kind and creative soul, which apparently is now worth 2 hours of GPU time.I too believe AI art is inevitable and cannot be stopped at this point. Doesn&#39;t mean we have to be so ruthless about it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I know this website is not a hivemind, but it&#39;s interesting every time an article like this gets posted the majority opinion seems to be that training diffusion models on copyrighted work is totally fine. In contrast when talking about training code generation models there are multiple comments mentioning this is not ok if licenses weren&#39;t respected.For anyone who holds both of these opinions, why do you think it&#39;s ok to train diffusion models on copyrighted work, but not co-pilot on GPL code?"</p>
+								<p class="story__comment_first line-clamp">"For the youngens here on HN: TomTom was once one of the leading manufacturers of GPS navigation systems for cars - purchased as an accessory that was stuck to the wind screen. This was in a time before every car had a screen built in, and before everyone had a smart phone with Google Maps in their pocket.I guess that product is a prime example for becoming irrelevant by society progressing. I actually still use an old TomTom in my old car that doesn&#39;t have a screen (well, it does, but didn&#39;t come with a GPS built in - adding it after the fact would have been around 1000£), since I don&#39;t have a smart phone. But it has been years since I updated the maps, probably wouldn&#39;t even be supported any more?!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I am a graphic artist. In the recent months I&#39;ve read dozens of articles and threads like this. I still can&#39;t see what the big deal is.Graphic artists don&#39;t have trade secrets or unique impossible techniques. If someone can see your picture, he can copy its style. It becomes publicly available as soon as you publish it. For the vast majority of graphic styles, if one author can do it, then hundreds of his colleagues can do it too, often just as well. If one author becomes popular and expensive - then his less popular colleagues can copy his style for cheaper. The market for this is enormous and this was the case for probably hundreds of years.I personally am a non-brand artist like that. More often then not clients come to me with a reference not from my portfolio and ask me to produce something similar. I will do it, probably five times cheaper than the artist or studio who did the original. It may not be exactly as good, but it won&#39;t be five times worse.Some clients are happy to pay extra for the name brand, and will pay. Some want to spend less, and will settle for a non-brand copy.The clients that are willing to pay for the name brand will still be there for the same reason they are now, and the existence of Stable Diffusion changes nothing to them. And the ones that just want the cheap copy would never contact the big name artist in the first place. The copy market will shift, but the big name artist doesn&#39;t even have to be aware of it."</p>
+								<p class="story__comment_others">"I worked at Tele Atlas/TomTom until 10 years ago. There is literally nothing new in this announcement except that they are going to &#34;steal&#34; data from OSM now.sensor derived data, user generated content, camera vans all of that is not new. All this existed when I left, so did the people mentioned in this announcement that are still running the show. I always hoped they would eventually realize that they need a fresh top management, but they seem to just keep doing the same old stuff with the same old people until the final collapse of the company."</p>
+							
+						
+							
+								<p class="story__comment_others">"Of all the fundamental shifts in my life that smartphones have enabled, having an ever-present map with GPS has been subtle but gigantic. I (we?) interact with cities so differently now"</p>
 							
 						
 						</a>
@@ -130,22 +138,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/jamealg/KT-companion">Show HN: I made an offline-ready hiking trail companion app</a></h3>
+					<h3><a href="https://www.recall-app.com/">Show HN: A tool to help you remember shit you are interested in</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33420852">
+						<a href="https://news.ycombinator.com/item?id=33425947">
 						
 							
-								<p class="story__comment_first line-clamp">"This is great.  I&#39;ve been working on an adventure motorcycling trip planning app which has similar requirements of being able to work offline as you ride your preplanned trip.Yours is a good example of what can be done by keeping it simple and not getting wrapped around the axle with complicated frameworks.It makes me regret all the time I&#39;ve spent trying to figure out the absolute best tech stack to use rather than just working on finishing the damn thing."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is fantastic. I currently live in Rocky Mountain National Park where I climb, hike, and ski nearly every day - my partner also works for the Park Service. We have been using Gaia and love it but your UI looks fantastic and I&#39;ll get it installed.It reminds me of a very simplified interface of CalTopo.One question, are you open to PR&#39;s? If so, I&#39;d love to see slope angle added into this in the same format for avalanche awareness along a trial.Great work!"</p>
+								<p class="story__comment_first line-clamp">"I see what this app is about but at the same time it enforces information overload which is an instant turn off for me. What&#39;ll happen if I were to use it: I&#39;ll pile up more and more stuff I&#39;m interested into, I&#39;ll receive news about all things I&#39;ve subscribed to and eventually I&#39;ll get annoyed from the &#34;spam&#34;. Then I&#39;ll unsubscribe realizing that information overload can&#39;t be handled with apps, I have to solve that problem in my head. In the mean time Obsidian does the job for me if I&#39;m really really interested in something - I write it down and it&#39;s still not 100% that I&#39;ll come back to it later. That&#39;s a no go for me with all the apps that are used to create a &#34;personal encyclopedia&#34;. Engineering wise I can&#39;t say anything but good about the app. Keep it up someone might see things in a completly different way that me, there still might be a big market for this."</p>
 							
 						
 							
-								<p class="story__comment_others">"Nice app. Can you explain why you chose ArgGis as your tile provider [1]? A lot of the struggle of making a public map app is that map tiles are hard to host and not cheap to buy at scale.[1] https://github.com/jamealg/KT-companion/blob/master/scripts/..."</p>
+								<p class="story__comment_others">"This seems really well built. It&#39;s fast and responsive. It looks nice. But I just don&#39;t understand what I would use it for.It seems like the idea is to build a database of people, movies, Wikipedia articles and such and then be able to find them via search/links. But I&#39;m not at all sold on why I need this in my life.Is there a way to make the value clearer? Am I just not in the target audience? Who is going to see this and say &#34;TAKE MY MONEY&#34; and why?I&#39;m thinking of products that were instant sign-ups for me...Spotify: For one price, listen to all the music on Earth whenever you want. TAKE MY MONEY!Gmail: Fast email with 2 GB storage. This was such an instant sign-up they had to make an invite system to slow people getting access.Maybe could add something like Lichess: Chess training and games, with modern UX, offered open source as a public good. I mean, if you&#39;re at all interested in chess, that&#39;s an instant sign-up, right?Trying to say, this idea of presenting a clear value isn&#39;t limited to big players like Spotify and Gmail, but can also be done by smaller companies if the value presented is really clear.What should someone see that makes them instantly recognize they need this in their life, because that&#39;s what I&#39;m totally missing here."</p>
+							
+						
+							
+								<p class="story__comment_others">"That&#39;s a beautiful branding. The UX seems to be very intuitive. I would love to try it without registration. Since you store the data in the browser, have you considered offering a fully offline version that doesn&#39;t need registration for users to get hooked? I would like to postpone syncing until the data becomes valuable.To me, it would also be important that the data is stored in an encrypted form on the server and that the key remains in the browser and has to be stored by me.Personally, I would like to have the option to discover people who work on similar notes, think travel app [1] for mental journeys. It would also be nice to have some social features like voting on links or sharing notes or sets of notes so that others can annotate them. Bonus points if those social features use an open protocol so that users from other note taking apps can join.[1] https://news.ycombinator.com/item?id=33344734"</p>
 							
 						
 						</a>
@@ -158,22 +166,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/elonmusk/status/1587498907336118274">Twitter Blue for $8/Month</a></h3>
+					<h3><a href="https://github.com/ProtonMail/proton-bridge/issues/220">Protonmail can delete the wrong email and nobody cares</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33424607">
+						<a href="https://news.ycombinator.com/item?id=33432296">
 						
 							
-								<p class="story__comment_first line-clamp">"The dynamics on Twitter are quite weird. There’s a small number of users with potentially lots of followers for whom Twitter is an important part of their work or life. If you’re a journalist, being on Twitter is basically part of your job so maybe you should have to pay a bit more just like the customer of some business software ($100 pa seems pretty cheap there). Indeed maybe media publications should be paying for the blue checks for their staff. But on the other hand, these people are going to represent a large part of the draw of Twitter and so maybe Twitter should be paying them instead.But other people use Twitter in different ways. If you mostly use it as a social network between your friends you might not care because they’ll presumably see your tweets because they follow you rather than because they found them in search or whatever.If you’re using Twitter as a forum for discussions about some topic of your interest, maybe you’ll end up feeling crowded out in replies by people with the check. But if you’re at risk of being crowded out then maybe Twitter isn’t working so well as a forum. And I think that if eg A follows B and B retweets you, A should see your tweet whether or not you have a check. Maybe that isn’t so true with the non-chronological feed. If people in the community follow you then, depending on the dynamics, your opinions could still be spread via retweet rather than getting lucky in your position in the replies, no?If you’re some reply guy, maybe your tweets should be downranked but then if you’re serious about it then I guess you’ll pay."</p>
-							
-						
-							
-								<p class="story__comment_others">"The good:Twitter should not be editorally curating people through verification, making verification only about ID and being a real person is a broadly good change, as long as it&#39;s not necessary for participation. Brands, celebrities, those in the public eye could benefit from this. Needs to be implemented with care and ideally with a branding change so as not to confuse users as the semantics change.The bad:$8 is way more than the profitability of an ad supported user. There&#39;s no excuse for &#34;half the ads&#34;, it should be none at all. See: every streaming service. (Edit: ok some streaming services have ads, but for most online content - video, journalism, etc, if you subscribe there are no ads, it&#39;s just nickle-and-diming users to give them a bunch of ads, particularly when the marginal cost for Twitter Blue is essentially zero).The ugly:Paying $8 to get your voice heard by more people biases towards those with means rather than those contributing to the conversation. At best this will reduce conversation quality on Twitter, at worst this is ripe for abuse."</p>
+								<p class="story__comment_first line-clamp">"This is Bart, Proton CTO here. For clarity, the issue mentioned here only impacts Proton Mail Bridge, our desktop IMAP/SMTP gateway to Proton Mail encrypted email.The fact that Bridge and its client can become desynchronized sporadically for some users is a high priority issue we have been working on. Bridge is open source, and as a result relies upon open-source components, and the root cause is an architectural issue in a library that Bridge uses to implement IMAP. When there are network issues, this library returns errors to email clients.Unfortunately, there are hundreds of email clients, and some email clients don’t handle errors properly, and this leads to desynchronization.Our error tracking shows this does not happen often (1-2% of Bridge users) and the symptom is usually incorrect display of messages or read/unread status which is fixed with an inbox resynchronization. There are cases where a combination of a desynchronized mailbox and a specific series of user actions can lead to accidental email deletion, but this is far rarer than desynchronization. Our implementation tries as hard as possible to avoid this. If you find you are missing an email, our implementation works around the issue by placing it in a users’ All Mail folder.As Bridge is open source, updates on this issue have always been publicly posted on GitHub. Addressing this issue at the source requires replacing the core IMAP library. Unfortunately, there are no FOSS IMAP libraries that are sufficiently well maintained. Therefore, the solution is to build our own IMAP library called Gluon, which we have been focusing on since this issue was reported to us. You can follow the progress of this open-source project here: https://github.com/ProtonMail/gluonWe are not refusing to fix the problem. The only possible solution is writing a new open-source IMAP library which we can maintain ourselves to ensure this class of errors cannot occur again. We have doubled the size of the team working on this this year so it is a priority for us.We’re confident that this addresses the main sources of desynchronization and will be available in the beta version of Bridge by the end of the year."</p>
 							
 						
 							
-								<p class="story__comment_others">"Elon is the PM from hell. Has some shower thought and starts throwing tickets on everyone&#39;s board 45 minutes later.This is why the Model X has those silly doors."</p>
+								<p class="story__comment_others">"For a bit of context/back-story, Richard, who opened this issue, later also wrote a blog post about the whole ordeal:https://blog.sigma-star.at/post/2022/07/protonmail-adventure...In short: The idea was to move from a custom mail server to a paid, hosted solution. ProtonMail was chosen, with the bridge being used to get mails into a local mail client. Issues with the bridge eventually cropped up."</p>
+							
+						
+							
+								<p class="story__comment_others">"I didn&#39;t know what exactly is proton mail bridge. This is what I&#39;ve found:&gt; Proton Mail Bridge is a desktop application that runs in the background, encrypting and decrypting messages as they enter and leave your computer. It lets you add your Proton Mail account to your favorite email client via IMAP/SMTP by creating a local email server on your computer.Source: https://proton.me/mail/bridge"</p>
 							
 						
 						</a>
@@ -186,22 +194,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.spacex.com/launches/ussf-44/index.html">Falcon Heavy Launch [video]</a></h3>
+					<h3><a href="https://infiniteconversation.com/">An AI generated, never-ending discussion between Werner Herzog and Slavoj ŽIžek</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33421049">
+						<a href="https://news.ycombinator.com/item?id=33437296">
 						
 							
-								<p class="story__comment_first line-clamp">"Possibly the most expensive thing in the world with a publicly listed price ($97M) and sales contact (sales@spacex.com)? https://www.spacex.com/media/Capabilities&amp;Services.pdf Just find that amusingly &#39;accessible&#39;."</p>
-							
-						
-							
-								<p class="story__comment_others">"The couple seconds of tracking camera footage of the boosters coming back down looked amazing. I wish it wasn&#39;t so foggy at the pad!When the second stage separates there&#39;s a few cables that are flying around. Does anyone know what those are used for? Electrical connections between the stages maybe?"</p>
+								<p class="story__comment_first line-clamp">"Hi there! &#34;Author&#34; here - glad to see this picking up. This was a fascinating project to work on and I learned a ton in the process. As it&#39;s often the case, I would do a lot of things differently if I were starting from scratch today."</p>
 							
 						
 							
-								<p class="story__comment_others">"Seeing those boosters land will never get old. I drive by one on my way to work every day and it&#39;s just amazing how large they are."</p>
+								<p class="story__comment_others">"What I find uncanny about this is how closely this resembles random philosophical/artistic discussions one can find on YouTube - or even what I encountered in college dorm rooms.It&#39;s in fact the illogic of the conversation that makes it more realistic. The reality is that in many deep conversations, people talk about a shared topic, and sometimes even make a coherent point, but also tend to frequently talk past one another and fumble with the thoughts they are trying to convey.Even as as we listen, we don&#39;t focus on each word with the same degree of emphasis, but rather highlight those parts that are most salient to us while thinking of our own response."</p>
+							
+						
+							
+								<p class="story__comment_others">"In response to Herzog saying &#34;I don&#39;t understand, what do you mean?&#34;, Zizek went into a bit about having sex with an alien.Very uncanny."</p>
 							
 						
 						</a>
@@ -214,22 +222,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.nature.com/articles/505283a">Gross domestic product is a misleading measure of national success (2014)</a></h3>
+					<h3><a href="https://www.businessinsurance.com/article/20220901/NEWS06/912352002/Laws-barring-noncompete-clauses-spreading">Laws barring noncompete clauses spreading</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33413278">
+						<a href="https://news.ycombinator.com/item?id=33425934">
 						
 							
-								<p class="story__comment_first line-clamp">"The title/article seems to be a bit of a strawman, AFAICT countries (or their governments / citizens) do not consider the GDP as the one and only measure of national success. Politics are driven by tons of different interest groups (in the broadest sense, ranging from corporate interests, environmental activists, minority representatives, medical or teaching professionals, farmers, retirees living on state pensions, etc, etc.), not by whether some policy might give a boost to GDP. I could argue that it would probably be better if they actually did, but that&#39;s for another thread.In truth, pretty much nobody really knows for sure what policies actually will increase GDP, or what causes the short term fluctuations (business cycle / recession) or variation in long term divergense between different countries in the first place. The more honest academic economists will freely admit this. (I was explicitly thaught so in my graduate macro-economics courses). So I think it&#39;s a strawman to think that countries/governments are engating in some kind of myopic GDP maximization plan.I think the appropriate analogy is household or personal income. (GDP is just all incomes in a country summed up and corrected for inflation.)  It&#39;s probably not the most important thing in the world, and probably not the most important determinant of personal happyness or life satisfaction. But a severe lack of it (especially compared to the people around you) or an unexpected large drop will probably be considered problematic by most people."</p>
-							
-						
-							
-								<p class="story__comment_others">"This has been known since the idea was first conceived: https://en.wikipedia.org/wiki/Gross_domestic_product#Limitat...The real issue is simply that, a lot of the things we want to convert to simple metrics can&#39;t be. Suppose I hand you a list of the exact rate each crime in a country was committed, and I ask you to convert that list to a single number, how would you do so? You could assign a weight to each crime, but how would you know which weights to use? What&#39;s the &#34;true cost&#34; of each crime?Of course, in reality we won&#39;t know the real rate of any crime. We will have estimates, which are likely quite far from the truth."</p>
+								<p class="story__comment_first line-clamp">"Over the years so many different jurisdictions around the US and the world have stated their desire to be the &#34;next Silicon Valley&#34; and have poured an immense amount of money and effort to make it so, whether in the form of incentives for businesses, tax breaks, education, job training, or even just straight paying smart people to move there. Every such scheme has generally failed because they refused to emulate the one key piece of California law that is necessary for a startup ecosystem to exist – banning noncompetes.&#34;But I&#39;ll spend money to train my employees and they&#39;ll just take those skills to go work for a competitor or start their own business!&#34; Yes, that&#39;s a feature of the system, not a bug."</p>
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s hard to overstate how terrible this idea is.GDP is a concrete measure that is difficult to fake.  Once you start arguing about the economic value of volunteering, divorce, income inequality, and crime -- you&#39;ve opened the door to never being able to trust GDP again.Should we create new metrics to track progress?  Sure.  Should we stop tracking GDP?  No way."</p>
+								<p class="story__comment_others">"Makes a ton of sense.  Completely absurd for security guards and administrative assistants to have non-compete clauses.  Just another way businesses were trying to reduce the willingness of employees to quit so that they can suppress wages."</p>
+							
+						
+							
+								<p class="story__comment_others">"IMHO, companies should have to compensate the employee for the period of the non-compete since they&#39;re still effectively working for them.  Salary limits are okay, but don&#39;t really go far enough.  If they want this it has a value and should be compensated for fairly."</p>
 							
 						
 						</a>
@@ -242,22 +250,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.nytimes.com/2022/10/31/world/asia/china-launch-space-station.html">As last module docks, China completes its space station</a></h3>
+					<h3><a href="https://www.efinancialcareers.com/news/2022/11/why-is-there-a-drought-in-the-talent-pool-for-c-developers">The pool of talented C++ developers is running dry</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33422779">
+						<a href="https://news.ycombinator.com/item?id=33436268">
 						
 							
-								<p class="story__comment_first line-clamp">"https://archive.ph/2bXGR"</p>
-							
-						
-							
-								<p class="story__comment_others">"Does anyone know to what extent China has advanced the state of the Soviet technology that they have (I assume) licensed? I have been to the Russian Star City training facility, Baikonur Cosmodrome and been in the full-size Mir training module and the Chinese station components look very similar. I am sure getting good information is difficult, but perhaps someone here has some more info."</p>
+								<p class="story__comment_first line-clamp">"I’ll offer a perspective unrelated to pay: It’s a pain to start learning C++, and even after you do, older devs will roast the hell out of your code because your book/tutorials of choice forgot to mention a crucial (in their opinion) feature that you absolutely should/shouldn’t use! Not to mention you’ve only programmed on Mac/Linux so far &amp; windows is totally different, has a different compiler, different ways to install libraries, different C++ standard features supported, etc.I like C++, and tooling has come a long way, but it’s so much easier to download rust/Python/node and you’re basically set on every platform &amp; immediately ready to go. NOW consider pay, and even someone enthusiastic about programming C++ will reconsider."</p>
 							
 						
 							
-								<p class="story__comment_others">"Last week I stood outside my apartment and watched Tiangong fly across the sky[0]. What an incredible time to be alive.[0] https://james.darpinian.com/satellites/"</p>
+								<p class="story__comment_others">"I was a C++ programmer for 25 years. Last 3 years, I&#39;m using Rust language in my daily job and for all my hobby projects. I will not return to work in C++ again. No money can make me to change my decision. Nowadays, programming is a pure joy for me again. This was not the case when I had to work with C++."</p>
+							
+						
+							
+								<p class="story__comment_others">"As someone who has been painfully self-teaching C++ for the last ~1.5 years on and on, these are my hangups:- The features that make C++ decent are often found in C++ 20/23, for which there are woefully few resources- Code taking advantage of coroutines and generators isn&#39;t commonplace yet, rare to find examples- C++ 20 concepts are a near mirror copy of Rust Traits and enable composition that&#39;s an alternative to inheritance, again difficult to find examples of- C++&#39;s way of &#34;implementing&#34; interfaces (IE iterator&lt;T&gt;) by having a magic defined set of type aliases and methods is not intuitive for me- Writing code to control things like parallelization and thread scheduling that&#39;s portable across libraries is difficult. I think std:: executor is supposed to fix this but if I&#39;m manually scheduling threads and I want to use IE oneTBB it&#39;s not obvious how to do this.- Dependency and package management is a nightmare. Need to condense CMake + vcpkg into a Cargo like tool and make it a standard- error messages are indecipherable. GCC 13-dev colors make this a bit better but human-written &#34;ELI-5&#34; errors succinctly explaining the problem and suggesting a solution (like Rust)- flags like &#34;-fsanitize=address,leak,undefined -fanalyzer -Wthread-safety -D_FORTIFY_SOURCE=&#34; should be baked in to a default &#34;dev&#34;/&#34;debug&#34; mode newbies shouldn&#39;t need to know/think about- Profiling and instrumenting/monitoring should be a few CLI flags with nice UI visualizers (IE LLVM X-ray)- I have to Google what headers cstd/std stuff comes from half the time"</p>
 							
 						
 						</a>
@@ -270,23 +278,22 @@ crash (causing a denial of service) or potentially remote code execution dependi
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/yyx990803/vite-vs-next-turbo-hmr/discussions/8">Is Turbopack really 10x faster than Vite?</a></h3>
+					<h3><a href="https://lux.camera/iphone-14-pro-camera-review-a-small-step-a-huge-leap/">iPhone 14 Pro camera review: A small step, a huge leap</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33416989">
+						<a href="https://news.ycombinator.com/item?id=33425182">
 						
 							
-								<p class="story__comment_first line-clamp">"Glad to see that Evan You has stepped up with a response. When these 10x improvements were presented without a release of the benchmark code I was very sceptical.  
-Vercel, do better! You champion yourself as a leader in the OSS React ecosystem, so please act accordingly. This has eroded my trust and excitement for your products."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;There were number rounding issues in the original numbers for the 1k component case - Turbopack&#39;s 15ms was rounded down to 0.01s while Vite&#39;s 87ms was rounded up to 0.09s. This further got marketed as a 10x advantage when the original numbers were close to 6x.&#34;"</p>
+								<p class="story__comment_first line-clamp">"The funny thing is that for all the amazing technological improvements discussed, all the pictures in the article actually show that A. having a photographer who knows how to frame things, and sees the right moment to capture an image, and B. having a subject worthwhile photographing, are way more important than having a top tier quality camera."</p>
 							
 						
 							
-								<p class="story__comment_others">"It happens again and again, never believe benchmarks by original author/owner. They are misleading in most cases.Deno vs bun was same case, each showed their runtime as faster"</p>
+								<p class="story__comment_others">"I am still not understanding why my iPhone 13 landscape photos look as good as those from my $900 Nikkor Z 24mm f/1.8 S prime lens with its superior optics  on a $2k DSLR body.If the reason is fancy post-processing, then why can&#39;t Nikon have a tiny lens like the iPhone 13 and just add fancy post-processing to it?"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; “I think the 12 MP shooting default is a wise choice on Apple’s part, but it does mean that the giant leap in image quality on iPhone 14 Pro remains mostly hidden unless you choose to use a third party app to shoot 48 MP JPG / HEIC images or shoot in ProRAW and edit your photos later.”This, 100%.The massive difference in image quality is when shooting in RAW. That’s when you actually get the 48MP &amp; the images are fantastic.But that’s not the default. The default is 12MP.That’s why reviewers are so torn on this camera system. If the default was a 48MP picture/quality, everyone would be praising it. But when the default is 12MP, it’s par for the course."</p>
 							
 						
 						</a>
@@ -299,22 +306,23 @@ Vercel, do better! You champion yourself as a leader in the OSS React ecosystem,
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.washingtonpost.com/business/2022/10/31/productivity-down-employers-worried-recession/">U.S. workers have gotten less productive – no one is sure why</a></h3>
+					<h3><a href="https://twitter.com/shubroski/status/1587136794797244417">Demo of =GPT3() as a spreadsheet feature</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=33405389">
+						<a href="https://news.ycombinator.com/item?id=33411748">
 						
 							
-								<p class="story__comment_first line-clamp">"https://archive.ph/fTkHI"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve read that doctors now spend as much as 50% of their time documenting their work. Companies such as Epic, which provide the software that hospitals use to build databases of patient data, have been big winners in the new world of hospitals-depending-on-software. But did the doctors become more productive? By almost any measure, they became less productive.People in tech keep thinking more tech will solve problems and they keep underestimating the flexibility of the old models. For instance, most large companies used to be run by armies of secretaries, and the senior secretaries functioned as what we would now call &#34;project managers&#34; -- they made calendars, oversaw who was working on what, followed up to keep track on whether work was being done, and kept a close eye on what money was being spent. The crucial thing about having humans overseeing such work is that humans can take a flexible approach to the rules: they know when to break them. By contrast, systems that are highly dependent on software tend to be more rigid. Software doesn&#39;t know when its rules should be broken.The flexibility of the old system is constantly underestimated, the rigidness of the new systems is often misunderstood.In his book &#34;The Design Of Design&#34; Fred Brooks talks about the power of trust, and he contrasts that situations where everything needs to be first negotiated and specified in a contract. High trust systems are flexible and fast, whereas a system where every detail needs to be specified in a contract is slow and rigid. We should stop and ask ourselves, our favorite Agile methodology resembles which of these? Are specifying things with needless detail?"</p>
+								<p class="story__comment_first line-clamp">"There is a huge potential for language models to get close to messy text problems (many of which are in Excel and Sheet). I am the founder of promptloop.com - the author of this tweet has been an early user.The challenge to making something like this, or Co-pilot / Ghostwrite, work well is about meeting users where they are. Spreadsheet users dont want to deal with API keys or know what temperature is - but anyone (like this tweet) can set up direct API use with generic models in 10 minutes. This document has all the code to do so ;). [1]For non-engineers - or folks who need a reliable and familiar syntax to use at scale and across their org - promptloop [2] is the best way to do that. All comments in here are great though. We have been live with users since the summer - no waitlist. And as a note - despite the name &#34;prompt engineering&#34; has almost nothing to do with making this work at scale.[1] https://docs.google.com/spreadsheets/d/1lSpiz2dIswCXGIQfE69d...
+[2] https://www.promptloop.com/"</p>
 							
 						
 							
-								<p class="story__comment_others">"US Worker productivity is 0.7 standard deviations below its average over the last 3 years. It is 3.6% below all time high. It is higher now than at any point before July of 2020. YOY Productivity growth has dipped negative and then went back to positive 20 times in the past 22 years.To be concerned about the current level of productivity requires either the attention span or the intelligence of a goldfish.https://tradingeconomics.com/united-states/productivity"</p>
+								<p class="story__comment_others">"The most sensible use for AI that I can see at this time is for supporting humans in their work, but only where the system is set up so that the human has to do the work first, with the AI system looking for possible errors. For example the human drives the car, and the AI brakes when it senses dangerous conditions ahead, or the human screens test results for evidence of cancer and the AI flags where it disagrees so that the human might take another look. The opposite scenario with AI doing the work and humans checking for errors as is the case here will lead to humans being over reliant on less than perfect systems and producing outcomes with high rates of error. As AI improves and gains trust in a field, it can then replace the human. But this trust has to come from evidence of AI superiority over the long term, not from companies over-selling the reliability of their AI."</p>
+							
+						
+							
+								<p class="story__comment_others">"I do not know what&#39;s worse. Missing data you need to populate,  or having an AI populate data that LOOKS right.   ugh I do know what is worse."</p>
 							
 						
 						</a>
