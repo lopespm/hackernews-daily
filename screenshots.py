@@ -8,7 +8,7 @@ import signal, psutil, os
 
 def save_optimized(story, size, prefix, generated_folder):
 	image = Image.open(f'{generated_folder}/{story.id}.png')
-	image.thumbnail(size, Image.ANTIALIAS)
+	image.thumbnail(size, Image.LANCZOS)
 	image.save(f'{generated_folder}/{prefix}_{story.id}.png')
 	image.save(f'{generated_folder}/{prefix}_{story.id}.webp')
 
