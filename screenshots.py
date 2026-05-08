@@ -12,8 +12,10 @@ def save_optimized(story, size, prefix, generated_folder):
 	image.save(f'{generated_folder}/{prefix}_{story.id}.png')
 	image.save(f'{generated_folder}/{prefix}_{story.id}.webp')
 
+LAUNCH_ARGS = ['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
+
 async def save_screenshots(days, generated_folder):
-	browser = await launch(headless=True)
+	browser = await launch(headless=True, args=LAUNCH_ARGS)
 	page = await browser.newPage()
 	all_stories = (story for day in days for story in day.stories)
 	for idx, story in enumerate(all_stories):
@@ -42,7 +44,7 @@ async def save_screenshots(days, generated_folder):
 			except Exception as error:
 				logging.error(f'An exception occurred while trying to kill the browser')
 				logging.error(error)
-			browser = await launch(headless=True)
+			browser = await launch(headless=True, args=LAUNCH_ARGS)
 			page = await browser.newPage()
 
 	await browser.close()
