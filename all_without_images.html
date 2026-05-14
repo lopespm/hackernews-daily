@@ -36,6 +36,302 @@
 	</div>
 
 	
+	<div class="day__date">14 May 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://monokai.com/articles/how-i-moved-my-digital-stack-to-europe/">I moved my digital stack to Europe</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48120629">
+						
+							
+								<p class="story__comment_first line-clamp">"For the past days I&#39;ve been participating(albeit over Teams) in a conference relevant to my industry (intel), basically startups and established companies showcasing their products to a closed audience of EU gov. officials.One thing I noticed right away, is that all companies were asked &#34;Can we fully host this from within EU or our country&#34; from the various people in audience. Every single one. Many of the startups had slides prepared for this.Definitely a change, because it is not something I can recall being important just a couple of years ago."</p>
+							
+						
+							
+								<p class="story__comment_others">"I started the process of this back in January and now, at least in terms of product hosting; fully migrated into European infrastructure (https://bannermedia.ltd).It didn&#39;t come without a bit of pain, but glad I&#39;ve done it - and to come with this I&#39;ve ended up building a whole terraform setup for cross provider / cross region high availability within Europe.So far my key mappings included:- Cloudflare -&gt; Bunny CDN (and honestly I am so impressed with Bunny so far)- AWS (or similar) -&gt; Hetzner + OVH; I&#39;m also looking at Civo.com for UK presence.- GitHub -&gt; Forgejo. I do actually still operate in GitHub for development only work, however Forgejo is mirrored within my European private network, and thats where deployment workflows happen.- Google Analytics -&gt; Self hosted Umami.I&#39;ll be doing a writeup fairly soon on the entire process."</p>
+							
+						
+							
+								<p class="story__comment_others">"While I agree with him that the US is becoming more unpredictable, I don&#39;t think the EU is much better, especially with regards to digital things where they can be worse in some ways. For example, they are discussing restricting VPN access for &#39;child protection&#39;[1][1] https://www.europarl.europa.eu/thinktank/en/document/EPRS_AT..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/FULU-Foundation/OrcaSlicer-bambulab">Restore full BambuNetwork support for Bambu Lab printers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48115127">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s maddening that quite a few people are jumping to defend Bambu here.Principally if you sell a device with a certain functionality and you later modify that device later to remove that functionality that is called theft. It does not matter the slightest bit whether you break into someone&#39;s house to physically alter the device or whether you remotely install a malicious software update to do that.But what&#39;s even more insane here is that some people are claiming that BambooLabs would somehow have the right to do this, because while BambooLab might not have the right to limit the hardware they already sold (which they did and these people just pretend did not happen) they have the right to limit their printer client software under the license conditions they impose on it from the beginning, when their printer client is literally a modification of AGPL licensed software. The entire point of the GPL is to prevent people like BambooLabs from doing exactly this. The AGPL is literally the single license with the most restrictions on BambooLabs to ensure that the users of the software — the customers — do not have any restrictions in what they can do with it.Some people are seeing this situation and just decide to side with the company against their customers on imposing restrictions on an already sold product after the sale and they are literally making shit up to justify it.Edit: For people who do not know what this is about: Someone modified AGPL software to reenable features of these 3D printers that BambooLabs stole after the sale and BambooLabs sent a legal threat to them to stop distributing the software."</p>
+							
+						
+							
+								<p class="story__comment_others">"This looks to be a clone of the prior state of the repository that caused all the Bambu drama earlier this week.I did a ton of research because I didn&#39;t understand what people wanted here, and this is what&#39;s going on:Right now, Bambu have adjusted their system into two modalities:* &#34;default&#34; or &#34;Cloud&#34; mode, where you get an app, remote monitoring, but you have to use Bambu Studio or Bambu Connect to send prints. They implemented this by adding cloud auth to their &#34;internal API;&#34; the client application has to get a token from Bambu&#39;s servers, even if the request it eventually makes is a &#34;local&#34; one.* LAN / Developer mode, where the device displays a token and you put it into your app. This disables all of the remote monitoring but in exchange, clients can send prints locally.What users want is to &#34;have their cake and eat it too;&#34; they want the local token authentication _and_ the cloud authentication enabled at the same time. This isn&#39;t actually possible, so this plugin approximates it by emulating the interface to the cloud authentication to make the &#34;Bambu Network&#34; cloud RPC calls from a local slicer (one of these calls is a local_print call, so ostensibly this allows you to send prints without running them through the cloud, although with all of the online functionality still enabled and required, this seems like a pretty brave thing to trust).Personally, I find the Bambu reaction distasteful, and there&#39;s an argument that the offline mode only exists due to similar outrage, but I don&#39;t see the current system as particularly bad and find the appetite to restore &#34;untrustworthy&#34; cloud functionality a bit amusing."</p>
+							
+						
+							
+								<p class="story__comment_others">"A lot of the distrust toward Bambu is because they originally announced cloud auth would be required even for printing locally in LAN mode, and only backpedalled on that when they saw the backlash.I&#39;m not sure why their entire domain has been excluded from archive.org but you can still see the original post for now: https://blog.bambulab.com/firmware-update-introducing-new-au...--Critical Operations That Require Authorization
+The following printer operations will require authorization controls:Binding and unbinding the printer.
+Initiating remote video access.
+Performing firmware upgrades.
+Initiating a print job (via LAN or cloud mode).
+Controlling motion system, temperature, fans, AMS settings, calibrations, etc."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://jorijn.com/en/blog/leaving-github-for-forgejo/">Leaving GitHub for Forgejo</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48121266">
+						
+							
+								<p class="story__comment_first line-clamp">"Everyone seems to be leaving GitHub, and forgetting the entire spirit of what git is in my eyes. Git was always meant to be decentralized, the problem here is that all the tooling around git was centralized to GitHub because it was a cleaner experience, they scaled nicely, and were properly maintained. I would prefer to still see mirrors on GitHub that are auto-synched because I&#39;ve seen projects for years either self-host or go somewhere niche, then the GitHub mirror dies or is removed, and said projects go poof to the sands of time for one reason or another, completely gone. Everyone seems to be picking some random git host alternative, and some of them are really simple to use.Git is decentralized, GitHub is just another place you can host your code in, but you can push your code to multiple remote servers."</p>
+							
+						
+							
+								<p class="story__comment_others">"The real game changer would be completed Federation[1] support. This is why I am donating both Forgejo[2] and Codeberg[3] and urge everyone doing the same, to give more time and resources for the Forgejo team to implement it properly.Another good contender is the Radicle[4][5] which is completely decentralized on top of the Git.[1] https://codeberg.org/forgejo-contrib/federation/src/branch/m...[2] https://liberapay.com/forgejo[3] https://donate.codeberg.org/[4] https://radicle.dev/[5] https://radicle.network/nodes/seed.radicle.dev"</p>
+							
+						
+							
+								<p class="story__comment_others">"I have also moved my git repositories to a self-hosted NUC. I have not yet bothered with a HTTP frontend to share it with the world, mostly because I don&#39;t want to provide AI scrapers with content and don&#39;t want to put the work in to block them.It&#39;s a shame that all these companies that benefited from open source have poisoned the industry like this"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://fredchan.org/blog/locality-domains-guide/">Setting up a free *.city.state.us locality domain (2025)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48122635">
+						
+							
+								<p class="story__comment_first line-clamp">"I have three locality domains, all with different registrars in Oregon. Two are with unique delegated locality domain registrars (think old school consultancies or ISPs that still exist) and one directly via localitymanagement.us (GoDaddy/USTLD).One of the registrars is from an out of state operator that has been dead for three years. I tracked his widow down and had a number of cordial conversations over about 18 months.  I&#39;ve helped his widow renew some personal domains but she&#39;s recently told me that she&#39;s going to stop paying the hosting bill of the locality registrar and it&#39;ll shut down June 1st. I&#39;ve offered to take over hosting, we&#39;ll see if she is convinced.Several other locality users will likely also see their domains disappear once that happens as the USTLD registrar will require a notarized letter from the city/county of that domain to approve any &#34;new&#34; (new in their system) domains.   Not easy for any mid or large sized city in the US.I love locality domains clearly, but the bureaucracy applied since the start has piled up over the years.I do worry that this poor Seattle ISP is going to get DDoS&#39;ed by outsider (find an appropriate locality please if you go down this route) due to the popularity of this article, though!RIP Jon."</p>
+							
+						
+							
+								<p class="story__comment_others">"Unfortunately the author is correct that you’re pretty screwed if the locality is no longer delegated. I messaged GoDaddy to register one in Boston, they asked for a _notarized_ letter on the local governments letter head approving. No one within the Boston city government knew what their procedure would be, and those willing to say yes didn’t have a notary around. They ended up citing a state law indicating that no locality domains were to be used for _government_ purposes in MA as their reason to say no, when of course that has no bearing on private use…If anyone would like to band together to push city of Boston or Cambridge to start approving these, please let me know! I can revive some email chains."</p>
+							
+						
+							
+								<p class="story__comment_others">"This list of (supposedly 7388, didn&#39;t realize there even were that many?) of them can apparently now be registered online replacing the email method in the OP: https://localitymanagement.us/registrar/domain/delegatedzone...edit -- seems like the server has been &#34;slashdotted&#34; by this thread, I was finally able to get an account created but can&#39;t log in. doesn&#39;t seem very well coded anyway since I was apparently able to change the password twice using the same activation link lol."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://typesetinthefuture.com/2016/02/18/futuristic/">How to make your text look futuristic (2016)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48113895">
+						
+							
+								<p class="story__comment_first line-clamp">"At the 1996 ATypI meeting in Den Haag, one of the speakers coined the term “sterotypography” to refer to certain cliches that get used in type usage. Another case of this is the use of Neuland and Neuland Inline to represent Africa, and of course the assortment of faux Chinese fonts that were ubiquitous on Chinese takeout menus in the 80s and 90s (and probably still are, but are there still takeout menus in the era of Grubhub?)."</p>
+							
+						
+							
+								<p class="story__comment_others">"Not to forget the Orion Pictures logo:https://logos.fandom.com/wiki/Orion_Pictures"</p>
+							
+						
+							
+								<p class="story__comment_others">"Does the Back To The Future logo really count? Raiders of the Lost Ark as a very similar style but does not evoke &#34;future&#34;. Yes, there are subtle differences. My point is, if you divorced them from the connection to their content I think it would be hard to point to one as &#34;future&#34; and the other as &#34;not future&#34;"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://obsidian.md/blog/future-of-plugins/">The Future of Obsidian Plugins</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48109970">
+						
+							
+								<p class="story__comment_first line-clamp">"Obsidian CEO here. We&#39;ve been working for nearly a year to launch this new Community site and review system. I&#39;m very excited about this first version but there are many more improvements to come.I&#39;ve tried to be exhaustive with the blog post, FAQs, and next steps on our roadmap, but I am sure I forgot some things, so feel free to ask!This has been an incredibly challenging project for a number of reasons. We&#39;re only seven people but we have thousands of plugin developers and millions of users. There are many competing priorities to balance.We wanted to make sure the new system would be easy to adopt, backwards compatible, and not completely break people&#39;s workflows, while still being a major improvement over the old approach, and allow us to gradually continue enhancing security and discoverability of plugins.Consider it a work in progress. We&#39;re listening to everyone&#39;s ideas and gripes, and will keep iterating :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"For those not aware, it has basically been impossible to submit new plugins due to the manual review (and how easy/fun it is to write a plugin with AI). The developer community was becoming increasingly frustrated, and the team was burning out under the load.So congrats to the team! This relieves a huge scaling bottleneck. It has been really cool to see how y&#39;all build and scale."</p>
+							
+						
+							
+								<p class="story__comment_others">"I want an Obsidian where I can:
+- Specify network requests on/off from plugins
+- Don&#39;t allow file access outside the vault
+- Don&#39;t allow external binary execution.Most of the reviews are not required if this is enforced."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.savethearchive.com/newsleaders/">Tell NYT, Atlantic, USA Today to keep Wayback Machine</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48115807">
+						
+							
+								<p class="story__comment_first line-clamp">"Am I correct that this has come about because archive.org respects robots.txt and these sites have blocked their crawler from indexing their sites?I&#39;m not sure how to articulate my thoughts on this exactly, other than to say it&#39;s disappointing that doing the right thing (i.e. respecting robots.txt) is rewarded with the burden of soliciting responses to a petition while at the same time others are rewarded with profit for ignoring those same directives."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think the problem is that when Archive.org has access to NYT and other publisher content, people can scrape NYT content at scale from Archive.org even when they cannot do so directly on NYT.  If Archive.org blocks scrapers, maybe the publishers would make different choices and allow Archive.org access."</p>
+							
+						
+							
+								<p class="story__comment_others">"Idea: allow scraping but can’t publish for 1 year?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://arstechnica.com/tech-policy/2026/05/drop-database-what-not-to-do-after-losing-an-it-job/">Twin brothers wipe 96 government databases minutes after being fired</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48115438">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; [Opexus] said that “the individuals responsible for hiring the twins are no longer employed by Opexus.”Getting close to the classic Monty Python line: &#34;Those responsible for sacking the people who have just been sacked, have been sacked.&#34;Jokes aside, stuff like this sucks because I suspect many employers will take from it the most extreme, dehumanizing lessons, e.g.: (a) make firings [edit: including lay-offs] as abrupt as possible including terminating all access immediately, (b) never give second chances to anyone with any sort of criminal record (even say decades old marijuana posession or something).I&#39;d prefer a more balanced version: limit unilateral access to sensitive systems in general (not just of recently-fired employees), when someone is fired immediately shut off particularly sensitive credentials if they do exist (but not their general-purpose login/email account), avoid hiring people convicted of wire fraud as sysadmins, hash your @!#$ing passwords, etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m just amused how these people were even hired to begin with ? They don&#39;t seem to be Americans? How were they even allowed to work on sensitive systems? Why was this even allowed? So many questions.    At 4:58 pm, he wiped out a Department of Homeland Security database using the command “DROP DATABASE dhsproddb.”
+
+    At 4:59 pm, he asked an AI tool, “How do i clear system logs from SQL servers after deleting databases?” He later asked, “How do you clear all event and application logs from Microsoft windows server 2012?”
+
+    In the space of a single hour, Muneeb deleted around 96 databases with US government information."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; On March 12, 2025, a search warrant was executed at Sohaib’s home in Alexandria. Agents grabbed plenty of tech gear but also turned up seven firearms and 370 rounds of .30 caliber ammunition. Given his former crimes, Sohaib should have had none of this.For god&#39;s sake, don&#39;t commit crimes while you&#39;re committing crimes."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.epicfurious.com/">Operation: Epic Furious</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48109519">
+						
+							
+								<p class="story__comment_first line-clamp">"It&#39;s great except the war is obviously for Israel not oil, we had more access to oil before the war"</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow - the writing in this is fantastic. This is genuinely hilarious!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Why was this removed from the front page? It was number one just a couple minutes ago"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://duckdb.org/2026/05/12/quack-remote-protocol">Quack: The DuckDB Client-Server Protocol</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48111765">
+						
+							
+								<p class="story__comment_first line-clamp">"I was just wishing something like this existed last week. What timing.I&#39;m piping sensor readings into duckdb with a deno server, and couldn&#39;t use duckdb -ui to look over the data without shutting down the server. I had no interest in using the server to allow me to look at the contents of the db, so I was just going to live with it for now. This perfectly solves that, along with several other similar kinds of problems I&#39;ve encountered with duckdb.duckdb is my favourite technology of 2025/26. It has worked its way into so many of my workflows. It&#39;s integral to how I work with LLMs, how I store all kinds of data, analytics, data pipelines... I love it."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is rad. I&#39;ve been eyeballing using DuckDB in my firm&#39;s internal app framework and this just solved the &#34;but how do I horizontally scale this&#34; problem. Kudos to the DuckDB folks. Love &#34;Quack&#34; for the protocol name, too."</p>
+							
+						
+							
+								<p class="story__comment_others">"Been working on open-source projects involving storing and querying observability data (metrics, logs, traces) in parquet[0] and have been frustrated with the usability of Apache Iceberg … despite strongly agreeing and wanting to use an open storage format and catalog.This makes Ducklake much more interesting for my use case, excited where this is going.[0] https://github.com/smithclay/duckdb-otlp"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">13 May 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -77,15 +373,16 @@
 						<a href="https://news.ycombinator.com/item?id=48111545">
 						
 							
-								<p class="story__comment_first line-clamp">"Gross. This is just more proof that corporations simply don&#39;t know how to market AI. Everything is an ad for an ad at this point. The very first thing they show this new machine doing is helping people shop for clothes using AI.No one is doing that, these people don&#39;t exist. No matter how hard corporate America wishes they did. This is why AI doesn&#39;t sell. This is why companies like Microsoft and Dell are pulling back on their AI claims and why Apple has nearly wiped it off their site all together, seriously go check out apple.com, not a single mention of Apple Intelligence.At this point I&#39;m convinced that marketing has been completely taken over by shareholder shills, marketing to customers they wish they had instead of the real customers that exist."</p>
+								<p class="story__comment_first line-clamp">"I see the vision here, which the top commenters (sorry, couldn&#39;t read all of them) seems to miss. This should be a moonshot bet on the next generation of user experience. People are complaining about apps, but the idea here should be to make apps irrelevant as a concept. You don&#39;t need &#34;apps&#34;, you need data feedable to LLM and a visualization toolkit for presenting results. And maybe some tools to manually wrangle the data when precise manipulation is required.On paper, this sounds amazing. Like &#34;out of sci-fi books&#34; amazing. The caveat, though? I very much doubt Google has the capacity to execute this properly. And we&#39;ll get another half-baked attempt at reskinning Chromium and/or Android."</p>
 							
 						
 							
-								<p class="story__comment_others">"What&#39;s funny is that these days if I see a Google product that I&#39;m even remotely interested in, I just immediately write it off because I know it&#39;s something they will kill in a very short time frame.It&#39;s just never worth the hassle of buying/using a Google product. Never."</p>
+								<p class="story__comment_others">"So, I&#39;m only slightly trying to be a smartass here, but... Who is this for?  They are marketing what is ostensibly a computer for people who seem to not want to use a computer in scenarios that I don&#39;t think even exist.Beyond that, this is a laptop that is running a really shitty, &#39;apps only, no you cannot do anything useful with this&#39; operating system.  I have an awful lot of complaints about MacOS&#39;s relatively restrictive use cases, but it&#39;s still at least a General Purpose OS.  Android on laptop is very much not.This is an overgrown phone with all the trash that comes with a phone, and the very finite use cases that come with a phone, only now it has a keyboard.  It&#39;s solving none of the problems with Android as an operating system and doesn&#39;t seem to even be interested in doing that anyway.  The marketing is demoing use cases that don&#39;t even exist.So I repeat my question:  Who is this for?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I think if I wanted a cheap laptop I&#39;d probably get the macbook neo, and if i wanted a non-gaming expensive one i&#39;d get a macbook pro.I really don&#39;t see the market fit for this, I guess the android integration. But my god, I&#39;d die of cringe if someone asked me about my laptop and I had to say &#34;googlebook&#34;. Believe it or not, these things matter a lot, particularly if you&#39;re trying to target a young audience."</p>
+								<p class="story__comment_others">"So this is essentially Android desktop mode with Android 17 Gemini integration.
+Please get rid of that top panel. I just don&#39;t get why this and desktops like GNOME tries to copy macos top panel when clearly in macos it is menu bar that host app menus but that concept doesn&#39;t exists in these other desktops and yet they have a top panel. This is just bad UX.This will follow same model as Chromebooks i.e different devices from different OEM partners and for x86 and arm. So soon someone will be able to create a generic ISO for this that you can boot on a standard x86 PC/laptop.Samsung is also working on such devices but they will probably have Dex which is much better then the current Android desktop mode."</p>
 							
 						
 						</a>
@@ -109,11 +406,11 @@
 							
 						
 							
-								<p class="story__comment_others">"Amazing walk through memory lane, and super useful. One big omission though - starting in the early 1990s, we should be seeing some Linux desktops in there, but I didn’t see any through 1995 or so when I stopped browsing. Also, Irix would be nice to get — although I don’t recall if SGI had much in the way of custom vibes for their window managers, they certainly had amazingly cool 3D demos.A nice vibe coding project here would be to show these in a carousel with the UI being 1:1 pixels. It’s hard to understand just how different NeXTStep (Did I capitalize that correctly?) felt from Windows — part of it was refresh rates, but part of it was going from 800x600 to 1132x800-ish on the monitor. Color, refresh rates, monitor quality, a cool plastic color and design for the box were all part of the experience."</p>
+								<p class="story__comment_others">"Invisible scroll bars are a source of constant annoyance. And it sometimes takes me several attempts to move a window, because of all the various clickable things without visible boundaries. Frustrating."</p>
 							
 						
 							
-								<p class="story__comment_others">"Invisible scroll bars are a source of constant annoyance. And it sometimes takes me several attempts to move a window, because of all the various clickable things without visible boundaries. Frustrating."</p>
+								<p class="story__comment_others">"Amazing walk through memory lane, and super useful. One big omission though - starting in the early 1990s, we should be seeing some Linux desktops in there, but I didn’t see any through 1995 or so when I stopped browsing. Also, Irix would be nice to get — although I don’t recall if SGI had much in the way of custom vibes for their window managers, they certainly had amazingly cool 3D demos.A nice vibe coding project here would be to show these in a carousel with the UI being 1:1 pixels. It’s hard to understand just how different NeXTStep (Did I capitalize that correctly?) felt from Windows — part of it was refresh rates, but part of it was going from 800x600 to 1132x800-ish on the monitor. Color, refresh rates, monitor quality, a cool plastic color and design for the box were all part of the experience."</p>
 							
 						
 						</a>
@@ -169,7 +466,8 @@
 							
 						
 							
-								<p class="story__comment_others">"In this vein, I really recommend &#34;Architecture of Open Source Applications.&#34;[1] It&#39;s a book series where you learn architecture by example, with each chapter written by a maintainer of the project in question. This lets you learn not only what the architecture is, but what are the constraints that shaped it, usually history and changing project visions.Not all chapters are equally good or equally interesting, that&#39;s the curse of a multi-author book, and all of them are dated, but I think the book is worth reading nonetheless.[1] http://aosabook.org/"</p>
+								<p class="story__comment_others">"The best way to learn architecture is to:1. Maintain a large enough project. Not create, but support.2. Do it for at least couple or few projects.If project is too small, any architecture works fine. &#34;Large&#34; can be in terms of lines of code, but better in terms of people who ever worked on it, or even better -- teams.At least two different projects is to have something to compare. I&#39;ve seen people stuck for decades on one project and not knowing any modern ways to solve a problem.But often the architects who get promoted because they created, not maintained a project. Especially visible in Google, as you don&#39;t get promoted for maintaining anything, only for shipping something new (and better jumping off as soon as possible afterwards).Counterintuitively, people in the best position to be architects are actually side contractors from head shops, who get invited to maintain an existing project no one from a company is willing to (as they all jumped off where promotions go).
+First, they have to maintain an architecture, and second they did it on several projects, so can compare. The downside though, is if they bill by the hour, the tend to over-complicate architecture to bill more hours."</p>
 							
 						
 						</a>
@@ -199,7 +497,9 @@
 							
 						
 							
-								<p class="story__comment_others">"Most proof of concepts I&#39;ve seen get traction turned into production.A rewrite?I recall a few times everyone promised, if this gets promoted then we will rewrite it from zero. Never happened.The article touches on  responsability, accountability. There is none for risk taker. By definition. You have a crazy idea, you rush it out, you hope clients bite. You profit. It&#39;s not even your problem how to make it work, scale, not cost more to run than we sell it for.The loop on the right. There are companies, two of them are very popular these days, they took it to an extreme. You ship something fast, and since it only scales linearly you go raise money. Successful companies, countless users, some of them even pay. Who&#39;s to blame? The senior developer, or simply someone reasonable who asks, how&#39;s that sustainable, what&#39;s the way out of this? Those are fired, so whoever&#39;s left is a believer."</p>
+								<p class="story__comment_others">"&gt; They want to avoid development as much as they can.One of my favorite .sigs was:    I hate code, and want as little of it as possible in my software.
+
+I don&#39;t remember where I saw it, but it was a while ago. It&#39;s possible the author has an HN account.One of the things that happens to &#34;avoiders,&#34; is that they get attacked for being &#34;negative.&#34; It can get career-ending, when the management chain is the &#34;Move fast and break things&#34; type.I just stopped offering suggestions, after encountering that crap a few times, and learned to just quietly make preparations for when the wheels fall off.I have spent my entire adult life, shipping, and shipping means lots of &#34;not-shiny,&#34; boring stuff. But it gets onto shelves, and into end-users&#39; hands. I was originally trained in hardware development, where mistakes can&#39;t be fixed with an OTA update. It taught me to &#34;play the tape through,&#34; and make sure that I do a good job on every part of the project; which includes a lot of anticipating problems, and designing mitigations and prevention."</p>
 							
 						
 						</a>
@@ -283,7 +583,7 @@
 							
 						
 							
-								<p class="story__comment_others">"It is this compound https://pubmed.ncbi.nlm.nih.gov/39106304/"</p>
+								<p class="story__comment_others">"&gt; This type of neuron helps generate a brain rhythm, termed a gamma oscillation, which links neurons together so that they form coordinated networks to produce a behavior, such as movement. Stroke causes the brain to lose gamma oscillations. Successful physical rehabilitation in both laboratory mice and humans brought gamma oscillations back into the brain and, in the mouse model, repaired the lost connections of parvalbumin neurons.&gt;Carmichael and the team then identified two candidate drugs that might produce gamma oscillations after stroke. These drugs specifically work to excite parvalbumin neurons.Asking while being total layperson here - can we generate those gamma oscillations by an [may be implanted] electronic device?Edit: and google search to help, judging by the dates seems to be a pretty fresh field :https://journals.plos.org/plosbiology/article?id=10.1371/jou...&#34;... by pairing robotic rehabilitation with a clinical-like noninvasive 40 Hz transcranial Alternating Current Stimulation, we achieved similar motor improvements mediated by the effective restoring of movement-related gamma band power, improvement of PV-IN maladaptive network dynamics, and increased PV-IN connections in premotor cortex. &#34;It also sounds like getting an exoskeleton for such patients can be helpful not only to perform immediate tasks, it also can be a part of the restoring process."</p>
 							
 						
 						</a>
@@ -303,17 +603,17 @@
 						<a href="https://news.ycombinator.com/item?id=48111896">
 						
 							
-								<p class="story__comment_first line-clamp">"The &#34;no FFN for retrieval tasks&#34; observation is interesting essentially arguing that if the knowledge is in the context, FFN weights are redundant for that task. Curious whether this generalizes to multi-turn tool calling where the model needs to track state across several calls, or if it breaks down there. Single-shot is the easy case."</p>
-							
-						
-							
-								<p class="story__comment_others">"Do you have any examples or data on the discriminatory power of the model for tool use?The examples are things like &#34;What is the weather in San Francisco&#34;, where you are only passed a tool like  tools=&#39;[{&#34;name&#34;:&#34;get_weather&#34;,&#34;parameters&#34;:{&#34;location&#34;:&#34;string&#34;}}]&#39;,
+								<p class="story__comment_first line-clamp">"Do you have any examples or data on the discriminatory power of the model for tool use?The examples are things like &#34;What is the weather in San Francisco&#34;, where you are only passed a tool like  tools=&#39;[{&#34;name&#34;:&#34;get_weather&#34;,&#34;parameters&#34;:{&#34;location&#34;:&#34;string&#34;}}]&#39;,
 
 I had a thing[1] over 10 years ago that could handle this kind of problem using SPARQL and knowledge graphs.My question is how effective is it at handling ambiguity.Can I send it something like a text message &#34;lets catch up at coffee tomorrow 10:00&#34; and a command like &#34;save this&#34; and have it choose a &#34;add appointment&#34; action from hundreds (or even tens) of possible tools?[1] https://github.com/nlothian/Acuitra/wiki/About"</p>
 							
 						
 							
-								<p class="story__comment_others">"Are you worried about Google&#39;s response to this? Google reportedly reacts to distillation attempts &#34;with real-time proactive defenses that can degrade student model performance&#34;. So if they detected you, they could have intentionally fed you a dumber but plausible variant of Gemini: https://cloud.google.com/blog/topics/threat-intelligence/dis...But also, this model is small and just focusing on the tool use.  In terms of token usage, you&#39;re probably not anywhere near the people that are trying to distill the entire model."</p>
+								<p class="story__comment_others">"Hmm.. this might make it feasible to build something like a command line program where you can optionally just specify the arguments in natural language. Although I know people will object to including an extra 14 MB and the computation for &#34;parsing&#34; and it could be pretty bad if everyone started doing that.But it&#39;s really interesting to me that that may be possible now. You can include a fine-tuned model that understands how to use your program.E.g. `&gt; toolcli what can you do` runs `toolcli --help summary`, `toolcli add tom to teamfutz group` = `toolcli --gadd teamfutz tom`"</p>
+							
+						
+							
+								<p class="story__comment_others">"Suggestion: publish a live demo of the &#34;needle playground&#34;. It&#39;s small enough that it should be pretty cheap to run this on a little VPS somewhere!"</p>
 							
 						
 						</a>
@@ -921,13 +1221,13 @@ As with so many papers like this, the results of the paper reflect more on the d
 							
 						
 							
-								<p class="story__comment_others">"What I love most about your project is the super clean Makefile (https://github.com/imtomt/ymawky/blob/main/Makefile). It is a great template to jump start an ARM64 assembly project.I made a self documented (all the related links are in the file) single makefile (https://gist.github.com/ontouchstart/d3ad8e4d0adf63532303a90...) so that anyone can build ymawky from scratch and dig deeper by tinkering."</p>
-							
-						
-							
 								<p class="story__comment_others">"It&#39;s a beautiful project, well crafted. To reflect to the other comments, projects like this are more like a Minecraft map for me. There are giant and amazing maps, small survival maps, local hosted for my friends and myself, and commercial focused high scale servers. Building a house, or designing a new road in the server became extremely easy with AI, put the value created in the world depends on the original purpose of the server and whether creating more houses and roads actually makes sense.
 I think it&#39;s a super thing that commercial server can build out faster and be bigger with more houses and roads on it, but
 The love an art project creates in the world is incomparable."</p>
+							
+						
+							
+								<p class="story__comment_others">"Gave me a warm feeling to know that someone would actually still bother to do this by hand. I&#39;m not the only one!"</p>
 							
 						
 						</a>
@@ -2673,296 +2973,6 @@ https://news.ycombinator.com/item?id=47834195"</p>
 						
 							
 								<p class="story__comment_others">"This is reaching an unacceptable level of performance. There isn&#39;t a week that work isn&#39;t interrupted by GH."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">04 May 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://code.videolan.org/videolan/dav2d">Dav2d</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47988504">
-						
-							
-								<p class="story__comment_first line-clamp">"Project description:  dav2d is the fastest AV2 decoder on all platforms :)
-  Targeted to be small, portable and very fast.
-
-If you&#39;re out of the loop like me:  AV2 is the next-generation video coding specification from the Alliance for Open Media (AOMedia). Building on the foundation of AV1, AV2 is engineered to provide superior compression efficiency, enabling high-quality video delivery at significantly lower bitrates. It is optimized for the evolving demands of streaming, broadcasting, and real-time video conferencing. 
-
-- from https://av2.aomedia.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Not on topic, but wow the internet has very quickly devolved into: click -&gt; &#34;making sure you&#39;re not a bot&#34;, click -&gt; &#34;making sure you&#39;re a human&#34;, click -&gt; &#34;COOKIES COOKIES COOKIES&#34;, click -&gt; &#34;cloudflare something something&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"A little extra context:Dav1d was the surprisingly fast assembly implementation of AV1 decoding. Even for something in hand-coded platform-specific-assembly I think the general impression was that they&#39;d done amazing work to really chase down  every last bit of potential performance.It didn&#39;t initially exist when AV1 was first rolled out and its arrival was a step change in powering adoption on devices without hardware decoding.Dav2d is likely to play a similar role, but it exists from the start of AV2 and can build on the work of dav1d, so should have an even bigger effect.In a weird reverse chicken and egg scenario, having really good software decode that can be deployed will spur on hardware development and adoption due to network effects."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://donottrack.sh/">Do_not_track</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47988592">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s interesting that we&#39;re so used to be tracked at this point that no one balks at being opted-in by default. A flag called DO_NOT_TRACK sounds like a good idea, but also suggests the default is CONSENT_TO_TRACK=1, and I find that creepy."</p>
-							
-						
-							
-								<p class="story__comment_others">"My projects could genuinely benefit from telemetry as I have no idea about usage patterns and my community (mainly artists) is not famous for maintaining a close dialogue with software developers.I haven&#39;t bothered because a) opt-out risks a backlash and b) opt-in affects the data so much it becomes useless (much smaller sample and probably self-selecting a certain type of user)Skimming the comments here, it seems everybody assumes telemetry is always nefarious. I get the distrust of large corporations and other obvious bad actors  - but the blanket cynicism for all telemetry here is kinda surprising. Have none of the developers here ever had a need for it themselves?"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is set up for the same fate as DNT in browsers. Collecting all the &#34;do not track&#34; env vars into a single &#34;do_not_track.env&#34; file, however, may not be a bad idea..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bbc.com/news/articles/clypjx3rg2go">California to begin ticketing driverless cars that violate traffic laws</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47988742">
-						
-							
-								<p class="story__comment_first line-clamp">"I am, in general, hoping AV will reduce road deaths in the future.The last hurdle is regulatory. We can’t let AV manufacturers use “there’s no driver” as a way to escape responsibility, externalizing the harms AC cause onto society.The question is how to achieve fairness. If a human driver commits vehicular manslaughter, they get the book. What about AV? $10 million? Executives go to jail? What if $10 million fine per X AV miles driven is an OK cost of doing business?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Seems good. I&#39;m a big Waymo user (344 rides) and love it, but I think they violate both traffic laws and common-sense courtesies of traffic in ways not captured by safety / crash statistics. Tickets probably are a great signal for ways the model needs to be improved.For example, every time a Waymo picks me up from my apartment, it blocks a full lane of traffic on an extremely busy street, rather than pulling into a much quieter side street that an Uber driver will always use. I suspect (but have no idea), a lot of these low-level annoyances might be invisible to someone only looking at aggregated crash statistics, ride times, etc.In many ways, I suspect the AI future might be better in many of the ways we can measure, but worse in those which aren&#39;t legible to statistics."</p>
-							
-						
-							
-								<p class="story__comment_others">"I do not live in California and am not up to speed on this issue, but as a casual observer I am shocked that they were allowed on the road without being ticketed for violations like any other vehicle operator."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://nethack.org/v500/release.html">NetHack 5.0.0</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47988776">
-						
-							
-								<p class="story__comment_first line-clamp">"Last time I played, after many close calls, I finally got my hands on the amulet. Knowing that the journey back to daylight was likely to be at least as dangerous as the way I had come, I took a breath, saved, and set the game aside.That was about seventeen years ago. I still have the save file. Today&#39;s announcement got me excited about the prospect of finally finishing my game, until I saw this:&gt; Existing saved games and bones files will not work with NetHack 5.0.0.Drat.Thankfully, NetHack is not one of those modern, commercial, online-only games that make it difficult to run old versions.** SPOILER BELOW **  (in someone&#39;s reply to me)"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The build-time &#34;yacc and lex&#34;-based level compiler, the &#34;yacc and lex&#34;-based dungeon compiler, and the quest text file processing previously done by NetHack&#39;s &#34;makedefs&#34; utility, have been replaced with Lua text alternatives that are loaded and processed by the game during play.This is very likely a good choice for multiple reasons, but it&#39;s truly the end of an era. (NetHack predates Lua, which has been around since 1993.)  Lex and yacc are dead, long live lex and yacc!"</p>
-							
-						
-							
-								<p class="story__comment_others">"I can highly recommend the 3D client especially because it works almost everywhere, hope it will be updated for 5.0.0 soonhttps://github.com/JamesIV4/nethack-3dWeb https://jamesiv4.github.io/nethack-3d/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.universiteitleiden.nl/en/news/2025/07/neanderthals-ran-fat-factories-125000-years-ago">Neanderthals ran &#39;fat factories&#39; 125k years ago (2025)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47990284">
-						
-							
-								<p class="story__comment_first line-clamp">"Here&#39;s something random about &#34;Neanderthal&#34;.The word comes from the Neander Valley (Neander-thal) where their fossils were originally discovered. It was named after Joachim Neander, a 17th-century German pastor. Neander is a latinization of his family name Neumann, meaning &#34;new man&#34;.So not only did we discover a new type of man in a valley named new man, but the computers that are used for artificial intelligence (a future type of new man) all use the von Neumann architecture.I found that amusing.(Other random detail: The word &#34;dollar&#34; is derived from &#34;thal&#34;. The Holy Roman Empire first minted standardized 1 ounce coins made out of silver from mines in Joachimsthal (&#34;Joachim&#39;s Valley&#34;) and so were called Joachimsthalers. That got shortened to &#34;thaler&#34;, then through Low German &#34;daler&#34; then Dutch to English.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"This pairs nicely with the recent publications around Neanderthal cognitive abilities and how there likely similar to ours (https://arstechnica.com/science/2026/04/neanderthal-brains-m...)."</p>
-							
-						
-							
-								<p class="story__comment_others">"Fascinating. Considering the industrial scale fat production that the neanderthals managed to operate according to this article, it makes me wonder even more whether we still understand why exactly they went extinct in 80 thousand years later."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://ladybird.org/newsletter/2026-04-30/">This Month in Ladybird – April 2026</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47990318">
-						
-							
-								<p class="story__comment_first line-clamp">"Worth noting that at this point, it&#39;s still somewhat trivial to find exploitable remote code execution bugs in Ladybird using AI tools.[0]The userbase of Ladybug users is so small that it&#39;s probably not worth the attackers&#39; time, but keep in mind that it&#39;s an enormous step down in security from the mainstream browsers who are actively searching for bugs using the latest tools and paying bug bounties on external reports.[0] https://blog.calif.io/p/mad-bugs-rce-in-ladybird"</p>
-							
-						
-							
-								<p class="story__comment_others">"It looks like this is getting pretty usable!This post reminded me of gaming emulator updates that I also love to read. &#34;Fixed X bug to make Y behave correctly, which means game Z works now.&#34; (One of the things they fixed was CSS Doom, so I guess there is some legitimate overlap to gaming at any rate.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"If you want to use no-Javascript browser as well, this browser prototype [0] is getting pretty good too. It&#39;s developed by Dioxus, a GUI framework in Rust, as part of its native renderer which seeks to create their own alternative to Skia, similar to Flutter, but it&#39;ll work on the web as well with HTML and CSS standards unlike Flutter web which is just a canvas.It&#39;s also a from scratch implementation, sort of, using existing Rust crates like stylo (which servo also uses) and taffy, but it doesn&#39;t rely on any code from existing browsers such as Chromium, Gecko or WebKit.[0] https://github.com/DioxusLabs/blitz (in /apps/browser)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/">Six years perfecting maps on watchOS</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47990606">
-						
-							
-								<p class="story__comment_first line-clamp">"Great evolution story. Also love seeing what can be achieved by stepping outside design lines, re. centred, symmetrical UIs. Makes me want an apple watch ;)As an aside there&#39;s a screenshot in the article showing the Hidden Valley at Glen Coe, which happens to be one of my favourite short walks in Scotland.A less happy aside of that aside is the house at the base of the valley. I used to look at it dreamily as we drove past, always closed up, nestled by itself in a remote nook between the mountains. What an extraordinary place it would be to live. The park for the hike was only a couple of hundred metres up the road. A few years later I recognised the house in a Louis Theroux doco, when he travelled there with its owner - TV personality Jimmy Saville. Wow. And then a few years later again, after I&#39;d returned to Australia, it came out, posthumous, that Saville was one of the UK&#39;s most prolific child and sexual predators. Horrific stuff. The name and outline of the cottage structure can actually be seen at the top of the map in the screenshot."</p>
-							
-						
-							
-								<p class="story__comment_others">"As a pedometer++ user, it is amazing the attention to detail David has maintained over the years. The evolution is crazy."</p>
-							
-						
-							
-								<p class="story__comment_others">"For others curious like I was, it seems he hired a cartographer to render essentially a set of huge, nice-looking, custom map images with details like hiking trails that Apple Maps doesn&#39;t have.So unlike Apple Maps, which is dynamically rendered, it basically shows image tiles. It allows for a nicer-looking, more detailed map, but affects things like needing separate downloads for different zoom levels, rotation, updatability."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.haskell.org/a-couple-million-lines-of-haskell/">A couple million lines of Haskell: Production engineering at Mercury</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47991802">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; Haskell gives you tools to encode these incantations in types so they cannot be forgotten. This is, for my money, the single most valuable thing the language offers a production engineering organization.Haskell is admittedly, probably the most powerful widely (or even somewhat widely) used language for doing this, but this general pattern works really well in Rust and TypeScript too and is one of my very favorite tools for writing better code.I also really like doing things like User -&gt; LoggedInUser -&gt; AccessControlledLoggedInUser to prevent the kind of really obvious AuthZ bugs people make in web applications time and time again.I&#39;ve found this pattern to be massively underutilized in industry."</p>
-							
-						
-							
-								<p class="story__comment_others">"I loved working in Haskell for a few years. I wasn&#39;t actively looking it, but the opportunity just sort of landed in my lap.  It was exciting and mentally stimulating.  But the unfortunate fact is, I am easily twice as productive in Rust as I am Haskell, even after 3 years of nothing but Haskell. There are more pitfalls in Haskell that you have to just know how to avoid.  It can be very difficult to digest as the language can be borderline write-only at times, depending on the author of the code.  The tooling is often married to Nix, which is it&#39;s own complex beast.  And it feels like language extensions are all over the place.  Cabal files are not my favorite.  And the compiler errors take some time to get get used to."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think perhaps contrary to popular belief, Mercury choosing Haskell and their early leadership having such a storied experience in it probably played some non-insignificant role in their success.As a customer of Mercury, it&#39;s truly one of the critical companies my toolkit, and I just can&#39;t help but feel that their choosing of Haskell made their progress, development and overall journey that much better. I realize that you can make this argument with most languages, and it&#39;s not to say that a FP lang like Haskell is a recipe for success, but this intentional decision particularly pre &#34;vibe coding&#34; and the LLM era seems particularly prescient, of course combined with their engineering culture that was detailed in the post."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://thinkpol.ca/2026/04/30/an-open-weights-chinese-model-just-beat-claude-gpt-5-5-and-gemini-in-a-programming-challenge/">Kimi K2.6 just beat Claude, GPT-5.5, and Gemini in a coding challenge</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47993235">
-						
-							
-								<p class="story__comment_first line-clamp">"These posts are going to be a constant for the next year, because there&#39;s no objective way to compare models (past low-level numbers like token generation speed, average reasoning token amount, # of parameters, active experts, etc). They&#39;re all quite different in a lot of ways, they&#39;re used for many different things by different people, and they&#39;re not deterministic. So you&#39;re constantly gonna see benchmarks and tests and proclamations of &#34;THIS model beat THAT model!&#34;, with people racing around trying to find the best one.But there is no best one. There&#39;s just the best one for you, based on whatever your criteria is. It&#39;s likely we&#39;ll end up in a &#34;Windows vs MacOS vs Linux&#34; style world, where people stick to their camps that do a particular thing a particular way."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m glad we&#39;re seeing a shift towards objectively scored tests.We&#39;ve been doing this at scale at https://gertlabs.com/rankings, and although the author looks to be running unique one-off samples, it&#39;s not surprising to see how well Kimi K2.6 performed. Based on our testing, for coding especially, Kimi is within statistical uncertainty of MiMo V2.5 Pro for top open weights model, and performs much better with tools than DeepSeek V4 Pro.GPT 5.5 has a comfortable lead, but Kimi is on par with or better than Opus 4.6. The problem with Kimi 2.6 is that it&#39;s one of the slower models we&#39;ve tested."</p>
-							
-						
-							
-								<p class="story__comment_others">"At the current rate, open sourced models are expected to surpass cloud models within a couple years based on a study I read a couple days ago.Looking back at chatGPT and claude a couple years ago, very small Qwen models are basically equal in coding to what those cloud based models could do then. Also factoring in scaling laws, a 9b going to 18b is roughly a 40% increase, whereas 18b to 35b is 20%, I expect there will be a change of at least price in cloud based models.Adobe used to be $600 per month, then it became $20 when distribution scaled."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.drive.com.au/news/mercedes-benz-commits-to-bringing-back-phycial-buttons/">Mercedes-Benz commits to bringing back physical buttons</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=47997418">
-						
-							
-								<p class="story__comment_first line-clamp">"I’m quite suspicious that they do that not because they understood or learned something, but because China requires physical buttons starting next year. And they simply don’t want to lose one of their biggest markets."</p>
-							
-						
-							
-								<p class="story__comment_others">"But do you have to look at the display to tell what the buttons and knobs are doing.If you have, say, a HVAC fan speed knob with mechanical stops at the low and high end, and a detent, you never have to look at it. If you have an increase/decrease switch, you may need to look at the display to find out what you&#39;re doing. In a car, this means head-down time, eyes off the road.I have a Black and Decker branded humidifier, which comes from &#34;W Appliance Ltd&#34;, a licensee of the Black and Decker name. It&#39;s an ultrasonic humidifier with a 1.45 gallon tank and a big filter to remove dissolved solids, so it runs well on tap water. It&#39;s an effective humidifier.This device is an example of how to botch the user interface for a very simple device. There&#39;s a big round display, about 12cm across. This has various dedicated icons and a central number display. Around it is a ring which displays a moving bar pattern when the device is running.From left to right, we have five buttons. They&#39;re just touchable areas on the case, not actual pushable controls. The first button is On/Off, and, inevitably today, the same button does both functions. The display lights up when on.The second button turns on a negative ion generator. This isn&#39;t an advertised feature, and it may not actually do anything. If this feature is on, a tiny icon illuminates on the display. This thing is down on the floor and you can&#39;t see the smaller icons without getting down on your knees. If you hold this button down for two seconds, the decorative bar pattern on the display is toned down, but not fully turned off.The third button is fan speed. Available values are 1 to 3. Default is 2. 1 is useless, and 2 is mostly useless, because the water condenses on top of the unit rather than humidifying the room.The fourth button sets the humidity. Values from 45% to 90% can be cycled through. There&#39;s one two-digit display, and it shows the humidity being set when the button has been pushed recently. Otherwise it shows the humidity being measured.The fifth button sets a timer to turn the thing off after some number of hours.When the water tank is empty, a tiny icon illuminates. The main display does not change or go dark.
-The one actionable piece of info the device can give the user is barely visible.Removing the water tank or turning the device off resets all settings to the defaults. So after each refill, the user must go through setup again.There&#39;s an optional remote available, with the same five buttons.All this thing needed was one big knob for setting the humidity, with an off position. Plus a nice big indicator light to indicate an empty tank. Instead, they designed a complex user interface that makes it worse.This kind of mistake appears when UI people design button systems."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think they should distinguish between controls and settings.Settings are great on a touchscreen.  A wide variety of options, easily navigated to and explained.  They suck on physical buttons, it ends up being like setting the time on a VCR.Controls on the other hand deserve physical buttons.  Or levers. or dials/knobs/spinners.  It should depend on muscle memory, and the type of control.I also thing driving status should be on a dashboard in front of you, not on the central display.  (looking at you tesla)And some should be multiple places.  It might be nice to set your volume with a physical knob, but also on the steering wheel."</p>
 							
 						
 						</a>
