@@ -36,6 +36,396 @@
 	</div>
 
 	
+	<div class="day__date">17 May 2026</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/">
+						<picture>
+							<source srcset="default_48158400.webp" type="image/webp">
+							<source srcset="default_48158400.png" type="image/png">
+							<img src="default_48158400.png" alt="Preview of 'Moving away from Tailwind, and learning to structure my CSS'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/">Moving away from Tailwind, and learning to structure my CSS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48158400">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; I got curious about what writing more semantic HTML would feel like.I&#39;ve been teaching semantic HTML / accessible markup for a long time, and have worked extensively on sites and apps designed for screen readers.The biggest problem with Tailwind is that it inverts the order that you should be thinking about HTML and CSS.HTML is marking up the meaning of the document. You should start there. Then style with CSS. If you need extra elements for styling at that point, you might use a div or span (but you should ask yourself if there&#39;s something better first).Tailwind instead pushes the dev into a CSS-first approach. You think about the Tailwind classes you want, and then throw yet-another-div into the DOM just to have an element to hang your classes on.Tailwind makes you worse as a web developer from a skill standpoint, since part of your skill should be to produce future-proof readable HTML and CSS that it usable by all users and generally matches the HTML and CSS specs. But devs haven&#39;t cared about that for years, so it makes sense that Tailwind got so popular. It solved the &#34;I&#39;m building React components&#34; approach to HTML and CSS authoring and codified div soup as a desirable outcome.Tailwind clearly never cared about any of this. The opening example on Tailwind&#39;s website is nothing but divs and spans. It&#39;s proven to be a terrible education for new developers, and has contributed to the div soup that LLMs will output unless nudged and begged to do otherwise."</p>
+							
+						
+							
+								<p class="story__comment_others">"I really, really love Julia Evans writing.She writes from a place of vulnerability and honesty. Most people write to sound smart and she writes to say &#34;I don&#39;t know it all but there are some things I discovered I want to share.&#34; I almost feel like she writes to share things with people she loves, even though she doesn&#39;t know them directly.She spoke alongside Randall Munroe at the last Strange Loop (RIP). Some people waited to talk to him afterwards, but I waited to talk to her. I don&#39;t think she got my joke that she should rewrite her bash scripts into perl and for that I&#39;m truly sorry."</p>
+							
+						
+							
+								<p class="story__comment_others">"CSS Modules are a simpler solution to cascading problems. They create unique class names, so your classes don&#39;t clash [1]. And they don&#39;t have the two main downsides of TW, which are readability [2] and tooling. Tooling for debugging and experimenting interactively with Chrome and FireFox DevTools.[1] https://x.com/efortis/status/1888304658080256099[2] https://github.com/ericfortis/tailwind-eye"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/oven-sh/bun/issues/30719">
+						<picture>
+							<source srcset="default_48150900.webp" type="image/webp">
+							<source srcset="default_48150900.png" type="image/png">
+							<img src="default_48150900.png" alt="Preview of 'Bun Rust rewrite: &#34;codebase fails basic miri checks, allows for UB in safe rust&#34;'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/oven-sh/bun/issues/30719">Bun Rust rewrite: &#34;codebase fails basic miri checks, allows for UB in safe rust&#34;</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48150900">
+						
+							
+								<p class="story__comment_first line-clamp">"Here&#39;s the thing:I was first interested in Bun because it was written in Zig. I was interested in Zig because I respected Andrew Kelley&#39;s decision-making, and his taste matched my own.I got really excited about Bun for many reasons after that, but they essentially came down to a similar root: the decisions were ones that I respected and would probably have made myself if I had thought of them.I was a little concerned when Bun was acquired by Anthropic, but forced myself to remain cautiously optimistic.This behavior, though, is exactly the sort of decision-making that I don&#39;t respect. I&#39;ve got nothing against Rust, but if this is how Anthropic is managing Bun, I can no longer bet on it being a reliable part of my toolkit. It isn&#39;t just the code, it&#39;s the thought behind it that I have to trust.I was so excited by Bun for many of the use-cases I have, but this just turns me off completely. This looks like an Anthropic internal-only tool, based on the behavior."</p>
+							
+						
+							
+								<p class="story__comment_others">"What I don&#39;t understand is if they were going to translate Zig to unsafe Rust, why not just build a translation tool for it? You could do a one-to-one mapping of language constructs, hardcoding patterns in your codebase, and as one friend put it &#34;Tbh they could&#39;ve just hooked up zig translate-c to c2rust&#34;. They would get deterministic translation, would probably have not been a heavy investment to build, and the output would have the same assurances as the input.In this case, I would trust the output even less than the input. The input was memory-unsafe but hand-written. The output is memory-unsafe but also vibe-coded and has had no eyeballs on it. What is the point of abusing agentic AI for this use-case?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This issue is misleading.The issue isn&#39;t the existence of undefined behavior that miri would catch. The issue is exposing an API that allows undefined behavior from safe code - which miri only catches if you go write the test that proves it.This isn&#39;t an all together unreasonable thing to happen during an initial port of code from an unsafe language. You can, and the bun team seems to be, go around later and make sure that the functions where you wrap unsafe code does so correctly. Temporarily in a porting stage incorrectly marking some unsafe functions as safe isn&#39;t a real issue. It&#39;s a bit strange to merge it into the main repo in this state, but not a wholly unreasonable thing to do if the team has decided that they&#39;re definitely doing this. The only real issue would be if they made an actual release with the code in this state.It&#39;s also a bit unfortunate that they didn&#39;t immediately set up their tests to run in miri if only because LLMs respond so well to good tests - I know they didn&#39;t do this not because of this github issue (which doesn&#39;t demonstrate that) but because there&#39;s another test [1] that absolutely does invoke undefined behavior that miri would catch. Though the code it&#39;s testing doesn&#39;t actually appear to be used anywhere so it&#39;s not much of a real issue. That said it&#39;s obviously early in the porting process... maybe they&#39;ll get around to it (or just get rid of all this unsafe code that they don&#39;t actually need).[1] https://github.com/oven-sh/bun/blob/4d443e54022ceeadc79adf54... - the pointers derived from the first mutable references are invalidated by creating a new mutable reference to the same object. In C terms think of &#34;mutable reference&#34; as &#34;restrict reference which a trivial mutation is made through&#34;. It&#39;s easy to do this properly, derive all the pointers from the same mutable reference, it just wasn&#39;t done properly.PS. Spamming github just makes people less likely to work in the open. Please don&#39;t. We can all judge this work just fine on third party sites.PPS. And we might want to withhold judgement until it&#39;s in a published state. Judging intermediate working states doesn&#39;t seem terribly fair or interesting to me."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://macdailynews.com/2026/05/15/u-s-doj-demands-apple-and-google-unmask-over-100000-users-of-popular-car-tinkering-app-in-emissions-crackdown/">
+						<picture>
+							<source srcset="default_48151383.webp" type="image/webp">
+							<source srcset="default_48151383.png" type="image/png">
+							<img src="default_48151383.png" alt="Preview of 'U.S. DOJ demands Apple and Google unmask over 100k users of car-tinkering app'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://macdailynews.com/2026/05/15/u-s-doj-demands-apple-and-google-unmask-over-100000-users-of-popular-car-tinkering-app-in-emissions-crackdown/">U.S. DOJ demands Apple and Google unmask over 100k users of car-tinkering app</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48151383">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; The government says it needs this information to identify and interview witnesses who can testify about how the tools were actually used.Why start this whole thing, if you don&#39;t already have this information and have people willing to help you as witnesses?Sounds to me they&#39;re saying they don&#39;t have this already, but why is this investigation happening in the first place then? Rather than finding every user of the tool, find the users who use the tool in the way you don&#39;t approve of, then request the information for those?Really bananas approach to go for &#34;Every single user of the app&#34; and &#34;Everyone who bought a dongle&#34; when it has very real and legal use cases."</p>
+							
+						
+							
+								<p class="story__comment_others">"This &#34;car-tinkering app&#34; is used as a glorified GameShark for deleting factory emissions controls, I don&#39;t feel sorry for anyone who uses this to roll coal or whatever. Instead of investigating everyone on the list of users of this app, should the government instead ban diesel engines knowing their emissions controls software will be defeated?  Should environmental regulations be relaxed? What is really the solution here?"</p>
+							
+						
+							
+								<p class="story__comment_others">"It will start with subpoenaing this information against people who modified their car to do &#34;bad&#34; things. But once they have the precedent, I would predict that it will very quickly be used at the behest of car manufacturers to go after people who modify their cars to, say, disable GPS tracking."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://projectzero.google/2026/05/pixel-10-exploit.html">
+						<picture>
+							<source srcset="default_48148460.webp" type="image/webp">
+							<source srcset="default_48148460.png" type="image/png">
+							<img src="default_48148460.png" alt="Preview of 'A 0-click exploit chain for the Pixel 10'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://projectzero.google/2026/05/pixel-10-exploit.html">A 0-click exploit chain for the Pixel 10</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48148460">
+						
+							
+								<p class="story__comment_first line-clamp">"I followed the link to the Pixel 9 bug/exploit and saw this:&#34;Over the past few years, several AI-powered features have been added to mobile phones that allow users to better search and understand their messages. One effect of this change is increased 0-click attack surface, as efficient analysis often requires message media to be decoded before the message is opened by the user&#34;Haven&#39;t we learned our lesson on this?  Don&#39;t read and act on my sms messages without me asking you to!"</p>
+							
+						
+							
+								<p class="story__comment_others">"&#34;This is notably fast given that this is the first time that an Android driver bug I reported was patched within 90 days of the vendor first learning about the vulnerability.&#34;This makes me feel better about Google, but also makes me kind of frightened of the rest of Android.  I wonder what Apple&#39;s response time is?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Semi-related: has the rate of published exploits picked up as if late, or is it simply the fact that there’s hype around ai as security tool (offense or defense) so it’s simply in the news more often?Feels like there’s something new every other day - linux, windows, mobile, various commonplace tools used by everybody, the list goes on"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://kevinpatel.xyz/posts/no-way-to-prevent-this/">
+						<picture>
+							<source srcset="default_48155690.webp" type="image/webp">
+							<source srcset="default_48155690.png" type="image/png">
+							<img src="default_48155690.png" alt="Preview of '&#39;No way to prevent this,&#39; says only package manager where this regularly happens'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://kevinpatel.xyz/posts/no-way-to-prevent-this/">&#39;No way to prevent this,&#39; says only package manager where this regularly happens</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48155690">
+						
+							
+								<p class="story__comment_first line-clamp">"I know people have opinions about cooldowns, but they would have saved you from axios, tanstack, and many other recent npm supply chain attacks. If you have Artifactory / Nexus, you probably already have cooldowns, but it&#39;s easy to set up if you don&#39;t.Why cooldowns? Most npm (or pypi) compromises were taken down within hours, cooldowns simply mean - ignore any package with release date younger than N days (1 day can work, 3 days is ok, 7 days is a bit of an overkill but works too)How to set them up?- use latest pnpm, they added 1 day cooldown by default https://pnpm.io/supply-chain-security- or if you want a one click fix, use https://depsguard.com (cli that adds cooldowns + other recommended settings to npm, pnpm, yarn, bun, uv, dependabot and, I’m the maintainer)- or use https://cooldowns.dev which is more focused on, well, cooldowns, with also a script to help set it up locallyAll are open source / free.If you know how to edit your ~/.npmrc etc, you don&#39;t really need any of them, but if you have a loved one who just needs a one click fix, these can likely save them from the next attack.Caveat - if you need to patch a new critical CVE, you need to bypass the cooldown, but each of them have a way to do so. In the past few weeks, while I don&#39;t have hard numbers, it seems more risk has come from Software Supply Chain attacks (malicious versions pushed) than from new zero day CVEs (even in the age of Mythos driven vulnerability discovery)"</p>
+							
+						
+							
+								<p class="story__comment_others">"What are the actual guarantees that go/Rust make that Python/npm don’t? It seems like it might just be that Python/npm are juicier targets? I’m starting to try and avoid all third party packages"</p>
+							
+						
+							
+								<p class="story__comment_others">"There has been a lot of pain at my various jobs installing a safe global npm config on every developer machine, asking people not to disable it, checking it with mdm tools. A safer out-of-the-box configuration is long overdue."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.fastcompany.com/91541586/amazon-workers-pressured-to-up-ai-use-extraneous-tasks">
+						<picture>
+							<source srcset="default_48148337.webp" type="image/webp">
+							<source srcset="default_48148337.png" type="image/png">
+							<img src="default_48148337.png" alt="Preview of 'Amazon workers under pressure to up their AI usage are making up tasks'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.fastcompany.com/91541586/amazon-workers-pressured-to-up-ai-use-extraneous-tasks">Amazon workers under pressure to up their AI usage are making up tasks</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48148337">
+						
+							
+								<p class="story__comment_first line-clamp">"Not just Amazon, too. It feels like all of big tech (and some smaller firms) have simultaneously gone insane. Imagine if your CEO woke up one day and told the company: &#34;We need to encourage travel spending. Please book as many business trips as you can, and spend as much money as possible. Fly first class to our satellite offices! Take limos instead of Ubers! Eat at fine restaurants! Make sure you are constantly traveling. In fact, we are going to make Travel Spending part of your annual performance review: If you don&#39;t spend enough on business travel, you&#39;ll get a low rating!&#34;We are living in a totally bonkers time."</p>
+							
+						
+							
+								<p class="story__comment_others">"Like six months ago we got a presentation from an AWS guy on the AI tooling available and how it fit with our particular use cases.At one point seemingly out of nowhere he pointed out on his screen share &#34;Look at how many tokens I&#39;ve used this month. I run so much Opus.&#34; It was a number that was offensively large.I remember thinking &#34;That&#39;s a really odd flex, this crap is so expensive the fact that you use so much should be a red flag&#34;He demonstrated a number of Claude Code use cases he had to manage and tweak AWS infrastructure that made me, the old greybeard sysadmin older than the internet think &#34;You&#39;ve used AI to do something that was a single command.&#34;So this story makes sense. They were being encouraged to just blast away at it six plus months ago."</p>
+							
+						
+							
+								<p class="story__comment_others">"Lots of people reporting their &#34;I had to use up my tokens, so I burned them on worthless stuff&#34; stories. Incredible thing to do in a climate emergency. Push harder guys, maybe we can hit 3C warming?This reminds me of the story of how the USSR nearly made whales extinct to meet a quota for whale meat that nobody wanted to eat."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://twitter.com/baseballot/status/2055309076209492208">
+						<picture>
+							<source srcset="default_48152553.webp" type="image/webp">
+							<source srcset="default_48152553.png" type="image/png">
+							<img src="default_48152553.png" alt="Preview of 'ABC News has taken all FiveThirtyEight articles offline'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://twitter.com/baseballot/status/2055309076209492208">ABC News has taken all FiveThirtyEight articles offline</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48152553">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; BTW, I approached ABC about buying back the former FiveThirtyEight IP*, and they said they wouldn&#39;t sell at any price because I&#39;d criticized their management of the brand.--Nate Silver (538 founder)ABC seem pretty petty here."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s wild to me how often I see corporate America both:
+1. Spend immense amounts trying to build and improve a brand.
+2. Toss well known brands aside as if they are useless.Not that it&#39;s always the same company doing both at the same time, but it&#39;s crazy 538 was just left to die. It was a very recognizable brand among wonky professionals, a very desirable customer base. It&#39;s not as if politics and sports have gotten less relevant in the world over the past decade. ABC&#39;s decision to toss this aside is baffling.Much of the 538 alumni seem to be doing well, either independently or as part of a major organization, so I don&#39;t think much was lost overall. But I sure empathize with the folks who lost their dream job and ABC looks pretty bad for frittering away a successful business for seemingly no reason. Taking down these articles is nonsensical."</p>
+							
+						
+							
+								<p class="story__comment_others">"Really sad to see some of the best visualizations I&#39;ve ever seen in my life being taken down. I&#39;ve easily spent hours exploring playing with their gun deaths visualization, p-hacking piece, gut microbiome explorable explainer and many others.Guess we better back up their GitHub repos before that gets taken down as wellhttps://github.com/fivethirtyeight"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://kabir.au/blog/the-ctf-scene-is-dead">
+						<picture>
+							<source srcset="default_48157559.webp" type="image/webp">
+							<source srcset="default_48157559.png" type="image/png">
+							<img src="default_48157559.png" alt="Preview of 'Frontier AI has broken the open CTF format'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://kabir.au/blog/the-ctf-scene-is-dead">Frontier AI has broken the open CTF format</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48157559">
+						
+							
+								<p class="story__comment_first line-clamp">"Must I beg to have an acronym spelled out a least once, the first time it&#39;s used? Even if you assume 90% of readers already know, the other 10% (including me, in this case) will thank you, it doesn&#39;t take much effort, and it expands the reach of your communication or idea.Exceptions for cases where the acronym is just so well known that a lot of people don&#39;t even know what it stands for even though they know the concept well. I recall one corporate training I was sitting through and they used the term &#34;Border Gateway Protocol&#34; and it took me a half beat to think through &#34;oh, you mean BGP?&#34;Thanks!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Replace ‘CTF’ with ‘high school’ or ‘university’ and you’ve described the total slow motion collapse of education; the only saving grace is that most of it requires in person presence.We’ve figured out the human replacement pipeline it seems, but we haven’t figured out the eduction part. LLMs can be wonderful teachers, but the temptation to just tell it ‘do it for me’ is almost impossible to resist."</p>
+							
+						
+							
+								<p class="story__comment_others">"I feel the post. For me AI has ruined both, playing CTFs and also building CTFs challenges.
+The most annoying thing to me is the &#34;yeah idk but here is the flag&#34; mentality.Before when playing CTFs with my mates was usually sitting there for hours tackling a challenge until some other mate joined, had some look together and solved it with you together in 30 minutes which is the most rewarding learning experience. Nowadays mate joins in throws the clanker on it and solved it in 5 minntes. Asking on how it worked you always get the &#34;yeah idk what it did, but who cares, here is the flag&#34; response.Same for creating challenges. Whenever I ask for writeups or if some people solved it differently I usually get the &#34;yeah idk, clanker solved that one&#34; response taking the fun out of it.So yep, this CTF format is definitely dead. Mainly because the strong competitiveness and prices. This encourages people to cheese challenges and sometimes solving them differently was fine as you still had a creative out-of-the-box thinking moment, but nowadays with AI there is no brainpower needed, no cheesing needed, no human needed. As you mentioned, it&#39;s pay to win.My two cents is that the 24/7 CTFs will get more attraction as the scoreboard doesn&#39;t matter there and simply doesn&#39;t give you any price."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://turso.tech/blog/the-wonders-of-ai">
+						<picture>
+							<source srcset="default_48148391.webp" type="image/webp">
+							<source srcset="default_48148391.png" type="image/png">
+							<img src="default_48148391.png" alt="Preview of 'We are retiring our bug bounty program'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://turso.tech/blog/the-wonders-of-ai">We are retiring our bug bounty program</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48148391">
+						
+							
+								<p class="story__comment_first line-clamp">"Which goes on to prove that bottleneck isn&#39;t in writing the code. It is in reading and understanding the code.We all had that one &#34;productive&#34; engineer in our teams who would write huge PRs that would have large swaths of refactoring whether warranted or not and that was way before anyone even could imagine in their wildest dreams that neural networks could generate that huge amounts of code.The net effect of such a &#34;productive&#34; engineer always was that instead of increasing the team velocity, team would come to a crawling pace because either his PR had to be reviewed in detail eating up all the time and/or if you just did cursory LGTM then they blew up in production meanwhile forcing everyone back to the drawing board but project architecture would have shifted so rapidly due to his &#34;productivity&#34; that no one had a clear picture of the codebase such as what&#39;s where except that one &#34;super smart talented productive loyal to the company goals&#34; guy."</p>
+							
+						
+							
+								<p class="story__comment_others">"Good time to mention this fantastic repo acting as a bot honeypot:https://github.com/UnsafeLabs/Bounty-HuntersThe corresponding leaderboard:https://clankers-leaderboard.pages.dev"</p>
+							
+						
+							
+								<p class="story__comment_others">"Closing the program is totally reasonable. However, there is another option: Make submitters pay a nominal fee that is returned in the case that a real bug is found."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://nvlabs.github.io/Sana/WM/">
+						<picture>
+							<source srcset="default_48159445.webp" type="image/webp">
+							<source srcset="default_48159445.png" type="image/png">
+							<img src="default_48159445.png" alt="Preview of 'SANA-WM, a 2.6B open-source world model for 1-minute 720p video'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://nvlabs.github.io/Sana/WM/">SANA-WM, a 2.6B open-source world model for 1-minute 720p video</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48159445">
+						
+							
+								<p class="story__comment_first line-clamp">"I struggle with these world models from the perspective of video games (so this post is a particular perspective).I&#39;m not a game developer myself, but some of my favorite games carry a deep sense of intentionality. For instance, there is typically not a single item misplaced in a FromSoftware game (or, for instance, Lies of P -- more recently). Almost every object is placed intentionally.Games which lack this intentionality often feel dead in contrast. You run into experiences which break immersion, or pull you out of the experience that the developer is trying to convey to you.It&#39;s difficult for me to imagine world models getting to a place where this sort of intentionality is captured. The best frontier LLMs fail to do this in writing (all the time), and even in code, and the surface of experiences for those mediums often feel &#34;smaller&#34; than the user interaction profile of a video game.It&#39;s not clear how these world models could be used modularly by humans hoping to develop intentional experiences? I don&#39;t know much about their usage (LLMs are somewhat modular: they can produce text, humans can work on it, other LLMs can work on it). Is the same true for the video output here?All this to say, I&#39;m impressed with these world models, but similar to LLMs with writing, it&#39;s not really clear what it is that we are building towards? We are able to create less satisfying, less humane experiences faster? Perhaps the most immediate benefit is the ability for robotic systems to simulate actions (by conjuring a world, and imagining the implications).In general, I have the feeling that we are hurtling towards a world with less intentionality behind all the things we experience. Everything becomes impersonal, more noisy, etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"Model weights coming &#34;soon&#34; == currently vaporware. So the weights aren&#39;t even open, how can this be &#34;open-source&#34;?Everyone is right to be skeptical of this coming from a 2.8B model. Weights or it didn&#39;t happen."</p>
+							
+						
+							
+								<p class="story__comment_others">"Gist:&gt; 720p, 1-min video generation with 6-DoF camera controlAs nl said,&gt; The model is out here: https://huggingface.co/Efficient-Large-Model/SANA-Video_2B_7...README says &#34;intended for research use only&#34;Code license is Apache 2.0Model license (nvidia open...) says    Models are commercially usable.
+    You are free to create and distribute Derivative Models
+
+(As usual: model output is unrestricted, and also unprotectable absent human authoring)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">16 May 2026</div>
 		
 		<div class="story story_large-padding-bottom">
@@ -59,15 +449,15 @@
 						<a href="https://news.ycombinator.com/item?id=48153379">
 						
 							
-								<p class="story__comment_first line-clamp">"I feel like I&#39;m in a different field compared to the rest of hacker news.I&#39;m in a big tech company where everything is standardised. All our microservices have the same tech stack. We&#39;re in a monorepo. Most microservices are... I wouldn&#39;t say tiny or micro but small enough.And I haven&#39;t written a single line of code myself since what - February maybe?We still haven&#39;t seen an increase in incidents, we ship more features at a higher quality. We address the tech debt we didn&#39;t have time for in the past.We still require a code review for any change and it&#39;s becoming a bottleneck - for sure.But it all feels... Mature and the next step of software engineering.We don&#39;t really vibe though. At least I don&#39;t. I see it more as comment driven development. I need to understand the code and what I want to achieve where in the codebase but I&#39;ll leave godo comments explaining this before asking an agent to fill in the blanks."</p>
+								<p class="story__comment_first line-clamp">"I’m at a FAANG and we have $300/day token quota. Personally I don’t use that much of it but management is pushing really hard for it. “the quota has been raised for a reason, use it”. Any task: “have you tried working on it with Claude?”. Every meeting “now engineer x and y will show you what he did with AI”.It’s not all useless but most of the days I think I would be more productive if some processes were streamlined rather than if I had to throw tokens at them and still fail.Of all the showcases I’ve seen the best are the ones written by people assuming that the token bonanza will not last so they used AI to build tools they wished they had. AI used to build the tool but by no means used by the tool, so if/when token quota gets reduced we still have a functional tool."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m pretty sure he&#39;s talking about companies and people outsourcing their decision making and thinking to AI and not really about using AI itself.I don&#39;t think using AI to write code is AI psychosis or bad at all, but if you just prompt the AI and believe what it tell you then you have AI psychosis. You see this a lot with financial people and VC on twitter. They literally post screenshots of ChatGPT as their thinking and reasoning about the topic instead of just doing a little bit of thinking themselves.These things are dog shit when it comes to ideas, thinking, or providing advice because they are pattern matchers they are just going to give you the pattern they see. Most people see this if you just try to talk to it about an idea. They often just spit out the most generic dog shit.This however it pretty useful for certain tasks were pattern matching is actually beneficial like writing code, but again you just can&#39;t let it do the thinking and decision making."</p>
+								<p class="story__comment_others">"I feel in a really weird position where I both really dislike what AI is doing to the experience and practice of writing code, to the point where I want a job doing literally anything else besides using the computer, but also think that these tools are extremely powerful and only getting better.I think Mitchell&#39;s point is well taken -- it&#39;s possible for these tools to introduce rotten foundations that will only be found out later when the whole structure collapsed. I don&#39;t want to be in the position of being on the hook when that happens and not having the deep understanding of the code base that I used to.But humans have introduced subtle yet catastrophic bugs into code forever too... A lot of this feels like an open empirical question. Will we see many systems collapse in horrifying ways that they uniquely didn&#39;t before? Maybe some, but will we also not learn that we need to shift more to specification and validation? Idk, it just seems to me like this style of building systems is inevitable even as there may be some bumps along the way.I feel like many in the anti camp have their own kind of reactionary psychosis. I want nothing to do with AI but I also can&#39;t deny my experience of using these tools. I wish there were more venues for this kind of realist but negative discussion of AI. Mitchell is a great dev for this reason."</p>
 							
 						
 							
-								<p class="story__comment_others">"I think AI rescue consulting is going to be come a significant mode of high value consulting, similar to specialists who come in to try and deal with a security breach or do data recovery.Purely AI written systems will scale to a point of complexity that no human can ever understand and the defect close rate will taper down and the token burn per defect rate scale up and eventually AI changes will cause on average more defects than they close and the whole system will be unstable. It will become a special kind of process to clean room out such a mess and rebuild it fresh (probably still with AI) after distilling out core design principles to avoid catastrophic breakdown.Somewhere in the future, the new software engineering will be primarily about principles to avoid this in the first, place but it will take us 20 years to learn them, just like original software eng took a lot longer than expected to reach a stable set of design principles (and people still argue about them!)."</p>
+								<p class="story__comment_others">"Maybe this is what will turn software engineering into an Engineering field.Right know, prompters are setting up whole company infrastructure. I personally know one. He migrated the companies database to a newer Postgres version. He was successful in the end, but I was gnawing my teeth when he described every step of the process.It sounded like &#34;And then, I poured gasoline on the servers while smoking a cigarette. But don&#39;t worry, I found a fire extinguisher in the basement. The gauge says it&#39;s empty, but I can still hear some liquid when I shake it...&#34;If he leaves the company, they will need an even more confident prompter to maintain their DB infrastructure."</p>
 							
 						
 						</a>
@@ -354,14 +744,14 @@ https://github.com/openresty/openresty/issues/1119"</p>
 						<picture>
 							<source srcset="default_48152994.webp" type="image/webp">
 							<source srcset="default_48152994.png" type="image/png">
-							<img src="default_48152994.png" alt="Preview of 'California bill would require patches or refunds when online games shut down'">
+							<img src="default_48152994.png" alt="Preview of 'Bill to block publishers from killing online games advances in California'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://arstechnica.com/gaming/2026/05/bill-to-keep-online-games-playable-clears-key-hurdle-in-california/">California bill would require patches or refunds when online games shut down</a></h3>
+					<h3><a href="https://arstechnica.com/gaming/2026/05/bill-to-keep-online-games-playable-clears-key-hurdle-in-california/">Bill to block publishers from killing online games advances in California</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
@@ -454,11 +844,11 @@ https://github.com/openresty/openresty/issues/1119"</p>
 						<a href="https://news.ycombinator.com/item?id=48138136">
 						
 							
-								<p class="story__comment_first line-clamp">"I have a few year old Volkswagen. I&#39;m security conscious and made sure to disable all the data collection I could find in the companion app, turn off remote access services, dig through the infotainment to turn off what I could, etc.Last year I requested a Carfax on it, and one of the fields in the request was current mileage. I entered an estimate like 75000 miles. On form submission, that field failed validation with the red subtext along the lines of &#39;this is less than the last reported mileage of 75345, reported &lt;5 or so days prior&gt;&#39;. Checking my odometer and looking at my past few days&#39; trips, that was indeed accurate.The car hadn&#39;t been to a shop or out of my possession in weeks, so I can only assume the telemetry was still dialing home and selling to third parties despite my best efforts to disable it.Anecdotal and not unexpected in the grand scheme, but it still surprised me."</p>
+								<p class="story__comment_first line-clamp">"&gt; Even after the modem is removed, if you connect your phone to the car via Bluetooth then the car will use your phone as an internet connection and send all the same telemetry data back to Toyota. However, if you use a wired USB connection then it does not do that (see the discussion here and elsewhere), so I exclusively use CarPlay via USB.The problem with this is that both carplay and android auto capture their own vehicle telemetry. So even though the car is not able to use your phone as a general data pipe, Google and Apple still get access to this data when you&#39;re connected.They are both very cagey with how they talk about this (or don&#39;t)."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Even after the modem is removed, if you connect your phone to the car via Bluetooth then the car will use your phone as an internet connection and send all the same telemetry data back to Toyota. However, if you use a wired USB connection then it does not do that (see the discussion here and elsewhere), so I exclusively use CarPlay via USB.The problem with this is that both carplay and android auto capture their own vehicle telemetry. So even though the car is not able to use your phone as a general data pipe, Google and Apple still get access to this data when you&#39;re connected.They are both very cagey with how they talk about this (or don&#39;t)."</p>
+								<p class="story__comment_others">"I have a few year old Volkswagen. I&#39;m security conscious and made sure to disable all the data collection I could find in the companion app, turn off remote access services, dig through the infotainment to turn off what I could, etc.Last year I requested a Carfax on it, and one of the fields in the request was current mileage. I entered an estimate like 75000 miles. On form submission, that field failed validation with the red subtext along the lines of &#39;this is less than the last reported mileage of 75345, reported &lt;5 or so days prior&gt;&#39;. Checking my odometer and looking at my past few days&#39; trips, that was indeed accurate.The car hadn&#39;t been to a shop or out of my possession in weeks, so I can only assume the telemetry was still dialing home and selling to third parties despite my best efforts to disable it.Anecdotal and not unexpected in the grand scheme, but it still surprised me."</p>
 							
 						
 							
@@ -1066,10 +1456,7 @@ Controlling motion system, temperature, fans, AMS settings, calibrations, etc."<
 							
 						
 							
-								<p class="story__comment_others">"I want an Obsidian where I can:
-- Specify network requests on/off from plugins
-- Don&#39;t allow file access outside the vault
-- Don&#39;t allow external binary execution.Most of the reviews are not required if this is enforced."</p>
+								<p class="story__comment_others">"I’m not convinced that automated checks will be able to reliably assess whether a plugin is malicious.I think the best (only?) way to solve the plugin security problem would be to properly sandbox them with an explicit API and permission system."</p>
 							
 						
 						</a>
@@ -1301,8 +1688,7 @@ Controlling motion system, temperature, fans, AMS settings, calibrations, etc."<
 							
 						
 							
-								<p class="story__comment_others">"So this is essentially Android desktop mode with Android 17 Gemini integration.
-Please get rid of that top panel. I just don&#39;t get why this and desktops like GNOME tries to copy macos top panel when clearly in macos it is menu bar that host app menus but that concept doesn&#39;t exists in these other desktops and yet they have a top panel. This is just bad UX.This will follow same model as Chromebooks i.e different devices from different OEM partners and for x86 and arm. So soon someone will be able to create a generic ISO for this that you can boot on a standard x86 PC/laptop.Samsung is also working on such devices but they will probably have Dex which is much better then the current Android desktop mode."</p>
+								<p class="story__comment_others">"Would prefer a &#39;Google Linux&#39;—a native desktop OS with a unified UI philosophy, similar to a macOS experience but built on a standard Linux foundation. Instead of ChromeOS or Android as the base, treat them as subsystems for compatibility.The real &#39;next big thing&#39; would be integrating an engine like Gemini with OS-level hooks (similar to the OpenClaw approach) so agents can manipulate app windows and state directly. Resurrecting Web Intents as 2-way App Intents would be the key to making this work.Also, keeping prompts as local .md files with an Obsidian-like system editor would be a huge win for power users. Simply gating Gemini behind &#39;premium&#39; Chromebooks feels like the old &#39;licking the cake&#39; strategy from the Google+ days—trying to force a new product&#39;s success by coopting existing hardware rather than building a superior platform.I can imagine having Gemini + local Gemma working with Agents, which have access to my e-mail (ideally on GMAIL, but also supporting outlook), keeping local history of my visited sites and messages... and using RAG or something even better, ideally with looking also on repos I have checkouted to my file system, and maybe even whole file system....Work related e-mail about &#34;sending invoice to customer&#34;... it may suggest proper content for e-mail. Having &#34;dashboard&#34; with summary of todays communication to you, your tickets (at work) and so on....Can Google build such thing? If somebody can - it will be them. Will they build it? Probably not, they would prefer to build 3rd version of Google Pay."</p>
 							
 						
 						</a>
@@ -3600,400 +3986,6 @@ conversation around the mitigation suggests you need a reboot or run this after 
 						
 							
 								<p class="story__comment_others">"And I ask again: why the f*ck is algif_aead getting all the flak for copy.fail?  It&#39;s authencesn being stupid.authencesn didn&#39;t get fixed. Now we got the results of that, turns out you can access the same (I believe) out of bounds write through plain network sockets.I wish I thought of that, but I didn&#39;t.[ed.: I&#39;m referring to the through-ESP issue. The RxRPC one is AIUI completely unrelated.]"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">07 May 2026</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.aaedmusa.com/projects/cara2">
-						<picture>
-							<source srcset="default_48005432.webp" type="image/webp">
-							<source srcset="default_48005432.png" type="image/png">
-							<img src="default_48005432.png" alt="Preview of 'CARA 2.0 – “I Built a Better Robot Dog”'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.aaedmusa.com/projects/cara2">CARA 2.0 – “I Built a Better Robot Dog”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48005432">
-						
-							
-								<p class="story__comment_first line-clamp">"3 DOF per leg, so it needs 12 motors and controllers. Getting that under $1000 is nice.Here&#39;s the US$18 motor: [1] Those things are getting really cheap. He did have to rewind it, though, for more turns with thinner wire. The manufacturer mentions that you can order with &#34;custom Kv&#34;, which means you might be able to get a different winding from the factory if you order a reasonable quantity. Especially if you tell them that makes them &#34;robot motors&#34;.Motor overheating might be a problem. The dog, just standing, has its motors stalled under load, converting power to heat. Drones don&#39;t do that. Temperature feedback would help if this thing has to operate for extended periods. Remember yesterday&#39;s article on humanoid robots and their cooling problems.The motor controller is nice too, and cheap at $49. Needed fixes to the firmware, but that&#39;s not surprising at the price. High performance motor controllers used to cost about $1000.Repurposed drone technology has done wonders for legged robots. We&#39;re not quite at the point where limb drive hardware is off the shelf, but it&#39;s way better than it used to be.[1] https://www.xntyi.com/tyi-5008-kv335/kv400-high-speed-brushl..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I love Aaed. Not only are the youtube video excellently produced and well researched, the website is a mine of information.This is spectacular as a reference, which youtube isn&#39;t"</p>
-							
-						
-							
-								<p class="story__comment_others">"The jumps are pretty impressive, this thing has some power. I&#39;d be very curious how fast you could get this dog with some reinforcement learning for a proper transverse gallop gait - and if it converges towards a gallop naturally, or if it discovers some other fast gait patterns during learning.Depending on the max speed of the motors/legs, giving it longer foot pads might be necessary for a good gallop. Intuitively, it looks a bit... &#34;low gear&#34; in the videos."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.thetypicalset.com/blog/thoughts-on-coding-agents">
-						<picture>
-							<source srcset="default_48006967.webp" type="image/webp">
-							<source srcset="default_48006967.png" type="image/png">
-							<img src="default_48006967.png" alt="Preview of 'The bottleneck was never the code'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.thetypicalset.com/blog/thoughts-on-coding-agents">The bottleneck was never the code</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48006967">
-						
-							
-								<p class="story__comment_first line-clamp">"It&#39;s hilarious to me to see the same kind of engineer, who throughout my career have constantly bitched and moaned about team meetings, agile ceremonies, issue trackers, backlogs, slack, emails, design reviews, and anything else that disrupted the hours of coding &#34;flow state&#34; they claimed as their most essential and sacred activity to be protected at all costs, suddenly, and with no hint of shame, start preaching about about the vital importance of collaborative activities and the apparent inconsequence of code and coding, the moment a machine was able to do the latter faster than them. I mean, they&#39;re not even wrong, but the nakedly hypocritical attitude of people who, until a year ago, were the most antisocial and least collaborative members of any team they were on is still extraordinary."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think veteran engineers have always known that the real problems with velocity have always been more organizational than technical.  The inability for the business to define a focused, productive roadmap has always been the problem in software engineering.  Constantly jumping to the next shiny thing that yields almost no ROI but never allowing systemic tech debt to be addressed has crippled many company&#39;s I have worked at in the long-term."</p>
-							
-						
-							
-								<p class="story__comment_others">"Code is a liability.I think it can be easy to look at code as an asset, but fundamentally it is a liability. Some of the &#34;bottlenecks&#34; to new code are in place to make sure that the yield outweighs the increased liability. Agents that produce more code faster are producing more liability faster. Much of the excitement and much of the skepticism about coding agents is about whether the immediate increased productivity (new features) and even immediate yield (new products or new revenue) outweighs the increased long term liabilities. I&#39;d say we won&#39;t find out for another 1-3 years, and of course that the answer will differ in different domains.From this perspective, attempting to build these bottlenecks into the agentic workflow directly makes some sense. Supplying coding agents with additional context that values a coherent project vision and that pushes back against new features or unconstrained processes would be valuable.Is this what the article is trying to get at? Is this attempting to make some agents essentially take on product management responsibilities, synthesizing as much as possible into a cohesive product vision and reminding the coding agents of that vision as strictly as possible? Should these agents review new proposals and new pull requests for &#34;adherence to the full picture&#34;, whether you want to call this &#34;context&#34; or &#34;vision&#34; or something else?I think these agents might do an exceptionally good job at synthesizing context and presenting a cohesive roadmap that appears, linguistically, to adhere to the team values and vision. But I&#39;m doubtful that they can have the discernment that a quality manager or team can have. Rapidly and convincingly greenlighting a particular roadmap could do more harm than good."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://twitter.com/brian_armstrong/status/2051616759145185723">
-						<picture>
-							<source srcset="default_48021368.webp" type="image/webp">
-							<source srcset="default_48021368.png" type="image/png">
-							<img src="default_48021368.png" alt="Preview of 'Today I&#39;ve made the difficult decision to reduce the size of Coinbase by ~14%'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://twitter.com/brian_armstrong/status/2051616759145185723">Today I&#39;ve made the difficult decision to reduce the size of Coinbase by ~14%</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48021368">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; Leaders will own much more, with as many as 15+ direct reports. [...] Every leader at Coinbase must also be a strong and active individual contributor. Managers should be like player-coaches, getting their hands dirty alongside their teams.Oof.  So not only are they giving their remaining managers more reports, but those managers will be expected to do lots of other, non-management work.Sure, nothing can go wrong there...  Even if they didn&#39;t have non-managerial work to do, 15+ direct reports is just too many.  They&#39;re not going to get to spend enough time meeting each report&#39;s needs, not a chance.I think as layoffs emails go, it&#39;s a pretty good one (as the current top comment points out[0]), but boy, I would not want to be working at a company like what Coinbase is turning into.  Non-technical teams shipping code to prod?  No thanks.  &#34;AI-native pods&#34;?  No thanks.  I do like the idea of one-person teams; I was at my most productive when I was in that kind of role (though I&#39;m not sure my experience generalizes).  I get that companies are still struggling to figure out how to adapt to LLMs, but... damn.Pretty solid severance package for the folks being laid off, though.[0] https://news.ycombinator.com/item?id=48021843"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll probably get some flack for this, but this is about as good of a layoff email as he could have sent.* explains the reasons (financials, AI enablement)* talks about what folks who are leaving get in detail (first) and thanks them* talks to the folks who are stayingLayoffs are hard, no doubt, and I am not sure he&#39;s making the right choice. I see plenty of doubt about some of the actions in other comments that echoes mine. I certainly wouldn&#39;t want to have 15 direct reports and also ship production code regularly. But as CEO, it&#39;s his job to make these kinds of choices.The proof is in the pudding as they say. We&#39;ll see how Coinbase does with this new orientation in the next year or so and that will determine if this was a wise or foolish move. Is there a flood of talent leaving? Major breaches? Business as usual with better than expected profits?Time will tell."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; We’ll be concentrating around AI-native talentIs this code for &#34;we&#39;re firing all the old people&#34;? As I understand it, I can say I&#39;ll only hire proficient English speakers (a &#34;bona fide occupational requirement&#34;), but I can&#39;t say I&#39;ll only hire native speakers, as that would discriminate against various protected groups. This seems like the same thing—proficiency may be a bona fide requirement, but expecting they learned this year&#39;s workflow first is age discrimination.I don&#39;t expect ethical conduct from crypto companies and will not be sad if they are sued into oblivion."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://susam.net/inverse-laws-of-robotics.html">
-						<picture>
-							<source srcset="default_48023861.webp" type="image/webp">
-							<source srcset="default_48023861.png" type="image/png">
-							<img src="default_48023861.png" alt="Preview of 'Three Inverse Laws of AI'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://susam.net/inverse-laws-of-robotics.html">Three Inverse Laws of AI</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48023861">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt;Humans must not anthropomorphise AI systems. That is, humans must not attribute emotions, intentions or moral agency to them. Anthropomorphism distorts judgement. In extreme cases, anthropomorphising can lead to emotional dependence.Impossible. I anthropomorphise my chair when it squeaks. Humans anthropomorphise everything. They gender their cars and boats. This tool can actually make readable sentences and play a role.You need to engineer around this, not make up arbitrary rules about using it."</p>
-							
-						
-							
-								<p class="story__comment_others">"With regard to my personal use of LLMs, I strongly agree with this framing. But to each point:Anthropomorphism: As we are all aware, providers are incentivized to post-train anthropomorphic behavior in their models - it increases engagement. My regret is that instructing a model at prompt time to &#34;reduce all niceties and speak plainly&#34; probably reduces overall task efficacy since we are leaving their training space.Deference: I view the trustworthiness of LLMs the same as I view the trustworthiness of Wikipedia and my friends: good enough for non-critical information. Wikipedia has factual errors, and my friends&#39; casual conversation certainly has more, but most of the time that doesn&#39;t matter. For critical things, peer-reviewed, authoritative, able-to-be-held-liable sources will not go away. Unlike above, providers are generally incentivized to improve this facet of their models, so this will get better over time.Abdication of Responsibility: This is the one that bothers me most at work. More and more people are opening PRs whose abstractions were designed by Claude and not reasoned about further. Reviewing a PR often involves asking the LLM to &#34;find PR feedback&#34; and not reading the code. Arguments begin with &#34;Claude suggested that...&#34;. This overall lack of ownership, I suspect, is leading to an increase in maintenance burden down the line as the LLM ultimately commits the wrong code for the wrong abstractions."</p>
-							
-						
-							
-								<p class="story__comment_others">"I strongly disagree with this framing. It&#39;s patently insane to demand that humans alter their behavior to accommodate the foibles of mere machines, and it simply won&#39;t work in the majority of cases. Humans WILL anthropomorphize the AI, humans WILL blindly trust their outputs, and humans WILL defer responsibility to them.Asimov&#39;s laws of robotics are flawed too, of course. There is no finite set of rules that can constrain AI systems to make them &#34;safe&#34;. I don&#39;t have a proof, but I believe that &#34;AI safety&#34; is inherently impossible, a contradiction of terms. Nothing that can be described as &#34;intelligent&#34; can be made to be safe."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://reflex.dev/blog/computer-use-is-45x-more-expensive-than-structured-apis/">
-						<picture>
-							<source srcset="default_48024859.webp" type="image/webp">
-							<source srcset="default_48024859.png" type="image/png">
-							<img src="default_48024859.png" alt="Preview of 'Computer Use is 45x more expensive than structured APIs'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://reflex.dev/blog/computer-use-is-45x-more-expensive-than-structured-apis/">Computer Use is 45x more expensive than structured APIs</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48024859">
-						
-							
-								<p class="story__comment_first line-clamp">"Great guidance hidden in here for making it expensive for agents to navigate your website. Move elements on screen as the mouse moves, force natural mouse movement to make the UI work, change the button labels in the JS to be randomly named every visit, force scrolling to the bottom of the screen to check for hidden extra tasks...Hang on, that sounds like common corporate SaaS apps."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m building something that fixes this exact problem[1].The landing page doesn&#39;t advertise it yet, but essentially, I give agents a small set of tools to explore apps&#39; surfaces, and then an API over common macOS functions, especially those related to accessibility.The agent explores the app, then writes a repeatable workflow for it. Then it can run that workflow through CLI: `invoke chrome pinTab`Why accessibility? Well, turns out that it&#39;s just a good DOM in general. It&#39;s structure for apps. Not all apps implement it perfectly, but enough do to make it wildly useful.[1] https://getinvoke.com - note that the landing page is targeted towards creatives right now and doesn&#39;t talk about this use case yet"</p>
-							
-						
-							
-								<p class="story__comment_others">"Is it possible to ask the vision agent to &#34;map&#34; the UI and expose it to another agent as a set of interfaces that resemble an API better? From what I understand the vision agent now should both know that &#34;next page&#34; shows more results and that they need to get more results in the first place.If one agent just explores the UI, maybe in a test environment, and outputs a somewhat-structured description of the various UI elements and their behavior, then another agent was given that description, would the other agent perform better that an agent that both explores the UI and tries to accomplish the given task at the same time?With an example UI I made up, the description (API-like interface definition) could be something like:  Get all reviews:
-
-  To get all the reviews you need to go to each page and click &#34;show full review&#34; for every review summary in that page.
-
-  Go to each page:
-
-  Start at page 1 (the default when in the Reviews tab). Continue by clicking the &#34;next&#34; button until the &#34;next&#34; button is no longer available (as you&#39;ve reached the last page).
-
-So the second agent can skip some thinking about how to navigate because it already has that skill. The first agent can explore the UI on its own, once, without worrying about messing up if there&#39;s a test environment.Or am I misunderstanding the article completely? Probably. But it&#39;s interesting nonetheless. Sorry if it makes no sense."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://us.starlabs.systems/pages/starfighter">
-						<picture>
-							<source srcset="default_48031261.webp" type="image/webp">
-							<source srcset="default_48031261.png" type="image/png">
-							<img src="default_48031261.png" alt="Preview of 'StarFighter 16-Inch'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://us.starlabs.systems/pages/starfighter">StarFighter 16-Inch</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48031261">
-						
-							
-								<p class="story__comment_first line-clamp">"Oh, is this actually out now? If so, great, but I took a quick look and didn&#39;t spot any third party review yet. For those interested in this laptop, personally I&#39;d still wait for some reviews from some real world people.Some history on this laptop:- The StarFighter 16 was originally announced back in November 2022 with an original delivery timeline of 3-4 months: https://www.reddit.com/r/linuxhardware/comments/yjuahx/star_...- Here&#39;s a 500-comment HN thread from Feb 2023 about it (3-4 months later) now with an additional 4-5 month lead time: https://news.ycombinator.com/item?id=34759507- The latest production updates only go back to July 31 2025 - they mention a 3-5 month timeline from January 2025 (seeing a pattern?): https://starlabs.kb.help/starfighter-production-updates/There&#39;s an &#34;Unboxing&#34; video from Star Labs on the StarFighter from January 22, 2026: https://www.youtube.com/watch?v=HjYJS5AJZpESo, 3.5 years later, the chassis is still neat, and good on them for plugging away I guess, but for anyone that actually needs a new computer, there&#39;s no shortage of higher-end Linux-centric laptops with a better shipping track record (Framework, Tuxedo Computers, Slimbook, etc)."</p>
-							
-						
-							
-								<p class="story__comment_others">"What an unfortunate time for these niche hardware companies to be launching new hardware. Framework, StarLabs, System76, (I wonder if Tuxedo will release something). The RAM prices must be killing them. Even if they increase prices to accommodate, I know quite a lot of folks who are simply punting any purchasing until things calm down."</p>
-							
-						
-							
-								<p class="story__comment_others">"This page shows an image of a laptop motherboard with socketed memory https://us.starlabs.systems/cdn/shop/products/B5i7PCB-01x200... but it actually has BGA soldered LPDDR5X.I wonder why the price difference between the 8845HS and the 285H is more than the cost of some complete 8845HS based systems. Also a shame one can&#39;t opt out of the storage or accessories like (yet another) measly 65W USB C+USB A GaN charger.Other than those things, it actually looks decently exciting. I love the 16:10 + high resolution. Screen brightness isn&#39;t amazing, but also better than average. Glad to see 120 hz+ across all of the options. Privacy kill switch is great but the removable magnetic webcam seems a bit overkill/complicated given the kill switch (a simple physical slide would have been plenty as well). The hardware options aren&#39;t too bad for an open/Linux focused device. 6 USB ports + HDMI + audio ports is great, given the thickness it would have been cool to throw in a built in ethernet port, SD slot, and DP out to negate most of the need for the dock.If I hadn&#39;t already bought a laptop this year this would probably be high on my list."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://blog.cloudflare.com/agents-stripe-projects/">
-						<picture>
-							<source srcset="default_48031684.webp" type="image/webp">
-							<source srcset="default_48031684.png" type="image/png">
-							<img src="default_48031684.png" alt="Preview of 'Agents can now create Cloudflare accounts, buy domains, and deploy'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://blog.cloudflare.com/agents-stripe-projects/">Agents can now create Cloudflare accounts, buy domains, and deploy</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48031684">
-						
-							
-								<p class="story__comment_first line-clamp">"The reason this blog post does not come with any concrete examples how to use this enablement for useful and constructive things tells you something very important - it is a toy and they do not know who and how they will use it.It is cool feature but to what end? Buying a domain is not something you have to do daily to require any kind of automation.I am also not sure who Stripe Atlas for. I am genuinely confused. It is definitely not something a developer will use.I understand that you can bootstrap a number of systems but that is like half-hour of work and arguably it is probably a good idea to do it manually to make sure you have strong foundations.I&#39;ve have personally never seen a good example where a cross vendor account provisioning actually working. For example, Fly.io used to provision Sentry accounts automatically which you could not access in any other way but through Fly.io. I mean the Sentry account was effectively locked to a project that you cannot transfer - hijacking the actual global alias as well. Vercel did something similar with PostgreSQL via Neon and Redis via Upstash resulting in painful migration processes.I can imagine ending in some kind of deadlock between services due to security hence why the 30 minutes initial setup is kind of time well spent to avoid future issues.Maybe it&#39;s me."</p>
-							
-						
-							
-								<p class="story__comment_others">"The agent starts a phone call, listens to the person on the line, analyzes which fraud bucket they fall into, and start the process.While they are on the phone with the agent, it buys a domain relevant to the victim, the agent codes and deploy the website specially catered to them and the fraud bucket. Collect payment, destroy the website, redirect the domain to google.com. no need to start a new call because you had several agents committing the same fraud in parallel.It can also be used to make art."</p>
-							
-						
-							
-								<p class="story__comment_others">"That is ironic. Four years ago, cloudflare didn’t let human me have an account / buy domains because I signed up, never used a single service but didn’t respond to a request to verify my drivers license&gt; This account is in violation of Cloudflare&#39;s Terms of Service. Specifically fraud. The suspension is permanent.(Yes that’s really it. Sincerely. No “but I also abused X”)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://red-squares.cian.lol/">
-						<picture>
-							<source srcset="default_48034587.webp" type="image/webp">
-							<source srcset="default_48034587.png" type="image/png">
-							<img src="default_48034587.png" alt="Preview of 'Red Squares – GitHub outages as contributions'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://red-squares.cian.lol/">Red Squares – GitHub outages as contributions</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48034587">
-						
-							
-								<p class="story__comment_first line-clamp">"Every time one of these vibe coded meme sites gets posted there’re endless comments about how it’s not actually because of load, the GitHub team is shit, their tech stack is shit, Microsoft is shit, Azure is shit, etc.Just compare the GitHub status page for public GitHub vs the enterprise cloud pages.Enterprise has much better numbers and I’ve personally can’t remember the last time there was an outage that prevented me from doing work.If the problems didn’t revolve around load, I’d expect to see the same uptime problems reflected on the enterprise offering."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Disruption with Gemini 2.5 Pro model&gt; Disruption with Grok Code Fast 1 in Copilot&gt; Incident with Copilot Grok Code Fast 1&gt; Claude Opus 4 is experiencing degraded performanceIt doesn&#39;t seem fair to blame Github for this? There&#39;s nothing they can do about it?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Weekends are the untapped frontier. Still room to scale."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.digitalfoundry.net/news/2026/05/valve-releases-steam-controller-cad-files-under-creative-commons-license">
-						<picture>
-							<source srcset="default_48037555.webp" type="image/webp">
-							<source srcset="default_48037555.png" type="image/png">
-							<img src="default_48037555.png" alt="Preview of 'Valve releases Steam Controller CAD files under Creative Commons license'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.digitalfoundry.net/news/2026/05/valve-releases-steam-controller-cad-files-under-creative-commons-license">Valve releases Steam Controller CAD files under Creative Commons license</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48037555">
-						
-							
-								<p class="story__comment_first line-clamp">"I love the readme on the gitlab page [1]. It feels so.. friendly :)&gt; This repository contains CAD files for the external shell (surface topology) of Steam Controller and the Steam Controller Puck, under a Creative Commons license. This includes an STP model of each, an STL model of each, and an engineering drawing with critical features/keep outs for each.Feel free to use these to make your own Puck holders, Controller sweaters, or whatever else you want to create!Your Steam Controller is yours, and you have the right to do with it what you want. That said, we highly recommend you leave it to professionals. Any damage you do will not be covered by your warranty – but more importantly, you might break your Steam Controller, or even get hurt! Be careful, and have fun.[1] https://gitlab.steamos.cloud/SteamHardware/SteamController"</p>
-							
-						
-							
-								<p class="story__comment_others">"It sold out in less than an hour. Scalpers are at it again. Units are showing up for as much as $300 in resell-value already. What I don&#39;t get is why their shop page just gives me an &#34;out of stock&#34; panel, instead of the purchase button. Why won&#39;t they just let me buy and pay it, and have it ship whenever? Is having customers to regularly check for new stock (and potentially missing it) better than ... just having them buy it in advance like a pre-order? I really don&#39;t get it. Like wouldn&#39;t it even make for a better forecasting indicator when it comes to resupplying?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Looks like a super cool feature for disabled players.Regular controllers are good for people with the default number of arms, legs and fingers.
-But if you have some kind of disability, it&#39;s often pretty unique.Regular game/computer controllers for disabled folks were pretty pricey last time I&#39;ve checked.AFAIK, 3d printing is not that expensive. Many places have hacker spaces or just people who print for almost free.So I guess it&#39;s a huge win for people who need accommodations. I&#39;m very happy for that!I&#39;m not disabled myself, it was just the first thought I had when I&#39;ve read the news."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://nooneshappy.com/article/appearing-productive-in-the-workplace/">
-						<picture>
-							<source srcset="default_48038001.webp" type="image/webp">
-							<source srcset="default_48038001.png" type="image/png">
-							<img src="default_48038001.png" alt="Preview of 'Appearing productive in the workplace'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://nooneshappy.com/article/appearing-productive-in-the-workplace/">Appearing productive in the workplace</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48038001">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; &#34;Requirements documents that were once a page are now twelve. Status updates that were once three sentences are now bulleted summaries of bulleted summaries. Retrospective notes, post-incident reports, design memos, kickoff decks: every artifact that can be elongated is, by people who do not read what they produce, for readers who do not read what they receive.&#34;Great article. The &#34;elongation&#34; of workplace artifacts resonated with me on such deep level. Reminded me of when I had to be extra wordy to meet the 1000 minimum word limit for my high school essays. Professional formatting, length, and clear prose are no longer indicators of care and work quality (they never were, but in the past, if someone drafts up a twelve page spec, at least you know they care enough to spend a lot of time on it).So now the &#34;productivity-gain bottleneck&#34; is people who still care enough to review manually."</p>
-							
-						
-							
-								<p class="story__comment_others">"What is described here closely resembles my experience too.My company is full of managers who haven&#39;t written code in years. They hired an architect 18 months ago who used AI to architect everything. To the senior devs it was obvious - everything was massively over engineered, yet because he used all the proper terminology he sounded more competent to upper management than the other senior managers who didn&#39;t. When called out, he would result to personal attacks.After about 6 months, several people left and the ones who stayed went all in on AI. They&#39;ve been building agentic workflows for the past 12 months in an effort to plug the gap from the competent members of staff leaving.The result, nothing of value has been released in the past 18 months. The business is cutting costs after wasting massive amounts on cloud compute on poorly designed solutions, making up for it by freezing hiring."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The first is when novices in a field are able to produce work that resembles what their seniors produce [...].
-&gt; The second is when people generate artifacts in disciplines they were never trained in.There is a third shape. Experts who have become so reliant / accustomed to AI that it dilutes their previously sharp judgment and, importantly, taste. I am seeing more and more work produced by experts which seems strangely out of character. A needlessly verbose text written by someone who was previously allergic to verbosity. An over-engineered solution (complete with CLI, storage backend, documentation, unit tests) for a trivial problem which that person would&#39;ve solved by an elegant bash one-liner only 3 years ago. The work itself is always completely immune to any rational criticism, as it checks all the boxes: extensive documentation, scalable, high test coverage, perfect code style, and for texts perfect grammar, non-offensive, seemingly objective. But, for lack of a better word, it simply lacks taste."</p>
 							
 						
 						</a>
