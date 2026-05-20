@@ -36,6 +36,324 @@
 	</div>
 
 	
+	<div class="day__date">20 May 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/karpathy/status/2056753169888334312">I’ve joined Anthropic</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48194352">
+						
+							
+								<p class="story__comment_first line-clamp">"Karpathy will start this week on Anthropic&#39;s pre-training team, which is responsible for the massive training runs that give Claude its core knowledge and capabilities, according to Anthropic.Source: https://www.axios.com/2026/05/19/anthropic-openai-karpathy-a..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I was expecting him to join Fei Fei Li&#39;s World Labs. Hope this turns out to be good for the community"</p>
+							
+						
+							
+								<p class="story__comment_others">"Funny. He foreshadowed this in a recent interview. Saying that he may fall out of touch with evolving approaches and if any of the frontier labs would have him, he’d be interested.https://youtu.be/kwSVtQ7dziU?t=47m50s"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://simonwillison.net/2026/May/19/5-minute-llms/">The last six months in LLMs in five minutes</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48188183">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; there’s zero chance any AI lab would train a model for such a ridiculous task.A lot of people here stated that this is a ridiculous metric, but no one seems to remember that it was introduced in the initial GPT report (&#34;Sparks of Artificial General Intelligence: Early experiments with GPT-4&#34; [1]) by Microsoft about 3 years ago. Shortly after that it was parroted by a network of booster accounts and became a thing every clueless AI hype peddler does to &#34;test&#34; models.100% marketing, 0% science.[1] https://arxiv.org/pdf/2303.12712"</p>
+							
+						
+							
+								<p class="story__comment_others">"I wonder how much the &#39;inflection point&#39; is a thing vs marketing. I&#39;m sure the models got somewhat better, but even now when I&#39;m trying to &#39;vibe code&#39; a game with the latest models (combination of Codex w/ gpt5.5 and gpt5.3-codex), they really do struggle.They definitely get something barebones up and running, but it&#39;s far from a fully fledged application."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The coding agents got really goodIt&#39;s since november 2025, the so called &#34;inflection point&#34;, that I&#39;m still wondering for who coding agents become &#34;really good&#34;.All I observe they got better at tool call and answering questions about big codebases, especially if the question has a vague pattern to search, and they&#39;re superuseful for that! For generating production code even with a lot of steering and baby sitting?Absolutely not, not quite there not even close in my experience.But we should stop talking about 1s and 0s, especially with marketing hype trains, there exist a gradient of capabalities that agents have that really depends on the intricacies of the codebase you&#39;re working on, I think everyone has yet to discover how to better apply these tools in their day to day work.But that totally collides with the current narrative, that flattens out our work to be always the same and that can be automated easily in each case, it&#39;s not!That&#39;s why the debate is so polizered imo, there isn&#39;t a shared experience"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5 Flash</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48196570">
+						
+							
+								<p class="story__comment_first line-clamp">"For those who would like to know the total and active parameter count of this model: even though Google doesn&#39;t disclose the model technicals, we can infer them within relatively tight margins based on what we do know.We know they serve the model on TPU 8i, which we have plenty of hard specs for (so we know the key constraints: total memory and bandwidth and compute flops). We can also set a ceiling on the compute complexity and memory demand of the model based on knowing they will be at least as efficient as what is disclosed in the Deepseek V4 Technical Report.We can also assume that the model was explicitly built to run efficiently in a RadixAttention style batched serving scenario on a single TPU 8i (so no tensor parallelism, etc. to avoid unnecessary overheads... Google explicitly designed the 8th-generation inference architecture to eliminate the need for tensor sharding on mid-sized models).We know Google intends to serve this model at a floor speed of around 280 tok/s too.Putting all these pieces together, we can confidently say this model is ~250-300B total, and 10-16B active parameters. Likely mostly FP4 with FP8 where it matters most.Visual:  ┌────────────────────────────────────────────────────────┐
+  │                   TPU 8i VRAM (288 GB)                 │
+  ├───────────────────────────┬────────────────────────────┤
+  │   Static Model Weights    │  Dynamic Allocations &amp;     │
+  │   (250B - 300B @ Mixed    │  Compressed KV Caches      │
+  │   FP4/FP8)                │  (RadixAttention / SRAM)   │
+  │   ~110 GB - 150 GB        │  ~138 GB - 178 GB          │
+  └───────────────────────────┴────────────────────────────┘
+
+I do model serving optimization work. This is napkin math.Edit: There&#39;s one factor I under-rated in my initial estimate... TurboQuant. This is a compute to KV memory use tradeoff. It&#39;s plausible with TurboQuant at a quality-neutral setting they&#39;ve gotten the model up to 400B with similar economics. This is a variable effecting concurrency and the the way they decided total model size was likely based on what they see for the average user&#39;s average KV cache depth in real-world usage."</p>
+							
+						
+							
+								<p class="story__comment_others">"The pelican is a lot: https://github.com/simonw/llm-gemini/issues/133#issuecomment...Not a great bicycle though, it forgot the bar between the pedals and the back wheel and weirdly tangled the other bars.Expensive too - that pelican cost 13 cents: https://www.llm-prices.com/#it=11&amp;ot=14403&amp;sel=gemini-3.5-fl..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Per million input/output tokens:Gemini 2.5 flash: $0.30/$2.50Gemini 3.0 flash preview: $0.50/$3.00Gemini 3.5 flash: $1.50/$9.00Interesting pricing direction. I don&#39;t think we have ever seen a 3x price increase for in the immediate next same-sized model (and lol @ 3 only ever getting a preview).3.5 flash costs similar to Gemini 2.5 pro which was $1.25/$10"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://virtualosmuseum.org/">I’ve built a virtual museum with nearly every operating system you can think of</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48195009">
+						
+							
+								<p class="story__comment_first line-clamp">"Impressive curation effort.  One comment: at least a few of the examples in the gallery seem to be of the &#34;last, greatest&#34; version, which actually isn&#39;t necessarily the greatest, and definitely not the most interesting.For example, the &#34;Domain_OS SR10.4 - 01 VUE desktop&#34; is a bit confusing, and may cause people to miss actual DomainOS.Apollo DomainOS (or Domain/IX, or simply Domain) had many unique and interesting things about it, but disappeared soon after being acquired by HP.  It looked more like it might look if you took a programmer who had mostly only seen text terminals, and gave them a megapixel display with pixel framebuffer, a mouse, and the freedom to design the keyboard hardware, and told them to make what they would want to use.VUE (around when the Unix workstation vendors collaborated on standarding on a common desktop environment) was for HP-UX , which was a very different operating system, and entirely different user experience.  More of an early attempt at let&#39;s give non-power-users an accessible computer with virtual desktops and everything.Similarly, Solaris had innovative OpenWindows (including but not limited to a networkable display system based on PostScript) before they got the common desktop environment.SunOS 4.x (retronym &#34;Solaris 1.x&#34;) and earlier could run the earlier SunView environment, which was more like monochrome early Mac than the later Open Look look and feel of OpenWindows."</p>
+							
+						
+							
+								<p class="story__comment_others">"No Pick?https://en.wikipedia.org/wiki/Pick_operating_systemMy first actual job was working for a local health authority here in the UK, and they had a Pick computer running some database application thing, I think to do with accounting. I had to run the backups. Sorry to be a whinger, I don&#39;t mean to belittle the monumental amount of work."</p>
+							
+						
+							
+								<p class="story__comment_others">"I hadn&#39;t realized Domain/OS emulation was viable these days.  It&#39;s one of the few systems that has actually &#34;lost&#34; features - the terminal-window-like thing (called pads, I think?) when in line mode had a dividing line at the bottom where your unconsumed typeahead was visible and you could continue to edit it until it got read - not just one line, the entire unconsumed input.  (Not that it&#39;s a particularly desirable feature - it&#39;s just one that I&#39;m pretty sure you can&#39;t implement with ptys...)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.apple.com/newsroom/2026/05/apple-unveils-new-accessibility-features-and-updates-with-apple-intelligence/">Apple unveils new accessibility features</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48192224">
+						
+							
+								<p class="story__comment_first line-clamp">"Apple loves to stealth test new tech in full public view by sneaking it into relatively mundane places, so debuting agentic AI via accessibility is very on brand.A few other examples:- The Touch Bar was much more than an OLED strip, it was Apple’s first move in the transition to Apple Silicon on macs. The Apple T1 chip in the 2016 Touch Bar MacBooks was the first solely Apple-designed processor to appear in a Mac and took over several responsibilities away from intel chipsets like power management, fans, sleep/wake, access to the camera &amp; mic, and the secure enclave powering touch ID. Then the T2 added encryption of the SSD, audio management, image processing for the camera, and prevented tampering with the boot process- The iPhone 3G shipped with a Liquidmetal SIM eject tool, which is made from a strong custom metal alloy which is &#34;practically unbendable by hand unless you want to hurt or cut your fingers.&#34; Although Apple hasn’t released anything with the alloy since then, now nearly 20 years later Apple is rumored to be using liquid metal in their upcoming foldable iPhone.- RealityKit had 3D scanning and a lot of other cool AR capabilities for years which didn’t make sense until the Apple Vision Pro was released."</p>
+							
+						
+							
+								<p class="story__comment_others">"A while ago I signed up as a sighted person on Be My Eyes. I didn&#39;t get as many calls as I had hoped, but I was glad to help out on the few that I could. One call was to read envelopes of incoming mail, another was to read pill bottles, and then there was the two funny guys on big cozy chairs with shopping bags of cereal boxes and wanted to know what was what. I remember one guy really didn&#39;t like one type. The app had a unique feature for the sighted person to turn on the camera of the vision impaired person.https://www.bemyeyes.com"</p>
+							
+						
+							
+								<p class="story__comment_others">"One thing Apple really needs to get right is speech to text transcription. They&#39;ve nailed accessibility in so many ways and yet it feels like they&#39;re a decade behind on properly transcribing voices. At least half a decade.Input on the iPhone is so dreadful nowadays. Their palm rejection is definitely worse than before, so mistyping is more frequent. Their text-correction algorithm for typing is worse than before, and it frequently makes incorrect corrections to words that I don&#39;t notice, because they change words a few words back from where I typed.  And STT hasn&#39;t improved. On top of that, my fingers are tired of the phone form factor. Please make the iphone not a chore to use, apple."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.npr.org/2026/05/19/nx-s1-5821265/minnesota-ban-prediction-markets">Minnesota becomes first state to ban prediction markets</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48197980">
+						
+							
+								<p class="story__comment_first line-clamp">"For the record, Minnesota currently has a complete ban on sports betting.We&#39;ve seen a couple other states that allow sports betting go after prediction markets. Personally, I feel that any state that allows sports betting is going to struggle to argue a case to ban prediction markets because you&#39;re essentially arguing over implementation details. Even arguments that certain prediction markets are ripe for insider trading or morally wrong fall a bit flat when you realize that traditional sportsbooks let you bet on things like college basketball player props and the little league world series.I&#39;m still not sure Minnesota will win their case, but it feels like that detail gives them a lot better chance of winning compared to many other states."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The prohibition extends to services supporting prediction markets, like virtual private networks, that could allow consumers to disguise their location and get around the ban.Yikes. I am all for banning prediction markets but I feel like this is overreaching."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is great news. From my perspective from someone who grew up in the 90s, America feels like we took the turn towards Biff Tannen&#39;s Pleasure Paradise. A future very fa from our promise filled with gambling, social degradation, and worse economic prospects for everyone. Gambling sites like Polymarket are just a symptom. More states need to move in this direction, because its just a tax levied on the uninformed to insider cashing in"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://superspl.at/scene/84df8849">Show HN: Gaussian Splat of a Strawberry</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48191602">
+						
+							
+								<p class="story__comment_first line-clamp">"I built PlayCanvas in 2011 to power video games. Here we are in 2026 and it&#39;s powering strawberries."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow this is a time killer... ended up here: https://superspl.at/scene/ff1d0393 beautiful!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I read [1], but I still don&#39;t quite know what I&#39;m looking at. My guess is a 3D model reconstructed from lots of detailed pictures?[1] https://en.wikipedia.org/wiki/Gaussian_splatting"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.google/products-and-platforms/products/search/search-io-2026/">Google changes its search box</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48197370">
+						
+							
+								<p class="story__comment_first line-clamp">"Nilay Patel has been talking about &#34;Google Zero&#34; - the moment when Google effectively stops sending any traffic to other sites - for a few years now: https://www.theverge.com/24167865/google-zero-search-crash-h..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t trust facts from LLMs. When I am searching for something, I usually want to find primary sources. As soon as a number is involved, I do my best to not even look at the AI output.Even though the result is often good and combines information from multiple sources, it can also get things wrong by combining information from different eras or just plain outdated advice. AFAICT, without primary sources, the result is for entertainment purposes only."</p>
+							
+						
+							
+								<p class="story__comment_others">"It’s diverged quite a bit from the original:    &lt;form method=&#34;GET&#34; action=&#34;/search&#34;&gt;
+      ...
+      
+      &lt;center&gt;
+        Search the web using Google!
+        &lt;br&gt;
+        
+        &lt;input type=&#34;text&#34; name=&#34;query&#34; value=&#34;&#34; size=&#34;40&#34;&gt;
+        &lt;br&gt;
+        
+        &lt;select name=&#34;num&#34;&gt;
+          &lt;option value=&#34;10&#34; selected&gt;10 results
+          &lt;option value=&#34;30&#34;&gt;30 results
+          &lt;option value=&#34;100&#34;&gt;100 results
+        &lt;/select&gt;
+        &lt;input type=&#34;submit&#34; value=&#34;Google Search&#34;&gt;
+        &lt;input type=&#34;submit&#34; name=&#34;sa&#34; value=&#34;I&#39;m feeling lucky&#34;&gt;
+        &lt;br&gt;
+        
+        &lt;i&gt;Index contains ~25 million pages (soon to be much bigger)&lt;/i&gt;
+      &lt;/center&gt;
+      
+      ...
+    &lt;/form&gt;
+
+https://web.archive.org/web/19981111183552/http://google.sta..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.autonocion.com/us/tesla-lithium-refinery-texas/">Tesla&#39;s lithium refinery discharges 231,000 gallons of polluted wastewater a day</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48198551">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; The permit, a Texas Pollutant Discharge Elimination System authorization known as TPDES, allowed up to 231,000 gallons of treated wastewater per day to be discharged into an unnamed ditch that flows into Petronila Creek and from there into Baffin Bay, a longtime South Texas saltwater fishing destination.Ok, so sounds like Tesla got the necessary legal provisions.&gt; What it did not do, explicitly, was grant Tesla the right to use public or private property for wastewater conveyance.I&#39;m confused, does Tesla have the right to dump water or not? I would assume that this is exactly what a permit is for?&gt; The drainage district that manages the ditch the pipe was discharging into was never notified that the permit existedThis should be on the Texas Commission on Environmental Quality; they issued the permit, so it should be on them to notify the affected area.&gt; Tesla also argues that the Eurofins sampling methodology was inappropriate, because the lab placed its sampling equipment in the ditch downstream of the outfall pipe rather than at the outfall itself. The permit requires monitoring at the outfall point, and the company has pointed out that ditch samples can pick up contaminants from sources that have nothing to do with Tesla’s wastewater.As the article itself says, that is a legitimate argument."</p>
+							
+						
+							
+								<p class="story__comment_others">"Obviously, discharging &#34;dark and murky&#34; polluted water is bad. But some of the figures from the lab report don&#39;t seem that terrible:* Hexavalent chromium at 0.0104 milligrams per liter, just above the lab’s reporting limit of 0.01 mg/L. Hexavalent chromium is classified as a known human carcinogen by the US National Toxicology Program. It is the substance the Erin Brockovich case was built around.* Arsenic at 0.0025 mg/L. That is below the federal drinking water standard of 0.01 mg/L, but present.The hexavalent chromium is also just barely above the California drinking water standard [1][1] https://www.waterboards.ca.gov/drinking_water/certlic/drinki..."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; What [the wastewater discharge permit] did not do, explicitly, was grant Tesla the right to use public or private property for wastewater conveyance. The drainage district that manages the ditch the pipe was discharging into was never notified that the permit existed.I find it kinda worrying that so much of the legal weight of this case doesn&#39;t seem to be about the untreated wastewater discharge at all but only about the detail that they used a county-owned ditch to do so.So if Tesla had dug their own ditch or built the pipe all the way to Petronila Creek, the discharge would have been no problem?(Well, that&#39;s not completely true as the additional pollutants aren&#39;t covered by the permit either - but without the ditch issue, probably no one would have commissioned an analysis of the water?)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/">CISA Admin Leaked AWS GovCloud Keys on GitHub</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48190454">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt;Valadon said he reached out because the owner in this case wasn’t responding and the information exposed was highly sensitive.obviously leaking the credentials itself is crazy, given that its (a contractor to) CISA, but to not respond when notified? crazy crazy.but wait! it gets worse somehow&#34;“AWS-Workspace-Firefox-Passwords.csv” — listed plaintext usernames and passwords for dozens of internal CISA systems&#34;while i understand and sympathize with the fact that CISA is kind of being gutted, a passwords.csv with weak passwords is inexcusable incompetence. not much budget is required for a password manager.embarrassing all around."</p>
+							
+						
+							
+								<p class="story__comment_others">"I think one thing that people are sleeping on is passing a ton of secrets to OpenAI and Anthropic or your OpenRouter by having a .env or secrets on disk in your repo, but not checked inYour LLM will happily read the entire file, ship it off to be training data for future versions of ChatGPT, and not raise any flags, because let&#39;s be fair it was on ok thing to check if all the env vars were set, or it you had set up the database password for the app.It&#39;s time for orgs to audit and rotate secrets wherever they are stored in disk or in logs, and switch to SOPS or Vault or whatever to keep these out if plaintext except exactly when needed."</p>
+							
+						
+							
+								<p class="story__comment_others">"In 2026, storing government credentials in a repo and not having scanners to flag it should be investigated. I am highly suspicious of anyone doing this in a professional capacity. If I worked at a foreign intelligence agency and saw this, I would first think it&#39;s a honeypot, and an unimaginative one because it&#39;s so lacking in subtlety."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">19 May 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -138,7 +456,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Screw GitHub for letting this happen. If they implemented some very basic requirements to comment and open PRs we wouldn&#39;t be here.Also please let us delete PRs just like we can delete issues."</p>
+								<p class="story__comment_others">"PR spam is a major problems for repo that run bounties. Maybe GitHub should temporarily block accounts from raising PRs if like 95%+ of them are getting rejected."</p>
 							
 						
 							
@@ -190,17 +508,16 @@
 						<a href="https://news.ycombinator.com/item?id=48169874">
 						
 							
-								<p class="story__comment_first line-clamp">"Related: https://github.com/jahala/tilth
-Edit: recent HN discussion: https://news.ycombinator.com/item?id=46952321"</p>
-							
-						
-							
-								<p class="story__comment_others">"What I have personally observed with such tools is that they make the AI&#39;s dumb, similar to how it makes coders dumb when relying more on AI tools.These agentic AI&#39;s are already smart enough to figure out a highly optimized path to code exploration or search. But, with these tools, they just go very aggressive, partly because the search results from these tools almost in 100% of the cases do not furnish full details, but, just the pointers.To confirm this behaviour, I did a small test run. This is in no way conclusive, but, the results do align with what I been observing:---Task: trace full ingestion and search paths in some okayish complex project. Harness is Pi.1. With &#34;codebase-memory-mcp&#34;: 85k/4.4k (input/output tokens).2. With my own regular setup: 67k/3.2k.3. Without any of these: 80k/3.2k.As we see, such a tool made it worse (not by much, but, still). The outputs were same in quality and informational content.---Now, what my &#34;regular setup&#34; mentioned above is?:Just one line in AGENTS.md and CLAUDE.md: &#34;Start by reading PROJECT.md&#34; .And PROJECT.md contains just following: 2-3 line description of the project, all relevant files and their one-line description, any nuiances, and finally, ends with this line:    ## To LLM
+								<p class="story__comment_first line-clamp">"What I have personally observed with such tools is that they make the AI&#39;s dumb, similar to how it makes coders dumb when relying more on AI tools.These agentic AI&#39;s are already smart enough to figure out a highly optimized path to code exploration or search. But, with these tools, they just go very aggressive, partly because the search results from these tools almost in 100% of the cases do not furnish full details, but, just the pointers.To confirm this behaviour, I did a small test run. This is in no way conclusive, but, the results do align with what I been observing:---Task: trace full ingestion and search paths in some okayish complex project. Harness is Pi.1. With &#34;codebase-memory-mcp&#34;: 85k/4.4k (input/output tokens).2. With my own regular setup: 67k/3.2k.3. Without any of these: 80k/3.2k.As we see, such a tool made it worse (not by much, but, still). The outputs were same in quality and informational content.---Now, what my &#34;regular setup&#34; mentioned above is?:Just one line in AGENTS.md and CLAUDE.md: &#34;Start by reading PROJECT.md&#34; .And PROJECT.md contains just following: 2-3 line description of the project, all relevant files and their one-line description, any nuiances, and finally, ends with this line:    ## To LLM
     Update this file if the changes you have done are worth updating here. The intent of this file is to give you a rough idea of the project, from where you can explore further, if needed."</p>
 							
 						
 							
 								<p class="story__comment_others">"Interesting. I too have been working in this space, though I took a different approach. Rather than building an index, I worked on making a &#34;smarter grep&#34; by offering search over codebases (and any text content really) with ranking and some structural awareness of the code. Most of my time was spend dealing with performance, and as a result it runs extremely quickly.I will have to add this as a comparison to https://github.com/boyter/cs and see what my LLMs prefer for the sort of questions I ask. It too ships with MCP, but does NOT build an index for its search. I am very curious to see how it would rank seeing as it does not do basic BM25 but a code semantic variant of it.This seems to work better for the &#34;how does auth work&#34; style of queries, while cs does &#34;authenticate --only-declarations&#34; and then weighs results based on content of the files, IE where matches are, in code, comments and the overall complexity of the file.Have starred and will be watching."</p>
+							
+						
+							
+								<p class="story__comment_others">"I did some evals with pi and GPT 5.5. I tested RTK on / headroom on / both on / both off (all with the standard pi system instructions and no AGENTS.md).I forget the exact tests I used (a couple of the standard agent evals that people use, one python and one typescript because those are what I use).I don&#39;t claim it was an exhaustive test, or even a good one. It&#39;s possible I could have spent a day or so tuning my AGENTS.md and the pi system prompt/tool instructions and gotten better results, because if there&#39;s one thing running evals taught me it&#39;s that subtle differences there can change the results a lot.However, I got clearly better results with both off, enough to convince me to stop the tests immediately after 3 rounds.The problem was that while context use did go down (sometimes), the number of turns to complete went up so the overall cost of the conversation was higher.It&#39;s made me very aware of one thing: so many people are sharing these kind of tools, but either with zero evals (or suspiciously hard to reproduce), or in the case of this one, extensive benchmarks testing the wrong thing.I&#39;m sure this tool does use fewer tokens than grep, and the benchmarks prove it, but that&#39;s not what matters here. What matters is, does an agent using it get the same quality of work done more quickly and for lower cost?"</p>
 							
 						
 						</a>
@@ -569,7 +886,7 @@ https://beconnected.esafety.gov.au/topic-library/advanced-on..."</p>
 							
 						
 							
-								<p class="story__comment_others">"Although I agree with the sentiment in the article, it smells very LLM~y. Especially the sections and punchlines. Such as: `That is not a rounding error. That is a line item that needs its own budget code.`"</p>
+								<p class="story__comment_others">"The entire problem with &#34;AI&#34; is that it&#39;s easy to do without. The AI companies know it, the users know it - even the most pro AI agent manager knows it. Thought experiment: remove AI from the world right now, all of it - what do you have? Business as usual. This article doesn&#39;t do enough to underscore that - dreaded be the day I need to get an actual engineer to review a PR, right?"</p>
 							
 						
 						</a>
@@ -1082,11 +1399,11 @@ If you haven&#39;t visited the page recently, it&#39;s worth checking out again:
 							
 						
 							
-								<p class="story__comment_others">"Well, this was fun read. Discovering such a high-ranking critical exploit within a week by coupling experts with frontier models is an amazing new journey we&#39;re about to embark on."</p>
+								<p class="story__comment_others">"So like ... I thought Mythos was just a bunch of hype? Or maybe the researchers are having their skills boosted due to using a model with such a cool name?I jest, but I did notice having more confidence to take on more ambitious work lately. We&#39;re all centaurs now."</p>
 							
 						
 							
-								<p class="story__comment_others">"So like ... I thought Mythos was just a bunch of hype? Or maybe the researchers are having their skills boosted due to using a model with such a cool name?I jest, but I did notice having more confidence to take on more ambitious work lately. We&#39;re all centaurs now."</p>
+								<p class="story__comment_others">"Well, this was fun read. Discovering such a high-ranking critical exploit within a week by coupling experts with frontier models is an amazing new journey we&#39;re about to embark on."</p>
 							
 						
 						</a>
@@ -2460,11 +2777,11 @@ I bet it&#39;s enough to paint the walls of your living room, or draw a pretty g
 							
 						
 							
-								<p class="story__comment_others">"AWS / GCP / Azure aren&#39;t for individuals or small businesses. They won&#39;t tell you this anywhere, and they won&#39;t stop you from signing up - but they simply do not care one iota about users with anything less than $100k billing per month.They treat big account owners like kings, they fly them out to Formula 1 events, they get 3 day workshops in swanky retreats, because a few k spent on this equals maybe millions of dollars.If they respond to a small business quicker they don&#39;t get anything from it. They collect a bill that if it went missing they wouldn&#39;t notice.I am not saying this is right - but people running small businesses on these platforms are operating under false pretenses."</p>
+								<p class="story__comment_others">"These arguments against AWS are boring. 99% of the negative comments are along the line of &#34;so i have a dead simple product, I dont know anything about AWS, I logged in and it was super complicated and it seemed pricey&#34;.Well guess what, if you have a CRUD website and 100 users you&#39;re just not the target. Move on.Some days ago I wanted to sketch a 3D model of my TV remote. I opened blender and what a mess of complicated windows and panes. I closed it immediatly. Do I think Blender is an over complicated mess? No, I just think I&#39;m not the target. And I&#39;m not offended to be too noob to use it."</p>
 							
 						
 							
-								<p class="story__comment_others">"These arguments against AWS are boring. 99% of the negative comments are along the line of &#34;so i have a dead simple product, I dont know anything about AWS, I logged in and it was super complicated and it seemed pricey&#34;.Well guess what, if you have a CRUD website and 100 users you&#39;re just not the target. Move on.Some days ago I wanted to sketch a 3D model of my TV remote. I opened blender and what a mess of complicated windows and panes. I closed it immediatly. Do I think Blender is an over complicated mess? No, I just think I&#39;m not the target. And I&#39;m not offended to be too noob to use it."</p>
+								<p class="story__comment_others">"AWS / GCP / Azure aren&#39;t for individuals or small businesses. They won&#39;t tell you this anywhere, and they won&#39;t stop you from signing up - but they simply do not care one iota about users with anything less than $100k billing per month.They treat big account owners like kings, they fly them out to Formula 1 events, they get 3 day workshops in swanky retreats, because a few k spent on this equals maybe millions of dollars.If they respond to a small business quicker they don&#39;t get anything from it. They collect a bill that if it went missing they wouldn&#39;t notice.I am not saying this is right - but people running small businesses on these platforms are operating under false pretenses."</p>
 							
 						
 						</a>
@@ -2677,296 +2994,6 @@ The love an art project creates in the world is incomparable."</p>
 						
 							
 								<p class="story__comment_others">"Gave me a warm feeling to know that someone would actually still bother to do this by hand. I&#39;m not the only one!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">10 May 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.bbc.com/news/articles/cp3pww9g0p5o">David Attenborough&#39;s 100th Birthday</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48061884">
-						
-							
-								<p class="story__comment_first line-clamp">"Top man, lives up on Richmond Hill and absolutely loves it - when asked about his travels and adventures and where he would choose to live, he replied, &#34;I already live there&#34;Fairly well-known locally is that my favourite bookshop, The Open Book in Richmond, stocks signed copies of all his books. They used to be signed directly on the page, but since he got to the mid-to-late nineties in age, tons of hardbacks are too much, so Helena wanders up there to get a load of bookplates signed these days.Apart from that, I order all my books from them when I&#39;m in London and a subsequent chat with Madeleine usually lasts ten times as long as the book shopping.Anyway, I digress, yes, Sir David, amazing body of works and the books are wonderful."</p>
-							
-						
-							
-								<p class="story__comment_others">"He was just mentioned on today&#39;s Lateral podcast with Tom Scott.Apparently, he&#39;s the reason tennis balls are yellow.I guess they were traditionally white but when they started broadcasting matches on TV it was too hard to see the ball.David who was at the BBC at the time suggested they use yellow balls instead so they would come through on camera.  Ever since then tennis balls have been yellow."</p>
-							
-						
-							
-								<p class="story__comment_others">"A true hero in my life. I had VHS copies of Trials Of Life that I wore out through watching over and over as a child. It opened my eyes to the world and wonder of nature. In college I started hunting down every single appearance he had listed in any filmography I could find and have a hard drive in my attic with all but a couple of his earliest Black and White appearances from the earliest part of his career. I haven’t kept up with it with the newest stuff in the past 15 or so years but I definitely need to pull that out and see if I can finalize his catalog."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://gowers.wordpress.com/2026/05/08/a-recent-experience-with-chatgpt-5-5-pro/">A recent experience with ChatGPT 5.5 Pro</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48071262">
-						
-							
-								<p class="story__comment_first line-clamp">"This jives with what I&#39;ve experienced in the brief time I had access to 5.5 Pro.  It&#39;s the very first LLM that I feel like I can wrangle into solving tedious, but straightforward, problems correctly.  It still makes a ton of mistakes and needs to be very rigidly guided, but it does a pretty good job of tracing its own reasoning and correcting itself in a way that the other models do not.The downside (not noted in the article, but noted by others here) is cost.  It uses tokens at an insane rate, the tokens cost a lot, and using it with subagent flows that you can use to have it tackle large problems with high accuracy costs even more.  It is also much &#34;slower&#34; for large scale problems because of context limitations -- it has to constantly rediscover context for each part of the problem, and in order to make it accurate you need to wipe its context before progressing to the next small part, or launch even more agents.  For mathematical proofs like these, where the required context to understand the problem and proof besides stuff that&#39;s already available in its training set is small and the problems are considered &#34;important&#34; enough, this might not be a problem, but for many of the tasks I would like to use it for (ensuring correctness of code that affects large codebases, or validating subtle assumptions) it definitely is one.So I think it will be a while before the impressive capabilities of these models really percolate into our lives as programmers, unless you&#39;re one of the lucky ones given unlimited access to 5.5 Pro."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s a very long post with a mix of technical (math) and philosophical sections. Here are the most striking points to reflect upon IMHO.&gt; It seems to me that training beginning PhD students to do research [...] has just got harder, since one obvious way to help somebody get started is to give them a problem that looks as though it might be a relatively gentle one. If LLMs are at the point where they can solve “gentle problems”, then that is no longer an option. The lower bound for contributing to mathematics will now be to prove something that LLMs can’t prove, rather than simply to prove something that nobody has proved up to now and that at least somebody finds interesting.Training must start from the basics though. Of course everybody&#39;s training in math starts with summing small integers, which calculators have been doing without any mistake since a long time.The point is perhaps confirmed by another comment further down in the post&gt; by solving hard problems you get an insight into the problem-solving process itself, at least in your area of expertise, in a way that you simply don’t if all you do is read other people’s solutions. One consequence of this is that people who have themselves solved difficult problems are likely to be significantly better at using solving problems with the help of AI, just as very good coders are better at vibe coding than not such good codersPeople pay coders to build stuff that they will use to make money and I can happily use an AI to deliver faster and keep being hired. I&#39;m not sure if there is a similar point with math. Again from the post&gt; suppose that a mathematician solved a major problem by having a long exchange with an LLM in which the mathematician played a useful guiding role but the LLM did all the technical work and had the main ideas. Would we regard that as a major achievement of the mathematician? I don’t think we would."</p>
-							
-						
-							
-								<p class="story__comment_others">"A very interesting comment from Baez, I&#39;ll just quote part of it.&gt; Where does the value of thinking and having deep ideas come from? We need to think about this now. If it comes primarily from their scarcity – the fact that having certain ideas is hard – then indeed this value may drop precipitously when the manufacture of ideas can be automated. But if the value comes from the utility of the ideas – the benefit that the idea brings – then the story changes: perhaps creating more good ideas is actually better, not worse. Here I’m using “utility” in a broad sense, not just in the sense of what people often call applied mathematics.&gt; In other words, mathematicians may need to adjust to a transformation from a scarcity economy to an abundance economy.https://gowers.wordpress.com/2026/05/08/a-recent-experience-..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://sinceyouarrived.world/taken">A web page that shows you everything the browser told it without asking</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48062178">
-						
-							
-								<p class="story__comment_first line-clamp">"* I&#39;m not in that city.* It&#39;s running a kind of Chrome on a kind of Linux, at a stretch.* Nobody can infer when I work and when I sleep. That includes me.* The recent, high-end display is the screen of a low-end tablet I bought in a supermarket five years ago.* But yes, browser fingerprinting is annoying.* Since you can detect light mode, would it kill you to honor it?"</p>
-							
-						
-							
-								<p class="story__comment_others">"I am once again asking privacy advocates to try sounding normal for once. Trying to make a browser accessing your timezone sound nefarious isn&#39;t going to convince anyone of anything."</p>
-							
-						
-							
-								<p class="story__comment_others">"Whether or not the information is accurate isn&#39;t really the point. It&#39;s that it serves as a way to identify you even without cookies. I looked for better websites, the EFF one[0] is informative.My browser fingerprint was unique among the visitors in the past 45 days.[0] https://coveryourtracks.eff.org/"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blog.archive.org/2026/05/06/internet-archive-switzerland-expanding-a-global-mission-to-preserve-knowledge/">Internet Archive Switzerland</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48074265">
-						
-							
-								<p class="story__comment_first line-clamp">"IA needs to do what Usenet has done. Have a bunch of mission-aligned but unrelated orgs (under different ownership and distributed around the world) that peer with each other, distribute all the content obtained by any of the orgs to each other, but that have no technical channel nor capability to distribute DMCA complaints and takedown requests.This is (AFAIK) basically how Usenet piracy works. You send your warez to one provider, and that provider instantly replicates them to all the providers they peer with, recursively, until they eventually reach the entire network. When any of those providers get a DMCA complaint, they remove the offending files (as they&#39;re required to do by law), but they don&#39;t inform other providers that they&#39;ve received a DMCA notice, so those providers keep serving those files. This makes it much harder to remove data from the network than it is to add it."</p>
-							
-						
-							
-								<p class="story__comment_others">"Relevant blog post: https://blog.archive.org/2026/05/06/internet-archive-switzer...&gt; Internet Archive Switzerland joins a growing group of mission-aligned organizations, alongside Internet Archive, Internet Archive Canada, and Internet Archive Europe. Together, these independent libraries strengthen a shared vision: building a distributed, resilient digital library for the world."</p>
-							
-						
-							
-								<p class="story__comment_others">"That website is really struggling. Very tempting to go to a mirror on archive.org to view it :)This seems very distinct from Internet Archive in the US, I wonder how separate it is.Internet Archive Canada (I worked there in 2024) operated like it was a subsidiary, even though I think it was technically an independent organization with some shared directors. Same Slack, same archive.org email domain, etc.IA.ch has Brewster and Caslon on the board.I suspect that for the political threats of the current decade the different Internet Archive organisations need to start operating more independently, especially when it comes to funding?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/jarredsumner/status/2053047748191232310">Bun&#39;s experimental Rust rewrite hits 99.8% test compatibility on Linux x64 glibc</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48073680">
-						
-							
-								<p class="story__comment_first line-clamp">"From 4 days ago: https://news.ycombinator.com/item?id=48019226  &gt; I work on Bun and this is my branch
-  &gt;
-  &gt; This whole thread is an overreaction. 302 comments about code that does not work. We haven’t committed to rewriting. There’s a very high chance all this code gets thrown out completely.
-  &gt;
-  &gt; I’m curious to see what a working version of this looks, what it feels like, how it performs and if/how hard it’d be to get it to pass Bun’s test suite and be maintainable. I’d like to be able to compare a viable Rust version and a Zig version side by side."</p>
-							
-						
-							
-								<p class="story__comment_others">"Very impressive that they could do this so quickly because I have been on a similar project (porting TypeScript to Rust) for 5 months. But I guess I don&#39;t have access to Mythos and unlimited tokens. I&#39;m also close to 100% pass rate. 99.6% at the time of writing.https://tsz.devRust is perfect for writing all of code using LLM. It&#39;s strict type system makes is less likely to make very dumb mistakes that other languages might allow.Also want to note that writing the code using LLM doesn&#39;t remove the need to have a vision for the design and tradeoffs you make as you build a project. So Jarred and his team are the right kind of people to be able to leverage LLMs to write huge amounts of code."</p>
-							
-						
-							
-								<p class="story__comment_others">"I just want to comment that I think it&#39;s a good change if we look past the AI involvement.Bun has had an extremely high amount of crashes/memory bugs due to them using Zig, unlike Deno which is Rust.Of course, if Bun&#39;s Rust port has tons of `unsafe`, it won&#39;t magically solve them all, but it&#39;ll still get better"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://meshtastic.org/docs/introduction/">An Introduction to Meshtastic</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48061566">
-						
-							
-								<p class="story__comment_first line-clamp">"I had never heard of this before, then last week I watched a video about it and was hooked. Now I&#39;m seeing it everywhere!Meshtastic and Meshcore are both cool LoRa-based mesh text messaging that operate in an no-license-required band. While this limits your transmit power, it doesn&#39;t prohibit encryption - the inverse of most ham radio rules!Some cities have thriving communities of Meshtastic and/or Meshcore. You can look at maps of coverage to get a very general idea - in my experience, most Meshtastic nodes are NOT listed, while a good number of Meshcore nodes are.Meshtastic treats the mesh as dynamic - clients are assumed to always be moving, so transmissions flood between different nodes that are in eachother&#39;s reach.Meshcore has a static layer - repeaters that are assumed to be in fixed positions - and a dynamic layer - companions that move. With fixed and hopefully reliable connections between repeaters, routing paths between two users can be &#39;cached&#39;, which avoid the bandwidth overhead of flood routing.You can get started with a low cost ($30) transceiver board and an SMA antenna ($10) for the ISM band of your region. Stick it in a box an mount it somewhere high up, and see if you can pick up any other nodes!"</p>
-							
-						
-							
-								<p class="story__comment_others">"We are in the South Pacific with our sailboat, and are using Meshtastic every day to talk between ourselves and with various buddy boats. The boat has a solar-powered repeater (CLIENT_BASE) on the mast that increases communications range significantly.This all works great with no local SIM cards or other subscriptions or infrastructure needed.We plan to run experiments with Reticulum when we stop for the cyclone season. Reticulum would open a lot more possibilities with both LoRa and internet-based comms. The Columba app seems to do a lot to bridge the usability gap, but work will need to be done to integrate Reticulum with our boat systems the way we have with Meshtastic (alerting, telemetry, digital switching control)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I took a plunge into learning about mesh networks, specifically because I love the idea of p2p/decentralized systems of communication. To be honest, I was surprised to find that my expectations for “where we are at” with this type of technology was pretty off-base. For some reason I thought by now it would be straightforward to do a little more than text messaging over a truly public and decentralized off-internet mesh. Maybe I’ve missed some things in my search (still learning!) and someone can correct my understanding."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://cyberinsider.com/eu-calls-vpns-a-loophole-that-needs-closing-in-age-verification-push/">EU Parliamentary Research Service calls VPNs &#34;a loophole that needs closing&#34;</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48072190">
-						
-							
-								<p class="story__comment_first line-clamp">"In case people no longer remember, when China started to require websites to register for a license before be allowed to operate, it was for &#34;protecting the children&#34; too.This simple policy then goes on to silence most individual publisher(/self-media) and consolidated the industry into the hands of the few, with no opportunity left for smaller entrepreneurs. This is arguably much worse than allowing children to watch porn online, because this will for sure effect people&#39;s whole life in a negative way.Also, if EU really wants &#34;VPN services to be restricted to adults only&#34;, they should just fine the children who uses it, or their parent for allowing it to happen. The same way you fine drivers for traffic violation, but not the road.And if EU still think that&#39;s not enough, maybe they should just cut the cable, like what North Korea did."</p>
-							
-						
-							
-								<p class="story__comment_others">"This title seems misleading.The EP paper appears to be highlighting the existence of a debate regarding VPN.Relevant quote:&#34;Some argue that this is a loophole in the legislation that needs closing and call for age verification to be required for VPNs as well. In response, some VPN providers argue that they do not share information with third parties and state that their services are not intended for use by children in the first place. The Children&#39;s Commissioner for England has called for VPNs to be restricted to adult use only.While privacy advocates argue that imposing age-verification requirements on VPNs would pose significant risk to anonymity and date protection, child-safety campaigners claim that their widespread use by minors requires a regulatory response. Pornhub and other large pornography platforms have reportedly lost web traffic following the enforcement of age-verification rules in the UK, while VPN apps have reached the top of download rankings.&#34;Of course I&#39;m not saying the EU won&#39;t regulate VPNs, but nowhere in this paper is &#34;the EU&#34; stating that VPNs need closing."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think all the identity verification schemes should start with the beneficial owners of companies.  Governments have been lobbied to allow complete anonymity for the wealthy that own businesses doing questionable things while regular people are going to have to show id to buy food."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/trq212/status/2052809885763747935">Using Claude Code: The unreasonable effectiveness of HTML</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48071940">
-						
-							
-								<p class="story__comment_first line-clamp">"My concern here is that by gravitating to HTML you lose the ability for a human (you!) to easily co-author the document with the LLM. If it’s just an explainer for your consumption, that’s not a concern - but if it’s a spec sheet for something more complex, I deeply value being able to dive in and edit what is produced for me. With a HTML doc it is much harder to do that than with MD.Now of course you could just reprompt your LLM to change the HTML - but when I already have a clear idea of what I want to say in my head, that’s just another roadblock in the way.If this pattern becomes more common I suspect human/LLM co-creation will further dwindle in favour of just delegating voice, tone and content choice to the LLM. I was surprised not to see this concern in the blog post’s FAQ."</p>
-							
-						
-							
-								<p class="story__comment_others">"When exploring a new idea or tool, my go to prompt is```
-In a single index.html, no dependencies, sparse styling, create an app that &lt;idea&gt;
-```Even before AI, it&#39;s how I built small tools, and there&#39;s something lovely about being able to email my friends the tool, and tell them &#34;If you want to make a change, toss it to your LLM!&#34;"</p>
-							
-						
-							
-								<p class="story__comment_others">"The irony of this being a Twitter post with pictures of html rendering instead of an interactive html page is not lost on me.Arguing for html on a platform with less rich semantics than markdown is just ultimately funny"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=48060054">Ask HN: We just had an actual UUID v4 collision...</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48060054">
-						
-							
-								<p class="story__comment_first line-clamp">"This is surprisingly common.The security of UUIDv4 is based on the assumption of a high-quality entropy source. This assumption is invalidated by hardware defects, normal software bugs, and developers not understanding what &#34;high-quality entropy&#34; actually means and that it is required for UUIDv4 to work as advertised.It is relatively expensive to detect when an entropy source is broken, so almost no one ever does. They find out when a collision happens, like you just did.UUIDv4 is explicitly forbidden for a lot of high-assurance and high-reliability software systems for this reason."</p>
-							
-						
-							
-								<p class="story__comment_others">"Funny story no one will believe, but it’s true. A good friend of mine joined a startup as CTO 10 years ago, high growth phase, maybe 200 devs… In his first week he discovered the company had a microservice for generating new UUIDs. One endpoint with its own dedicated team of 3 engineers …including a database guy (the plot thickens). Other teams were instructed to call this service every time they needed a new ‘safe’ UUID. My pal asked wtf. It turned out this service had its own DB to store every previously issued UUID. Requests were handled as follows: it would generate a UUID, then ‘validate’ it by checking its own database to ensure the newly generated UUID didn’t match any previously generated UUIDs, then insert it, then return it to the client. Peace of mind I guess. The team had its own kanban board and sprints."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is usually caused by an insufficently seeded PRNG.Are you generating the UUID in the backend, or the frontend? Frontend is fundamentally unreliable for many reasons, including deliberate collisions. So if that case you&#39;ll need to handle collisions somehow. Though you can still engineer around common sources of collisions, the specifics depend on the environment.On the other hand making a backend reliable is feasible. What kind of environment is your code running in? Historically VMs sometimes suffered from this problem, though this should be solved nowadays. Heavily sandboxed processes might still run into this, if the RNG library uses an unsafe fallback. Forking processes or VMs can cause state duplication and thus collisions."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.jefftk.com/p/ai-is-breaking-two-vulnerability-cultures">AI is breaking two vulnerability cultures</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48066524">
-						
-							
-								<p class="story__comment_first line-clamp">"This has been a very long time coming and the crackup we&#39;re starting to see was predicted long before anyone knew what an LLM is.The catalyst is the shift towards software transparency: both the radically increased adoption of open source and source-available software, and the radically improved capabilities of reversing and decompilation tools. It has been over a decade since any ordinary off-the-shelf closed-source software was meaningfully obscured from serious adversaries.This has been playing out in slow motion ever since BinDiff: you can&#39;t patch software without disclosing vulnerabilities. We&#39;ve been operating in a state of denial about this, because there was some domain expertise involved in becoming a practitioner for whom patches were transparently vulnerability disclosures. But AIs have vaporized the pretense.It is now the case that any time something gets merged into mainline Linux, several different organizations are feeding the diffs through LLM prompts aggressively evaluating whether they fix a vulnerability and generating exploit guidance. That will be the case for most major open source projects (nginx, OpenSSL, Postgres, &amp;c) sooner rather than later.The norms of coordinated disclosure are not calibrated for this environment. They really haven&#39;t been for the last decade.I&#39;m weirdly comfortable with this, because I think coordinated disclosure norms have always been blinkered, based on the unquestioned premise that delaying disclosure for the operational convenience of system administrators is a good thing. There are reasons to question that premise! The delay also keeps information out of the hands of system operators who have options other than applying patches."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is exactly what happened with Log4Shell.Day -X + 1: Engineer at Alibaba finds the vuln and tells Apache. Patch is pushed to git while new release is coordinated.Day -X: A black hat sees commits fixing the bug. Attacks start happening.Day 0: Memes start circulating in Minecraft communities of people crashing servers. Some logs are shared on Twitter, especially in China, of people getting pwned.Day 0 + ~4 hours: My friend DMs me a meme on Twitter. I look up to find the CVE. Doesn&#39;t exist. My friend and I reproduce the exploit and write up a blog post about it. (We name it Log4Shell to differentiate it from a different, older log4j RCE vuln)Day ~1: Media starts picking it up. Apache is forced to release patches faster in response. CVE is actually published to properly allow security scanners to identify it.Today: AI makes this happen faster and more consistently. Patches probably should be kept private until a coordinated disclosure happens post-testing and CVE being published?Hard to say what the right move is, but this is gonna be happening a lot over the next 1-3 years. Lots of companies are going to be getting cooked until AI helps us patch faster than attackers can exploit these fresh 0-days."</p>
-							
-						
-							
-								<p class="story__comment_others">"This feels more like an old problem getting reframed as an AI problem.people were already diffing kernel commits and figuring out which ones were security fixes long before llms. if a patch lands publicly, the race has basically already started.also not sure shorter embargoes really help. the orgs that can patch in hours are already fine. everyone else still takes days or weeks.if anything, cheaper exploit generation probably makes coordinated disclosure more important, not less."</p>
 							
 						
 						</a>
