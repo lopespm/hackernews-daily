@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">01 June 2026</div>
+	<div class="day__date">02 June 2026</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://hacktivis.me/articles/cloudflare-turnstile-webgl-fingerprinting">Cloudflare Turnstile requiring fingerprintable WebGL</a></h3>
+					<h3><a href="https://www.0xsid.com/blog/meta-account-takeover-fiasco">The newest Instagram “exploit” is the goofiest I&#39;ve seen</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48345840">
+						<a href="https://news.ycombinator.com/item?id=48359102">
 						
 							
-								<p class="story__comment_first line-clamp">"Cloudflare is known to use fingerprinting to detect scrapers For example, they use JA3 fingerprints and match them against the UA to block stuff like cURL while allowing OkHttp (Android clients) - but this can be easily be spoofed with packages such as CycleTLS [1].I don&#39;t want to defend them, because they gate away a good chunk of the internet with their &#34;bot protection&#34;, but unless you do PoW (which is also ecologically a nightmare), probably fingerprinting is the way to go - completely destroying the privacy of everyone involved.Cromite, a privacy conscious fork of Chromium for Android, has constantly issues with CloudFlare Turnstile [2] because they (Cloudflare) try to fingerprint it in multiple ways in order to pass the challenge. The only way to get it to work would be to join the CloudFlare Browser Developer program - which requires signing an NDA. Rightfully so, the project maintainer didn&#39;t want to do it.If you want to see the extent of what CloudFlare does to fingerprint the browsers, just have a look in the issue [2] and see which flags need to be disabled in order to allow CloudFlare to pass the challenge.I understand both sides, but at least CloudFlare could be flexible enough to fall back to PoW instead of just blocking people from sending forms or accessing websites...[1]: https://github.com/Danny-Dasilva/CycleTLS[2]: https://github.com/uazo/cromite/issues/2365"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Plus privacy.resistfingerprinting isn&#39;t enabled even when selecting &#34;Strict&#34; &#34;Enhanced Privacy Protection&#34; in the settings, great job there Mozilla.For good reason. I&#39;ve run that setting for ages but I kept having to disable it and add workarounds because websites would break in weird ways. Timezones in scheduling websites being messed up nearly made me miss a couple of appointments. There&#39;s no way to tell the user Firefox isn&#39;t broken without displaying a permanent banner like &#34;if websites are broken in any way or you see weird glitches or your computer&#39;s time is wrong or fonts look weird or videos don&#39;t always work right, click here to disable fingerprinting protection&#34;.Interestingly, Turnstile breaks with resistfingerprinting but works with fingerprintingProtection, I guess the latter takes this crap into account."</p>
+								<p class="story__comment_first line-clamp">"Support requests have always been the weakest link in the security chain for big corps. I&#39;ve had accounts of mine turned over with 2FA disabled by humans before. I guess we shouldn&#39;t be surprised that the LLMs are doing the same thing.The simple fact that 2FA can be removed by low level support staff drives me mad. It defeats the whole purpose of the process."</p>
 							
 						
 							
-								<p class="story__comment_others">"&#34;If they know you&#39;re spoofing, you&#39;re not spoofing hard enough.&#34;This stupid &#34;war against bots&#34; is going to lead to the downfall of the Internet and effectively turn it into another walled garden where only &#34;approved&#34; (anti-)user agents are allowed. Don&#39;t fall for the nonsense about &#34;AI scrapers&#34; --- it&#39;s just a way to manufacture consent."</p>
+								<p class="story__comment_others">"Who looked at password resets and went “yeah, let the chatbot handle that one”"</p>
+							
+						
+							
+								<p class="story__comment_others">"It appears the exploit hasn&#39;t been patched: https://x.com/vxunderground/status/2061636614267273332I&#39;ve heard the new &#34;method&#34; has to do with setting your location to Singapore or something, but I have yet to confirm anything."</p>
 							
 						
 						</a>
@@ -67,22 +67,24 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://twitter.com/i/status/2060746160558543217">Codex just found a &#34;workaround&#34; of not having sudo on my PC</a></h3>
+					<h3><a href="https://github.com/RedHatInsights/javascript-clients/issues/492">Malicious npm packages detected across Red Hat Cloud Services</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48348578">
+						<a href="https://news.ycombinator.com/item?id=48356625">
 						
 							
-								<p class="story__comment_first line-clamp">"Every time I try to install Docker there&#39;s a warning that being in the &#34;docker&#34; group is equivalent to having root access.You should probably know about this workaround by now."</p>
-							
-						
-							
-								<p class="story__comment_others">"I had a similar experience where I have a DB user who only has access to some parts of the DB and I use Claude Code to answer queries. On one occasion, unable to answer something, it used kubectl to try to get a secret out of a prod cluster. I was watching at the time, since that was a time I used to do that, and so I just hit Esc and interrupted it[0] but ever since then I&#39;ve had little scripts in my repos that launch kubectl-backed Claude Code instances for this sort of thing. They can&#39;t really do anything. They&#39;re kubed in.0: Ha, Eliezer, I just pulled the plug! ;)"</p>
+								<p class="story__comment_first line-clamp">"Hope it&#39;s ok I hijack this thread again about setting up cooldowns... (copy pasting my last comment when tanstack was compromised):I know people have opinions about cooldowns, but they would have saved you from axios, tanstack, (+ @redhat-cloud-services) and many other recent npm supply chain attacks. If you have Artifactory / Nexus, you probably already have cooldowns, but it&#39;s easy to set up if you don&#39;t.
+Why cooldowns? Most npm (or pypi) compromises were taken down within hours, cooldowns simply mean - ignore any package with release date younger than N days (1 day can work, 3 days is ok, 7 days is a bit of an overkill but works too)How to set them up?- use latest pnpm, they added 1 day cooldown by default https://pnpm.io/supply-chain-security- or if you want a one click fix, use https://depsguard.com (cli that adds cooldowns + other recommended settings to npm, pnpm, yarn, bun, uv, dependabot and, disclaimer: I’m the maintainer)- or use https://cooldowns.dev which is more focused on, well, cooldowns, with also a script to help set it up locallyAll are open source / free.If you know how to edit your ~/.npmrc etc, you don&#39;t really need any of them, but if you have a loved one who just needs a one click fix, these can likely save them from the next attack.Caveat - if you need to patch a new critical CVE, you need to bypass the cooldown, but each of them have a way to do so (described in detail in depsguard.com / cooldowns.dev) In the past few months, while I don&#39;t have hard numbers, it seems more risk has come from Software Supply Chain attacks (malicious versions pushed) than from new zero day CVEs (even in the age of Mythos driven vulnerability discovery)"</p>
 							
 						
 							
-								<p class="story__comment_others">"This has been a known Docker &#34;feature&#34; since the beginning, nothing new here. This pattern is used to configure host machines by some tools."</p>
+								<p class="story__comment_others">"In every of these threads there&#39;s a bunch of snarky comments, either acting like this class of attack is exclusive to npm, or that nothing has been done about it. I don&#39;t think that&#39;s fair.There&#39;s plenty of comments mentioning delay lines, and the other good stuff pnpm (and others) have implemented in response to protect package consumers.That bit that&#39;s getting less conversation is the tools on the package maintainer side:- MFA for publishing: https://docs.npmjs.com/requiring-2fa-for-package-publishing-...- trusted publishers, available for about a year: https://docs.npmjs.com/trusted-publishersAnd as of recently, staged publishing, essentially combining the best of both those features: https://docs.npmjs.com/staged-publishingNow you can:
+- Publish from CI, without static credentials- AND require a maintainer to approve it using MFA before it actually goes live to the registryIf you want you can still use something like GitHub Actions Environments protection to require multiple approvals, or a time delay, on the CI side.We need to encourage the community to adopt these publishing protections or this will continue to be an issue."</p>
+							
+						
+							
+								<p class="story__comment_others">"Our company uses yarn 4 which has an option to prevent you from installing an npm package for the first number of days of its release. Most of these seem to be caught within that timeframe (1-3 days).https://gist.github.com/mcollina/b294a6c39ee700d24073c0e5a4e..."</p>
 							
 						
 						</a>
@@ -95,22 +97,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://thesciverse.org/scientists-found-that-the-creatine-supplement-millions-take-for-muscle-gains-is-quietly-raising-brain-energy-levels-and-slowing-early-alzheimers-cognitive-decline-by-30/">Creatine raises brain energy levels and slows cognitive decline: study</a></h3>
+					<h3><a href="https://point.free/blog/gemma-4-on-a-2016-xeon/">A 10 year old Xeon is all you need</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48346947">
+						<a href="https://news.ycombinator.com/item?id=48353348">
 						
 							
-								<p class="story__comment_first line-clamp">"The article made up the claim it’s not from the paper itself.There was some improvement in cognitive scores, but no placebo group. Without a placebo group, there are a lot of explanations for the data."</p>
-							
-						
-							
-								<p class="story__comment_others">"Not something to worry for the general population, but persons with genetic likelihood of getting Parkinsons should be wary of taking both Creatine and Coffee together. https://pmc.ncbi.nlm.nih.gov/articles/PMC4573899/"</p>
+								<p class="story__comment_first line-clamp">"Hi HN. I wrote this post after getting frustrated by the lack of ways to run the new Gemma 4 Drafter models, and mainstream tools not prioritizing this, and hiding all the performance levers.I ended up getting a modern 26B MoE model (Gemma 4) running at reading speed on an old recycled server with a single Xeon E5-2620 v4 and 128GB of DDR3 RAM (and no GPU). It took a lot of work, but it actually worked out somehow.I&#39;ve also linked the quants at the end, but they&#39;re not gonna run unless you use the ik_llama-cpp fork I mention, see other posts for more details.I&#39;m not an ML engineer, so I&#39;m by no means an expert, and the server is busy acting as a Nix cache, but if you have any question, I can try to answer, but best effort."</p>
 							
 						
 							
-								<p class="story__comment_others">"The 30% figure seems to be completely made up and this whole article is adfarm-bait.The CABA trial is an 8-week single-arm pilot (no placebo). The study measured cognitive improvement over 8 weeks in a single group — not &#34;slowing of decline versus placebo.&#34; There is no 30% figure anywhere in the paper.I&#39;m glad we have AI to quickly read this kind of stuff and check these kinds of claims for us."</p>
+								<p class="story__comment_others">"We’re not there yet, but the obvious endgame of the present bubble insanity is open models running on local hardware and devices are “good enough” for most use cases. That will completely implode what’s going on at the moment in tech."</p>
+							
+						
+							
+								<p class="story__comment_others">"Nice post and technically impressive work. I agree we need to understand the build pipeline and be able to do things locally. However, depending on your electricity cost, it might not make sense financially. These old servers are not energy efficient at all (I&#39;m guessing that old Xeon server will easily pull 200W on load), and that model is currently at 0.1$/0.3$ per 1M tokens (with 76 tps and 262k context) in Openrouter (also, these servers are LOUD).EDIT: I stand corrected, 200W is apparently way too high of an estimate. I used to run a bunch of old Xeon servers and they slurped watts like crazy, but I can&#39;t remember which ones exactly those were."</p>
 							
 						
 						</a>
@@ -123,23 +125,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://specification.website/">The Website Specification</a></h3>
+					<h3><a href="https://torrentfreak.com/the-pirate-bay-remains-resilient-20-years-after-the-raid/">The Pirate Bay Remains Resilient, 20 Years After the Raid</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48343683">
+						<a href="https://news.ycombinator.com/item?id=48357154">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;Agent Readiness&#34; will likely age as well as &#34;Web 4.0 Blockchain Integration&#34; has.(To be entirely clear, not because agents won&#39;t be a relevant thing, although certainly I have my doubts, but because I believe even if they are a relevant thing, requiring special allowances from sites undermines the whole point, and such things will only end up used by bad actors to mismatch what agents see to what humans see, and so will be intentionally ignored.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;d love best practices around, say, login forms, e.g.:- use standard input field names password managers recognize
-- disable autocompletion and autocapitalization on the login field- if it&#39;s an email, use the correct HTML5 input type- don&#39;t have a form with just a login email and force the user to click to enter the password- follow NIST SP 800-53, e.g. no SMS 2FA and no arbitrary password rotation and composition rulesOr how many sites that have a form with only one input don&#39;t automatically focus on it."</p>
+								<p class="story__comment_first line-clamp">"Every once in a while I&#39;ll try to watch something through the Intended Method™ and it always proves itself to be a worse experience.Most recent example - I was watching Malcolm in the Middle on Disney+ with my girlfriend, and we found that there are entire audio tracks missing in multiple episodes. Usually some kind of ADR, like someone talking off camera. There&#39;s an episode where Reese rents an apartment and there&#39;s a recurring bit of him talking to his depressed neighbour through the wall. But you&#39;d have no idea because they somehow completely deleted the neighbour&#39;s dialogue from the audio, so it&#39;s just Reese having a one-sided conversation with a wall. We saw multiple episodes where something like this happened, and when I looked online there were reports of it dating back years.Never had an issue like that with torrenting because the people providing it care about the quality, metadata, etc. No one providing official routes to this media seems to care. You have AI-upscaled &#34;4k&#34; movies where the actors don&#39;t even look like themselves and there are hallucinated artifacts and things that aren&#39;t there. Images cropped to widescreen, like the infamous Duff Beer joke being out of frame in The Simpsons. TV series with edits or entire episodes removed because they were deemed too offensive. Movies and shows randomly appearing and disappearing so you have to endlessly manage subscriptions and switch between different apps with better or worse players just to watch a single series. Just a nightmare."</p>
 							
 						
 							
-								<p class="story__comment_others">"I think the presentation may fail to land because, on the surface, it is nearly wholly AI-generated, but also after reading through many of the entries, everything besides the Agent section seems to clearly communicate solid web hygiene and I wouldn&#39;t mind sending this to a burgeoning web developer.It is ironic though that the site itself fails to employ even its own &#34;required&#34; practices, but that&#39;s more of an aside."</p>
+								<p class="story__comment_others">"It&#39;s very strange to think about this in the current context. Anything P2P used to be the Anti Christ of the Software Industry. The lengths Microsoft and game vendors went to prevent copying is insane. Installing Windows as well as various Higher End software is a huge pain because of this.On the other hand Microsoft is very much leading with OpenAI in vacuuming any content, stripping effectively copyright claims.That being said, nowadays the only use case for me to use Pirate Bay is when I cannot get a movie elsewhere. I&#39;d pay for it but it&#39;s not possible - because of copyright..."</p>
+							
+						
+							
+								<p class="story__comment_others">"If the corporates are OK downloading content in breach of licences for training their intelligences, which apparently they are, I consider myself OK doing the same to train the model in my head."</p>
 							
 						
 						</a>
@@ -152,22 +153,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/RsyncProject/rsync/issues/929">Please Do Not Vibe Fuck Up This Software</a></h3>
+					<h3><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic confidentially submits draft S-1 to the SEC</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48342705">
+						<a href="https://news.ycombinator.com/item?id=48358646">
 						
 							
-								<p class="story__comment_first line-clamp">"This whole brigading is bizzarre and some people are behaving like irrational animals. I potentially understand the motivations that might bring one to want to &#34;win&#34; this battle but this really isn&#39;t it - it just makes you sound like a fanatic.It takes 5 minutes to search for &#34;regression&#34; on the issue page and go through the 17 results. There are potentially even more on the tracker used prior to github.I think this behavior is very silly and people are just trying to justify their hate to AI by latching onto every possible thing, seemingly forgetting that before AI people did mistakes as well.If you have proof that AI involvement in rsync has lead to a significant increase in open issues please show it to me - I&#39;ll be happy to change my mind."</p>
-							
-						
-							
-								<p class="story__comment_others">"I find the way that issue was opened incredible obnoxious, but it is baffling that the maintainers seem to have let AI loose on rsync. Like, why? Why try comparatively experimental crap when your fortune and reputation is made and you&#39;re the leader of a niche and immune to market pressure and the people love the thing and it does exactly what it&#39;s supposed to and works well?It&#39;s like the Matrix, with the little rant about the primitive human minds not being able to accept paradise. You wrote the perfect tool, you won, almost undisplaceable in a niche, reliable, a metaphorical household name. It makes no sense to anyone to gamble or mess with that, it&#39;s just mind boggling.And that&#39;s still a damn obnoxious thing to do in the formal issue tracker. Bad attitude, bad faith."</p>
+								<p class="story__comment_first line-clamp">"Up until this point, the potential for an AI bust blast radius was limited to corporate investors, but this is going to cause regular retail/401k investors to get exposure, which could have far bigger impacts on a downturn.Not to mention the insane wake-up call it is going to be for these AI stocks when 3 months after they launch they have to start making earnings calls and showing their financials. That quarter-by-quarter pressure and scrutiny is no joke, and probably the biggest downside of going public.I&#39;m bullish on AI, but kind of bearish on any specific AI company. None of the initial big dotcom companies like AOL or Yahoo survived at the scale they briefly had."</p>
 							
 						
 							
-								<p class="story__comment_others">"I truly don&#39;t get itYou have a rock solid piece of software used by an infinite amount of people and other services. It works fine, does it&#39;s job and just have some time to time updates due to minor bug fixes.Why do we need AI here?And more over, why people is saying &#34;fork it and use the previous version&#34;. It should be actually all the way around, create a parallel fork younamethetool-ai and keep the OG untouched.What I have to do now, keep a fork of my entire system&#39;s toolkit?"</p>
+								<p class="story__comment_others">"There is a mad rush to get these IPOs out the door before the market sneezes."</p>
+							
+						
+							
+								<p class="story__comment_others">"Curious how someone with a 401k, who didn&#39;t want their retirement to be used by these companies to buy at an inflated price, would go about opting out of this.Typically I just have my 401k in an index fund so that things have to become established before they&#39;re added. This seems like it&#39;s circumventing that, and I would be inclined to vote with my wallet. But everything around 401k index funds that I see are very opaque, so it&#39;s not totally clear to me how I would avoid this if I wanted to."</p>
 							
 						
 						</a>
@@ -180,22 +181,23 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://github.com/kristapsdz/openrsync">Openrsync: An implementation of rsync, by the OpenBSD team</a></h3>
+					<h3><a href="https://cs336.stanford.edu/">CS336: Language Modeling from Scratch</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48334854">
+						<a href="https://news.ycombinator.com/item?id=48357075">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;ve been using openrsync here and there since it was announced and it&#39;s definitely improved over time. I&#39;m looking forward to when I can use it exclusively.The one place in my usage where it doesn&#39;t match Samba rsync is with the following:openrsync --rsync-path=openrsync -av -e ssh /etc/services example.com:/tmp/servicesI would expect openrsync to create a remote file /tmp/services, but instead it creates /tmp/services/services.Normal directory mirroring as in -av -e ssh /path/to/src/ example.com:/path/to/dst/ works as it does with Samba rsync."</p>
-							
-						
-							
-								<p class="story__comment_others">"Given the sudden spike in vibe-coded commits to the rsync codebase, and regressions that’s introduced, this is very good news."</p>
+								<p class="story__comment_first line-clamp">"I recently completed the 2025 version of this course (video + most assignments, skipping some of the most costly part of the tasks). That&#39;s quite something. There is a lot going on in the first two assignments which required a ton of thinking and debugging. Despite having a decent foundation in deep learning, it took me several months to finish it using bits of my after-work hours and weekends. (I am not a model part-time student by any means, and sometimes I didn&#39;t get to work on this for days, but it could have been much worse.) Hard to imagine how enrolled Stanford students manage to submit assignments in two week cadence.Coming back to the course, kudos to the course staff, including professors and TAs. The obviously put a ton of thought in designing the course, putting together those slides that contain the latest updates of the field, and preparing the wonderful assignments. You get to create a real LM and explore other important parts of LLM pipeline from small building blocks and validate them, validate each step, and see for yourself how everything comes together. You can really feel a sense of achievement after completing the assignments.That said, while the staff obviously put a lot of effort into making this accessible to everyone, I wish they made a bit more effort in clarifying the environment requirement. Their harness works best on a Linux environment with NVIDIA GPU, which may be taken for granted for researchers but  rare for home computer setup. Their setup also expects specific CUDA versions and/or architectecture. For following at home, the next best setup is Windows with WSL2 + NVIDIA GPU, plus leased GPUs on various platforms, none of which is exactly trivial (or cheap, for that matter). It would be nice if the staff could put together a bit more guidance in that area, especially how someone without any compatible GPU can make the most out of the course. (One thing I learned is that if you use Mac OS and are not careful about memory analysis, your python code could freeze and force reboot your machine)."</p>
 							
 						
 							
-								<p class="story__comment_others">"There&#39;s also a Go implementation by Michael Stapelberg / the Gokrazy team: https://github.com/gokrazy/rsync"</p>
+								<p class="story__comment_others">"Couple days ago, i used Claude to implement an improved version of gpt-1. I am no ML Engineer by no means. I am just a normal backend engineer. I ended up creating a hybrid between gpt-1 and modded-nanogpt (from KellerJordan).I was able to reproduce the results of the original gpt-1 paper with my gaming PC. I don&#39;t even have alot of VRAM. My NVIDIA GeForce RTX 2060 SUPER was able to reproduce most of the results with just 1 hour of training. I would totally recommend to do the same, if you are interested in pre-training LLMs.The code is here: https://github.com/epoyraz/modded-gpt-1
+But, you can also just ask Claude 4.8 or Codex 5.5"</p>
+							
+						
+							
+								<p class="story__comment_others">"I have fond memories of cs224d [1] taught by richardsocher. It’s a bit dated at this point as it was created in the pre-transformer era, but it was a very cool introduction to applying deep learning to nlp at the time.[1] https://cs224d.stanford.edu"</p>
 							
 						
 						</a>
@@ -208,22 +210,23 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://jbkempf.com/blog/2026/dav2d/">Dav2d</a></h3>
+					<h3><a href="https://simpleflying.com/united-airlines-767-returns-newark-bluetooth-name-alert/">United Airlines 767 returns to Newark after Bluetooth name sparks alert</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48344961">
+						<a href="https://news.ycombinator.com/item?id=48345248">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;Too Many Requests&#34;- https://web.archive.org/web/20260531130034/https://jbkempf.c...- https://archive.md/ln5UE"</p>
-							
-						
-							
-								<p class="story__comment_others">"&#39;AV2 decoding is roughly five times more complex than AV1 decoding. In practice, that means software running on today’s hardware will struggle to decode AV2 in real time without careful, architecture-specific optimization&#39;AV1 software decoding is already very intensive so AV2 decoding benchmarks are the next thing that would be really interesting (or mortifying) to see."</p>
+								<p class="story__comment_first line-clamp">"I once consulted on some aviation-related software (not the safety work prominent on my resume), and a company announcement came through, that you must never use a few specific words commonly heard in software development.  The two no-no words I recall were &#34;crash&#34; and &#34;bomb&#34;.  Don&#39;t write them in code or documents, don&#39;t say them on the phone or videoconf, etc.Those terms have senses that people in aviation take extremely seriously, for extremely good reasons.  A miscommunication can trigger a lot of life-critical emergency mode sudden effort and stress for people.  Effort and stress that is occasionally extremely necessary.It made sense, once I thought of it.In this particular case, it sounds like it wasn&#39;t the teen&#39;s fault, nor even a teen being slightly edgy.  Just an innocuous product that broadcast a very unfortunate name over Bluetooth.  Not something most people would&#39;ve predicted would be a problem.Yet, under the circumstances, with the information available, it also sounds like personnel were correct to follow the processes that were designed to prevent terrible disasters."</p>
 							
 						
 							
-								<p class="story__comment_others">"A codec spec isn&#39;t done until there is at least one decoder developed in the field. So reference + 1. The field implementations often become the de facto spec.Reading the MPEG1 specs back in the 90s as a child opened my eyes to how to define complex systems. For a media coding standard, they spent most of their time saying how to interpret encoded bytes, which I realized is genius. Be descriptive about decoding and you don&#39;t have to be prescriptive about encoding. Encoding is where you can apply all the creativity, but you need to provide a way to have a shared understanding of the encoded bytes."</p>
+								<p class="story__comment_others">"According to the article, it was a Fitbit device belonging to a teenager...
+Chances are, the kid selected that nickname for the device a long while ago and forgot about it, and was probably unaware that the device was using Bluetooth at all, and that they should turn off their fitness tracker when the announcement came through...At the same time, some people in the comments under the article are more or less calling for the death penalty for the kid..."</p>
+							
+						
+							
+								<p class="story__comment_others">"It’s seems like they just reported this initially as “four letter word” and then a media outlet later assumed it was bomb. It seems more likely it was a UE Boom, which has boom in its default Bluetooth name.If that’s the case the teen likely just owned the device and didn’t knot it was turned on. It’s rather long battery and it’s not obvious if it’s on or not."</p>
 							
 						
 						</a>
@@ -236,22 +239,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://shantellsans.com/process">Shantell Sans (2023)</a></h3>
+					<h3><a href="https://tylercipriani.com/blog/2026/05/28/chuwi-minibook-x/">Chuwi Minibook X</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48341062">
+						<a href="https://news.ycombinator.com/item?id=48350598">
 						
 							
-								<p class="story__comment_first line-clamp">"Somewhere in the middle of the article, I stumbled upon a multilanguage sample and noticed that this font has wonderful Cyrillic glyphs. In my previous experience with new fonts Cyrillic usually is not as great as the latin part of the font. The exception being fonts done by foundries based in cyrillic speaking countries, like ParaType fonts [1]. Well, the last third of the article goes into the details on how they achieved it.[1] https://www.paratype.com/fonts/pt/yefimov-sans?tab=gallery"</p>
-							
-						
-							
-								<p class="story__comment_others">"the formality slider (play with it at the google fonts page linked in the article[0]) is genuinely one of the coolest uses of a variable font axis i&#39;ve seen in recent memory. it feels like we&#39;re witnessing the slow and steady vindication of metafont.[0] https://fonts.google.com/specimen/Shantell+Sans"</p>
+								<p class="story__comment_first line-clamp">"I have one of these. It&#39;s an awful piece of shit and I love it.I bought it because I was going on holiday and didn&#39;t want to take a real laptop both in case it got stolen and to dissuade me from using it. I ended up using it more than I would have a normal laptop because it&#39;s so small and easily carried.My current use case is for my commute into the office, it easily fits on the microscopic train tables and doesn&#39;t add much weight to my bag. Highly recommended."</p>
 							
 						
 							
-								<p class="story__comment_others">"The font is great. What I miss is a step forward in technology: variable glyphs. The feeling of reading a handwritten text is lost when the letters have always the same shape. If it were possible to add 5-6 little variations for each letter and alternate them randomly, it would be awesome."</p>
+								<p class="story__comment_others">"Used laptops are such a good deal that you could something high quality in excellent condition for so little that I almost can&#39;t justify buying something like this. Like used Dell XPS laptops are ridiculously cheap and they&#39;re amazing for the used price.Or really buy any laptop rated highly by Dave2D or other reviewers that&#39;s 4 to 5 years old."</p>
+							
+						
+							
+								<p class="story__comment_others">"I bought one of these last year, specifically looking for a modern take on the netbook form factor. I run PopOS on mine and absolutely love the machine. It’s a perfect travel laptop and it has largely replaced the iPad mini that I previously used as my travel companion. I sometimes use it with XReal glasses, which is great. I’ve found that a 35 watt phone charger is sufficient to charge it over USB C, so I don’t even need to carry a laptop-class charging brick.I will note that I also had the screen rotation issue described in the post, but it was easy to solve at the desktop environment level in COSMIC. I didn’t bother dealing with it elsewhere because I honestly don’t mind if the grub menu is sideways."</p>
 							
 						
 						</a>
@@ -264,22 +267,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://prismml.com/news/bonsai-image-4b">1-Bit Bonsai Image 4B Image Generation for Local Devices</a></h3>
+					<h3><a href="https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md">AI Agent Guidelines for CS336 at Stanford</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48346257">
+						<a href="https://news.ycombinator.com/item?id=48359232">
 						
 							
-								<p class="story__comment_first line-clamp">"Twenty years ago, I don&#39;t think any of us were excited about a future internet where we couldn&#39;t trust whether what we were seeing or reading was genuine. I hope one day we&#39;ll be able to look back on this era as an aberration, like that scene in Mad Men where the Drapers fling their picnic rubbish onto the grass and drive away."</p>
-							
-						
-							
-								<p class="story__comment_others">"I actually can’t wait for the future where I upgrade hardware in order to upgrade my ai as an alternative to an expensive subscription.There are many problems I want to work on which require billions of tokens. These are completely inaccessible without corporate project sponsorship at the moment. An asic generation machine which can pump out a few 10s of thousands of tokens per second at opus4.6 quality is more than sufficient."</p>
+								<p class="story__comment_first line-clamp">"I&#39;m trying something similar this semester with my course via AGENTS.md. I think this one is overly verbose and probably falls out of context windows pretty quickly, based on my experience (for me, a very terse but clear set of 30 lines performed better than providing examples and more nuanced explanations during my testing with a few models).I have included the basic &#34;I am a student -- help me learn, don&#39;t just do everything for me,&#34; but I also am trying out telling it to generate a .history folder with a markdown history of every prompt and a summary of the action take in response.I _know_ there are some tools that offer the prompt history automatically, but I&#39;ve told students they can use _whatever_ tool they want, but should let me know if the folder isn&#39;t showing up as they work.The .history folder is required if they used AI and I intend to review it and try to give specific feedback to the students using it as too much of a crutch.I just started this last Friday, so wish me luck!"</p>
 							
 						
 							
-								<p class="story__comment_others">"I saw &#39;1-bit&#39; and my mind first went to 1-bit dithered B&amp;W image generation, not 1-bit model weights....and so now I&#39;m wondering how cool /fast / compressed a diffusion image generator could be if the images it was trained on / space it worked in was limited to 1 bit (Floyd-Steinberg / Atkinson / your favorite algo here) dithered images.Training would surely be pretty quick and probably fit onto one modern GPU."</p>
+								<p class="story__comment_others">"For those using Claude Code, I recommend Learning mode to instruct Claude to walk you through implementing the solution yourself rather than doing it for you. It’s very helpful when diving into a new domain, and helps build lower level intuition.To enable it, run /config &gt; output styles &gt; Learning"</p>
+							
+						
+							
+								<p class="story__comment_others">"This seems somewhat sensible to me - the genie _is_ out of the bottle, and students absolutely will use AI agents to finish assignments without learning a thing, but there is some value to showing how agents can be used as teaching tools and what healthy use _can_ look like"</p>
 							
 						
 						</a>
@@ -292,22 +295,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://ziglang.org/devlog/2026/#2026-05-26">Zig: Build System Reworked</a></h3>
+					<h3><a href="https://www.nvidia.com/en-us/products/rtx-spark/">Nvidia RTX Spark</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48334048">
+						<a href="https://news.ycombinator.com/item?id=48352939">
 						
 							
-								<p class="story__comment_first line-clamp">"I just upgraded some code to Zig 0.16.0 and I am actually really happy with the results. It impacted A LOT of things, but the changes were actually very good and seems to have set the language for a bright future, especially with the new IO mechanism which allows supper efficient code that looks good whether it&#39;s implemented single-threaded, multi-threaded or just via an event loop!If you haven&#39;t tried Zig since 0.16.0 was released, I highly recommend having a look. The release notes for this release were huge!!https://ziglang.org/download/0.16.0/release-notes.html"</p>
-							
-						
-							
-								<p class="story__comment_others">"After having used Zig for a couple of months now I am convinced it is a fantastic tool language. You just pick it up to hack some idea together freely. Every time I hit a wall, I find the creators have thought of it already and offers comfort. But nothing gets in your face how to use the programming language &#34;correctly&#34;.For me it is now the go-to &#34;tinker in my garage&#34; language."</p>
+								<p class="story__comment_first line-clamp">"Lots of comments are expressing skepticism about compatibility but it&#39;s pretty cool how Nvidia has the clout to convince a bunch of game publishers and creative apps to release Arm versions. Popular games like League of Legends as well as stuff like Adobe Photoshop and Premiere are getting native Arm ports.&gt; Over 100 Windows software providers such as Adobe, Blackmagic Design, Blender, CapCut, ComfyUI and OTOY, and game developers such as KRAFTON, NetEase, Remedy Entertainment, Riot Games and XBOX are embracing the new RTX Spark platform. [...] NVIDIA is partnering with Adobe to rearchitect Adobe Premiere and Photoshop for RTX Spark. [0]&gt; Gaming on Arm is finally coming of age thanks to the NVIDIA partnership. Native anti-cheat solutions from Epic and BattlEye are fully supported on the RTX Spark platform. Major developers are jumping on board, with Riot Games bringing League of Legends and Valorant natively to the architecture, alongside KRAFTON bringing PUBG Battlegrounds. [1]Also, Nintento Switch is an Nvidia/Arm gaming device so many game publishers already have some experience with the combo.[0] https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-...[1] https://www.windowslatest.com/2026/06/01/microsoft-builds-it..."</p>
 							
 						
 							
-								<p class="story__comment_others">"After watching Andrew Kelley&#39;s interview video makes me want to pick up Zig: https://www.youtube.com/watch?v=iqddnwKF8HQ"</p>
+								<p class="story__comment_others">"I added an R9700 32GB to my 10+ year old desktop that had a 980 4GB card in it, for a grand total of $1350 or so. The payoff compared to what I was using with GHCP was 33 months, but when GHCP announced their price increase, it basically became a 3 month payoff at minimum (so yes, GHCP did a 10x price increase for non-parallel agentic workflows)I can easily run Qwen3.6 35B-A3B with Q5_K_M with a 260k+ context window with some vram to spare. It easily runs probably 80tps. It took me quite a while to find theCompared to GHCP Claude Sonnet 4.5 or 4.6, I have full parity. The wall clock time is faster for agentic workflows, and rule following is about on par.With either, doing something kind of novel or obscure takes more hand holding compared to just generate a GUI or crud app. For example, trying to build an actual program that performs a complicated process correctly requires quite a bit of hand holding to get it to properly help.Sure, it isn&#39;t Opus or something, but I think with the right harness, it probably can get close. I think most of the issues these days is the harnesses are lacking."</p>
+							
+						
+							
+								<p class="story__comment_others">"Some competition for Apple in this space and competition for Intel and AMD is great.But I really do question how well Windows on Arm is really going to work out long term.For Apple it worked because they were able to force the issue. If you wanted a new Mac it was going to be Arm and we all knew eventually (this year or is it next year?) Intel support would drop. Over time we have seen M series exclusive features.Developers were forced to update or abandon Mac which gave users a great experience (with some early growing pains).This is something that Windows will never be able too do. They will always be stuck maintaining an emulator and a likely large subset of apps only supporting one over the other. (also does this work the other way around with an Arm only app working on x86?)This seems like a repeat of when it was not uncommon for games to only support Intel or AMD or NVIDIA or AMD. But worse since they are not both x86. Sure at least we have emulation but just like with Rosetta2 it shouldn&#39;t ever be the long term solution."</p>
 							
 						
 						</a>
