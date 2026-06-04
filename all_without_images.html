@@ -36,6 +36,297 @@
 	</div>
 
 	
+	<div class="day__date">04 June 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B: A unified, encoder-free multimodal model</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48385906">
+						
+							
+								<p class="story__comment_first line-clamp">"I ran the Q4 quant (used with llama.cpp) though my &#34;minesweeper&#34; vibe-coding benchmark: https://senko.net/vibecode-bench/2026/minesweeper-gamma-4-12...The result is decent, but it had a few bizzare/trivial syntax errors I had to fix manually: it would do an extra closing bracket or paren a few times, and wanted to separate function definitions with comma. Not sure what that was about, but otherwise the output run just fine.So, with those qualifiers, I think it&#39;s a decent local coding model. It roughly compares with GPT-4.1 (!!), released 14 months ago, on the output: https://senko.net/vibecode-bench/2025/minesweeper-gpt-4.1.ht... (actually I&#39;d call it better, but those syntax errors...)I ran the quantized version (4-bit GGUF) on my consumer-grade card with 12G of VRAM and got 5t/s for output. Not for interactive use for coding, but fairly capable model.To me, it&#39;s fascinating how much progress we got in over a year. GPT-4.1 was considered an extremely capable coding model. Now we got something with 12B of params performing roughly the same (in this specific benchmark, disclaimers, etc).Lists of various models I tested: https://senko.net/vibecode-bench/"</p>
+							
+						
+							
+								<p class="story__comment_others">"The big story here is the encoder-free part, which I still don&#39;t fully understand.&gt; Vision: We replaced Gemma 4’s vision encoder with a lightweight embedding module consisting of a single matrix multiplication, positional embedding and normalizations.That&#39;s technically encoding, just without using a dedicated model for it like SigLIP? The Developer&#39;s Guide elaborates, it&#39;s still a 35M layer which I am curious is robust enough. https://developers.googleblog.com/gemma-4-12b-the-developer-...&gt; Small enough to run locally on consumer laptops with 16GB of RAM, it unlocks powerful multimodal and agentic experiences right on your machine.I am assuming that involves quantization, which due to the quality loss makes that statement somewhat misleading IMO."</p>
+							
+						
+							
+								<p class="story__comment_others">"We are now entering the closed loop game. Google doesn&#39;t need anyone else to accelerate their models. This is their bread and butter.I&#39;m both shocked but also not surprised that they continue to develop such efficiencies. Honestly it&#39;s like silicon and CPU architecture advancement. We kept shrinking it and shrinking it and it kept getting more and more powerful and here we are with AI and it&#39;s only going to be 100x more efficient with time. Maybe there&#39;s some point of decay but essentially the next 30 years will be more advanced than the last 30 and were going to be living in some sort of futurist blade runner scenario where gene editing is repairing ageing cells, organs and curing all sorts of cancers that haven&#39;t even appeared yet. Beyond our lifetimes people will live to 125 quite steadily and with great mobility and then obviously people will look to how do we get to living 1000 years, which of anyone is religious knows Noah and others lived to that age in a totally different era.Anyway I&#39;m going off on some tangent but look back 30 years. Now look forward 30 years. It&#39;s going to be insane. May God protect us."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://elixir-lang.org/blog/2026/06/03/elixir-v1-20-0-released/">Elixir v1.20: Now a gradually typed language</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48388324">
+						
+							
+								<p class="story__comment_first line-clamp">"I wanted to use functional programming in actual projects and Elixir&#39;s lack of static types almost stopped me from picking it up initially.I tried it out and, although I do miss static types sometimes, immutability and not having to deal with inheritance and other OO abstractions has made the trade-off worth it for me.Yes some people do claim that pattern matching makes up for the lack of static types. I don&#39;t agree with that, but can say that anecdotally the number of type related bugs I notice in *my* Elixir code is much lower than the number of similar bugs I used to write in languages like Python. Whether that&#39;s because of common usage of pattern matching, or community adherence to patterns like returning tuples of {:ok, result} | {:error, error}, or something else is anyone&#39;s guess.An important point not in the heading is that gradual typing has been added without any new language syntax.It&#39;s still not statically typed. Maybe it never will be, but this is a step in the right direction and at least they&#39;re trying."</p>
+							
+						
+							
+								<p class="story__comment_others">"Oooh, here we go! As a professional Elixir developer for... 10-ish years now, I&#39;ve been super excited about types coming. I&#39;m very excited that the beginnings have started to land here.That said, I would love to know how the state of what&#39;s in v1.20 compares to un-spec&#39;ed dialyzer. I was under the impression that dyalizer&#39;s &#34;success typing&#34; approach (not flagging a function if there are some combination of parameters such that it works, rather than flagging it if some combination of parameters can make it fail) was like what Elixir is doing here, and I haven&#39;t found dialyzer terribly useful."</p>
+							
+						
+							
+								<p class="story__comment_others">"Honest question, in the era of vibe and AI assisted coding is there any advantages of using untyped programming languages, apart from the fact that non-typed languages has more traning data for the LLM?This probably controversial, but personally I consider untyped languages as technical debts that need to be fixed sooner or later, and the OP article is partly addressing this very issue.Rewriting critical software infrastructure (infostructure) to more reliable typed languages happened to most of the Ruby on Rails (RoR) software unicorn stacks for examples Twitter, Airbnb and Shopify to name a few [1],[2],[3].The main reason provided for these migration is transitioning away from monolith architecture, but almost all of the new programming languages being used are typed thus make it obvious that the untyped languages are not performant and difficult to scale even by changing the architecture.[1] Why did Twitter move away from Ruby on Rails?https://www.quora.com/Why-did-Twitter-move-away-from-Ruby-on...[2] How Airbnb Scaled by Moving Away From a Rails Monolith:https://www.reddit.com/r/programming/comments/1756q7z/how_ai...[3] Is Shopify shifting away from Rails?https://news.ycombinator.com/item?id=33409597"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bbc.com/news/articles/c93x0k194yno">Meta workers can opt out of being tracked at work up to 30 min</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48383220">
+						
+							
+								<p class="story__comment_first line-clamp">"Reminds me of one of the more brilliant passages in Snow Crash, describing work in &#34;Fed Land&#34;...&#39;&#39;&#39;Y.T&#39;s mom pulls up the new memo, checks the time, and starts reading it. The estimated reading time is 15.62 minutes. Later, when Marietta does her end-of-day statistical roundup, sitting in her private office at 9:00 P.M., she will see the name of each employee and next to it, the amount of time spent reading this memo, and her reaction, based on the time spent, will go something like this:Less than 10 min. Time for an employee conference and possible attitude counseling.10-14 min. Keep an eye on this employee; may be developing slipshod attitude.14-15.61 min. Employee is an efficient worker, may sometimes miss important details.Exactly 15.62 min. Smartass. Needs attitude counseling.15.63-16 min. Asswipe. Not to be trusted.16-18 min. Employee is a methodical worker, may sometimes get hung up on minor details.More than 18 min.  Check the security videotape, see just what this employee was up to (e.g., possible unauthorized restroom break).Y.T.&#39;s mom decides to spend between fourteen and fifteen minutes reading the memo. It&#39;s better for younger workers to spend too long, to show that they&#39;re careful, not cocky. It&#39;s better for older workers to go a little fast, to show good management potential. She&#39;s pushing forty. She scans through the memo, hitting the Page Down button at reasonably regular intervals, occasionally paging back up to pretend to reread some earlier section. The computer is going to notice all this. It approves of rereading. It&#39;s a small thing, but over a decade or so this stuff really shows up on your work-habits summary.&#39;&#39;&#39;"</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s always been hard to know the extent of how draconian tracking actually is (IT pros tend to not talk about it much).In the US, there&#39;s the expectation that when you use an employer-provided device that any and all activity on it can be fully monitored/recorded and used against the employee for any reason. In practice, however, few people worry about reasonable amounts web-surfing, being on hacker-news or doing life-activities on their work machines. Oh, here I am on hacker-news when I should be working.With AI, this changes significantly since the man can now employ a robot to categorize and finely scrutinize every little thing with the pretext of &#34;training&#34; (to take your job). We will soon have to brace ourselves for an absolute draconian level of tracking."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t work for Meta, but how many more years do I need to work in tech? I&#39;m in my 40s and my kids are young. I&#39;ve already set up 529s for them, and am paying for some expensive home upgrades. Maybe when that is finished and I&#39;ve built up a buffer I can switch industries for the last 5-10 years of my working life. Curious if anyone here has any similar plans."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.nns.ee/2026/06/03/katana-badusb/">Pwnd Blaster: Hacking your PC using your speaker without ever touching it</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48382310">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt;Email from SingCERT stating vendor &#34;do not consider this to be a vulnerability, as it does not present a cybersecurity risk.&#34;So wirelessly writing custom firmware to someone else&#39;s device that is connected via USB to their computer without even needing to pair is not a security vulnerability. Yea."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a well written article and easy to digest, worth a skim.In summary he figured out how to reflash arbitrary firmware on a Creative Sound Blaster Katana V2X soundbar via Bluetooth, without requiring any effective authentication or user interaction.The soundbar is plugged directly into its host computer via USB, so by adding a descriptor to its firmware he made it recognized as a keyboard.  From there it was straightforward to have it send keystrokes to the PC.  The soundbar is equipped with a mic, so an adversary could turn it into an eavesdropping device.He reported it to Creative and SingCERT.  Neither him or SingCERT got any meaningful response from the company until 2 months later, eventually saying &#34;they do not consider this to be a vulnerability, as it does not present a cybersecurity risk&#34;.He released a firmware patcher that disables the flawed transport protocol.  It&#39;s a bit of a sledgehammer that likely also breaks functionality of the official Bluetooth app, but seems like the best he could do without cooperation from the manufacturer."</p>
+							
+						
+							
+								<p class="story__comment_others">"It is quite common to find device manufacturers, even those of many years standing, who _appear to_ begin with the device and add the software as an afterthought. Paying little attention to security or even the software lifecycle (patches, updates, the changing landscape/ecosystem). I have even known it happen that the device brand subs out the software to a random small developer, who then closes up shop/dies/gets out of that business, and the device company doesnt even have the source code, let alone any ability to further improve/fix the software that drives their device. This leads to layers upon layers of subsequent middleware, UIs, shims etc."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://blog.ammaraskar.com/github-token-stealing/">1-Click GitHub Token Stealing via a VSCode Bug</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48371562">
+						
+							
+								<p class="story__comment_first line-clamp">"This is a very good writeup.Zooming way out (perhaps to the point of useless observation), it&#39;s a pity that the web embedded VSCode editor is signed into GitHub at all. Defense-in-depth or not, a huge vulnerability surface arises from that original sin. It&#39;d be like if you had a god-permissioned GitHub API token stored in world-readable plaintext on your workstation for the malicious-NPM-package-of-the-week to find.In a perfect world, it&#39;d be awesome if the in-browser IDE launched with a temporary per-repo permission scope or token that allowed only pull and push to the repo in question; no github.com web session whatsoever. If you want the full GitHub web UI experience, well .... go back to github.com; make github.dev a single-repo service.I&#39;m assuming that&#39;s a) inconvenient for users, b) hard to implement, and c) a historical assumption baked into a lot of the github.dev tooling, though. Ah well."</p>
+							
+						
+							
+								<p class="story__comment_others">"Update as of 3rd June: Microsoft has fixed this with a stopgap  fix by adding a confirmation when opening notebooks in web VSCode and not allowing trusted publisher to be skipped by commands (https://github.com/microsoft/vscode/pull/319705).That&#39;s probably one of the fastest responses I&#39;ve seen from a vendor."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; the last time I interacted with MSRC regarding reporting a VSCode bug, it was a horrible experience where they silently fixed the bugClassic MSRC. It has figured out that researchers will report for free regardless. Why change?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://burntsushi.net/encephalitis/">I was recently diagnosed with anti-NMDA receptor encephalitis</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48384355">
+						
+							
+								<p class="story__comment_first line-clamp">"My ex has mast cell activation syndrome. We would have to call for an ambulance 3-4 times a month because some days eating a grape could cause her to go into anaphylactic shock. She was allergic to whatever her body felt like at any given time.She was misdiagnosed/undiagnosed for 18 years. I was baffled by this, and I myself have spent numerous hours down the rabbit hole of nootropics, and had a DNA test and was researching myself and how things work and how supplements affect your body and such for sometimes 12 hours a day. (Chronically unemployed, chronically ill.)We got her a DNA test and I went to work researching everything and comparing the possibilities to her symptoms, we tried countless different supplements that could help... And eventually one did, it wasn&#39;t a cure but it was a relief she had never felt before. That was Quercetin, which is a mast cell stabilizer. It took about 2 years of research and trial and error to find some relief. We took our findings to the doctor and finally got a referral to an internal medicinist who promptly after hearing the symptoms and what has helped diagnosed her and she was out on a proper mast cell stabilizer. She went from being in bed 20 hours a day to being able to fully enjoy life. (Sadly, without me though!)"</p>
+							
+						
+							
+								<p class="story__comment_others">"My wife has a cardiac autoimmune disease that was similarly misdiagnosed (including an appalling “it’s all in your head” from her family MD at the time). We underwent a year of immense stress. Just days before her probable death, she had a pacemaker and defibrillator installed, which saved her life.I’m not entirely sure why I’m mentioning this, other than I sympathize deeply with your wife. What an absolute ordeal."</p>
+							
+						
+							
+								<p class="story__comment_others">"One thing that may be intriguing is that this is a relatively new diagnosis (first described in 2007).There&#39;s so much medicine to discover and we need to keep supporting a biomedical research enterprise that can find reversible treatments to disorders that would otherwise be difficult to treat (his symptoms, for example, would be thought of as a schizophrenia manifestation in another era)https://pmc.ncbi.nlm.nih.gov/articles/PMC2607118/"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://maxleiter.com/blog/weights">&#34;They&#39;re made out of weights&#34;</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48391611">
+						
+							
+								<p class="story__comment_first line-clamp">"The weights start with a random manifold. 
+The training takes data and shapes the manifold, weight by weight, in many cycles. 
+Once the training is the done manifold is fixed.When a new inference has to be done the query(q) is projected in the manifold space.
+This projection is dropped on the manifold and the gravity of the manifold gives an answer of q+1 length. 
+Which(qw+i) is dropped qw+n times to output a final response of n length.The gravity is created by repeated multiplication(of the weights/input) to find out how the projected embeddings should fall according to the manifold in the GPU."</p>
+							
+						
+							
+								<p class="story__comment_others">"The original story is an original work made by a human consciousness exploring how it might be different from other forms of consciousness.This one is a pastiche made by a human consciousness borrowing extremely heavily from another human consciousness justifying why something else might be another form of consciousness.That rather undercuts the point; if this was generated by an LLM unprompted, it would be different, but it isn&#39;t. You could perform exactly the same rhetorical trick with a toaster or anything else."</p>
+							
+						
+							
+								<p class="story__comment_others">"After reading Being and Time from Martin Heidegger, What Computers can&#39;t still do by Hubert Dreyfus, and some authors in cognitive linguistics (Langacker and Lakoff mainly), I strongly tend to disagree with any theory about emergent consciousness in modern or future AI systems, any theory proposing a similarity between AI systems and the human brain/mind, or any theory about the computational mind.
+What all these theories have in common is the underlying belief that our brain/mind works as the machines we build. Is the same underlying assumptions that treats cells as machines, our body as a complex machine. These theories are flawed in the sense that they cannot account for subjective experience and agency, amongst other things. The idea of &#39;internal models&#39; and &#39;control loops&#39; inside us is a projection of the aforementioned assumption.There is also an epistemological assumption that prevails, and that is that we understand (or we think we understand) how our brain/mind works. But the truth is that we don&#39;t know. And there&#39;s even not a single clue that we actually know too much, and not a clue that our brain/mind and cells work &#39;as the machines we build&#39;. Only by bypassing this epistemological problem, we can build &#39;theories of computational mind&#39;.These assumptions are there for already long time, to the point that when Turing asked himself &#39;can machines think?&#39;, he already assumed our thinking could be modeled as a machine.I highly recommend people in the AI research space should read philosophy and modern linguistics. But not stopping at Descartes/Leibniz. Heidegger made contributions that cannot be avoided."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.lumafield.com/scan-of-the-month/byd">CT scans of BYD car parts</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48375824">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve got a friend whos a master tech/trainer with our state automotive body, and is HV certified etc for dealing with these cars. He&#39;s currently got a BYD Shark strewn across his workshop for an autopsy.I have to say I&#39;m super impressed with how heavy duty everything is. The control arms, subframes, etc all look good and don&#39;t fit the &#39;chinese car bad&#39; narrative you always hear. The powertrain components all look to be extremely high quality.I&#39;ve poked around a few EV&#39;s with him now, and I do feel like the Chinese market cars are evolving to a really good standard faster than their Korean counterparts did back in the 80s/90s."</p>
+							
+						
+							
+								<p class="story__comment_others">"This was stated about the key: &#34;Folded into the base is a mechanical backup key, a flat metal blade in a hinged housing.&#34;I own a BYD: this is not true. The key is not hinged; rather, the entire mechanical key pulls out when a small clip is unlatched near the top of the assembly (you can see it in the CT). I assume the circular hinge-looking mechanism in the CT is just a by product of the plastic/metal weld process.Nonetheless: very cool tech demo!"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; The last company to vertically integrate a car from raw material to finished product at this scale was Ford. Today BYD’s system runs all the way from the lithium mine to the port.Both BYD and Tesla claim to produce around 75% of their components. Ford is at around 25%.Tesla is indeed smaller in scale (cars/year):  BYD 4.6M
+  Ford 4.4M
+  Tesla 1.6M"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://simonwillison.net/2026/Jun/3/uber-caps-usage/">Uber&#39;s $1,500/month AI limit is a useful signal for AI tool pricing</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48383056">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; I noted that my own token usage comes to about $1,000/month against each of Anthropic and OpenAI - which currently costs me just $100 per provider thanks to their generous subsidized plans for individual subscribers.Do we know that AI providers are going to keep these per-token prices, or eventually lower them because of competition from China?Many lower-budget individuals are now moving to China open weight models like DeepSeek. I wonder if China&#39;s really subsidising the providers, or if inferencing costs are actually much lower, and Anthropic/OpenAI are just making sure no money&#39;s left on the table for their eventual IPOs."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; That means each employee&#39;s AI spending cap is ~11% of that median compensation package.Probably better to use the fully-loaded cost of the engineer, which is much higher than their compensation package. The fully-loaded cost is the total cost paid for the labor power of the engineer, and it includes big ticket items such as office space, food, equipment, insurance, payroll tax, fringe benefits, recruiting costs.If the median compensation package is $330k/year then the median fully loaded cost is probably around $450-500k."</p>
+							
+						
+							
+								<p class="story__comment_others">"How many more months do we need to wait, until big companies realize that flash models work just fine if you:1) Don&#39;t ask LLMs for big changes2) Review everything and point them in the right directionLarge models still suck at big changes, they produce questionable architecture and you still have to review the code, if your project is serious enough.The codebase quickly become a mess, if you don&#39;t pay enough attention. Does not matter which model.So why bother with big models, when flash models are 10x cheaper and much faster to iterate under guidance? Large models can be used for security and bug audits. Flash models work almost the same for changes under 300 LOC when you dictate how you want your code to look."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/c0dejedi/nbd-vram">Use your Nvidia GPU&#39;s VRAM as swap space on Linux</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48377404">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Built for laptops with soldered memory and no upgrade path. If you have an RTX card sitting there with 8GB of VRAM and you&#39;re getting swapped to SSD, this puts that VRAM to work.Well, that does at least answer my immediate question about why I would ever swap from expensive RAM to really expensive RAM:) Feels niche, but when you want it it&#39;s a good idea."</p>
+							
+						
+							
+								<p class="story__comment_others">"Nice idea, but something has gone very wrong here:&gt;Sequential throughput: ~1.3 GB/s[on a RTX 3070 Laptop]This RTX 3070 chip is on PCIe 4.0 x16 which should give 64GB/s. The 8GB of GDDR6 is 448GB/s.Swapping to an NVMe drive would be twice as fast, but with higher latency."</p>
+							
+						
+							
+								<p class="story__comment_others">"Given my dev machine has 32GB of RAM and 32GB of VRAM that sits mostly idle when I&#39;m not running AI models, this is not that bad of an idea."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">03 June 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -81,11 +372,11 @@
 							
 						
 							
-								<p class="story__comment_others">"Exactly the same problem manifests itself in Google Docs.Hit RETURN. New paragraph. Begin considering what you will write. Prompt pops up: “Help me write.”  Every time.It’s incredibly distracting and turning it off is hard wired into disabling about 1000 other features."</p>
+								<p class="story__comment_others">"I can appreciate LLMs for some use cases, but writing emails for the user is the one that really baffles me.It&#39;s one thing if you don&#39;t speak English well and could use some help making yourself understood, but the amount of native speakers using this is so strange to me. How does this help you? If you can write to the LLM telling it what kind of email to write, you might as well just write the email."</p>
 							
 						
 							
-								<p class="story__comment_others">"I can appreciate LLMs for some use cases, but writing emails for the user is the one that really baffles me.It&#39;s one thing if you don&#39;t speak English well and could use some help making yourself understood, but the amount of native speakers using this is so strange to me. How does this help you? If you can write to the LLM telling it what kind of email to write, you might as well just write the email."</p>
+								<p class="story__comment_others">"It&#39;s really bizarre at this point. I&#39;m okay with things like having one-click options for simple replies like &#34;That time works for me&#34; (Google Messages on Android is hilariously bad at these but it&#39;s at least useful occasionally). I&#39;m not okay with it suggesting a whole point-by-point response to someone else.Today I had an email from a colleague where it had a suggested reply so large it didn&#39;t fit in the preview box. The response was the usual LLM &#34;sounds good but doesn&#39;t say anything&#34; prose. It&#39;s not just unhelpful — it&#39;s a waste of everyone&#39;s time!"</p>
 							
 						
 						</a>
@@ -197,7 +488,7 @@
 							
 						
 							
-								<p class="story__comment_others">"The author made these using Janet (discussed on HN in the past):https://bauble.studiohttps://toodle.studioThose two fascinating art tools got me very excited about Janet a while back."</p>
+								<p class="story__comment_others">"Always nice to see janet getting some attention.shout out to one modern feature: sandbox&#34;Disable feature sets to prevent the interpreter from using certain system resources. Once a feature is disabled, there is no way to re-enable it.&#34;https://janet-lang.org/api/misc.html#sandbox"</p>
 							
 						
 						</a>
@@ -301,11 +592,11 @@
 						<a href="https://news.ycombinator.com/item?id=48363765">
 						
 							
-								<p class="story__comment_first line-clamp">"There was a really great, really underrated show on Peacock a few years ago called Mrs. Davis. The titular Mrs. Davis was an all-encompassing AI assistant that had taken over all of the governments of the world. Everyone wore a Whispering Earring-style earbud with a voice that guided them through their lives and made every decision for them. (Betty Gilpin plays a nun who&#39;s simultaneously rebelling against the AI and searching for the Holy Grail on its behalf.)In the show the AI had originally started as (spoiler, but not really) the customer support bot for Buffalo Wild Wings. I don&#39;t know what to do with this."</p>
+								<p class="story__comment_first line-clamp">"NAL but I&#39;d be worried about treading into CFAA territory with things like this. In the US, the law allows draconian penalties if you find yourself on the wrong side.Something like yt-dlp is just downloading public data, which I can see being defensible as automating the use of a service.But this commandeers remote machine resources to do your compute in ways clearly not intended by the provider. I don&#39;t know how ethical it is, but I definitely wouldn&#39;t want to argue this isn&#39;t &#34;hacking&#34; (the bad kind) in criminal court."</p>
 							
 						
 							
-								<p class="story__comment_others">"NAL but I&#39;d be worried about treading into CFAA territory with things like this. In the US, the law allows draconian penalties if you find yourself on the wrong side.Something like yt-dlp is just downloading public data, which I can see being defensible as automating the use of a service.But this commandeers remote machine resources to do your compute in ways clearly not intended by the provider. I don&#39;t know how ethical it is, but I definitely wouldn&#39;t want to argue this isn&#39;t &#34;hacking&#34; (the bad kind) in criminal court."</p>
+								<p class="story__comment_others">"There was a really great, really underrated show on Peacock a few years ago called Mrs. Davis. The titular Mrs. Davis was an all-encompassing AI assistant that had taken over all of the governments of the world. Everyone wore a Whispering Earring-style earbud with a voice that guided them through their lives and made every decision for them. (Betty Gilpin plays a nun who&#39;s simultaneously rebelling against the AI and searching for the Holy Grail on its behalf.)In the show the AI had originally started as (spoiler, but not really) the customer support bot for Buffalo Wild Wings. I don&#39;t know what to do with this."</p>
 							
 						
 							
@@ -455,7 +746,7 @@ Why cooldowns? Most npm (or pypi) compromises were taken down within hours, cool
 							
 						
 							
-								<p class="story__comment_others">"Curious how someone with a 401k, who didn&#39;t want their retirement to be used by these companies to buy at an inflated price, would go about opting out of this.Typically I just have my 401k in an index fund so that things have to become established before they&#39;re added. This seems like it&#39;s circumventing that, and I would be inclined to vote with my wallet. But everything around 401k index funds that I see are very opaque, so it&#39;s not totally clear to me how I would avoid this if I wanted to."</p>
+								<p class="story__comment_others">"SpaceX submitted an amendment to their S-1 today[1][1]: https://www.sec.gov/Archives/edgar/data/1181412/000162828026..."</p>
 							
 						
 						</a>
@@ -513,7 +804,7 @@ Chances are, the kid selected that nickname for the device a long while ago and 
 							
 						
 							
-								<p class="story__comment_others">"It’s seems like they just reported this initially as “four letter word” and then a media outlet later assumed it was bomb. It seems more likely it was a UE Boom, which has boom in its default Bluetooth name.If that’s the case the teen likely just owned the device and didn’t knot it was turned on. It’s rather long battery and it’s not obvious if it’s on or not."</p>
+								<p class="story__comment_others">"This decision almost certainly came about because of people thinking what action was least likely to get them fired.  Any rational person would realize the odds of an actual bomb are so close to zero you would need to start worrying about the sun spontaneously exploding if you were worried there was a bomb.  The problem is that if you ignored it your boss could say you ignored a bomb threat and fire you.Also if they really thought there the plan was going to explode any moment they would have ditched in the ocean or at least diverted to the nearest airport.  They didn’t because there was no danger except to their jobs."</p>
 							
 						
 						</a>
@@ -597,7 +888,7 @@ Chances are, the kid selected that nickname for the device a long while ago and 
 							
 						
 							
-								<p class="story__comment_others">"I added an R9700 32GB to my 10+ year old desktop that had a 980 4GB card in it, for a grand total of $1350 or so. The payoff compared to what I was using with GHCP was 33 months, but when GHCP announced their price increase, it basically became a 3 month payoff at minimum (so yes, GHCP did a 10x price increase for non-parallel agentic workflows)I can easily run Qwen3.6 35B-A3B with Q5_K_M with a 260k+ context window with some vram to spare. It easily runs probably 80tps. It took me quite a while to find theCompared to GHCP Claude Sonnet 4.5 or 4.6, I have full parity. The wall clock time is faster for agentic workflows, and rule following is about on par.With either, doing something kind of novel or obscure takes more hand holding compared to just generate a GUI or crud app. For example, trying to build an actual program that performs a complicated process correctly requires quite a bit of hand holding to get it to properly help.Sure, it isn&#39;t Opus or something, but I think with the right harness, it probably can get close. I think most of the issues these days is the harnesses are lacking."</p>
+								<p class="story__comment_others">"I didn&#39;t see this in the article but elsewhere I&#39;ve seen the memory bandwidth quoted as 600GB/s [1]. For comparison:- 5090/6000 Pro: 1792GB/s- 5080:: 960GB/s- 5070Ti: 892GB/s- M3 Ultra: 819GB/s- DGX Spark: 273GB/s (less than an M5 Pro at 307GB/s)Memory bandwidth isn&#39;t everything but it will cap inference rate pretty heavily. Also, the M3 Ultra is for an almost 2 year old Mac Studio. It&#39;s widely expected that it&#39;ll be refreshed in Q3 with a likely M5 or M4 Ultra with &gt;1000GB/s. I really hope Apple realizes what a market opportunity Apple has here.The above shows just how good value the 5090 really is. It basically a RTX 6000 Pro with less RAM (and ~12% fewer CUDA units), which is a ~$10k card, for 20-30% of the price. This also demonstrates how NVidia uses VRAM for market segmentation. As an aside, the true data center cards (eg B100, H100) use HBM memory at ~3.2TB/s.[1]: https://wccftech.com/nvidia-enters-pc-space-with-rtx-spark/"</p>
 							
 						
 						</a>
@@ -2624,291 +2915,6 @@ I think eventually this would be a tool usage which will take human intelligence
 						
 							
 								<p class="story__comment_others">"I came back to a workplace, that still used JIRA. Obviously during the interview I was like oh JIRA yeah yeah yeah you still use that? I can use that.Anyway yes, I can use JIRA. But it was a real shock to see the latest version of JIRA. It has a thousand papercuts, one of the worst is double clicking on text select stuff suddenly kicks fields into editor mode.What I was remembering was JIRA Server 4.0, you can walk down memory lane here* - zoom in enough and you&#39;ll see each issue has a title, type, fix version, affects version, and so on, and then you end up going straight to the comments. Very straightforward.* https://www.jirastrategy.com/wp-content/uploads/2020/04/depl..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">25 May 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://esengine.github.io/DeepSeek-Reasonix/">DeepSeek reasonix, DeepSeek native coding agent with high caching and low cost</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48256953">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m not sure you need a &#34;DeepSeek native coding agent&#34; to take advantage of DeepSeeks cache, yesterday as the Codex quota usage issue still wasn&#39;t solved for me, I wrote a tiny little bridge so I could use DeepSeek V4 Pro via Codex, and seems most of everything I did was basically cached as far as I can tell: https://i.imgur.com/7eKn6wN.png (2026-05-23 Input (Cache hit): 39,123,200 tokens, Input (Cache miss) 1,692,286), and the bridge is doing not special, just massage the DeepSeek API shape into what Codex expects, nothing particular about caching at all.Besides being even better at the caching, I&#39;m not sure what benefits you&#39;d get compared to just firing up OpenCode with the DeepSeek API yourself, it&#39;ll similarly do caching for sure and also &#34;talks directly to api.deepseek.com&#34; if that matters, and you&#39;ll get a much more mature harness."</p>
-							
-						
-							
-								<p class="story__comment_others">"This website seems to have been generated by Codex - I asked Codex to create an HTML overview of a feature for my team and it made an overly produced monstrosity - complete with the same large stat boxes that were for the most part devoid of meaningful information - using the same font, colors, layout, hero section, etc.  It was also terrible on mobile just like this is.In the end I had Claude produce a one-page html file that was 95% of the way there and it took minor editing to clearly explain the intent of the feature."</p>
-							
-						
-							
-								<p class="story__comment_others">"As someone who has been writing harnesses for a year: the people at opencode etc aren&#39;t stupid, when they decide to break the prefix cache [usually partially] it&#39;s always because they&#39;ve tested it and it gives better results overall.If you think that dsv4 behaves differently enough from the aggregate of other models, submit a PR with a patch to special case that to your harness of choice with evidence. Just blindly assuming &#34;append only all the time because cache&#34; is a waste of everyone&#39;s time."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://veronicaexplains.net/my-first-writerdeck/">Time to talk about my writerdeck</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48250144">
-						
-							
-								<p class="story__comment_first line-clamp">"This is an awesome setup. I like it, good job.That said, I do think there&#39;s a bit of irony to solving your &#34;paying attention to writing&#34; problem by setting up your OS from scratch, choosing to swap out the default networking stack, installing a novel flavor of your preferred text editor because you&#39;re &#34;trying to get to know it a bit more,&#34; customizing your battery readouts, tweaking the login sequence, and then, after all that effort to make sure you&#39;d have the perfect environment for uninterrupted writing sessions, installing tmux so that you&#39;ll be able to do multiple things at a time."</p>
-							
-						
-							
-								<p class="story__comment_others">"There&#39;s a pattern that I notice a lot on HN.&#34;To solve this problem, I engineered an entire system from scratch.&#34;Response: &#34;That&#39;s a cool solution. But, isn&#39;t it a lot more work than this straightforward solution?&#34; (the user is right - the complicated solution is massively more work than the straightforward one)Response: &#34;Yes, but it&#39;s a cool project - it&#39;s OK to not be the most efficient all the time.&#34; (also right - there&#39;s nothing wrong with doing projects with zero utility just for the fun of it, and this one actually does have some use)It seems like there&#39;s a bifurcation of expectations.Some people want to do a project, and they take a thin justification as an excuse to do so.Other people really do want to solve a problem, but they get mired in perfectionism and overengineering, or aren&#39;t even aware of the simpler solution.Conflation between these two categories keeps many HN threads gainfully employed.(worth noting that for people in the latter category, pointing out &#34;there&#39;s this simpler solution&#34; can be incredibly helpful, because they simply might not know that it exists, or maybe they need a little bit of pushing to realize that they&#39;re overengineering things and that they got stuck in a place that they don&#39;t actually want to be in. this has been me, many many times)"</p>
-							
-						
-							
-								<p class="story__comment_others">"This reads like someone with ADHD took Adderall and accidentally focused hard for a day on the wrong thing. It has happened to me.I guess if this writerdeck works persistently for many projects then fine. But if every 2 projects the writerdeck gets revamped then it seems like a way to get a dopamine hit or distract ones self. Nothing wrong with that, but it doesn&#39;t seem like it&#39;s a net benefit in terms of focus."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://arstechnica.com/gadgets/2026/04/microsoft-open-sources-the-earliest-dos-source-code-discovered-to-date/">Microsoft open-sources “the earliest DOS source code discovered to date”</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48253386">
-						
-							
-								<p class="story__comment_first line-clamp">"It is rare that I say this but, thanks MS! Arguably just as, if not more, important is the BASIC that they wrote. That was what they actually wanted to do. DOS just got them the contract with IBM. For decades MS was really a developer tools company with a side biz of writing operating systems and other misc software. They also open sourced that BASIC code too [1].[1] https://opensource.microsoft.com/blog/2025/09/03/microsoft-o..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Discussion, on the source, at the time (79 points, 24 days ago, 19 comments) https://news.ycombinator.com/item?id=47957494Or on the GitHub clone (162 points, 15 comments) https://news.ycombinator.com/item?id=47946813"</p>
-							
-						
-							
-								<p class="story__comment_others">"I cannot describe to you how jealous I am of the fact that back then writing a few thousand lines of assembly was what it took to launch a successful software company."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hellmood.111mb.de/wake_up_16b_writeup.html">Wake up! 16b</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48253060">
-						
-							
-								<p class="story__comment_first line-clamp">"Discussion (209 points, 6 days ago, 34 comments) https://news.ycombinator.com/item?id=48173962"</p>
-							
-						
-							
-								<p class="story__comment_others">"This sent me on a one hour long rabbit hole that ended with two guys building a Sierpinski triangle with recursive PowerPoint presentationshttps://youtu.be/b-Fa6HtvGtQ?si=LpQszgA9_K-m3V3-"</p>
-							
-						
-							
-								<p class="story__comment_others">"Some other time, I really thought that a 32 byte demo I saw is the limit of how small the binary can get and still look good.That other demo didn&#39;t even have sound.This is hell of a good work. A masterpiece to retire after. (or more realistically, chase it on other architectures)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://kk.org/cooltools/book-freak-210-the-art-of-money-getting/">The Art of Money Getting</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48247208">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; They take whatever job pays and spend decades fighting upstream.I suspect that this affects a lot of folks in tech. There&#39;s a lot of money to be made, so people get into it. They don&#39;t really like what they do, so it&#39;s always a chore. Their work often shows it, too.I&#39;m retired. I don&#39;t have to write software, but I spend more time writing software (for free), than I did, for most of my career.I like the Integrity part, too. That seems to be something that&#39;s missing (from most vocations), these days. One of the reasons that I stuck with my last job for so long, was because the people I worked with, and for, had Integrity, and that&#39;s pretty important to me."</p>
-							
-						
-							
-								<p class="story__comment_others">"One of my thoughts is that it&#39;s not easy for people to discover what they&#39;re truly good at.The reason is that if you&#39;re truly good at something, if you have a real talent for it, then it&#39;s easy for you to do it well from the start, so you rarely judge it or realize how good you are. Just as no one thinks they&#39;re good at their heartbeat and breathing. Because you have the talent to be good at them from the beginning, so you don&#39;t put in much effort to learn them, and therefore you don&#39;t realize how difficult they are.I think a real way to discover your strengths is not to reflect on what you do well, but on what makes you most frustrated when you see others doing it. It feels like an experienced driver watching a student drive and getting frustrated: Why can&#39;t you do such a simple action correctly? If you find yourself constantly wondering on something: why can&#39;t everyone just do this and it&#39;s so simple? You can remind yourself that that one might not be simple at all, but rather that you possess a genuine talent for it."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Barnum’s first rule: pick the work you’re built for, then aim to be the best at it.Edsger Dijkstra, in one of his letters, giving advice (IIRC) to a PhD student: &#34;Do only what only you can do.&#34;Kind of funny to see one of the greatest computer scientists and one of the greatest public entertainers giving the same advice, but I guess that speaks strongly in its favor."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://epoch.ai/data-insights/ai-chip-component-cost-shares">Memory has grown to nearly two-thirds of AI chip component costs</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48258684">
-						
-							
-								<p class="story__comment_first line-clamp">"An interesting implication of this is that AI inference and training has a path to a ~3x hardware cost reduction (and maybe ~2x total cost reduction) without any technical innovation whatsoever, we just need to wait for dram supply to meet demand (either by manufacturing scaling or just waiting for the current rate of manufacturing to fill the demand spike)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I bought 96GB of RAM a couple of years ago for ~$250.
-That same RAM now costs $1200!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Everything I read seems to suggest that RAM capacity is going to grow at 20-25% a year, which just doesn&#39;t seem good enough. Even in consumer use cases, phones and laptops would benefit greatly by double the amount of RAM. And then obviously, the AI need is gigantic.I don&#39;t see it going away. I mean, it may not grow as fast as now, but I don&#39;t see it growing away either. I get why the memory makers do not want to bankrupt themselves, but it feels like there&#39;s got to be some way to push that risk off onto model providers and other people in the ecosystem to allow us to grow ram capacity more like 50% per year."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://audiomass.co/?multitrack=1">Show HN: Audiomass – a free, open-source multitrack audio editor for the web</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48258015">
-						
-							
-								<p class="story__comment_first line-clamp">"looks at code, sees safety closures, function assignments, sequential var declarationAhh I see you are one of the old ways, of the lost knowledge :)I am very nostalgic for this style of development, even though I do not miss it in a team setting at all!Super cool app you’ve made!"</p>
-							
-						
-							
-								<p class="story__comment_others">"So want something like this but where the tracks are in the cloud.I want to &#34;check out&#34; someone&#39;s drum loop and add a guitar riff. Check it into a branch.Someone else checks out the drum+guitar, adds a bass line. Checks in.&#34;Jamming&#34; with other people is one of the most fun things. To the degree that you can &#34;get close&#34; on the web…RiffHub, anyone?"</p>
-							
-						
-							
-								<p class="story__comment_others">"The PWA/offline mode is underrated. Just stored it locally and now I have a full audio editor that works without internet, lives in a tab, and doesn&#39;t ask me to update. This is what the web platform was supposed to feel like."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://adaptivesupport.amd.com/s/question/0D5Pd00001YQLdMKAX/why-is-vivado-20261-dropping-linux-support-for-free-tier-?language=en_US">Why is Vivado 2026.1 dropping Linux support for free tier?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48254309">
-						
-							
-								<p class="story__comment_first line-clamp">"The official replies are addressing questions that nobody has asked. The main issue is why Linux support is being removed from the Basic tier while Windows is still allowed.To grow the ecosystem, AMD needs more people working on their hardware. Restricting Linux will only alienates students, hobbyists, and devs who want to adopt AMD tech.- From long term AMD user"</p>
-							
-						
-							
-								<p class="story__comment_others">"I’ve spent several hundred thousand on Xilinx FPGAs yet they nickel and dime me for licenses. It’s not the cost that’s a problem—-it’s the hassle of making a PO for a license to set up new computers, set up CI, hiring new teammates, setting up for interns/students.  Xilinx has continued to go downhill since their acquisition by AMD.. it used to feel like it was run by engineers who understood their customers, now it seems to be getting taken over by the MBA crowd who only understands pinching pennies and chiseling their own loyal customers"</p>
-							
-						
-							
-								<p class="story__comment_others">"We&#39;ve had good experiences with Lattice parts. Their software tools are free for all of their basic chips. They only charge for licensing when you use the higher end SKUs with SerDes. Example, you can use and develop on an ECP5 or Certus using their free license, but then you need a paid license to work on ECP5-5G or CertusPro chips.They&#39;re not perfect, but they&#39;re better to work with than Xilinx. Also, their datasheetd are better than Xilinx in my experience.Give Lattice a look for your next project."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.adventuresinoss.com/aws-four-years/">Amazon Web Services – Four Years and Out</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48254475">
-						
-							
-								<p class="story__comment_first line-clamp">"Over the last month I contacted Support for the first time in many years.This was for a question about how billing works.It went like this;1. Case created.2. Unassigned for seven days.3. Open real-time chat, talk for 25 or so minutes where I guide a first-line Indian chap who plainly doesn&#39;t know about the subject in hand and who is as we talk reading the AWS docs I&#39;ve already read.  At the end, just as I couldn&#39;t find an answer, he couldn&#39;t - which is good, he didn&#39;t try to give me the wrong answer - he escalates.  That&#39;s fine - a lot of questions are simple and even silly, and first line support is there to handle them - but they could have done all this without me, if they&#39;d opened the ticket themselves rather than me having to chase.4. Eleven days later, comes back with exactly the wrong answer.  In the meantime, I had figured out the correct answer, and reply, explaining it to him.5. Next day, I get a wall of plainly AI generated text telling me my answer is correct.It seems to me a key issue here relating to AI generated text, is a misunderstanding on the part of AWS that I as a consumer will value that answer exactly (or indeed, even remotely) as I would value the answer from a human.I do not.  I almost ignore  AI generated text, as I think it as unvalidated response."</p>
-							
-						
-							
-								<p class="story__comment_others">"I used to see AI generated images with lots of unintelligible writing or misspelled words in slides, but the speaker left them in anyway. “Good enough” is not customer obsession.This enforced adoption of immature GenAI reminds me of Milo Minderbinder trying to make people eat cotton in Catch 22, because he had inadvertently obtained a huge amount of it."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m also an AWS alumni from many years back now, and truthfully, the organizational problems really took off when Jassy moved to being CEO of amazon as a whole and major leaders left the company (Charlie Bell, et al.).There were always other problems too, pressure on the company in both directions across many different product lines on both cost (any number of cheaper baremetal providers who are much faster at providing customers instances than they were a decade ago), and product quality (any number of startups to now bigger companies, databricks probably being the biggest success) along with a number of expensive bets that were made that didn&#39;t work out especially as interest rates began to rise (there were numbers of of different services ranging from IoT, AI, business support, robotics, groundstation, that essentially all failed).AI infra being their latest bet, along with doubling down on custom hardware is smart, but these roles don&#39;t require the same number of SWEs and instead require a different type of high skilled professional."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://this.weekinsecurity.com/oura-says-it-gets-government-demands-for-user-data-will-it-share-how-many/">Oura says it gets government demands for user data</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48247876">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; the once-responsive Oura has not yet replied to any of my inquiries, or committed to releasing the numbersIllinois has a tight biometric-privacy law [1]. I’d bet Oura isn’t particularly careful about prohibiting e.g. a Texas police department querying the protected information of Illinois residents.[1] https://en.wikipedia.org/wiki/Biometric_Information_Privacy_..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;In my previous blog, I revealed that Oura data is not end-to-end encrypted. That means that an Oura user&#39;s health data can be unscrambled at certain points as it travels from a person&#39;s ring, through their phone app, over the internet, and as it lands on Oura&#39;s servers.&#34;Very strange -- it seems to be conflating end-to-end encryption with encryption-in-transit."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is why although I don&#39;t love my Apple Watch, I&#39;m not using anything else. It&#39;s very sensitive data and Apple is the only company worth trusting with it. They&#39;re not perfect but compared to others there&#39;s no competition."</p>
 							
 						
 						</a>
