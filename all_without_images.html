@@ -36,6 +36,299 @@
 	</div>
 
 	
+	<div class="day__date">10 June 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48463808">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve spent enough time with this now in Claude Code (and Claude.ai and Claude Code for web) to have an opinion on Fable 5: it&#39;s a beast. I&#39;m throwing some VERY difficult problems at at - things I&#39;ve been dragging my heels on for months - and it&#39;s crunching through them very happily.One that I&#39;m willing to share (albeit from just a week ago) - I built a Python library last week that bundles MicroPython compiled to WASM to create a sandboxed code execution library: https://github.com/simonw/micropython-wasmI just told Claude.ai (not even Claude Code - this was the standard Claude chat interface) running Fable 5:  Clone simonw/micropython-wasm from GitHub
+  and research how this could use a full
+  Python as opposed to MicroPython
+
+A few prompts later (and I uploaded the zip files from https://github.com/brettcannon/cpython-wasi-build/releases/t... because Claude chat can&#39;t access those files itself) and I have a wheel file that bundles Python itself, compiled to WASM:  uv run --with https://static.simonwillison.net/static/cors-allow/2026/cpython_wasm-0.1.0-py3-none-any.whl \
+    cpython-wasm -c &#39;print(45 ** 56)&#39;
+
+Here&#39;s the transcript: https://claude.ai/share/a73b8b8b-8ebc-4fef-9e5c-7438e5e7ae35(It&#39;s possible Opus or GPT-5.5 could have done this too, I&#39;ve not tried the exact same sequence. The Fable vibes are good here, though.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I recently switched off Max flat rate to Enterprise API pricing  and I went from 200/mo to 10k/mo with the same usage pattern on Opus. They don’t offer flat rate to enterprises.So Fable would cost me 20k/mo at Enterprise rates. That’s around the average cost of a loaded SWE in the USA. “But I’m &gt;2x more productive” doesn’t justify doubling the opex of the Software/IT department for most companies when revenue isn’t even up 10%.I switched to DeepSeek v4 Pro with OpenCode and am on track for a few hundred dollars of spend this month.Rewriting your stack from Ruby to Go in 2 days where it would’ve taken 6 months is impressive and fun. But that isn’t upping revenue.Iterating on net new business features and ideas that are niche that the LLM isn’t trained for are much harder. Is 20x the token cost worth it there?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Impressions from testing Fable 5 prior to launch:• My most noticeable immediate jump was in how its frontend design was much more intentionally crafted, and delightful without feeling like &#39;AI vibe coded&#39;; with better end-user usability too.• In some internal agentic harnesses, it achieved better results with about half the tokens, making it cost the ~same as Opus 4.8 price-wise! The real price increase is less than 2x; with biggest differences in harder problems where Opus 4.8 struggles (or needs many turns).• Part of the token efficiency improvements come from Fable doing more targeted and surgical diffs, with less non-necessary changes. This is great, because PRs often have less LoC changes for review. It writes more maintainable code without explicit human steering.• For general conversation and assistant style use cases, didn’t really notice a difference vs 4.8.• 1M context window, without increased pricing for long context is AWESOME. This is a massive win.• The classifiers are super aggressive and sensitive and this does happen for very benign, non-security coding tasks. Fallbacks to 4.8 worked like a charm; but the filters are definitely super sensitive.Overall, I would describe this as a step change and worthy of the &#34;Claude 5&#34; model name. It did take some time to understand the intelligence ceiling of this model; and even with an extended testing window I&#39;m still discovering new things and often surprised (in a good way) by the model."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://staniks.github.io/articles/catlantean-3d-blog-1/">Making Graphics Like it&#39;s 1993</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48459294">
+						
+							
+								<p class="story__comment_first line-clamp">"Great article. I particularly enjoyed the approach to creating gibs.
+Although it was a tech demo, I created something like this around the mid 90s. One thing I did that I don&#39;t see mentioned in this article was I used 8x8 (or 16x16) light maps on the textures, which allowed me to easily have things like flickering torches and rockets that lit up the hallways as they shot down them. Lightmaps can also be used to &#34;bake in&#34; lighting if desired.
+Since the light map is &#34;only&#34; 8x8 you can afford to do some math on each luxel (each unit in the light map) to calculate distance and line of sight to light sources to determine a brightness value. When rendering the texture, the luxel was used with a lookup table to determine the actual color of the pixel being drawn. The light maps were updated 15 times a second if I recall correctly to help performance. Thanks to DJGPP, I was using inline assembly for the rendering. Since floating point math was slow at the time I used fixed point math which optimized well. The rendering was surprisingly performant on computers of the day."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a cool project and I really like the author&#39;s technical and aesthetic choices of how to limit themselves.But what really stood out to me is this line.&gt; a linear frame buffer where each pixel was represented by a single byte indexing into a palette of 256 colors.Of course this is nothing new, but it just really struck me because I&#39;ve been working on a blog post about texture representation on modern consoles and it is crazy how complex it has gotten: texture tiles, block compression, non-linear texel ordering (e.g. Morton order), ..."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is taking a lot of inspiration from Doom, but the actual raycasting engine is more like Doom&#39;s predecessors, the most well-known of which is probably Wolfenstein 3D: perpendicular walls, constant floor and ceiling height. Wolf3D didn&#39;t have textured floors and ceilings because of performance reasons, but several other similar games had them. Doom and IIRC Duke Nukem as well used a BSP engine which was much more flexible (walls could intersect at any angle, variable floor and ceiling heights), although the levels were still &#34;flat&#34; (you couldn&#39;t have several &#34;stories&#34; inside a level, e.g. you couldn&#39;t design a bridge that you could walk over and under)."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://jonready.com/blog/posts/claude-fable5-is-allowed-to-sabotage-your-app-if-youre-a-competitor.html">If Claude Fable stops helping you, you&#39;ll never know</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48467896">
+						
+							
+								<p class="story__comment_first line-clamp">"The moat looks deep today but it&#39;s going to become more shallow every year.Training a new model from scratch takes serious resources. Post-training/fine-tuning an existing model, dramatically less. The knowledge for the process was esoteric two years ago, now you can ask a current model (one of several) to walk you through it, while building the tools to do it as you go. Several of my recent weekend projects have been exactly that sort of thing, just so I understand it better. &#34;Let&#39;s make a LoRA&#34;, &#34;let&#39;s generate a corpus of training data for fine-tuning a model for X task&#34;, &#34;how can I put my face in a text-to-image model?&#34; stuff like that. All of this is do-able on kinda modest local hardware (a couple of old GPUs or a Strix Halo or DGX Spark or big Mac Studio), or for a few bucks or a few hundred bucks or a few thousand bucks of cloud compute, depending on scale.Scale that up to corporate or startup scale, with the money that&#39;s been flowing into AI for the past couple/few years, and it&#39;s obviously there&#39;s going to be a lot of competition just as the top model makers need to start ringing the cash register. That&#39;s a lot of opportunities for people to look at their ballooning Claude usage costs and find other ways to do the same thing for drastically less money. $100/month or $200/month is a no-brainer for Claude Code with probably the best model for coding, but they&#39;re pushing more users to usage-based billing which becomes cost-prohibitive real fast.So, they desperately need to continue to be among the only ways to solve the hardest problems, and they need the alternatives to cost a similar amount. They can count on OpenAI and Google to ratchet up prices, too. They probably can&#39;t count on everybody, especially the vendors in China with different economics, to do it. And, they can&#39;t count on companies to look at their own usage and not ask, &#34;Can we train a smaller specialist model that does this one thing we&#39;re using the Anthropic API most heavily for?&#34;I&#39;m hoping they just mean stuff like using Claude for distillation by e.g. Chinese model makers, and not &#34;how do I fine-tune Gemma 4 to write more like me?&#34; or whatever."</p>
+							
+						
+							
+								<p class="story__comment_others">"Given the high rate of false positives people are reporting for the non-silent cybersecurity, biological, etc., safeguards, there is a strong likelihood that you will encounter silently nerfed behavior even if you are _not_ violating their TOS.Ultimately this will be evident in the way customers / external benchmarkers experience Fable. Hopefully competition will drive future models toward a lower false positive rate. Until that happens, Mythos and Fable users seem likely to have pretty divergent experiences."</p>
+							
+						
+							
+								<p class="story__comment_others">"Just so everyone is aware. Anthropic has been sabotaging AI researchers and their codebases and shadow-nerfing accounts for several years at this point. This isn&#39;t new, but they hadn&#39;t disclosed it until now. Likely because it is getting to the point where it&#39;s too noticeable, or they&#39;re concerned about it leaking from employees.Furthermore, the fact that they do these things, despite the incredible backlash... Just imagine what they&#39;re doing what your data and your IP."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/apple/container/blob/main/docs/container-machine.md">macOS Container Machines</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48469658">
+						
+							
+								<p class="story__comment_first line-clamp">"To clarify a few comments here: this is not only OCI containers: container machines add support for persistence and filesystem mounting, making container machines a great lightweight Linux environment for developers using macOS. More details here: https://developer.apple.com/videos/play/wwdc2026/389"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is all fine and dandy, but where are the native Darwin Jails Apple? Still scared that people will filling whole rooms of Mac Minis if you allow them to have multiple macOS containers and not only up to two fat VMs per machine?"</p>
+							
+						
+							
+								<p class="story__comment_others">"Always nice to have more options especially without third party tools"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.techdirt.com/2026/06/09/ceos-who-think-ai-replaces-their-employees-are-just-bad-ceos/">CEOs who think AI replaces their employees are just bad CEOs</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48465675">
+						
+							
+								<p class="story__comment_first line-clamp">"Reminds me of the old joke &#34;90% of the code is 90% of the work. The last 10% of the code is the other 90% of the work.&#34;I have spent almost my entire adult life (since 1986) shipping products. One of the very first things that I learned, was that &#34;shipping&#34; &gt; &#34;designing&#34;.There&#39;s so much work in delivering products that will carry your brand, and then must be supported.I liken it to having children. Conceiving them is fun. Delivering them is painful. Raising them, is a lifetime of work.In my experience, the same type of thing applies to products that we ship (and charge money for)."</p>
+							
+						
+							
+								<p class="story__comment_others">"There are a lot of bad CEOs, though. It&#39;s a lot like a politician -- it&#39;s quite difficult to become a CEO, and the skills to make it to that position don&#39;t always intersect nicely with the skills necessary to actually do the job well."</p>
+							
+						
+							
+								<p class="story__comment_others">"I saw someone on Xitter say &#34;Any CEO who wants to replace jobs with AI should first have to replace their own assistant with AI&#34; and I think that&#39;s the perfect rule. Every AI demo is some version of a personal assistant, surely AI can do that job right?I think we&#39;d get zero volunteers from CEOs who have assistants.(Note: this is not meant to be an insult to human assistants! I think they do a valuable job and should not be replaced by AI either)."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://techcrunch.com/2026/06/08/microsofts-open-source-tools-were-hacked-to-steal-passwords-of-ai-developers/">Microsoft&#39;s open source tools were hacked to steal passwords of AI developers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48457830">
+						
+							
+								<p class="story__comment_first line-clamp">"What follows next is purely speculation and it is based on my own observations and thoughts but based on what I&#39;ve seen the old RBAC models, while being almost broken before, now it is fully broken, with the fact that now coding assistants and engineers are working on multiple unrelated projects simultaneously - especially working on wild experiments they had no time for previously. The risk of supply chain issue has increased dramatically in the enterprise.Again, I am not saying it is related but I think it has an impact.Now in many places it is encouraged by coders and managers to vibe stuff on their own devices. Soon or later it will become a problem, especially for those that have no idea what they are doing.I am not saying it is related but I feel that it coincides perfectly.I just cannot believe there is no underlaying thread going through all of these recent supply chain issues, and yes there are some hacking groups that specialise in this, sure, but it is because the bounty is plentiful."</p>
+							
+						
+							
+								<p class="story__comment_others">"The phrasing of the title is loaded and the content phrases it as some kind of fault of open source.Then, which I find the most amusing, proceeds to blame MicroSlop for the attempted suuply chain attack,&gt; Microsoft did not immediately provide the specific number of customers affected, when asked by TechCrunch.Yeah, because that&#39;s how open source works. Tech crunch doing hard work no not explain that.&gt; This is Microsoft’s second known breach over the past few weeks that has allowed hackers to compromise its open source projects, per Ars Technica.I, like many others love to knock on Microslop when I can, but in this case they did the right thing. The article phrases it like they did everything wrong, they&#39;re all at fault and shame on them for limiting the breach.This is not the first time I&#39;ve seen an article from Zack Whittaker that just rubbed me the wrong way.&gt; steal passwords of AI developersThis phrasing has it&#39;s own connotations. AI developers versus developers who use AI?&gt; This is the latest example in recent months of hackers breaching widely popular open source projects with the aim of planting malware on a large number of users who have the code installed on their computers. These hacks are known as “supply chain” attacks as they target code that is often used in a large number of software products, or by a specific kind of user, which may be advantageous to hack as they sometimes have access to cloud systems and large amounts of customers’ data.Describes literally nothing of what a supply chain attack is, just the result of one and the reasons for their attack surface.Very very bad reporting in my opinion. Bad breach, and I hate to admit M$ did the safe and right thing, but this &#39;reporting&#39; leaves a lot to be desired."</p>
+							
+						
+							
+								<p class="story__comment_others">"These seem related:* https://news.ycombinator.com/item?id=48418318 (The Blight Reaches Microsoft: 73 Repos Disabled in 105 Seconds)* https://news.ycombinator.com/item?id=48450543 (Miasma Worm Hits Microsoft Again: Azure Functions Action and 72 Other Repositories Disabled After Supply Chain Attack Targeting AI Coding Agents)* https://news.ycombinator.com/item?id=48416155* https://news.ycombinator.com/item?id=48416269 (Miasma Worm Targets AI Coding Agents via GitHub Repos)"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.404media.co/fcc-wants-to-kill-burner-phones-by-forcing-telecoms-to-get-all-customers-ids/">FCC wants to kill burner phones by forcing telecoms to get all customers&#39; IDs</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48462308">
+						
+							
+								<p class="story__comment_first line-clamp">"Here&#39;s the link to submit a comment to the FCC:https://www.fcc.gov/ecfs/filings/expressRan a quick search and found a whole bunch of news articles, but nobody includes info that makes it easy to route your comment.  Feels like the beginning of Hitchhiker&#39;s Guide:&gt; It was on display in the bottom of a locked filing cabinet stuck in a disused lavatory with a sign on the door saying Beware of the Leopard."</p>
+							
+						
+							
+								<p class="story__comment_others">"Great. As if telecoms can be trusted with customers&#39; id. AT&amp;T left my name, address, social security etc in an improperly secured database for others to have, and they tried to open accounts with it; they had retained the information after I closed my account, and they denied the information was coming from them for years before they finally admitted it and gave us all a quarter to call someone who cares and a year of credit monitoring."</p>
+							
+						
+							
+								<p class="story__comment_others">"As a Russian: huh, you guys could still just buy a sim card without any kind of identification? Impressive. We had that ID requirement introduced way back in the 00s.Even EU countries seem to require an ID now. When I traveled to France and Belgium in 2024, I bought a French tourist sim card, and the carrier kept sending me some rather insistent messages that my line would get disconnected if I don&#39;t upload my passport in 30 days."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.foodwatch.org/en/eu-banned-pesticides-found-in-rice-tea-and-spices">EU-banned pesticides found in rice, tea and spices</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48447062">
+						
+							
+								<p class="story__comment_first line-clamp">"The report itself[†] blames the pesticide residue on a &#34;boomerang effect&#34; from EU countries: EU countries export these banned pesticides to third countries, those countries use the banned pesticides on the food they grow, and then the EU countries import that food. In effect, EU companies are still profiting off of the sale and use of banned pesticides on food that Europeans will eat.[†] https://www.foodwatch.org/fileadmin/-INT/pesticides/banned_p..."</p>
+							
+						
+							
+								<p class="story__comment_others">"More relevant is that 14 out of 64 samples had levels above the legally allowed limit (MRL), of which 12 pesticides that are not approved in the EU (page 12 of report). This is more severe than products &#39;containing&#39; pesticides, which could as well be advancements in measurement.Problematic products are: Peppers, dried (6x), Cumin (3x), Rice grain (2x), Tea leaves and stalks (1x), Non-fermented tea leaves (1x), Mix of spices (1x)."</p>
+							
+						
+							
+								<p class="story__comment_others">"For spices and tea it really makes sense to buy organic (not that there are no fraudsters but still)."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.codingwithjesse.com/blog/rockstar-developers/">Cleaning up after AI rockstar developers</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48458586">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Craftsmanship will always be in our hands, it&#39;s one thing we can never outsource to a machine.I&#39;m right there with you, but this last sentence concerned me a bit.In my most other &#34;industries&#34;, craftsmanship is not _dead_, but it&#39;s been pushed to the wayside for (significantly) cheaper and more available alternatives. You can still get hand-made leather shoes, but very few want to pay $1000+ for them. You can still get art and paintings that someone poured weeks of work into, but most people buy their wall-art and chachkas at HomeGoods.The main difference is the disposability assumption, and software is _unfortunately_ becoming more and more &#34;disposable&#34;[0], in the same way other products are. This mindset doesn&#39;t align well with software that must continue to operate in order to support some process. A disposable countdown app, sure, throw it away, but anything built around long running business processes should not be treated in that way.I have concerns that focusing on software craftsmenship frames the issue as &#34;boutique and bougie and unneccessarily expensive&#34; vs &#34;what I need for my usage&#34;, instead of &#34;maintable and trustworthy&#34; vs &#34;disposable&#34;.[0] Is that an initiative that benefits large model providers like OpenAI/Anthropic? maybe, but that&#39;s not my point here."</p>
+							
+						
+							
+								<p class="story__comment_others">"I like fixing code made by AIs and others (outsourcing code is similar as someone else said already). Last week we found out some client tried to vibe some departmental tool; the result is some massive crap in nextjs that needs 10GB mem to compile, has 1000s of lint errors, dev logs in git (very noisy ones) and so on. Now we have to fix it: its basically free 10k-50k euros over and over again for this type of work. Very easy if you know what you are doing; impossible if you don&#39;t. Keep m coming."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve met a handful of people across my life that i&#39;d call truly brilliant. Like, holy heck how in the world is this person this smart? Two things I&#39;ve noted about really smart people are (usually mutually exclusively) 1) Sometimes they do not realize how smart they are, because it&#39;s simple to them, or because they know the subject they assume everyone else, say with a computer science degree, knows and recalls and understands all they do. I&#39;ve had friends who go off on crypto related maths and I&#39;m like &#34;I passed that class, but know that I do not really know the subject you just talked about&#34; ...And 2) There&#39;s the people who it&#39;s painfully forefront of mind that they&#39;re smarter than most everyone around them. Some of them are jerks, some of them are exhausted by being surrounded by relatively &#34;stupid&#34; (again, relatively...) people. For the latter group i have some sympathy. Imagine walking through life and everything is clear, obvious, easy to process and having to watch humanity make stupid choices over and over and over again when the answers have been long known..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.yacnews.com/albania-is-not-for-sale-kushners-4-billion-resort-triggers-flamingo-revolution-asset-freeze-and-an-eu-warning/">Albania Is Not for Sale: Kushner&#39;s $4B Resort Triggers&#39;Flamingo Revolution&#39;</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48461012">
+						
+							
+								<p class="story__comment_first line-clamp">"Jared Kushner tried a similar thing in Serbia[0] and failed after a public outrage.[0] https://www.washingtonpost.com/world/2025/12/17/serbia-trump..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Half of Albania is butchered like this, beaches and green being destroyed to make resorts for the tourists to come. Go see Dermi or Vuno and then go see Borsh how clean it is, with no excavations at all or resorts being build."</p>
+							
+						
+							
+								<p class="story__comment_others">"I simply don’t understand how American voters are fine with being robbed blind.Many countries have far more corrupt administrations than the current U.S. one, but even in the most degenerate ones none of them are as open about it.And it’s not just a political thing.Consider how the Chinese owned Smithfield’s is polluting lakes and land all over the Midwest with their highly intensive (and incredibly cruel) pig farming that is causing high cancer and mortality rates for the people living there, and yet the locals tend to support whatever Smithfield wants."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">09 June 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -173,7 +466,7 @@ https://youtube.com/shorts/0eYYKRRcYrA"</p>
 							
 						
 							
-								<p class="story__comment_others">"The interesting bits on how they achieved it:&gt; On the model side, we applied FP4 quantization&gt; introduced DFlash, an efficient speculative decoding method based on block-level masked parallel prediction&gt; On the system side, TileRT perfectly adapts to the dynamic characteristics of these algorithms&gt; 1000+ tokens/s output [...] using just a single standard 8-GPU commodity node"</p>
+								<p class="story__comment_others">"These price and speed optimization from Chinese providers, combined with the raising prices from American ones will change the game sooner than later. Many companies are finding issues with the AI bills already."</p>
 							
 						
 						</a>
@@ -201,7 +494,7 @@ https://youtube.com/shorts/0eYYKRRcYrA"</p>
 							
 						
 							
-								<p class="story__comment_others">"To this day, Siri does not understand &#34;Subtract 5 minutes off my timer&#34; when having an active timer"</p>
+								<p class="story__comment_others">"The demo Mike Rockwell gave at WWDC was interesting. He kinda showed off Siri as like the Star Trek computer for your phone. I hope this is the direction Apple is going to continue in. Having AI as a user interface is way more interesting than chat bots, image editors, or copy editing."</p>
 							
 						
 						</a>
@@ -221,15 +514,15 @@ https://youtube.com/shorts/0eYYKRRcYrA"</p>
 						<a href="https://news.ycombinator.com/item?id=48450142">
 						
 							
-								<p class="story__comment_first line-clamp">"If I can&#39;t even trust the results given by ChatGPT and Claude at their highest level of reasoning in my daily life and work, would I be willing to use Siri AI to handle the important scenarios depicted in the livestream?"</p>
-							
-						
-							
-								<p class="story__comment_others">"Very Apple-ish approach to AI catch up: wrap an external tool in a privacy architecture, embed into the OS and productize the orchestration layer.It will be interesting to see if the Private Cloud Compute + on-device routing can make third-party model capabilities feel like a first-party system without leaking user context to the model provider.If Apple handles the Google-Apple boundary right, this will be an elegant move on their part, otherwise it will feel like Apple Intelligence with a just a privacy-polished frontend for Gemini."</p>
+								<p class="story__comment_first line-clamp">"Very Apple-ish approach to AI catch up: wrap an external tool in a privacy architecture, embed into the OS and productize the orchestration layer.It will be interesting to see if the Private Cloud Compute + on-device routing can make third-party model capabilities feel like a first-party system without leaking user context to the model provider.If Apple handles the Google-Apple boundary right, this will be an elegant move on their part, otherwise it will feel like Apple Intelligence with a just a privacy-polished frontend for Gemini."</p>
 							
 						
 							
 								<p class="story__comment_others">"I would love to learn more about what&#39;s actually powering Apple Intelligence now. Are they using flagship Gemini models behind their own prompts? Fine-tuning? Pre-training their own models based on Gemini?Is there a meaningful distinction between the Gemini-powered models and Apple Foundation Models? Does that distinction vary for on-device vs hosted models? Are some models running on Apple&#39;s Private Cloud Compute and others running on Google iron?Edit: they elaborated significantly in a &#34;keynote tech-talk&#34;: [0]According to Apple, there are five models:On-Device- AFM Core: Dense architecture; the standard next-gen on-device model- AFM Core Advanced: Sparse architecture, natively multimodal; enables features like image understanding and expressive voicesPrivate Cloud Compute- AFM Cloud: Workhorse server model optimized for latency and cost- AFM Cloud Image: Image generation and editing- AFM Cloud Pro:  Most capable model, Gemini frontier-level quality, for complex reasoning and agentic tasks; runs on NVIDIA GPUs in Google&#39;s cloud under Apple&#39;s PCC privacy guaranteesEverything excluding Cloud Pro are custom models running on Apple Silicon, &#34;refined&#34; using Google Gemini. About Cloud Pro, they say &#34;this is our most capable model with quality similar to Gemini frontier models.&#34; So I might read between the lines and say this is a wrapped Gemini.  [0]: https://9to5mac.com/2026/06/08/craig-federighi-details-apples-collaboration-with-google-for-siri-ai-in-ios-27/"</p>
+							
+						
+							
+								<p class="story__comment_others">"If I can&#39;t even trust the results given by ChatGPT and Claude at their highest level of reasoning in my daily life and work, would I be willing to use Siri AI to handle the important scenarios depicted in the livestream?"</p>
 							
 						
 						</a>
@@ -305,17 +598,17 @@ https://youtube.com/shorts/0eYYKRRcYrA"</p>
 						<a href="https://news.ycombinator.com/item?id=48446893">
 						
 							
-								<p class="story__comment_first line-clamp">"There&#39;s a reason why everyone must use agents and LLMs exclusively or be left behind. The entire Silicon valley livelihood is now a stack of cards built on a promise of infinite productivity gains based on LLMs. If that falls we&#39;re likely seeing a repeat of the 2008 financial crisis given the insane commitments made."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have been a pretty consistent user of AI since 2022 (Instruct-GPT), so I don&#39;t have a bad opinion about the topic. However, I think the real problem now has become pretty obvious. We are hitting a reality wall, where we simply don&#39;t have enough ressources to feed the AI industry. We don&#39;t generate enough electrical power nor enough GPU or TPU. For the first time in computer science, the real issue here is the finitude of the physical world. Unless, we start digging asteroids, we are already facing a shortage of raw material and industrial output. In my opinion, the only way to go is small models running on regular hardwares."</p>
-							
-						
-							
-								<p class="story__comment_others">"Lots of dismissive comments ITT, very few tackling the substance of the article.&gt; AI Cannot Afford To Slow Down — It Needs $3 Trillion Or More In Revenue By End Of 2030 To Sustain Its ExistenceIs this true?
+								<p class="story__comment_first line-clamp">"Lots of dismissive comments ITT, very few tackling the substance of the article.&gt; AI Cannot Afford To Slow Down — It Needs $3 Trillion Or More In Revenue By End Of 2030 To Sustain Its ExistenceIs this true?
 With the total 2024 wages being 11.7 trillion USD [0], and nonfarm payrolls totaling 158,000 in the same year [1], it&#39;s an order of magnitude higher than my back of the napkin guesses I&#39;ve made that AI needs to take or create 1/20 jobs minimum to break even.[0] https://fred.stlouisfed.org/series/BA06RC1A027NBEA
 [1] https://fred.stlouisfed.org/series/PAYEMS"</p>
+							
+						
+							
+								<p class="story__comment_others">"Ed is an interesting character. His financial analysis of the AI industry makes logical sense to me (though I am not knowledgeable enough to actually know if it is correct.) However, he seems to be so angry at AI in general, that he misses the obvious areas where LLMs are actually changing the State of the Art.Coding seems to be one of the core use-cases for LLMs (as Simon Willison pointed out recently) and even if that&#39;s the only real use-case for LLMs, they&#39;re wildly useful. I do understand that useful != profitable and that&#39;s where I think Ed has a real point: until inference becomes much cheaper these companies cannot be profitable. Some mega-players will pay the API token price, but most will not."</p>
+							
+						
+							
+								<p class="story__comment_others">"Today Apple launched its revamped AI offering. Judging by several reports, Apple pays Google a mere billion dollars a year to operate it. Essentially just licensing the IP. Google are (allegedly) happy to turn over the right to operate and distill their models for only a billion a year.Consumer revenue is only a smallish share of the puzzle, but still:If you are a consumer and you have a Mac or an iPhone, what do you need from AI that Apple&#39;s new offering won&#39;t provide? Why would you pay for ChatGPT, or even tolerate its inevitably increasingly desperate ad placements?Assume Google will have similar tools in their phones, and Google search will continue to have the offering it does.In short, where is the evidence that once Apple&#39;s tech exists, consumer AI is worth, to Anthropic or OpenAI, anything noticeably more than that $1B a year?Maybe OpenAI strikes a deal to put something in Samsung phones. Let&#39;s say Samsung is ten times as desperate as Apple (which is how it looks, often). Still only $10B a year?2026 consumer revenue projections from OpenAI are pitched at $14-15 billion, apparently. If they get that, it&#39;s the only year they will get that, because by late this year, everyone with an iPhone will have something useful built in.Ed Zitron is a mouthy British rabble-rouser, but I think he is probably mostly on the money."</p>
 							
 						
 						</a>
@@ -2622,300 +2915,6 @@ Chances are, the kid selected that nickname for the device a long while ago and 
 						
 							
 								<p class="story__comment_others">"After watching Andrew Kelley&#39;s interview video makes me want to pick up Zig: https://www.youtube.com/watch?v=iqddnwKF8HQ"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">31 May 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://consumerrights.wiki/w/Microsoft_Office_2019_and_2021_for_Mac_view-only_conversion_(2026)">Microsoft Office 2019 and 2021 for Mac view-only conversion</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48341578">
-						
-							
-								<p class="story__comment_first line-clamp">"This change would go against multiple consumer guarantees in Australia where it&#39;s 1) a right to have undisturbed possession of a product 2) products must be fit for the advertised purpose https://www.accc.gov.au/consumers/buying-products-and-servic... Microsoft would be breaking consumer law if the change goes ahead for the perpetual licenses they sold in Australia"</p>
-							
-						
-							
-								<p class="story__comment_others">"Been using LibreOffice for years. Everyone should. If we don&#39;t vote with our choices companies like Microsoft will keep pushing the envelope until you have to pay a monthly fee to turn on your own computer.https://www.libreoffice.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"I believe the urgent deprecation timeline here may be related to ai labs using offline licensed Office in agents as part of workflows and Office integration. Microsoft wants _each_ agent instance to be a separate license[0]There was always a probability that Microsoft were going to funnel offline users into O365 at some point - but I imagined that to take place over months / years not weeks and days.Buying a single license for thousands of agents may have expedited that. It has resulted in non-Microsoft labs having better ai integration into their products than Microsoft.edit: just read the detail of the note - so this is a cert expiry as part of Apple dist that is being warned about ~2 months before it happens. Standalone on Mac has a term limit.[0] https://www.businessinsider.com/microsoft-executive-suggests..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://daringfireball.net/2026/05/what_is_a_dickover">What Is a Dickover?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48330882">
-						
-							
-								<p class="story__comment_first line-clamp">"Thank you, I got a good laugh out of that.My experience was probably exactly as intended. Click on the &#34;What is a dickover?&#34; link trying to come up with things that it might be. And a brief moment after the page loaded (this little pause is crucial) I am hit in the face with a big annoying popup saying &#34;This is a Dickover&#34; followed by immediate understanding.Now at least I know what to call it the next time I visit Substack."</p>
-							
-						
-							
-								<p class="story__comment_others">"I have a theory that about 97% of developers and managers completed the cookie consent (or whatever) on their own product 5 years ago and hence never see it again, and they have no idea how bad the experience for new customers actually is.So the developers and bosses all think they&#39;re doing a great job and they&#39;ve got a carefully curated homepage, even though the regular users get a cloudflare captcha, then a cookie modal, then a newsletter modal, then an install-our-app modal, all blocking their access to the &#39;buy product&#39; button."</p>
-							
-						
-							
-								<p class="story__comment_others">"One of criteria for inclusion into Kagi Small Web [1] is no dickovers. Thanks for naming it properly John.[1] https://kagi.com/smallweb"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.brethorsting.com/blog/2026/05/domain-expertise-has-always-been-the-real-moat/">Domain expertise has always been the real moat</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48340411">
-						
-							
-								<p class="story__comment_first line-clamp">"While I agree that domain expertise has always been a moat, I believe the author is missing something critical: there is a big difference between being able to verify the output of a system is correct, and being able to tell a system how to generate the correct output to begin with.Personal example: I had a software engineering colleague who was the best coder of financial management systems I&#39;ve ever encountered. He gained these skills through years of in-the-trenches development. One of the things he told me, and that I also observed, was that the vast majority of financial experts (basically, the people in the accounting department of companies) had an extremely difficult time just telling him what the rules of any particular transaction should be. But what they could do was tell him whether the handling of any particular transaction was right or wrong. So often times he would sit down with these accounting folks and go through lots of example transactions he came up with, and from there he essentially built up the requirements spec.In my experience, that is the primary difference between people I&#39;ve known who are good software engineers and those who aren&#39;t: people who can specify the detailed rules of any system, vs. folks who take a &#34;well, I know it when I see it&#34; approach.I have a strong suspicion that folks who have a high degree of domain expertise in a particular area will fail as software builders even in an agentic world because they will struggle to elucidate clearly the rules in their head that they&#39;ve learned over years. As an analogy, it&#39;s kind of like asking a native speaker for the grammar rules of their language. Often times they can&#39;t, but they&#39;ll just say &#34;well, that sounds wrong.&#34; They may be &#34;domain experts&#34; in their language, but they&#39;d have a hell of a time prompting an AI system on how to grade a test for grammar correctness."</p>
-							
-						
-							
-								<p class="story__comment_others">"Such a good example of this I encountered recently:I was on a fishing trip. I asked the charter if he’d want to check out a free app I work on (https://oceanconnect.ca) in case it might be useful for his work.I don’t know how people on the ocean use ocean data. I don’t really know what they want to know, or why. I wasn’t totally prepared for the incredible onslaught of questions and information pertaining to how people use the data or what we can do with the data, and it was so cool and exciting to get that perspective.It was a good reminder that models are not the same as the systems they abstract, and knowledge to develop them has almost nothing to do with using them. This guy was a wealth of knowledge about how they use weather data on the water. In a sense, he knows more about the data than I do (even if he doesn’t realize it, or doesn’t understand it in its digital representation), and would be far better equipped to make a useful application for people like him if he could program.I found myself thinking people like him could actually do amazing stuff with LLMs if they sat down and got their ideas out on a screen. I’d really like to interview people on the water daily some day to refine the product if we ever have the funding. That domain knowledge is highly, highly specialized and people know things you’d never guess after living in a complex domain for decades."</p>
-							
-						
-							
-								<p class="story__comment_others">"The software generalist described in this post has domain expertise as well. In software.If you’re a great generalist software engineer today, you aren’t jumping to some random domain to escape AI. Software is your domain. You’re sticking with it as it expands and transforms."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/legal/transactional/danish-pension-fund-excludes-spacex-citing-governance-valuation-2026-05-29/">Danish pension fund excludes SpaceX citing governance and valuation</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48333820">
-						
-							
-								<p class="story__comment_first line-clamp">"Earlier: https://news.ycombinator.com/item?id=48324097"</p>
-							
-						
-							
-								<p class="story__comment_others">"[dupe] Discussion: https://news.ycombinator.com/item?id=48324097"</p>
-							
-						
-							
-								<p class="story__comment_others">"Oh this duplicate post again. SpaceX stock may as well be bonds on space flight. I&#39;d buy them at a loss."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://koenvangilst.nl/lab/mistral-ai-now-summit">Notes from the Mistral AI Now Summit</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48325340">
-						
-							
-								<p class="story__comment_first line-clamp">"OK, I&#39;m 100% rooting for both Mistral and task focused small models.But Mistral has fall really far behind since 2025Q3. It seems they can&#39;t get good reasoning models working at even medium context sizes, which is necessary to be at the table right now.Gemma4 and Qwen3.6 are currently best in the small size; Mistral&#39;s &#34;small&#34; model has ~4x the parameter count at 120B and isn&#39;t even competing with models a quarter its size.Back one year ago with Mistral Small 3.1 they were keeping up, but they&#39;ve fallen into irrelevancy right now.If Mistral seriously wants to play the on-prem and small task-specific model game, a decent proxy would be to build models that get the r/localLlama crowd excited"</p>
-							
-						
-							
-								<p class="story__comment_others">"I really want Europe to be part of the AI development and research. And I strongly cheered for Mistral. But they are accumulating too much technological delay. This needs to be fixed, otherwise it will turn into yet another proof we are not able to run large tech with good results. Basically any Chinese lab is doing much better. It&#39;s not Mistral that created I don&#39;t want to say DeepSeek, but MiMo 2.5, Minimax 2.7, and so forth. There are only weaker and/or larger and slower (no MoE) models. Not good."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; BNP Paribas runs Mistral models on-prem for KYC in Belgium, with sensitive data staying within the bank&#39;s walls. Abanca is using agent orchestration to handle sensitive customer information at a huge scale (2 million customers in their app). For European companies in regulated industries, this is a good alternative to relying on US hyperscalers.Mistral leaning into on-prem and European-hosted models is very smart."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://openrouter.ai/announcements/series-b">OpenRouter raises $113M Series B</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48338660">
-						
-							
-								<p class="story__comment_first line-clamp">"It took me quite a while to come round to OpenRouter. Originally I didn&#39;t understand why anyone would put a proxy between them and an LLM, but it actually adds some quite significant value:1. By far the lowest friction way to support and try out all the models.2. They offer billing caps! Most model providers still don&#39;t do this [EDIT: maybe they do, see reply comment], but if you&#39;re going to run anything in public it&#39;s very useful to have hard limits so it doesn&#39;t cost you $1m overnight because someone started abusing it.3. Their rankings are one of the more interesting signals for which models are popular, despite their flaws (most OpenAI and Anthropic users don&#39;t go via OpenRouter, it&#39;s currently not possible to tell the difference between many users switching v.s. one &#34;whale&#34; changing their preferred model)Given how API costs are becoming meaningful for a lot of companies now, having a provider like OpenRouter to help measure your spend and easily experiment with and switch providers feels like a valuable service."</p>
-							
-						
-							
-								<p class="story__comment_others">"Hi HN! OpenRouter co-founder and COO here. Lots of questions about why we raised!First off: We remain founder-led and founder-controlled, and intend on being here for a long time, creating awesome products for builders all over the world. We are basically a bunch of tinkerers who like building things, and try to make stuff that we would like, when building with AI.Since this is about the raise though, happy to share perspective on it.We believe that strong companies should have a strong balance sheets. We touch large volumes of spend, and have large spend commits across the ecosystem; having the cash to withstand what may come is a responsible buy-down of risk, and makes the company extremely durable.It also tells our larger customers and provider partners that we will be able to continue to serve them (and pay our bills) for a long time to come. We don&#39;t need venture dollars to continue scaling (indeed the business is healthy) but you know when you don&#39;t want to raise $100m? When you really need it!This is also good validation to employees (current and future) that the value we are creating together is real. We also take seriously our obligation to make a return for anyone who invests; we aren&#39;t valuationmaxxing and have the privilege of getting to pick who we work with. I don&#39;t think that gets a lot of airtime in the overall start-up world, but I think it&#39;s important!Happy to answer questions and THANK YOU to everyone here who uses OpenRouter, and to everyone who has feedback for how we can improve!"</p>
-							
-						
-							
-								<p class="story__comment_others">"As someone who uses OpenRouter extensively (and wrote an unintentional adjacent PR piece a few days ago: https://news.ycombinator.com/item?id=48317294 ), it&#39;s definitely the best way to try out new models without fiddling with each providers distinct APIs which is becoming a recurring concern as of late.That said, I don&#39;t understand the people who use something a full agentic backbone with expensive models like Claude Opus with OpenRouter because that 5% surcharge is meaningful at that level of cost instead of going with the source API providers. But people are clearly doing it, and it&#39;s pure revenue."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://qazinform.com/news/anthropic-surpasses-openai-to-become-worlds-most-valuable-ai-startup">Anthropic surpasses OpenAI to become most valuable AI startup</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48336233">
-						
-							
-								<p class="story__comment_first line-clamp">"I never want to hear from developers again that they are not susceptible to marketing. I see meet ups specifically about Claude often.Modern tupperware party.A colleague was convinced Claude is better so we played a game. We used the claude code and codex harness and I implemented some prs they needed with gpt5.5 and opus4.7 and asked them to identify which came from which only from the code.Couldn’t tell.Edit: i bet 99% of people here, if presented with a test where i gave 5 models but all of the results came from one, would not be able to discern this. Just vibes all the way down."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think Sam Altman is an asshole and I prefer to spend my money elsewhere.Frontier models being commoditize is inevitable. OpenAI thinks they&#39;re still competing on technology, and not user experience and market reputation otherwise they&#39;d understand the continuous negative PR generated by Altman&#39;s chaos is going to cost them everything."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is an absolute joke.Anthropic capitalized upon a brief window of being more code-focused, which turned into enterprize contracts.Then on renewal rug-pulled those same enterprises - going from your seat includes all the usage a user would reasonably need, to being you pay for the seat + all tokens at API pricing. (Which they raised by how many times in a year? I don&#39;t know the actual number.)Revenue spikes like crazy through basically hostage taking made possible by Sonnet 3.5 era sentiment + enterprise purchasing lag.Parlay the revenue spike into the valuation.Crazy. Those same enterprises will get sticker shock and leave. Absurd short-term thinking.OpenAI is the better company (transparency, open sourcing things, how they handle things in general e.g. OpenClaw, how they compete, etc.) and they have the vastly better brand, the better consumer presence, and (for me and many others) they have the better coding app + models.Anthropic doing deeply customer hostile stuff - again and again - to produce a short term revenue spike does NOT make for a long-term sustainable business.For such a young business to have such a long history of bait-and-switch is absolutely crazy. (Raising prices repeatedly, lowering rate-limits repeatedly, changing the terms, banning calls which contain &#34;OpenClaw&#34;, turning on their IDE partners, turning on their enterprise partners.)AFAICT anyone who&#39;s ever shown faith in Anthropic has been immediately exploited by them to some degree. They will quickly get the reputation of being &#34;the Oracle of AI companies&#34;.I wouldn&#39;t even value them at half of OpenAI."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://mastrojs.github.io/blog/2026-05-23-is-AI-causing-a-repeat-of-frontends-lost-decade/">Is AI causing a repeat of frontend’s lost decade?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48321631">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;m sure I&#39;m not alone in feeling the &#34;deep expertise&#34; OP laments was actually deeply inconvenient to many people. I understand that there&#39;s a good living to be made from knowing browser quirks, hand-rolling accessible components, mastering CSS specificity, but this is largely accidental complexity. More people building things is straightforwardly good, and if some of those things are slower or less accessible, that&#39;s a tradeoff people are entitled to make.You can argue that abstractions hide consequences that fall on users who didn&#39;t choose them, but I&#39;d argue back that LLMs likely have a better understanding of a11y conventions than I do as well."</p>
-							
-						
-							
-								<p class="story__comment_others">"The &#34;frontend skills&#34; whose growing irrelevance are bemoaned in this article consist largely of navigating a minefield of unintuitive edge cases, browser incompatibilities, historic baggage, exceptions to exceptions to exceptions.Modern frontend, or the &#34;tower of leaky abstractions&#34;, is finally a common-sense mental model for web development. Supplanted by force on top of an exploding bag of eccentricities that is web standards and conventions. The fact that it works at all and is merely a little leaky is an accomplishment in itself."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; And we’re saddened that the new process results in lower quality work, and that a lot of people just don’t seem to care.1. Arguments like this seem to be based on the idea that, prior to AI, most of this type of work was being done by skilled artisans dedicated to quality work product. As I think anyone who actually worked in the industry and is being honest knows, this wasn&#39;t the case. There was a lot of mediocrity and worse.2. I&#39;m not sure the work is &#34;lower quality&#34; depending on how you define &#34;quality&#34;. AI might result in an uncomfortable uniformity but at the same time, a lot of AI work product is pretty darn usable because the models have been trained against conventions that, love them or hate them, &#34;work&#34; for the vast majority of end users."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://pandoc-templates.org/">Pandoc Templates</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48334515">
-						
-							
-								<p class="story__comment_first line-clamp">"I used to use pandoc for my bachelors papers, which needed to be submitted as word documents. I never used templates but had a rather large &#34;one-liner&#34; pandoc command to convert my markdown files.At the time I&#39;d not got round to understanding the yaml front matter etc. I even user Zettlr for a while [0].I then discovered quarto [1] and this changed everything. Much nicer experience. I used this for my masters papers.I think the tooling around pandoc is what makes it such a good tool. I remember attempting restructured text and latex and having a right hard time.[0] https://zettlr.com/
-[1] https://quarto.org/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Pandoc is such an amazing piece of software. I used it to format my novel and made it part of a GitHub action to produce all the formats I required. I wasn&#39;t aware of templates, but some look really sleek.I keep thinking that modern text editors are just flawed and markdown, with all its downsides and limitations, is what 99% is the people need."</p>
-							
-						
-							
-								<p class="story__comment_others">"Pandoc is an impressive piece of software but I could never quite get PDF generation working nicely with it.Table layouts were often broken, with text overlapping into adjacent fields. Unicode font fallback didn&#39;t work properly, with characters like &#34;→&#34; being silently dropped because they didn&#39;t exist in the main font. Having predictable control of page breaks, to avoid situations where header text didn&#39;t stick to the following paragraph and instead had header and paragraph text split over a page boundary, was pretty much impossible.I ended up concluding that Markdown isn&#39;t a sufficiently powerful markup language for page-based documents, and went back to using Word in all its WYSIWYG delight.That said, maybe there were ways of doing all of the above but I couldn&#39;t figure it out and found the whole process of wrestling with with both Markdown and LaTeX templates, and Pandoc configuration, unintuitive and annoying."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.quandri.io/engineering-blog/mcp-is-dead">MCP is dead?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48330436">
-						
-							
-								<p class="story__comment_first line-clamp">"I run the team at OpenAI that&#39;s responsible for the ChatGPT App Store, Codex plugins, and all things MCP.The thing that all these &#34;MCP is dead&#34; posts are missing is that whether or not MCP is used as a transport protocol is actually completely irrelevant.The reason MCP isn&#39;t dead is because practically ~every company on the planet is building an MCP server. I know this because we interact with all of them. Most of these companies don&#39;t have a CLI. Many of these companies don&#39;t even have an external API! And yet, they&#39;re all building MCP servers.And that&#39;s why MCP is not only not dead, but more important than ever.Maybe we will turn every MCP server into a CLI under the hood. Maybe we&#39;ll use code mode. Maybe we&#39;ll implement tool search.All of those are just implementation details to the much more important point: our AI agents are getting access to services they otherwise would never have had access to.[0] That&#39;s what matters.So, is MCP dead as a direct communication layer for models to speak to? Maybe, maybe not. Is MCP dead as a protocol? Hell no, couldn&#39;t be further from the truth.[0]: Although I will say the Codex app&#39;s computer &amp; browser use features have made this statement a lot weaker than it used to be. If you haven&#39;t tried them yet—they&#39;re mindblowing."</p>
-							
-						
-							
-								<p class="story__comment_others">"Was this written by AI?MCP is essentially just JSON RPC with a few special fields that must be included.  I have reservations about JSON RPC, but there needs to be some &#39;service discovery&#39; layer for LLMs to interface with.It needs to be available in places like websites, desktop applications, backend services, etc.   The CLI is only one place that these systems interface with.Whatever you replace MCP with will be in a similar shape even if you specify a different communication protocol or different fields for tool discovery."</p>
-							
-						
-							
-								<p class="story__comment_others">"  &gt; Problem 1: It Devours the Context Window
-
-Like would running `linearcli --help` then `notioncli --help` then `slackcli --help` etc, or am I missing something? At least with MCP your harness could add in the context only the title of each tool and add full documentation on demand, MCP server by MCP server and tool by tool. The equivalent would be for all CLI to feature a &#34;--short-descr&#34; command.  &gt; Problem 2: Low Operational Reliability
-
-If the tool is also using a REST API I see no reason why MCP should be slower, given the protocols are so close. When that happen, it&#39;s probably because MCP was added on top of an API, maybe hosted in a far away datacenter by a subcontractor? I won&#39;t argue that most MCP servers are probably awful, but that&#39;s an argument against the industry not the protocol.  &gt; Problem 3: Overlaps with Existing CLI/API
-
-Yes, when a CLI tool already exist. A SQL MCP server sounds stupid to me, and a waste of token. Why not a curl MCP?
-But in the vast majority of shops, a cli tool does not exist. At best they have an API, which is designed to be used by programs not LLMs (you know what I mean).  &gt; Provide CLI -&gt; API -&gt; docs, in that order
-
-Sure, and instead of slow and wasteful websites companies should first provide a native client for desktop, then a native client for phone."</p>
 							
 						
 						</a>
