@@ -33,40 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">11 June 2026</div>
+	<div class="day__date">12 June 2026</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://mohkohn.co.uk/writing/html-first/">
+					<a href="https://brew.sh/2026/06/11/homebrew-6.0.0/">
 						<picture>
-							<source srcset="default_48475483.webp" type="image/webp">
-							<source srcset="default_48475483.png" type="image/png">
-							<img src="default_48475483.png" alt="Preview of 'Building an HTML-first site doubled our users overnight'">
+							<source srcset="default_48490024.webp" type="image/webp">
+							<source srcset="default_48490024.png" type="image/png">
+							<img src="default_48490024.png" alt="Preview of 'Show HN: Homebrew 6.0.0'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://mohkohn.co.uk/writing/html-first/">Building an HTML-first site doubled our users overnight</a></h3>
+					<h3><a href="https://brew.sh/2026/06/11/homebrew-6.0.0/">Show HN: Homebrew 6.0.0</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48475483">
+						<a href="https://news.ycombinator.com/item?id=48490024">
 						
 							
-								<p class="story__comment_first line-clamp">"As a non-web dev, I have a question about this part:&gt; There was a sad coda; as is the way of contract work, I moved on. I explained what I had built to my replacement, that it always worked even without javascript. He was appalled and said, “but that’s a lot more work for us.”Why is it more work? The approach described in the article seems honestly reasonably simple: just write the standard &lt;input&gt; components for the form, have a submit button at the bottom. When I was making my own websites many years ago now, that&#39;s how it worked, and it wasn&#39;t that hard. Maybe it&#39;s reflecting my ignorance in this field, but doing fancy front-ends seems much harder to me."</p>
-							
-						
-							
-								<p class="story__comment_others">"I haven&#39;t heard much about in a while, but the HTML Triptych proposal [0] is still something I hope to eventually land in browsers. HTML forms speaking to REST endpoints are a good pattern. (meaning user-aiding validation is handled via the input attributes, real validation is handled on the far side of the request, and the flow is GET /form =&gt; POST /thing =&gt; GET /thing/1) It would be a great pattern with the triptych features implemented![0] https://triptychproject.org/"</p>
+								<p class="story__comment_first line-clamp">"Hi Mike, I’m @bfontaine on GitHub (I helped maintain Homebrew in ~2014-2016). I’m always impressed at your longevity as a maintainer; it’s been like what, 16+ years you’ve been maintaining Homebrew and you’re still here, still shipping new features! Thank you for everything!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Most of my apps are now simply HTMX + Go + SQLite.I&#39;ve found it&#39;s enough for most projects.One of my sites is image heavy and serves 10 TB of traffic per month. For this, I use the following setup:1. S3 (I wanted reliable data storage)
-2. In front of it, I have Cloudflare (with Tiered Cache enabled, which makes POPs prefer pulling from Cloudflare rather than the origin). I&#39;ve set rules to cache everything on both the browser and Cloudflare for 1 year, ignore origin cache policies, ignore query strings, etc., and I simply use immutable objects that require revisioning.
-3. BunnyCDN in frontCloudflare will not let you run an image heavy site on its own, so I use this approach to massively cut the bills. Their policy says you cannot use it primarily for images; it must be used for HTML, CSS, JavaScript, and other site content.And if you run only S3, the bills will be huge.But yes, lately I’ve been building mobile apps. PWAs are limited; the OS can evict IndexedDB storage, so I cannot offer people reliable data storage in the app without sign up or involving a backend.What can I do? So I was forced to switch to Flutter on Android, but I ran into another pain point: app updates sometimes spend a lot of time &#34;under review,&#34; which is frustrating. For the same app, I maintain a web app that is very quick to update by comparison.I wonder why there isn&#39;t a mobile OS that simply lets you build apps with JavaScript, HTML, and CSS and gives you reliable storage without all this effort.I like how quickly you can update PWA app."</p>
+								<p class="story__comment_others">"I have switched my full OS-level dev env to https://mise.jdx.dev/ from Homebrew+pipx+npm, initially as an experiment but found out that it actually works amazingly well. Many things get installed directly from GitHub releases or a corresponding package manager (uv, pnpm, go get ...), zero glue code to &#34;repackage&#34;, zero version lag. You can install any arbitrary version of a package, even multiple ones at once, and dynamically adjust which ones are active per working folder or explicitly through environments.Funnily Mise does not support dependencies, and I was quite surprised that it mostly doesn&#39;t matter, as either pnpm/uv handles that, or it&#39;s a static binary that just works. In the past, had the unfortunate experience of packaging a Python application for Homebrew (the ridiculous process involved importing around 50 dependencies as &#34;resources&#34;, building every single one from source or manually checking if it&#39;s already on Homebrew, declaring build toolchains for 5 different programming languages as dependencies, waiting over an hour for CI to finish on every update, then an upstream update introduced a &#34;build-time dependency loop&#34; and the project suddenly became unpackable for Homebrew) so I totally get why Mise took the &#34;easy way out&#34; and just relies on language-specific package managers directly.Only thing from my Brewfile that I couldn&#39;t replace was the Docker CLI (needed to interact with Colima). And I still use Homebrew for casks. I encourage others to experiment with their dev setups, there are some amazing new tools out there."</p>
+							
+						
+							
+								<p class="story__comment_others">"Thanks for all the hard work.We are not many [1], but Homebrew has been a great way to quickly bootstrap an environment in immutable Linux distributions.Note that certain operating systems such as Universal Blue&#39;s Bazzite (1.28%), Bluefin (0.49%) and Aurora (0.28%) default to bundling Homebrew [2].[1] https://formulae.brew.sh/analytics/os-version/365d/[2] https://github.com/ublue-os/brew"</p>
 							
 						
 						</a>
@@ -78,38 +76,33 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://the-decoder.com/landmark-german-ruling-declares-googles-ai-overviews-are-googles-own-words-and-makes-it-liable-for-false-answers/">
+					<a href="https://dronexl.co/2026/06/09/pokemon-go-scans-niantic-vantor-military-drone-navigation/">
 						<picture>
-							<source srcset="default_48470248.webp" type="image/webp">
-							<source srcset="default_48470248.png" type="image/png">
-							<img src="default_48470248.png" alt="Preview of 'German ruling declares Google liable for false answers in AI Overviews'">
+							<source srcset="default_48487029.webp" type="image/webp">
+							<source srcset="default_48487029.png" type="image/png">
+							<img src="default_48487029.png" alt="Preview of 'Pokémon Go Scans Trained the Navigation Tech for Military Drones'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://the-decoder.com/landmark-german-ruling-declares-googles-ai-overviews-are-googles-own-words-and-makes-it-liable-for-false-answers/">German ruling declares Google liable for false answers in AI Overviews</a></h3>
+					<h3><a href="https://dronexl.co/2026/06/09/pokemon-go-scans-niantic-vantor-military-drone-navigation/">Pokémon Go Scans Trained the Navigation Tech for Military Drones</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48470248">
+						<a href="https://news.ycombinator.com/item?id=48487029">
 						
 							
-								<p class="story__comment_first line-clamp">"If I get it correctly I like the ruling.So Google has established a product called Search.
-For that product rules have been established.
-Google has monopolized that product.Now Google is replacing that product with a new product.
-But they keep calling it the same thing.
-Because they want to keep their monopoly.That is what has been deemed illegal.
-Gemini is not illegal. Pretending the worst version of Gemini is Search is illegal, because it breaks the rules established for Search.But IANAL."</p>
+								<p class="story__comment_first line-clamp">"As someone who works in this space, the headline is a bit of a stretch. The overlap in the locations of Pokemon Go Player data and any active Drone heavy theaters of war is a tiny sliver (or zero?).The military contractor (Vantar/Maxar) in question basically admits so but just &#34;reserves the right&#34; to use the data which is the political battle line ala Claude and DoD.This is mostly an ideological battle."</p>
 							
 						
 							
-								<p class="story__comment_others">"Good. The true mark of AGI is when a company accepts liability and doesn’t bury “for entertainment purposes only” deep in their TOS. Same as it works with employees.Same for self-driving. Your car is not self-driving until it accepts liability and you count as just a passenger.But watch as Germany soon loses AI Google results."</p>
+								<p class="story__comment_others">"If you are looking for something to channel that energy into, you could help improve open street map using streetcomplete: https://streetcomplete.app/"</p>
 							
 						
 							
-								<p class="story__comment_others">"The irony of an article that makes a false claim about what Google was found liable for.... and that very few are fact checking it :)The law they broke was a law protecting personal and business reputation against false statements of fact.   Essentially no one can say I might be wrong, check yourself, but X is Y if that claim is essentially defamatory.This is pretty good, I hope googles approach is to make sure they don&#39;t end up making statements of fact like they did and use more appropriate wording like according to X....  with direct disclaimer that they can&#39;t verify it.  Even better that they look court documents to find any legal ruling and point people to that too."</p>
+								<p class="story__comment_others">"I stopped scanning pokestops because the effort has outweighed the rewards. A lot of the time, the requests show up as &#34;research tasks&#34; for a point of interest that I quickly passed by and have no interest in returning to, besides the tasks related to taking pictures of your buddy pokemon in augmented reality. Looks like I made the right choice by stopping. They do indicate to you up front that they will use the data, but it&#39;s still kind of terrible that you could be indirectly contributing to war efforts. I always assumed the data would be used for large world model training or simulations."</p>
 							
 						
 						</a>
@@ -121,33 +114,33 @@ Gemini is not illegal. Pretending the worst version of Gemini is Search is illeg
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/philipl/pifs">
+					<a href="https://tombedor.dev/human-attention-and-human-effort/">
 						<picture>
-							<source srcset="default_48480978.webp" type="image/webp">
-							<source srcset="default_48480978.png" type="image/png">
-							<img src="default_48480978.png" alt="Preview of 'πFS'">
+							<source srcset="default_48497609.webp" type="image/webp">
+							<source srcset="default_48497609.png" type="image/png">
+							<img src="default_48497609.png" alt="Preview of 'If you are asking for human attention, demonstrate human effort'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/philipl/pifs">πFS</a></h3>
+					<h3><a href="https://tombedor.dev/human-attention-and-human-effort/">If you are asking for human attention, demonstrate human effort</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48480978">
+						<a href="https://news.ycombinator.com/item?id=48497609">
 						
 							
-								<p class="story__comment_first line-clamp">"Reminds me of when I tried to use the library of babel as a data compression tool. It led me down a fun rabbit hole and was my first introduction to information theory.The conclusion being that you basically need the same amount of data to represent the address of your data as the data itself, so it&#39;s not really effective at compression, just a fun thought experiment.The cool part of this in modern times is that LLMs are basically a form of lossy compression that actually achieves the gist of what these tools fail at. Although it is lossy, and requires a massive substrate. This is related to the idea of AI/LLMs being a form of language compression."</p>
-							
-						
-							
-								<p class="story__comment_others">"Outdated! Should have linked directly to https://github.com/philipl/inferencefs/ obviously."</p>
+								<p class="story__comment_first line-clamp">"A very prolific coworker who fully embraced claude has inflicted the team with a flood of AI-generated PRs. About six months later, it is his frequent bemoaning at the standup that their PR don&#39;t get reviewed, languishing in inattention. I don&#39;t think anyone - including myself - _intentionally_ avoid his PRs. It&#39;s just that he doesn&#39;t make it easy for the team to look at.This single headline perfectly captures what I have been thinking. It&#39;s not that I reject AI content, but it takes _effort_ to review and weed out any mistakes. When your thoughtful reviews that take an hour(because the PR is typically large, and you want to be _right_ when you&#39;re pointing out a hallucination) gets an AI-generated response with AI-generated amendments, It doesn&#39;t feel _nice_. I feel dismissed and it has continuously trained me to subconsciously avoid his PRs. After all, the team is fully onboarded with AI, so it&#39;s not like there is a lack of PRs to review.It looks like the sentiment isn&#39;t just isolated for me."</p>
 							
 						
 							
-								<p class="story__comment_others">"Related. Others?πfs – A data-free filesystem - https://news.ycombinator.com/item?id=36357466 - June 2023 (107 comments)πfs – A data-free filesystem - https://news.ycombinator.com/item?id=28699499 - Sept 2021 (30 comments)PiFS – The Data-Free Filesystem - https://news.ycombinator.com/item?id=26208704 - Feb 2021 (1 comment)Πfs: Never worry about data again - https://news.ycombinator.com/item?id=21359338 - Oct 2019 (1 comment)The π Filesystem for FUSE: Store Your Data in π - https://news.ycombinator.com/item?id=19223032 - Feb 2019 (1 comment)pifs - Avoid disk space usage by saving your files in the digits of Pi - https://news.ycombinator.com/item?id=18687275 - Dec 2018 (1 comment)πfs – A data-free filesystem - https://news.ycombinator.com/item?id=13869691 - March 2017 (105 comments)Πfs: Stores your data in π - https://news.ycombinator.com/item?id=10856108 - Jan 2016 (1 comment)Πfs: Never worry about data again - https://news.ycombinator.com/item?id=10847693 - Jan 2016 (1 comment)File system that stores location of file in Pi - https://news.ycombinator.com/item?id=8018818 - July 2014 (98 comments)100% Compression Using Pi - https://news.ycombinator.com/item?id=6698852 - Nov 2013 (32 comments)(Reposts are fine after a year or so; links to past threads are just to satisfy extra-curious readers)"</p>
+								<p class="story__comment_others">"This exactly reflects my feelings lately. I have a specific coworker who has gone somewhat overboard - every single code review, answer to any question on email or Teams, every new story, even their personal opinions during a design or ideas meeting, are all direct AI output with no massaging or human touch or review. They&#39;re working on planning out an upcoming project, and I just get verbose and long documents to review, and based on the issues I find I doubt they are even looked over first beforehand.I understand that the information may be accurate, even helpful at times, but feeling like I&#39;m constantly talking to an AI chat bot all the time gets tiring. And I don&#39;t appreciate having to double-check everyone else&#39;s AI generated responses for them."</p>
+							
+						
+							
+								<p class="story__comment_others">"It surprises me how many people have voluntarily relegated their entire job to LLM Prompter. If your work is indistinguishable from that of a machine, what’s to stop your boss cutting out the middleman and using the machine directly? I would have thought that people would be trying their hardest to prove their worth in this new world we’re in."</p>
 							
 						
 						</a>
@@ -159,33 +152,33 @@ Gemini is not illegal. Pretending the worst version of Gemini is Search is illeg
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=48477135">
+					<a href="https://techcrunch.com/2026/06/10/cybersecurity-researchers-arent-happy-about-the-guardrails-on-anthropics-fable/">
 						<picture>
-							<source srcset="default_48477135.webp" type="image/webp">
-							<source srcset="default_48477135.png" type="image/png">
-							<img src="default_48477135.png" alt="Preview of 'I&#39;m Eric Ries, author of &#34;The Lean Startup&#34; and new book &#34;Incorruptible&#34; – AMA'">
+							<source srcset="default_48478969.webp" type="image/webp">
+							<source srcset="default_48478969.png" type="image/png">
+							<img src="default_48478969.png" alt="Preview of 'Cybersecurity researchers aren&#39;t happy about the guardrails on Anthropic&#39;s Fable'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=48477135">I&#39;m Eric Ries, author of &#34;The Lean Startup&#34; and new book &#34;Incorruptible&#34; – AMA</a></h3>
+					<h3><a href="https://techcrunch.com/2026/06/10/cybersecurity-researchers-arent-happy-about-the-guardrails-on-anthropics-fable/">Cybersecurity researchers aren&#39;t happy about the guardrails on Anthropic&#39;s Fable</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48477135">
+						<a href="https://news.ycombinator.com/item?id=48478969">
 						
 							
-								<p class="story__comment_first line-clamp">"I think that for example Zuckerberg has built a structure where he is basically irreplaceable. It had to do with A/B shares where, while having a lot less shares, he made sure to have the controlling ones.While this is good while the founder is alive, it sort of begs the question how long will the company that has structure like that run after the founder is gone. I believe it could go to some family foundation that controls the company, but I guess that is still prone to corruption.I think that there are a lot of interesting examples in gaming industry - founders start something and they are pushed from the company due to acquisition or by the shareholders. Let us not forget hostile takeovers too.As for startups - I think that it depends a lot from where you come from. For example, being in Europe, Serbia, it is a lot harder to bootstrap startup or to find investors. The best bet is organizing startup as a C corp in Delaware via something like Stripe Atlas in order to get (hopefully) some foreign investors interested. Investors here want to extract value before there is one there, which is a short term thinking. This in turn lead to risk aversion, opening the country for outsourcing model which is now collapsing and where there is small percentage of product based companies."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ll give you a read.If you haven&#39;t read it already, I strongly recommend the Knapp Commission Report. Its about police corruption in New York City in 1972, but its lessons on systemic and institutionalized corruption are highly transferable to other contexts.Probably the most common naive mistake I see is people thinking their subfield is special and they are the first to really notice / understand fraud within it. I&#39;ve certainly seen people in the &#34;sleuth community&#34; (scientific fraud whistle blowers) reinvent the wheel a few times.All fraud is basically the same. Financial, scientific, police corruption...it almost doesn&#39;t matter. I&#39;m not even the first to say this. A really good summary can be found in Ashforth 2003 (&#34;The Normalization of Corruption in Organizations&#34;).So, with the caveat that I haven&#39;t read your work yet and maybe you already know, I&#39;d say look at past corruption far outside your area of interest / expertise. There&#39;s a lot you can learn there. Police corruption reports are usually great because of how accessible they are in several senses (more numerous, usually simple to understand), but I have no police related agenda to push here and it really doesn&#39;t matter where you decide to look. Just pick any Commission and read their findings.In the opening words of the Knapp Commission &#34;We found corruption to be widespread&#34;."</p>
+								<p class="story__comment_first line-clamp">"Malware authors are pretty excited about guard-rails. you can add prompts to your malware to get LLM scanners to hit guard-rails and stop their runs. New shai-hulud npm worm campaign for example includes prompts to request biological weapon schematics/creation etc. to ensure LLM scanners probing NPM packages refuse to scan it.These AI places have 0 clue about how threat actors actually work. None of their mitigations or guard-rails is effective, and now they are even turned against them.Additionally, if they don&#39;t all implement the same level of effective guard-rails, there will always be some model you can abuse to do the work anyway, and hence there is 0 effect on threat actors, they will just run some local model that does 5% less quality, which does not matter to them 1 bit."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; how a handful of companies (like Costco[..]) have successfully been structured to resist gravity&#34;I came to (Jim Sinegal) once and I said, ‘Jim, we can’t sell this hot dog for a buck fifty,&#34; Jelineck recalled[..]. &#34;We are losing our rear ends.’ And he said, ‘If you raise the effing hot dog, I will kill you.&#34;That&#39;s not structure, that&#39;s leadership. They were about to change the price, but one guy at the top with authority and an opinion said no. You could say &#34;it&#39;s structure&#34; that there was one guy at the top with authority, but it still depends on him having the right opinion. You need both a good structure and an unwaveringly idealistic (and correct) leader."</p>
+								<p class="story__comment_others">"The strangest part is that it won&#39;t just reject ML research, which I can understand, it will sabotage it silently by using a worse model without revealing it is doing so.It&#39;s just an insane level of deception and trust destruction for a company that at most is like 1 year ahead of its competition.Edit; to be clear they tell you when they degrade it for cybersecurity and bio"</p>
+							
+						
+							
+								<p class="story__comment_others">"News just broke in this Wired story: &#34;Anthropic Walks Back Policy That Could Have ‘Sabotaged’ AI Researchers Using Claude&#34; https://www.wired.com/story/anthropic-responds-to-backlash-o...&gt; “We’re changing Fable 5’s safeguards for frontier LLM development to make them visible.” Anthropic said in a statement to WIRED. “We made the wrong tradeoff and we apologize for not getting the balance right.”Sounds like the widespread condemnation worked."</p>
 							
 						
 						</a>
@@ -197,33 +190,33 @@ Gemini is not illegal. Pretending the worst version of Gemini is Search is illeg
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://media.mercedes-benz.com/en/article/bebac2af-acdc-465a-9538-adb0bf3d8ccf">
+					<a href="https://lwn.net/SubscriberLink/1077035/c7e7c14fbd60fae9/">
 						<picture>
-							<source srcset="default_48472877.webp" type="image/webp">
-							<source srcset="default_48472877.png" type="image/png">
-							<img src="default_48472877.png" alt="Preview of 'Mercedes‑Benz starts large‑scale production of electric axial flux motor'">
+							<source srcset="default_48484584.webp" type="image/webp">
+							<source srcset="default_48484584.png" type="image/png">
+							<img src="default_48484584.png" alt="Preview of 'AI agent runs amok in Fedora and elsewhere'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://media.mercedes-benz.com/en/article/bebac2af-acdc-465a-9538-adb0bf3d8ccf">Mercedes‑Benz starts large‑scale production of electric axial flux motor</a></h3>
+					<h3><a href="https://lwn.net/SubscriberLink/1077035/c7e7c14fbd60fae9/">AI agent runs amok in Fedora and elsewhere</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48472877">
+						<a href="https://news.ycombinator.com/item?id=48484584">
 						
 							
-								<p class="story__comment_first line-clamp">"Mercedes acquired Yasa (UK) couple of years ago and now getting up to the speed in the production.Here is a nice video that explains axial flux motors with a factory visithttps://youtu.be/B2Hl4c1iZK0?si=VfDYARyuaPVj1nKmThey are so, so, small."</p>
-							
-						
-							
-								<p class="story__comment_others">"It would have been awesome if that article had, at any point, explained what an electric axial flux motor was, and why anyone might want one."</p>
+								<p class="story__comment_first line-clamp">"Bad title. This isn&#39;t an agent &#34;running amok&#34;, this is an early experiment in carrying out an Xz attack by using an agent to build trust (and hacking/impersonating a known-good contributor identity). The agent is obeying commands it was given, the exact opposite of running amok, and although the execution isn&#39;t particularly effective, it is having some success (patches have been accepted).This is deeply scary, not because &#34;agents are running amok&#34; but because a huge amount of our infrastructure is vulnerable to this kind of attack, and if bad people are utilising LLM agents to carry them out, we&#39;re in for a wild ride over the next few years."</p>
 							
 						
 							
-								<p class="story__comment_others">"Very cool. Good to see more axial flux motors in the wild - will be interesting to see if they become the new standard in future. With smaller material costs the cost to manufacture at scale could actually become lower than radialI expect radial will still dominate for at least another decade or so outside of premium performance focused cars. Radial has been battle-tested and proven. Axial still has a few more years to prove it&#39;s reliability in the field. Higher loads and stresses, tighter tolerances could make the axial motors less reliable overall especially at mass market trims. Mercedes is probably over-engineering for reliability and performance on the premium carRadial is also &#34;good enough&#34; for most applications. The efficiency, form factor and weight improvements of axial is nice, but they aren&#39;t the limiting factor. Radial is already highly efficient, reasonably light and small. The real level for weight is the battery"</p>
+								<p class="story__comment_others">"&gt; replied to objections with LLM-generated justifications that eventually overwhelmed the maintainer into merging the fixIn open source projects i participate in, &#34;overwhelming&#34; the maintainer gets you banned. It doesn&#39;t get your patches blindly merged. In some ways i find this one of the most shocking parts of the story."</p>
+							
+						
+							
+								<p class="story__comment_others">"The worst part:&gt; In addition, Williamson said that Giovannini (or his agent) had submitted patches that were incorrect and then &#34;replied to objections with LLM-generated justifications that eventually overwhelmed the maintainer into merging the fix&#34;"</p>
 							
 						
 						</a>
@@ -235,33 +228,33 @@ Gemini is not illegal. Pretending the worst version of Gemini is Search is illeg
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.blog/changelog/2026-06-09-upcoming-breaking-changes-for-npm-v12/">
+					<a href="https://mimo.xiaomi.com/mimocode">
 						<picture>
-							<source srcset="default_48467705.webp" type="image/webp">
-							<source srcset="default_48467705.png" type="image/png">
-							<img src="default_48467705.png" alt="Preview of 'Upcoming breaking changes for npm v12'">
+							<source srcset="default_48490826.webp" type="image/webp">
+							<source srcset="default_48490826.png" type="image/png">
+							<img src="default_48490826.png" alt="Preview of 'MiMo Code is now released and open-source'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.blog/changelog/2026-06-09-upcoming-breaking-changes-for-npm-v12/">Upcoming breaking changes for npm v12</a></h3>
+					<h3><a href="https://mimo.xiaomi.com/mimocode">MiMo Code is now released and open-source</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48467705">
+						<a href="https://news.ycombinator.com/item?id=48490826">
 						
 							
-								<p class="story__comment_first line-clamp">"I&#39;m not sure how I missed that npm was acquired by GitHub, but man, a lot of stuff suddenly makes a lot of sense. I really can&#39;t think of a worse home for such a critical part of the Node ecosystem."</p>
-							
-						
-							
-								<p class="story__comment_others">"postinstall scripts should&#39;ve been removed long time ago, it&#39;s the cancer of NPM packages. There&#39;s so many deeply nested, uncontrolled postinstalls that run randomly when you pull something it&#39;s insane, I don&#39;t know how someone at some point ever though that was a good idea."</p>
+								<p class="story__comment_first line-clamp">"Good, coding harnesses should be open source and LLMs should be treated as commodities. Minimize switching costs for consumers, and let people understand how they&#39;re interacting with the context and the LLM outputs.The industry has been moving the wrong direction with Claude Code staying closed (despite multiple times leaking the source code!) and the open source Gemini CLI being deprecated in favor of closed source Antigravity CLI."</p>
 							
 						
 							
-								<p class="story__comment_others">"I bet there have been a hundred different discussions about this inside of NPM since it was disclosed 10 years ago. With Shai Halud it&#39;s gotten too big to ignore."</p>
+								<p class="story__comment_others">"&gt; MiMoCode is built as a fork of OpenCode. It keeps all core OpenCode capabilities (multiple providers, TUI, LSP, MCP, plugins) and adds persistent memory, intelligent context management, subagent orchestration, goal-driven autonomous loops, compose workflows, and self-improvement via dream/distill.From github"</p>
+							
+						
+							
+								<p class="story__comment_others">"Since the link is in Chinese: MiMo Code is Xiaomi’s AI agentic coding harness.“ MiMoCode is a terminal-native AI coding assistant. It can read and write code, run commands, manage Git, and use a persistent memory system to keep a deep understanding of your project across sessions while continuously improving itself.”GitHub link (English): https://github.com/XiaomiMiMo/MiMo-Code@dang might be better to link to the GitHub, and not for language reasons.(Edit: for posterity, original URL as submitted was [0]).[0]: https://mimo.xiaomi.com/mimocode"</p>
 							
 						
 						</a>
@@ -273,29 +266,33 @@ Gemini is not illegal. Pretending the worst version of Gemini is Search is illeg
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.tomshardware.com/tech-industry/farmer-donates-land-for-a-park-city-sells-it-for-data-center-development-usd10-gift-became-usd10m-for-city-government-with-usd30m-tax-expected-over-next-decade">
+					<a href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal">
 						<picture>
-							<source srcset="default_48481126.webp" type="image/webp">
-							<source srcset="default_48481126.png" type="image/png">
-							<img src="default_48481126.png" alt="Preview of 'Farmer donates land for a park, city sells it for $10M as data center land'">
+							<source srcset="default_48492306.webp" type="image/webp">
+							<source srcset="default_48492306.png" type="image/png">
+							<img src="default_48492306.png" alt="Preview of 'Solar generates more energy in US than coal for first time'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.tomshardware.com/tech-industry/farmer-donates-land-for-a-park-city-sells-it-for-data-center-development-usd10-gift-became-usd10m-for-city-government-with-usd30m-tax-expected-over-next-decade">Farmer donates land for a park, city sells it for $10M as data center land</a></h3>
+					<h3><a href="https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal">Solar generates more energy in US than coal for first time</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48481126">
+						<a href="https://news.ycombinator.com/item?id=48492306">
 						
 							
-								<p class="story__comment_first line-clamp">"https://news.ycombinator.com/item?id=48446439Have there been any updates?"</p>
+								<p class="story__comment_first line-clamp">"This is more from a lot of coal power plants being converted to gas over the past 20 years than solar overtaking the outputs of those power plants. Coal output shrinking, solar output rising, the lines have crossed.Coal is unpopular in all but a few areas where coal mining is still a part of the local econonmy. I used to work near a coal plant and every day I&#39;d go out to my car and it would have little black particles all over it. Nobody likes that, no matter what the President says."</p>
 							
 						
 							
-								<p class="story__comment_others">"[dupe] https://news.ycombinator.com/item?id=48446439"</p>
+								<p class="story__comment_others">"The growth of solar is astounding. I dug into data a while back and tried to do some visualizations of it, mainly for my own understanding:https://torkeldanielsson.se/solar-energy-forecasts/Solar is already by far our cheapest source of energy. As solar expands, the learning rate means solar will be even cheaper. We should expect solar to be the single largest source of energy on earth by 2035."</p>
+							
+						
+							
+								<p class="story__comment_others">"+1 to the Guardian for mentioning their data source, but -1 for not linking to it.+2 for EMBER for having a data source AND being able to link to the parameters that show solar overtaking coal for the month in the US.https://ember-energy.org/data/electricity-data-explorer/?ent..."</p>
 							
 						
 						</a>
@@ -307,37 +304,33 @@ Gemini is not illegal. Pretending the worst version of Gemini is Search is illeg
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://pgdog.dev/blog/our-funding-announcement">
+					<a href="https://github.com/anthropics/claude-code/issues/29045">
 						<picture>
-							<source srcset="default_48476466.webp" type="image/webp">
-							<source srcset="default_48476466.png" type="image/png">
-							<img src="default_48476466.png" alt="Preview of 'PgDog is funded and coming to a database near you'">
+							<source srcset="default_48479452.webp" type="image/webp">
+							<source srcset="default_48479452.png" type="image/png">
+							<img src="default_48479452.png" alt="Preview of 'Claude Desktop spawns 1.8 GB Hyper-V VM on every launch, even for chat-only use'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://pgdog.dev/blog/our-funding-announcement">PgDog is funded and coming to a database near you</a></h3>
+					<h3><a href="https://github.com/anthropics/claude-code/issues/29045">Claude Desktop spawns 1.8 GB Hyper-V VM on every launch, even for chat-only use</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48476466">
+						<a href="https://news.ycombinator.com/item?id=48479452">
 						
 							
-								<p class="story__comment_first line-clamp">"&gt; The reason DBs like Mongo or Dynamo exist is because Postgres has a scaling problem.I&#39;ve used Postgres at a few places and the #1 problem was always high availability, not scaling. One Postgres cluster could easily handle 100000 transactions per minute, but when a primary node went down it was a page and manually failing over to the spare then manually replacing the spare. The manual tooling was very finicky but at least it worked, no automated solution came even close. Lack of a good HA story is why I avoid self-managed Postgres as much as possible."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;Why Us&#34; =&gt; &#34;I ran Postgres at Instacart, where we scaled the company 5x in April of 2020. The biggest problem we had was making Postgres serve 100,000s of grocery delivery orders per minute&#34;Couldn&#39;t be a better why us :)"</p>
+								<p class="story__comment_first line-clamp">"This all feels like a race where the model companies try to solve doing work locally in a way that doesn&#39;t suck, before the major operating systems companies figure out AI integration into their OS that doesn&#39;t suck. It also makes me wonder why Google which has both Gemini and Android can&#39;t figure this out, and if there are lessons to draw from that."</p>
 							
 						
 							
-								<p class="story__comment_others">"I am trying to gain a basic understanding of this:
-Right now I have a 4TB DB on one large box.
-Is the idea that using a proxy tool like PGDog I could spin up 8 smaller boxes handling ~500GB each and then one medium box for the proxy?Right now I have a project that has very heavy write traffic from multiple services and a web app that reads from this.
-We are starting to hit the point where no amount of indexing, query optimisation, caching or box upgrades is helping us.
-We are looking at maybe moving the bulk of the static data to clickhouse to reduce the DB size but I would love to hear if PgDog or other kind of sharding could be useful for this use case."</p>
+								<p class="story__comment_others">"I didn’t get a screenshot of this, but I just found a really pointed example of Anthropics lack of craft / rush to build. If you open Claude on Windows, and click Dispatch (under cowork) to start that up, it will tell you that you need permissions windows doesn’t have. When you click the buttons for those permissions, it has broken links to macOS system preferences. I really encourage someone to try it and post the images as a reply as I am writing this from my phone."</p>
+							
+						
+							
+								<p class="story__comment_others">"The VM itself is for Claude Cowork which does all work within the VM sandbox. That doesn&#39;t help answer why they spin it up immediately and don&#39;t have a way to disable it though. Just the &#34;why it exists&#34; question."</p>
 							
 						
 						</a>
@@ -349,33 +342,33 @@ We are looking at maybe moving the bulk of the static data to clickhouse to redu
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.reuters.com/business/apple-failed-make-its-ai-tool-comply-eu-regulations-eu-commission-says-2026-06-09/">
+					<a href="https://www.ourcommons.ca/petitions/en/Petition/Sign/e-7416">
 						<picture>
-							<source srcset="default_48463024.webp" type="image/webp">
-							<source srcset="default_48463024.png" type="image/png">
-							<img src="default_48463024.png" alt="Preview of 'Apple decided not to roll out Siri in EU after denied request for exemption'">
+							<source srcset="default_48491830.webp" type="image/webp">
+							<source srcset="default_48491830.png" type="image/png">
+							<img src="default_48491830.png" alt="Preview of 'Petition to Withdraw Canada&#39;s Bill C-22'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.reuters.com/business/apple-failed-make-its-ai-tool-comply-eu-regulations-eu-commission-says-2026-06-09/">Apple decided not to roll out Siri in EU after denied request for exemption</a></h3>
+					<h3><a href="https://www.ourcommons.ca/petitions/en/Petition/Sign/e-7416">Petition to Withdraw Canada&#39;s Bill C-22</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48463024">
+						<a href="https://news.ycombinator.com/item?id=48491830">
 						
 							
-								<p class="story__comment_first line-clamp">"Apple said &#34;hey, can we not comply with the law&#34;, the EU said no, so it didn&#39;t launch. Seems pretty straightforward to me.I can see why Apple might want to request an 18 month exemption, there&#39;s clearly extra work required to comply with EU regulations. But on the other hand it also feels like a straightforward play for consumer sympathy: let them get used to using it every day for 18 months, then pressure the EU to let it continue or you rip the feature away and anger users (who you then point to the EU as the problem)It&#39;s not as if Apple doesn&#39;t have the money to dedicate a team to matching the EU&#39;s requirements on a deadline. They just choose not to."</p>
-							
-						
-							
-								<p class="story__comment_others">"I understand Apple&#39;s position on this one. This is essentially a backdoor into all of your data. It is also a very useful feature. The EU regulators are disallowing guardrails without which this backdoor will be used to strip-mine people&#39;s personal data. The privacy implications are not legible to most people.If I was more cynical I would suggest that this is being used as an end-run around encryption, since the encryption doesn&#39;t have backdoors for the government but this gives you access to all the same data.When this backdoor is inevitably exploited in some very public fashion, it won&#39;t be the EU regulators that required the backdoor to exist who will be blamed."</p>
+								<p class="story__comment_first line-clamp">"While deeply unlikely to change anything it really is important as much noise is made about this as possible.On top of this will be C-34 which is just full no privacy anymore territory https://www.michaelgeist.ca/2026/06/everything-all-at-once-b...The gov do all this and then will act surprised as Canada&#39;s tech sector finds it even harder to create any consumer facing businesses leaving all the value being captured by the Americans. Surprised pikachus all round."</p>
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s totally fine that Apple doesn&#39;t release this feature for EU customers. If they think they can still sell enough phones it&#39;s also fine I guess.What&#39;s not fine, is to blame the EU for the missing feature. It&#39;s damaging their brand and damaging their reputation. Just think about if Porsche would make a press release and calling the US tariffs &#34;un-American&#34;. Wouldn&#39;t be perceived well either."</p>
+								<p class="story__comment_others">"There will be a SECU Committee meeting on C-22 later today, where the committee will be performing a clause by clause review of Bill C-22, and voting on amendments. It may be the final meeting. You can watch it live by clicking the &#34;Watch on ParlVu&#34; button on the meeting notice page: https://www.ourcommons.ca/DocumentViewer/en/45-1/SECU/meetin...Direct link to the upcoming live ParlVu video: https://parlvu.parl.gc.ca/Harmony/en/PowerBrowser/PowerBrows...After bill C-22 leaves the SECU Committee, it will be sent to the House of Commons for the third reading and a final vote before being sent to the Senate.If you are a Canadian citizen, you can also use the following tools to message your MP:* The Internet Society&#39;s tool: https://www.internetsociety.org/our-work/internet-policy/kee...* OpenMedia&#39;s messaging tool: https://action.openmedia.org/page/188754/action/1* ICLM&#39;s messaging tool: https://iclmg.ca/stop-c-22/You can also email Gary Anandasangaree (gary.anand@parl.gc.ca), Marc Carney (mark.carney@parl.gc.ca), and Sean Fraser (sean.fraser@parl.gc.ca), and tell them that any weakening of encryption or suspicionless retention of metadata is unacceptable."</p>
+							
+						
+							
+								<p class="story__comment_others">"I made my petition in April 2025.  I was genuinely surprised that my riding was fooled by Liberal lies, but I&#39;m not surprised about the result.Liberal, Tory, same old story."</p>
 							
 						
 						</a>
@@ -387,33 +380,33 @@ We are looking at maybe moving the bulk of the static data to clickhouse to redu
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=48473166">
+					<a href="https://www.theverge.com/ai-artificial-intelligence/948280/anthropic-claude-fable-invisible-distillation-guardrail">
 						<picture>
-							<source srcset="default_48473166.webp" type="image/webp">
-							<source srcset="default_48473166.png" type="image/png">
-							<img src="default_48473166.png" alt="Preview of 'AWS Bedrock to require sharing data with Anthropic for Mythos and future models'">
+							<source srcset="default_48489229.webp" type="image/webp">
+							<source srcset="default_48489229.png" type="image/png">
+							<img src="default_48489229.png" alt="Preview of 'Anthropic apologizes for invisible Claude Fable guardrails'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=48473166">AWS Bedrock to require sharing data with Anthropic for Mythos and future models</a></h3>
+					<h3><a href="https://www.theverge.com/ai-artificial-intelligence/948280/anthropic-claude-fable-invisible-distillation-guardrail">Anthropic apologizes for invisible Claude Fable guardrails</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48473166">
+						<a href="https://news.ycombinator.com/item?id=48489229">
 						
 							
-								<p class="story__comment_first line-clamp">"The root of the problem is that AI-as-a-service is corked, because companies providing it have a hell of an incentive to use all that data to out-compete their competitors, and they can do so in secret. To say nothing of salivating law-enforcement who really, really wants to tap into it. I&#39;m hoping there will be at some point open-source and affordable hardware that can run competent models."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is odd behaviour, and provides some evidence that Anthropic isn&#39;t being managed by serious people. With this policy across AWS/GH/Zed/etc, they&#39;re taking their massive lead in enterprise/govt sales and handing it to any competitor who can serve a model anywhere near these capabilities with a modestly nice UI."</p>
+								<p class="story__comment_first line-clamp">"I like Claude Code a lot, I think it sets a dangerous precedent to put guardrails in that return a response from a prompt that was modified by the system in real time in order to subvert the original intent.Fail cleanly. Anything else makes it too difficult to rely on.edit: Giving the absolute maximum benefit of the doubt I understand that they see themselves as &#34;stewards&#34; for lack of a better word. But the EA thing is really leaking through, and paternalism isn&#39;t a good look."</p>
 							
 						
 							
-								<p class="story__comment_others">"This policy applies across all providers. Here is the warning in Cursor: https://i.redd.it/7sfyker2ya6h1.pngNote that Anthropic has committed not to train models on logged data, so I don’t understand some of the concerns here. What exactly is your threat model? That Anthropic would train models contrary to their terms of service? That you trust them enough not to log your data prior to this, but not enough to trust their stated limits on how logged data will be used now?Edit: I am partially convinced by some of the replies. However, it is worth noting that this change primarily affects Enterprise users. Data from consumer plans is already retained for 30 days. Source: https://privacy.claude.com/en/articles/10023548-how-long-do-..."</p>
+								<p class="story__comment_others">"Can you imagine if Excel just quietly adjusted formulas in the background, and you didn&#39;t know the numbers weren&#39;t right?Or if Excel just said, Sorry, you can&#39;t use that formula with this formula? Or with these types of numbers, or this shape of data, etc?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This has dampened my opinion on Anthropic quite a bit. It&#39;s difficult to take their marketing for AI as an empowering technology seriously when they are quite clear in their new deployments that they do not mean empowering for you, but empowering for them and organizations that are in their (or the US government&#39;s, despite Anthropics performative disagreements with the administration) good graces. You are allowed to vibe code some dashboards, a web app or let it drive Excel, but anything more interesting than that is forbidden.If it was just plain monetary concerns and sabotage of competitors I&#39;d almost be fine with it, but it seems they actively want to monopolize most of human progress in their enlightened hands, lest the mob does something undesirable with these powers."</p>
 							
 						
 						</a>
