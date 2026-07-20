@@ -36,6 +36,292 @@
 	</div>
 
 	
+	<div class="day__date">20 July 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=48968606">Show HN: I replaced a $120k bowling center system with $1,600 in ESP32s</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48968606">
+						
+							
+								<p class="story__comment_first line-clamp">"Thank you for posting this, it reaffirms what I&#39;ve been thinking for so long. There are many opportunities to retrofit old systems of all types with modern low-cost embedded technologies.Around 2019 or so I was approached by an engineer who had a small business retrofitting very old machine tools with modern motion controls. Think very large lathes and planers. The problem they had was that in order to get these systems working with newer controls, they had to make time-consuming modifications to the old machines, in some cases modifying the axis motors and that cost added up quickly. The engineer realized that it was theoretically possible to take the old analog position signals and convert them into something a modern motion controller could read. That converter box would make the retrofit pretty much plug &amp; play, but he didn&#39;t have the programming expertise to make it happen.We probably built the first iteration of the converter for under $50 in parts and less than 50 hours of development time. That had me searching for other similar opportunities. I have found a few, but they tend to be one-offs that aren&#39;t worth the time unless you&#39;re already building something similar. Either that or my ability to see opportunity sucks!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Lol, nice! It depends on what you mean by &#34;owning a bowling center,&#34; but it looks like there are at least two of us into this :DI bought a really old fully mechanical (and automated!) mini bowling lane. It works without a CPU, except for the score display, which originally used a 1970 Intel D8749H (MCS-48)!Just like yours, the only thing that turns this machine on is a single relay :D
+On my model, I also get feedback on the pin status and a &#34;ball received&#34; signal, so I can trigger the scoring.I dumped the firmware and replaced the display PCB with a more recent DIY PCB with an Arduino that speaks a modern, documented protocol. It&#39;s now compatible with ScoreMore software, and I can do a lot more with it.Here are some pictures and more info on the Bowltech forum (you should post your stuff here too!):* https://www.bowltech.com/forum/small-scale-bowling/small-sca...@vik8 on discord if you need :)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I grew up behind the bowling machines. My dad was a bowling machine mechanic and worked on machines all around the midwest. He often moon-lite as the on-duty mechanic during league nights and I&#39;d go with him.Mostly he worked at the local 16-lane alley with ancient AMF machines. The logic was all relays in a &#34;chassis&#34; on each machine. Relays would fail, pins and balls would end up where they&#39;re not supposed to be, folks would roll the ball into the sweep. All kinds of stuff. As a kid was was fantastic to see. A pinsetter machine is a real Rube Goldberg type contraption. Probably lead me to being an engineer.We had the several opportunities to buy a small-town bowling center, but looking at the economics -- even back in the 1980&#39;s -- wasn&#39;t good. Most of the operating profit back then came from alcohol sales and that&#39;s a totally different business.Good luck! Recently Facebook has been showing me a lot of bowling content. Be cool if it&#39;s making a comeback."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://twitter.com/Alibaba_Qwen/status/2078759124914098291">Qwen 3.8</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48966120">
+						
+							
+								<p class="story__comment_first line-clamp">"I’m a developer from China. So, is this what Hacker News is all about? Whenever a model comes from China, the comments section stops discussing its technical architecture, optimisation points or real-world performance, and instead starts going on about politics, human rights and all that rubbish? To be honest, we Chinese IT professionals possess a genuine geek spirit. That’s why you’re lagging behind in open-source competitions—it’s got nothing to do with politics; you’ve simply lost sight of your original aspirations."</p>
+							
+						
+							
+								<p class="story__comment_others">"(I can&#39;t draw a pelican for this one because Alibaba Cloud have flagged my email address and won&#39;t let me pay them for access. So I&#39;m waiting for the open weights release, or for the new model to show up on OpenRouter.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I assume that this announcement has been prompted by that of Moonshot AI, which has just announced a 2.8T parameter open-weights LLM, Kimi K3, to be published on Huggingface by 27 July.Now the response of Alibaba is that they will also publish soon a big open weights LLM, the 2.4T parameter Qwen 3.8.I wonder if Alibaba has always planned to make this big LLM open weights, or they have chosen to do this now, to better compete with Moonshot AI.In any case, from this competition in LLMs, we win."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/">Claude Code uses Bun written in Rust now</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48966569">
+						
+							
+								<p class="story__comment_first line-clamp">"Drilling into the original article where Jarred explained the reasoning behind the change, It&#39;s pretty clear that under zig the team was doing things by hand that are automatic in rust.Humans and agents share one thing: they are both non-deterministic. He talks about the issue of tracking memory lifecycles manually in zig so it can be explicitly freed. As expected, this leads to a long list of bugs where people missed things.Rust does this automatically. It removes an entire class of errors from his backlog. From an engineering management perspective, this looks like a pretty good trade.The bonus here is that compiler errors are exactly the kind of deterministic guardrail you need to put around coding agents. Claude works really well if you give it a way to test for correctness and &#34;make it compile&#34; is a pretty good target.There&#39;s a general version of this: the artifact you expose plus the test you run on it. Deterministic tests turn stochastic output into a hard guarantee. Wrote it up here if useful: https://michael.roth.rocks/blog/verification-surface/"</p>
+							
+						
+							
+								<p class="story__comment_others">"Bah.Personally my take on the entire affair is quite negative, whatever Jarred or Simonw says about it.I think Bun owned by Anthropic and the entire rewrite with AI is not the real point (even if it&#39;s quite interesting, though).My take is that Jarred, and Bun,didn&#39;t demonstrate a serious, adult approach, from &#34;this is my branch, you are overreacting&#34; message to just proceeding with a 1mil+ PR merged in less than month.The communication is the issue, and it was handled very badly, in a way that impacted trust and divisions.Was it so difficult to adopt the approach that the TS team adopted for 7.0?"</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; For me this outputs Bun v1.4.0 (macOS arm64). The most recent release of Bun on GitHub is currently v1.3.14 from May 12th, so that v1.4.0 version number in Claude supports them shipping a preview of a not-yet-released Bun version.And so, the FOSS project &#34;Bun&#34; silently dies in darkness and is now something completely else. I&#39;m glad I still had &#34;Investigate if Bun is worth it&#34; on my TODO list and hadn&#39;t yet gotten to it.What is the governance structure for Bun by the way? Couldn&#39;t find any documents/explanations about how it&#39;s supposed to work. I&#39;m guessing it&#39;s essentially just &#34;Anthropic decides what gets done and accepted&#34; today?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://chipweinberger.com/articles/20260719-hardware-is-not-so-hard">What I learned selling 2,500 MIDI recorders: Hardware is not so hard</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48966713">
+						
+							
+								<p class="story__comment_first line-clamp">"Hardware has a reputation for being hard for three reasons. First, it scales differently than software. It&#39;s far harder to design something you want to make a million of than something you want to make ten of. Second, it&#39;s harder to anticipate, test, and correct all the things that can go wrong on the user end. Some people will put batteries the wrong way, some will drop the device on the ground, some will connect it to some vintage equipment you have never seen in your life, etc. And third, there are just more failure modes in an unfamiliar domain - sometimes, your code will intermittently crash not because you have a software bug, but because you put the decoupling capacitor too far from the chip. Or, just as you finish your design, the chip you designed it around becomes obsolete, or impossible to find because a factory in Indonesia is on fire.Another complication is that at least in theory, if you&#39;re selling electronics, there are actual regulations and third-party testing that needs to happen, and if you fail emissions, you might have to redo your design from scratch. Imagine we had that for software - &#34;your JS is too big, you can&#39;t ship until you get it under 50 kB&#34;.So, I&#39;m happy for the author, but I think he had an outlier experience. When you look at Kickstarter stories, people repeatedly stumble over this. Manufacturing / cost difficulties, supplier issues, reliability issues, etc."</p>
+							
+						
+							
+								<p class="story__comment_others">"Very happy JamCorder customer here. I&#39;ve started playing in improv shows since I bought it too, and it&#39;s nice to have those on record!It&#39;s rare that I come across a product I have literally zero complaints about, or any feedback to offer. Even my concern that it was tied to an app that might disappear one day is of course covered by the fact that it&#39;s all just MIDI files on a card.Thank you so much for making this, it&#39;s basically a perfect product for me and I love it. No notes."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt;But for me the take away still is: “hardware is as hard as you make it”.I dislike this statement. Hardware is as hard as the product dictates it needs to be. A 25 component PCBA and a clamshell of 2 injection molded parts is about as simple of a product as you can make. Heck, most people would just buy an off the shelf clamshell for that type of product.That doesn&#39;t work for the vast majority of products, building a product with 20 COTS parts plus 60 custom tooled parts, and 4 complex PCBAs is what is hard. Getting everything to fit together, pass testing, arrive on time from dozens of suppliers, etc. it where the complexity comes in. Then consider that hardware is cash intensive, you need to pay ahead of time for all the tools, you need to pay to buy the individual parts and warehouse them somewhere while you build the products you hope are going to sell. If something goes wrong there, then your expensive parts are just sitting there waiting for replacement components before you can ship. Then even when you ship, that revenue goes into buying the next round of parts you are going to receive in 3 months. This is where many hardware projects fail as they run out of cash before the project breaks even."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/#fnref:3">AI Mania Is Eviscerating Global Decision-Making</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48964185">
+						
+							
+								<p class="story__comment_first line-clamp">"[delayed]"</p>
+							
+						
+							
+								<p class="story__comment_others">"Most of us on some level felt confident that AI would completely revolutionise our society. The singularity made sense to me, at least. It hasn&#39;t worked out like that, but rather than accept the crushing reality of our mistake and take a second to re-evaluate, we&#39;ve decided to LARP out the future we promised ourselves by crowbar-and-vaselineing AI into every crack and crevice we can find and loudly proclaiming progress.It&#39;s like some 90s kid with a Nintendo power glove who&#39;s convinced themselves that this makes them a hacker. This is not the singularity.I personally can&#39;t wait for this to end, and for everyone to collectively get back to waiting for whatever the next golden ticket that&#39;s supposed to solve all of our problems turns out to be."</p>
+							
+						
+							
+								<p class="story__comment_others">"This part toward the end of the article resonated with me:&gt; If you’re being asked to review huge volumes of terrible AI code, just assume that the organisation is going to burn you out and fire you. You will not convince the person drowning you in 2000 line PRs to stop. Start looking for a new job as if you have already been fired. I have seen this happen many times nowI suspect we will see this phenomenon more and more as organizations more widely adopt agentic development."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://xcancel.com/__alpoge__/status/2079028340955197566">Claude Fable produced a counterexample to the Jacobian Conjecture</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48973869">
+						
+							
+								<p class="story__comment_first line-clamp">"A little over 10 years ago I remember meeting a postdoc who believed he had something close to a counterexample to the Jacobian Conjecture. He and another person was bruteforcing polynomials in about 16 variables, something like 80 - 700 terms each, using binary trees for mapping coefficients.They were guessing, at the time, that the lower bound of a counterexample (P, Q) for max(deg(P), deg(Q)) would go up to 200.To think that Claude Fable was able to find a counterexample in degree 7 is insane to me. We are truly in a new era."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is a rare instance where feeding this groundbreaking information into an LLM gives _them_ psychosis. I fed this to claude code and watched it verify the result in 7 different ways to be 100% certain, and it was just flabbergasted. Quite remarkable."</p>
+							
+						
+							
+								<p class="story__comment_others">"Given how small the counterexample is... this feels like a great example of where a lot of interesting results are going to be found: not because they were super difficult, but because intelligence didn&#39;t scale, and until computers could do this for us, the number of people who seriously poked at many such things was low.I&#39;m very excited for the impact of this effect in science and medicine and other disciplines too."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/openai/codex/pull/33972/files">OpenAI reduces Codex Model Context Size from 372k to 272k</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48965850">
+						
+							
+								<p class="story__comment_first line-clamp">"I know a lot of people like to say that compaction makes this moot, but the level of detail you lose across compaction is wildly too much for most things that I do, unfortunately.Perhaps if your plans don&#39;t have as much detail, or if you&#39;re not, for example, having a discussion with a lot of nitty-gritty then it&#39;s fine?The lack of long context is the main reason that I still end up using Anthropic.The worst is when you need it to hold for example a number of papers in its head, or large and complex materials that it needs full resolution on and your context window ends up being perennially at 16%. You have about five minutes of conversation and it compacts and then you have to wait for it to read that again, get to 16%... and repeat.372 was not perfect, but it was so much better and a godsend. It turned that 12 to 20% into more like 40%."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t know if this is why they did it, but I think it is generally a mistake to go beyond this context size anyway.I don&#39;t think people realize how much dumber the models get at larger contexts and how much more the token cost is. I never let claude get about 300k and in general I don&#39;t compact, I just divide up the work in chunks where I can fit it into 300k and I try to keep really clean and slim docs and modular code bases.It&#39;s still kind of annoying, sometimes the larger context is useful for one time tasks, but I think if you are regularly going beyond 300k you are losing a lot and probably have a poorly designed code base."</p>
+							
+						
+							
+								<p class="story__comment_others">"This was tweeted about when it happened, with some explanation from Tibo here: https://x.com/thsottiaux/status/2076543065045795309"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://thenextweb.com/news/ai-advice-suppresses-critical-thinking-wrong-answers-study">AI advice made people less accurate but more confident – sudy</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48971738">
+						
+							
+								<p class="story__comment_first line-clamp">"This study is pretty bad. The comment (https://news.ycombinator.com/item?id=48970182) on the other link with the direct PDF explains the problem well, which is that nothing here being tested is specific to AI systems.This study gave people access to an LLM that the researchers knew would give incorrect answers to certain questions, and then quizzed people on those questions, with the option to not respond to a given question if they are unsure about the answer.This is akin to giving someone a textbook on an obscure subject that has certain factual errors, letting them know they can use that textbook in a quiz on that subject, and then quizzing that person on those facts that the textbook gets wrong.Obviously that person is both more likely to be willing to respond to the question and is more likely to get it wrong!There are a lot of things I&#39;m very interested in that are specific to modern LLMs and how they affect learning and confidence (sycophancy, cognitive helplessness, etc.).This study tested none of those. Its experimental setup is not very different than simply substituting the LLM with a textbook with errors."</p>
+							
+						
+							
+								<p class="story__comment_others">"Advice and information subreddits have gone to shit because of AI usage. A large number of people seem to think that when someone asks a question, what they really want is not someone with direct knowledge, but instead someone to relay the question to ChatGPT and post the result as if it is their own hard earned knowledge and insight. I have no idea about the quality of this research but in the real world (well, real-ish, as real as Reddit can be) it is stark, people aren’t just refusing to say “I don’t know” they’re actively seeking out opportunities to pretend they know things."</p>
+							
+						
+							
+								<p class="story__comment_others">"AI pessimist view.Even if AI gets smarter it will still be agreeable, and people will use it to more confidently reinforce thier stupider ideas, especially in areas where they lack the knowledge to know if they are right.Even if this can be solved, technically, people won&#39;t want to use the model that says they are wrong, so they will choose the glib lies that reinforce their beliefs.Freedown of speech forces people to think they may be wrong, but freedom of association lets people avoid this. AI is going to be internet hug box echo chambers at an unbelievable scale."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/stupside/castor">Better and Cheaper Than IPTV</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48964015">
+						
+							
+								<p class="story__comment_first line-clamp">"For a no hacks alternative, I built TV Explorer. It puts the channel&#39;s published HLS stream into your browser with no interim steps. Uses the public GitHub list of more than 10,000 free channels.https://tvexplorer.live"</p>
+							
+						
+							
+								<p class="story__comment_others">"This situation where bots have to run a headless browser in a new profile is just stupid. Can we have the old internet back? Please? Cloudflare you&#39;re not stopping bots, you&#39;re just wasting effort on both sides while siphoning access logs and passwords to the NSA."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; I built it because I couldn&#39;t cast web video from my laptop to my TV: no Chromecast, no AirPlay.Looks like Claude built it."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.minecraft.net/en-us/article/minecraft-26-3-snapshot-4">Minecraft: Java Edition now uses SDL3</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=48967256">
+						
+							
+								<p class="story__comment_first line-clamp">"The lwjgl bindings for this were written by a member of the GTNH modpack team, thereby completing the chain of vanilla-&gt;modded-&gt;vanilla once more https://github.com/LWJGL/lwjgl3/pull/1033"</p>
+							
+						
+							
+								<p class="story__comment_others">"I recently converted a game, Tribal Trouble (https://github.com/bondolo/tribaltrouble) from GLFW to SDL3. It was mostly a painless  refactor though I did have some issues with full screen exclusive modes and desktop
+full screen but was eventually able to resolve those.I ended writing a demo for screen mode handling to test and document the fiddly bits.https://github.com/bondolo/SDL3-Fullscreen-DemoThe game is Java, like Minecraft, the demo is C because I wanted to keep it as simple as possible."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Known Issues&gt; Exclusive fullscreen mode on Windows may cause the game to crash in certain situations, especially when using multiple monitors&gt; Entering Exclusive fullscreen mode crashes the game on WaylandThose, together, kinda seem like the kind of blocking bug that would usually delay a snapshot... Lets hoping it gets fixed before release lands..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">19 July 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -100,11 +386,11 @@ On home editions sans gpedit.msc:  sysdm.cpl
 							
 						
 							
-								<p class="story__comment_others">"I made the Progressive Image Viewer Tool a few years ago. You can drop any image into it to simulate loading.https://stan-kondrat.github.io/progressive-image-viewer/"</p>
+								<p class="story__comment_others">"That is 1. Cursed, and 2. Definitely in the right place here."</p>
 							
 						
 							
-								<p class="story__comment_others">"That is 1. Cursed, and 2. Definitely in the right place here."</p>
+								<p class="story__comment_others">"I wonder if and how you can use this for steganography, hiding data in plain sight. I bet most automated image analysis programs would only consider the final image. I sure some highschooler can use this to bypass their schools contentfilter"</p>
 							
 						
 						</a>
@@ -153,7 +439,7 @@ In math research, do you also get the training for the profession from working o
 						<a href="https://news.ycombinator.com/item?id=48963879">
 						
 							
-								<p class="story__comment_first line-clamp">"For anyone looking to build on top of this. I have tried a few different STT systems, and they accurately capture what I am saying. Unfortunately, they don&#39;t support the reasonable workflowI want to open an office document, for example, and start talking. And I want the software to continuously type what I am saying at the cursor with minimal latency. The continuous part is crucial. Many software will paste whatever I said after I have stopped recording, but that is not useful."</p>
+								<p class="story__comment_first line-clamp">"Looks very cool. One thing I have been looking for, which this doesn&#39;t seem to cover (at least I didn&#39;t see any mention of IPA in the model documentation), is a way to transcribe unknown languages phonetically, using the International Phonetic Alphabet to spell them (sound-based spelling rather than meaning-based spelling). I know several linguists doing research on minority languages (fewer than 10,000 speakers in some cases), which are small enough that they will never have enough effort made towards training language-specific models in that language.Are there models I&#39;m not aware of that are trained for this task? Taking audio in an unknown language, and rather than identifying the language, just transcribing the sounds to IPA? That would not be useful to most people, but it would be a Godsend to many, many linguists working with minority languages around the world."</p>
 							
 						
 							
@@ -162,7 +448,7 @@ Model for STT(e.g apple’s thing is not upto scruff, like mistranslating words 
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m using Handy on macOS and love it. Unfortunately, hotkeys still doesn&#39;t seem to work on Wayland, which make it unusable."</p>
+								<p class="story__comment_others">"For anyone looking to build on top of this. I have tried a few different STT systems, and they accurately capture what I am saying. Unfortunately, they don&#39;t support the reasonable workflowI want to open an office document, for example, and start talking. And I want the software to continuously type what I am saying at the cursor with minimal latency. The continuous part is crucial. Many software will paste whatever I said after I have stopped recording, but that is not useful."</p>
 							
 						
 						</a>
@@ -186,16 +472,16 @@ Model for STT(e.g apple’s thing is not upto scruff, like mistranslating words 
 							
 						
 							
-								<p class="story__comment_others">"I am a big supporter of AI and use it heavily. I agree with this. It&#39;s not about AI at all. It&#39;s about a blanket ban to prevent deceit when selling a product or service. It should be depicted as it is. AI just lowers the barrier for deceit (unfortunately), but it&#39;s not the only tool that can be used towards that end. Ban all deceitful advertising."</p>
-							
-						
-							
 								<p class="story__comment_others">"There&#39;s several other areas that would be good to categorically ban AI usage from:  - gambling
   - dating
   - hiring
   - advertising
 
 It shouldn&#39;t even be controversial that this would be broadly good for society.I say that as an AI maximalist: I fully trust AI with these things. I do not trust the humans using the AI."</p>
+							
+						
+							
+								<p class="story__comment_others">"I am a big supporter of AI and use it heavily. I agree with this. It&#39;s not about AI at all. It&#39;s about a blanket ban to prevent deceit when selling a product or service. It should be depicted as it is. AI just lowers the barrier for deceit (unfortunately), but it&#39;s not the only tool that can be used towards that end. Ban all deceitful advertising."</p>
 							
 						
 						</a>
@@ -414,7 +700,7 @@ This spits out read-write credentials that are scoped JUST for that bucket. You 
 							
 						
 							
-								<p class="story__comment_others">"I loved my time at RC. It changed me a lot. I wrote several blog posts about different projects and my time during my batch. I would strongly suggest applying if you like computers and want to talk about them constantly while building cool stuff.https://www.lowimpactfruit.com/p/rainy-citycom-a-side-projec...https://www.lowimpactfruit.com/p/zork-bench-an-llm-reasoning...https://www.lowimpactfruit.com/p/my-return-statement"</p>
+								<p class="story__comment_others">"I like the definition of social rules [0]. I also wonder whether the roof rule was written preemptively or retrospectively -- I hope the former.I have my own thanks to give to HN. It&#39;s connected me to interesting people, online and IRL. It&#39;s led to some very strong friendships. It&#39;s led me to multiple job opportunities, and usually the better ones. It&#39;s changing of course, but I&#39;ve had a great time in this community so far, and that deserves thanks.0: https://www.recurse.com/social-rules"</p>
 							
 						
 						</a>
@@ -1629,11 +1915,11 @@ For the moment in the EU institutions the focus is mostly at the post-acceptance
 							
 						
 							
-								<p class="story__comment_others">"[flagged]"</p>
+								<p class="story__comment_others">"Xcancel link https://xcancel.com/a_green_being/status/2076598897779020159"</p>
 							
 						
 							
-								<p class="story__comment_others">"Xcancel link https://xcancel.com/a_green_being/status/2076598897779020159"</p>
+								<p class="story__comment_others">"https://nitter.net/a_green_being/status/2076598897779020159#..."</p>
 							
 						
 						</a>
@@ -1831,11 +2117,11 @@ explanation could be that xAI then run vector embedding on every file to help la
 							
 						
 							
-								<p class="story__comment_others">"Regular downvotes/flags are for low quality or spam. AI content isn&#39;t always &#39;bad&#39; per se, it’s just... empty. It eats up attention without saying anything new. A dedicated tag would be great because I don&#39;t want to bury the post, I just want to opt out of reading a glorified autocomplete."</p>
+								<p class="story__comment_others">"Nobody wants to label their stuff as AI generated because they removed credibility. Communities can flag posts as AI generated based on speculation and telltales but it won’t be 100% and will take extra work.I think the era of the blog is simply dead now and that’s mostly ok. Blogspam and corporate blogs had killed quality bogs ages ago even before AI was a thing. The real question is what replaces it.Oh and of course the $64k question is this: if an AI generated article is indistinguishable from a human written article and it is accurate and interesting, do you care who wrote it? We want to avoid low quality, not AI generation, right?"</p>
 							
 						
 							
-								<p class="story__comment_others">"Nobody wants to label their stuff as AI generated because they removed credibility. Communities can flag posts as AI generated based on speculation and telltales but it won’t be 100% and will take extra work.I think the era of the blog is simply dead now and that’s mostly ok. Blogspam and corporate blogs had killed quality bogs ages ago even before AI was a thing. The real question is what replaces it.Oh and of course the $64k question is this: if an AI generated article is indistinguishable from a human written article and it is accurate and interesting, do you care who wrote it? We want to avoid low quality, not AI generation, right?"</p>
+								<p class="story__comment_others">"Regarding 1, I think a) a sizeable fraction of voters are not able to recognize AI-generated text b) many who notice don&#39;t care, or are willing to overlook it if the premise is interesting enough. (The latter is true for me, on occasion)Maybe we need a two-dimensional voting system: good/bad, ai/human. I think the second axis could cut down on meta-discussions over how much of the article was AI-generated."</p>
 							
 						
 						</a>
@@ -2361,7 +2647,7 @@ The practical takeaway for users: your entire codebase leaves (uploaded) your ma
 							
 						
 							
-								<p class="story__comment_others">"A lot of people are now upset because xai is running a bulk upload instead of a stream upload like oai or Anthropic.Suddenly they became aware that the AI agents are not actually running on their  computers. AI agents are just uploading the shit on some servers for how long they want and in exchange of that you pay them and get some work done.I am surprised through that nobody is asking if the agents are GDRP compliant or if they are even legal considering they are trained with illegal/copyrighted content or if you are liable for theft because now you own, publish and sell illegal content generated by agents….Enough ranting…instead of this stuff people should just admit that after social media, AI is the new frontier towards a kind of zero privacy, at least until you can have local AI/if ever."</p>
+								<p class="story__comment_others">"This is one of the reasons why native proprietary coding agent runners like claude-code, codex, grok-build etc are so dangerous for privacy… you just don’t know what “secret sauce” they’ll add in the next update…It’s much safer to use something like opencode and use models via their API… however, the tradeoff is that it will never perform as well as it does in their native agent runners…"</p>
 							
 						
 						</a>
@@ -2681,302 +2967,6 @@ Here&#39;s the result: https://tools.simonwillison.net/markdown-svg-renderer#url
 						
 							
 								<p class="story__comment_others">"Given the era, it seems likely that the collapse was the work of multiple angry gods. The author doesn&#39;t cover this possibility."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">10 July 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.patrick-breyer.de/en/eu-parliament-greenlights-chat-control-1-0-breyer-our-children-lose-out/">EU Parliament greenlights Chat Control 1.0</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48843923">
-						
-							
-								<p class="story__comment_first line-clamp">"The EU is a farce, an undemocratic virtue signaling organization, and this is why:- The Parliament voted against the first reading of this proposal twice in 2026, the first time they only supported limited cases for it, while the second time they actually defeated it fully.- The Commission didn&#39;t care, and kept the proposal on the table by refusing to withdraw it.- Once the Commission does that, the proposal goes on second-reading (despite the first-reading having defeated it) and it is established in a very PERVERSE way in EU law that to AVOID passing the proposal in second-reading you need ABSOLUTE majority which is incredibly hard to pursue (you would think that we would need an absolute majority to PASS a proposal that was previously defeated on first-reading, not instead needing absolute majority to DENY a previously defeated proposal that was again forced to the table).- Furthermore, absences in practicality count as &#34;No&#34; on the rejection. So of course they scheduled the vote in the summer when notoriously there will be many absences.By never withdrawing a defeated proposal they can effectively and in practicality pursue any agenda they want (it requires a massive mobilization effort to find absolute majority to defeat any proposal, especially when absences for any reason effectively count against rejection).In PRACTICALITY, the Commission can pursue any agenda whenever and however they want, and throw the votes down the drain.EU&#39;s democracy is lipstick on a pig."</p>
-							
-						
-							
-								<p class="story__comment_others">"Stupid parliamentary trick: Hold the vote on the day before the summer break - ensuring that many people have already returned to their home countries. Then use a sort of &#34;reverse&#34; parliamentary trick: the default is that this legislation is accepted. They needed an absolute majority - not of voting members, but of all members - to reject it.Result: 314 against, 276 in favor, 17 abstentions, 113 absentThe EU is well on the way to becoming a totalitarian government.ETA: It is shocking that 276 members of parliament would vote to support this. Are so many so naive? Or being paid off?"</p>
-							
-						
-							
-								<p class="story__comment_others">"FTA:What changes with the return of Chat Control 1.0—and what stays the same:*What is coming back:*
- US tech companies are once again allowed to scan private messages without a warrant or prior suspicion. This affects direct messages on platforms like Instagram, Discord, Snapchat, Skype, and Xbox, as well as emails via Google’s Gmail and Apple’s iCloud.*What remains unchanged:* 
- Public social media posts and files hosted in cloud storage could already be scanned without this law. Furthermore, private messages can always be reported by users, or monitored by authorities using targeted, court-ordered wiretapping.*What is still NOT being scanned:* 
- End-to-end encrypted chats, such as those on WhatsApp, have always been exempt from these scans. Additionally, European providers of messaging and email services have never implemented chat control measures.So, E2E is unaffected?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://openai.com/index/gpt-5-6/">GPT-5.6</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48849066">
-						
-							
-								<p class="story__comment_first line-clamp">"The developer&#39;s guide (https://developers.openai.com/api/docs/guides/latest-model) has some interesting semantic tips for using the model:&gt; Intent understanding: GPT-5.6 can better infer the user’s underlying goal and intended level of work without you specifying every step. Continue to state important constraints, approval boundaries, and success criteria explicitly.&gt; Original image detail: GPT-5.6 preserves the original dimensions of images sent with original or auto detail instead of resizing them to a patch budget or pixel-dimension limit.&gt; Use shorter prompts: In internal evaluations, replacing long, explicit system prompts with minimal prompts improved scores by roughly 10–15%, while reducing total tokens by 41–66% and cost by 33–67%.&gt; Avoid generic brevity instructions: GPT-5.6 is more sensitive than GPT-5.5 to instructions such as “Be concise,” “Keep it short,” or “Use minimal text.”&gt; Control warmth: GPT-5.6 does not become meaningfully better when prompted to be broadly friendlier or more empathetic."</p>
-							
-						
-							
-								<p class="story__comment_others">"Funny to see that they did not include Fable 5 in their GeneBench and LifeSciBench comparisons because &#34;it does not answer advanced biology questions and refuses the majority of questions in this eval&#34;.Winner by default!"</p>
-							
-						
-							
-								<p class="story__comment_others">"GPT-5.6 Sol sets a new SOTA on ARC-AGI-3: 7.8%Sol is the first verified frontier model to ever beat an ARC-AGI-3 gamehttps://arcprize.org/results/openai-gpt-5-6"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://18words.com/">Show HN: 18 Words</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48845049">
-						
-							
-								<p class="story__comment_first line-clamp">"Thanks everyone for the feedback! Two questions1. For a version without the timer what would you like to happen if you are just completely stuck on a word? Hints to reveal letters or skip the word?2. For those who like the timed version would you prefer to continue when you miss a word and then get a final score out of 18?"</p>
-							
-						
-							
-								<p class="story__comment_others">"The timer makes it not enjoyable for me. It seems necessary to the game design and I’m not being negatively critical. Just sharing an additional perspective. I’ve been playing Zanagrams and the ability to hide the clock really improved my enjoyment of that game.If I could magically get a feature by request, it would be to give me infinite time even if that meant my score came with an asterisk.  Maybe just call it Relax Mode vs. Challenge Mode.By the way: I really like the overall design of Zanagrams and 18 Words. These are small puzzle games with very simple, clean UIs. They work crisply and I&#39;ve noticed you&#39;ve been tidying up Zanagrams, adding minor features and settings. They have a very Classic Web feel to them. It&#39;s not like you&#39;re trying to get me to watch ads or subscribe to your newsletter or are just breadcrumbs to some for-profit thing. I like having a handful of very easy to pick up puzzles/toys when I need to fidget. They help keep me away from TikToks and Shorts."</p>
-							
-						
-							
-								<p class="story__comment_others">"Would be nice to have a ‘scramble!’ button so it makes it slightly easier when we get stuck"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://andrewkelley.me/post/my-thoughts-bun-rust-rewrite.html">My thoughts on the Bun Rust rewrite</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48843352">
-						
-							
-								<p class="story__comment_first line-clamp">"This is unprofessional and embarrassing for Zig.I know very little about Jared but his article yesterday, which I read, seemed appreciative of Zig. I now learn he&#39;s donated significant chunks of money to them.This entire article is publicly and personally attacking him for choosing a different product.It&#39;s insane to me that Andrew thinks this post will somehow exonerate Zig when it really just makes them look childish. Or maybe he doesn&#39;t care, and just wants to attack Jarred?"</p>
-							
-						
-							
-								<p class="story__comment_others">"I have learned so much reading Andrew’s code and as I said in the original post: Bun would never have  happened without Zig.&gt; The post claims they were fuzzing their Zig code, while during our calls the whole Bun team told us that they were not fuzzing anything. This appears to be an outright fabrication.Fuzzilli integration: https://github.com/oven-sh/bun/pull/24826Merged PRs fixing issues Fuzzilli found in Bun’s Zig code:- https://github.com/oven-sh/bun/pull/28926- https://github.com/oven-sh/bun/pull/28934- https://github.com/oven-sh/bun/pull/29255- https://github.com/oven-sh/bun/pull/29210- https://github.com/oven-sh/bun/pull/29199Searching “Fuzzilli” shows more PRs:  https://github.com/search?q=repo%3Aoven-sh%2Fbun+is%3Apr+Fuz..."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Two, I actually don&#39;t have any personal criticisms of JarredThat’s quite a statement to make at the end of a post that seems to contain little else…all just thinly veiled.Saying someone has „beginner energy“ but reframing it as a faux positive (this person fails  and thus learns)Or saying the grapevine says someone is a „stinky manager“? Basically I’m not saying this person is bad it’s just that I need to bring up on this blog that everyone agrees this person is bad.All seems to be in very poor taste even if true…"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/JustVugg/colibri">Show HN: Getting GLM 5.2 running on my slow computer</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48842459">
-						
-							
-								<p class="story__comment_first line-clamp">"After spending way too much time with Fable a few days ago, I noticed a new hallmark of AI generated text is using the word &#34;honest&#34; everywhere, in a somewhat self congratulating way.Some things that give it away to me:- &#34;Honest numbers (WSL2, 12 cores, 25 GB RAM, NVMe via VHDX)&#34;- &#34;an honest peak projection (working set, KV, MTP row, reconstruction buffers) so the kernel OOM-killer never fires.&#34;- &#34;Honest caveat from the same measurement: ...&#34;It&#39;s the new &#34;It&#39;s not X, it&#39;s Y&#34;. I have no issue with this, I just found it amusing.Cool project btw!"</p>
-							
-						
-							
-								<p class="story__comment_others">"My main question is whether when put into practical use, this can be measured in tokens/second, or more like 1 token per minute...   I have seen locally hosted LLM that are as slow as 1 tok/second still be very useful if you give it a project to do something overnight and metaphorically walk away from it, check back with what it has done in 6 or 8 hours.0.05 to 0.1 tok/s on the other hand, as reported in the URL for the lowest class of hardware, isn&#39;t really usable for much.edit: I think this is a fantastic project in general concept, and look forward to seeing more efforts towards the general idea of being able to run a 350B to 900B size model locally, even if as slow as 1 tok/s, on hardware that ordinary people can afford. Anything along the general concept of &#34;we have fast read NVME SSD storage, we have a big ass model on local disk, we&#39;ll read it at 11GB/tok as we need it, not try to load the whole thing&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"Working on something similar targeting macOS on Apple Silicon, Unsloth split GGUF, compressed partial residency in unified memory (would make more sense on 128GB instead of my 64GB...), native Metal kernels, and RAM-only native compressed KV. Happy to put on GitHub when it&#39;s ready."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/malisper/pgrust">Postgres rewritten in Rust, now passing 100% of the Postgres regression tests</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48841676">
-						
-							
-								<p class="story__comment_first line-clamp">"Hey author here. Wasn&#39;t expecting to see this up.To concisely give an overview of the project, I&#39;ve been experimenting with using LLMs to build a better version of Postgres. Postgres is 30 years old and we&#39;ve learned a lot about databases since hten. A lot of the techniques that work for doing a rewrite are also useful for doing a rearchitecture.I&#39;m now working on a new, not yet published version of pgrust that incorporates a lot of techniques. Currently the new version:  - Passes 100% of Postgres regression suite
-  - Implements a thread per connection model instead of the process per connection model Postgres does
-  - Is 50% faster than Postgres on transaction workloads
-  - Is ~300x faster than Postgres on analytical workloads. Right now it&#39;s 2x slower than Clickhouse on clickbench and I think it&#39;s possible to get faster than Clickhouse
-
-If you have any questions, I&#39;m happy to answer them."</p>
-							
-						
-							
-								<p class="story__comment_others">"Don’t understand these rewrites.- typically they are behind a single person. That’s usually bad because of spf- typically they are achieved in a very short amount of time, so the author hasn’t acquired any discipline in creating the project. That means it’s unlikely the author is going to stick to the project in the mid and long term- anyone that wants to contribute to the project needs to pay. Needs to pay tokens because it’s increasingly difficult to maintain these projects without AISo, who wants to put something like this in production? Doesn’t make much sense"</p>
-							
-						
-							
-								<p class="story__comment_others">"How would one go about reviewing a piece of code like this?One of the things I&#39;d typically do is peek at the commit history. Seeing what people worked on and how they did it tends to say a lot about a project. But with LLMs generating 7101 commits in less than a month that isn&#39;t feasible. Even looking at a single day is way too much [1]. It probably also doesn&#39;t make sense since the commits content won&#39;t tell you much anyway.ps. How do you easily get to the first commit in a repo on GitHub? Browsing commit history feels rather tedious[1] - https://github.com/malisper/pgrust/commits/main/?since=2026-..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.abeyk.com/escape-the-rat-race/">FAANG Simulator</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48836778">
-						
-							
-								<p class="story__comment_first line-clamp">"I don&#39;t know if I should feel sad or laugh at the pain at the same time lol.what a wonderful way to reflect reality for a good population of devs.you can hack the game i.e real life1. live in a cheaper location 
-2. do things that don&#39;t scale &amp; do the ugly workthat naturally extends your runway, you don&#39;t need to apply to YCremember the median Pay in the US - is 61800 based on ADP the largest payroll provider.so before aiming for millions aim for 85K. yeah a far cry from the FAANG wage - but one - you will never get laid off.85K - you can live everywhere besides the coastal US cities comfortably."</p>
-							
-						
-							
-								<p class="story__comment_others">"Maybe add a non-US-citizen mode where if you are ever unemployed for more than 2 cycles you lose, unless you already have a side project with enormous tractionAnd if you are a US citizen and get randomly get thrown into a group of mostly non-citizen coworkers they will grind like hell due to the above, and if you don&#39;t grind extra hard you get the PIP faster, because you&#39;re stack ranked against them"</p>
-							
-						
-							
-								<p class="story__comment_others">"Really fun project, but doesn&#39;t take ageism into account, it gets easier the further you get whereas it should get be getting harder in certain ways"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://hy.tencent.com/research/hy3">Hy3</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48847552">
-						
-							
-								<p class="story__comment_first line-clamp">"Pelican from a few days ago: https://simonwillison.net/2026/Jul/6/hy3/ - I was using the free tier on OpenRouter, which expires on July 21st.I tried the preview model 41 days ago and got a pelican with a &#34;change pelican color&#34; button: https://static.simonwillison.net/static/2026/hy3-preview-pel..."</p>
-							
-						
-							
-								<p class="story__comment_others">"A month ago I wrote a blog post about how Hy3 was topping the OpenRouter rankings despite no one talking about it: https://news.ycombinator.com/item?id=48317294As of today, it has fallen to 8/9th on the rankings. I don&#39;t see a reason where you would use this model over competitors. However, price economics are bit confusing, as currently the effective input price of Hy3 via OpenRouter is now the same as DeepSeek-hosted DeepSeek Flash V4.https://openrouter.ai/tencent/hy3-previewhttps://openrouter.ai/deepseek/deepseek-v4-flash"</p>
-							
-						
-							
-								<p class="story__comment_others">"Novita is offering free Hy3 on OpenRouter until July 21sthttps://openrouter.ai/tencent/hy3:freehttps://x.com/novita_labs/status/2074158304159510819"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://cyberinsider.com/eu-now-one-step-away-from-reviving-private-message-scanning-rules/">EU now one step away from reviving private message scanning rules</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48834296">
-						
-							
-								<p class="story__comment_first line-clamp">"The Internet Watch Foundation, an organisation funded by almost all of big tech, is already at work pushing for client side scanning next [1], for the children, of course.[1] https://www.iwf.org.uk/policy-work/preventing-the-upload-of-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"The Chat Control 1.0 rule is simply that organisations like Meta are allowed to scan messages if they want to. In other words your Facebook messages are not private from Facebook. Surely we already knew and expected that.Chat Control 2.0 is the worrying one because it mandates scanning and bans E2EE.These two things should not have both been given the same branding."</p>
-							
-						
-							
-								<p class="story__comment_others">"Tough week for euros. Cars that record your face while driving and now apps snooping on communications."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.alecscollon.com/blog/llm-burnout/">I think I have LLM burnout</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48839984">
-						
-							
-								<p class="story__comment_first line-clamp">"I don&#39;t think I have a &#34;burnout&#34;, but LLMs are really exhausting due to amount of pressure they generate. No one is really pushing me to increase my workload, but at every moment there is always something ready, done by my clankers or clankers of other people that I could be unblocking. In the past (before LLMs) it was already hard to keep up, but now it feels like there&#39;s 10x more things waiting at any given time, and there could be 10x more if everyone just &#34;optimized&#34; and streamlined processes fed the AI even more tasks in parallel faster. It just being a bottleneck of everything, all the time is tiring...I am happy about all the little side-projects, and ideas it help my realize, and I enjoy exploring this new world, but I&#39;ve noticed LLMs feed my unhealthy &#34;don&#39;t want to take a break and waste time being idle&#34; mindset, and I need to correct it.W.r.t. article&#39;s main complain - I think the similar thing happened due to factory manufacturing automation. What used to be a varied skillful craft in a shop became standing in a single place of an assembly line doing the exact same thing whole day. LLM took away the more creative and variable part of the work, and left the repetitive QA rubber-stamping. Probably some of the mitigations used back then could be rediscovered today."</p>
-							
-						
-							
-								<p class="story__comment_others">"From my experience, there are mainly 3 burnout reasons.
-1. Multi-tasking is the top one. I usually have to frequently switch between 3 to 5 agent windows which are on different things. It&#39;s extremely exhausting when each round takes a few minutes. Before coding agent era, I believe most developers had chance to spend 2+ hours focusing on one thing. Now coding agents have increased my spectrum on the tech stack, but the bandwidth to do deep work isn&#39;t increased.
-2. Agents are good at getting things running without crash, but do not guarantee to produce correct code. This is quite different from human experts with fundamental knowledge. 
-3. I also get frustrated when reviewing piles of AI generated low quality PRs. My attention is a limited resource. I don&#39;t waste too much energy on other people&#39;s work, but if I don&#39;t spend more effort, the entire project is corrupted quickly by reckless AI generated code without human author&#39;s careful thoughts and designs. Working with people who have less due diligence in mind is painful, working with them in coding agent era is 10x painful because they produce 10x shit. It&#39;s a team culture challenge that cannot be easily enforced."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;ve started feeling slightly physically ill when I read Opus output for hours straight. This article rings very true for me. I&#39;ve started complaining about it with my team; at least have a personal style guide in your agent rules that eliminates emdashes, the &#34;it&#39;s not X, it&#39;s Y&#34;s, the long lists of modifiers before the noun, using the word &#34;land&#34; to mean finish, etc. I hope this is just a phase of adolescent LLMs."</p>
 							
 						
 						</a>
