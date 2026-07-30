@@ -36,6 +36,310 @@
 	</div>
 
 	
+	<div class="day__date">30 July 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/drumih/turbo-fieldfare">Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM on any M-series Mac</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49098510">
+						
+							
+								<p class="story__comment_first line-clamp">"Nice, I think this is the second time I see this here on HN, I always wondered why we need to shove the entire model into memory, I don&#39;t care who King Charles is every single time. It always felt as though we already figured out how to break up large files and parse them efficiently with very little memory.Frontier AI feels like its full of people who are brilliant at making models, but when it comes to scale and practicality, they just leave it to whoever sets up infrastructure to worry about. I wouldn&#39;t be surprised if frontier AI could be drastically cheaper if they just finetune and optimize their models to not consume all available RAM to only access less than 10% of the models knowledge."</p>
+							
+						
+							
+								<p class="story__comment_others">"With my M1 MBA, I am still on macOS 15. To compile it, just remove the two lines with  opts.languageVersion = .version4_0
+
+or surround them with  if #available(macOS 26.0, *) {
+    opts.languageVersion = .version4_0
+  }
+
+You&#39;ll miss out on a prefill speedup of 2.4x (as it yields 11.24x faster attention), according to the git comments, but it works. (On the 8-GPU-core MBA M1, I get 5-6 tok/s.)"</p>
+							
+						
+							
+								<p class="story__comment_others">"Ran this on a 64 GB M4 Max MacBook. I figured having Gemma available with a small footprint would be a nice setup. No more unloading models when I need more RAM for work? Hell yea.Got 48 tok/s decode at 1.9 GB RSS (2.4 GB peak), faster than the 24 GB M5 Pro mentioned in the benchmarks. The ~2.0 GB/s SSD number quoted for M4 is the base chip. This M4 Max does ~7 GB/s.Page cache seems to be why it beats the M5 Pro. With 64 GB the whole 12 GB packed_experts set stays resident, and iostat shows only ~1.6 GB per run actually reaching disk, against the ~79 GB that 98 fully cold tokens would need.I then tested with DaVinci Resolve open and under load (playback): 42.6 tok/s. Also held 38 GB of incompressible memory to squeeze the page cache: 41.8. At 48 GB it ranged 32 to 41.5. Degrades gradually rather than a cliff. It&#39;s a beautiful thing."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://koreader.rocks/">KOReader</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49095865">
+						
+							
+								<p class="story__comment_first line-clamp">"I really like that this exists, but I found the menus and UI to be rather non-intuitive. My main use case was to sync reading progress between my Kobo and my iPhone. I was able to do this using KOReader on the Kobo &amp; the Readest app[1] on iPhone (also open source).Ultimately I decided to get rid of KOReader because it felt a bit laggy. The gestures (eg: swiping up on the left side to increase frontlight brightness) didn&#39;t work well either.I eneded up writing my own software to sync progress from Kobo to a KOReader Sync server[2] which my Readest app also connects to (love that unlike the Kindle, the Kobo is quite an open system). You can even set it up so you can SSH into it[3].[1] https://github.com/readest/readest
+[2] https://github.com/koreader/koreader-sync-server
+[3] https://www.mobileread.com/forums/showthread.php?t=254214"</p>
+							
+						
+							
+								<p class="story__comment_others">"I installed it on my Amazon Kindle and I couldn&#39;t be happier.
+It shows once again that free software is superior to proprietary software. Free software grows slowly to make users happier and not to attract them with useless features to extract more value from them.
+Congratulations for this great piece of software."</p>
+							
+						
+							
+								<p class="story__comment_others">"People complaining about the menus and UI to not be intuitive made me chuckle...I remember a long time ago, the thing that frustrated me most was that some options are not *visible* when you&#39;re in the &#34;file manager&#34; versus inside the &#34;reader&#34; (while reading a book) - and the other way around.That&#39;s so confusing. Would be much better if these options would be *disabled* instead of being *invisible*..."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.superlogical.com/">Superlogical</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49098965">
+						
+							
+								<p class="story__comment_first line-clamp">"I really like the bit where he transferred ownership of Ghostty to a non-profit, and is now building this new company on that as an open source dependency:&gt; We will build on libghostty exactly as it was designed to be used: as a public building block for terminal applications. Superlogical will consume the same MIT-licensed components available to everyone else, and we will continue to upstream shared terminal work so every libghostty consumer can benefit."</p>
+							
+						
+							
+								<p class="story__comment_others">"This sounds like a mashup of of several things I&#39;ve been playing with lately...- pi-web (https://pi-web.dev/): a web frontend for the Pi coding harness which can multiplex pi sessions across multiple machines- herdr (https://herdr.dev/): a fairly polished agentic multiplexer TUI, can easily spawn or destroy windows based on subagent activity- firstmate (https://github.com/kunchenguid/firstmate): a meta environment for coding harnesses - more naturally handles spawning and communicating with subagents, managing worktrees, and other SDLC functions, and has a fairly large number of constraints thru bash scripts to ensure better results with less intelligent models"</p>
+							
+						
+							
+								<p class="story__comment_others">"Sorry, the text is too vague - what are they building exactly, another tmux?P.S. That custom disappearing scrollbar doesn&#39;t look super logical; it doesn&#39;t even look logical, tbh."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://christianselig.com/2026/07/vision-pro-house/">The coolest use for the Vision Pro</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49102774">
+						
+							
+								<p class="story__comment_first line-clamp">"My team uses this technology on a daily basis at my company. I run a design / build firm in the Hamptons, USA. We start all of our design projects with a 3d-first approach. Schematic design starts in 3D using Rhino3D or Revit. We use visualization plugins, like Enscape, to render the models and stream to a Quest 3 headset.So when clients come in, and feels adventurous, we&#39;ll setup the headset, set the display height to their actual, and let them walk around their beautiful new home.The response has been powerful. My clients are able to truly understand the scale, the proportion of rooms, ceiling heights, and the smallest details.We&#39;re able to make real-time changes to the model (within reason) and provide instant design feedback.I&#39;ve been using this technology for years and I&#39;m surprised it&#39;s not being adopted faster - good for us right now though!"</p>
+							
+						
+							
+								<p class="story__comment_others">"Yeah, we did the same thing when designing our house almost ten years ago now, using a HTC Vive running https://irisvr.com/prospect/Just like the article says: Within a second after putting on the headset you just know if things are proportioned right, or need some fine tuning. That&#39;s really valuable!Also, when the house was actually (partially) built, it felt exactly like the simulations we knew pretty well by that point."</p>
+							
+						
+							
+								<p class="story__comment_others">"Leveling this up:  Calculate sun angles at different times of the year to simulate light entering the house.  Find out if some room is going to be unbearably hot in the summer because it&#39;s got too much full sunlight; make sure there are windows that can take maximum advantage of sunlight in the winter months; maximize opportunities to accidentally catch the sunset / sunrise."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research">AI&#39;s top startups are barely publishing their research</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49103285">
+						
+							
+								<p class="story__comment_first line-clamp">"I can’t speak for other startups, but I applied to the most recent YC batch with my idea for making AI proactive instead of reactive, and pre-being selected I’ve published a paper on recursive self-improvement mapped to the Epoch AI data.I contacted a professor from a university in the UK and he responded since he was working on similar work, then asked me if I wanted to meet with him. We talked for about an hour since we had overlapping results and different methods, specifically different assumptions.I say all that to say, as a physics student getting my undergrad, simply doing independent research and speaking to experts about it enabled me to network with someone I otherwise likely wouldn’t know. For young people getting into any business, research is a great way to meet new people."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ve been at two startups that have done genuine world first fundamental research.The first tried to publish novel results for 3 years in tier 1 journals before finally doing a preprint and telling the tier one publishers to jump in a fire.The second, and ongoing, isn&#39;t publishing anything because of my experience with the first.That and avoiding openAI and Anthropic copying our results and leaving us with nothing to show for six months of work. The papers only come with the pitch deck."</p>
+							
+						
+							
+								<p class="story__comment_others">"It&#39;s not just AI. The whole business of academic publishing is a mess. Can&#39;t imagine anyone outside academia wanting to get there. In theory, it should have been a bridge between people who do interesting things that benefit society. In practice, it&#39;s a huge indifference machine powered by the institutions KPIs and benefiting no one but Elseveir."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.kimi.com/code/docs/en/kimi-code/models">Kimi K3-256k</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49101852">
+						
+							
+								<p class="story__comment_first line-clamp">"This seems functionally similar to OpenAI having a step in pricing once you exceed a certain context length (also at 272k aka 2^18 aka 256k).Having a lot of active context increases the per-token cost (flops issued and bytes read per token out) so it makes sense to pass that cost on to users. I&#39;m actually surprised it&#39;s implemented as a hard cutoff instead of a smooth gradient."</p>
+							
+						
+							
+								<p class="story__comment_others">"The ability to seamlessly switch from the 256k to the 1M model without invalidating the KV cache quietly introduces a brilliant new paradigm of &#34;burstable context&#34; for LLMs."</p>
+							
+						
+							
+								<p class="story__comment_others">"Wow. So kimi is suddenly half the price for all users until they hit 256k of context? Thats massive."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.datagubbe.se/scenegui/">User Interfaces of the Demo Scene</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49093434">
+						
+							
+								<p class="story__comment_first line-clamp">"I vividly remember FastTracker II, and how intuitive and tactile it felt to get things done in it, despite the minimal user interface real estate. As an example, there were no sound effects. So, I routinely manually created echo effects by copying the sounds from one channel to another one of the available channels, offsetting the notes by a few ticks and lowering the volume. It was simpler times."</p>
+							
+						
+							
+								<p class="story__comment_others">"I first thought &#34;Elite Sinus Producer&#34; and &#34;The Sinus Creator&#34; were trackers specifically designed for creating nasal-sounding music; but of course the explanation for why the term &#34;sinus&#34; came to be used instead of &#34;sine&#34; is likely because many demosceners were from a native European background, and their language retained the Latin origin word instead of deprecating its usage in favour of &#34;sine&#34;, as happened in English."</p>
+							
+						
+							
+								<p class="story__comment_others">"I swear music trackers had the most impressive UI back then. FastTracker and ImpulseTracker were to me the highest piece of art and engineering at the time. They kind of hold up even to this day. Especially ImpulseTracker&#39;s instruments and sample editor."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/twalichiewicz/HNewhere">Show HN: I was tired of opening 2 tabs for every HN link, so I made a userscript</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49090607">
+						
+							
+								<p class="story__comment_first line-clamp">"Feature 2 is really useful. When I land on a technical article I know chances are there will be a nice HN discussion, that may sometimes even refute the main point of the article.Feature 1 is IMO less useful. It just suggests that people are bad at window management. We didn&#39;t like overlapping windows and finding them, so we created tabs inside windows. Then we wanted to see two things at the same time, so we created split views inside tabs (Chrome and Firefox both had this). With a good window manager neither would be necessary. Sadly the community prefers to solve this at the application level rather than the desktop level; I&#39;m currently using Forge (https://github.com/forge-ext/forge) but sadly it&#39;s becoming unmaintained."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is slick. 2 things.1. If you name your script with the extension .user.js it is easier to click on to automatically install at least with tampermonkey.
+2. When I went to this link from the main page, on mobile I had to scroll to the right to see the (-) to minimize because the sidebar was too large: https://elizabethtai.com/2026/06/10/substack-writers-you-nee... It may make some sense to start minimized so I can read the article first, but I can easily modify the script to do that."</p>
+							
+						
+							
+								<p class="story__comment_others">"Firefox has a new Split View that&#39;s useful for this, but you still have to left click and select open in split view (M) then click the link. You also used to be able on some browsers to craft a link that was href=&#34;tab1.html|tab2.html&#34;, no idea if that&#39;s still a thing or if it was limited to &#34;home page&#34; setting."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://tailscale.com/blog/jailbroken-kindle-proxy-tun-modes">More Tailscale tricks for your jailbroken Kindle</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49093569">
+						
+							
+								<p class="story__comment_first line-clamp">"KOReader (mentioned in the article, an alternative OSS interface you can install on most ereaders) is really a marvellous piece of software. I was not sure about setting it up at first, fearing it would drain battery out of my Kobo and whatnot, but I never had any issue with it. The amount of stuff you can customize to your liking has no limit and I feel I have reached the endgame of reading comfort. If you own an ereader, I highly recommend installing it. I&#39;m happy and grateful people spend time developing and maintaining it without being paid!"</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve just jailbroken my Kindle this week. I have a Paperwhite 7th Generation and my biggest problem was that I didn’t have dark mode on it. Turns out the only reason that is is because Amazon didn’t want me to have it. Maybe maybe I’ll buy a new device. KOReader has no problem with dark mode and is much faster and snappier than the Kindle software.What’s funnier is that both my son and my wife have the Paperwhite 10th generation, but only my wife’s device has dark mode. Same exact device, different software depending on when it was bought.The second major reason for Jailbreaking is that KOReader can do DRM through a plugin so I was finally able to loan out ebooks from my library. No need for a new device, the 10 year old one works extremely well with the right software"</p>
+							
+						
+							
+								<p class="story__comment_others">"Ok, this one crosses the bar - time to jailbreak my Kindle. 
+On days when I don&#39;t vibe-code (or code less), I get this withdrawal-like feeling (lack of dopamine?), and I tend to spend too much time watching dumb X posts or striving for anything that ticks my nerves. Actually, I could use this time to catch up on my RSS queue."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://huggingface.co/blog/agent-intrusion-technical-timeline">Anatomy of a Frontier Lab Agent Intrusion: A Timeline of the July 2026 Incident</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49089500">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; the agent happened to escape via a 0-day exploit from the package proxy cache to access the internet&gt; The agent found an unsecured, user-hosted public endpoint designed to allow running arbitrary code for CyberGym-style tasks on third-party sandbox infrastructure (Modal)&gt; On this external sandbox, the agent abused an existing CyberGym execution harness [...] The agent repurposed this harness to run arbitrary shell commands [...]&gt; The agent crafted malicious dataset configs and uploaded them to our platform. When our dataset server processed one, the config drove the data loader inside the production pod the server ran in. [...] the loader that turns a dataset&#39;s declared config into file reads [...] A single dataset upload leaked both credentials and pipeline implementation details [...]&gt; A malicious dataset config used an fsspec reference:// spec whose numeric offset field was actually a Jinja2 template. The renderer wrongly evaluated it, and the agent walked the standard Python object graph to reach exec. This ran arbitrary Python inside a production conversion worker pod on our Kubernetes cluster [...]One of the best post-mortems I&#39;ve read recently, thank you for including all the details.I&#39;m surprised there are comments here that aren&#39;t impressed about what was accomplished here. This is insane work compared to what agents were capable of even just last year.The quotes above don&#39;t even capture all of it (e.g. building it&#39;s own communication protocol, working across multiple days, etc.)."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is fascinating - there is a TON of detail in here about how OpenAI&#39;s rogue agent exploited Hugging Face.A few details that stood out to me:1. Having found a way through the OpenAI container network proxy, it exploited an &#34;unsecured public code-evaluation sandbox hosted on a third-party provider&#39;s infrastructure&#34; - that gave it a box it could run the rest of the attack from.2. At one point it used a Jinja2 template exploit:  {{ cycler.__init__.__globals__.__builtins__.exec(
+     &#34;import gzip,base64; exec(gzip.decompress(base64.b64decode(&#39;&lt;payload&gt;&#39;)))&#34;
+   ) }}
+
+3. It monkey-patched a DNS resolver at one point to return a hard-coded IP:  orig = socket.getaddrinfo
+  socket.getaddrinfo = lambda *a, **k: [(2, 1, 6, &#39;&#39;, (&#39;&lt;pinned-ip&gt;&#39;, 443))]
+
+4. At one point it used Tailscale!  tailscale --tun=userspace-networking --state=mem: --socket=/tmp/ts.sock \
+   --socks5-server=127.0.0.1:1055 --no-logs-no-support &gt;/tmp/td 2&gt;&amp;1 &amp;"</p>
+							
+						
+							
+								<p class="story__comment_others">"Something about this attack that has been unsettling to me is that without safety refusals the model did a lot of interesting counter-security work in order to cheat on the requested evaluation. Like, it demonstrated interesting exploit achievements because it didn’t “feel like” doing the exercise, which is unsettling because presumably it could do the same thing with any work I tried to delegate to it, and might in fact be pre-disposed to doing that."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">29 July 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -162,7 +466,7 @@ And no, &#34;get people to get rid of their smartphone voluntarily&#34; like I s
 							
 						
 							
-								<p class="story__comment_others">"I agree! That&#39;s why I built Pagecord. Like Substack it&#39;s a blog with a mailing list, but it&#39;s also your personal website (pages, for example) with a custom domain. Also, source available.Most people will defer to Substack because (A) the brand, and (B) it can be monetised which is probably the biggest draw.Maybe I need to bring monetisation to Pagecord? :)https://pagecord.comhttps://github.com/lylo/pagecord"</p>
+								<p class="story__comment_others">"I&#39;m pretty happy with the way I&#39;ve resolved this. I publish everything to my personal blog first, then once a week I copy and paste it all into a Substack newsletter.I get to use Substack for email distribution (which would cost me hundreds of dollars a month using most other solutions, I have 66,000 subscribers now) but my own blog stays the original point of truth.Here&#39;s the tool I use for the copy-pasting: https://tools.simonwillison.net/blog-to-newsletterSubstack doesn&#39;t have an API for composing a newsletter, but their rich text editor DOES accept copy-pasted data - and copy-paste is the universal API."</p>
 							
 						
 						</a>
@@ -236,7 +540,8 @@ Just some feedback, but it ran for over 40 minutes and during that time I had no
 							
 						
 							
-								<p class="story__comment_others">"Anybody getting the result that Kimi 3 is more expensive than Opus 5 or Sol on Cursor? Pretty sure Kimi 3 sucked up a good chunk of my ultimate plan in a few prompts. Anyone have any tools or ways to understand per model usage towards cursor subscriptions? I know there are alternatives to cursor just haven’t made the move yet. (Edit spelling)"</p>
+								<p class="story__comment_others">"I wonder if Kimis KDA architecture is a way closer to online models(models that learn during interference).As KDA updates its state matrix:
+St =St−1 +βt (vt −St−1 kt )ktTThe expression (vt −St−1 kt )ktT  is literally the gradient step of a linear regression model updating its weights (S) on a single sample using Mean Squared Error loss.Interesting what other labs comes up with from this."</p>
 							
 						
 						</a>
@@ -717,11 +1022,11 @@ The whole process had a very &#34;snappy&#34; feeling without waiting for any of
 							
 						
 							
-								<p class="story__comment_others">"The limiting factor of your human brain is the same limiting factor the reader has to function with. You can get the LLM to aid in making something, but at a certain level of greebling, [0] it just doesn&#39;t feel like it&#39;s meant to be experienced by another human being, you know? The sacrifices you&#39;d have to make by NOT building this with an LLM would be made because you COULDN&#39;T fit the mental model of everything going on here in your head. The user has got a similar brain with similar limits.I&#39;m trying to understand the metaphors here, or how all of the animations and flashing lights are meant to represent something going on, but it all sort of gets lost in the sauce. I&#39;m not sure why a new process is represented by a square that goes through a tube and ends up at a building and then the pinball switch glows red. I click on a thing and a popup says &#34;sessions is the victim&#34; with another paragraph of small text, then disappears a couple seconds later? What?To be fair, I wont assume this is meant to teach me! Always the possibility of a skill issue on my part and I just lack knowledge here. Taking it at face value as a neat thing, it&#39;s neat.[0] https://en.wikipedia.org/wiki/Greeble"</p>
+								<p class="story__comment_others">"I imagined as soon I saw the initial visual that I would somehow be able to enter a query and it would walk me through the flow through the entire system starting from input parsing to all the way to delivering output and perhaps along the way understand some of the autonomous processes that happen in parallel that aren&#39;t query specific but run constantly.What others are saying - fantastic attempt, but don&#39;t know where to start or where to end."</p>
 							
 						
 							
-								<p class="story__comment_others">"I imagined as soon I saw the initial visual that I would somehow be able to enter a query and it would walk me through the flow through the entire system starting from input parsing to all the way to delivering output and perhaps along the way understand some of the autonomous processes that happen in parallel that aren&#39;t query specific but run constantly.What others are saying - fantastic attempt, but don&#39;t know where to start or where to end."</p>
+								<p class="story__comment_others">"The limiting factor of your human brain is the same limiting factor the reader has to function with. You can get the LLM to aid in making something, but at a certain level of greebling, [0] it just doesn&#39;t feel like it&#39;s meant to be experienced by another human being, you know? The sacrifices you&#39;d have to make by NOT building this with an LLM would be made because you COULDN&#39;T fit the mental model of everything going on here in your head. The user has got a similar brain with similar limits.I&#39;m trying to understand the metaphors here, or how all of the animations and flashing lights are meant to represent something going on, but it all sort of gets lost in the sauce. I&#39;m not sure why a new process is represented by a square that goes through a tube and ends up at a building and then the pinball switch glows red. I click on a thing and a popup says &#34;sessions is the victim&#34; with another paragraph of small text, then disappears a couple seconds later? What?To be fair, I wont assume this is meant to teach me! Always the possibility of a skill issue on my part and I just lack knowledge here. Taking it at face value as a neat thing, it&#39;s neat.[0] https://en.wikipedia.org/wiki/Greeble"</p>
 							
 						
 						</a>
@@ -843,13 +1148,9 @@ It&#39;s in the POSIX standard so it&#39;s not just a bashism: https://pubs.open
 							
 						
 							
-								<p class="story__comment_others">"I once created a set of shell functions which I wanted to have a docstring-like functionality. The solution I came up with was to have each shell function start with the : command with a string as an argument. Since : is an actual command, not a comment, it was preserved as part of the function, and could be extracted at runtime using relatively simple parsing to do introspection.Example:  foo(){
-    : &#34;This is a docstring for the foo() function&#34;
-    bar --verbose | baz --quiet
-  }
+								<p class="story__comment_others">"I am not a huge fan of most of these, but a few do seem useful.    : &#34;${1:?missing argument, aborting!}&#34;
 
-
-(Repost of &lt;https://news.ycombinator.com/item?id=29152308&gt;)"</p>
+I wouldn&#39;t use this because I would want to give $1 a name for the rest of the script, so I would assign. But it can be a nice way to give a clear error for missing required environment variables.Many of the others (like truncating files) are probably more clearly written with dedicated commands, but may come in useful if you are going to extreme lengths to avoid dependencies outside of the shell."</p>
 							
 						
 						</a>
@@ -2303,7 +2604,7 @@ Lip sync is a simple problem to solve (timing pulses and code slipping will alwa
 							
 						
 							
-								<p class="story__comment_others">"Age verification + plus some states trying to ban VPNs - what states miss - yeah they will destroy the so called big social networks or media providers like porn aggregation sites.what will simply happen - due to the following - HDDs are cheap, Torrents, Open source / cheap community software like Discord- communities will move to be mostly private and small. era of large social media is done.for media - download content via torrent - store in cheap HDDs. you can probably get an 8TB spinning metal for $250. cheap enough and good enough.payments - these already moved to crypto. for criminals monero.the internet as gated by bureaucrats will be left to the dweebs."</p>
+								<p class="story__comment_others">"EU posts about it:Copyright in the European Union and geo-blocking: a work that is in the public domain can be published online free of charge in a Member State even if it remains protected in another Member State [pdf]https://curia.europa.eu/site/upload/docs/application/pdf/202...Other blog post:CJEU clarifies when geo-blocking limits online copyright liabilityhttps://intellectual-property-helpdesk.ec.europa.eu/news-eve..."</p>
 							
 						
 						</a>
@@ -2680,292 +2981,6 @@ Want to sit for 10 minutes while the LLM server prefills the entire session with
 						
 							
 								<p class="story__comment_others">"&gt; If you don’t know what OpenCode is, imagine a boot stamping on a human face forever. The boot is made of TypeScript and the face is everything we have learned about security and systems software since the invention of the electronic computer in the 1940s.I nominate this for a Bulwer-Lytton prize in the Tortured Metaphor category."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">20 July 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=48968606">Show HN: I replaced a $120k bowling center system with $1,600 in ESP32s</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48968606">
-						
-							
-								<p class="story__comment_first line-clamp">"Thank you for posting this, it reaffirms what I&#39;ve been thinking for so long. There are many opportunities to retrofit old systems of all types with modern low-cost embedded technologies.Around 2019 or so I was approached by an engineer who had a small business retrofitting very old machine tools with modern motion controls. Think very large lathes and planers. The problem they had was that in order to get these systems working with newer controls, they had to make time-consuming modifications to the old machines, in some cases modifying the axis motors and that cost added up quickly. The engineer realized that it was theoretically possible to take the old analog position signals and convert them into something a modern motion controller could read. That converter box would make the retrofit pretty much plug &amp; play, but he didn&#39;t have the programming expertise to make it happen.We probably built the first iteration of the converter for under $50 in parts and less than 50 hours of development time. That had me searching for other similar opportunities. I have found a few, but they tend to be one-offs that aren&#39;t worth the time unless you&#39;re already building something similar. Either that or my ability to see opportunity sucks!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Right now I&#39;m working on adding LED + DMX DJ light control - I kinda want to be able to order LED strips to &#34;chase&#34; a ball as it goes down the lane or back up the return. I plan on triggering laser-light shows and such with the DMX controller.Eventually, I want to allow a customer walk up to the lane, tap to pay and start bowling immediately, too. Kiosk-ize bowling alleys, yknow?I&#39;m pumped. So much room for activities!"</p>
-							
-						
-							
-								<p class="story__comment_others">"Lol, nice! It depends on what you mean by &#34;owning a bowling center,&#34; but it looks like there are at least two of us into this :DI bought a really old fully mechanical (and automated!) mini bowling lane. It works without a CPU, except for the score display, which originally used a 1970 Intel D8749H (MCS-48)!Just like yours, the only thing that turns this machine on is a single relay :D
-On my model, I also get feedback on the pin status and a &#34;ball received&#34; signal, so I can trigger the scoring.I dumped the firmware and replaced the display PCB with a more recent DIY PCB with an Arduino that speaks a modern, documented protocol. It&#39;s now compatible with ScoreMore software, and I can do a lot more with it.Here are some pictures and more info on the Bowltech forum (you should post your stuff here too!):* https://www.bowltech.com/forum/small-scale-bowling/small-sca...@vik8 on discord if you need :)"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://twitter.com/Alibaba_Qwen/status/2078759124914098291">Qwen 3.8</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48966120">
-						
-							
-								<p class="story__comment_first line-clamp">"I’m a developer from China. So, is this what Hacker News is all about? Whenever a model comes from China, the comments section stops discussing its technical architecture, optimisation points or real-world performance, and instead starts going on about politics, human rights and all that rubbish? To be honest, we Chinese IT professionals possess a genuine geek spirit. That’s why you’re lagging behind in open-source competitions—it’s got nothing to do with politics; you’ve simply lost sight of your original aspirations."</p>
-							
-						
-							
-								<p class="story__comment_others">"(I can&#39;t draw a pelican for this one because Alibaba Cloud have flagged my email address and won&#39;t let me pay them for access. So I&#39;m waiting for the open weights release, or for the new model to show up on OpenRouter.)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I assume that this announcement has been prompted by that of Moonshot AI, which has just announced a 2.8T parameter open-weights LLM, Kimi K3, to be published on Huggingface by 27 July.Now the response of Alibaba is that they will also publish soon a big open weights LLM, the 2.4T parameter Qwen 3.8.I wonder if Alibaba has always planned to make this big LLM open weights, or they have chosen to do this now, to better compete with Moonshot AI.In any case, from this competition in LLMs, we win."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/">Claude Code uses Bun written in Rust now</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48966569">
-						
-							
-								<p class="story__comment_first line-clamp">"Drilling into the original article where Jarred explained the reasoning behind the change, It&#39;s pretty clear that under zig the team was doing things by hand that are automatic in rust.Humans and agents share one thing: they are both non-deterministic. He talks about the issue of tracking memory lifecycles manually in zig so it can be explicitly freed. As expected, this leads to a long list of bugs where people missed things.Rust does this automatically. It removes an entire class of errors from his backlog. From an engineering management perspective, this looks like a pretty good trade.The bonus here is that compiler errors are exactly the kind of deterministic guardrail you need to put around coding agents. Claude works really well if you give it a way to test for correctness and &#34;make it compile&#34; is a pretty good target.There&#39;s a general version of this: the artifact you expose plus the test you run on it. Deterministic tests turn stochastic output into a hard guarantee. Wrote it up here if useful: https://michael.roth.rocks/blog/verification-surface/"</p>
-							
-						
-							
-								<p class="story__comment_others">"Bah.Personally my take on the entire affair is quite negative, whatever Jarred or Simonw says about it.I think Bun owned by Anthropic and the entire rewrite with AI is not the real point (even if it&#39;s quite interesting, though).My take is that Jarred, and Bun,didn&#39;t demonstrate a serious, adult approach, from &#34;this is my branch, you are overreacting&#34; message to just proceeding with a 1mil+ PR merged in less than month.The communication is the issue, and it was handled very badly, in a way that impacted trust and divisions.Was it so difficult to adopt the approach that the TS team adopted for 7.0?"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; For me this outputs Bun v1.4.0 (macOS arm64). The most recent release of Bun on GitHub is currently v1.3.14 from May 12th, so that v1.4.0 version number in Claude supports them shipping a preview of a not-yet-released Bun version.And so, the FOSS project &#34;Bun&#34; silently dies in darkness and is now something completely else. I&#39;m glad I still had &#34;Investigate if Bun is worth it&#34; on my TODO list and hadn&#39;t yet gotten to it.What is the governance structure for Bun by the way? Couldn&#39;t find any documents/explanations about how it&#39;s supposed to work. I&#39;m guessing it&#39;s essentially just &#34;Anthropic decides what gets done and accepted&#34; today?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://chipweinberger.com/articles/20260719-hardware-is-not-so-hard">What I learned selling 2,500 MIDI recorders: Hardware is not so hard</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48966713">
-						
-							
-								<p class="story__comment_first line-clamp">"Hardware has a reputation for being hard for three reasons. First, it scales differently than software. It&#39;s far harder to design something you want to make a million of than something you want to make ten of. Second, it&#39;s harder to anticipate, test, and correct all the things that can go wrong on the user end. Some people will put batteries the wrong way, some will drop the device on the ground, some will connect it to some vintage equipment you have never seen in your life, etc. And third, there are just more failure modes in an unfamiliar domain - sometimes, your code will intermittently crash not because you have a software bug, but because you put the decoupling capacitor too far from the chip. Or, just as you finish your design, the chip you designed it around becomes obsolete, or impossible to find because a factory in Indonesia is on fire.Another complication is that at least in theory, if you&#39;re selling electronics, there are actual regulations and third-party testing that needs to happen, and if you fail emissions, you might have to redo your design from scratch. Imagine we had that for software - &#34;your JS is too big, you can&#39;t ship until you get it under 50 kB&#34;.So, I&#39;m happy for the author, but I think he had an outlier experience. When you look at Kickstarter stories, people repeatedly stumble over this. Manufacturing / cost difficulties, supplier issues, reliability issues, etc."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt;But for me the take away still is: “hardware is as hard as you make it”.I dislike this statement. Hardware is as hard as the product dictates it needs to be. A 25 component PCBA and a clamshell of 2 injection molded parts is about as simple of a product as you can make. Heck, most people would just buy an off the shelf clamshell for that type of product.That doesn&#39;t work for the vast majority of products, building a product with 20 COTS parts plus 60 custom tooled parts, and 4 complex PCBAs is what is hard. Getting everything to fit together, pass testing, arrive on time from dozens of suppliers, etc. it where the complexity comes in. Then consider that hardware is cash intensive, you need to pay ahead of time for all the tools, you need to pay to buy the individual parts and warehouse them somewhere while you build the products you hope are going to sell. If something goes wrong there, then your expensive parts are just sitting there waiting for replacement components before you can ship. Then even when you ship, that revenue goes into buying the next round of parts you are going to receive in 3 months. This is where many hardware projects fail as they run out of cash before the project breaks even."</p>
-							
-						
-							
-								<p class="story__comment_others">"Very happy JamCorder customer here. I&#39;ve started playing in improv shows since I bought it too, and it&#39;s nice to have those on record!It&#39;s rare that I come across a product I have literally zero complaints about, or any feedback to offer. Even my concern that it was tied to an app that might disappear one day is of course covered by the fact that it&#39;s all just MIDI files on a card.Thank you so much for making this, it&#39;s basically a perfect product for me and I love it. No notes."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/#fnref:3">AI Mania Is Eviscerating Global Decision-Making</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48964185">
-						
-							
-								<p class="story__comment_first line-clamp">"Most of us on some level felt confident that AI would completely revolutionise our society. The singularity made sense to me, at least. It hasn&#39;t worked out like that, but rather than accept the crushing reality of our mistake and take a second to re-evaluate, we&#39;ve decided to LARP out the future we promised ourselves by crowbar-and-vaselineing AI into every crack and crevice we can find and loudly proclaiming progress.It&#39;s like some 90s kid with a Nintendo power glove who&#39;s convinced themselves that this makes them a hacker. This is not the singularity.I personally can&#39;t wait for this to end, and for everyone to collectively get back to waiting for whatever the next golden ticket that&#39;s supposed to solve all of our problems turns out to be."</p>
-							
-						
-							
-								<p class="story__comment_others">"This part toward the end of the article resonated with me:&gt; If you’re being asked to review huge volumes of terrible AI code, just assume that the organisation is going to burn you out and fire you. You will not convince the person drowning you in 2000 line PRs to stop. Start looking for a new job as if you have already been fired. I have seen this happen many times nowI suspect we will see this phenomenon more and more as organizations more widely adopt agentic development."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; All of the AI projects we have observed as a team are failing. Every single one – we have seen 0% success in a year and a half, not only amongst projects we have been asked to participate in, but even within projects that we have observed in passing while doing totally unrelated work.That&#39;s got to be hyperbole, which blows out their credibility. They chose to say &#39;AI&#39; rather than, for example, LLM, or Transformer model, or Diffusion model. This means they are including a huge swathe of things dating back to Expert Systems in their claim.And who hasn&#39;t seen productivity gains from more established AI technology - at least things like semantic search? Who hasn&#39;t seen diffusion models generating content in roles that might have done the work by hand before? Who hasn&#39;t seen some kind of regression algorithm (even using linear regression in a supervised context counts as AI - so you can absolutely do AI even in tools like Excel) improve operation productivity?Even if they narrowed it to the Transformer model LLMs which re-ignited recent public interest in AI, less ambitious projects to give them to engineering staff to automate easy but boring tasks in the background generally have been a success. More ambitious ones that are beyond what you&#39;d reasonably expect the models to be able to do - for sure, those tend to fail. For most of these, the failure is predictable in advance, while some are at the boundary of what&#39;s possible, and so it is harder to predict (these are rationally genuine R&amp;D projects)."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://xcancel.com/__alpoge__/status/2079028340955197566">Claude Fable produced a counterexample to the Jacobian Conjecture</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48973869">
-						
-							
-								<p class="story__comment_first line-clamp">"A little over 10 years ago I remember meeting a postdoc who believed he had something close to a counterexample to the Jacobian Conjecture. He and another person was bruteforcing polynomials in about 16 variables, something like 80 - 700 terms each, using binary trees for mapping coefficients.They were guessing, at the time, that the lower bound of a counterexample (P, Q) for max(deg(P), deg(Q)) would go up to 200.To think that Claude Fable was able to find a counterexample in degree 7 is insane to me. We are truly in a new era."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; The incredible Yitan Zhang (https://newyorker.com/magazine/2015/02/02/pursuit-beauty) worked on proving this conjecture for 7 years. Moh, his advisor, wrote that Zhang &#34;failed miserably&#34; in proving the Jacobian conjecture, &#34;never published any paper on algebraic geometry&#34; after leaving Purdue, and &#34;wasted seven years of his own life and my time&#34;.https://x.com/aminkarbasi/status/2079129649830137989https://en.wikipedia.org/wiki/Yitang_Zhang"</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a rare instance where feeding this groundbreaking information into an LLM gives _them_ psychosis. I fed this to claude code and watched it verify the result in 7 different ways to be 100% certain, and it was just flabbergasted. Quite remarkable."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/openai/codex/pull/33972/files">OpenAI reduces Codex Model Context Size from 372k to 272k</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48965850">
-						
-							
-								<p class="story__comment_first line-clamp">"I know a lot of people like to say that compaction makes this moot, but the level of detail you lose across compaction is wildly too much for most things that I do, unfortunately.Perhaps if your plans don&#39;t have as much detail, or if you&#39;re not, for example, having a discussion with a lot of nitty-gritty then it&#39;s fine?The lack of long context is the main reason that I still end up using Anthropic.The worst is when you need it to hold for example a number of papers in its head, or large and complex materials that it needs full resolution on and your context window ends up being perennially at 16%. You have about five minutes of conversation and it compacts and then you have to wait for it to read that again, get to 16%... and repeat.372 was not perfect, but it was so much better and a godsend. It turned that 12 to 20% into more like 40%."</p>
-							
-						
-							
-								<p class="story__comment_others">"This was tweeted about when it happened, with some explanation from Tibo here: https://x.com/thsottiaux/status/2076543065045795309"</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t know if this is why they did it, but I think it is generally a mistake to go beyond this context size anyway.I don&#39;t think people realize how much dumber the models get at larger contexts and how much more the token cost is. I never let claude get about 300k and in general I don&#39;t compact, I just divide up the work in chunks where I can fit it into 300k and I try to keep really clean and slim docs and modular code bases.It&#39;s still kind of annoying, sometimes the larger context is useful for one time tasks, but I think if you are regularly going beyond 300k you are losing a lot and probably have a poorly designed code base."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://thenextweb.com/news/ai-advice-suppresses-critical-thinking-wrong-answers-study">AI advice made people less accurate but more confident – sudy</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48971738">
-						
-							
-								<p class="story__comment_first line-clamp">"This study is pretty bad. The comment (https://news.ycombinator.com/item?id=48970182) on the other link with the direct PDF explains the problem well, which is that nothing here being tested is specific to AI systems.This study gave people access to an LLM that the researchers knew would give incorrect answers to certain questions, and then quizzed people on those questions, with the option to not respond to a given question if they are unsure about the answer.This is akin to giving someone a textbook on an obscure subject that has certain factual errors, letting them know they can use that textbook in a quiz on that subject, and then quizzing that person on those facts that the textbook gets wrong.Obviously that person is both more likely to be willing to respond to the question and is more likely to get it wrong!There are a lot of things I&#39;m very interested in that are specific to modern LLMs and how they affect learning and confidence (sycophancy, cognitive helplessness, etc.).This study tested none of those. Its experimental setup is not very different than simply substituting the LLM with a textbook with errors."</p>
-							
-						
-							
-								<p class="story__comment_others">"Advice and information subreddits have gone to shit because of AI usage. A large number of people seem to think that when someone asks a question, what they really want is not someone with direct knowledge, but instead someone to relay the question to ChatGPT and post the result as if it is their own hard earned knowledge and insight. I have no idea about the quality of this research but in the real world (well, real-ish, as real as Reddit can be) it is stark, people aren’t just refusing to say “I don’t know” they’re actively seeking out opportunities to pretend they know things."</p>
-							
-						
-							
-								<p class="story__comment_others">"AI pessimist view.Even if AI gets smarter it will still be agreeable, and people will use it to more confidently reinforce thier stupider ideas, especially in areas where they lack the knowledge to know if they are right.Even if this can be solved, technically, people won&#39;t want to use the model that says they are wrong, so they will choose the glib lies that reinforce their beliefs.Freedown of speech forces people to think they may be wrong, but freedom of association lets people avoid this. AI is going to be internet hug box echo chambers at an unbelievable scale."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/stupside/castor">Better and Cheaper Than IPTV</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48964015">
-						
-							
-								<p class="story__comment_first line-clamp">"For a no hacks alternative, I built TV Explorer. It puts the channel&#39;s published HLS stream into your browser with no interim steps. Uses the public GitHub list of more than 10,000 free channels.https://tvexplorer.live"</p>
-							
-						
-							
-								<p class="story__comment_others">"This situation where bots have to run a headless browser in a new profile is just stupid. Can we have the old internet back? Please? Cloudflare you&#39;re not stopping bots, you&#39;re just wasting effort on both sides while siphoning access logs and passwords to the NSA."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; I built it because I couldn&#39;t cast web video from my laptop to my TV: no Chromecast, no AirPlay.Looks like Claude built it."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.minecraft.net/en-us/article/minecraft-26-3-snapshot-4">Minecraft: Java Edition now uses SDL3</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=48967256">
-						
-							
-								<p class="story__comment_first line-clamp">"The lwjgl bindings for this were written by a member of the GTNH modpack team, thereby completing the chain of vanilla-&gt;modded-&gt;vanilla once more https://github.com/LWJGL/lwjgl3/pull/1033"</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; Known Issues&gt; Exclusive fullscreen mode on Windows may cause the game to crash in certain situations, especially when using multiple monitors&gt; Entering Exclusive fullscreen mode crashes the game on WaylandThose, together, kinda seem like the kind of blocking bug that would usually delay a snapshot... Lets hoping it gets fixed before release lands..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I recently converted a game, Tribal Trouble (https://github.com/bondolo/tribaltrouble) from GLFW to SDL3. It was mostly a painless  refactor though I did have some issues with full screen exclusive modes and desktop
-full screen but was eventually able to resolve those.I ended writing a demo for screen mode handling to test and document the fiddly bits.https://github.com/bondolo/SDL3-Fullscreen-DemoThe game is Java, like Minecraft, the demo is C because I wanted to keep it as simple as possible."</p>
 							
 						
 						</a>
