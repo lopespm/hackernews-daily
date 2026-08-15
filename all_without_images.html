@@ -36,6 +36,295 @@
 	</div>
 
 	
+	<div class="day__date">15 August 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://z.ai/blog/glm-5.3">GLM-5.3: Frontier coding with emergent cyber capabilities</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49294997">
+						
+							
+								<p class="story__comment_first line-clamp">"I bought $18 GLM official subscription yesterday (5.2, but new model version was already leaking on some docs), set it up with Claude Code harness... and I’ve bumped to $80 plan almost immediately. It’s the first model that agreed on a proper security research (red team scenario), executed it seamlessly, including 0-days in WP plugins, RCE, 6.8 kernel exploit adaptation, etc - while playing against another GLM agent as a defender (following HF story)!I understand that such models can be used by malicious actors, but it’s fair to have it publicly available (and play on your side in case of emergency). This is what changes the world in a better way, I think, not the guardrails."</p>
+							
+						
+							
+								<p class="story__comment_others">"Apparently they are scanning OSS and popular software at scale and disclosing the vulnerabilities they found: https://cvd.z.ai/Most of these are under embargo, but it seems there are a lot of CVE here from a wide range of popular software, many considered critical or high.I understand the argument of &#34;people are not actively looking&#34;, but isn&#39;t the cost for such a scan getting lower by the week, and Anthropic&#39;s Project Glasswing is supposed to find them quite a while ago?"</p>
+							
+						
+							
+								<p class="story__comment_others">"This is absolutely still shy of Sol and Fable, but only just by a hair. Ridiculous results. There&#39;s still not a compelling economic reason to drop OpenAI courtesy of the ludicrous reset addiction that&#39;s taken place, but it feels like we&#39;re on the precipice.How are you all toying with running this kind of thing in a mega quantized way locally? Two weeks out from released weights, but this is still just GLM 5.2 with post-training magic."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://huggingface.co/Qwen/Qwen3.8-27B-FP8">Qwen 3.8 27B</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49299605">
+						
+							
+								<p class="story__comment_first line-clamp">"Credit where it&#39;s due.  Qwen 3.8 27B is only the second local model after Gemma 4 that managed to correctly reason through one of my private benchmarks.  It took 5x as many tokens to do it and 12m30s with MTP enabled, but it did do it.Gemma 4 reasoned through it more implicitly, while Qwen 3.8 reasoned more explicitly.  Laguna and Muse Glimmer failed hard on it, though they&#39;re useful for other tasks.The VRAM usage seems way less efficient than Gemma 4 or Glimmer though, with 32K of context taking 2.5GB of VRAM.  With those, even with MTP or a DFlash model loaded, you could still fit 256k-768k of context.  With Qwen 3.8 27B I can&#39;t even fit 128k if I quantize V to Q4_0.  Maybe with some trial and error I can find some settings that perform well enough with a larger context window that it&#39;s still useful for longer tasks.Lots more testing to do, though I was getting some decent results out of Muse Glimmer which was more than twice as fast and supported huge context windows, managing to solve some bugs that Gemma 4 struggled with.  I can&#39;t even begin to throw that task at Qwen, because just the prompt alone would use the entire context window and then it would reason for probably that same amount.If you&#39;ve got a 32GB card, it should be a decent model even if it really is memory hungry.EDIT: Tried a few kv cache quantization settings, but it failed with those.  I designed this benchmark to be pretty brutal in the face of KLD and any reasoning quality loss, so it&#39;s not too surprising.  Gemma 4&#39;s QAT held up pretty well, at least and could consistently complete it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Absolutely the best pelican I&#39;ve seen from a model that runs on my laptop: https://tools.simonwillison.net/markdown-svg-renderer#url=ht...Bicycle is the right shape. Pelican beak is excellent. Nice background. Most importantly, the pelican has one leg on each side of the bicycle - that&#39;s very rare.(No chain on this bicycle though - in the reasoning trace it says &#34;already chainstay... skip chain detail; maybe a small chainring.&#34;)I ran that on an M5 Max MacBook Pro using LM Studio and their 17GB GGUF: https://lmstudio.ai/models/qwen3.8It took 21 minutes(!) and used 22,276 reasoning tokens to produce 3,223 tokens of output.(For the &#34;they&#39;re training on your benchmark now&#34; crowd, all of that cheating didn&#39;t prevent it from spending 20 minutes thinking about the task first! You can see the reasoning trace in the link I shared.)For comparison, here&#39;s one I got from qwen3.8-2.4t-a95b on OpenRouter, which is pleasingly animated: https://tools.simonwillison.net/markdown-svg-renderer#url=ht..."</p>
+							
+						
+							
+								<p class="story__comment_others">"There&#39;s a real change (compared to 3.6) in the way it writes in thinking — it drops words like &#34;to&#34; and &#34;we&#34; in &#34;We need to&#34;, talks generally in note form, drops the/and all over the place, avoids &#34;for&#34;.&#34;Need be helpful concise&#34;, &#34;Need maybe not overdo&#34;, &#34;Need ask!&#34; Almost caveman.I have an (unsourced, vague) suspicion that this rather unique thinking trace pattern is actually hobbling the MTP predictions, which seem to perform poorly.Other notes: it uses the trick of repeating the prompt in the thinking trace.It also worries about hidden chain of thought appearing in the final answer. It talks about &#34;desired oververbosity 9&#34;, which is new. A bit GPT-ish.It is being extraordinarily thorough in thinking through one of my code requests, but I don&#39;t know if the net result will be any better than the 35B MoE.I asked it to ask me clarifying questions — it did, and it offered me a list of defaults I could simply agree to.I don&#39;t think it is necessarily overthinking in the looping sense, but it is in the being exhaustive sense. I need to explore how it does with a tighter reasoning budget.I am impressed but I am definitely in Camp Please-35B-A3B-When? here, because on an M1 Max this isn&#39;t really practical. I hope they do one, though I think they may not."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://mun-logadan.github.io/why-does-opus-5-feel-worse/">Why does Opus 5 feel worse to work with?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49296740">
+						
+							
+								<p class="story__comment_first line-clamp">"The single biggest annoyance with Opus 5 is that it writes too elliptically.Sentences that orbit a point, then jump to it like it&#39;s a revealed insight.Unnecessarily abstract phraseology. Constantly using inanimate nouns as the subjects in sentences in order to unlock variety in verb choice, especially when it helps construct a sentence where the real action can &#39;land&#39; like a surprise at the end.It is definitely more capable, and yes, I&#39;ve found it can make unwarranted decisions, but actually I&#39;ve found Fable worse for that, particularly if it&#39;s off in a subagent somewhere out of sight.And comments are out of control. I have a subsystem in my hobby app that I wrote over a couple of weekends with Opus + Fable. After ~30 or so commits it apparently started instructing subagents to copy the &#34;existing verbose comment style of the codebase&#34; - a verbose style it initiated. A review of the code showed it was approaching 3:1 comments to code ratio. I spent a day&#39;s worth of tokens (5x) rephrasing and eliminating comments."</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve been doing some heavy work on a personal project lately. I burned through the limits on Claude, the plus a few hundred dollars in credits, and ultimately decided to move to an OpenAI account just so I can keep going.I was surprised to find that OpenAI Sol is much much nicer to work with than Opus 5 or Fable at the moment. Especially on Opus 5, the way it communicates is just exhausting. It keeps “being honest” and “confessing” mistakes and just generally talking a lot. I felt like I had to really dig to see what it’s doing.The project involves OCR, and despite repeated instructions not to, both Claude models keep spinning out a bunch of agents to re-invent the OCR setup, and they inevitably seem to invent a primitive serial version that takes 20x the time, or longer, to complete, and then running it against thousands of docs. Basically I have to watch it like a hawk or it just spins out on red-teaming tasks that take hours and hours.I don’t know what its system prompt is, but Sol/Codex is just so much nicer to talk to. It only asks exactly what’s needed, it tells me only what I need to know, and it is just generally workmanlike. And it has not once decided to spawn an agent that spends hours pointlessly burning tokens and CPU cycles re-inventing the OCR process. I’m really liking it."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m with the author and others in this comment thread, speculating that effectively the balance has tipped to where humans are no longer the target audience of post training - other agents are. Whether it&#39;s through the reasoning / CoT, or whether it&#39;s in handing off to subagents etc, the focus has moved to agents communicating in &#34;agent-speak&#34; to themselves or other agents. And human niceties are just kind of, noise in the way of getting work done.This will probably bring us to a cross roads where the folks that want to remain in oversight and control of the AI work will bifurcate from those that want to skate straight to the future where nobody looks at anything and outcomes are evaluated purely empirically."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://lxe.github.io/everywebsite/">Every Fucking Website (2020)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49299222">
+						
+							
+								<p class="story__comment_first line-clamp">"Should load much slower.Also, where is the unrelated autoplaying video that will unmute if you actually click it, that follows your scrolling and only becomes smaller when you dismiss it? Plus, it should probably have text that cuts off letting you know you can have access for just $10/month.Plus, isn&#39;t this website undissmissably &#34;better in the app&#34; after a few minutes of attempting to use it on a phone? Where&#39;s that at?edit: Oh shoot! I forgot, too. This modal needs to also ensure there is absolutely no way to scroll. If you could scroll you might be able to accidentally get to the address bar of your browser to fix the URL to xcancel or even close the page, which isn&#39;t using the app as you are intended to do.Also, it doesn&#39;t attempt to hijack the back button to give me stuff I clearly wanted to see before I leave the page.A lot of work left to do here before it&#39;s a &#34;real&#34; website. Although, it has about as much substance as the average website so far, so good work on that."</p>
+							
+						
+							
+								<p class="story__comment_others">"I started an e-commerce brand on a Shopify site. I swore to myself I would never put up one of those stupid things that pops up &#34;Someone bought X product an hour ago!&#34; messages in the corner of the screen.I ended up trying it. Boosted conversion rate meaningfully. Worth the price I pay in mild self-loathing.Chesterton&#39;s popup, I guess."</p>
+							
+						
+							
+								<p class="story__comment_others">"Loaded way too fast and is way too responsive.Also when I checked NoScript, it&#39;s only loading js from lxe.github.ioI expect there to be at minimum 8 domains, but often 12-18."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.pcworld.com/article/3212428/firefox-is-now-the-last-major-browser-that-still-supports-ublock-origin.html">Firefox is now the last major browser that still supports uBlock Origin</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49303202">
+						
+							
+								<p class="story__comment_first line-clamp">"Firefox is also the only browser that vets uBlock&#39;s code on every update to make sure the developer hasn&#39;t inserted spyware or malware into the extension.They don&#39;t do it for every extension, but they do so for a wide selection of popular options.&gt; Recommended extensions differ from other extensions that are regularly reviewed by Firefox staff in that they are curated extensions that meet the highest standards of security, functionality and user experience. After receiving Recommended status, safety standards are maintained through automated checks, monitoring, and periodic technical reviewshttps://support.mozilla.org/en-US/kb/recommended-extensions-..."</p>
+							
+						
+							
+								<p class="story__comment_others">"What&#39;s funny is that extensions were supposed to be a way to let you do the things the browser didn&#39;t want you to do. Guess that was a bit too much freedom for Google to accept, so they had to make a store with a gate, and destroy the APIs so that they&#39;re useless. Then they had to make up some reasons to justify that and ram it through the pipeline despite everyone&#39;s objections, and the frog got boiled.Now we&#39;re back to needing an actual extension system that does what extensions were supposed to do in the first place."</p>
+							
+						
+							
+								<p class="story__comment_others">"I often forget how browsing the web looks for most people. Can&#39;t understand why they put up with it, or do they just think that it&#39;s part and parcel of the internet to have every page look like a slot machine from hell?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.bbc.com/news/articles/ce97mm3vvemo">Count Binface receives over a quarter of votes in Clacton by-election</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49301260">
+						
+							
+								<p class="story__comment_first line-clamp">"Some of his planks:  * Cut your taxes, and raise everyone else’s.
+  * Nationalize Adele.  
+  * Build at least one affordable house.
+  * Hold a referendum on whether Pluto should regain its planet status.
+
+I see the attraction."</p>
+							
+						
+							
+								<p class="story__comment_others">"&gt; Binface received 26.9% of the vote&gt; That&#39;s why Count Binface has been able to stand in so many high-profile elections. He has, however, lost his £500 every time, after failing to meet the minimum 5% of votes cast in order for his deposit to be returned.It would seem he didn&#39;t lose his £500 this time..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I wonder how many people who wouldn&#39;t normally vote for Farage did so because they knew voting him back in would re-open the investigation against him."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck">Understanding is the new bottleneck</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49290299">
+						
+							
+								<p class="story__comment_first line-clamp">"I think it funny how much average engineers are beginning to discover the challenges of engineering leadership and program management. This has always been the bottleneck.It&#39;s why managers and PMs want to be in standup. It&#39;s why slack exists and engineers are constantly being poked on it. It&#39;s why execs always talk about not getting too far away from the work. It&#39;s how seagull management happens. It&#39;s why program management is a job.All those behaviors engineers hated about their bosses that kept them away from being focused on the code...they&#39;re starting to feel what it&#39;s like on the other side and reinventing the solutions instead of just reading a book about engineering management. Maybe we&#39;ll rebrand program management to &#34;understanding ops&#34; or something.I wonder what AI would say about us if given the tokens to complain."</p>
+							
+						
+							
+								<p class="story__comment_others">"We have LLMs try to generate descriptions of PRs for us and they&#39;re pretty universally disliked. They&#39;re always overly-complex descriptions of the mechanical changes and have no sense of motivation.Also, a huge reason to understand the code yourself is to make sure the LLM isn&#39;t wrong, but this doesn&#39;t work if an LLM is itself generating the understanding."</p>
+							
+						
+							
+								<p class="story__comment_others">"I agree with the problem but not the solutions.The problem pre-dates LLM&#39;s: writing code that &#34;works&#34; but breaks the underlying model.  Because it works, it always sounds reasonable and doesn&#39;t raise any flags.Only someone - human or LLM - who holds the model as the standard would see that this working solution breaks the model.(In theory, the model is to preserve scaling, flexibility or some other systemic feature not immediately invalidated by this working code, but as always the model itself could be bad.)LLM&#39;s are not bad at giving an account of the model; indeed, fighting with the LLM over what the model is can clarify things.  But LLM&#39;s will happily hold on to a stream of inconsistent statements as their model, so they are not the authority."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://mcfunley.com/choose-boring-technology">Choose Boring Technology (2015)</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49289512">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; Let’s say every company gets about three innovation tokens. You can spend these however you want, but the supply is fixed for a long while.This is one of my favorite blog posts, and it can basically be encapsulated in the idea of &#34;innovation tokens.&#34; It is one of the most useful concepts I have had as a PM / eng leader in my career. It helps actually make the the right tradeoffs, and helps even more in explaining those tradeoffs to colleague of all levels. Highly recommend."</p>
+							
+						
+							
+								<p class="story__comment_others">"2 bare-metals with Linux, Postgres, HAProxy and PHP (or Python/Django) work perfectly fine for 99% of apps that businesses need. This will run with 99.99% uptime, 4-hour warranty from Dell/HPE (failover to the other server). Is also somewhat vertically scalable (upgrade RAM/SSD). Kids who finish high school can be taught to own and run this.But .... if you run a multi cloud hybrid setup with kubernetes, service mesh, data [lake|pond|ocean] and millions of other fancy words in tech at each and every layer, you resume would look so awesome and you sound wicked smart. And the VP gets 600M budget for AWS and 600 developers, SREs, DevOps, PMO. It is not that things won&#39;t run, humans have perverse incentives.I&#39;m certain a lot of porn/adult industry run their setup like I mentioned with a Romanian dude running the entire infrastructure for $15K - $20K."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;ll push back against this, despite it being so popular. I dislike the arbitrary &#34;innovation tokens&#34; and I think this entire concept really blurs the lines and feels sort of unserious.Engineers should understand requirements, risks, tradeoffs, and potential gains. New technology may be right for that. Novel approaches may be right for that. &#34;Novel&#34; or &#34;New&#34; are only proxies and they&#39;re weak.For example, I may think &#34;New&#34; means untested, but is that true? What if a new project has Jepsen testing, a fuzzing suite, massive compute running tons of oracle tests, etc? I should just say &#34;Choose well tested&#34; instead of &#34;Choose old&#34; - lots of old software is very poorly tested.Maybe I think that &#34;Old&#34; implies better documentation, but does it? Lots of older projects have insane cruft and weird edge cases that are undocumented and accumulated over years.Why do we need a metaphor? Why is &#34;innovation token&#34; helpful?If you&#39;re incapable of evaluating a technology in terms of these properties, you aren&#39;t a serious developer and &#34;boring&#34; will not save you.Sit down, write our your requirements, determine candidate solutions, and choose them based on their fit. &#34;Boring&#34; means nothing, it&#39;s a vague proxy term. &#34;Well tsted&#34;, &#34;performant for our use case&#34;, &#34;developers know it&#34;, etc mean something.&gt; MySQL is boring. Postgres is boring. PHP is boring. Python is boring. Memcached is boring. Squid is boring. Cron is boring.Literally every one of these has caused hilarious and disastrous failures for me in my career. But yep, boring.&gt; If you choose to write your website in NodeJS, you just spent one of your innovation tokens. If you choose to use MongoDB, you just spent one of your innovation tokens.What if you know NodeJS really well? Or MongoDb? What if you have empirical, verifiable reasons for why they fit better?I&#39;m a bit tired of &#34;simple&#34; and &#34;boring&#34; and other nonsense words in this field taking up the air in the room that should be spent evaluating solutions on their actual merits."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://docs.mistral.ai/models/ocr-4-1">Mistral OCR 4.1</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49288889">
+						
+							
+								<p class="story__comment_first line-clamp">"I&#39;ve got a scan from a book that I OCR with new releases. Ligatures, critical sigla, Fraktur letterforms, subscripts, superscripts, etc.Nothing special about this model for overly-detailed work like mine.It&#39;s been a while since I last tested (and discontinued my subscription), but the &#34;pro&#34; models from OpenAI dominate. Not surprising, given the price difference, but it would be nice if an OCR-specific model could perform better. It&#39;s worth mentioning that even the highest-end models do a pretty poor job with intricate text like mine."</p>
+							
+						
+							
+								<p class="story__comment_others">"At this point I lost all hope for Europe playing any significant role in the AI race. If that’s a good or a bad thing I don’t know, but it seems to me like that’s the reality."</p>
+							
+						
+							
+								<p class="story__comment_others">"For anyone interested, I have an ocr pipeline running on rented GPUs, doing around 1000pages for 0.05-01 usd with around 0.8 seconds per page with full bounding boxes support for grounding.If you’re interested you can find contact to me via this profile.3.5 usd/1000 pages is just too expensive…"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://ordinaryabundance.com/">Ordinary Abundance</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=49285770">
+						
+							
+								<p class="story__comment_first line-clamp">"Hedonic adaptation really is something. I have been deeply trying to appreciate these modern marvels more and more, but it&#39;s hard.A hot shower, air almost 50 degrees cooler than the outside air coming out of my vents, communicating instantly thousands of miles away, it&#39;s all so easy to just forget and take for granted"</p>
+							
+						
+							
+								<p class="story__comment_others">"I’ve been thinking about this a lot lately. For the last month I’ve been living in a camper van, working and traveling, which I’m really lucky to be able to do by choice. It’s lonely to be sure, but I also feel mentally far more resilient than I have in ages, and I’m trying to figure out why.Being in nature is good for us, so that’s probably part of it, as is the constant practice of being self-reliant.Another theory is friction. I can’t just roll out of bed to the couch, and back. I don’t have a fixed place to shower, so I swim in a river most days, and usually it’s freezing. Camping alone was terrifying at first, but objectively not that dangerous and not worth worrying about. All these little moments are a chance to exercise that mental muscle to do uncomfortable things.Modern life is devoid of this friction. I could try to take a cold shower every day, but a not-cold one is just a turn of the wrist away. I could try to make myself go outside a bit every day, but I don’t need to.This isn’t a new observation, but I can’t believe how stark the contrast is. I’m getting stuff done that I’ve been procrastinating on for years."</p>
+							
+						
+							
+								<p class="story__comment_others">"To put a name on what a lot of folks in this thread are describing (I didn&#39;t see the term mentioned in the article): Negative Visualization [1].Basically imagining living life without a given luxury (hot water, infinite music on tap, functioning eyesight, etc), really internalizing that feeling, and then practicing gratitude for the fact that you do indeed have that thing.[1] https://en.wikipedia.org/wiki/Negative_visualization"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">14 August 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -802,7 +1091,7 @@ error-correcting codes use the same tools as machine learning.Book (creative com
 						<a href="https://news.ycombinator.com/item?id=49250109">
 						
 							
-								<p class="story__comment_first line-clamp">"This is becoming serious anthropic hasn&#39;t even drop the anti detected pattern or mechanism this platform https://founderstoday.org/claude-watermark-remover is claiming to detect it using their own internal pattern but i tried it though it result is quite okay i can&#39;t even tell if it worked or not because the text are the same am wondering what they removed"</p>
+								<p class="story__comment_first line-clamp">"&gt; When a supported Claude model generates text, it weaves an imperceptible watermark directly into the text itself. You won’t see it, and it doesn’t change the meaning, quality, or readability of Claude’s response.I&#39;d like to know a lot more about how that works.A lot of my interactions with Claude return pretty precise text. If I ask it to edit a project and refactor a specific function in several places I know exactly what I want to happen, it will NOT be OK if those refactors have some kind of weird pattern baked into their text to act as a watermark.I guess this may be covered by this:&gt; Content generated by Claude may not carry a detectable mark if, for example: [...] The passage is very short, leaving too little text for a reliable signal;"</p>
 							
 						
 							
@@ -810,7 +1099,7 @@ error-correcting codes use the same tools as machine learning.Book (creative com
 							
 						
 							
-								<p class="story__comment_others">"&gt; When a supported Claude model generates text, it weaves an imperceptible watermark directly into the text itself. You won’t see it, and it doesn’t change the meaning, quality, or readability of Claude’s response.I&#39;d like to know a lot more about how that works.A lot of my interactions with Claude return pretty precise text. If I ask it to edit a project and refactor a specific function in several places I know exactly what I want to happen, it will NOT be OK if those refactors have some kind of weird pattern baked into their text to act as a watermark.I guess this may be covered by this:&gt; Content generated by Claude may not carry a detectable mark if, for example: [...] The passage is very short, leaving too little text for a reliable signal;"</p>
+								<p class="story__comment_others">"I&#39;ve heard that this kind of watermarking process works by biassing the statistical sampling towards a partition of the set of possible next tokens (red set and green set), at each position. It might only be a slight nudge each time, but over a sequence of tokens, the likelihood of repeating the bias by chance is increasingly improbable.The bias is different for each position and follows a defined RNG, seeded somehow predictably.Can be either an open algorithm, or not. If not open, then an API could be provided to determine if text is  watermarked or not.How it applies to code - maybe it could be a subtle nudge to symbol names, etc, I&#39;m just speculating (I only read about this in passing very recently)."</p>
 							
 						
 						</a>
@@ -834,19 +1123,11 @@ error-correcting codes use the same tools as machine learning.Book (creative com
 							
 						
 							
-								<p class="story__comment_others">"running this on an m1 max 64gb, it produces some really nice clips with music and audio, stitching the clips together after makes a nice short story generated entirely using a local ai system. It takes quite a while to generate each clip though, But at least it is working. I would like to know a few things:-Optimal settings/configs examples for h3.c to help speed things up
--Optimal recommended generation settings for each mac product, i am sure it is easy to do
--Prompt generator assistantGreat work from the github author. The more i use it the more i realise i don&#39;t need a gui to generate video, just terminal.My setup:
-Macbook #1 as a client
-Macbook #2 as server-use macbook #1 terminal + ssh
--run mactop in terminal tab to monitor Macbook #2&#39;s hardware during ai video generation
--run h3.c on Macbook #2 via ssh session
--transfer the output video file from macbook #2 to macbook #1 using terminal scp
--view the video"</p>
+								<p class="story__comment_others">"In the AMA Minimax said that H3 could support sparse attention, that would be a huge speedup! I wonder if there are any news on that. H3 is very cool. EDIT: testing a --sparse-attention optional mode based on what they said in the Reddit post."</p>
 							
 						
 							
-								<p class="story__comment_others">"In the AMA Minimax said that H3 could support sparse attention, that would be a huge speedup! I wonder if there are any news on that. H3 is very cool. EDIT: testing a --sparse-attention optional mode based on what they said in the Reddit post."</p>
+								<p class="story__comment_others">"This is where the DGX spark makes up a bit of the ground it loses on llm work, diffusion and cuda go together like peanut butter and jelly."</p>
 							
 						
 						</a>
@@ -2680,295 +2961,6 @@ Apple’s hardware technologies and research and development.&#34;Anybody know w
 						
 							
 								<p class="story__comment_first line-clamp">"Comments moved to https://news.ycombinator.com/item?id=49184755."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">05 August 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://writings.stephenwolfram.com/2026/08/in-memory-of-my-wife-elise-cawley-1961-2026-with-thanks-for-36-wonderful-years/">In Memory of My Wife, Elise Cawley, with Thanks for 36 Wonderful Years</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49173165">
-						
-							
-								<p class="story__comment_first line-clamp">"An amazingly detailed tribute, you&#39;d have to think this was taken from a journal, in which case it&#39;s impressive to keep such a record of their life, or maybe Stephen just has a fantastic memory.Even through that detail you can really feel how much he loved and admired her.&gt; Somehow in the shock of what has happened it feels as if I just met Elise, and now she is gone.A reminder that time&#39;s cruelty is making the wonderful feel shorter than the painful.&gt; My only solace in this tragedy is that the end came instantly, after a day filled with nothing but joy.Hopefully we&#39;re all lucky enough to be allowed to rest without suffering while surrounded by loved ones."</p>
-							
-						
-							
-								<p class="story__comment_others">"I met Stephen in 2023 at some MIT AI conference. He was the kindest, most grandfatherly person. I was expecting to meet a relatively pontifical person given some of his work, but he was such the opposite that I was completely taken aback. I spent two hours that evening with him and a small group of people talking about language and maths and so on. (He was very kind to let me take a photo: https://postimg.cc/LYmVCs0G)That conversation had a tremendous impact on me and completely changed my attitude towards meeting new people.I am heartbroken for him and his family. And I can see that kind / heartfelt / grandfatherly nature throughout this memoriam.And please, God, let me die with my wife like John Nash did in that NJ Turnpike taxi crash."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is a moving tribute.   Stephen Wolfram&#39;s writing often has certain faults, which I mention only to be able to say that he has here transcended them; this is a genuine and heartfelt piece of writing which makes me feel sad for his loss."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/">AI-Generated Images Discourage Me from Reading Your Blog</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49167113">
-						
-							
-								<p class="story__comment_first line-clamp">"To me there are different motivations to include imagery and some of them are just fine with AI generation. If the imagery actually goes to the substance of helping to illustrate or explain the actual content then it seems very superficial to reject it based on how it was generated. In fact it is kind of stupid to insist someone slavishly draw something by hand that could have been done an easier way.The problem comes when the imagery is placed as a false value signal. If it is designed to send a signal of &#34;this content took a lot of effort to produce because an image that would be hard for a human to make is attached to it&#34; - but the image was generated without that effort, then it&#39;s basically a lie and insult to the reader."</p>
-							
-						
-							
-								<p class="story__comment_others">"AI-generated images discourage me from interacting with any entity AT ALL. Bar / restaurant posters, events, shops, anything. Because it makes the brand appear lazy. And in a weird way &#34;anti-human&#34;. I don&#39;t have a better word than that."</p>
-							
-						
-							
-								<p class="story__comment_others">"There’s also a class of “detailed agent written technical blog” that’s you can just scan and get the shape that it’s long paragraphs, tables of statistics, and dry LLM writing. You notice the blog has one or more such posts a day.It’s a turnoff immediately if someone shares what their agent wrote.It also has happened a few times they contain a fair number of misrepresentations and mistakes."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://birchtree.me/blog/xbox-goes-down-you-cant-play-games-you-own-on-disc/">Xbox goes down. You can&#39;t play games you own on disc</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49167448">
-						
-							
-								<p class="story__comment_first line-clamp">"I wanted to show my gf the halo 1 campaign, so I downloaded the 30GB Masterchief Collection via steam. When I launched it, I was greeted with a black box. After 1 Minute it was a microsoft login screen that looked eerily like a browser inside the game. Since I couldn&#39;t do anything else, the game was stuck at a sub 720p resolution. I said fine Ill just create an account. Yea so mail, firstname, lastname, birthday, country, email and email verification code later I had to do captcha which is clicking and holding down a button. &#34;Help us against the bots&#34; it said. I unironically spent 5 minutes clicking that button, then being stuck in a loop with &#34;please try again&#34; while my gf just sat there watching me.Well I turned off MCC and gave up.I don&#39;t want to know what life is like having xbox hardware"</p>
-							
-						
-							
-								<p class="story__comment_others">"Gaming is heading in the same direction that TV, movies and music are. It’s a shame. I can invite my friends over, boot up my GameCube to play some Mario Kart Double Dash. As long as the console and disc are okay, I can (hopefully) do that until I pass away.These days? Not so much. I’ll never be able to be sure I can play GTA VI in twenty years. It just sucks not owning anything anymore. I know why they do it, it’s a massive profit difference.[1]On the PC end of things, it’s not as bleak. Services like GoG let you download the standalone installer, DRM free. I try to get any single player games I can from GoG, you should too.Support the corps that give you ownership. Buy those Blu-rays of your favorite films. Either to support physical media or to ensure you will have it until data degrades.1: https://youtube.com/watch?v=sESfDf0My84"</p>
-							
-						
-							
-								<p class="story__comment_others">"The fight should never have been about physical vs digital, but about ownership.If I buy a game/movie/book/song, regardless of where or in what format, I should be able to:1. Keep it forever without the risk of remote deletion.2. Use it while offline, unless internet connectivity is strictly required for the experience.3. Move it between my devices.4. Backup and archive it.5. Resell it.6. Pass it on to my children.Beyond that I don&#39;t really care what the container for the bytes is. If the game isn&#39;t sold on a disc I can easily burn my own.Every publisher can offer all of this today, but they choose not to. And proprietary devices/formats means the free market isn&#39;t going to work in the consumer&#39;s favor. The only thing that can fix the problem is legislation."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://toneyalexander.github.io/inclusive-color-space/">Show HN: Simple algorithm and color space to generate diverse skin tones</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49170165">
-						
-							
-								<p class="story__comment_first line-clamp">"This is beautiful work! First, I thought this would involve using PCA to go from 3D to 2D, which would result in an easier selector to use, but at the expense of representing every person.Then, I thought this would stop at using the U-space vectors (the ones that form the basis of the PCA image) and their corresponding ellipse to form our color space, but no, the function fitting is a very slick idea, even if it was executed by hand.Lastly, I love the presentation of sampling from different r values. Whether you sample from a fixed r value or a range of r values, I bet this has great applications in game design or animation.I still don&#39;t quite get the manual data labeling process at the beginning? It seems like it would encode some bias, but the consistency of the first point cloud and the results certainly speak for themselves."</p>
-							
-						
-							
-								<p class="story__comment_others">"It&#39;s always entertaining to try to understand these things from first principles. Color and skin color in particular are very complex things to measure and model. It&#39;s not just a physical quantity, it&#39;s also a matter of human perception based on lighting and a host of factors.It seems like some work was done to research existing approaches, but I don&#39;t see any reference to Pantone Skin Tones [0]. Without intending to, I&#39;ve worked on 3 different projects which involved measuring skin tones for makeup applications. The Pantone range is not 100% perfect, but it&#39;s pretty well done and easy to understand. There are two axes: a light/dark one, and red-yellow one [1].[0] https://www.pantone.com/na/en-us/skintone[1] https://cosmeticsbusiness.com/pantone-skintone-guide-80945"</p>
-							
-						
-							
-								<p class="story__comment_others">"Love it!I was looking at this a little while ago, and used some of The Pudding&#39;s data on makeup/foundation shades (https://pudding.cool/2018/06/makeup-shades/) and plotted it into the Oklab colorspace (https://observablehq.com/@55th/foundation-shades). The shades form themselves into that same crescent as seen in the article."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://short-stories.co/@raybradbury/there-will-come-soft-rains-6k8vr4xxlnmj">Ray Bradbury&#39;s &#34;There Will Come Soft Rains&#34; is set today (2026-08-04)</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49166491">
-						
-							
-								<p class="story__comment_first line-clamp">"already posted at https://news.ycombinator.com/item?id=49162653 which is itself a dupe but that was the first one posted today"</p>
-							
-						
-							
-								<p class="story__comment_others">"Flagged as a dupe. This was already posted earlier today."</p>
-							
-						
-							
-								<p class="story__comment_others">"dupe: https://news.ycombinator.com/item?id=49162653"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/FFmpeg/FFmpeg/blob/n9.0/RELEASE_NOTES">FFmpeg 9.0</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49166202">
-						
-							
-								<p class="story__comment_first line-clamp">"Changelog:- Extend AMF Color Converter (vf_vpp_amf) HDR capabilities- LCEVC track muxing support in MP4 muxer- Playdate video encoder and muxer- Add v360_vulkan filter- HE-AAC 960 decoding (DAB+)- transpose_cuda filter- Add AMF Frame Rate Converter (vf_frc_amf) filter- SMPTE 2094-50 metadata support and passthrough- ProRes RAW VideoToolbox hwaccel- APV Vulkan hwaccel- Animated WebP decoder- Animated WebP demuxer- Remove CELT decoding support (doesn&#39;t affect Opus CELT)- Remove ogg/celt parsing- Bitstream filter to split Dolby Vision multi-layer HEVC- Add AMF hardware memory mapping support.- ONNX Runtime DNN backend with GPU execution provider support- Remove deprecated NVENC options and support for pre-11.1 SDK versions"</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel we’re blessed to have a project like FFmpeg. This open source tool is so important for everyone."</p>
-							
-						
-							
-								<p class="story__comment_others">"For those interested in the work being done, with a bit more details that just the Changelog, I wrote a longer blogpost about the work here: https://jbkempf.com/blog/2026/ffmpeg-9.0/More details about the ongoing work on Swscale rewrite, on the various Vulkan changes, the assembly detailed and a bit of statistics about this release."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://pandoc.org/twenty-years-of-pandoc.html">Twenty Years of Pandoc</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49156750">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; by writing N parsers (“readers”) and M renderers (“writers”), one could support N × M conversions.Beautiful writeup for a wonderful project. In an age of vibe-coding hype it&#39;s also so nice to see how things can be extended and snowball in usefulness when things are built correctly, by hand, from basic principles.&gt; Perhaps, then, in the future, people will no longer have a need for tools like pandoc.I think we will need wonderful things like pandoc more and more. As mentioned there is a huge ecological and practical difference. Even if LLMs could get infintisamally close to deterministic-level reliability, it&#39;s still so many more orders of magnitude better in efficiency, especially with big batch jobs etc."</p>
-							
-						
-							
-								<p class="story__comment_others">"&#34;The choice of Haskell has also led to a high quality and low volume of contributors&#34;I feel this influence of choosing a tech stack and its impact on self selected and auto-reenforced culture is most often underestimated.From my own experience, at a time I was (involuntarily) working in Java, and when .Net was released, from a pure technical point of view it was like a breath of fresh air. Java was suffering from overengineering, archtecture astronauts galore and no sensible UX framework. .Net, the new kid, came in lean and clean with a UX library that &#39;just worked&#39;.Problem later was that for all its flaws and being overly &#39;academic&#39;, in teams (the real thing, not the awfull app), you could have indepth discussions about non trivial aspects of SWE topics in the Java world, whereas for all its technical prowess, in .Net land you were mostly dwelling amongst the 2 week CRUD app bootcamp folks. This ofc is a gross oversimplication.
- You had brilliant engineers and challanged codemonkeys on both sides. But the skew was more than a little biased."</p>
-							
-						
-							
-								<p class="story__comment_others">"That a professor of philosophy [1] made tools [2] that are used by millions around the world... that&#39;s just mind boggling. In a good (great!) way.Pandoc is my go-to tool. Thank you, Sir![1] https://johnmacfarlane.net/index.html[2] https://johnmacfarlane.net/tools.html"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://mistral.ai/news/shieldstral/">Mistral&#39;s Shieldstral: 3B open-weights model for multimodal moderation</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49171268">
-						
-							
-								<p class="story__comment_first line-clamp">"I would be curious if this can do moderation with an arbitrary ruleset, or if it&#39;s just &#34;that one moderation style&#34; we already know from current big tech platforms.The kind where malicious intent is okay if the words are nice.___Or, rephrased: How big is the space in which you can tune this model without retraining.Is it just &#34;we hate sex&#34;/&#34;we don&#39;t hate sex&#34; &#34;We hate violence&#34;/&#34;we don&#39;t hate violence&#34; or is it _truly_ as flexible as claimed?__Maybe something like &#34;Is this guy a corporate fraud that is going to waste my time with performative nonsense?&#34;That would be the true test for a moderation model and I would be immensely impressed if it could manage to pull that off.___Edit: 
-Looking at the paper though.. probably not.I suppose this is useful for B2B, which seems to be mistrals whole thing. Question is just if it is also useful for society to hand the SV prefab morals down like that. Kinda like cultural imperialism but with an ethical spin.Maybe opinions on those base datasets could occasionally differ more than the model can be steered."</p>
-							
-						
-							
-								<p class="story__comment_others">"Should&#39;ve called it Safestral.Also I do like Mistral&#39;s seemingly newer strategy of focusing on smaller, more fine-tuned models for various use-cases, presumably the result of their large MoE models not competing effectively with the frontier models."</p>
-							
-						
-							
-								<p class="story__comment_others">"Model: https://huggingface.co/mistralai/Shieldstral-1.0-3B"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://users.wpi.edu/~zrbutzke/Docs/BradburyStories(1).pdf">There Will Come Soft Rains (1950) [pdf]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49162653">
-						
-							
-								<p class="story__comment_first line-clamp">"It seems quaint now, but it’s astonishing how much the fear of war (especially nuclear annihilation) affected mid-century fiction.In addition to &#34;There Will Come Soft Rains&#34; we have short stories like Stephen Vincent Benét’s &#34;By the Waters of Babylon.&#34;In that story, society has been bombed back to the stone age. Even religion is a stone age recreation. Something like hot and cold running water seems like it must come from gods’ magic.This short story was particularly meaningful for me when I read it in school. I lived the same distance from New York City as the protagonist. And this was during the last days of the Soviet Union, which had placed my small hometown on its top 10 places to bomb list.In Walter M. Miller Jr.&#39;s book A Canticle for Liebowitz, we’re back in society that&#39;s recreating itself, with the Catholic Church acting as a centralizing force again, as after the fall of Rome and European plagues. Monks discover, collect, copy, and maintain shreds of texts.Apart from increasing society-level anxiety, that focus on the dramatization of nuclear war is considered to have turned people away from nuclear power. Imagine the different potential outcomes had our authors not been so talented. You can go back to Plato’s Republic for explanations of why sad music, for example, is bad for society. But maybe the real effect was on swaying public opinion, protest movements, regulations, and where people choose to focus their productive talents."</p>
-							
-						
-							
-								<p class="story__comment_others">"Okay, a stretch for HN, but: singer-songwriter Silvana Estrada named an album released last year Vendrán Suaves Lluvias (meaning There Will Come Soft Rains). She talked about how she and her brother read The Martian Chronicles as kids and she remembered the Sara Teasdale poem quoted at the end. She said she composed the songs at a difficult time in her life and, I guess, something about that image in the story (and the poem in it) resonated then.For anyone curious, there&#39;s a Tiny Desk Concert of songs from the album at https://www.youtube.com/watch?v=o9PoZ0Vcb_s and an interview, in English, at https://www.youtube.com/watch?v=WcQbB7Dc83U"</p>
-							
-						
-							
-								<p class="story__comment_others">"I read this story in 4th grade. It felt like the future. Now, it feels like most of the technology is within reach - at least, it could be built. The automated stove being the main exception.But the most unrealistic part of this story is how all the IoT automation continues to work in the absence of the Internet."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.valleynewslive.com/2026/08/04/every-flock-camera-winona-minnesota-cut-down-stolen-coordinated-theft/">All of Winona Police Department&#39;s Flock cameras cut down and stolen</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=49171656">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; Police use the technology to investigate crimes such as hit-and-runs and to locate missing persons.
-&gt; No suspects have been identified.Yeah, that tracks.&gt; Camera data is owned by the police department and permanently deleted after 30 days.I assume this means that the police department deletes one local copy?"</p>
-							
-						
-							
-								<p class="story__comment_others">"  &gt; and stolen
-
-I’m sure flock’s agreement with the Winona Police Department makes clear that they are only purchasing a license to use these cameras, so in fact the department’s cameras have not been stolen at all, they’ve merely been prevented from enjoying licensed use."</p>
-							
-						
-							
-								<p class="story__comment_others">"Curious about the official YCombinator stance on this extremely unpopular YCombinator-backed startup (unpopular here at HN anyway)."</p>
 							
 						
 						</a>
