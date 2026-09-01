@@ -43,6 +43,11 @@ jobs:
           max_attempts: 5
           command: python3 main.py
 
+      - name: Verify generated output
+        run: |
+          test -d generated
+          test -f generated/index.html
+
       - name: Upload days history
         uses: actions/upload-artifact@v4
         with:
@@ -50,9 +55,10 @@ jobs:
           path: days_history.dat
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: generated
-          CLEAN: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: generated
+          clean: true

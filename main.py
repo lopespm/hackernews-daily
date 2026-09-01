@@ -26,6 +26,8 @@ async def main():
         logging.info("Finished successfuly")
     except Exception as error:
         logging.exception(f'An unexpected error occured: {error}')
+        # Propagate the failure so CI exits non-zero instead of deploying partial output.
+        raise
 
 def update_history():
     try:
