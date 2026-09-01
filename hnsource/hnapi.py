@@ -44,6 +44,14 @@ def best_story_ids():
 def get_story(story_id):
 	logging.info(f'Getting story {story_id}')
 	hn_story = request_hn_id_details(story_id)
+	if not hn_story:
+		logging.warning(f'Skipping story {story_id}: empty API response')
+		return None
+	if 'title' not in hn_story:
+		logging.warning(
+			f"Skipping story {story_id}: missing title (type={hn_story.get('type')}, deleted={hn_story.get('deleted')}, dead={hn_story.get('dead')})"
+		)
+		return None
 	hn_link = f'https://news.ycombinator.com/item?id={story_id}'
 	story_link = hn_story['url'] if 'url' in hn_story else hn_link
 	return Story(

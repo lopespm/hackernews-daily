@@ -48,6 +48,6 @@ def get_all_days_top_stories():
     days = []
     for day in itertools.islice(days_history, 0, MAX_DAYS_BUILT):
         date_display = day.date.strftime("%d %B %Y")
-        stories = [hnapi.get_story(story_id) for story_id in day.story_ids]
+        stories = [story for story in (hnapi.get_story(story_id) for story_id in day.story_ids) if story is not None]
         days.append(Day(date_display, stories))
     return days
