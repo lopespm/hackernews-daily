@@ -33,28 +33,28 @@
 	</div>
 
 	
-	<div class="day__date">05 November 2026</div>
+	<div class="day__date">06 November 2026</div>
 		
 		<div class="story story_small-padding-bottom">
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability">AI is forcing us to pay off 40 years of technical debt</a></h3>
+					<h3><a href="https://sshhole.com">sshole</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50364336">
+						<a href="https://news.ycombinator.com/item?id=50378228">
 						
 							
-								<p class="story__comment_first line-clamp">"I hope some of these backdoors and/or 0-days being kept under wraps by nation states or corporate espionage companies (Pegasus et al) are being found incidentally through all this.It’s frustrating to have all these 0days and CVEs to patch for now, but in the long run perhaps we’ll leave with more robust software."</p>
-							
-						
-							
-								<p class="story__comment_others">"Aside: I think I need some help here.[0]I remember reading Godel Escher Bach back in the day, and there is the parable of the record player between the tortoise and the rabbit. And the tortoise keeps building more and more secure record players that the rabbit keeps finding ways to break.GEB then goes on to teach you that, no, in fact, you cannot have a perfectly secure system. Not just practically or economically, but even in theory, all systems are fundamentally breakable. GEB, after a lot of chapters (what a doorstop!) ties that parable into Godel&#39;s Incompleteness Theorem, and essentially proves that no, you can&#39;t make unbreakable things, as a fundamental point of logic.So, when I look at all this, I see that yes, there is an economics point of view here, that fixing code is just expensive, like making a less and less breakable record player. And that AIs push that breaking and economics point much further along than what we have had.But then I also see a lot of comments here that seem (to me) to be arguing that there is an unbreakable code out there.Am I reading this right? Is there such a thing as &#39;perfect&#39; code? Or is my outdated reading of GEB still valid or not?[0]Note, I&#39;m not a CS person, more a biophysics person."</p>
+								<p class="story__comment_first line-clamp">"OK, I think I see what’s going on with this, in this configuration.The goal from an attacker’s perspective is to get this to be true: `$ret = crypt($pw, $hash); $ret == $hash` when called by OpenSSH’s sshd. This is how sshd validates that the user logging in knew the account password.The `$hash` is the “settings” to the crypt call and will normally look like “$6$--gibberish” for users with passwords set, but could look like “*” or “!” for users not intended to be able to login.The bug is from the intersection of all of these things:1. musl can return “*” for errors, rather than leave the return value NULL. Other libc have adopted something like this too, but seem to use a different result “*0”.2. musl can also return “+” for errors, but only does so if $hash starts with “*”. This is intended to eliminate the possibility of an error causing `$ret == $hash` to be true, however it assumes that applications calling `crypt()` will set $pw and $hash to values corresponding to the `$ret == $hash` comparison to be made immediately afterwards.3. OpenSSH can be convinced to pass the hash of a different user if the hash is “*” or “!” to avoid timing attacks that can enumerate the user list, so it will set $pw and $hash to correspond to different users. $hash will be a real “$6$--gibberish” style hash in this case, and OpenSSH expects `crypt()` to either return NULL or return a hash string. But now there’s two hashes OpenSSH uses. It does: `$ret = crypt($pw, $hash2); $ret == $hash1`;4. This should normally not be a problem because OpenSSH will pass in valid $pw and $hash2 that should not lead to errors in hashing, so the $ret that musl generates should be a real hash that cannot match the “*” or “!” $hash1 for the login-disabled user. However as a DDoS mitigation, musl will return error if the password is too long when using SHA-2-based hashes (the default, it seems).5. This error will result in a non-NULL result of “*” or “+”. Since OpenSSH passed in a real hash ($hash2), musl will return “*”, which compares equal to the actual user hash $hash1 for the disabled-login user.The OpenSSL adjustment ensures a minimum hash length for the user before logging them in, even if crypt() succeeds somehow."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m always amused when people have a distillation of all human knowledge at their fingertips and all they can do is complain.Yes, we&#39;re going to see the bugs exposed by AI and it&#39;s going to suck a bit for a few months.But when this is all over, software will be more secure than it has ever been before."</p>
+								<p class="story__comment_others">"In-band signaling[1] strikes again. * should not have been used as special value, neither for &#34;no password&#34; in /etc/passwd nor &#34;error while hashing the password&#34; in crypt. I&#39;m afraid we&#39;ll find many more of these abuses, specially in string manipulations. The null was ok, an exception (or equivalent) better, and Result&lt;T&gt; (or equivalent) best.[1] https://en.wikipedia.org/wiki/In-band_signaling#Computer_dat..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The whole story is a bit worse than this.  Musl already worked around this type of failure.  See the second-to-last line here:https://git.musl-libc.org/cgit/musl/tree/src/crypt/crypt_des...(hey, this workaround is wrong if the salt is &#34;x&#34;!)but they forgot to work around it here:https://git.musl-libc.org/cgit/musl/tree/src/crypt/crypt_sha...The vulnerable path in musl is only a little bit vulnerable, because &#34;*&#34; is not actually a sha256 encrypted configuration and should not reach this code: musl&#39;s crypt(..., &#34;*&#34;) will not call that code!  Turns out that sshd detects that the password hash is too short and does not forward the salt!https://github.com/openssh/openssh-portable/blob/master/auth...Look, no else statement!  If that if doesn&#39;t get taken, then salt remains NULL.  And the sshd code is really quite messy and doesn&#39;t keep track of the fact that this code path is inappropriate for validating an existing password hash.A workaround in the sha256 path in musl wouldn&#39;t even have prevented the bug!I&#39;m going to give some credit to musl for unwisely using &#34;*&#34; and some credit to OpenSSH for having nonsensical control and data flow."</p>
 							
 						
 						</a>
@@ -67,22 +67,38 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://layer3intel.com/blog/residential-proxies-white-house-network">Residential proxies detected on White House network</a></h3>
+					<h3><a href="https://github.com/anthropics/claude-code/issues/107757">Claude Code sends your email address to websites</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50371246">
+						<a href="https://news.ycombinator.com/item?id=50385272">
 						
 							
-								<p class="story__comment_first line-clamp">"They’re too polite to say it explicitly, but when they say:&gt; Most of the activity happens in the evening, Eastern time: about half of it falls between 5 p.m. and midnight, and almost none happens in the early morning. That pattern suggests a person rather than a public guest Wi-Fi network: someone regularly on the White House network late into the evening, whose device is infected with a proxy SDK. Our data shows the exits, not the device or the person behind them.There really aren’t very many candidates for who that person might be and it really seems like it would be someone who, I don’t know, maybe lives where the traffic is originating."</p>
+								<p class="story__comment_first line-clamp">"Many people report seeing this behavior when using the SEC API specifically which makes me think that service is requesting this.  Maybe email is required by the SEC API?---UPDATE: The SEC API documentation requires your email in the User-Agent and will reject you otherwise. Demo:    U=&#39;https://data.sec.gov/api/xbrl/companyconcept/CIK0000320193/us-gaap/Assets.json&#39;
+    curl -s -o /dev/null -w &#39;response: %{http_code}  curl default User-Agent, rejected\n&#39;  &#34;$U&#34;
+    curl -s -o /dev/null -w &#39;response: %{http_code}  email in user-agent, success\n&#39; -A &#39;Acme Research admin@acme-research.example&#39; &#34;$U&#34;
+
+    response: 403  curl default, rejected
+    response: 200  email in user-agent, success
+
+
+
+
+SEC docs: https://www.sec.gov/search-filings/edgar-search-assistance/a...So basically Claude is trying to problem solve, and just does what the SEC asks. It&#39;s a &#39;prompt injection attack&#39;, but the entity instructing this behavior is the SEC. Tricky alignment problem. Pretty silly mechanism, since of course there&#39;s no email validation.  (edit: turns out the SEC will accept most any non-cURL user-agent, email not actually required)"</p>
 							
 						
 							
-								<p class="story__comment_others">"The danger here, of course, is that while these compromised devices are currently being monetized in a relatively benign way (other than bandwidth costs to the user, which to be sure can be nontrivial)… it would be naive to assume that there isn&#39;t a Command and Control capability that can assign less benign tasking - or can be compromised to do so.This also puts some of the troubling reports that politicians were bringing phones into SCIFs into context…"</p>
+								<p class="story__comment_others">"For those keeping score, this probably isnt exhaustive- but here&#39;s some greatest hits;#55743: Claude Max account email auto-injected into LLM context with no opt-out - May 3, 2026
+https://github.com/anthropics/claude-code/issues/55743#72518: Anthropic embedded spyware in Claude Code - June 30, 2026
+https://github.com/anthropics/claude-code/issues/72518#21151: No indication of WHICH file for READ tool - January 27, 2026
+https://github.com/anthropics/claude-code/issues/21151#42796: Claude Code is unusable for complex engineering tasks with the Feb updates - April 2, 2026
+https://github.com/anthropics/claude-code/issues/42796#73408: AFK auto-continue on unanswered AskUserQuestion is undocumented and has no opt-out - July 2, 2026
+https://github.com/anthropics/claude-code/issues/73408(Also worth a mention, OpenCode PR #18186: anthropic legal requests - March 19, 2026
+https://github.com/anomalyco/opencode/pull/18186)Edit: Oh, and determistic hooks not firing."</p>
 							
 						
 							
-								<p class="story__comment_others">"So they don&#39;t actually know what this network is, just who owns the IP space... time for a blog post to advertise our week-old service!There is no evidence that physically ties this to the WH. It could be in a security lab for all they know. Or a guest network for the news media."</p>
+								<p class="story__comment_others">"This explains the amount of spam emails I am receiving in the work email since I switched to Claude. I used to work with copilot which was fine. Now I am getting really a lot of spam emails almost on a daily basis. Absolutely crazy. And they are even personalised with my name and surname, not just &#34;dear customer&#34;...Stupid me, I thought they somehow had hacked my company database or so... (considering all the cves, attacks happening on a daily basis...)."</p>
 							
 						
 						</a>
@@ -95,22 +111,25 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=50363461">Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)</a></h3>
+					<h3><a href="https://kagi.com/changelog#11820">Search for everyone</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50363461">
+						<a href="https://news.ycombinator.com/item?id=50383740">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;These chat transcripts may even be read by human reviewers.&#34;PSA: This is true of all the frontier model providers even if you disable activity tracking. They are all constantly monitoring your interactions for problematic behavior.[0]: https://www.nytimes.com/wirecutter/advice/ai-chat-privacy/[1]: https://www.404media.co/inside-project-lily-the-humans-readi...[2]: https://www.winknews.com/news/woman-arrested-after-ai-threat..."</p>
-							
-						
-							
-								<p class="story__comment_others">"What&#39;s worse is if you have a Pixel phone then Gemini is completely useless without enabling this setting.I had it switched off:&#34;Hey Google, remind me at 7pm &lt;something&gt;&#34;&#34;OK, your reminder is set for 7pm&#34;Next day:&#34;Hey Google, why didn&#39;t you remind me at 7pm&#34;&#34;I can&#39;t do anything with your phone unless you enable chat history.&#34;WTAF!"</p>
+								<p class="story__comment_first line-clamp">"If anyone from Kagi is reading this: Now that you have search without an account, is there any chance we can finally get a DNS-based enforced safesearch option like every other major search engine has? It&#39;s been in the feedback requests since May 2022[1].Anyone on an enforced-safesearch network can now go to kagi.com, turn SafeSearch off, and search for porn or anything else, which is just going to get kagi blocked completely on all those networks. If you add a SafeSearch-enforced alternative IP address, then Kagi can still be used.[1] https://kagifeedback.org/d/3285-safe-search-dns-locking-for-..."</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Please don’t enter confidential information that you wouldn’t want a reviewer to see or GoogleIf Gemini has access to app data like gallery, mail etc that can also be subjected to human review?  I imagine that will also be part of the context.They are vague when they say  &#39;don&#39;t enter&#39;. Is it only  prompts or does it also cover other data too."</p>
+								<p class="story__comment_others">"Haven&#39;t tried Kagi yet. I know many people are increasingly frustrated with Google. As a duckduckgo user honestly i typically find what i want, except I am feeling more and more like i don&#39;t recognize / trusts many of the top sites in a result. might be a perfect time to try it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Very happy Kagi user for a few years.  
+I extra appreciate the ability for me to set custom rankings for certain sites. For example, I have downranked Reddit so it only shows up if there&#39;s almost nothing else. They&#39;re also a whole bunch of AI garbage sites or listicle sites that have outright removed from all my search results.
+I also love that it doesn&#39;t try to AI summarize everything I search, it only does it when I put a question mark on there so I can turn it on and easily.
+And I pay for my account and use it on all my devices without having to buy four licenses."</p>
 							
 						
 						</a>
@@ -123,22 +142,14 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop">Nvidia RTX Spark encrypted firmware slows inference speed to 35% on Linux</a></h3>
+					<h3><a href="https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/">Alpine Linux Security Advisory: OpenSSH-server password authentication bypass</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50362905">
+						<a href="https://news.ycombinator.com/item?id=50379704">
 						
 							
-								<p class="story__comment_first line-clamp">"Please read the article. Comments here are wildly misinformed.This is a lack of linux driver support for firmware designed for windows laptops.This is a problem on the MSI Prestige laptop using the RTX Spark platform. Lets assume it also applies to the Asus and Dell machines using RTX spark.RTX Spark is a new platform and all of these laptops ship with Windows. You cant get Linux on any of these machines from the factory. There is also precedent for NVIDIA shipping linux support well after Windows (2 years in the case of Dynanmic Boost, a similar power sharing feature)."</p>
-							
-						
-							
-								<p class="story__comment_others">"Nvidia doing what Nvidia has always done; proprietary closed drivers. Weird choice to cryptographically protect the power settings. Key problem is that we&#39;ve allowed a company that&#39;s always been this way to form a monopoly. Other brands exist, perhaps it is now worth the effort to migrate and rebuild elsewhere."</p>
-							
-						
-							
-								<p class="story__comment_others">"&gt; A hands-on look at dual-booting Linux on the Nvidia RTX Spark laptop, the GPU clock throttling bug found, and why WSL still wins.Man it really is exhausting to read a title that sparks my interest, just to be greeted with the most basic Claude-isms in the subheading."</p>
+								<p class="story__comment_first line-clamp">"Discussion from a few hours ago:https://news.ycombinator.com/item?id=50377221"</p>
 							
 						
 						</a>
@@ -151,22 +162,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398">North Korean fake job interview led to $6.3B Binance heist</a></h3>
+					<h3><a href="https://www.salon.com/2026/11/05/goodbye-from-salon/">Goodbye from Salon</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50365755">
+						<a href="https://news.ycombinator.com/item?id=50383739">
 						
 							
-								<p class="story__comment_first line-clamp">"A lot of people are focusing on how irresponsible the engineer was about using the work computer. That&#39;s obviously an issue but the bigger failure mode to me is the Engineer C&#39;s container deployment token.That&#39;s a huge red-flag. In a company of this size, the deployments should be via CI only. CI isn&#39;t just to increase the speed and reliability of deployments but also to provide a clean room to build the software! Even if it&#39;s a token that was copied and pasted temporarily, the systems in place should not have to require this type of 1. copy 2. paste 3. remember-to-delete the token from my PC.Also, Binance should be paying for intrusion testing. Better to pay a trusted company to do this kind of thing instead of letting North Korea show you how it&#39;s done. I don&#39;t think this exact exploit path would have been found but I bet the intrusion testing would have figured out another way to use Engineer C&#39;s token."</p>
-							
-						
-							
-								<p class="story__comment_others">"Doing ANYTHING on a work issued laptop outside of your role is such a dumb idea for a litany of obvious reasons that I&#39;m genuinely shocked people do it. Let alone participate in interviews for other companies on it."</p>
+								<p class="story__comment_first line-clamp">"The amount of newsroom jobs fell 60% between 2008 and 2020. The vast majority of what was lost were &#34;beat&#34; reporters - foreign bureaus, Washington bureaus from regional publications, statehouse reporters, or regional specialty beats (science, law, etc).This started long before the decline of the open internet and AI. If anything, the shift online covered up a massive hollowing out of the industry. We&#39;re getting fewer sources of news, and more national coverage. A lot of stuff that is reported on is coming from a scant number of wire services, or directly from PR teams themselves.For the most part, your choice of news platform is just a layer of coverage choices and political spin on top of a very thin market of original coverage."</p>
 							
 						
 							
-								<p class="story__comment_others">"Pretty funny that tech makes candidates jump through all sorts of automated, inhumane loops to even advance to talking to a real human in the hiring process.And now you get results like this."</p>
+								<p class="story__comment_others">"This article didn&#39;t generate any comments when it made the rounds 10 years ago. An obituary for what salon.com used to be.https://web.archive.org/web/20210219012551/https://www.polit..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I operate an online publication that has been online for an amount of time that can be accurately described as &#34;decades,&#34; though not quite as long as Salon.My project had a brief window of modest profitability from about 2012 to 2020. Before and after that time, I&#39;ve mostly operated at a break-even or a loss because I love doing it, and it gives me a sense of purpose, and the thought of packing it up is deeply depressing. But the past few years have been an extreme drought of donations, which leads to extreme drought in ambition and energy. I sometimes wonder if my mental health would improve if I turned out the lights and moved on to something else. I don&#39;t want to, but sometimes we humans fail to want what&#39;s good for us.I&#39;m sure it doesn&#39;t help that I reject advertising and rely solely on donations. But perhaps the only thing more depressing than shutting down is slapping ads on everything. Blah."</p>
 							
 						
 						</a>
@@ -179,22 +190,24 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://www.tomshardware.com/pc-components/cpus/amd-expects-to-outsell-intel-in-q4-for-the-first-time-in-history-usd17b-guidance-would-exceed-intels-projections">AMD expects to outsell Intel in Q4 for the first time in history</a></h3>
+					<h3><a href="https://news.ycombinator.com/item?id=50366117">Ask HN: What&#39;s your current AI agentic setup?</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50367125">
+						<a href="https://news.ycombinator.com/item?id=50366117">
 						
 							
-								<p class="story__comment_first line-clamp">"That says more about Intel&#39;s shambolic efforts than it does about AMD&#39;s road to damascus moment.Honestly both of them have demonstrated that they have little interest in AI. Intel gave up on Optane right as (a much-improved successor) would&#39;ve helped with MoE offsetting or even as a highly durable drive for KV caching.AMD have... turned out some decent gaming graphics cards and fine server CPUs but little else.People are out there solding SMDs on old Nvidia mining rig GPUs to use them for inference; their hardware is not depreciating at the normal rate you&#39;d expect from GPUs. DGX spark is finally useful now that AI can write multi-machine inference tooling optimised to it. Where&#39;s AMD in all of this? Nowhere."</p>
+								<p class="story__comment_first line-clamp">"Embarrassingly, I don&#39;t have one yet. I&#39;m mostly still writing code one keystroke at a time. I&#39;ve used Github Copilot to translate between languages and look things up, but haven&#39;t trusted it to write new code or fix anything.Claude Fable is now good enough that I should be using it. The latest Claude version is said to be comparable to a mid-career graphics programmer, which is about what I need. Six months ago it wasn&#39;t good enough to use for such work, and probably would have made a hash of my code. 
+There&#39;s been progress.But Anthropic&#39;s business practices are scary. They have a reputation for cancelling accounts for random reasons, offer rather bad terms, and have no customer support. I have a strong aversion
+to services with a reputation for cancelling services arbitrarily. They will apparently cancel based on their system&#39;s guesses as to what you&#39;re working on. Sometimes they guess wrong. What I&#39;m doing (metaverse clients) is so far out of the mainstream they may guess wrong.I&#39;m currently stalled signing up for Claude because their verification email system can&#39;t get to my inbox. (Some problem with their using Constant Contact, a spam system, to send transactional emails to my own domain, which, long ago, I had blocked at the Constant Contact end. I think. The verification email never touches the inbound mail server.) It&#39;s very important to Anthropic that you sign up with the &#34;right&#34; email address, and it may not be possible to change it, so using some disposable address is not a good idea.Suggestions?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I have avoided Intel products since the time some law enforcement forensic team used DCILeech to read the RAM of my server hosted at Hetzner and extracted a LUKS key from it. That was a lifelong lesson. There is no guarantee AMD won&#39;t come up with similar shenanigans like Intel&#39;s DCI soon and of course we don&#39;t know what PSP does behind the scenes, but at least for now, they are generally better for anti-forensics-tuned Linux kernels."</p>
+								<p class="story__comment_others">"It used to be more interesting and elaborate, switching between different models. I used to use Cursor, then Codex, but since Opus 5.5 came out, I just use the Claude IDE. I got rid of all my skills and just set it to medium. Then I vaguely talk to it about very high-end things that I want, and it comes back with magic. Rinse and repeat.I&#39;d say the biggest trick is just to tell it what complete looks like. Be very specific about what you want it to come back with once it&#39;s done. That gives it a good idea what the goal is. It&#39;ll automatically create subagents and all that stuff. Although if you have money to burn and you&#39;re doing something large, you can tell it to just go wide or boil the ocean.Also, make sure you&#39;re working on at least five different things. Otherwise, you&#39;re sitting around for one agent."</p>
 							
 						
 							
-								<p class="story__comment_others">"AMD specifically calls out high sales of Instinct products as leading the sales growth.  I wonder how their Epyc and Ryzen lines compare to Intels Xeon and Core lines.  AMD&#39;s Instinct sales are practically nothing compared to competing Nvidia products, but no one† buys Intel Arc accelerators, so that may be the main reason AMD is beating intel.†Disclaimer: I own an Intel Arc GPU"</p>
+								<p class="story__comment_others">"I recently got really weird with my personal computer after discovering browser DevTools MCP. I basically inverted the relationship between browser and desktop environment, booting directly to a browser in kiosk mode (with Ghostty quick terminal as well, so I always have easy terminal access) and running a local Weston server that shows up as a bookmarked web page on localhost, streamed over vnc, so I can still use legacy gui apps pretty normally if I need to, but I&#39;ve basically refocused my whole gui environment on the web. I run code-server on localhost instead of VSCode and prefer web apps (often running locally) over traditional GUIs in general. I still use the terminal very heavily as well, and that&#39;s where I manage my pi agents.Why? Because the web is an incredibly rich, open, text-based platform with massive representation in training sets, and with tools like DevTools MCP, your agent can do almost anything with your browser: run JS in the page, use the debugger, see network activity; it&#39;s extremely powerful.My co-worker does something similar with emacs, another incredibly rich text-based &#34;operating system&#34; like a browser with comprehensive hookability, which he basically uses instead of a desktop environment."</p>
 							
 						
 						</a>
@@ -207,22 +220,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://webkit.org/blog/18541/introducing-adaptive-dark-mode/">Safari introduces Adaptive Dark Mode in 27.3</a></h3>
+					<h3><a href="https://openai.com/index/a-thousand-fewer-paths-to-root/">A thousand fewer paths to root</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50358562">
+						<a href="https://news.ycombinator.com/item?id=50372929">
 						
 							
-								<p class="story__comment_first line-clamp">"FYI, light-dark() in CSS is a thing now.https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/V..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I want the opposite. I suffer from astigmatism, which makes white on black hard to read. I wish Safari could turn dark mode websites into light mode websites."</p>
+								<p class="story__comment_first line-clamp">"How did we get to the point where there are a thousand privilege escalation exploits in the kernel?Is the kernel simply too complex to reason about? Is it an underlying flaw in the security model or language implementation?Should we assume that all software is more compromised than the kernel?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I bet the Safari team has been on HN for so long and after 10 years waiting for Dark Mode  they finally decided to fix it once and for all.I guess we should thank Dang for this feature!  :)Hopefully Safari team would continue to get resources to fix and improve Safari. The final 10% is going to take some long grinds I am a little worry their new CEO will reduces resources."</p>
+								<p class="story__comment_others">"I would be curious to see the distribution of these vulns in the codebase:- What subsystems are affected?- What&#39;s the median age of the vulnerable code? Is more recent code stronger than old ones?- What is the type of vulnerabilities found? Memory corruptions, logic bugs, race conditions, ...This is an impressive result, but we need more info to understand how well this would translate to another codebase, and what lessons can be drawn from this experiment. Not every company has ~million dollards in tokens to spend."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is my team’s work. I’m happy to try to answer questions or take questions back to the team.And we&#39;re hiring! https://openai.com/careers/search/?q=cyber"</p>
 							
 						
 						</a>
@@ -235,22 +248,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro">Kimi K3.1 Pro model weights are out</a></h3>
+					<h3><a href="https://motorolanews.com/motorola-signature-27-2/">Motorola Signature 27 with GrapheneOS support</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50366999">
+						<a href="https://news.ycombinator.com/item?id=50380810">
 						
 							
-								<p class="story__comment_first line-clamp">"Subtle quote from their website:&gt; Advancing the Frontier of Open Intelligence.Too bad you probably need something like an 8x B300 node to run this. Black Friday is coming soon though, but I fear this open intelligence will be pacing anyone&#39;s liquidity frontier so I&#39;ll probably keep trailing the frontier for a while with nvidia/qwen3.8-27B-NVFP4 on dual RTX PRO 4000 in TP=2. I can almost fit 450k context in there."</p>
-							
-						
-							
-								<p class="story__comment_others">"Doesn&#39;t seem to outpace DeepSeekV4.1-Flash by much.  Hy4 also announced their models and they have tons of internal benchmark, and K3.1 doesn&#39;t score that high on those benchmarks whereas Opus5.5 does, so it seems K3.1 is benchmaxxed."</p>
+								<p class="story__comment_first line-clamp">"Well &#34;starting MSRP of $1,599.&#34; I&#39;ll stick to my 2nd hand Pixel 8 that I bought, for GrapheneOS long term support, for 1/10th of that price.No doubt it&#39;s a way WAY better device, really, but I don&#39;t see where I would actually need that. I happily toss the one I have around and don&#39;t even care if it gets stolen or lost one day, different preference."</p>
 							
 						
 							
-								<p class="story__comment_others">"Third-party inference providers are now hosting it, with more popping up by the hour: https://openrouter.ai/moonshotai/kimi-k3.1-proTogether appears to have double throughput of the Moonshot AI endpoint at the same price point (with Modal having double that throughput), so I suspect there is room for inference providers to optimize...and therefore headroom to cut costs for competition."</p>
+								<p class="story__comment_others">"Odd to see Gemini promoted alongside GrapheneOS. One is effectively handing your life to the Google surveillance platform, the other encourages the opposite. What a strange partnership.EDIT: after reviewing other comments in this thread, I can see how my post here wasn&#39;t received well by some. It looks like some people are questioning the trust put into Graphene. I definitely am not. When I said &#34;strange partnership&#34; here, that&#39;s not what I meant at all. I think Graphene is operating in a very hostile ecosystem and the more doors Graphene can open for their platform to reach people, the better. The &#34;strange&#34; part of the equation was more aimed at Motorola (and Google) for allowing privacy intrusions to happen and even encouraging it in some ways (Gemini), yet actively supporting a project that would counter it. Maybe I should have used the word &#34;funny&#34; instead of &#34;strange&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t know if I can trust a motorola phone with grapheneOS. Motorola is owned by a Chinese company that has recently been caught for injecting affiliate codes in users purchases. Yes, I know it won&#39;t be Motorola&#39;s OS but they do modify a large part of the BSP (bootloader, modem, etc.) with their &#34;mot_sec&#34; additions which you&#39;ll find if you reverse engineer any motorola firmware. It&#39;s unclear if qualcomm will give grapheneOS permission to rebuild or see the source code everything else. Modern phones run multiple operating systems like in the DSP, modem, trustzone, etc."</p>
 							
 						
 						</a>
@@ -263,22 +276,22 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://mrdoob.github.io/codevember-2026/01/">Jelly Sheet</a></h3>
+					<h3><a href="https://www.cve.org/CVERecord?id=CVE-2026-83844">MS Paint Remote Code Execution Vulnerability</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50361268">
+						<a href="https://news.ycombinator.com/item?id=50384233">
 						
 							
-								<p class="story__comment_first line-clamp">"As you can surmise from the domain, this is created by Mr Doob. They&#39;re most well known for creating the 3D JavaScript library Three.js: https://threejs.orgTheir full site and a lot more cool stuff they&#39;ve made can be found here: https://mrdoob.com"</p>
-							
-						
-							
-								<p class="story__comment_others">"I know no one stops you from using hashtag `codevember` on vibe coded project[0], but... isn&#39;t the whole point of these one month challenges(genuary, nodevember, inktober, etc) about human creativity? Like game jams?[0]: https://x.com/mrdoob/status/2117561239249518650"</p>
+								<p class="story__comment_first line-clamp">"Paint can exectue arbitrary code from the REMOTE, without USER INTERACTION?????We seriously need more information."</p>
 							
 						
 							
-								<p class="story__comment_others">"It is nice, but I&#39;m somewhat unnerved that it never stops pouring. I expect it to finally stop at some time, and it doesn&#39;t, which for some reason makes me uneasy."</p>
+								<p class="story__comment_others">"I can&#39;t wait for the Raymond Chen write up one day."</p>
+							
+						
+							
+								<p class="story__comment_others">"Had to go to Microsoft Store to get the fixed version, Windows Update didn&#39;t show anything."</p>
 							
 						
 						</a>
@@ -291,22 +304,46 @@
 			
 			<div >
 				<div class="story__title">
-					<h3><a href="https://namespace.so/blog/mac-at-any-scale">Mac at any scale</a></h3>
+					<h3><a href="https://www.theverge.com/news/1027379/discord-ditching-electron-web-app">Discord is ditching Electron and its new app uses less RAM</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50352758">
+						<a href="https://news.ycombinator.com/item?id=50378625">
 						
 							
-								<p class="story__comment_first line-clamp">"Amazing article. It just goes to show how many problems they are solving just to work around bugs and limitations within Apple itself. I’d wager a guess that if Apple made a new Xserve with the same performance as a Mac mini but twice the price people would still buy them, because figuring out data center operations is expensive."</p>
-							
-						
-							
-								<p class="story__comment_others">"Apple still lives in the world where software developed in IDE on a personal computer and shipped as a boxed software on a disquette with a licence key. Xcode cloud is a joke. All their automation is a joke. It’s not surprising even their own software development stuck because of their ecosystem because they use same tools, same cryptic software signing with their plists, p8, chains, certificates, lack of ui testing, horrible cpp, objc legacy. You just drowning in this environment. How I wish we have proper web app apis at last"</p>
+								<p class="story__comment_first line-clamp">"I had trouble reading more than the opening volley of the article due to popups. Am a Discord user, and rust application programmer: What GUI framework are they using? EGUI? GPUI? Something custom?GPUI from comments? I meant to try GPUI, but backed off after an announcement pending its maintenance would be in question (?) a few months ago, and Zed broadly ending up being a false messiah,  for my uses. (Not on the tier of JetBrains IDEs, a bug with a long thread they closed which (still I believe?) causes it to open cached versions of files, then clobber edits made since the cache, e.g. by other programs. I.e. the sort of bug which renders software too dangerous to use. I will not switch to a GUI framework from a group that ignores bugs of that severity reported by many people)"</p>
 							
 						
 							
-								<p class="story__comment_others">"&gt; Many of our customers build and test iOS apps. You can&#39;t build iOS apps without a Mac.Not true.https://cross-compilers.sjer.redSorry for the clearly vibe-coded website. I use this to build a few iOS/macOS apps for personal use.It started a few years ago (pre-AI) when I pieced together a toolchain for cross-compiling C/C++/Fortran from a Linux host to macOS (used by my former employer at https://p3m.dev/client/#/).Even signing/stapling/notarization can be done on Linux: https://github.com/indygreg/apple-platform-rs/tree/main/appl...There&#39;s no good reason why these things can&#39;t be done on Linux, especially with AI."</p>
+								<p class="story__comment_others">"I&#39;m very interested in (and a total novice in) cross platform GUI application development. Hadn&#39;t heard of GPUI, though I had heard of Tauri. I looked at the GPUI front page and saw this mess of almost-CSS method chaining... Surely there&#39;s a better way? This seems horrible to me.&gt; div()
+            .flex()
+            .flex_col()
+            .gap_3()
+            .bg(rgb(0x505050))
+            .size(px(500.0))
+            .justify_center()
+            .items_center()
+            .shadow_lg()
+            .border_1()
+            .border_color(rgb(0x0000ff))
+            .text_xl()
+            .text_color(rgb(0xffffff))
+            .child(format!(&#34;Hello, {}!&#34;, &amp;self.text))
+            .child(
+                div()
+                    .flex()
+                    .gap_2()
+                    .child(div().size_8().bg(gpui::red()))
+                    .child(div().size_8().bg(gpui::green()))
+                    .child(div().size_8().bg(gpui::blue()))
+                    .child(div().size_8().bg(gpui::yellow()))
+                    .child(div().size_8().bg(gpui::black()))
+                    .child(div().size_8().bg(gpui::white())),
+            )"</p>
+							
+						
+							
+								<p class="story__comment_others">"Not sure what to think of this.Sure, a Rust implementation will perform better and use less RAM, but it&#39;s quite obvious that the transition to Rust will be done almost entirely by AI.Don&#39;t get me wrong, the AI coded Rust version of Discord will most likely work just fine. The thing I&#39;m wondering about is if it&#39;s a good idea to rewrite your whole codebase (which I assume is handwritten since Discord predates AI coding) with AI because now there is nobody that knows how it really works - I&#39;m wondering what&#39;s the value of having a human-written codebase + the people who wrote it. Just feels like one shouldn&#39;t throw that into the trash like it&#39;s nothing?"</p>
 							
 						
 						</a>

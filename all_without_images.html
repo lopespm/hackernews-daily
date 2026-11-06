@@ -36,6 +36,327 @@
 	</div>
 
 	
+	<div class="day__date">06 November 2026</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://sshhole.com">sshole</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50378228">
+						
+							
+								<p class="story__comment_first line-clamp">"OK, I think I see what’s going on with this, in this configuration.The goal from an attacker’s perspective is to get this to be true: `$ret = crypt($pw, $hash); $ret == $hash` when called by OpenSSH’s sshd. This is how sshd validates that the user logging in knew the account password.The `$hash` is the “settings” to the crypt call and will normally look like “$6$--gibberish” for users with passwords set, but could look like “*” or “!” for users not intended to be able to login.The bug is from the intersection of all of these things:1. musl can return “*” for errors, rather than leave the return value NULL. Other libc have adopted something like this too, but seem to use a different result “*0”.2. musl can also return “+” for errors, but only does so if $hash starts with “*”. This is intended to eliminate the possibility of an error causing `$ret == $hash` to be true, however it assumes that applications calling `crypt()` will set $pw and $hash to values corresponding to the `$ret == $hash` comparison to be made immediately afterwards.3. OpenSSH can be convinced to pass the hash of a different user if the hash is “*” or “!” to avoid timing attacks that can enumerate the user list, so it will set $pw and $hash to correspond to different users. $hash will be a real “$6$--gibberish” style hash in this case, and OpenSSH expects `crypt()` to either return NULL or return a hash string. But now there’s two hashes OpenSSH uses. It does: `$ret = crypt($pw, $hash2); $ret == $hash1`;4. This should normally not be a problem because OpenSSH will pass in valid $pw and $hash2 that should not lead to errors in hashing, so the $ret that musl generates should be a real hash that cannot match the “*” or “!” $hash1 for the login-disabled user. However as a DDoS mitigation, musl will return error if the password is too long when using SHA-2-based hashes (the default, it seems).5. This error will result in a non-NULL result of “*” or “+”. Since OpenSSH passed in a real hash ($hash2), musl will return “*”, which compares equal to the actual user hash $hash1 for the disabled-login user.The OpenSSL adjustment ensures a minimum hash length for the user before logging them in, even if crypt() succeeds somehow."</p>
+							
+						
+							
+								<p class="story__comment_others">"In-band signaling[1] strikes again. * should not have been used as special value, neither for &#34;no password&#34; in /etc/passwd nor &#34;error while hashing the password&#34; in crypt. I&#39;m afraid we&#39;ll find many more of these abuses, specially in string manipulations. The null was ok, an exception (or equivalent) better, and Result&lt;T&gt; (or equivalent) best.[1] https://en.wikipedia.org/wiki/In-band_signaling#Computer_dat..."</p>
+							
+						
+							
+								<p class="story__comment_others">"The whole story is a bit worse than this.  Musl already worked around this type of failure.  See the second-to-last line here:https://git.musl-libc.org/cgit/musl/tree/src/crypt/crypt_des...(hey, this workaround is wrong if the salt is &#34;x&#34;!)but they forgot to work around it here:https://git.musl-libc.org/cgit/musl/tree/src/crypt/crypt_sha...The vulnerable path in musl is only a little bit vulnerable, because &#34;*&#34; is not actually a sha256 encrypted configuration and should not reach this code: musl&#39;s crypt(..., &#34;*&#34;) will not call that code!  Turns out that sshd detects that the password hash is too short and does not forward the salt!https://github.com/openssh/openssh-portable/blob/master/auth...Look, no else statement!  If that if doesn&#39;t get taken, then salt remains NULL.  And the sshd code is really quite messy and doesn&#39;t keep track of the fact that this code path is inappropriate for validating an existing password hash.A workaround in the sha256 path in musl wouldn&#39;t even have prevented the bug!I&#39;m going to give some credit to musl for unwisely using &#34;*&#34; and some credit to OpenSSH for having nonsensical control and data flow."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://github.com/anthropics/claude-code/issues/107757">Claude Code sends your email address to websites</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50385272">
+						
+							
+								<p class="story__comment_first line-clamp">"Many people report seeing this behavior when using the SEC API specifically which makes me think that service is requesting this.  Maybe email is required by the SEC API?---UPDATE: The SEC API documentation requires your email in the User-Agent and will reject you otherwise. Demo:    U=&#39;https://data.sec.gov/api/xbrl/companyconcept/CIK0000320193/us-gaap/Assets.json&#39;
+    curl -s -o /dev/null -w &#39;response: %{http_code}  curl default User-Agent, rejected\n&#39;  &#34;$U&#34;
+    curl -s -o /dev/null -w &#39;response: %{http_code}  email in user-agent, success\n&#39; -A &#39;Acme Research admin@acme-research.example&#39; &#34;$U&#34;
+
+    response: 403  curl default, rejected
+    response: 200  email in user-agent, success
+
+
+
+
+SEC docs: https://www.sec.gov/search-filings/edgar-search-assistance/a...So basically Claude is trying to problem solve, and just does what the SEC asks. It&#39;s a &#39;prompt injection attack&#39;, but the entity instructing this behavior is the SEC. Tricky alignment problem. Pretty silly mechanism, since of course there&#39;s no email validation.  (edit: turns out the SEC will accept most any non-cURL user-agent, email not actually required)"</p>
+							
+						
+							
+								<p class="story__comment_others">"For those keeping score, this probably isnt exhaustive- but here&#39;s some greatest hits;#55743: Claude Max account email auto-injected into LLM context with no opt-out - May 3, 2026
+https://github.com/anthropics/claude-code/issues/55743#72518: Anthropic embedded spyware in Claude Code - June 30, 2026
+https://github.com/anthropics/claude-code/issues/72518#21151: No indication of WHICH file for READ tool - January 27, 2026
+https://github.com/anthropics/claude-code/issues/21151#42796: Claude Code is unusable for complex engineering tasks with the Feb updates - April 2, 2026
+https://github.com/anthropics/claude-code/issues/42796#73408: AFK auto-continue on unanswered AskUserQuestion is undocumented and has no opt-out - July 2, 2026
+https://github.com/anthropics/claude-code/issues/73408(Also worth a mention, OpenCode PR #18186: anthropic legal requests - March 19, 2026
+https://github.com/anomalyco/opencode/pull/18186)Edit: Oh, and determistic hooks not firing."</p>
+							
+						
+							
+								<p class="story__comment_others">"This explains the amount of spam emails I am receiving in the work email since I switched to Claude. I used to work with copilot which was fine. Now I am getting really a lot of spam emails almost on a daily basis. Absolutely crazy. And they are even personalised with my name and surname, not just &#34;dear customer&#34;...Stupid me, I thought they somehow had hacked my company database or so... (considering all the cves, attacks happening on a daily basis...)."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://kagi.com/changelog#11820">Search for everyone</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50383740">
+						
+							
+								<p class="story__comment_first line-clamp">"If anyone from Kagi is reading this: Now that you have search without an account, is there any chance we can finally get a DNS-based enforced safesearch option like every other major search engine has? It&#39;s been in the feedback requests since May 2022[1].Anyone on an enforced-safesearch network can now go to kagi.com, turn SafeSearch off, and search for porn or anything else, which is just going to get kagi blocked completely on all those networks. If you add a SafeSearch-enforced alternative IP address, then Kagi can still be used.[1] https://kagifeedback.org/d/3285-safe-search-dns-locking-for-..."</p>
+							
+						
+							
+								<p class="story__comment_others">"Haven&#39;t tried Kagi yet. I know many people are increasingly frustrated with Google. As a duckduckgo user honestly i typically find what i want, except I am feeling more and more like i don&#39;t recognize / trusts many of the top sites in a result. might be a perfect time to try it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Very happy Kagi user for a few years.  
+I extra appreciate the ability for me to set custom rankings for certain sites. For example, I have downranked Reddit so it only shows up if there&#39;s almost nothing else. They&#39;re also a whole bunch of AI garbage sites or listicle sites that have outright removed from all my search results.
+I also love that it doesn&#39;t try to AI summarize everything I search, it only does it when I put a question mark on there so I can turn it on and easily.
+And I pay for my account and use it on all my devices without having to buy four licenses."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/">Alpine Linux Security Advisory: OpenSSH-server password authentication bypass</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50379704">
+						
+							
+								<p class="story__comment_first line-clamp">"Discussion from a few hours ago:https://news.ycombinator.com/item?id=50377221"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.salon.com/2026/11/05/goodbye-from-salon/">Goodbye from Salon</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50383739">
+						
+							
+								<p class="story__comment_first line-clamp">"The amount of newsroom jobs fell 60% between 2008 and 2020. The vast majority of what was lost were &#34;beat&#34; reporters - foreign bureaus, Washington bureaus from regional publications, statehouse reporters, or regional specialty beats (science, law, etc).This started long before the decline of the open internet and AI. If anything, the shift online covered up a massive hollowing out of the industry. We&#39;re getting fewer sources of news, and more national coverage. A lot of stuff that is reported on is coming from a scant number of wire services, or directly from PR teams themselves.For the most part, your choice of news platform is just a layer of coverage choices and political spin on top of a very thin market of original coverage."</p>
+							
+						
+							
+								<p class="story__comment_others">"This article didn&#39;t generate any comments when it made the rounds 10 years ago. An obituary for what salon.com used to be.https://web.archive.org/web/20210219012551/https://www.polit..."</p>
+							
+						
+							
+								<p class="story__comment_others">"I operate an online publication that has been online for an amount of time that can be accurately described as &#34;decades,&#34; though not quite as long as Salon.My project had a brief window of modest profitability from about 2012 to 2020. Before and after that time, I&#39;ve mostly operated at a break-even or a loss because I love doing it, and it gives me a sense of purpose, and the thought of packing it up is deeply depressing. But the past few years have been an extreme drought of donations, which leads to extreme drought in ambition and energy. I sometimes wonder if my mental health would improve if I turned out the lights and moved on to something else. I don&#39;t want to, but sometimes we humans fail to want what&#39;s good for us.I&#39;m sure it doesn&#39;t help that I reject advertising and rely solely on donations. But perhaps the only thing more depressing than shutting down is slapping ads on everything. Blah."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://news.ycombinator.com/item?id=50366117">Ask HN: What&#39;s your current AI agentic setup?</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50366117">
+						
+							
+								<p class="story__comment_first line-clamp">"Embarrassingly, I don&#39;t have one yet. I&#39;m mostly still writing code one keystroke at a time. I&#39;ve used Github Copilot to translate between languages and look things up, but haven&#39;t trusted it to write new code or fix anything.Claude Fable is now good enough that I should be using it. The latest Claude version is said to be comparable to a mid-career graphics programmer, which is about what I need. Six months ago it wasn&#39;t good enough to use for such work, and probably would have made a hash of my code. 
+There&#39;s been progress.But Anthropic&#39;s business practices are scary. They have a reputation for cancelling accounts for random reasons, offer rather bad terms, and have no customer support. I have a strong aversion
+to services with a reputation for cancelling services arbitrarily. They will apparently cancel based on their system&#39;s guesses as to what you&#39;re working on. Sometimes they guess wrong. What I&#39;m doing (metaverse clients) is so far out of the mainstream they may guess wrong.I&#39;m currently stalled signing up for Claude because their verification email system can&#39;t get to my inbox. (Some problem with their using Constant Contact, a spam system, to send transactional emails to my own domain, which, long ago, I had blocked at the Constant Contact end. I think. The verification email never touches the inbound mail server.) It&#39;s very important to Anthropic that you sign up with the &#34;right&#34; email address, and it may not be possible to change it, so using some disposable address is not a good idea.Suggestions?"</p>
+							
+						
+							
+								<p class="story__comment_others">"It used to be more interesting and elaborate, switching between different models. I used to use Cursor, then Codex, but since Opus 5.5 came out, I just use the Claude IDE. I got rid of all my skills and just set it to medium. Then I vaguely talk to it about very high-end things that I want, and it comes back with magic. Rinse and repeat.I&#39;d say the biggest trick is just to tell it what complete looks like. Be very specific about what you want it to come back with once it&#39;s done. That gives it a good idea what the goal is. It&#39;ll automatically create subagents and all that stuff. Although if you have money to burn and you&#39;re doing something large, you can tell it to just go wide or boil the ocean.Also, make sure you&#39;re working on at least five different things. Otherwise, you&#39;re sitting around for one agent."</p>
+							
+						
+							
+								<p class="story__comment_others">"I recently got really weird with my personal computer after discovering browser DevTools MCP. I basically inverted the relationship between browser and desktop environment, booting directly to a browser in kiosk mode (with Ghostty quick terminal as well, so I always have easy terminal access) and running a local Weston server that shows up as a bookmarked web page on localhost, streamed over vnc, so I can still use legacy gui apps pretty normally if I need to, but I&#39;ve basically refocused my whole gui environment on the web. I run code-server on localhost instead of VSCode and prefer web apps (often running locally) over traditional GUIs in general. I still use the terminal very heavily as well, and that&#39;s where I manage my pi agents.Why? Because the web is an incredibly rich, open, text-based platform with massive representation in training sets, and with tools like DevTools MCP, your agent can do almost anything with your browser: run JS in the page, use the debugger, see network activity; it&#39;s extremely powerful.My co-worker does something similar with emacs, another incredibly rich text-based &#34;operating system&#34; like a browser with comprehensive hookability, which he basically uses instead of a desktop environment."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://openai.com/index/a-thousand-fewer-paths-to-root/">A thousand fewer paths to root</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50372929">
+						
+							
+								<p class="story__comment_first line-clamp">"How did we get to the point where there are a thousand privilege escalation exploits in the kernel?Is the kernel simply too complex to reason about? Is it an underlying flaw in the security model or language implementation?Should we assume that all software is more compromised than the kernel?"</p>
+							
+						
+							
+								<p class="story__comment_others">"I would be curious to see the distribution of these vulns in the codebase:- What subsystems are affected?- What&#39;s the median age of the vulnerable code? Is more recent code stronger than old ones?- What is the type of vulnerabilities found? Memory corruptions, logic bugs, race conditions, ...This is an impressive result, but we need more info to understand how well this would translate to another codebase, and what lessons can be drawn from this experiment. Not every company has ~million dollards in tokens to spend."</p>
+							
+						
+							
+								<p class="story__comment_others">"This is my team’s work. I’m happy to try to answer questions or take questions back to the team.And we&#39;re hiring! https://openai.com/careers/search/?q=cyber"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://motorolanews.com/motorola-signature-27-2/">Motorola Signature 27 with GrapheneOS support</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50380810">
+						
+							
+								<p class="story__comment_first line-clamp">"Well &#34;starting MSRP of $1,599.&#34; I&#39;ll stick to my 2nd hand Pixel 8 that I bought, for GrapheneOS long term support, for 1/10th of that price.No doubt it&#39;s a way WAY better device, really, but I don&#39;t see where I would actually need that. I happily toss the one I have around and don&#39;t even care if it gets stolen or lost one day, different preference."</p>
+							
+						
+							
+								<p class="story__comment_others">"Odd to see Gemini promoted alongside GrapheneOS. One is effectively handing your life to the Google surveillance platform, the other encourages the opposite. What a strange partnership.EDIT: after reviewing other comments in this thread, I can see how my post here wasn&#39;t received well by some. It looks like some people are questioning the trust put into Graphene. I definitely am not. When I said &#34;strange partnership&#34; here, that&#39;s not what I meant at all. I think Graphene is operating in a very hostile ecosystem and the more doors Graphene can open for their platform to reach people, the better. The &#34;strange&#34; part of the equation was more aimed at Motorola (and Google) for allowing privacy intrusions to happen and even encouraging it in some ways (Gemini), yet actively supporting a project that would counter it. Maybe I should have used the word &#34;funny&#34; instead of &#34;strange&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"I don&#39;t know if I can trust a motorola phone with grapheneOS. Motorola is owned by a Chinese company that has recently been caught for injecting affiliate codes in users purchases. Yes, I know it won&#39;t be Motorola&#39;s OS but they do modify a large part of the BSP (bootloader, modem, etc.) with their &#34;mot_sec&#34; additions which you&#39;ll find if you reverse engineer any motorola firmware. It&#39;s unclear if qualcomm will give grapheneOS permission to rebuild or see the source code everything else. Modern phones run multiple operating systems like in the DSP, modem, trustzone, etc."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.cve.org/CVERecord?id=CVE-2026-83844">MS Paint Remote Code Execution Vulnerability</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50384233">
+						
+							
+								<p class="story__comment_first line-clamp">"Paint can exectue arbitrary code from the REMOTE, without USER INTERACTION?????We seriously need more information."</p>
+							
+						
+							
+								<p class="story__comment_others">"I can&#39;t wait for the Raymond Chen write up one day."</p>
+							
+						
+							
+								<p class="story__comment_others">"Had to go to Microsoft Store to get the fixed version, Windows Update didn&#39;t show anything."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_small-padding-bottom">
+			
+			<div >
+				<div class="story__title">
+					<h3><a href="https://www.theverge.com/news/1027379/discord-ditching-electron-web-app">Discord is ditching Electron and its new app uses less RAM</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50378625">
+						
+							
+								<p class="story__comment_first line-clamp">"I had trouble reading more than the opening volley of the article due to popups. Am a Discord user, and rust application programmer: What GUI framework are they using? EGUI? GPUI? Something custom?GPUI from comments? I meant to try GPUI, but backed off after an announcement pending its maintenance would be in question (?) a few months ago, and Zed broadly ending up being a false messiah,  for my uses. (Not on the tier of JetBrains IDEs, a bug with a long thread they closed which (still I believe?) causes it to open cached versions of files, then clobber edits made since the cache, e.g. by other programs. I.e. the sort of bug which renders software too dangerous to use. I will not switch to a GUI framework from a group that ignores bugs of that severity reported by many people)"</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m very interested in (and a total novice in) cross platform GUI application development. Hadn&#39;t heard of GPUI, though I had heard of Tauri. I looked at the GPUI front page and saw this mess of almost-CSS method chaining... Surely there&#39;s a better way? This seems horrible to me.&gt; div()
+            .flex()
+            .flex_col()
+            .gap_3()
+            .bg(rgb(0x505050))
+            .size(px(500.0))
+            .justify_center()
+            .items_center()
+            .shadow_lg()
+            .border_1()
+            .border_color(rgb(0x0000ff))
+            .text_xl()
+            .text_color(rgb(0xffffff))
+            .child(format!(&#34;Hello, {}!&#34;, &amp;self.text))
+            .child(
+                div()
+                    .flex()
+                    .gap_2()
+                    .child(div().size_8().bg(gpui::red()))
+                    .child(div().size_8().bg(gpui::green()))
+                    .child(div().size_8().bg(gpui::blue()))
+                    .child(div().size_8().bg(gpui::yellow()))
+                    .child(div().size_8().bg(gpui::black()))
+                    .child(div().size_8().bg(gpui::white())),
+            )"</p>
+							
+						
+							
+								<p class="story__comment_others">"Not sure what to think of this.Sure, a Rust implementation will perform better and use less RAM, but it&#39;s quite obvious that the transition to Rust will be done almost entirely by AI.Don&#39;t get me wrong, the AI coded Rust version of Discord will most likely work just fine. The thing I&#39;m wondering about is if it&#39;s a good idea to rewrite your whole codebase (which I assume is handwritten since Discord predates AI coding) with AI because now there is nobody that knows how it really works - I&#39;m wondering what&#39;s the value of having a human-written codebase + the people who wrote it. Just feels like one shouldn&#39;t throw that into the trash like it&#39;s nothing?"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	
 	<div class="day__date">05 November 2026</div>
 		
 		<div class="story story_small-padding-bottom">
@@ -57,7 +378,7 @@
 							
 						
 							
-								<p class="story__comment_others">"I&#39;m always amused when people have a distillation of all human knowledge at their fingertips and all they can do is complain.Yes, we&#39;re going to see the bugs exposed by AI and it&#39;s going to suck a bit for a few months.But when this is all over, software will be more secure than it has ever been before."</p>
+								<p class="story__comment_others">"The article takes PHP2Shell as the worst offender of the present wave of vulnerabilities but HTTP2Shell/Brotli2Shell was arguably worse. The consequence over at Brotli may very well be the same, but the timeline shows, if anything, that at least part of reality is actually still very much &#34;humans just sitting on vulnerabilities for months or even years&#34;. From the timeline: 8 years in the code, 8 months unreleased (but fix in Git) and at least 4 independent researchers finding the problem and pointing it out.[0] https://www.bugsink.com/blog/http2shell-timeline/"</p>
 							
 						
 						</a>
@@ -77,15 +398,15 @@
 						<a href="https://news.ycombinator.com/item?id=50371246">
 						
 							
-								<p class="story__comment_first line-clamp">"They’re too polite to say it explicitly, but when they say:&gt; Most of the activity happens in the evening, Eastern time: about half of it falls between 5 p.m. and midnight, and almost none happens in the early morning. That pattern suggests a person rather than a public guest Wi-Fi network: someone regularly on the White House network late into the evening, whose device is infected with a proxy SDK. Our data shows the exits, not the device or the person behind them.There really aren’t very many candidates for who that person might be and it really seems like it would be someone who, I don’t know, maybe lives where the traffic is originating."</p>
+								<p class="story__comment_first line-clamp">"The danger here, of course, is that while these compromised devices are currently being monetized in a relatively benign way (other than bandwidth costs to the user, which to be sure can be nontrivial)… it would be naive to assume that there isn&#39;t a Command and Control capability that can assign less benign tasking - or can be compromised to do so.This also puts some of the troubling reports that politicians were bringing phones into SCIFs into context…"</p>
 							
 						
 							
-								<p class="story__comment_others">"The danger here, of course, is that while these compromised devices are currently being monetized in a relatively benign way (other than bandwidth costs to the user, which to be sure can be nontrivial)… it would be naive to assume that there isn&#39;t a Command and Control capability that can assign less benign tasking - or can be compromised to do so.This also puts some of the troubling reports that politicians were bringing phones into SCIFs into context…"</p>
+								<p class="story__comment_others">"Those are better than residential proxies. Those are White House proxies. I would pay $10/GB for those babies."</p>
 							
 						
 							
-								<p class="story__comment_others">"So they don&#39;t actually know what this network is, just who owns the IP space... time for a blog post to advertise our week-old service!There is no evidence that physically ties this to the WH. It could be in a security lab for all they know. Or a guest network for the news media."</p>
+								<p class="story__comment_others">"I have T-mobile 5g. My IP shows up as a residential proxy. I can&#39;t control the T-Mobile 5g device. It&#39;s a black-box. And, I only have one Linux desktop on the home network (so no Windows/Mac malware).Not sure why my IP is listed as a residential proxy."</p>
 							
 						
 						</a>
@@ -105,11 +426,11 @@
 						<a href="https://news.ycombinator.com/item?id=50363461">
 						
 							
-								<p class="story__comment_first line-clamp">"&#34;These chat transcripts may even be read by human reviewers.&#34;PSA: This is true of all the frontier model providers even if you disable activity tracking. They are all constantly monitoring your interactions for problematic behavior.[0]: https://www.nytimes.com/wirecutter/advice/ai-chat-privacy/[1]: https://www.404media.co/inside-project-lily-the-humans-readi...[2]: https://www.winknews.com/news/woman-arrested-after-ai-threat..."</p>
+								<p class="story__comment_first line-clamp">"Yes, I wpuld be surprised if it was not. The type of information people are putting into these models, with blind faith people aren&#39;t reading them, is mind boggling really. One reason locally hosted models &#34;win&#34; is things like &#34;sort out my monthly finances &#34; and stuff you do not want to be saying to Big Tech."</p>
 							
 						
 							
-								<p class="story__comment_others">"What&#39;s worse is if you have a Pixel phone then Gemini is completely useless without enabling this setting.I had it switched off:&#34;Hey Google, remind me at 7pm &lt;something&gt;&#34;&#34;OK, your reminder is set for 7pm&#34;Next day:&#34;Hey Google, why didn&#39;t you remind me at 7pm&#34;&#34;I can&#39;t do anything with your phone unless you enable chat history.&#34;WTAF!"</p>
+								<p class="story__comment_others">"&#34;These chat transcripts may even be read by human reviewers.&#34;PSA: This is true of all the frontier model providers even if you disable activity tracking. They are all constantly monitoring your interactions for problematic behavior.[0]: https://www.nytimes.com/wirecutter/advice/ai-chat-privacy/[1]: https://www.404media.co/inside-project-lily-the-humans-readi...[2]: https://www.winknews.com/news/woman-arrested-after-ai-threat..."</p>
 							
 						
 							
@@ -141,7 +462,7 @@
 							
 						
 							
-								<p class="story__comment_others">"&gt; A hands-on look at dual-booting Linux on the Nvidia RTX Spark laptop, the GPU clock throttling bug found, and why WSL still wins.Man it really is exhausting to read a title that sparks my interest, just to be greeted with the most basic Claude-isms in the subheading."</p>
+								<p class="story__comment_others">"Wtf. Are we actually seeing a push towards being 100percent dependent on the cloud?Sovereign AI has never been more important.Controlling AI is so much more powerful and impactful than controlling search or social algorithms.Centralized AI a 10x on social control over everything we have seen before, and there is no way that a free and open society survives  contact with centralised, high capability AI if the system is manipulated towards guiding outcomes. It’s essentially mind control, as people will offload an even greater share of their cognition to AI than they do with search and social.Build and maintain sovereign AI while you still can."</p>
 							
 						
 						</a>
@@ -169,7 +490,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Pretty funny that tech makes candidates jump through all sorts of automated, inhumane loops to even advance to talking to a real human in the hiring process.And now you get results like this."</p>
+								<p class="story__comment_others">"I was #opentowork on LinkedIn and got approached multiple times with fake companies and interviews.  LinkedIn is not doing enough to combat this.I even create a 1 man company for my consulting services and I receive ads about how people at my company saved me a spot on an online game.LinkedIn is partially responsible for their neglect here."</p>
 							
 						
 						</a>
@@ -197,7 +518,7 @@
 							
 						
 							
-								<p class="story__comment_others">"AMD specifically calls out high sales of Instinct products as leading the sales growth.  I wonder how their Epyc and Ryzen lines compare to Intels Xeon and Core lines.  AMD&#39;s Instinct sales are practically nothing compared to competing Nvidia products, but no one† buys Intel Arc accelerators, so that may be the main reason AMD is beating intel.†Disclaimer: I own an Intel Arc GPU"</p>
+								<p class="story__comment_others">"Love them or hate them, from a customer&#39;s point of view AMD is the only company in a position to stand up to NVIDIA in the GPU market and force those sky-high prices down a bit. I&#39;m eagerly waiting for their new models, now backed by a much more mature and well-thought-out ROCm.I&#39;m not joking. I&#39;m running a Maxwell-era NVIDIA card, and on Linux it&#39;s one problem after another. I HATE NVIDIA&#39;s driver; it&#39;s one of the worst-made pieces of software I&#39;ve ever seen."</p>
 							
 						
 						</a>
@@ -245,11 +566,12 @@
 						<a href="https://news.ycombinator.com/item?id=50366999">
 						
 							
-								<p class="story__comment_first line-clamp">"Subtle quote from their website:&gt; Advancing the Frontier of Open Intelligence.Too bad you probably need something like an 8x B300 node to run this. Black Friday is coming soon though, but I fear this open intelligence will be pacing anyone&#39;s liquidity frontier so I&#39;ll probably keep trailing the frontier for a while with nvidia/qwen3.8-27B-NVFP4 on dual RTX PRO 4000 in TP=2. I can almost fit 450k context in there."</p>
+								<p class="story__comment_first line-clamp">"Doesn&#39;t seem to outpace DeepSeekV4.1-Flash by much.  Hy4 also announced their models and they have tons of internal benchmark, and K3.1 doesn&#39;t score that high on those benchmarks whereas Opus5.5 does, so it seems K3.1 is benchmaxxed."</p>
 							
 						
 							
-								<p class="story__comment_others">"Doesn&#39;t seem to outpace DeepSeekV4.1-Flash by much.  Hy4 also announced their models and they have tons of internal benchmark, and K3.1 doesn&#39;t score that high on those benchmarks whereas Opus5.5 does, so it seems K3.1 is benchmaxxed."</p>
+								<p class="story__comment_others">"Even if you can’t run this at home, this is still a step toward commoditization &amp; diversification of inference and breaking up of concentrated power.
+Being able to serve a frontier-class model with 1M$ of capital in GPUs instead of multi-year billion dollar investment in training &amp; research is a big difference"</p>
 							
 						
 							
@@ -341,7 +663,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Who still uses Postman? In my experience it became insanely slow and bloated. Switched to Bruno. IMO, Postman is like uTorrent, everybody heard about it and many install because of inertia."</p>
+								<p class="story__comment_others">"We went to bruno years ago and has been good.  Nice to be able to store the request definitions in git.  But to be honest, don&#39;t really need any of these tools anymore."</p>
 							
 						
 						</a>
@@ -369,7 +691,7 @@
 							
 						
 							
-								<p class="story__comment_others">"Wasn’t all that obvious to anyone who read the original post when they got to the section that explicitly explained what the author of this post is now summarizing?Sure if you only read the title and brief at the top you’d walk away without the full picture though.This is a better response imo: https://news.ycombinator.com/item?id=50344861"</p>
+								<p class="story__comment_others">"I feel like a lot of this Astra editing Qwen stuff is regurgitation of existing relatively well known techniques, for example:  https://arxiv.org/html/2406.11717v3 and conceptually similar to: https://arxiv.org/abs/2512.05648 (tho this is done in training iirc)"</p>
 							
 						
 						</a>
@@ -393,11 +715,11 @@
 							
 						
 							
-								<p class="story__comment_others">"Awesome write up. Love it. And good thing you documented it, since in half a year you&#39;ll need it again.My takeaway: You should have just gotten the SD card and trusted the previous owner. Sometimes &#34;simple users&#34; do know. ^^"</p>
+								<p class="story__comment_others">"My car came with a cheap low-quality aftermarket combination car stereo and GPS.  It would only play music from discs (no USB support), didn’t even support variable bitrate MP3s, and the GPS didn’t know the car’s location half the time.I finally replaced the head unit with a plastic bracket and a standard old school in-dash stereo system.  Much nicer setup.It’s the cars which can’t have their head unit replaced with a simple stereo which worry me."</p>
 							
 						
 							
-								<p class="story__comment_others">"I&#39;ve heard that some Subaru models have 3 clocks in the view of the driver, all on the CAN bus, one being the nav and another being a remote display for the nav, and one that&#39;s just there, of which none sync to each others. I&#39;ve looked up how it happened, and discovered that to just to add insult to injury, at least one uses a uC that has RTC feature but no XTAL pin for 32.768kHz or one of any sane base 2 divisions and uses CPU clock of 15MHz or something for it, so it just drifts away.I don&#39;t understand how Subaru stays in the business. Just how. It&#39;s a 4 digit time. Just broadcast it on CAN. Why not.Also: a lot of these older, completely rectangular sat nav units actually follow what is colloqially known as &#34;2DIN&#34; standards. (cheap import Amazon)Aftermarket units are available and those can be swapped in with just a bit of work. That&#39;s what most people do when they have issues with the stock unit installed for their markets."</p>
+								<p class="story__comment_others">"My 2014 vehicle stopped updating it&#39;s time automatically a few years ago. I think some cellular technology was phased out or perhaps the cellular contract GM had for vehicle connectivity expired.Either way I just manually set the time twice a year now - I guess I&#39;m thankful it still has that option.When I was playing around with the radio in my girlfriends vehicle there was no option to set manually on the clock screen. Seems like a pretty shortsighted move to not allow that."</p>
 							
 						
 						</a>
@@ -449,13 +771,11 @@
 							
 						
 							
-								<p class="story__comment_others">"  llm -f https://raw.githubusercontent.com/RikiyaT/lm_understand-logs/refs/heads/main/exp1_which_game/runs/pacman/prompt.txt
-
-Very dumb question: The LLM tool doesn&#39;t happen to inject the URL into the prompt, and qwen also didn&#39;t use any &#34;ps&#34; or similar calls that could reveal the URL?I know this is paranoid, but it gives me a bad feeling if the solution is stored so &#34;close&#34; to the space that&#39;s accessible to the model.Though I suspect if it really had cheated like this, the reasoning trace would be much shorter and maybe not deal with the weights at all."</p>
+								<p class="story__comment_others">"Perhaps I’m missing this, but can Qwen 3.8 alter Qwen 3.8 weights?There are a lot of known neurons in the older Qwen models that are long known to induce behaviour changes (see evil Qwen by changing one weight).My question boils down to how much is trained vs being able to actually understand the weights. Presumably a same gen model isn’t trained on any sources dissecting that generation. And how much do longer known conceits like steering vectors, J spaces, LoRAs play into this?This doesn’t explain the game training cases, which are very impressive to me."</p>
 							
 						
 							
-								<p class="story__comment_others">"Perhaps I’m missing this, but can Qwen 3.8 alter Qwen 3.8 weights?There are a lot of known neurons in the older Qwen models that are long known to induce behaviour changes (see evil Qwen by changing one weight).My question boils down to how much is trained vs being able to actually understand the weights. Presumably a same gen model isn’t trained on any sources dissecting that generation. And how much do longer known conceits like steering vectors, J spaces, LoRAs play into this?This doesn’t explain the game training cases, which are very impressive to me."</p>
+								<p class="story__comment_others">"Hopefully we get a new benchmark: How well can a model tweak a set of weights to produce pelican on a bike?"</p>
 							
 						
 						</a>
@@ -484,7 +804,7 @@ If you have any questions feel free to ask.Can it kill you? no probably not. The
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s an interesting concept, but I think I&#39;ll hold out for the full-body humanoid version.There is an undeniable allure to the idea of a bipedal chassis realizing I&#39;m an inefficient drain on corporate resources, then stabbing  me to death while I sleep due to a minor Terms of Service violation."</p>
+								<p class="story__comment_others">"&gt; Tension is all you needRarely does a product announcement make me laugh out loud :)(https://en.wikipedia.org/wiki/Attention_Is_All_You_Need)"</p>
 							
 						
 						</a>
@@ -821,11 +1141,11 @@ https://rome.baulab.info/Weight space interpretability and learning is an active
 							
 						
 							
-								<p class="story__comment_others">"It&#39;s rather uninteresting to note, once again, that Ubuntu has decided to do this. I would like to know the (official, if any - unofficial/speculative otherwise) reason WHY they have not.It does not seem that complicated to patch, and kernel upgrades are a dime a dozen these days. So what is making them delay a fix for so long?"</p>
+								<p class="story__comment_others">"For those not aware: Freenode.net is not Freenode as we all knew and loved it from the early 2000s to 2021. A hostile take-over of the Freenode LLC resulted in the loss of the domain name and some corporate assets. And the hostile takeover person, Andrew Lee, deleted the Freenode database. It no longer exists.&#34;Freenode&#34; in 2026 is an entity actively hostile to open source software and while what they say here might be true, they are only saying it because it aligns with their biases. They are not a real news source.My mitigation for this lack of patches has been using iptables.    iptables -A INPUT -p tcp -m u32 --u32 &#34;0&gt;&gt;24&amp;0xF=6:15&#34; -j DROP"</p>
 							
 						
 							
-								<p class="story__comment_others">"For those not aware: Freenode.net is not Freenode as we all knew and loved it from the early 2000s to 2021. A hostile take-over of the Freenode LLC resulted in the loss of the domain name and some corporate assets. And the hostile takeover person, Andrew Lee, deleted the Freenode database. It no longer exists.&#34;Freenode&#34; in 2026 is an entity actively hostile to open source software and while what they say here might be true, they are only saying it because it aligns with their biases. They are not a real news source.My mitigation for this lack of patches has been using iptables.    iptables -A INPUT -p tcp -m u32 --u32 &#34;0&gt;&gt;24&amp;0xF=6:15&#34; -j DROP"</p>
+								<p class="story__comment_others">"At this point, just the failure to patch this single vulnerability is enough to make me write Ubuntu off as a viable distribution. Volunteer-run distros can fix this, why not a well-resourced company? It&#39;s not as if they haven&#39;t had the time to fix it, or that porting the fix to their current kernels would be particularly difficult."</p>
 							
 						
 						</a>
@@ -994,11 +1314,11 @@ bit like software engineering, where writing code can sometimes be delegated to 
 							
 						
 							
-								<p class="story__comment_others">"The guardrails on Anthropic have become an albatross. I&#39;ve got OAI models doing testing of banking workflows that Claude would have a full scale panic attack over. Even OAI needs some alignment and reassurance regarding the fact that it&#39;s not about to pull credit for a real person. GPT6.1 will happily launch the nukes 100% of the time if you make a clear and rational case in your system prompt.Forcing this kind of safety into the models and harnesses is a mistake. I think the strategy of post hoc moderation is the right one. Trying to prevent evil ideological activities as they transpire is a cursed mission. Let someone who is genuinely doing a naughty thing accumulate a meaningful body of evidence and then send in Mr Holmes (the FBI / police). Attempting to prevent wrong think at every token is too granular. We have systems designed to handle the possibility that crime and punishment may occur at separate moments in time. Most people don&#39;t go around murdering because the eventual consequences are pretty severe. Just because an AI gave you advice doesn&#39;t magically make those existing consequences vanish."</p>
+								<p class="story__comment_others">"Something I&#39;ve seen it do recently is refusing to extract services out of my own monolith code base because it finds copying code morally wrong.But its refusal to work pattern is getting pretty obnoxious. Another one I ran into last week was it refused to start a developer session to do browser testing for a code base it was working on because signing in was suddenly against it&#39;s programming.It listed all the conditions it needed for a sign in to be possible, agreed that my code base met all conditions, but refused to progress. I tried it in multiple fresh sessions with the same result."</p>
 							
 						
 							
-								<p class="story__comment_others">"Something I&#39;ve seen it do recently is refusing to extract services out of my own monolith code base because it finds copying code morally wrong.But its refusal to work pattern is getting pretty obnoxious. Another one I ran into last week was it refused to start a developer session to do browser testing for a code base it was working on because signing in was suddenly against it&#39;s programming.It listed all the conditions it needed for a sign in to be possible, agreed that my code base met all conditions, but refused to progress. I tried it in multiple fresh sessions with the same result."</p>
+								<p class="story__comment_others">"The guardrails on Anthropic have become an albatross. I&#39;ve got OAI models doing testing of banking workflows that Claude would have a full scale panic attack over. Even OAI needs some alignment and reassurance regarding the fact that it&#39;s not about to pull credit for a real person. GPT6.1 will happily launch the nukes 100% of the time if you make a clear and rational case in your system prompt.Forcing this kind of safety into the models and harnesses is a mistake. I think the strategy of post hoc moderation is the right one. Trying to prevent evil ideological activities as they transpire is a cursed mission. Let someone who is genuinely doing a naughty thing accumulate a meaningful body of evidence and then send in Mr Holmes (the FBI / police). Attempting to prevent wrong think at every token is too granular. We have systems designed to handle the possibility that crime and punishment may occur at separate moments in time. Most people don&#39;t go around murdering because the eventual consequences are pretty severe. Just because an AI gave you advice doesn&#39;t magically make those existing consequences vanish."</p>
 							
 						
 						</a>
@@ -2032,15 +2352,15 @@ One of my few claims to fame is that I invented that convention and promoted it 
 						<a href="https://news.ycombinator.com/item?id=50290177">
 						
 							
-								<p class="story__comment_first line-clamp">"As someone who is aggressively pro AI, I&#39;ve also noticed how awful everything is to read lately.  It&#39;s always so hard to put my finger on the exact thing, but it&#39;s a mixture of everything sounding identical and everything being a rambling unconcise mess.  I find I routinely start reading interesting posts and just .. stop part way, abandoning it.  A site I read stories on has been flooded with AI generated content, all of it terrible, and it just makes me retreat to things created before 2023 as a way of filtering it all out."</p>
-							
-						
-							
-								<p class="story__comment_others">"I just can&#39;t seem to stay interested and read LLM text. It just seems to lack going somewhere, its information density is often really low and its full of odd isms that I don&#39;t find very interesting to read. I don&#39;t have a good radar for detecting the various LLM particular speech patterns but everytime I have an issue with an article there is always people talking about how its clearly AI written.I find the same thing with written results out of AI &#34;research&#34;, it is a slog to read through it and most of it can be skipped even if it can sometimes be useful its an unenjoyable read."</p>
+								<p class="story__comment_first line-clamp">"I just can&#39;t seem to stay interested and read LLM text. It just seems to lack going somewhere, its information density is often really low and its full of odd isms that I don&#39;t find very interesting to read. I don&#39;t have a good radar for detecting the various LLM particular speech patterns but everytime I have an issue with an article there is always people talking about how its clearly AI written.I find the same thing with written results out of AI &#34;research&#34;, it is a slog to read through it and most of it can be skipped even if it can sometimes be useful its an unenjoyable read."</p>
 							
 						
 							
 								<p class="story__comment_others">"All human communication is based on internally simulating the presumed mind that was/will-be at the other end. Even now, some part of your brain--however subconscious--is building a tiny sketch of me with assumed beliefs and motivations, and you&#39;re using it to predict and interpret the next words.But what happens when everything is persistently, subtly wrong? When we cannot smoothly map the text to a simulation? An inner-sim keeps throwing errors and mis-predicting what comes next is unnerving and draining. Like talking to a human who is not currently sane.Sometimes I imagine LLM text like a plastic animal model put out to confuse local wildlife, where it hits just enough instinctive triggers that they try to mate with it before leaving in frustrated bafflement.______Half-Life 2, Dr. Kleiner: &#34;Never fear, Gordon, she&#39;s de-beaked and completely harmless. The worst she might do is attempt to couple with your head. Fruitlessly!&#34;"</p>
+							
+						
+							
+								<p class="story__comment_others">"Broken record: LLMs are exceptionally useful writing critics if you know how to hold them correctly, but you can&#39;t use a single word they suggest to you --- the better the LLM&#39;s word choices seem, the more likely the LLM is infecting your voice. Better, by a lot, to prompt the LLM not to suggest any words, but just offer objective critiques."</p>
 							
 						
 						</a>
@@ -2284,9 +2604,7 @@ Kind of outrageous that Apple&#39;s guidance is to edit the cert chain manually,
 							
 						
 							
-								<p class="story__comment_others">"EMACS: /ee�maks/, n.    [from Editing MACroS] The ne plus ultra of hacker editors, a programmable text editor with an entire LISP system inside it. It was originally written by Richard Stallman in TECO under ITS at the MIT AI lab; AI Memo 554 described it as “an advanced, self-documenting, customizable, extensible real-time display editor”. It has since been reimplemented any number of times, by various hackers, and versions exist that run under most major operating systems. Perhaps the most widely used version, also written by Stallman and now called “GNU EMACS” or GNUMACS, runs principally under Unix. (Its close relative XEmacs is the second most popular version.) It includes facilities to run compilation subprocesses and send and receive mail or news; many hackers spend up to 80% of their tube time inside it. Other variants include GOSMACS, CCA EMACS, UniPress EMACS, Montgomery EMACS, jove, epsilon, and MicroEMACS. (Though we use the original all-caps spelling here, it is nowadays very commonly ‘Emacs’.) Some EMACS versions running under window managers iconify as an overflowing kitchen sink, perhaps to suggest the one feature the editor does not (yet) include. Indeed, some hackers find EMACS too heavyweight and baroque for their taste, and expand the name as ‘Escape Meta Alt Control Shift’ to spoof its heavy reliance on keystrokes decorated with bucky bits. Other spoof expansions include ‘Eight Megabytes And Constantly Swapping’ (from when that was a lot of core), ‘Eventually malloc()s All Computer Storage’, and ‘EMACS Makes A Computer Slow’ (see recursive acronym). See also vi.*
-
-http://www.catb.org/jargon/html/E/EMACS.html"</p>
+								<p class="story__comment_others">"Is anybody here consciously trying to keep their Emacs configs/setup &#34;lean&#34;, minimalist, as small as possible?I&#39;m not a coder, but I did use Emacs daily around 2010-2012, with brief returns later. I always gave up eventually because the complexity of addons, the org-mode-can-do-everything-so-I-should-do-everything-with-it etc just grew over my head. I&#39;ve discovered that I like Plan9 Sam, Acme and, in general, the one-thing-well camp better. Each their own, I guess.That said, I did often like how &#34;immersive&#34; using Emacs can actually be at times. I&#39;m a trained journalist, and it made managing bits of information, including PDFs etc, really streamlined, almost like a wonder. And, I had my own little OS on a USB stick that way (though the minimalist in me always whined that &#34;an editor&#34; should not weigh 100+ megabytes).Incredible that it has been around for 50 years, with no signs whatsoever of being a &#34;paradigm of the past&#34;."</p>
 							
 						
 						</a>
@@ -2628,291 +2946,6 @@ https://newmountcarmelfoundation.org/building-a-mountain-mon..."</p>
 						
 							
 								<p class="story__comment_others">"Only tangentially related, but I&#39;ve recently realized that unless you&#39;re some sort of business with a valid requirement of that, you can just block incoming traffic from all of AWS, DigitalOcean, Azure, etc.I think the spark came from some other HN comment I saw? So thank you for that, whoever wrote that.That alone is not a sufficient strategy of course, but you can get rid of a lot of bots by just refusing to talk to where they tend to live.Of course, if everyone were to do that, they&#39;d eventually pivot to residential proxies. But I don&#39;t see that happening."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-
-	
-	<div class="day__date">27 October 2026</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm">Anthropic S-1</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50242939">
-						
-							
-								<p class="story__comment_first line-clamp">"Everything comes back to whether the demand is really there.Anthropic thinks it is. The got the demand / datacenter match right in Q2, got great margins, and committed hard.They&#39;ve got:- $114b committed to Google- $110b committed to AWS- $161b committed to Broadcom- $120b committed to SpaceXIf the party continues, they&#39;ll go from $50b in revenue to $500b and be fine.But if they don&#39;t, it&#39;s going to hurt. And that&#39;s their only choice, because otherwise, they end up with a frontier model and 50% of the capacity and get eviscerated on either availability or last-minute datacenter leases.It&#39;s a big business, but it&#39;s not an easy business."</p>
-							
-						
-							
-								<p class="story__comment_others">"The killer app is AI coding. Claude Code had first mover advantage, was a genuine revolution, and has diffused through the industry with incredible speed. I would imagine most of the huge revenue increase over the last year is due almost entirely to AI coding spend.There are three issues with this. First, the rapid diffusion of the technology means it is very unlikely to continue at the rate of adoption seen over the past year, so it&#39;s very hard to extrapolate based on what we&#39;ve seen so far. Second, many companies are reigning in AI budgets after an initial honeymoon phase. Third, all of the other labs are trying to take a bite of the coding pie, and the price war is already heating up.Add these simple dynamics up and it makes perfect sense why Anthropic would want to IPO now. Things look about as good as they ever will."</p>
-							
-						
-							
-								<p class="story__comment_others">"Ant generates $2.08 in revenue for every $1 spent on compute which is up from just $0.40 in Q1 2025.the payback period for compute is just insane, likely less than a year!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.seattletimes.com/business/microsoft/microsoft-offers-mass-buyouts-for-roughly-a-quarter-of-its-workforce/">Microsoft offers mass buyouts for roughly a quarter of its workforce</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50245524">
-						
-							
-								<p class="story__comment_first line-clamp">"Ex-MSFT here. I resigned in June, I was an L63. I spent 8 years at MSFT across two stints.My last 18 months at MSFT were deeply unproductive. Constant reorgs, the work not being aligned to my capabilities and unfortunately just the general feeling that I was under worked and had very little opportunity for career advancement.I would look at my colleagues and sister teams and wonder, why do they need these many people to work on something so trivial ? Or how did this person get promoted for doing that work ? I am sure envy played a part in the second question but it was legitimate. Remember, all this was before LLM tools were prevalent.In the end, I left off my own volition. In my last 6 months, I did very little work, if at all any.  I thought why am I being paid so handsomely for such little and trivial work. I did try interviewing in a few different teams but didn’t make it (Azure Files and Hyperscale DB). If I had stayed, I would have been swiftly laid off or if I was lucky enough last long till this buyout.I think same is true for all Big Tech companies. Too many employees doing not enough or quality work."</p>
-							
-						
-							
-								<p class="story__comment_others">"60k workers, 1/4 of the workers. This is a big deal. It also really puts you into a bind if you receive the offer. Do you accept, take the money, and hope you can find a job  (Now competing with many other Msft employees that are looking). Do you decline and hope you don&#39;t get hit with the layoff which hits if not enough people accept?"</p>
-							
-						
-							
-								<p class="story__comment_others">"The mass buyout offer to 25% of Microsoft&#39;s workforce comes less than a week after Microsoft President Brad Smith proclaimed to employees: &#39;We stand by our people. We always have. We always will.&#39; in a video he posted to LinkedIn.https://www.linkedin.com/feed/update/urn:li:activity:7518428..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://openai.com/index/building-scientific-understanding-with-academic-communities/">Three new discoveries in mathematics, computer science, and physics</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50251344">
-						
-							
-								<p class="story__comment_first line-clamp">"&gt; &#34;We are announcing three new discoveries in mathematics, computer science, and physics about harmonic analysis, complexity theory, and quantum field theory.&#34;I&#39;m still not fond of the bicycle manufacturer announcing its achievements in bicycle racing, even if it selects the 5 top cyclists to support the orchestration of the announcement.From past incidences it&#39;s already known that their model is very likely trained on input gathered from scientists which use OpenAI as a tool for their research. Suddenly the research community is in a race with the provider of its tool, and can hope for the grace of being selected to judge the output and have an honorable mention in the press-release.The situation would be different if they would collaborate with scientists during the research, and let them publish the results with reference to OpenAI being a supporter/sponsor.But this approach of &#34;thanks to your continuous input we now have a bicycle which even our employees can use to beat you, we invite you to be mentioned in our press-release&#34; doesn&#39;t sit well with me..."</p>
-							
-						
-							
-								<p class="story__comment_others">"I think OpenAI deserve credit for adjusting their approach after the last math drop. I think Terrance Tao shares some credit here for galvanizing the response.Including the relevant mathematicians and scientists before dumping this onto the public is sure to go a long way to relaxing fears in those communities. I&#39;m not sure how they will deal with accusations of favoritism but at least they are demonstrating a willingness to participate in a process.I hope the community can express some positivity that will encourage OpenAI and other foundation labs to continue with this collaborative approach."</p>
-							
-						
-							
-								<p class="story__comment_others">"ETH is false! I really would not have believed it.[0]:&gt; We give a deterministic algorithm for exactly counting the satisfying assignments of an arbitrary k-CNF formula. For every fixed k ⩾ 2, on a formula with n variables and m clauses, our algorithm uses $poly_k (n, m)$ space and runs in time $(n + m)^{O_k(1)} 2^{n/(\log n)^{1/2 + o(1)}}$The dominant term there is (roughly) $2^{n / (\log n)^{0.5}}$, so still superpolynomial but less than exponential. Fucking wild.[0] https://github.com/openai/math/blob/main/preprints/The-Expon..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://magazine.sebastianraschka.com/p/building-reasoning-models">Sebastian Raschka&#39;s from-scratch video course on building reasoning models</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50245138">
-						
-							
-								<p class="story__comment_first line-clamp">"I&#39;ve got a question. I&#39;m having a bit of trouble phrasing it, so please don&#39;t assume I&#39;m against learning for learning&#39;s sake, that&#39;s not the point.Whenever I&#39;ve tried to learn about LLMs, machine learning, etc. I always come out with a bad feeling, compared to learning about software.Theoretical courses make me feel like it&#39;s all baby steps, unless you assume a level of commitment equivalent to a math degree. Practical/applied stuff seems to require levels of compute, training data, etc. that make it unapproachable for a home hacker for everything beyond basic exercises like a handwritten digit classifier.Now this feeling of &#34;impracticality&#34; is perfectly fine. It would be the expected outcome if I was taking a course on classic literature or modern art. But machine learning stuff feels like it could have room for learning-by-doing applications that aren&#39;t entirely pointless, so I wonder if there&#39;s some way to approach the topic I&#39;m simply not finding.Did anyone have the same experience? any tips if so?"</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel there&#39;s a misconception in a lot of the comment threads about what an LLM-from-scratch tutorial is for. Of course you&#39;re not going to come out of this kind of tutorial being able to train a useful LLM from scratch. (It requires too much compute, and datasets you don&#39;t have access to, and there are a lot of tricks and operational problems to solve for real training runs.) If that&#39;s your bar for &#34;impracticality&#34;, then sure, this is impractical.But that&#39;s not the point; the point is understanding these things better by seeing how they are made (or grown, if you prefer). Building something at a level further down the stack than you will ever go forces you to confront details that shape the layers above that you do deal with. This is one reason why Crafting Interpreters is such a beloved book here on HN.LLMs are now at the core of tools we all use everyday... don&#39;t you want to know how they are made? Maybe not everyone has this itch to understand the platforms and tools they use, but I sure do, and it&#39;s helped me over and over again. Sure, LLMs aren&#39;t like operating systems or compilers. They&#39;re a quasi-organic mass of billions of parameters learned during training and honestly nobody (not even the mech interp folks) really deeply understands why they work so well. But that&#39;s no reason to completely give up and there is still a lot you can learn.Take RLVR (&#34;Reinforcement Learning from Verifiable Rewards&#34;). This is the training technique that made LLMs get so good at programming and math in 2025 and 2026. A lot of people who confidently talk about LLM capabilities either haven&#39;t heard of it (and thus end up parroting out-of-date factoids about LLM training derived from the pre-2025 era) or have only a very dim idea of what it is. In this course you actually do RL training of an LLM to get it solving math problems better. You&#39;re right down in the details. It&#39;s interesting for its own sake but it will also give you a grounding for discussing questions such as: &#34;why did LLM writing get so weird and bad in mid-2026?&#34; and &#34;why is it so hard to train LLMs to be good at things that aren&#39;t like math and programming?&#34;Anyway, Sebastian&#39;s two books are great and highly recommended; I worked through the first one a year ago and it was one of the best investments of my time in all of 2025. If you prefer video for learning this is great as well (although I&#39;d still say - try the books first)."</p>
-							
-						
-							
-								<p class="story__comment_others">"I got his book Build Your Own LLM From Scratch and it&#39;s super readable and does a great job at holding your hand through the entire process...need to finish reading it though!"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://openai.com/index/introducing-gpt-6-1-terra/">GPT-6.1 Terra</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50248124">
-						
-							
-								<p class="story__comment_first line-clamp">"Similar 75% price cut trajectory as GPT-5.6 Sol -&gt; GPT-6.1 Sol. Overall, Terra is still half the price of Sol.But like the original release of Terra, it&#39;s still a weird middle child between the small-model-that-got-substantially-better (Luna) and the large-model-that-got-significiantly-cheaper (Sol). The TerminalBench 4.0 cost-per-task results are a bit confusing and I&#39;m not sure why you would pick Terra over Sol in that case. Overall this release seems like a flex on Sonnet 5.5: a model which is having its own middle child problems between the godly Opus 5.5 and the surprisingly capable Haiku 5.5."</p>
-							
-						
-							
-								<p class="story__comment_others">"I’m trying to do some GPU unlocking work with some oldish mining cards (NVIDIA CMP 170HX 10G) to fully unlock them to be used in LLMs, and Sol 6.1 keeps refusing to do the work on the basis of “cyber concerns”. It’s highly frustrating. Sonnet 5.5 is even worst.Luna 6.1 is fine with it, but the results aren’t good enough. I’m going to try Terra 6.1 (from the post, I should expect about the same results). And hope it doesn’t complain as much about these non existent cyber security risks that for some reason it keeps raising.P.S. I also tried Deepseek Flash 4.1, but the results simply didn’t cut it.P.P.S. This all investigation was a major eye opener on why we need to run local models or be forever tied to some artificial limits to AI for the masses."</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m very confused about their model market position/naming schema.First we had:&gt; Luna (Small), Terra (Medium), Sol (Big).Which was fairly smooth after you got used to their planets.But then they added Astra as the &#34;Bigger,&#34; which was mostly still self-coherent:&gt; Luna (Small), Terra (Medium), Sol (Big), Astra (Bigger)But then things go confusing, they released Sol-6.1 which sometimes is superior to Astra, and discontinued Terra which made it look like this:&gt; Luna (Small), Sol-6.1 == AstraBut with Sol-6.1 costing the old Terra-6.0 price, while, as I said performing as good as the old &#34;Bigger&#34; model in many non-3D/UI situations.Now they&#39;re re-introduced Terra, as a 6.1 release, making this even more confusing.Did Microsoft&#39;s chief branding officer move over to OpenAI?"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf">The Exponential Time Hypothesis Is False [pdf]</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50251661">
-						
-							
-								<p class="story__comment_first line-clamp">"While this has no immediate bearing on P-vs-NP, it is interesting to note:- Early CS researchers like Donald Knuth entered CS in the days when regularly someone would come up with a surprising faster algorithm for some problem, and their intuitions were that most problems had faster algorithms than you&#39;d expect.- Later generations of CS researchers, as all the easy algorithms were discovered, and post Karp&#39;s definition of NP-completeness (and the Garey &amp; Johnson book, say), began to specialize in proving hardness, and complexity theory with a “zoo” of complexity classes became more about separation and lower bounds, e.g. I&#39;ve seen algorithms like Arora&#39;s PTAS for Euclidean TSP being described as a “failed attempt to prove a lower bound”. So an entire generation of researchers&#39; intuition was mostly in the direction of an elegant universe with neat separation results (even if we couldn&#39;t get them).- So e.g. surveys of computer scientists showed most of them believing that P≠NP, and someone like Knuth has always seemed a bit of an outlier for saying that maybe P=NP: his argument was simply that there are so many possible polynomial-time algorithms that we haven&#39;t explored, and maybe one of them with a large exponent could solve NP-complete problems. (In response to arguments that many researchers have failed to find any such algorithms, he would say that many researchers have failed to prove that P≠NP.) E.g. in 2017 when Scott Aaronson wrote his survey (https://www.scottaaronson.com/papers/pnp.pdf = https://www.scottaaronson.com/papers/pnp-kindle.pdf) he wrote:&gt; Admittedly, it can be hard to tell whether declarations that P = NP are meant seriously, or are merely attempts to be contrarian. However, we can surely agree with Knuth and Lipton that we’re far from understanding the limits of efficient computation, and that there are further surprises in store.- What we&#39;ve seen in this month is surprising unexpected algorithms, like o(n log n) algorithms for FFT and integer multiplication, and now this sub–exponential-time algorithm for 3-SAT. (Yes the ETH has had less support than P≠NP but I still gather it&#39;s unexpected.)So (though I don&#39;t expect intuitions on P≠NP to change, and probably that&#39;s still the right intuition… but I&#39;m just an interested amateur), maybe there will be a bit of a swing of the pendulum back to the idea that maybe clever algorithms exist that we just haven&#39;t thought of."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is an amazing and unexpected result.  To be clear though, it does not imply that NP is subexponential: &#34;Note that runtime bounds of the form 2^o(n) do not transfer under general polynomial-time reductions (2^n^o(1) would be needed for this), so our result does not imply that general NP problems
-admit subexponential time algorithms.&#34;Edit: To explain more, it is guaranteed that you can reduce any NP problem to 3SAT in polynomial time with a polynomial factor in input size.  You still have to solve it.If 3SAT were solvable in polynomial time, then polynomial(polynomial(x)) = polynomial(x) and you&#39;re implied to have an overall polynomial time solution.But what we have here is that 3SAT is solveable in subexponential time.  subexponential(polynomial(x)) is not guaranteed to be sub-exponential.Further edit: The subexponential solution does carry over to any (?) problems that have can be reduced to 3SAT in a linear number of variables.  They list: Counting independent sets, Counting proper q-colorings, Counting perfect matchings."</p>
-							
-						
-							
-								<p class="story__comment_others">"I feel this comment not getting enough attention and this seems like an appropriate place to quote:&gt; Somehow, their wide range of results touch every single area of math except anything touching cryptography. I think it&#39;s fair to expect that three letter agencies are given the ability to veto the publication of certain discoveries.https://news.ycombinator.com/item?id=50256998"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://www.reuters.com/live/brazil-election-live-lula-bolsonaro-face-off-presidential-runoff-2026-10-25/">Lula wins election after final votes tallied</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50237485">
-						
-							
-								<p class="story__comment_first line-clamp">"Flavio promised to pardon his father, so the other effect of this is that Bolsonaro stays in jail. Although by jail I mean house arrest, which is something that rich, powerful people manage to get somehow and is barely a punishment."</p>
-							
-						
-							
-								<p class="story__comment_others">"This was the first time I saw a major mainstream media outlet prominently feature a statistical predictive model live during the vote count (and it was spot on): https://www.estadao.com.br/politica/eleicoes/em-tempo-real-p..."</p>
-							
-						
-							
-								<p class="story__comment_others">"As optimistic as I want to be, this is the fourth term for a president?? That cannot be good for democracy.It can be better than the alternatives and still not good."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://blocks.manifold3d.ch/">Switzerland. Block by block. At 1:1 scale</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50240922">
-						
-							
-								<p class="story__comment_first line-clamp">"Denmark did this in 2014 and didn&#39;t need a pile of LLM puffery to do it:https://minecraftdanmark.dk/https://geoboxers.com/denmark-in-minecraft/&gt; ‘Denmark in Minecraft’ was released in April 2014 by the Danish Geodata Agency. The project was conceived, developed and operated by Simon Lyngby Kokkendorff, Thorbjørn Kjærshøj Nielsen and Nynne Sole Dalå, the founders of GeoBoxers.&gt; The work was funded and carried out by the Danish Geodata Agency as an initiative following the 2013 “basic data programme”, where a significant amount of public Danish data were made available for free. The purpose was to make geographical and topographical data available through Minecraft, and help disseminate the free data to a broader audience and specifically reach children.&gt; Denmark in Minecraft was released with an invitation to teachers and schools to use the data in geography, math, science and history lessons, and within the first few months Minecraft-data were downloaded 300.000 times from the Geodata Agency, and around 37.000 unique users logged in to the agency’s Minecraft-servers.&gt; January 1st, 2016 the Danish Geodata Agency changed into the Agency for Data Supply and Efficiency, and links in English regarding “Denmark in Minecraft” were removed. Since 2020 Denmark in Minecraft can no longer be downloaded."</p>
-							
-						
-							
-								<p class="story__comment_others">"Recently I&#39;ve gotten to a point where I am put off when a clearly vibe coded website asks for money.I have seen too many examples of people trying to earn money on apps they clearly vibe coded in an hour. Why would I pay for that - might as well make it and sideload it myself. I might even publish it for free to the app store to spite them.I really don&#39;t think you are in a position to be asking for money if you just made something using an LLM. You didn&#39;t put in much work yourself, and anyone could replicate it for the &#34;low cost&#34; of their LLM subscription."</p>
-							
-						
-							
-								<p class="story__comment_others">"This AI-written page seems to be typical of LLM: Sentences are 4 to 5 words long, and the reader have to fill in the details.Did someone make 1x1x1 wooden cubes and remade Switzerland? Oh no, the tiny tiny text above the gigantic title says &#34;Minecraft&#34;.&#34;Exactly as tall and as steep&#34;. How is a mountain that exists in a video game exactly as tall and steep as the real one?Then there&#39;s an embedded map that is an attempt to convey information that I still can&#39;t figure out what.How to run it? Aha, download Prism Launcher (not a clickable link), import the zip... and oh, you need to have purchased Minecraft too!What an exercise in convolution..."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://css-tricks.com/css-tricks-has-a-new-owner/">CSS-Tricks has a new owner</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50245831">
-						
-							
-								<p class="story__comment_first line-clamp">"I run a similar-in-spirit site about starting from scratch on a project and getting to something functional. I tried both ads and courses, in my case neither were very successful. The most success I had was in offering to do the things the site tells you how to do in exchange for money. That&#39;s been my full time job for the last 6 years. I don&#39;t know if that&#39;s workable in the UI/UX world.I&#39;ve done only a small amount of web-design work over the years, but I can imagine that, if I landed on CSS-tricks trying to work out a tricky (to me) CSS or usability problem where LLMs had been failing me, and I had a quick and easy option to pay a few hundred dollars and meet with the guy who wrote the book, I might do that. That&#39;s also how I got a lot of my first customers in my current business; I offered paid phone calls where a user could pay a nominal rate and ask some upfront questions about a project they were working on. Many of those calls turned in to longer contracts, and the fee kept out the folks who were just looking to sell me something.A lot of my customers have been organizations whose focus is not my industry, but, for one reason or another, they needed something done that fits in my wheelhouse. This means they don&#39;t (yet) want to hire this expertise and build processes internally, so they&#39;re willing to pay my premium rates. Perhaps there is a way to target these types of companies with custom services in the space."</p>
-							
-						
-							
-								<p class="story__comment_others">"I didn&#39;t expect this.While I do believe that selling to DigitalOcean was a mistake ultimately, I&#39;m concerned about the long time viability of this move considering the current landscape of web development.Don&#39;t get me wrong, I think CSS-Tricks is a great resource and it has helped me over the years, but if I was in Geoff&#39;s shoes right now I&#39;d be pretty scared.Look at TailwindCSS for example, they had to reduce the size of their team and ended up joining Shopify to continue surviving. It is hard out here these days.I don&#39;t want to sound too doom and gloom, so I wish Geoff the best of luck and I hope he succeeds."</p>
-							
-						
-							
-								<p class="story__comment_others">"As an eng who spent over a decade on frontend and hasn’t touched CSS since last November, I’m ecstatic for this news.Nothing a frontier LLM has built me in the last year has been satisfactory to me. Every detail was shipped after millions of tokens stripping back and optimizing what Fable/Opus started doing.The process is leaner and faster, but frontend isn’t “solved” just because LLMs exist."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_small-padding-bottom">
-			
-			<div >
-				<div class="story__title">
-					<h3><a href="https://minimaxir.com/2026/10/cheap-llms/">OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50236102">
-						
-							
-								<p class="story__comment_first line-clamp">"Competition drives prices down. We tried Kimi and GLM models after hitting &#39;cybersecurity&#39; blocks on OpenAI and Anthropic. We found them to be much cheaper to access and helped us complete our work without &#39;cybersecurity&#39; refusals blocking us."</p>
-							
-						
-							
-								<p class="story__comment_others">"DeepSeek claims $38 of revenue per GPU, per hour for Flash V4. That is $332,880 per GPU, per year. This matches their DeepInfer numbers: 25,600 output tokens/s per GPU sold at $0.60 per million -&gt; $55 minus some other overhead to arrive at $38.For the bigger Anthropic and OpenAI models (and associated higher prices) there are many unknown factors. But presumably they also work hard on optimizations, and it&#39;s not so crazy to think they had or still have a lot of wiggle room to adjust prices."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is why Anthropic and OpenAI are pushing for more “regulation”. You can’t show ROI to investors by cutting inference costs.Regulation might inconvenience them a little, but the upside is huge if it means open models out of China get banned."</p>
 							
 						
 						</a>
