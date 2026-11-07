@@ -33,38 +33,38 @@
 	</div>
 
 	
-	<div class="day__date">06 November 2026</div>
+	<div class="day__date">07 November 2026</div>
 		
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://sshhole.com">
+					<a href="https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817">
 						<picture>
-							<source srcset="default_50378228.webp" type="image/webp">
-							<source srcset="default_50378228.png" type="image/png">
-							<img src="default_50378228.png" alt="Preview of 'sshole'">
+							<source srcset="default_50391456.webp" type="image/webp">
+							<source srcset="default_50391456.png" type="image/png">
+							<img src="default_50391456.png" alt="Preview of 'Tesla to wind down Cybertruck production'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://sshhole.com">sshole</a></h3>
+					<h3><a href="https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817">Tesla to wind down Cybertruck production</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50378228">
+						<a href="https://news.ycombinator.com/item?id=50391456">
 						
 							
-								<p class="story__comment_first line-clamp">"OK, I think I see what’s going on with this, in this configuration.The goal from an attacker’s perspective is to get this to be true: `$ret = crypt($pw, $hash); $ret == $hash` when called by OpenSSH’s sshd. This is how sshd validates that the user logging in knew the account password.The `$hash` is the “settings” to the crypt call and will normally look like “$6$--gibberish” for users with passwords set, but could look like “*” or “!” for users not intended to be able to login.The bug is from the intersection of all of these things:1. musl can return “*” for errors, rather than leave the return value NULL. Other libc have adopted something like this too, but seem to use a different result “*0”.2. musl can also return “+” for errors, but only does so if $hash starts with “*”. This is intended to eliminate the possibility of an error causing `$ret == $hash` to be true, however it assumes that applications calling `crypt()` will set $pw and $hash to values corresponding to the `$ret == $hash` comparison to be made immediately afterwards.3. OpenSSH can be convinced to pass the hash of a different user if the hash is “*” or “!” to avoid timing attacks that can enumerate the user list, so it will set $pw and $hash to correspond to different users. $hash will be a real “$6$--gibberish” style hash in this case, and OpenSSH expects `crypt()` to either return NULL or return a hash string. But now there’s two hashes OpenSSH uses. It does: `$ret = crypt($pw, $hash2); $ret == $hash1`;4. This should normally not be a problem because OpenSSH will pass in valid $pw and $hash2 that should not lead to errors in hashing, so the $ret that musl generates should be a real hash that cannot match the “*” or “!” $hash1 for the login-disabled user. However as a DDoS mitigation, musl will return error if the password is too long when using SHA-2-based hashes (the default, it seems).5. This error will result in a non-NULL result of “*” or “+”. Since OpenSSH passed in a real hash ($hash2), musl will return “*”, which compares equal to the actual user hash $hash1 for the disabled-login user.The OpenSSL adjustment ensures a minimum hash length for the user before logging them in, even if crypt() succeeds somehow."</p>
-							
-						
-							
-								<p class="story__comment_others">"In-band signaling[1] strikes again. * should not have been used as special value, neither for &#34;no password&#34; in /etc/passwd nor &#34;error while hashing the password&#34; in crypt. I&#39;m afraid we&#39;ll find many more of these abuses, specially in string manipulations. The null was ok, an exception (or equivalent) better, and Result&lt;T&gt; (or equivalent) best.[1] https://en.wikipedia.org/wiki/In-band_signaling#Computer_dat..."</p>
+								<p class="story__comment_first line-clamp">"After Helene knocked out power in parts of my area for a little over 14 days, I found out that a friend of ours used his cybertruck to power his house through the entire mess. He&#39;d run the house on it for a couple of days, then drive the cybertruck over to a super charger station, recharge, then come home and plug the house back in.The battery capacity on those things is equivalent to 9 Tesla Powerwall units or something close to it.They may be ugly, but the emergency prepper in me always wanted one after hearing that story. Before, I always wanted to install powerwalls...but I never considered in an extended event being able to drive my powerwalls somewhere to recharge them."</p>
 							
 						
 							
-								<p class="story__comment_others">"The whole story is a bit worse than this.  Musl already worked around this type of failure.  See the second-to-last line here:https://git.musl-libc.org/cgit/musl/tree/src/crypt/crypt_des...(hey, this workaround is wrong if the salt is &#34;x&#34;!)but they forgot to work around it here:https://git.musl-libc.org/cgit/musl/tree/src/crypt/crypt_sha...The vulnerable path in musl is only a little bit vulnerable, because &#34;*&#34; is not actually a sha256 encrypted configuration and should not reach this code: musl&#39;s crypt(..., &#34;*&#34;) will not call that code!  Turns out that sshd detects that the password hash is too short and does not forward the salt!https://github.com/openssh/openssh-portable/blob/master/auth...Look, no else statement!  If that if doesn&#39;t get taken, then salt remains NULL.  And the sshd code is really quite messy and doesn&#39;t keep track of the fact that this code path is inappropriate for validating an existing password hash.A workaround in the sha256 path in musl wouldn&#39;t even have prevented the bug!I&#39;m going to give some credit to musl for unwisely using &#34;*&#34; and some credit to OpenSSH for having nonsensical control and data flow."</p>
+								<p class="story__comment_others">"- Federal EV tax credits are over.- The emissions credit market (where Tesla made most of its money) is dead due to lowered standards.- Manufacturing costs haven&#39;t come down.- EV sales share in the US is down to 6% (and falling every quarter).- Chinese EVs are dominating every market outside the US.- All the overhyped moonshots (sub-$30K car, unsupervised autopilot, autonomous robots) are nowhere to be seen.It&#39;s hard to see where Tesla goes from here as a company. The stock is still surviving on Elon hype but has been stagnant for 5 years. The day he gets bored and decides to resign to focus on SpaceX full time the company is basically done."</p>
+							
+						
+							
+								<p class="story__comment_others">"Full disclosure: I work for a competitor to Tesla so I&#39;m a bit biased.The Cybertruck I thought was initially kind of neat but when you try to use one as a truck you quickly can see some glaring problems that most people who buy a truck want. Towing with an EV is terrible. I&#39;ve heard there&#39;s power stations with pull throughs but havent&#39; seen them personally. The truck bed isn&#39;t practical for anything but a lawn mower. When I ride in one it rides like a car. It doesn&#39;t look good dirty. I just think they were going for warthog from Halo and thought the rest would work out. It&#39;s also super expensive for all these issues. It&#39;s a hobby vehicle. A toy.I think Tesla is struggling personally. The marketing tactics of showcasing cars we&#39;ll never be able to buy just to cause a scene. Don&#39;t get me wrong the new Roadster my jaw dropped and I agree with Elon now that SpaceX and Tesla are the &#39;same&#39; company I think it&#39;s great but let&#39;s be realistic. Most people want cars that are cheap, dependable and sort of cool. Not everyone can afford multiple cars, and a corvette that isn&#39;t feasible. Like I said I work for a competitor (GM) and I fear China is going to eat our lunch. Unless we make infrastructure for charging better and make it a no brainer."</p>
 							
 						
 						</a>
@@ -76,49 +76,188 @@
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://github.com/anthropics/claude-code/issues/107757">
+					<a href="https://github.com/ppmpreetham/BUI">
 						<picture>
-							<source srcset="default_50385272.webp" type="image/webp">
-							<source srcset="default_50385272.png" type="image/png">
-							<img src="default_50385272.png" alt="Preview of 'Claude Code sends your email address to websites'">
+							<source srcset="default_50389333.webp" type="image/webp">
+							<source srcset="default_50389333.png" type="image/png">
+							<img src="default_50389333.png" alt="Preview of 'Blender&#39;s UI and Runtime: Much Faster Than GPUI'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://github.com/anthropics/claude-code/issues/107757">Claude Code sends your email address to websites</a></h3>
+					<h3><a href="https://github.com/ppmpreetham/BUI">Blender&#39;s UI and Runtime: Much Faster Than GPUI</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50385272">
+						<a href="https://news.ycombinator.com/item?id=50389333">
 						
 							
-								<p class="story__comment_first line-clamp">"Many people report seeing this behavior when using the SEC API specifically which makes me think that service is requesting this.  Maybe email is required by the SEC API?---UPDATE: The SEC API documentation requires your email in the User-Agent and will reject you otherwise. Demo:    U=&#39;https://data.sec.gov/api/xbrl/companyconcept/CIK0000320193/us-gaap/Assets.json&#39;
-    curl -s -o /dev/null -w &#39;response: %{http_code}  curl default User-Agent, rejected\n&#39;  &#34;$U&#34;
-    curl -s -o /dev/null -w &#39;response: %{http_code}  email in user-agent, success\n&#39; -A &#39;Acme Research admin@acme-research.example&#39; &#34;$U&#34;
+								<p class="story__comment_first line-clamp">"Can I please congratulate you on your README. It rapidly tells me what I&#39;m looking at, and why I might be interested in the project. There are so many READMEs around that ... just don&#39;t do that. They ramble about technical implementation details, how their language choice is amazing, and a third of the way through the README, I&#39;m still left wondering, &#34;but what does this project do?&#34;."</p>
+							
+						
+							
+								<p class="story__comment_others">"I love the general idea behind Blender&#39;s UI.And I do appreciate the effort that goes into it, especially in the latest versions as it got much better,But I really really really REALLY don&#39;t want that UI in anything else other than Blender.Please don&#39;t."</p>
+							
+						
+							
+								<p class="story__comment_others">"That&#39;s really cool! I burned some tokens trying to develop something similar but gave up halfway. A lot of people criticize Blender&#39;s UI but as someone who has been using blender for more than a decade now I just find it so elegant. Just the customizability itself is something I miss on most 3D software, if not all of them. Being able to just split screens and change their functionality, paired with the tabs for different workflows, it is a really good solution for a very complex software. I&#39;d like to see a game engine with this much UI freedom."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105">
+						<picture>
+							<source srcset="default_50390124.webp" type="image/webp">
+							<source srcset="default_50390124.png" type="image/png">
+							<img src="default_50390124.png" alt="Preview of 'Dutch &#39;idealist&#39; bank ASN blocks non-Google Android, including GrapheneOS'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105">Dutch &#39;idealist&#39; bank ASN blocks non-Google Android, including GrapheneOS</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50390124">
+						
+							
+								<p class="story__comment_first line-clamp">"SafetyNet was a mistake in general. But banks specifically are among the most obnoxious shitters when it comes to &#34;you aren&#39;t allowed to do things except the way we want it&#34;.Over and over again you have to contend with bullshit like 120MB APKs full of obfuscated code, root detection, custom firmware detection, &#34;non-mainstream device&#34; detection, VPN detection, and even more obscure spyware-flavored functionality.By now, if a major regulator like EU steps in, cracks the whip, and forces banks to provide access through a common API standard to any third party banking app? I&#39;d welcome the change."</p>
+							
+						
+							
+								<p class="story__comment_others">"My (Dutch) bank Rabobank also blocks GrapheneOS [0], I contacted them about it, you get the usual thing, that &#34;security is very important to them&#34;. Arguing is completely pointless, they don&#39;t understand what they are talking about. The Rabobank app works fine on Android phones that haven&#39;t seen updates in years...However, via Aurora store it works fine (inc Wero)... I do feel a bit uncomfortable about it, but it&#39;s a one-to-one connection to the Play Store, so should be fine... What I don&#39;t understand is how that can work, the app itself does no checking after it is installed I guess? Not how I&#39;d architect it...My other bank, bunq, keeps whining about some service but functions normally nevertheless (I should give Play services access to my &#34;Phone&#34;, I don&#39;t understand what that entails so I refuse it). N26 and Trade Republic just work.I don&#39;t get wireless payments via Google Pay, but I don&#39;t even want that. So I&#39;m really looking forward to Walt [1]. I would even start my sub now if that&#39;d help him get it available in a year... At the moment there is Curve Pay [2], they have their own NFC stack. Bunq also used to have that (back when they were very pro-privacy) but they ditched it in favor of that horrible Google Pay.[0] https://discuss.grapheneos.org/d/24630-rabobank-app-no-longe...[1] https://walt.is/[2] https://www.curve.com/"</p>
+							
+						
+							
+								<p class="story__comment_others">"In Holland, GrapheneOS users are being targeted by police after &#34;busting&#34; a re-seller. The owners of the phones got raided without them being involved in any investigation. Just having the phone was enough to get a knock.Supposedly the Dutch police had &#34;cracked&#34; their phones.In Dutch
+https://archive.is/3wawb"</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://www.reuters.com/business/world-at-work/britain-make-salary-disclosure-job-ads-mandatory-2026-11-05/">
+						<picture>
+							<source srcset="default_50389222.webp" type="image/webp">
+							<source srcset="default_50389222.png" type="image/png">
+							<img src="default_50389222.png" alt="Preview of 'Britain to make salary disclosure in job ads mandatory'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://www.reuters.com/business/world-at-work/britain-make-salary-disclosure-job-ads-mandatory-2026-11-05/">Britain to make salary disclosure in job ads mandatory</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50389222">
+						
+							
+								<p class="story__comment_first line-clamp">"I will repost a comment I made here a while ago on a similar discussion. Salary non-disclosure is a dealbreaker for me since being through the situation described below:A few years back I wanted to get out of the work situation I was in. I looked around, had some interviews, had some offers. None of the postings had salary ranges, as is common where I live.My eyes, however, were set on a specific small company because I liked their product. The process was long and involved multiple meetings, a take-home problem, and stretched over 2 or so months. I was upfront about what my salary expectations were (wasn&#39;t looking for a raise, just a lateral move). They said we discuss salary when you meet the founders, i.e. the last step before getting hired, but they also didn&#39;t tell me that my range was way off.Turns out I had played this 9 week game and turned down other offers just to be severely low-balled by them. Maybe they saw that I really wanted the position and thought they could get away with a low offer.Obviously, I rejected their offer on the spot. I also promised myself to never, _ever_, be fooled like that again. We talk money before I invest any significant amount of time or I walk.EDIT: fixed wording."</p>
+							
+						
+							
+								<p class="story__comment_others">"I have always felt that job ads should include salary information. The main reason is not to waste anyone&#39;s time. Often a narrow salary range or a clear link between requirements and salary are much more informative than a job description. I have experienced to apply to a job opening and go through one or more interviews only to find out that the company is actually hiring for a more junior position than the ad copy implied.A second reason is to avoid discrimination. Applicants that feel disadvantaged, even if they are actually qualified, may hesitate to negotiate for a higher salary in the same way that a other applicants would. The consequence is that they start with a lower salary. This applies specially to women. Plenty of research shows that they are less likely to negotiate their salary.Research[1] suggests that pay transparency leads to lower average salaries because employers avoid paying higher wages to any one employee to avoid costly negotiations with others. The effect is small, around 2%, and it disappears with increasing degree of unionization. In my opinion this is an acceptable price to pay to reduce pay inequality, which often is much more than 2%. It is also a good argument for joining a union.[1] https://www.nber.org/papers/w28903"</p>
+							
+						
+							
+								<p class="story__comment_others">"Cautiously pleased about this. Some companies in UK pay senior devs £30-35k. And some companies won&#39;t discuss that until v late in the process, while importing US-style multiround interviews. It&#39;s pretty silly when people get 3 rounds in, take time off work for the interviews, then find out their expectations are so far apart."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://rakhim.exotext.com/i-wish-tech-companies-knew-more-about-me">
+						<picture>
+							<source srcset="default_50378942.webp" type="image/webp">
+							<source srcset="default_50378942.png" type="image/png">
+							<img src="default_50378942.png" alt="Preview of 'I wish tech companies knew more about me'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://rakhim.exotext.com/i-wish-tech-companies-knew-more-about-me">I wish tech companies knew more about me</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50378942">
+						
+							
+								<p class="story__comment_first line-clamp">"&gt; When listening to personalized playlists on Spotify and YouTube Music I skip every single electronic track with vocals. I listen to a lot of techno and related genres, and the moment someone starts singing I skip the track. I&#39;ve been doing it for years. None of these advanced algorithms have ever noticed this simple pattern.Same here.I think the songs get pushed by who pays to push, and most of those songs have vocals."</p>
+							
+						
+							
+								<p class="story__comment_others">"Google&#39;s real advertising proposition is they will sell you the audience of an expensive website on a cheaper website. Want to advertise on the New York Times? Why pay their high rates? Google tracks who visits the NYT and offers the advertiser the same audience when they visit Bob&#39;s hobby gardening website, which is considerably cheaper to advertise on. That&#39;s really why they want to track where you go. Understanding what you want is just a secondary aim to that, if they are interested in it at all, and I agree with the article that they are very poor indeed at it."</p>
+							
+						
+							
+								<p class="story__comment_others">"Targeted advertising will never feel good, and it&#39;s not due to lack of information. Consider the following:- People who know you very well (friends, family, spouse) often buy you bad gifts you need to pretend to be happy to receive.- Ultimately, advertisers aren&#39;t _merely_ trying to find things you want. They&#39;re trying to get you to buy _their_ things. So someone selling (let&#39;s say) hamburgers might be savvy enough to avoid vegetarians, but after that how would they possibly narrow it down? Not everyone wants to try out a new burger place, or even cares about advertising when it comes to restaurant suggestions.ie, they&#39;re trying to coerce you into wanting their products, and no amount of targeting can really fix that problem. Also, targeting is difficult."</p>
+							
+						
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="story story_large-padding-bottom">
+			
+				<div class="story__thumbnail">
+					<a href="https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html">
+						<picture>
+							<source srcset="default_50385870.webp" type="image/webp">
+							<source srcset="default_50385870.png" type="image/png">
+							<img src="default_50385870.png" alt="Preview of 'Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue'">
+						</picture>
+					</a>
+				</div>
+			
+			<div class="story__title-and-comments_with-images">
+				<div class="story__title">
+					<h3><a href="https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html">Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue</a></h3>
+				</div>
+				<div class="story__comments">
+					<div class="story__comment">
+						<a href="https://news.ycombinator.com/item?id=50385870">
+						
+							
+								<p class="story__comment_first line-clamp">"Make advertisers liable for the ads they run. Force them to vet ads or simply not run ads.If Meta is accepting so many ads they can’t review them then too bad for them. Hire more people or accept fewer ads.Ideally this will result in a complete obliteration of the ad industry with only a small number of high quality ads surviving."</p>
+							
+						
+							
+								<p class="story__comment_others">"The amount of times I’ve reported obvious scam ads on instagram just to receive a “we found this to not be in violation of our terms” is so disheartening."</p>
+							
+						
+							
+								<p class="story__comment_others">"Jeff Horwitz and Engen Tham of Reuters recently won The Pulitzer Prize for &#34;Beat Reporting&#34; for  &#34;inventive and revelatory reporting on Meta that detailed the technology company’s willingness to expose users, including children, to scams and AI manipulation&#34;
 
-    response: 403  curl default, rejected
-    response: 200  email in user-agent, success
-
-
-
-
-SEC docs: https://www.sec.gov/search-filings/edgar-search-assistance/a...So basically Claude is trying to problem solve, and just does what the SEC asks. It&#39;s a &#39;prompt injection attack&#39;, but the entity instructing this behavior is the SEC. Tricky alignment problem. Pretty silly mechanism, since of course there&#39;s no email validation.  (edit: turns out the SEC will accept most any non-cURL user-agent, email not actually required)"</p>
-							
-						
-							
-								<p class="story__comment_others">"For those keeping score, this probably isnt exhaustive- but here&#39;s some greatest hits;#55743: Claude Max account email auto-injected into LLM context with no opt-out - May 3, 2026
-https://github.com/anthropics/claude-code/issues/55743#72518: Anthropic embedded spyware in Claude Code - June 30, 2026
-https://github.com/anthropics/claude-code/issues/72518#21151: No indication of WHICH file for READ tool - January 27, 2026
-https://github.com/anthropics/claude-code/issues/21151#42796: Claude Code is unusable for complex engineering tasks with the Feb updates - April 2, 2026
-https://github.com/anthropics/claude-code/issues/42796#73408: AFK auto-continue on unanswered AskUserQuestion is undocumented and has no opt-out - July 2, 2026
-https://github.com/anthropics/claude-code/issues/73408(Also worth a mention, OpenCode PR #18186: anthropic legal requests - March 19, 2026
-https://github.com/anomalyco/opencode/pull/18186)Edit: Oh, and determistic hooks not firing."</p>
-							
-						
-							
-								<p class="story__comment_others">"This explains the amount of spam emails I am receiving in the work email since I switched to Claude. I used to work with copilot which was fine. Now I am getting really a lot of spam emails almost on a daily basis. Absolutely crazy. And they are even personalised with my name and surname, not just &#34;dear customer&#34;...Stupid me, I thought they somehow had hacked my company database or so... (considering all the cves, attacks happening on a daily basis...)."</p>
+https://www.pulitzer.org/winners/jeff-horwitz-and-engen-tham...The award was for a series of articles, one of which was published exactly a year ago: https://www.reuters.com/investigations/meta-is-earning-fortu..."</p>
 							
 						
 						</a>
@@ -130,36 +269,33 @@ https://github.com/anomalyco/opencode/pull/18186)Edit: Oh, and determistic hooks
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://kagi.com/changelog#11820">
+					<a href="https://github.com/saragordic/window-sweaters">
 						<picture>
-							<source srcset="default_50383740.webp" type="image/webp">
-							<source srcset="default_50383740.png" type="image/png">
-							<img src="default_50383740.png" alt="Preview of 'Search for everyone'">
+							<source srcset="default_50381383.webp" type="image/webp">
+							<source srcset="default_50381383.png" type="image/png">
+							<img src="default_50381383.png" alt="Preview of 'Window Sweaters'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://kagi.com/changelog#11820">Search for everyone</a></h3>
+					<h3><a href="https://github.com/saragordic/window-sweaters">Window Sweaters</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50383740">
+						<a href="https://news.ycombinator.com/item?id=50381383">
 						
 							
-								<p class="story__comment_first line-clamp">"If anyone from Kagi is reading this: Now that you have search without an account, is there any chance we can finally get a DNS-based enforced safesearch option like every other major search engine has? It&#39;s been in the feedback requests since May 2022[1].Anyone on an enforced-safesearch network can now go to kagi.com, turn SafeSearch off, and search for porn or anything else, which is just going to get kagi blocked completely on all those networks. If you add a SafeSearch-enforced alternative IP address, then Kagi can still be used.[1] https://kagifeedback.org/d/3285-safe-search-dns-locking-for-..."</p>
-							
-						
-							
-								<p class="story__comment_others">"Haven&#39;t tried Kagi yet. I know many people are increasingly frustrated with Google. As a duckduckgo user honestly i typically find what i want, except I am feeling more and more like i don&#39;t recognize / trusts many of the top sites in a result. might be a perfect time to try it."</p>
+								<p class="story__comment_first line-clamp">"heeey, I&#39;m the author of this!  can’t believe this made it to Hacker News lol. thank you for posting it!a bit of context: I’m a product designer, and this was my very first open source project. I made it purely for fun, here’s where it started: https://x.com/saragordic/status/2098916110787916219screenshots: I added the little video now; you can see many more screenshots on X, a lot of ppl shared their owntrust: totally fair; if you’d rather not run my binary you can build it yourself with the steps in the README.the “send it to your coding agent” install line: that’s for ppl like me :DI’ve learned a tooon by open sourcing this; thank you all for the feedback!!"</p>
 							
 						
 							
-								<p class="story__comment_others">"Very happy Kagi user for a few years.  
-I extra appreciate the ability for me to set custom rankings for certain sites. For example, I have downranked Reddit so it only shows up if there&#39;s almost nothing else. They&#39;re also a whole bunch of AI garbage sites or listicle sites that have outright removed from all my search results.
-I also love that it doesn&#39;t try to AI summarize everything I search, it only does it when I put a question mark on there so I can turn it on and easily.
-And I pay for my account and use it on all my devices without having to buy four licenses."</p>
+								<p class="story__comment_others">"I misread the title and was expecting a collection of windows-themed sweaters like Microsoft (used to?) put out every year."</p>
+							
+						
+							
+								<p class="story__comment_others">"As someone who don&#39;t really like everything borderless these days I love this. Well done!"</p>
 							
 						
 						</a>
@@ -171,25 +307,33 @@ And I pay for my account and use it on all my devices without having to buy four
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/">
+					<a href="https://mitchellh.com/writing/libghostty-1-0">
 						<picture>
-							<source srcset="default_50379704.webp" type="image/webp">
-							<source srcset="default_50379704.png" type="image/png">
-							<img src="default_50379704.png" alt="Preview of 'Alpine Linux Security Advisory: OpenSSH-server password authentication bypass'">
+							<source srcset="default_50399933.webp" type="image/webp">
+							<source srcset="default_50399933.png" type="image/png">
+							<img src="default_50399933.png" alt="Preview of 'Libghostty 1.0'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/">Alpine Linux Security Advisory: OpenSSH-server password authentication bypass</a></h3>
+					<h3><a href="https://mitchellh.com/writing/libghostty-1-0">Libghostty 1.0</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50379704">
+						<a href="https://news.ycombinator.com/item?id=50399933">
 						
 							
-								<p class="story__comment_first line-clamp">"Discussion from a few hours ago:https://news.ycombinator.com/item?id=50377221"</p>
+								<p class="story__comment_first line-clamp">"&gt; “And a whole wave of new terminals and &#34;agentic&#34; coding tools, such as herdr and cmux, have been built on it rather than writing yet another emulator.”Mitchell could have easily snuck his competing product Rex in there but resisted. Respect."</p>
+							
+						
+							
+								<p class="story__comment_others">"I&#39;m currently working on my own Zig project (an interpreter) and right now I&#39;m working on designing a C interface for it. Seeing things mentioned like having objects as opaque handles, or enum-keyed getters and setters, made me think about how clunky my current API is, since I leak too many details to callers.What really caught my attention was this: &#34;So from the start, I took inspiration from C libraries I enjoyed working with and designed the API to have a strong, stable ABI that allows for future additions.&#34; What are good examples of this? I feel like I just don&#39;t have enough experience with well-designed C libraries to know what to look for."</p>
+							
+						
+							
+								<p class="story__comment_others">"Libghostty is a very cool project, this is an exciting release, kudos to mitchellh for spearheading this as well as all the people who have made contributions to the project. I use ghostty as my primary terminal emulator today and a few months ago I was experimenting with using libghostty in an android project that I plan to jump back to someday when I have the time, so I personally benefit from this work."</p>
 							
 						
 						</a>
@@ -201,33 +345,35 @@ And I pay for my account and use it on all my devices without having to buy four
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://www.salon.com/2026/11/05/goodbye-from-salon/">
+					<a href="https://hightouch.com/blog/llm-judges-identity-resolution">
 						<picture>
-							<source srcset="default_50383739.webp" type="image/webp">
-							<source srcset="default_50383739.png" type="image/png">
-							<img src="default_50383739.png" alt="Preview of 'Goodbye from Salon'">
+							<source srcset="default_50397429.webp" type="image/webp">
+							<source srcset="default_50397429.png" type="image/png">
+							<img src="default_50397429.png" alt="Preview of 'A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://www.salon.com/2026/11/05/goodbye-from-salon/">Goodbye from Salon</a></h3>
+					<h3><a href="https://hightouch.com/blog/llm-judges-identity-resolution">A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50383739">
+						<a href="https://news.ycombinator.com/item?id=50397429">
 						
 							
-								<p class="story__comment_first line-clamp">"The amount of newsroom jobs fell 60% between 2008 and 2020. The vast majority of what was lost were &#34;beat&#34; reporters - foreign bureaus, Washington bureaus from regional publications, statehouse reporters, or regional specialty beats (science, law, etc).This started long before the decline of the open internet and AI. If anything, the shift online covered up a massive hollowing out of the industry. We&#39;re getting fewer sources of news, and more national coverage. A lot of stuff that is reported on is coming from a scant number of wire services, or directly from PR teams themselves.For the most part, your choice of news platform is just a layer of coverage choices and political spin on top of a very thin market of original coverage."</p>
+								<p class="story__comment_first line-clamp">"If you use Qwen3.8 27B to manage, to orchestrate, do do shallow research, and then make it ask claude you will notice that Qwen can get out of Haiku, Sonnet and Opus almost as good answers... I was researching how good the model asnswers where, I can&#39;t get to work with anything but Fable, but Qwen can get good work from any of them.
+My theory is that if you make Qwen understand you, Qwen can elaborate as much as needed to get any of those models get good results, because it&#39;s filling in details.
+So using Qwen to direct claude also get&#39;s you amazing results way way cheaper...Update: let me elaborate more, I read the HN entry about the team of 5 Qwens being close to fable quality... so I embarked to add to my harness (https://github.com/alainnothere/privibe because we all have one right?) and once I had added the orchestrate tool I had to now measure somehow it it&#39;s able to improve quality, so I claude and then Qwen to run a experiment to call my harness passing the model to use and ask them to do something, 3 rounds I think and see what quality came out of it... and as per the grading... qwen and claude agreed that the quality of the response comming out the harness using the orchestrate was VERY CLOSE, with opus and fable providing more &#34;in my opinion you should&#34; which matches my experience on why they are better.One more update: I can&#39;t get copilot models to work decently, it may be my way of working... but I can get Qwen to follow what I try to do... if Qwen get&#39;s me he can then fire copilot cli and get amazing results by using copilot... bonus points seems like copilot cli is cheaper with the AIC (cost of the requests) so you can make the copilot subscription longer"</p>
 							
 						
 							
-								<p class="story__comment_others">"This article didn&#39;t generate any comments when it made the rounds 10 years ago. An obituary for what salon.com used to be.https://web.archive.org/web/20210219012551/https://www.polit..."</p>
+								<p class="story__comment_others">"Seeing the title made me think: Jev used to be quite popular. Is anyone else still using it heavily these days?"</p>
 							
 						
 							
-								<p class="story__comment_others">"I operate an online publication that has been online for an amount of time that can be accurately described as &#34;decades,&#34; though not quite as long as Salon.My project had a brief window of modest profitability from about 2012 to 2020. Before and after that time, I&#39;ve mostly operated at a break-even or a loss because I love doing it, and it gives me a sense of purpose, and the thought of packing it up is deeply depressing. But the past few years have been an extreme drought of donations, which leads to extreme drought in ambition and energy. I sometimes wonder if my mental health would improve if I turned out the lights and moved on to something else. I don&#39;t want to, but sometimes we humans fail to want what&#39;s good for us.I&#39;m sure it doesn&#39;t help that I reject advertising and rely solely on donations. But perhaps the only thing more depressing than shutting down is slapping ads on everything. Blah."</p>
+								<p class="story__comment_others">"Found similar results, but the economics of the models involved have changed so quickly that it becomes so task specific on what the right thing to do was.With an assemblage of models like Jev + Opus or Jev + Qwen, Jev would often do the right thing when deciding to escalate to another model - I was impressed that it would usually make the right call, especially if you gave it good awareness of what the other model capabilities were.  &#34;ESCALATE to opus if you need good vision awareness&#34;.When Haiku 5.5 came out though, for my tasks, the cost differences disappeared almost immediately. Haiku was good enough / fast enough for so many things that introducing a decider layer didn&#39;t offer huge wins. Jev&#39;s &#34;millisecond&#34; level performance was nice but would get dwarfed by other latencies in my chain ( web browsing ), that it didn&#39;t make a measurable difference in my tasks."</p>
 							
 						
 						</a>
@@ -239,211 +385,33 @@ And I pay for my account and use it on all my devices without having to buy four
 		<div class="story story_large-padding-bottom">
 			
 				<div class="story__thumbnail">
-					<a href="https://news.ycombinator.com/item?id=50366117">
+					<a href="https://www.naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai/">
 						<picture>
-							<source srcset="default_50366117.webp" type="image/webp">
-							<source srcset="default_50366117.png" type="image/png">
-							<img src="default_50366117.png" alt="Preview of 'Ask HN: What&#39;s your current AI agentic setup?'">
+							<source srcset="default_50383057.webp" type="image/webp">
+							<source srcset="default_50383057.png" type="image/png">
+							<img src="default_50383057.png" alt="Preview of 'The Hackintosh Reborn'">
 						</picture>
 					</a>
 				</div>
 			
 			<div class="story__title-and-comments_with-images">
 				<div class="story__title">
-					<h3><a href="https://news.ycombinator.com/item?id=50366117">Ask HN: What&#39;s your current AI agentic setup?</a></h3>
+					<h3><a href="https://www.naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai/">The Hackintosh Reborn</a></h3>
 				</div>
 				<div class="story__comments">
 					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50366117">
+						<a href="https://news.ycombinator.com/item?id=50383057">
 						
 							
-								<p class="story__comment_first line-clamp">"Embarrassingly, I don&#39;t have one yet. I&#39;m mostly still writing code one keystroke at a time. I&#39;ve used Github Copilot to translate between languages and look things up, but haven&#39;t trusted it to write new code or fix anything.Claude Fable is now good enough that I should be using it. The latest Claude version is said to be comparable to a mid-career graphics programmer, which is about what I need. Six months ago it wasn&#39;t good enough to use for such work, and probably would have made a hash of my code. 
-There&#39;s been progress.But Anthropic&#39;s business practices are scary. They have a reputation for cancelling accounts for random reasons, offer rather bad terms, and have no customer support. I have a strong aversion
-to services with a reputation for cancelling services arbitrarily. They will apparently cancel based on their system&#39;s guesses as to what you&#39;re working on. Sometimes they guess wrong. What I&#39;m doing (metaverse clients) is so far out of the mainstream they may guess wrong.I&#39;m currently stalled signing up for Claude because their verification email system can&#39;t get to my inbox. (Some problem with their using Constant Contact, a spam system, to send transactional emails to my own domain, which, long ago, I had blocked at the Constant Contact end. I think. The verification email never touches the inbound mail server.) It&#39;s very important to Anthropic that you sign up with the &#34;right&#34; email address, and it may not be possible to change it, so using some disposable address is not a good idea.Suggestions?"</p>
-							
-						
-							
-								<p class="story__comment_others">"It used to be more interesting and elaborate, switching between different models. I used to use Cursor, then Codex, but since Opus 5.5 came out, I just use the Claude IDE. I got rid of all my skills and just set it to medium. Then I vaguely talk to it about very high-end things that I want, and it comes back with magic. Rinse and repeat.I&#39;d say the biggest trick is just to tell it what complete looks like. Be very specific about what you want it to come back with once it&#39;s done. That gives it a good idea what the goal is. It&#39;ll automatically create subagents and all that stuff. Although if you have money to burn and you&#39;re doing something large, you can tell it to just go wide or boil the ocean.Also, make sure you&#39;re working on at least five different things. Otherwise, you&#39;re sitting around for one agent."</p>
+								<p class="story__comment_first line-clamp">"There was a time when I used to wish for OSX (wasn&#39;t macOS yet) on other hardware. Now I want anything but macOS on mac hardware."</p>
 							
 						
 							
-								<p class="story__comment_others">"I recently got really weird with my personal computer after discovering browser DevTools MCP. I basically inverted the relationship between browser and desktop environment, booting directly to a browser in kiosk mode (with Ghostty quick terminal as well, so I always have easy terminal access) and running a local Weston server that shows up as a bookmarked web page on localhost, streamed over vnc, so I can still use legacy gui apps pretty normally if I need to, but I&#39;ve basically refocused my whole gui environment on the web. I run code-server on localhost instead of VSCode and prefer web apps (often running locally) over traditional GUIs in general. I still use the terminal very heavily as well, and that&#39;s where I manage my pi agents.Why? Because the web is an incredibly rich, open, text-based platform with massive representation in training sets, and with tools like DevTools MCP, your agent can do almost anything with your browser: run JS in the page, use the debugger, see network activity; it&#39;s extremely powerful.My co-worker does something similar with emacs, another incredibly rich text-based &#34;operating system&#34; like a browser with comprehensive hookability, which he basically uses instead of a desktop environment."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://openai.com/index/a-thousand-fewer-paths-to-root/">
-						<picture>
-							<source srcset="default_50372929.webp" type="image/webp">
-							<source srcset="default_50372929.png" type="image/png">
-							<img src="default_50372929.png" alt="Preview of 'A thousand fewer paths to root'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://openai.com/index/a-thousand-fewer-paths-to-root/">A thousand fewer paths to root</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50372929">
-						
-							
-								<p class="story__comment_first line-clamp">"How did we get to the point where there are a thousand privilege escalation exploits in the kernel?Is the kernel simply too complex to reason about? Is it an underlying flaw in the security model or language implementation?Should we assume that all software is more compromised than the kernel?"</p>
+								<p class="story__comment_others">"I wish I could  get the mac hardware with linux. MacOS I am not a fan of. But they have the best hardware and the best cpus for laptops bar none."</p>
 							
 						
 							
-								<p class="story__comment_others">"I would be curious to see the distribution of these vulns in the codebase:- What subsystems are affected?- What&#39;s the median age of the vulnerable code? Is more recent code stronger than old ones?- What is the type of vulnerabilities found? Memory corruptions, logic bugs, race conditions, ...This is an impressive result, but we need more info to understand how well this would translate to another codebase, and what lessons can be drawn from this experiment. Not every company has ~million dollards in tokens to spend."</p>
-							
-						
-							
-								<p class="story__comment_others">"This is my team’s work. I’m happy to try to answer questions or take questions back to the team.And we&#39;re hiring! https://openai.com/careers/search/?q=cyber"</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://motorolanews.com/motorola-signature-27-2/">
-						<picture>
-							<source srcset="default_50380810.webp" type="image/webp">
-							<source srcset="default_50380810.png" type="image/png">
-							<img src="default_50380810.png" alt="Preview of 'Motorola Signature 27 with GrapheneOS support'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://motorolanews.com/motorola-signature-27-2/">Motorola Signature 27 with GrapheneOS support</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50380810">
-						
-							
-								<p class="story__comment_first line-clamp">"Well &#34;starting MSRP of $1,599.&#34; I&#39;ll stick to my 2nd hand Pixel 8 that I bought, for GrapheneOS long term support, for 1/10th of that price.No doubt it&#39;s a way WAY better device, really, but I don&#39;t see where I would actually need that. I happily toss the one I have around and don&#39;t even care if it gets stolen or lost one day, different preference."</p>
-							
-						
-							
-								<p class="story__comment_others">"Odd to see Gemini promoted alongside GrapheneOS. One is effectively handing your life to the Google surveillance platform, the other encourages the opposite. What a strange partnership.EDIT: after reviewing other comments in this thread, I can see how my post here wasn&#39;t received well by some. It looks like some people are questioning the trust put into Graphene. I definitely am not. When I said &#34;strange partnership&#34; here, that&#39;s not what I meant at all. I think Graphene is operating in a very hostile ecosystem and the more doors Graphene can open for their platform to reach people, the better. The &#34;strange&#34; part of the equation was more aimed at Motorola (and Google) for allowing privacy intrusions to happen and even encouraging it in some ways (Gemini), yet actively supporting a project that would counter it. Maybe I should have used the word &#34;funny&#34; instead of &#34;strange&#34;."</p>
-							
-						
-							
-								<p class="story__comment_others">"I don&#39;t know if I can trust a motorola phone with grapheneOS. Motorola is owned by a Chinese company that has recently been caught for injecting affiliate codes in users purchases. Yes, I know it won&#39;t be Motorola&#39;s OS but they do modify a large part of the BSP (bootloader, modem, etc.) with their &#34;mot_sec&#34; additions which you&#39;ll find if you reverse engineer any motorola firmware. It&#39;s unclear if qualcomm will give grapheneOS permission to rebuild or see the source code everything else. Modern phones run multiple operating systems like in the DSP, modem, trustzone, etc."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.cve.org/CVERecord?id=CVE-2026-83844">
-						<picture>
-							<source srcset="default_50384233.webp" type="image/webp">
-							<source srcset="default_50384233.png" type="image/png">
-							<img src="default_50384233.png" alt="Preview of 'MS Paint Remote Code Execution Vulnerability'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.cve.org/CVERecord?id=CVE-2026-83844">MS Paint Remote Code Execution Vulnerability</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50384233">
-						
-							
-								<p class="story__comment_first line-clamp">"Paint can exectue arbitrary code from the REMOTE, without USER INTERACTION?????We seriously need more information."</p>
-							
-						
-							
-								<p class="story__comment_others">"I can&#39;t wait for the Raymond Chen write up one day."</p>
-							
-						
-							
-								<p class="story__comment_others">"Had to go to Microsoft Store to get the fixed version, Windows Update didn&#39;t show anything."</p>
-							
-						
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="story story_large-padding-bottom">
-			
-				<div class="story__thumbnail">
-					<a href="https://www.theverge.com/news/1027379/discord-ditching-electron-web-app">
-						<picture>
-							<source srcset="default_50378625.webp" type="image/webp">
-							<source srcset="default_50378625.png" type="image/png">
-							<img src="default_50378625.png" alt="Preview of 'Discord is ditching Electron and its new app uses less RAM'">
-						</picture>
-					</a>
-				</div>
-			
-			<div class="story__title-and-comments_with-images">
-				<div class="story__title">
-					<h3><a href="https://www.theverge.com/news/1027379/discord-ditching-electron-web-app">Discord is ditching Electron and its new app uses less RAM</a></h3>
-				</div>
-				<div class="story__comments">
-					<div class="story__comment">
-						<a href="https://news.ycombinator.com/item?id=50378625">
-						
-							
-								<p class="story__comment_first line-clamp">"I had trouble reading more than the opening volley of the article due to popups. Am a Discord user, and rust application programmer: What GUI framework are they using? EGUI? GPUI? Something custom?GPUI from comments? I meant to try GPUI, but backed off after an announcement pending its maintenance would be in question (?) a few months ago, and Zed broadly ending up being a false messiah,  for my uses. (Not on the tier of JetBrains IDEs, a bug with a long thread they closed which (still I believe?) causes it to open cached versions of files, then clobber edits made since the cache, e.g. by other programs. I.e. the sort of bug which renders software too dangerous to use. I will not switch to a GUI framework from a group that ignores bugs of that severity reported by many people)"</p>
-							
-						
-							
-								<p class="story__comment_others">"I&#39;m very interested in (and a total novice in) cross platform GUI application development. Hadn&#39;t heard of GPUI, though I had heard of Tauri. I looked at the GPUI front page and saw this mess of almost-CSS method chaining... Surely there&#39;s a better way? This seems horrible to me.&gt; div()
-            .flex()
-            .flex_col()
-            .gap_3()
-            .bg(rgb(0x505050))
-            .size(px(500.0))
-            .justify_center()
-            .items_center()
-            .shadow_lg()
-            .border_1()
-            .border_color(rgb(0x0000ff))
-            .text_xl()
-            .text_color(rgb(0xffffff))
-            .child(format!(&#34;Hello, {}!&#34;, &amp;self.text))
-            .child(
-                div()
-                    .flex()
-                    .gap_2()
-                    .child(div().size_8().bg(gpui::red()))
-                    .child(div().size_8().bg(gpui::green()))
-                    .child(div().size_8().bg(gpui::blue()))
-                    .child(div().size_8().bg(gpui::yellow()))
-                    .child(div().size_8().bg(gpui::black()))
-                    .child(div().size_8().bg(gpui::white())),
-            )"</p>
-							
-						
-							
-								<p class="story__comment_others">"Not sure what to think of this.Sure, a Rust implementation will perform better and use less RAM, but it&#39;s quite obvious that the transition to Rust will be done almost entirely by AI.Don&#39;t get me wrong, the AI coded Rust version of Discord will most likely work just fine. The thing I&#39;m wondering about is if it&#39;s a good idea to rewrite your whole codebase (which I assume is handwritten since Discord predates AI coding) with AI because now there is nobody that knows how it really works - I&#39;m wondering what&#39;s the value of having a human-written codebase + the people who wrote it. Just feels like one shouldn&#39;t throw that into the trash like it&#39;s nothing?"</p>
+								<p class="story__comment_others">"As much as I used to love MacOS as an operating system, the more I spending time on it, I&#39;d rather wish that my Macbook can run Linux, hopefully Asahi Linux will eventually support M5 :("</p>
 							
 						
 						</a>
